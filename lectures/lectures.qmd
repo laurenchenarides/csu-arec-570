@@ -21,23 +21,7 @@ page-navigation: false
 title-block-banner: false
 repo-actions: false
 ---
-<!--This is my personal clarity, please delete or replace with your own clarity-->
-{{< include /files/includes/_msclarity.qmd >}}
 
-
-:::{#mentors}
-:::
 
 ## About Our Mentors
 
-Our mentor cohort represents a diverse range of industries, business models, and entrepreneurial experiences—all grounded in agriculture and food. Each mentor was selected for their ability to share real-world insights, support student growth, and model the complexities of entrepreneurial decision-making.
-
-Mentors were recruited through a multi-step process that included:
-
-- A public call for interest shared via the Department of Agricultural and Resource Economics (DARE) and Institute for Entrepreneurship (I4E) email lists
-- Campus flyers and outreach
-- Referrals and word of mouth
-
-Every mentor is generously volunteering their time to support student learning, and we’re deeply grateful for their engagement.
-
-We’re actively working to expand our mentor network in future cohorts. If you're an entrepreneur or business leader and are interested in mentoring for the Fall 2026 cohort, we’d love to hear from you. Please reach out to <Lauren.Chenarides@colostate.edu> to learn more.

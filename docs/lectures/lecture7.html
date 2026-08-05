@@ -1,481 +1,275 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Lauren Chenarides">
-<meta name="dcterms.date" content="2024-10-21">
-<meta name="description" content="Solar and wind technologies">
-
-<title>Lecture 7 Energy Conversion Technologies – Food &amp; Ag Markets</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<html lang="en"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ef9176d5b3a494f395673aa65efdea21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GG4GM3TPXK"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-GG4GM3TPXK', { 'anonymize_ip': false});
-</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
+  <meta name="author" content="Lauren Chenarides">
+  <meta name="dcterms.date" content="2024-10-21">
+  <title>AREC/ECON 570 Methodology of Economic Research – Lecture 7 Energy Conversion Technologies</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
     }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Lecture 7 Energy Conversion Technologies – Food &amp; Ag Markets">
-<meta property="og:description" content="Course on Food and Agricultural Markets">
-<meta property="og:image" content="https://laurenchenarides.github.io/csu-arec-310/images/hybrid-power-systems.png">
-<meta property="og:site_name" content="Food &amp; Ag Markets">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="../custom.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:title" content="Lecture 7 Energy Conversion Technologies – AREC/ECON 570 Methodology of Economic Research">
+<meta property="og:image" content="https://laurenchenarides.github.io/csu-arec-570/images/hybrid-power-systems.png">
+<meta property="og:site_name" content="AREC/ECON 570 Methodology of Economic Research">
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-fixed quarto-light">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Lecture 7 Energy Conversion Technologies</h1>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Food &amp; Ag Markets</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../project/project-instructions.html"> 
-<span class="menu-text">Market Analysis Project</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-spring-2026" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Spring 2026</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-spring-2026">    
-        <li>
-    <a class="dropdown-item" href="../2026sp/syllabus.html">
- <span class="dropdown-text">Syllabus</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2026sp/schedule.html">
- <span class="dropdown-text">Schedule</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fall-2025" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Fall 2025</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-fall-2025">    
-        <li>
-    <a class="dropdown-item" href="../2025/syllabus.html">
- <span class="dropdown-text">Syllabus - Fall 2025</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/schedule.html">
- <span class="dropdown-text">Schedule - Fall 2025</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/readings.html">
- <span class="dropdown-text">Readings</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/project-instructions.html">
- <span class="dropdown-text">Market Data Analysis Project</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/excel-lab.html">
- <span class="dropdown-text">Excel Lab (In-Class)</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/excel-course.html">
- <span class="dropdown-text">Assignment 2 (Excel Primer)</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/hw3.pdf">
- <span class="dropdown-text">Assignment 3</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/hw4.html">
- <span class="dropdown-text">Assignment 4</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/hw4-solution.html">
- <span class="dropdown-text">Assignment 4 - Solution Key</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/hw5.html">
- <span class="dropdown-text">Assignment 5</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/hw5-solution.html">
- <span class="dropdown-text">Assignment 5 - Solution Key</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/edm.pdf">
- <span class="dropdown-text">Equilibrium Displacement Models</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/multi_sector_model.html">
- <span class="dropdown-text">Multi-Sector Model</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../2025/ssnip.pdf">
- <span class="dropdown-text">SSNIP Test for Market Definition</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/laurenchenarides/csu-arec-310"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Gang He 
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#solar" id="toc-solar" class="nav-link active" data-scroll-target="#solar">Solar</a></li>
-  <li><a href="#solar-spectrum" id="toc-solar-spectrum" class="nav-link" data-scroll-target="#solar-spectrum">Solar spectrum</a></li>
-  <li><a href="#harvesting-the-sun" id="toc-harvesting-the-sun" class="nav-link" data-scroll-target="#harvesting-the-sun">Harvesting the sun</a></li>
-  <li><a href="#silicon" id="toc-silicon" class="nav-link" data-scroll-target="#silicon">Silicon</a></li>
-  <li><a href="#p-and-n-type" id="toc-p-and-n-type" class="nav-link" data-scroll-target="#p-and-n-type">P and N type</a></li>
-  <li><a href="#p-n-junction" id="toc-p-n-junction" class="nav-link" data-scroll-target="#p-n-junction">P-N Junction</a></li>
-  <li><a href="#how-solar-works" id="toc-how-solar-works" class="nav-link" data-scroll-target="#how-solar-works">How solar works</a></li>
-  <li><a href="#solar-irradiance" id="toc-solar-irradiance" class="nav-link" data-scroll-target="#solar-irradiance">Solar irradiance</a></li>
-  <li><a href="#key-corrections" id="toc-key-corrections" class="nav-link" data-scroll-target="#key-corrections">Key corrections</a></li>
-  <li><a href="#the-quest-for-efficiency" id="toc-the-quest-for-efficiency" class="nav-link" data-scroll-target="#the-quest-for-efficiency">The quest for efficiency</a></li>
-  <li><a href="#global-and-u.s.-distribution" id="toc-global-and-u.s.-distribution" class="nav-link" data-scroll-target="#global-and-u.s.-distribution">Global and U.S. distribution</a></li>
-  <li><a href="#air-pollution-and-dust" id="toc-air-pollution-and-dust" class="nav-link" data-scroll-target="#air-pollution-and-dust">Air pollution and dust</a></li>
-  <li><a href="#prioritize-solar-installation" id="toc-prioritize-solar-installation" class="nav-link" data-scroll-target="#prioritize-solar-installation">Prioritize solar installation</a></li>
-  <li><a href="#solar-thermal-csp" id="toc-solar-thermal-csp" class="nav-link" data-scroll-target="#solar-thermal-csp">Solar thermal: CSP</a></li>
-  <li><a href="#wind" id="toc-wind" class="nav-link" data-scroll-target="#wind">Wind</a></li>
-  <li><a href="#betzs-law-59.3" id="toc-betzs-law-59.3" class="nav-link" data-scroll-target="#betzs-law-59.3">Betz’s law: 59.3%</a></li>
-  <li><a href="#average-power" id="toc-average-power" class="nav-link" data-scroll-target="#average-power">Average power</a></li>
-  <li><a href="#power-curve" id="toc-power-curve" class="nav-link" data-scroll-target="#power-curve">Power curve</a></li>
-  <li><a href="#important-corrections" id="toc-important-corrections" class="nav-link" data-scroll-target="#important-corrections">Important corrections</a></li>
-  <li><a href="#class-of-wind-resources" id="toc-class-of-wind-resources" class="nav-link" data-scroll-target="#class-of-wind-resources">Class of wind resources</a></li>
-  <li><a href="#global-wind-power-density-map" id="toc-global-wind-power-density-map" class="nav-link" data-scroll-target="#global-wind-power-density-map">Global wind power density map</a></li>
-  <li><a href="#higher-and-bigger" id="toc-higher-and-bigger" class="nav-link" data-scroll-target="#higher-and-bigger">Higher and bigger</a></li>
-  <li><a href="#offshore-wind" id="toc-offshore-wind" class="nav-link" data-scroll-target="#offshore-wind">Offshore wind</a></li>
-  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
-  <li><a href="#low-speed-wind" id="toc-low-speed-wind" class="nav-link" data-scroll-target="#low-speed-wind">Low speed wind</a></li>
-  <li><a href="#unexpected-benefits" id="toc-unexpected-benefits" class="nav-link" data-scroll-target="#unexpected-benefits">Unexpected benefits</a></li>
-  <li><a href="#climate-change-impact" id="toc-climate-change-impact" class="nav-link" data-scroll-target="#climate-change-impact">Climate change impact</a></li>
-  <li><a href="#pros-and-cons" id="toc-pros-and-cons" class="nav-link" data-scroll-target="#pros-and-cons">Pros and Cons</a></li>
-  <li><a href="#hybrid-power-systems" id="toc-hybrid-power-systems" class="nav-link" data-scroll-target="#hybrid-power-systems">Hybrid power systems</a></li>
-  <li><a href="#thermodynamics" id="toc-thermodynamics" class="nav-link" data-scroll-target="#thermodynamics">Thermodynamics</a></li>
-  <li><a href="#heat-engine" id="toc-heat-engine" class="nav-link" data-scroll-target="#heat-engine">Heat engine</a></li>
-  <li><a href="#laws-of-thermodynamics" id="toc-laws-of-thermodynamics" class="nav-link" data-scroll-target="#laws-of-thermodynamics">Laws of thermodynamics</a></li>
-  <li><a href="#three-efficiencies" id="toc-three-efficiencies" class="nav-link" data-scroll-target="#three-efficiencies">Three efficiencies</a></li>
-  <li><a href="#a-gas-turbine-engine" id="toc-a-gas-turbine-engine" class="nav-link" data-scroll-target="#a-gas-turbine-engine">A gas turbine engine</a></li>
-  <li><a href="#a-steam-coal-plant" id="toc-a-steam-coal-plant" class="nav-link" data-scroll-target="#a-steam-coal-plant">A steam coal plant</a></li>
-  <li><a href="#brayton-cycle-vs.-rankine-cycle" id="toc-brayton-cycle-vs.-rankine-cycle" class="nav-link" data-scroll-target="#brayton-cycle-vs.-rankine-cycle">Brayton cycle vs.&nbsp;Rankine cycle</a></li>
-  <li><a href="#brayton-cycle-vs.-rankine-cycle-1" id="toc-brayton-cycle-vs.-rankine-cycle-1" class="nav-link" data-scroll-target="#brayton-cycle-vs.-rankine-cycle-1">Brayton cycle vs.&nbsp;Rankine cycle</a></li>
-  <li><a href="#largest-coal-plant-in-the-u.s." id="toc-largest-coal-plant-in-the-u.s." class="nav-link" data-scroll-target="#largest-coal-plant-in-the-u.s.">Largest coal plant in the U.S.</a></li>
-  <li><a href="#combined-cycle" id="toc-combined-cycle" class="nav-link" data-scroll-target="#combined-cycle">Combined cycle</a></li>
-  <li><a href="#ccgt-diagram" id="toc-ccgt-diagram" class="nav-link" data-scroll-target="#ccgt-diagram">CCGT diagram</a></li>
-  <li><a href="#updating-an-rosenfeld-plant" id="toc-updating-an-rosenfeld-plant" class="nav-link" data-scroll-target="#updating-an-rosenfeld-plant">Updating an Rosenfeld Plant?</a></li>
-  <li><a href="#nuclear" id="toc-nuclear" class="nav-link" data-scroll-target="#nuclear">Nuclear</a></li>
-  <li><a href="#nuclear-power-plants" id="toc-nuclear-power-plants" class="nav-link" data-scroll-target="#nuclear-power-plants">Nuclear power plants</a></li>
-  <li><a href="#nuclear-plant-design" id="toc-nuclear-plant-design" class="nav-link" data-scroll-target="#nuclear-plant-design">Nuclear plant design</a></li>
-  <li><a href="#nuclear-fuel-cycle" id="toc-nuclear-fuel-cycle" class="nav-link" data-scroll-target="#nuclear-fuel-cycle">Nuclear fuel cycle</a></li>
-  <li><a href="#social-technology-challenges" id="toc-social-technology-challenges" class="nav-link" data-scroll-target="#social-technology-challenges">Social &gt; technology challenges</a></li>
-  <li><a href="#next-generation-of-nuclear-technology" id="toc-next-generation-of-nuclear-technology" class="nav-link" data-scroll-target="#next-generation-of-nuclear-technology">Next generation of nuclear technology</a></li>
-  <li><a href="#livermore-fusion-breakthrough" id="toc-livermore-fusion-breakthrough" class="nav-link" data-scroll-target="#livermore-fusion-breakthrough">Livermore Fusion breakthrough</a></li>
-  <li><a href="#hydro" id="toc-hydro" class="nav-link" data-scroll-target="#hydro">Hydro</a></li>
-  <li><a href="#how-a-lithium-ion-battery-works" id="toc-how-a-lithium-ion-battery-works" class="nav-link" data-scroll-target="#how-a-lithium-ion-battery-works">How a lithium-ion battery works</a></li>
-  <li><a href="#battery-management-system" id="toc-battery-management-system" class="nav-link" data-scroll-target="#battery-management-system">Battery management system</a></li>
-  <li><a href="#long-duration-storage" id="toc-long-duration-storage" class="nav-link" data-scroll-target="#long-duration-storage">Long duration storage</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
-  <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/laurenchenarides/csu-arec-310/edit/main/lectures/lecture7.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-310/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-310/blob/main/lectures/lecture7.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture7.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Lecture 7 Energy Conversion Technologies</h1>
+</div>
 </div>
 
+  <p class="date">October 21, 2024</p>
+</section>
+<section id="solar" class="slide level2 center">
+<h2>Solar</h2>
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Gang He </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 21, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="solar" class="level2">
-<h2 class="anchored" data-anchor-id="solar">Solar</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/2/perez-planetary-energy.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<img data-src="..\images/2/perez-planetary-energy.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="http://asrc.albany.edu/people/faculty/perez/">Richard Perez</a></p>
 </div>
 </section>
-<section id="solar-spectrum" class="level2">
-<h2 class="anchored" data-anchor-id="solar-spectrum">Solar spectrum</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Solar_spectrum.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<center>
+<section id="solar-spectrum" class="slide level2 center">
+<h2>Solar spectrum</h2>
+
+<img data-src="..\images/Solar_spectrum.png" class="quarto-figure quarto-figure-center r-stretch"><center>
 <strong>Solar constant</strong>: 1.361 kW/m2
 </center>
 <div class="footer">
 <p>Source: <a href="https://en.wikipedia.org/wiki/Sunlight">Solar Spectrum</a></p>
 </div>
 </section>
-<section id="harvesting-the-sun" class="level2">
-<h2 class="anchored" data-anchor-id="harvesting-the-sun">Harvesting the sun</h2>
+<section id="harvesting-the-sun" class="slide level2 center">
+<h2>Harvesting the sun</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Heqing_Solar_Cooker_photo.webp" class="img-fluid figure-img"></p>
+<figure>
+<p><img data-src="..\images/Heqing_Solar_Cooker_photo.webp"></p>
 <figcaption>Heqing Solar Cooker Project in Zhangye</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/NaDEET_solar_cooking_training.webp" class="img-fluid figure-img"></p>
+<figure>
+<p><img data-src="..\images/NaDEET_solar_cooking_training.webp"></p>
 <figcaption>Young NaDEET students in Namibia learning to use a parabolic solar cooker</figcaption>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Photo credit: <a href="https://solarcooking.fandom.com/wiki/China?file=Heqing_Solar_Cooker_photo%2C_12-20-21.png">Bristol Energy</a>, <a href="https://solarcooking.fandom.com/wiki/Namibia?file=NaDEET_solar_cooking_training_2012%2C_2-11-13.jpg">Fu Ting</a>; Source: <a href="https://solarcooking.fandom.com/">Solar Cooking</a></p>
 </div>
 </section>
-<section id="silicon" class="level2">
-<h2 class="anchored" data-anchor-id="silicon">Silicon</h2>
+<section id="silicon" class="slide level2 center">
+<h2>Silicon</h2>
 <center>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/silicon-atomic-structure.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<figure>
+<p><img data-src="..\images/silicon-atomic-structure.jpeg" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
 </figure>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Boron-atomic-structure.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<figure>
+<p><img data-src="..\images/Boron-atomic-structure.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Phosphorus-atomic-structure.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+<figure>
+<p><img data-src="..\images/Phosphorus-atomic-structure.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </center>
 <div class="footer">
 <p>Source: <a href="https://youtu.be/OCTAQaubQ4o">Atomic Structures</a></p>
 </div>
 </section>
-<section id="p-and-n-type" class="level2">
-<h2 class="anchored" data-anchor-id="p-and-n-type">P and N type</h2>
+<section id="p-and-n-type" class="slide level2 center">
+<h2>P and N type</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/silicon-lattice.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/silicon-lattice.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/p-type-silicon.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/p-type-silicon.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/n-type-silicon.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/n-type-silicon.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: <a href="https://www.science.org.au/curious/technology-future/solar-pv">From sunlight to electricity</a></p>
 </div>
 </section>
-<section id="p-n-junction" class="level2">
-<h2 class="anchored" data-anchor-id="p-n-junction">P-N Junction</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/p-n-junction.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="p-n-junction" class="slide level2 center">
+<h2>P-N Junction</h2>
+
+<img data-src="..\images/p-n-junction.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: <a href="https://www.energy.gov/eere/solar/how-does-solar-work" class="uri">https://www.energy.gov/eere/solar/how-does-solar-work</a></p>
 </div>
 </section>
-<section id="how-solar-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-solar-works">How solar works</h2>
+<section id="how-solar-works" class="slide level2 center">
+<h2>How solar works</h2>
 <center>
 <iframe width="800" height="450" src="https://www.youtube.com/embed/xKxrkht7CpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
 </iframe>
@@ -484,8 +278,8 @@ window.Quarto = {
 <p>Source: <a href="https://www.youtube.com/watch?v=xKxrkht7CpY" class="uri">https://www.youtube.com/watch?v=xKxrkht7CpY</a></p>
 </div>
 </section>
-<section id="solar-irradiance" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="solar-irradiance">Solar irradiance</h2>
+<section id="solar-irradiance" class="slide level2 smaller center">
+<h2>Solar irradiance</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -502,18 +296,17 @@ window.Quarto = {
 <p>POA = GHI <span class="math inline">\(\times \cos \theta\)</span></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/solar-irradiance.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/solar-irradiance.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: Manajit Sengupta, Aron Habte, <a href="https://www.nrel.gov/docs/fy20osti/75573.pdf">NREL</a></p>
 </div>
 </section>
-<section id="key-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="key-corrections">Key corrections</h2>
+<section id="key-corrections" class="slide level2 center">
+<h2>Key corrections</h2>
 <ul>
 <li>Solar position at any time of day: altitude angle, latitude, zaimuth angle, hour angle<br>
 </li>
@@ -522,81 +315,64 @@ window.Quarto = {
 <li>Tracking: fixed, 1-axis, 2-axis</li>
 </ul>
 <div class="footer">
-<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#ref-masters2013renewable" role="doc-biblioref"><strong>masters2013renewable?</strong></a>)</span></p>
+<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#/references" role="doc-biblioref" onclick=""><strong>masters2013renewable?</strong></a>)</span></p>
 </div>
 </section>
-<section id="the-quest-for-efficiency" class="level2">
-<h2 class="anchored" data-anchor-id="the-quest-for-efficiency">The quest for efficiency</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/best-research-cell-efficiencies.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="the-quest-for-efficiency" class="slide level2 center">
+<h2>The quest for efficiency</h2>
+
+<img data-src="..\images/best-research-cell-efficiencies.webp" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: NREL, <a href="https://www.nrel.gov/pv/cell-efficiency.html">Best Research-Cell Efficiency Chart</a></p>
 </div>
 </section>
-<section id="global-and-u.s.-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="global-and-u.s.-distribution">Global and U.S. distribution</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/World_PVOUT_map.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="global-and-u.s.-distribution" class="slide level2 center">
+<h2>Global and U.S. distribution</h2>
+
+<img data-src="..\images/World_PVOUT_map.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://globalsolaratlas.info/download/world">Global Solar Atlas</a></p>
 </div>
 </section>
-<section id="air-pollution-and-dust" class="level2">
-<h2 class="anchored" data-anchor-id="air-pollution-and-dust">Air pollution and dust</h2>
+<section id="air-pollution-and-dust" class="slide level2 center">
+<h2>Air pollution and dust</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/pm-and-solar.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/pm-and-solar.gif" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/global-pm-solar-reduction.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/global-pm-solar-reduction.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
-<p>Source: <span class="citation" data-cites="bergin2017large">(<a href="#ref-bergin2017large" role="doc-biblioref"><strong>bergin2017large?</strong></a>)</span></p>
+<p>Source: <span class="citation" data-cites="bergin2017large">(<a href="#/references" role="doc-biblioref" onclick=""><strong>bergin2017large?</strong></a>)</span></p>
 </div>
 </section>
-<section id="prioritize-solar-installation" class="level2">
-<h2 class="anchored" data-anchor-id="prioritize-solar-installation">Prioritize solar installation</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/prioritizing-solar-deployment.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
-<p>Source: <span class="citation" data-cites="chen2023deploying">(<a href="#ref-chen2023deploying" role="doc-biblioref"><strong>chen2023deploying?</strong></a>)</span></p>
+<section id="prioritize-solar-installation" class="slide level2 center">
+<h2>Prioritize solar installation</h2>
+
+<img data-src="..\images/prioritizing-solar-deployment.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Source: <span class="citation" data-cites="chen2023deploying">(<a href="#/references" role="doc-biblioref" onclick=""><strong>chen2023deploying?</strong></a>)</span></p>
 </div>
 </section>
-<section id="solar-thermal-csp" class="level2">
-<h2 class="anchored" data-anchor-id="solar-thermal-csp">Solar thermal: CSP</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Concentrating-Solar-Thermal-Power-Applications.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="solar-thermal-csp" class="slide level2 center">
+<h2>Solar thermal: CSP</h2>
+
+<img data-src="..\images/Concentrating-Solar-Thermal-Power-Applications.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://www.energy.gov/eere/solar/concentrating-solar-thermal-power-basics">DOE</a></p>
 </div>
 </section>
-<section id="wind" class="level2">
-<h2 class="anchored" data-anchor-id="wind">Wind</h2>
+<section id="wind" class="slide level2 center">
+<h2>Wind</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/block-island-wind.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/block-island-wind.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -608,40 +384,38 @@ Where,<br>
 <span class="math inline">\(v\)</span> = Wind Speed (m/s)<br>
 <span class="math inline">\(P\)</span> = Power (W)
 </p>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Photo by Gang He, Block Island Offshore Wind Farm</p>
 </div>
 </section>
-<section id="betzs-law-59.3" class="level2">
-<h2 class="anchored" data-anchor-id="betzs-law-59.3">Betz’s law: 59.3%</h2>
+<section id="betzs-law-59.3" class="slide level2 center">
+<h2>Betz’s law: 59.3%</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/upwind-downwind.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/upwind-downwind.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/blade-efficiency.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/blade-efficiency.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
-<p>Source: <span class="citation" data-cites="masters2013renewable">(<a href="#ref-masters2013renewable" role="doc-biblioref"><strong>masters2013renewable?</strong></a>)</span></p>
+<p>Source: <span class="citation" data-cites="masters2013renewable">(<a href="#/references" role="doc-biblioref" onclick=""><strong>masters2013renewable?</strong></a>)</span></p>
 </div>
 </section>
-<section id="average-power" class="level2">
-<h2 class="anchored" data-anchor-id="average-power">Average power</h2>
+<section id="average-power" class="slide level2 center">
+<h2>Average power</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/wind-distribution.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/wind-distribution.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -649,25 +423,20 @@ Where,<br>
 <p><span class="math inline">\(f(v)=\frac{2v}{c^2}\exp [-(\frac{v}{c})^2]\)</span></p>
 <p><span class="math inline">\(\bar{P}=\frac{6}{\pi}\cdot \frac{1}{2}\rho \pi r^2 (\bar{v})^3=1.91P\)</span></p>
 <p>Use average power when dealing with average wind speed</p>
-</div>
-</div>
+</div></div>
 <div class="footer">
-<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#ref-masters2013renewable" role="doc-biblioref"><strong>masters2013renewable?</strong></a>)</span></p>
+<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#/references" role="doc-biblioref" onclick=""><strong>masters2013renewable?</strong></a>)</span></p>
 </div>
 </section>
-<section id="power-curve" class="level2">
-<h2 class="anchored" data-anchor-id="power-curve">Power curve</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/wind-power-curve.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="power-curve" class="slide level2 center">
+<h2>Power curve</h2>
+
+<img data-src="..\images/wind-power-curve.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: NREL, <a href="https://www.nrel.gov/docs/fy14osti/61714.pdf">Validation of Power Output for the WIND Toolkit</a></p>
 </div>
 </section>
-<section id="important-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="important-corrections">Important corrections</h2>
+<section id="important-corrections" class="slide level2 center">
+<h2>Important corrections</h2>
 <ul>
 <li>Temperature: <span class="math inline">\(\rho = \frac{P\times M.W. \times 10^{-3}}{RT}=\frac{1 atm\times 28.97 g/mol \times 10^{-3}kg/g}{8.2056\times 10^{-5}m^3\cdot atm/(K\cdot mol)\times(273.15+T)K}\)</span><br>
 </li>
@@ -676,13 +445,13 @@ Where,<br>
 <li>Tower height: <span class="math inline">\(\frac{v}{v_0}=(\frac{H}{H_0})^\alpha\)</span> (<span class="math inline">\(\alpha\)</span> is the friction coefficient)</li>
 </ul>
 <div class="footer">
-<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#ref-masters2013renewable" role="doc-biblioref"><strong>masters2013renewable?</strong></a>)</span></p>
+<p>Read more: <span class="citation" data-cites="masters2013renewable">(<a href="#/references" role="doc-biblioref" onclick=""><strong>masters2013renewable?</strong></a>)</span></p>
 </div>
 </section>
-<section id="class-of-wind-resources" class="level2">
-<h2 class="anchored" data-anchor-id="class-of-wind-resources">Class of wind resources</h2>
+<section id="class-of-wind-resources" class="slide level2 center">
+<h2>Class of wind resources</h2>
 <div style="font-size: 50%;">
-<table class="caption-top table">
+<table class="caption-top">
 <colgroup>
 <col style="width: 4%">
 <col style="width: 24%">
@@ -763,72 +532,62 @@ Where,<br>
 <p>Source: <a href="https://www.nrc.gov/docs/ML0720/ML072040340.pdf">NREL</a></p>
 </div>
 </section>
-<section id="global-wind-power-density-map" class="level2">
-<h2 class="anchored" data-anchor-id="global-wind-power-density-map">Global wind power density map</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/global-wind-power-density-map.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="global-wind-power-density-map" class="slide level2 center">
+<h2>Global wind power density map</h2>
+
+<img data-src="..\images/global-wind-power-density-map.webp" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://globalwindatlas.info/en/download/high-resolution-maps/World">Global Wind Atlas</a></p>
 </div>
 </section>
-<section id="higher-and-bigger" class="level2">
-<h2 class="anchored" data-anchor-id="higher-and-bigger">Higher and bigger</h2>
+<section id="higher-and-bigger" class="slide level2 center">
+<h2>Higher and bigger</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/turbine-hub-height-rotor-capacity.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/turbine-hub-height-rotor-capacity.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Turbine-Hub-Height-Chart.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/Turbine-Hub-Height-Chart.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: <a href="https://www.energy.gov/sites/default/files/2023-08/land-based-wind-market-report-2023-edition.pdf">Land-Based Wind Market Report 2023</a></p>
 </div>
 </section>
-<section id="offshore-wind" class="level2">
-<h2 class="anchored" data-anchor-id="offshore-wind">Offshore wind</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/US_Wind_Power_Resource_at_100-Meter_Hub_Height.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="offshore-wind" class="slide level2 center">
+<h2>Offshore wind</h2>
+
+<img data-src="..\images/US_Wind_Power_Resource_at_100-Meter_Hub_Height.webp" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: DOE, <a href="https://windexchange.energy.gov/markets/offshore">Offshore Wind Energy</a></p>
 </div>
 </section>
-<section id="challenges" class="level2">
-<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
+<section id="challenges" class="slide level2 center">
+<h2>Challenges</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/offshore-floating-turbines.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/offshore-floating-turbines.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/resources-demand-offshore-us.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+<figure>
+<p><img data-src="..\images/resources-demand-offshore-us.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: DOE, <a href="https://www.energy.gov/eere/wind/articles/top-10-things-you-didnt-know-about-offshore-wind-energy">Top 10 Things You Didn’t Know About Offshore Wind Energy</a>; NREL, <a href="https://www.nrel.gov/wind/offshore-supply-chain-road-map.html">Supply Chain Road Map</a></p>
 </div>
 </section>
-<section id="low-speed-wind" class="level2">
-<h2 class="anchored" data-anchor-id="low-speed-wind">Low speed wind</h2>
+<section id="low-speed-wind" class="slide level2 center">
+<h2>Low speed wind</h2>
 <p>Smaller generator. <span class="math inline">\(\rightarrow\)</span> Decreased generator weight and cost.</p>
 <p>Operating at higher capacity in lower wind speeds. <span class="math inline">\(\rightarrow\)</span> Greater generator efficiency.</p>
 <p>Decreased tower head mass. <span class="math inline">\(\rightarrow\)</span> Decreased foundation and tower costs.</p>
@@ -837,41 +596,36 @@ Where,<br>
 <p>Source: <a href="https://faculty.washington.edu/malte/OldSite/seminar/Sp04/LowSpeedTurbines.pdf">Low Speed Wind Turbines</a></p>
 </div>
 </section>
-<section id="unexpected-benefits" class="level2">
-<h2 class="anchored" data-anchor-id="unexpected-benefits">Unexpected benefits</h2>
+<section id="unexpected-benefits" class="slide level2 center">
+<h2>Unexpected benefits</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/grazing-animals-like-sheep-enjoy-using-the-shadows-of-wind.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+<figure>
+<p><img data-src="..\images/grazing-animals-like-sheep-enjoy-using-the-shadows-of-wind.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/solar-farm-benefits.webp" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/solar-farm-benefits.webp" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: <a href="https://www.reddit.com/r/interestingasfuck/comments/ubofys/grazing_animals_like_sheep_enjoy_using_the/">Reddit</a>; <a href="https://www.nytimes.com/2024/09/05/climate/solar-power-pollinators-wildlife.html">New York Times</a></p>
 </div>
 </section>
-<section id="climate-change-impact" class="level2">
-<h2 class="anchored" data-anchor-id="climate-change-impact">Climate change impact</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/3/climate-change-solar-wind-sdm.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
-<p>Source: <span class="citation" data-cites="liu_climate_2023">(<a href="#ref-liu_climate_2023" role="doc-biblioref"><strong>liu_climate_2023?</strong></a>)</span></p>
+<section id="climate-change-impact" class="slide level2 center">
+<h2>Climate change impact</h2>
+
+<img data-src="..\images/3/climate-change-solar-wind-sdm.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Source: <span class="citation" data-cites="liu_climate_2023">(<a href="#/references" role="doc-biblioref" onclick=""><strong>liu_climate_2023?</strong></a>)</span></p>
 </div>
 </section>
-<section id="pros-and-cons" class="level2">
-<h2 class="anchored" data-anchor-id="pros-and-cons">Pros and Cons</h2>
-<table class="caption-top table">
+<section id="pros-and-cons" class="slide level2 center">
+<h2>Pros and Cons</h2>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>Pros</th>
@@ -894,19 +648,15 @@ Where,<br>
 </tbody>
 </table>
 </section>
-<section id="hybrid-power-systems" class="level2">
-<h2 class="anchored" data-anchor-id="hybrid-power-systems">Hybrid power systems</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/hybrid-power-systems.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="hybrid-power-systems" class="slide level2 center">
+<h2>Hybrid power systems</h2>
+
+<img data-src="..\images/hybrid-power-systems.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://windexchange.energy.gov/small-wind-guidebook#grid">Small Wind Guidebook</a></p>
 </div>
 </section>
-<section id="thermodynamics" class="level2">
-<h2 class="anchored" data-anchor-id="thermodynamics">Thermodynamics</h2>
+<section id="thermodynamics" class="slide level2 center">
+<h2>Thermodynamics</h2>
 <ul>
 <li>Thermodynamic <strong>efficiency</strong><br>
 </li>
@@ -915,20 +665,16 @@ Where,<br>
 <li>Thermodynamics provides physic limits</li>
 </ul>
 </section>
-<section id="heat-engine" class="level2">
-<h2 class="anchored" data-anchor-id="heat-engine">Heat engine</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/heat_engine.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<p>Heat -&gt; Mechanical energy (work)</p>
+<section id="heat-engine" class="slide level2 center">
+<h2>Heat engine</h2>
+
+<img data-src="..\images/heat_engine.png" class="quarto-figure quarto-figure-center r-stretch"><p>Heat -&gt; Mechanical energy (work)</p>
 <div class="footer">
 <p>Source: <a href="https://en.wikipedia.org/wiki/Heat_engine">Wikipedia</a></p>
 </div>
 </section>
-<section id="laws-of-thermodynamics" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="laws-of-thermodynamics">Laws of thermodynamics</h2>
+<section id="laws-of-thermodynamics" class="slide level2 smaller center">
+<h2>Laws of thermodynamics</h2>
 <ul>
 <li><p>Zeroth law<br>
 “If two systems are each in thermal equilibrium with a third, they are also in thermal equilibrium with each other.”</p></li>
@@ -943,8 +689,8 @@ Where,<br>
 <p>Read more: <a href="https://en.wikipedia.org/wiki/Laws_of_thermodynamics">Wikipedia</a></p>
 </div>
 </section>
-<section id="three-efficiencies" class="level2">
-<h2 class="anchored" data-anchor-id="three-efficiencies">Three efficiencies</h2>
+<section id="three-efficiencies" class="slide level2 center">
+<h2>Three efficiencies</h2>
 <ul>
 <li>1st law: actual, thermal efficiency;<br>
 <span class="math inline">\(\eta_1 =\frac{W_{net}}{Q_{in}}=\frac{Q_{high}-Q_{low}}{Q_{high}}=1-\frac{Q_{low}}{Q_{high}}\)</span></li>
@@ -958,35 +704,27 @@ Where,<br>
 <p>Read more: <a href="https://en.wikipedia.org/wiki/Nicolas_L%C3%A9onard_Sadi_Carnot">Sadi Carnot</a></p>
 </div>
 </section>
-<section id="a-gas-turbine-engine" class="level2">
-<h2 class="anchored" data-anchor-id="a-gas-turbine-engine">A gas turbine engine</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/gas-turbine-engine.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="a-gas-turbine-engine" class="slide level2 center">
+<h2>A gas turbine engine</h2>
+
+<img data-src="..\images/gas-turbine-engine.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://upload.wikimedia.org/wikipedia/commons/4/4c/Jet_engine.svg">Wikipedia</a></p>
 </div>
 </section>
-<section id="a-steam-coal-plant" class="level2">
-<h2 class="anchored" data-anchor-id="a-steam-coal-plant">A steam coal plant</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/coal_fired_power_plant_diagram.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="a-steam-coal-plant" class="slide level2 center">
+<h2>A steam coal plant</h2>
+
+<img data-src="..\images/coal_fired_power_plant_diagram.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Source: <a href="https://en.wikipedia.org/wiki/Fossil_fuel_power_station">Wikipedia</a></p>
 </div>
 </section>
-<section id="brayton-cycle-vs.-rankine-cycle" class="level2">
-<h2 class="anchored" data-anchor-id="brayton-cycle-vs.-rankine-cycle">Brayton cycle vs.&nbsp;Rankine cycle</h2>
+<section id="brayton-cycle-vs.-rankine-cycle" class="slide level2 center">
+<h2>Brayton cycle vs.&nbsp;Rankine cycle</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Brayton_cycle.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/Brayton_cycle.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
@@ -994,22 +732,21 @@ Where,<br>
 <p></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/Rankine_cycle.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/Rankine_cycle.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
 </p><p>Steam engine, steam turbine</p>
 <p></p>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Read more: Wikipedia <a href="https://en.wikipedia.org/wiki/Brayton_cycle">Brayton cycle</a> and <a href="https://en.wikipedia.org/wiki/Rankine_cycle">Rankine cycle</a></p>
 </div>
 </section>
-<section id="brayton-cycle-vs.-rankine-cycle-1" class="level2">
-<h2 class="anchored" data-anchor-id="brayton-cycle-vs.-rankine-cycle-1">Brayton cycle vs.&nbsp;Rankine cycle</h2>
-<table class="caption-top table">
+<section id="brayton-cycle-vs.-rankine-cycle-1" class="slide level2 center">
+<h2>Brayton cycle vs.&nbsp;Rankine cycle</h2>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>Brayton Cycle</th>
@@ -1035,13 +772,13 @@ Where,<br>
 <p>Read more: Wikipedia <a href="https://en.wikipedia.org/wiki/Brayton_cycle">Brayton cycle</a> and <a href="https://en.wikipedia.org/wiki/Rankine_cycle">Rankine cycle</a></p>
 </div>
 </section>
-<section id="largest-coal-plant-in-the-u.s." class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="largest-coal-plant-in-the-u.s.">Largest coal plant in the U.S.</h2>
+<section id="largest-coal-plant-in-the-u.s." class="slide level2 smaller center">
+<h2>Largest coal plant in the U.S.</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/georgia_power_plant_scherer.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/georgia_power_plant_scherer.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1063,14 +800,13 @@ Where,<br>
 <li>Waste/pollution management<br>
 </li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Source: <a href="https://goo.gl/maps/b6mCqsm6G9bhTc5b6">Google Map</a>, read more: <a href="https://carbontracker.org/reports/nowhere-to-hide/">Nowhere to hide</a></p>
 </div>
 </section>
-<section id="combined-cycle" class="level2">
-<h2 class="anchored" data-anchor-id="combined-cycle">Combined cycle</h2>
+<section id="combined-cycle" class="slide level2 center">
+<h2>Combined cycle</h2>
 <center>
 <iframe width="800" height="450" src="https://players.brightcove.net/605538292001/default_default/index.html?videoId=610140476001" allowfullscreen="" frameborder="0">
 </iframe>
@@ -1079,20 +815,16 @@ Where,<br>
 <p>Read more: <a href="https://www.tva.com/energy/our-power-system/natural-gas/how-a-combined-cycle-power-plant-works">Tennessee Valley Authority</a></p>
 </div>
 </section>
-<section id="ccgt-diagram" class="level2">
-<h2 class="anchored" data-anchor-id="ccgt-diagram">CCGT diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/GE-CCGT-diagram.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="ccgt-diagram" class="slide level2 center">
+<h2>CCGT diagram</h2>
+
+<img data-src="..\images/GE-CCGT-diagram.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: <a href="https://www.ge.com/gas-power/resources/education/what-is-a-gas-turbine">GE Power</a></p>
 </div>
 </section>
-<section id="updating-an-rosenfeld-plant" class="level2">
-<h2 class="anchored" data-anchor-id="updating-an-rosenfeld-plant">Updating an Rosenfeld Plant?</h2>
-<table class="caption-top table">
+<section id="updating-an-rosenfeld-plant" class="slide level2 center">
+<h2>Updating an Rosenfeld Plant?</h2>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th></th>
@@ -1132,16 +864,16 @@ Where,<br>
 <li>NYC electricity use in 2020: ~4 TWh/year</li>
 </ul>
 <div class="footer">
-<p>Source: <span class="citation" data-cites="koomey2010defining">(<a href="#ref-koomey2010defining" role="doc-biblioref"><strong>koomey2010defining?</strong></a>)</span></p>
+<p>Source: <span class="citation" data-cites="koomey2010defining">(<a href="#/references" role="doc-biblioref" onclick=""><strong>koomey2010defining?</strong></a>)</span></p>
 </div>
 </section>
-<section id="nuclear" class="level2">
-<h2 class="anchored" data-anchor-id="nuclear">Nuclear</h2>
+<section id="nuclear" class="slide level2 center">
+<h2>Nuclear</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/fission.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/fission.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
@@ -1149,38 +881,33 @@ Where,<br>
 <p></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/fusion-reactions.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/fusion-reactions.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p><br></p>
 <p style="font-size:14pt; color:gray; text-align:center;">
 </p><p>Nuclear fussion</p>
 <p></p>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Read more: EIA, <a href="https://www.eia.gov/energyexplained/nuclear/">Nuclear explained</a>; DOE, <a href="https://www.energy.gov/science/doe-explainsnuclear-fusion-reactions">Nuclear fusion reactions</a></p>
 </div>
 </section>
-<section id="nuclear-power-plants" class="level2">
-<h2 class="anchored" data-anchor-id="nuclear-power-plants">Nuclear power plants</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/US_nuclear_power_plants_map.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="nuclear-power-plants" class="slide level2 center">
+<h2>Nuclear power plants</h2>
+
+<img data-src="..\images/US_nuclear_power_plants_map.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: EIA, <a href="https://www.eia.gov/energyexplained/nuclear/">Nuclear explained</a></p>
 </div>
 </section>
-<section id="nuclear-plant-design" class="level2">
-<h2 class="anchored" data-anchor-id="nuclear-plant-design">Nuclear plant design</h2>
+<section id="nuclear-plant-design" class="slide level2 center">
+<h2>Nuclear plant design</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/small_bwr.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/small_bwr.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
@@ -1188,38 +915,33 @@ Where,<br>
 <p></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/small_pwr.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/small_pwr.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p><br></p>
 <p style="font-size:14pt; color:gray; text-align:center;">
 </p><p>Diagram of a pressurized-water nuclear reactor</p>
 <p></p>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Read more: EIA, <a href="https://www.eia.gov/energyexplained/nuclear/">Nuclear explained</a></p>
 </div>
 </section>
-<section id="nuclear-fuel-cycle" class="level2">
-<h2 class="anchored" data-anchor-id="nuclear-fuel-cycle">Nuclear fuel cycle</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/nuclear_fuel_cycle.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="nuclear-fuel-cycle" class="slide level2 center">
+<h2>Nuclear fuel cycle</h2>
+
+<img data-src="..\images/nuclear_fuel_cycle.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: EIA, <a href="https://www.eia.gov/energyexplained/nuclear/">Nuclear explained</a></p>
 </div>
 </section>
-<section id="social-technology-challenges" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="social-technology-challenges">Social &gt; technology challenges</h2>
+<section id="social-technology-challenges" class="slide level2 smaller center">
+<h2>Social &gt; technology challenges</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/three-island-historical-site.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<figure>
+<p><img data-src="..\images/three-island-historical-site.JPG" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -1236,19 +958,18 @@ Where,<br>
 </li>
 <li>Best practices</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Photo credit: Gang He; Read more: <a href="https://nap.nationalacademies.org/catalog/26606/understanding-the-societal-challenges-facing-nuclear-power-proceedings-of-a">National Academies</a></p>
 </div>
 </section>
-<section id="next-generation-of-nuclear-technology" class="level2">
-<h2 class="anchored" data-anchor-id="next-generation-of-nuclear-technology">Next generation of nuclear technology</h2>
+<section id="next-generation-of-nuclear-technology" class="slide level2 center">
+<h2>Next generation of nuclear technology</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/next-gen-nuclear.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/next-gen-nuclear.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -1267,30 +988,25 @@ Where,<br>
 </li>
 <li>Economic</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Read more: DOE, <a href="https://www.energy.gov/ne/benefits-small-modular-reactors-smrs">Benefits of Small Modular Reactors</a>, <a href="https://www.terrapower.com/our-work/natriumpower/">TerraPower</a></p>
 </div>
 </section>
-<section id="livermore-fusion-breakthrough" class="level2">
-<h2 class="anchored" data-anchor-id="livermore-fusion-breakthrough">Livermore Fusion breakthrough</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/livermore-fusion-breakthrough.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
+<section id="livermore-fusion-breakthrough" class="slide level2 center">
+<h2>Livermore Fusion breakthrough</h2>
+
+<img data-src="..\images/livermore-fusion-breakthrough.jpg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Read more: <a href="https://www.llnl.gov/archive/news/lawrence-livermore-national-laboratory-achieves-fusion-ignition">LLNL</a></p>
 </div>
 </section>
-<section id="hydro" class="level2">
-<h2 class="anchored" data-anchor-id="hydro">Hydro</h2>
+<section id="hydro" class="slide level2 center">
+<h2>Hydro</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/hydro.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/hydro.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
@@ -1298,15 +1014,14 @@ Where,<br>
 <p></p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/pumped-storage.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/pumped-storage.jpeg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="font-size:14pt; color:gray; text-align:center;">
 </p><p>Pumped storage hydropower (PSH)</p>
 <p></p>
-</div>
-</div>
+</div></div>
 <p><br></p>
 <center>
 <span class="math inline">\(E=\rho mg(h_2-h_1)\)</span>
@@ -1315,20 +1030,20 @@ Where,<br>
 <p>Source: <a href="https://www.tva.com/energy/our-power-system/hydroelectric/how-hydroelectric-power-works">TVA</a></p>
 </div>
 </section>
-<section id="how-a-lithium-ion-battery-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-a-lithium-ion-battery-works">How a lithium-ion battery works</h2>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://s3.amazonaws.com/UCS_Videos/Energy+embedded+video/lithium-ion-battery.mp4"></video></div>
+<section id="how-a-lithium-ion-battery-works" class="slide level2 center">
+<h2>How a lithium-ion battery works</h2>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://s3.amazonaws.com/UCS_Videos/Energy+embedded+video/lithium-ion-battery.mp4"></video>
 <div class="footer">
 <p>Source: <a href="https://www.ucsusa.org/resources/how-energy-storage-works">Union of Concerned Scientists</a></p>
 </div>
 </section>
-<section id="battery-management-system" class="level2">
-<h2 class="anchored" data-anchor-id="battery-management-system">Battery management system</h2>
+<section id="battery-management-system" class="slide level2 center">
+<h2>Battery management system</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/battery-management-system.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figure>
+<p><img data-src="..\images/battery-management-system.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1347,25 +1062,20 @@ Where,<br>
 </li>
 <li>Round-trip efficiency</li>
 </ul>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Read more: NREL, <a href="https://www.nrel.gov/docs/fy19osti/74426.pdf">Grid-scale battery storage</a></p>
 </div>
 </section>
-<section id="long-duration-storage" class="level2">
-<h2 class="anchored" data-anchor-id="long-duration-storage">Long duration storage</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="..\images/role-of-long-duration-storage.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="footer">
-<p>Source: <span class="citation" data-cites="dowling_role_2020">(<a href="#ref-dowling_role_2020" role="doc-biblioref"><strong>dowling_role_2020?</strong></a>)</span></p>
+<section id="long-duration-storage" class="slide level2 center">
+<h2>Long duration storage</h2>
+
+<img data-src="..\images/role-of-long-duration-storage.jpg" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Source: <span class="citation" data-cites="dowling_role_2020">(<a href="#/references" role="doc-biblioref" onclick=""><strong>dowling_role_2020?</strong></a>)</span></p>
 </div>
 </section>
-<section id="summary" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="slide level2 smaller center">
+<h2>Summary</h2>
 <ul>
 <li>Theory - learn and understand the physics of energy technologies:
 <ul>
@@ -1384,9 +1094,10 @@ Where,<br>
 </li>
 <li>The physics doesn’t change, corrections help us to do better jobs in simulation and projections</li>
 </ul>
-<hr>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
+</section>
+<section class="slide level2 smaller scrollable" id="references">
+
+<h3 id="references">References</h3>
 <div id="refs" role="list">
 
 </div>
@@ -1396,439 +1107,395 @@ Where,<br>
 
 
 </section>
-</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="https://drganghe.github.io/energy-climate-policy/" class="uri">https://drganghe.github.io/energy-climate-policy/</a></p>
+</div>
+</div></div>
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/laurenchenarides\.github\.io\/csu-arec-310");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
           }
-          return note.innerHTML;
+          return codeEl.innerText;
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/laurenchenarides\.github\.io\/csu-arec-570");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<a href="https://github.com/laurenchenarides/csu-arec-310">Lauren Chenarides</a> ©
-<script>document.write(new Date().getFullYear())</script>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/laurenchenarides/csu-arec-310/edit/main/lectures/lecture7.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-310/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-310/blob/main/lectures/lecture7.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/laurenchenarides/csu-arec-310">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
-<script>videojs(video_shortcode_videojs_video1);</script>
-
-
-
+      </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
+    
 
 </body></html>

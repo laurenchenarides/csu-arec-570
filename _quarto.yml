@@ -3,76 +3,46 @@ project:
   output-dir: docs
 
 # Meta
-description-meta: "Course on Food and Agricultural Markets"
+description-meta: "Course on Methodology of Economic Research"
 author-meta: "Lauren Chenarides"
 
 website:
-  title: "Food & Ag Markets"
-  description: "Course on Food and Agricultural Markets"
+  title: "AREC/ECON 570 Methodology of Economic Research"
+  description: "Course on Methodology of Economic Research"
   navbar:
     background: light
     left:
-      - text: Market Analysis Project
-        href: project/project-instructions.qmd
-      - text: "Spring 2026"
+      - text: Syllabus
+        href: 2026/syllabus.qmd
+      - text: "Fall 2026"
         menu:
-          - text: Syllabus
-            href: 2026sp/syllabus.qmd
           - text: Schedule
-            href: 2026sp/schedule.qmd
-          # - text: Readings
-          #   href: 2026sp/readings.qmd
-      - text: "Fall 2025"
-        menu:
-          - text: Syllabus - Fall 2025
-            href: 2025/syllabus.qmd
-          - text: Schedule - Fall 2025
-            href: 2025/schedule.qmd
+            href: 2026/schedule.qmd
           - text: Readings
-            href: 2025/readings.qmd
-          - text: "Market Data Analysis Project"
-            href: 2025/project-instructions.qmd
-          - text: "Excel Lab (In-Class)"
-            href: 2025/excel-lab.qmd
-          - text: "Assignment 2 (Excel Primer)"
-            href: 2025/excel-course.qmd
-          - text: "Assignment 3"
-            href: 2025/hw3.qmd
-          - text: "Assignment 4"
-            href: 2025/hw4.qmd
-          - text: "Assignment 4 - Solution Key"
-            href: 2025/hw4-solution.qmd
-          - text: "Assignment 5"
-            href: 2025/hw5.qmd
-          - text: "Assignment 5 - Solution Key"
-            href: 2025/hw5-solution.qmd
-          - text: "Equilibrium Displacement Models"
-            href: 2025/edm.qmd
-          - text: "Multi-Sector Model"
-            href: 2025/multi_sector_model.qmd
-          - text: "SSNIP Test for Market Definition"
-            href: 2025/ssnip.qmd
+            href: 2026/readings.qmd
+          - text: Lectures
+            href: lectures/lectures.qmd
 
     right: 
       - icon: github
-        href: https://github.com/laurenchenarides/csu-arec-310
+        href: https://github.com/laurenchenarides/csu-arec-570
   page-navigation: true
   page-footer: 
-    left: "[Lauren Chenarides](https://github.com/laurenchenarides/csu-arec-310) &copy; <script>document.write(new Date().getFullYear())</script>" 
+    left: "[Lauren Chenarides](https://github.com/laurenchenarides/csu-arec-570) &copy; <script>document.write(new Date().getFullYear())</script>" 
     right: 
       - icon: github
-        href: https://github.com/laurenchenarides/csu-arec-310
+        href: https://github.com/laurenchenarides/csu-arec-570
   search:
     location: navbar
     type: textbox
   reader-mode: true
-  repo-url: https://github.com/laurenchenarides/csu-arec-310
+  repo-url: https://github.com/laurenchenarides/csu-arec-570
   repo-actions: [edit, issue, source]
   open-graph: true
-  site-url: "https://laurenchenarides.github.io/csu-arec-310"
-  google-analytics:
-    tracking-id: "G-GG4GM3TPXK"
-    anonymize-ip: false
+  site-url: "https://laurenchenarides.github.io/csu-arec-570"
+  # google-analytics:
+  #   tracking-id: "G-GG4GM3TPXK"
+  #   anonymize-ip: false
 
 bibliography: readings.bib
 
