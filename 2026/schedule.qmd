@@ -1,50 +1,44 @@
 ---
-title: Fall 2025 Course Schedule
+title: Fall 2026 Course Schedule
 page-layout: full
 repo-actions: false
 ---
 
-<!--This is my personal clarity, please delete or replace with your own clarity-->
-<!-- {{< include /files/includes/_msclarity.qmd >}} -->
-
-All lecture slides are available on Canvas.
-
-| Week | Date       | Day | Lecture Content^[First number indicates Module, Second number indicates Lecture]                             | Assignment^[Homework assignments are due the corresponding Fridays at 11:59 PM]        |
-|------|------------|-----|---------------------------------------------|----------------------------|
-| 1    | 8/26       | T   | Lecture 1.1                                 |                            |
-| 1    | 8/28       | R   | Lecture 1.2                                 | Homework 1                 |
-| 2    | 9/2        | T   | Lecture 2.1                                 |                            |
-| 2    | 9/4        | R   | Lecture 3.1                                 | Homework 2                 |
-| 3    | 9/9        | T   | Lecture 3.2                                 |                            |
-| 3    | 9/11       | R   | Lecture 3.3                                 |                            |
-| 4    | 9/16       | T   | *In-Class Activity: [General Price Analysis](../files/pdf/general_price_analysis.pdf)* |                            |
-| 4    | 9/18       | R   | *In-Class Activity: [Equilibrium Displacement Models](edm.qmd)* | [Homework 3](hw3.qmd)               |
-| 5    | 9/23       | T   | Lecture 3.4                                 |                            |
-| 5    | 9/25       | R   | Lecture 4.1                                 |                            |
-| 6    | 9/30       | T   | *Dr. Koontz Guest Lecture*                  |                            |
-| 6    | 10/2       | R   | Lecture 4.2                                 |                            |
-| 7    | 10/7       | T   | Lecture 4.3                                 |                            |
-| 7    | 10/9       | R   | Exam 1 Study Session (In-Class)             |                            |
-| 8    | 10/14      | T   | **Exam 1** (In-Class) <br> Bring a calculator!                       |                            |
-| 8    | 10/16      | R   | *In-Class Activity: Excel Lab*              |                            |
-| 9    | 10/21      | T   | Lecture 5.1                                 |                            |
-| 9    | 10/23      | R   | Lecture 5.2                                 | [Homework 4](../project/hw4.qmd)                 |
-| 10   | 10/28      | T   | Lecture 5.2 (*extended*)    |                  |
-| 10   | 10/30      | R   | *In-Class Activity: Market Power in Beef Industry*                                 |                            |
-| 11   | 11/4       | T   | Lecture 6.1          |                            |
-| 11   | 11/6       | R   | *In-Class Activity: Price Indexes*                  | [Homework 5](../project/hw5.qmd)                  |
-| 12   | 11/11      | T   | Lecture 7.1                                 |                            |
-| 12   | 11/13      | R   | Lecture 8.1                                 |                            |
-| 13   | 11/18      | T   | Lecture 8.2                                 |                            |
-| 13   | 11/20      | R   | Lecture 8.2 + *In-Class Activity*           | Homework 6                 |
-| 14   | 11/25      | T   | Fall Recess                                 |                            |
-| 14   | 11/27      | R   | Fall Recess (Thanksgiving)                  |                            |
-| 15   | 12/2       | T   | Lecture 7.2                                 |                            |
-| 15   | 12/4       | R   | Exam 2 Study Session (In-Class)             |                            |
-| 16   | 12/9       | T   | **Exam 2** (In-Class) <br> Bring a calculator!                       |                            |
-| 16   | 12/11      | R   | Final Project "Lab" (In-Class)                                  | [Market Data Analysis Project](../project/project-instructions.qmd)   |
+| Week | Date  | Day | Unit | Faculty       | Topic                                                       |
+|------|-------|-----|------|---------------|-------------------------------------------------------------|
+| 1    | 8/25  | T   |      | Amanda        | Class Intro + Syllabus                                      |
+| 1    | 8/27  | R   | 1    | Amanda        | What is Economic Research & the Scientific Approach         |
+| 2    | 9/1   | T   | 1    | Amanda        | Methodological Foundations                                  |
+| 2    | 9/3   | R   | 1    | Amanda        | Methodological Foundations                                  |
+| 3    | 9/8   | T   | 2    | Amanda        | Defining a Research Problem/Question                        |
+| 3    | 9/10  | R   | 2    | Amanda        | Finding an Idea                                             |
+| 4    | 9/15  | T   | 2    | Amanda        | Planning the Research Project                               |
+| 4    | 9/17  | R   | 2    | Amanda        | 2-Minute Research Idea Pitch                                |
+| 5    | 9/22  | T   | 3    | Amanda        | Evaluate Pitch Presentations                                |
+| 5    | 9/24  | R   | 3    | Amanda        | Research Efficiency: Reading and Organizing the Literature  |
+| 6    | 9/29  | T   | 3    | Amanda        | Writing the Introduction and Literature Review              |
+| 6    | 10/1  | R   | 3    | Amanda        | Literature Review/Writing Skills                            |
+| 7    | 10/6  | T   | 4    | Lauren        | Conceptual Framework (Theory)                               |
+| 7    | 10/8  | R   | 4    | Lauren        | Conceptual Framework (Theory): Reporting                    |
+| 8    | 10/13 | T   | 5    | Lauren        | Data: Collecting Data—CHAMP Survey                          |
+| 8    | 10/15 | R   | 5    | Lauren        | Data: Collecting Data via API                               |
+| 9    | 10/20 | T   | 5    | Lauren        | Data: Managing Data for Reproducibility (Git)               |
+| 9    | 10/22 | R   | 5    | Lauren        | Data: Managing Data for Reproducibility (Git)               |
+| 10   | 10/27 | T   | 5    | Lauren        | Data: Reporting                                             |
+| 10   | 10/29 | R   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
+| 11   | 11/3  | T   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
+| 11   | 11/5  | R   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
+| 12   | 11/10 | T   | 6    | Lauren        | Methods of Analysis: Qualitative and Mixed Methods          |
+| 12   | 11/12 | R   | 6    | Lauren        | Methods of Analysis: Qualitative and Mixed Methods          |
+| 13   | 11/17 | T   | 7    | Lauren        | Reviewing                                                   |
+| 13   | 11/19 | R   | 7    | Lauren        | Responses to Reviewers                                      |
+|      | 11/24 | T   |      |               | *Fall Recess*                                               |
+|      | 11/26 | R   |      |               | *Fall Recess (Thanksgiving)*                                |
+| 14   | 12/1  | T   | 8    | Amanda        | Results and Conclusions                                     |
+| 14   | 12/3  | R   | 9    | Amanda        | Research Presentation/Seminar + Ethics in Research          |
+| 15   | 12/8  | T   |      | Amanda/Lauren | 7-Minute Presentations + 5 Minutes for Questions            |
+| 15   | 12/10 | R   |      | Amanda/Lauren | 7-Minute Presentations + 5 Minutes for Questions            |
 
 : {.striped .responsive}
 
-Note: T--Tuesday; R--Thursday
-
+Note: T—Tuesday; R—Thursday
