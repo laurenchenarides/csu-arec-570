@@ -6,7 +6,7 @@ link-citations: false
 citations-hover: false
 ---
 
-Here is the Fall 2026 reading list. Readings are organized by unit and alphabetized by the first author's surname.
+Here is the Fall 2026 reading list. Readings are organized by unit and alphabetized by the first author's last name.
 
 ### Books used in this course
 
