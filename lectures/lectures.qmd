@@ -23,5 +23,3 @@ repo-actions: false
 ---
 
 
-## About Our Mentors
-
