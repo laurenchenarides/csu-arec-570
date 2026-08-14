@@ -1,57 +1,137 @@
 ---
 title: Readings
 bibliography: ../readings.bib
-csl: chicago-syllabus.csl
 suppress-bibliography: true
 link-citations: false
 citations-hover: false
 ---
 
-<!--This is my personal clarity, please delete or replace with your own clarity-->
-<!-- {{< include /files/includes/_msclarity.qmd >}} -->
+Here is the Fall 2026 reading list. Readings are organized by unit and alphabetized by the first author's surname.
 
-Here is a list of readings for the course. All readings are available on Canvas.
+### Books used in this course
 
-## Module 1
+Assigned excerpts from the following books will be provided on Canvas:
 
-- @kohls2005marketing (Chapters 1-3)
+* Angrist and Pischke, *Mostly Harmless Econometrics: An Empiricist's Companion*
+* Bellemare, *Doing Economics: What You Should Have Learned in Grad School—But Didn't*
+* Champ, Boyle, and Brown, editors, *A Primer on Nonmarket Valuation*
+* Ethridge, *Research Methodology in Applied Economics*
+* Greenlaw, *Doing Economics: A Guide to Understanding and Carrying Out Economic Research*
 
-## Module 2
+All other readings, including articles, handouts, course notes, and reviewer guidelines, will also be available on Canvas.
 
-- @norwood2021agricultural (Chapter 6)
-- @ERS2023
-- @ERS2017
-- @Canning2016
-- @Kelly2015
-- @ERS2013
-- @ERS2011
-- @ERS2024
+## Unit 1: Foundations
 
-## Module 3
+- Ethridge, Don E. “Research and Methodology.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 15–35. Chapter 2.
 
-- @mcconnell2018microeconomics (Chapters 3 & 6)
+- Ethridge, Don E. “Methodological Concepts and Perspectives.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 36–57. Chapter 3.
 
-## Module 4
+- Ethridge, Don E. “Philosophical Foundations.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 58–79. Chapter 4.
 
-- @mcconnell2018microeconomics (Chapters 10-13)
-- @macdonald2023concentration
+- Greenlaw, Steven A. “What Is Research?” *Doing Economics: A Guide to Understanding and Carrying Out Economic Research*, Houghton Mifflin, 2006, pp. 1–10. Chapter 1.
 
-## Module 5
+- Kenyon, Ralph E., Jr. “Popper's Philosophy of Science.” 1984. Unpublished essay.
 
-- @mcconnell2018microeconomics (Chapter 14)
-- @bolotova2024market
+- Larue, Louis. “A Defense of Reasonable Pluralism in Economics.” *Journal of Economic Methodology*, vol. 29, no. 4, 2022, pp. 294–308. <https://doi.org/10.1080/1350178X.2022.2112266>.
 
-## Module 6
+- Machlup, Fritz. “Why Economists Disagree.” *Proceedings of the American Philosophical Society*, vol. 109, no. 1, 1965, pp. 1–7. JSTOR, <https://www.jstor.org/stable/985773>.
 
-- @indexnumbers (Chapter 3)
+- McCloskey, Donald N. “How Economists Persuade.” *Journal of Economic Methodology*, vol. 1, no. 1, 1994, pp. 15–32. <https://doi.org/10.1080/13501789400000002>.
 
-## Module 7
+## Unit 2: Research Problem
 
-- @norwood2021agricultural (Chapter 7)
+- Davis, Donald R. “Ph.D. Thesis Research: Where Do I Start?” Columbia University, n.d. Course notes.
 
-## Module 8
+- Dudenhefer, Paul. *A Guide to Writing in Economics*. EcoTeach Center and Department of Economics, Duke University, Dec. 2009. Sections 5–6.
 
-- @kohls2005marketing (Chapter 20)
-- @norwood2021agricultural (Chapter 9)
+- Ethridge, Don E. “Planning the Research.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 83–99. Chapter 5.
 
+- Ethridge, Don E. “The Research Problem and Objectives.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 100–12. Chapter 6.
 
+- Greenlaw, Steven A. “Overview of the Research Process in Economics.” *Doing Economics: A Guide to Understanding and Carrying Out Economic Research*, Houghton Mifflin, 2006, pp. 11–30. Chapter 2.
+
+- Varian, Hal R. “How to Build an Economic Model in Your Spare Time.” *The American Economist*, vol. 41, no. 2, 1997, pp. 3–10. <https://doi.org/10.1177/056943459704100201>. Assigned pages 1–3 of the course PDF.
+
+## Unit 3: Introduction and Literature Review
+
+- Gosztyla, Maya. “How to Find, Read and Organize Papers.” *Nature*, 7 July 2022. <https://doi.org/10.1038/d41586-022-01878-7>.
+
+- Head, Keith. “The Introduction Formula.” *Keith Head*, University of British Columbia, n.d., <https://blogs.ubc.ca/khead/research/research-advice/formula>. Accessed 14 Aug. 2026.
+
+- Laubepin, Frederique. *How to Read (and Understand) a Social Science Journal Article*. Inter-university Consortium for Political and Social Research, 2013.
+
+- Mankiw, N. Gregory. “How to Write Well.” *Greg Mankiw's Blog*, 7 Oct. 2006, <https://gregmankiw.blogspot.com/2006/10/how-to-write-well.html>. Accessed 14 Aug. 2026.
+
+- Romer, David. “Rules for Making It Through Graduate School and Finishing Your Dissertation: ‘Out in Five.’” n.d. Handout.
+
+## Unit 4: Theory
+
+- Cheng, Eugenia. *How to Write Proofs: A Quick Guide*. Department of Mathematics, University of Chicago, Oct. 2004. <https://courses.cs.duke.edu/spring15/cps102/notes/Cheng%202004.pdf>
+
+- Chouinard, Hayley H. “Theory Notes.” *EconS 529*, 2015. Course notes.
+
+- Ethridge, Don E. “The Conceptual Framework.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 127–39. Chapter 8.
+
+- Romer, Paul M. “Mathiness in the Theory of Economic Growth.” *American Economic Review: Papers & Proceedings*, vol. 105, no. 5, 2015, pp. 89–93. <https://doi.org/10.1257/aer.p20151066>.
+
+- Varian, Hal R. “How to Build an Economic Model in Your Spare Time.” *The American Economist*, vol. 41, no. 2, 1997, pp. 3–10. <https://doi.org/10.1177/056943459704100201>. Assigned pages 4–6 of the course PDF.
+
+## Unit 5: Data
+
+- Champ, Patricia A. “Collecting Nonmarket Valuation Data.” *A Primer on Nonmarket Valuation*, edited by Patricia A. Champ, Kevin J. Boyle, and Thomas C. Brown, 2nd ed., Springer, 2017, pp. 55–82. <https://doi.org/10.1007/978-94-007-7104-8_3>.
+
+- Dominitz, Jeff, and Charles F. Manski. “More Data or Better Data? A Statistical Decision Problem.” *The Review of Economic Studies*, vol. 84, no. 4, 2017, pp. 1583–1605. <https://doi.org/10.1093/restud/rdx005>.
+
+- Gentzkow, Matthew, and Jesse M. Shapiro. *Code and Data for the Social Sciences: A Practitioner's Guide*. University of Chicago, 2014, <https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf>. Accessed 14 Aug. 2026.
+
+## Unit 6: Methods of Analysis
+
+- Angrist, Joshua D., and Jörn-Steffen Pischke. *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton University Press, 2009. Chapters 1–3.
+
+- Athey, Susan, and Guido W. Imbens. “Machine Learning Methods That Economists Should Know About.” *Annual Review of Economics*, vol. 11, 2019, pp. 685–725. <https://doi.org/10.1146/annurev-economics-080217-053433>.
+
+- Athey, Susan, and Guido W. Imbens. “The State of Applied Econometrics: Causality and Policy Evaluation.” *Journal of Economic Perspectives*, vol. 31, no. 2, 2017, pp. 3–32. <https://doi.org/10.1257/jep.31.2.3>.
+
+- Falk, Armin, and James J. Heckman. “Lab Experiments Are a Major Source of Knowledge in the Social Sciences.” *Science*, vol. 326, no. 5952, 2009, pp. 535–38. <https://doi.org/10.1126/science.1168244>.
+
+- Gibson, John. “Are You Estimating the Right Thing? An Editor Reflects.” *Applied Economic Perspectives and Policy*, vol. 41, no. 3, 2019, pp. 329–50. <https://doi.org/10.1093/aepp/ppz009>.
+
+- Jurajda, Štěpán. *Lecture Notes on Identification Strategies*. 12 June 2007.
+
+- Kim, Jae H. “Tackling False Positives in Business Research: A Statistical Toolbox with Applications.” *Journal of Economic Surveys*, vol. 33, no. 3, 2019, pp. 862–95. <https://doi.org/10.1111/joes.12303>.
+
+- Starr, Martha A. “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future.” *Journal of Economic Surveys*, vol. 28, no. 2, 2014, pp. 238–64. <https://doi.org/10.1111/joes.12004>.
+
+- Timmins, Christopher, and Wolfram Schlenker. “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics.” *Annual Review of Resource Economics*, vol. 1, 2009, pp. 351–80. <https://doi.org/10.1146/annurev.resource.050708.144119>.
+
+## Unit 7: Reviewing
+
+- Agricultural and Applied Economics Association. *American Journal of Agricultural Economics: Refereeing Criteria for Judging the Merits of Journal Submissions*. 2013. Reviewer guidelines.
+
+- Berk, Jonathan B., Campbell R. Harvey, and David Hirshleifer. “Preparing a Referee Report: Guidelines and Perspectives.” *SSRN Electronic Journal*, 17 Feb. 2015. <https://doi.org/10.2139/ssrn.2547191>.
+
+- Boonpramote, Thitisak. *Writing for Economics Journals: Elements of Publication Success*. Division of Economics and Business, Colorado School of Mines, 2000. Final report for LICM598: Academic Publishing Seminar. <https://journalofeconomicinsight.com/index.php/joei/article/view/1045>
+
+- Choi, E. Kwan. “Rejection and Revision.” *How to Publish in Top Journals*, n.d., <http://www.roie.org/how.htm>. Accessed 14 Aug. 2026.
+
+- Ethridge, Don E. “Guidelines for Critiquing Papers.” *Research Methodology in Applied Economics: Organizing, Planning, and Conducting Economic Research*, 2nd ed., Blackwell Publishing, 2004, pp. 229–30. Appendix D.
+
+- Fryer, Roland G., Jr. “A Response to Steven Durlauf and James Heckman.” *Journal of Political Economy*, vol. 128, no. 10, 2020, pp. 4003–08. <https://doi.org/10.1086/710977>.
+
+- U.S. Environmental Protection Agency. *Integrating Human Health and Well-Being with Ecosystem Services: Peer Review Process, Evaluation Criteria and Rating Classifications*. Science to Achieve Results Program, 2016, <https://www.epa.gov/research-grants/integrating-human-health-and-well-being-ecosystem-services-request-applications-rfa>. Accessed 14 Aug. 2026.
+
+## Unit 8: Results and Conclusion
+
+- Bellemare, Marc F. “The Conclusion Formula.” *Agricultural Economics—Without Apology*, 6 Oct. 2016, <https://marcfbellemare.com/wordpress/12060>. Accessed 14 Aug. 2026.
+
+- Bellemare, Marc F. “Writing Papers.” *Doing Economics: What You Should Have Learned in Grad School—But Didn't*, The MIT Press, 2022, pp. 5–37. Chapter 2.
+
+- Dudenhefer, Paul. *A Guide to Writing in Economics*. EcoTeach Center and Department of Economics, Duke University, Dec. 2009.
+
+## Unit 9: Seminar and Ethics
+
+- Jackson, Matthew O. “Notes on Presenting a Paper.” *Social Sciences 212a*, fall 1998. Course notes.
+
+- Shapiro, Jesse M. *How to Give an Applied Micro Talk: Unauthoritative Notes*. Chicago Booth and National Bureau of Economic Research, n.d. <https://shapiro.scholars.harvard.edu/sites/g/files/omnuum7731/files/shapiro/files/applied_micro_slides.pdf>
+
+- Varian, Hal R. “How to Build an Economic Model in Your Spare Time.” *The American Economist*, vol. 41, no. 2, 1997, pp. 3–10. <https://doi.org/10.1177/056943459704100201>. Assigned pages 7–end of the course PDF.

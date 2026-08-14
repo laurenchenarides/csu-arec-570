@@ -1,7 +1,5 @@
 ---
 title: "Lectures"
-subtitle: "Fall 2025 Cohort"
-image: "/files/images/ag-stock-photo.jpg"
 page-layout: full
 css: custom.css
 listing:

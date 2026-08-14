@@ -1,6 +1,5 @@
 ---
 title: "AREC 570/ECON 530 Methodology of Economic Research"
-image: "/files/images/ag-stock-photo.jpg"
 sidebar: false
 toc: false
 css: /custom.css
