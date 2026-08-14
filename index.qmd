@@ -8,7 +8,7 @@ repo-actions: false
 ---
 
 
-👉 [Access Syllabus Here](2026sp/syllabus.qmd)
+👉 [Access Syllabus Here](2026/syllabus.qmd)
 
 
 ### Course overview
@@ -17,7 +17,7 @@ This course examines the philosophical foundations of science and research with 
 
 ## Reuse of material
 
-Please link my [site](https://github.com/laurenchenarides) and this [course site](https://github.com/laurenchenarides/csu-arec-570) to use any organized material. 
+Please link my [GitHub site](https://github.com/laurenchenarides) and this [course site](https://github.com/laurenchenarides/csu-arec-570) to use any organized material. 
 
 ## How to help  
 
