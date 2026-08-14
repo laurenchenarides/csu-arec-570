@@ -24,3 +24,4 @@ format:
 ---
 
 
+<iframe src="AREC570_Syllabus_Fall_2026.pdf" width="800px" height="600px" frameborder="0"></iframe>
