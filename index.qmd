@@ -1,5 +1,5 @@
 ---
-title: "Food and Agricultural Markets"
+title: "AREC 570/ECON 530 Methodology of Economic Research"
 image: "/files/images/ag-stock-photo.jpg"
 sidebar: false
 toc: false
@@ -8,33 +8,18 @@ repo-actions: false
 ---
 
 
-{{< include /files/includes/_coursedescription.qmd >}}
-
 👉 [Access Syllabus Here](2026sp/syllabus.qmd)
 
-<!-- ## Why This Course Matters -->
 
-<!-- In this course, you build a foundation for understanding how food moves from farms to consumers, how prices form, and how the parts of the supply chain connect. We work with real-world data to see how value is added across the food system, measure market concentration, and explore the role of forecasting and risk management tools like futures and options. -->
+### Course overview
 
-<!-- These skills help you analyze market conditions, interpret trends, and connect day-to-day business decisions with broader patterns in food and agricultural markets. -->
-
-### Our Learning Culture
-
-I want you to imagine we’re all part of the same organization—one where everyone’s success depends on how well we collaborate, share ideas, and support each others growth. That means:
-
-- We take initiative and hold ourselves accountable.
-- We celebrate experimentation and embrace failure as part of the process.
-- We give and receive feedback with curiosity and respect.
-- We build a culture that reflects the kind of teams we’d want to work on in the real world.
-
-My goal is to help you **connect what you're learning to real decisions and real contexts**. By the end of the course, you’ll have experience working with market data, applying economic concepts to real marketing problems, and communicating your analysis in ways that support sound decision-making.
-
+This course examines the philosophical foundations of science and research with particular emphasis on the field of economics. Students will develop skills for planning, performing, reporting, and evaluating economic research. The goal with this course is to encourage students to think critically about the research process. As is the case with most subjects, students tend to learn best by putting the concepts into practice. Students will read about research methodology, and then analyze the logic and reasoning of others' research as well as develop their own research proposal.
 
 ## Reuse of material
 
-Please link my [site](https://github.com/laurenchenarides) and this [course site](https://github.com/laurenchenarides/csu-arec-310) to use any organized material. Copyrights belong to cited authors/creators.
+Please link my [site](https://github.com/laurenchenarides) and this [course site](https://github.com/laurenchenarides/csu-arec-570) to use any organized material. 
 
 ## How to help  
 
-If you like this course, you can **Star** the course [repository](https://github.com/laurenchenarides/csu-arec-310) to help more people to see it. If you find any issue, please use the "Report an issue" on the right side of a specific page. You can help more people to access the open-source course by spreading the word. Comments and suggestions are very welcome.
+If you like this course, you can **Star** the course [repository](https://github.com/laurenchenarides/csu-arec-570) to help more people to see it. If you find any issue, please use the "Report an issue" on the right side of a specific page. Comments and suggestions are very welcome.
 

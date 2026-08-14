@@ -1,6 +1,6 @@
-# AREC 310 Food and Agricultural Markets
+# AREC 570/ECON 530 Methodology of Economic Research
 
-This is the website for my Food and Agricultural Markets class. I share class material here.  
+This is the website for a research methods class. I share class material here.  
 
 ## Reuse of material
 
