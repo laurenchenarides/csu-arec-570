@@ -1,0 +1,172 @@
+---
+title: "Lecture 6.4: Experiments, Qualitative and Mixed Methods"
+subtitle: "AREC 570 / ECON 530 · Unit 6"
+author: "Lauren Chenarides"
+lecture: "6.4"
+order: 604
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Compare controlled variation with open-ended evidence and design a mixed-methods study."
+---
+
+## Before class
+
+- Falk and Heckman, “Lab Experiments Are a Major Source of Knowledge in the Social Sciences” [@falk2009lab].
+- Starr, “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future” [@starr2014qualitative].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Match the method to the gap in knowledge
+
+- Do we need controlled variation?
+- Do we need to understand a decision process?
+- Are important concepts or mechanisms still unclear?
+- Would combining approaches resolve a limitation of either one?
+
+## Falk and Heckman: controlled variation
+
+Laboratory experiments let researchers vary features of a decision environment.
+
+They can separate mechanisms that move together in observational settings.
+
+A simplified setting can be informative when it isolates a relevant mechanism.
+
+Source: @falk2009lab.
+
+## Discussion: realism and generalization
+
+- What does the reading mean by controlled variation?
+- Is visual resemblance to everyday life the same as external validity?
+- What can the gift-exchange example reveal?
+- Which features would you vary to examine whether a result travels?
+
+## Qualitative does not simply mean words
+
+Starr emphasizes an open-ended approach to gathering information.
+
+Rather than fixing every relevant dimension in advance, researchers allow new themes and explanations to emerge.
+
+Clear questions and systematic procedures still matter.
+
+Source: @starr2014qualitative.
+
+## Methods and their uses
+
+| Method | What it can reveal |
+|:---|:---|
+| In-depth interview | Reasoning and experience |
+| Focus group | Shared and contested interpretations |
+| Case study or site visit | Context and process |
+| Fieldwork | Practices and relationships over time |
+| Life history | Sequences of important events |
+
+## Ask a different kind of question
+
+Closed question:
+
+> Which listed factor mattered most in buying your home?
+
+Open question:
+
+> Tell me how you came to buy this home.
+
+What could the second reveal that the first excludes? What makes the answers harder to analyze?
+
+## Why ask people about their decisions?
+
+The source slides discuss interviews about wage and price rigidity.
+
+Interviews can help distinguish mechanisms that aggregate data leave unresolved.
+
+But respondents may not know, remember, or fully explain their motivations.
+
+::: notes
+Preserves the source discussion of Bewley and Blinder. The source speaker notes use Friedman's billiard-player analogy: competent action does not require the ability to articulate a formal model.
+:::
+
+## Credibility in qualitative work
+
+- Document recruitment and protocols.
+- Explain coding and interpretation.
+- Reflect on the researcher's role.
+- Seek evidence that challenges emerging explanations.
+- Cross-check accounts against other sources.
+
+Source: @starr2014qualitative.
+
+## Self-reports require interpretation
+
+Potential concerns include recall, incentives, social desirability, and limited self-knowledge.
+
+Responses can still be informative.
+
+Ask which claim a response supports and what additional evidence would strengthen it.
+
+## Three mixed-methods sequences
+
+1. **Qualitative first:** discover concepts and design a structured instrument.
+2. **Quantitative first:** follow up to understand patterns or unexpected results.
+3. **Concurrent:** compare and integrate evidence collected in parallel.
+
+Explain how the components inform one another.
+
+## Discussion: Starr
+
+- Which criticism of qualitative research is strongest?
+- How does the reading propose addressing it?
+- Which criticisms also apply to quantitative research?
+- What would count as evidence against an interview-based explanation?
+
+## Compare the two readings
+
+Choose one mechanism in your project.
+
+- How could a lab experiment isolate it?
+- How could interviews reveal missing assumptions?
+- Where might the findings disagree?
+- How would you investigate that disagreement?
+
+## Workshop: design a combined study
+
+Specify:
+
+1. Research question.
+2. Participants or cases.
+3. First method and its purpose.
+4. Second method and its purpose.
+5. How findings will be integrated.
+6. Consent and confidentiality considerations.
+
+## Before you leave
+
+Name one thing you would learn by talking with the people whose choices your model describes.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

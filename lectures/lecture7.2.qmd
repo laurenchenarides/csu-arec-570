@@ -1,0 +1,202 @@
+---
+title: "Lecture 7.2: Responding to Reviewers"
+subtitle: "AREC 570 / ECON 530 · Unit 7"
+author: "Lauren Chenarides"
+lecture: "7.2"
+order: 702
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Plan revisions, answer criticism with evidence, and communicate disagreements clearly."
+---
+
+## Before class
+
+- Boonpramote, *Writing for Economics Journals: Elements of Publication Success* [@boonpramote2000writing].
+- Choi, “Rejection and Revision” [@choi_nodate_rejection].
+- Fryer, “A Response to Steven Durlauf and James Heckman” [@fryer2020response].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Read the decision before drafting a response
+
+- What did the editor decide?
+- Which concerns are central?
+- What revision is invited or required?
+- What deadline and submission instructions apply?
+
+A revision invitation is an opportunity, not a guarantee of acceptance.
+
+## What rejection can teach us
+
+Possible problems include:
+
+- Unclear contribution.
+- A gap between evidence and claims.
+- Weak organization or exposition.
+- Poor fit with the journal.
+- A substantive methodological flaw.
+
+Separate presentation problems from problems requiring new analysis.
+
+## Discussion: Boonpramote
+
+The reading approaches publication from editors' and referees' perspectives.
+
+- What makes a contribution recognizable?
+- How can weak communication obscure useful research?
+- Which concerns can be addressed through writing?
+- Which require changing the research itself?
+
+Find an example in the reading for each kind of revision.
+
+## Choi: persist and listen
+
+- Read the criticism carefully.
+- Look for useful information even in an unwelcome report.
+- Treat misunderstanding as a reason to improve clarity.
+- Respond to substance without attacking the reviewer.
+
+Source: @choi_nodate_rejection.
+
+## Build a revision plan
+
+| Comment | Planned response | Manuscript change | Status |
+|:---|:---|:---|:---|
+| Outcome definition unclear | Define units and timing | Data section | Pending |
+| Comparison group questionable | Investigate exposure | Analysis and limitations | Pending |
+| Conclusion too broad | Narrow claim | Abstract and conclusion | Pending |
+
+Illustrative plan. Assign responsibility and resolve dependencies.
+
+## Answer each comment directly
+
+For every substantive comment:
+
+1. State the concern.
+2. Explain your response.
+3. Describe the change or provide a reasoned disagreement.
+4. Identify where the manuscript changed.
+5. State any remaining limitation.
+
+Make the reviewer able to verify your answer.
+
+## When you agree
+
+> We agree that the outcome definition was ambiguous. We now specify the reference period and units in the Data section and use the same definition in Table 1.
+
+Why is this more useful than “Fixed” or “Thank you”?
+
+Hypothetical response example.
+
+## When you disagree
+
+- Restate the concern fairly.
+- Explain why the requested change would not resolve it or would change the question.
+- Supply evidence or reasoning.
+- Clarify the manuscript where misunderstanding is plausible.
+- Acknowledge what remains unresolved.
+
+Disagreement should be specific and verifiable.
+
+## Discussion: Choi's recommendations
+
+- Which recommendations improve the substance of a revision?
+- Which concern tone and persistence?
+- Which advice is context-dependent?
+- How would you respond if two reviewers made incompatible requests?
+
+Distinguish general advice from a particular editor's instructions.
+
+## Fryer: map the response
+
+The response organizes the debate around:
+
+- What the analysis claims about racial differences and discrimination.
+- Selection into police-civilian interactions.
+- The reliability of police narratives.
+
+Identify where the author agrees, disagrees, or clarifies the scope of a claim.
+
+Source: @fryer2020response.
+
+## Discussion: evaluate the response
+
+Choose one of those three issues.
+
+- What criticism is being answered?
+- What evidence or reasoning is offered?
+- Does the response change the analysis, narrow the claim, or defend the original approach?
+- What question would you still want answered?
+
+Read this as an exercise in evaluating argument, not as evidence that the underlying debate is settled.
+
+## Communicate other substantive changes
+
+Tell the editor and reviewers about important changes beyond their requests:
+
+- New data.
+- A different specification.
+- Additional checks.
+- Revised interpretation.
+
+Explain why the change was made and how it affects the conclusions.
+
+## Should review correspondence be public?
+
+The source deck raises transparency in peer review.
+
+Discuss possible effects on:
+
+- Accountability and learning.
+- Candor.
+- Confidentiality.
+- Willingness to review.
+
+What publication policy would balance these concerns?
+
+## Workshop: write a response
+
+Use the major comment from Lecture 7.1.
+
+Produce:
+
+1. A response paragraph.
+2. A proposed manuscript revision.
+3. A precise location for the change.
+4. An explanation of what remains uncertain.
+
+Exchange with your reviewer. Can they verify that the concern was addressed?
+
+## Before you leave
+
+Identify your first revision task and the evidence that would show it is complete.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

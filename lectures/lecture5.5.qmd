@@ -1,0 +1,159 @@
+---
+title: "Lecture 5.5: Data: Reporting"
+subtitle: "AREC 570 / ECON 530 · Unit 5"
+author: "Lauren Chenarides"
+lecture: "5.5"
+order: 505
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Write a transparent data section with sample construction and measurement limits."
+---
+
+## Before class
+
+- No assigned reading. We will apply the Unit 5 material and the course data checklist.
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Make the evidence assessable
+
+A reader should understand:
+
+- Where the data came from.
+- Which population and period they describe.
+- How the analysis sample was constructed.
+- What the key variables measure.
+- Which limitations remain.
+
+## Start with provenance
+
+For each source, report:
+
+- Provider and dataset.
+- Collection purpose and method.
+- Release or retrieval date.
+- Geographic and time coverage.
+- Access conditions relevant to replication.
+
+Cite the dataset as well as papers using it.
+
+## Define the unit of observation
+
+“County data” is not enough.
+
+Is one row a county, county-year, county-industry-year, or county-month?
+
+Explain the key and how the observation unit relates to the population in your question.
+
+## Show sample construction
+
+| Step | Observations retained |
+|:---|---:|
+| Raw records | 1,000 |
+| Keep target period | 850 |
+| Remove verified duplicates | 830 |
+| Require observed outcome | 790 |
+
+Illustrative counts. Explain each exclusion and whether excluded observations differ systematically.
+
+## Missing is not zero
+
+Distinguish a true zero from:
+
+- An unanswered question.
+- A suppressed value.
+- An inapplicable question.
+- A failed link between datasets.
+
+Report your treatment of each relevant category.
+
+## Explain variable construction
+
+Include:
+
+- Original field or survey question.
+- Units and reference period.
+- Transformation.
+- Interpretation.
+
+For monetary measures, state whether values are nominal or adjusted; identify the base period if adjusted.
+
+## Report merges and aggregation
+
+- Which identifiers were used?
+- What matching relationship was expected?
+- How many records failed to match?
+- Did merging duplicate observations?
+- How were finer observations aggregated?
+
+State whether weights were used and what they represent.
+
+## Descriptive statistics should answer questions
+
+- What does the sample look like?
+- How much relevant variation is present?
+- Are extreme values plausible?
+- Do treatment and comparison groups differ?
+- Does each row use the same sample?
+
+Include units and sample sizes in table notes.
+
+## Workshop: the course data checklist
+
+Complete the three parts:
+
+1. **Scoping the question:** mechanism and expected outcomes.
+2. **Understanding the data:** fields, coverage, unit, key, quality, and cleaning.
+3. **Developing measures:** concept, advantages, limitations, and validation.
+
+The blank checklist and Champ example are on Canvas.
+
+::: notes
+New meeting based on the course data checklist and accompanying Champ example. The example's numbers and proposed cleaning rules are illustrations, not observed results or universal rules.
+:::
+
+## Critique the worked example
+
+Using the Champ checklist example:
+
+- Does the willingness-to-pay measure match the question?
+- What is lost by deleting incomplete responses?
+- What justifies calling a value an outlier?
+- How could alternative decisions change the sample?
+
+Assess the consequences of each cleaning rule.
+
+## Write one data paragraph
+
+Include source, observation unit, sample boundaries, key variables, an important transformation, and the largest limitation.
+
+Exchange paragraphs. Can your partner reconstruct the sample?
+
+## Before you leave
+
+Identify one claim your data support and one they cannot support without additional information.
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

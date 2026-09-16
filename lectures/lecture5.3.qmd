@@ -1,0 +1,186 @@
+---
+title: "Lecture 5.3: Managing Data for Reproducibility: Git I"
+subtitle: "AREC 570 / ECON 530 · Unit 5"
+author: "Lauren Chenarides"
+lecture: "5.3"
+order: 503
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Automate a project and record clear, recoverable changes."
+---
+
+## Before class
+
+- Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 1–4: Introduction, Automation, Version Control, and Directories [@gentzkow2014code].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Reproducibility starts with organization
+
+Can another person reconstruct a result from the same inputs?
+
+They need inputs, code, execution order, software requirements, and a record of the version used.
+
+Source: @gentzkow2014code.
+
+## Discussion: the cost of manual steps
+
+Think of a spreadsheet cell edited by hand.
+
+- How would a collaborator discover the edit?
+- What happens when new data arrive?
+- Could you explain the change six months later?
+- Which parts of your workflow rely on memory?
+
+## Automate the sequence
+
+A main script expresses the order of operations.
+
+~~~r
+# Run from the project root.
+source("code/01_clean.R")
+source("code/02_analyze.R")
+source("code/03_tables.R")
+~~~
+
+Each step reads documented inputs and writes predictable outputs.
+
+## Separate files by function
+
+~~~text
+project/
+  README.md
+  run.R
+  code/
+  data/
+    raw/
+    derived/
+  output/
+    tables/
+    figures/
+~~~
+
+Keep raw inputs unchanged. Regenerate derived files through code.
+
+## Paths should travel with the project
+
+Prefer paths relative to the project root:
+
+~~~r
+read.csv("data/raw/survey.csv")
+~~~
+
+A path containing your user directory will usually fail on another computer.
+
+State where the main script should be run.
+
+## What Git records
+
+Git records selected snapshots and the history connecting them.
+
+- **Working directory:** files you are editing.
+- **Staging area:** changes selected for the next snapshot.
+- **Commit:** recorded snapshot and message.
+
+GitHub hosts repositories and supports collaboration. Git also works locally.
+
+## First commit in a practice folder
+
+~~~bash
+git init
+git status
+git add README.md run.R code/
+git diff --staged
+git commit -m "Add reproducible analysis workflow"
+~~~
+
+Inspect staged changes before committing.
+
+::: notes
+New exercise. Use a separate practice folder containing these files. Git may request author name and email on first use.
+:::
+
+## The everyday loop
+
+1. Make one coherent change.
+2. Inspect it with `git diff`.
+3. Stage the relevant files.
+4. Inspect with `git diff --staged`.
+5. Commit with a meaningful message.
+
+~~~bash
+git status
+git log --oneline
+~~~
+
+## Write a useful commit message
+
+Weak: “updates”
+
+Better: “Distinguish refused responses from zeros”
+
+Explain why a change affects the sample or interpretation when that is not obvious.
+
+A commit should make sense to someone who was not watching you work.
+
+## What belongs outside the repository?
+
+Common exclusions:
+
+- Credentials and local configuration.
+- Confidential or restricted data.
+- Large raw-data files.
+- Reproducible temporary outputs.
+
+A `.gitignore` file prevents matching untracked files from being added by default. It does not remove already tracked files.
+
+## Discussion: Gentzkow and Shapiro
+
+- Why should a project run from beginning to end?
+- Why separate inputs from outputs?
+- Which costs of automation arise immediately? Which benefits arrive later?
+- When does version history help explain a research decision?
+
+## Workshop: reproduce a result
+
+In a practice project:
+
+1. Create a README describing the workflow.
+2. Add a script that creates one output.
+3. Commit the working version.
+4. Change one documented assumption.
+5. Inspect the difference and commit again.
+
+## Before you leave
+
+Show two commits. Explain what changed, why, and which result could be affected.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

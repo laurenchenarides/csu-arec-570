@@ -1,0 +1,194 @@
+---
+title: "Lecture 5.4: Managing Data for Reproducibility: Git II"
+subtitle: "AREC 570 / ECON 530 · Unit 5"
+author: "Lauren Chenarides"
+lecture: "5.4"
+order: 504
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Use keys, reusable code, documentation, and clear collaboration practices."
+---
+
+## Before class
+
+- Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 5–8 and the Code Style appendix [@gentzkow2014code].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Make the project understandable to others
+
+A collaborator needs to know:
+
+- What identifies an observation.
+- What each transformation does.
+- How tasks and changes are coordinated.
+- How to reproduce the result.
+
+Version control supports this work; it does not replace a clear design.
+
+## Keys define the observations
+
+A **key** is a field or combination of fields that uniquely identifies a row.
+
+| county_id | year | population |
+|:---|---:|---:|
+| 08069 | 2020 | 100 |
+| 08069 | 2021 | 105 |
+| 08123 | 2020 | 90 |
+
+Illustrative values. The key is county and year together.
+
+## Check the key before joining
+
+~~~r
+stopifnot(!anyNA(data[c("county_id", "year")]))
+stopifnot(!anyDuplicated(data[c("county_id", "year")]))
+~~~
+
+Before merging:
+
+- State the expected matching relationship.
+- Inspect unmatched keys.
+- Compare row counts before and after.
+
+Keep identifiers as text when leading zeros matter.
+
+## Exercise: find the merge problem
+
+A county-year table is joined to a county-industry-year table using county and year.
+
+- Should the row count increase?
+- What becomes the unit of observation?
+- What happens if county population is later summed?
+- How would you prevent double counting?
+
+## Abstraction: write the idea once
+
+Use a function or loop for repeated transformations.
+
+~~~r
+rate_per_1000 <- function(events, population) {
+  stopifnot(all(population > 0))
+  1000 * events / population
+}
+~~~
+
+State assumptions about missing values, units, and valid inputs.
+
+## Discussion: when does abstraction help?
+
+- When is a function clearer than repeated code?
+- When does a general solution become harder to understand?
+- What would make a function easier to check?
+- Which repeated step in your project is worth simplifying?
+
+Source: @gentzkow2014code, Section 6.
+
+## Documentation explains decisions
+
+Use names and structure to show what code does.
+
+Use comments for:
+
+- Why a choice was made.
+- A source or definition.
+- An unexpected but intentional rule.
+- A limitation a future user might miss.
+
+A codebook should define units and missing-value conventions.
+
+## A task needs an owner
+
+A useful task record contains:
+
+- A concrete deliverable.
+- One responsible person.
+- Inputs and dependencies.
+- A definition of completion.
+- A place to record decisions.
+
+What goes wrong in the reading's email exchange about robustness checks?
+
+Source: @gentzkow2014code, Section 8.
+
+## A branch for a focused change
+
+In the practice repository:
+
+~~~bash
+git switch -c clarify-codebook
+# Edit the README, then:
+git add README.md
+git commit -m "Clarify missing-value codes"
+git switch main
+git merge clarify-codebook
+~~~
+
+Use the actual default branch name if it is not `main`.
+
+## A conflict requires a decision
+
+1. Read both versions and understand their intentions.
+2. Edit the file to the agreed result.
+3. Remove conflict markers.
+4. Check the result, stage it, and complete the merge.
+
+Do not choose a version solely because it is newer.
+
+## Code style supports review
+
+- Use meaningful names.
+- Keep indentation consistent.
+- Separate distinct operations.
+- Prefer readable expressions.
+- Avoid repeated unexplained numbers.
+
+Which style rule prevents a plausible research error?
+
+Source: @gentzkow2014code, appendix.
+
+## Workshop: hand off the project
+
+Ask a partner to identify:
+
+1. The key in one dataset.
+2. How to reproduce one output.
+3. Where a variable is defined.
+4. Who owns an unfinished task.
+5. Why the most recent change was made.
+
+Record the first point where they need your help.
+
+## Before you leave
+
+Fix one obstacle revealed by the handoff. Make a commit explaining the improvement.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

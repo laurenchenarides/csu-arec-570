@@ -1,0 +1,223 @@
+---
+title: "Lecture 4.1: Conceptual Framework and Theory"
+subtitle: "AREC 570 / ECON 530 · Unit 4"
+author: "Lauren Chenarides"
+lecture: "4.1"
+order: 401
+description: "Build a model, derive hypotheses, and discuss proof and mathiness."
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+---
+
+## Before class
+
+- Cheng, *How to Write Proofs: A Quick Guide* [@cheng2004proofs].
+- Ethridge, Chapter 8, “The Conceptual Framework” [@ethridge2004chapter8].
+- Romer, “Mathiness in the Theory of Economic Growth” [@romer2015mathiness].
+- Varian, *How to Build an Economic Model in Your Spare Time*, course PDF pp. 4–6 [@varian1997model].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## What should a framework accomplish?
+
+- Explain why the research question has an economic mechanism.
+- Identify the people making choices and the constraints they face.
+- Derive a prediction that could be contradicted by evidence.
+- Connect the model to the variables we can observe.
+
+::: notes
+Adapted from Unit 4, slides 3–6. Ask students to describe their mechanism before naming an estimator.
+:::
+
+## A model is a deliberate simplification
+
+A useful model leaves things out. The question is whether it leaves out something essential to the argument.
+
+- Which details are necessary for the mechanism?
+- Which assumptions make the analysis manageable?
+- Which conclusions would change if an assumption failed?
+
+A regression coefficient alone does not explain a causal mechanism.
+
+## From a problem to a model
+
+Following Ethridge:
+
+1. Locate the problem in the literature.
+2. Strip it down to the relevant choices and constraints.
+3. Start with a simple theoretical structure.
+4. Add the features needed for this question.
+5. Derive hypotheses and identify the evidence needed to assess them.
+
+Source: @ethridge2004chapter8.
+
+## Ask Varian's questions
+
+- Who makes the choices?
+- What do these agents want?
+- How do they interact?
+- What constraints do they face?
+- What adjusts when their choices are inconsistent?
+
+**Discussion:** Which answer is least clear in your proposed project?
+
+Source: @varian1997model, assigned pp. 4–6.
+
+## Example: irrigation under a water price
+
+**Illustrative classroom model:** A farmer chooses water use $w$.
+
+$$
+\max_{w\geq 0}\; p f(w)-cw
+$$
+
+- $p>0$: output price.
+- $c>0$: price per unit of water.
+- $f(w)$: production, with $f'(w)>0$ and $f''(w)<0$.
+
+For an interior optimum, $pf'(w^*)=c$.
+
+## Derive the prediction
+
+Differentiating the first-order condition gives
+
+$$
+p f''(w^*)\frac{dw^*}{dc}=1
+\quad\Rightarrow\quad
+\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}<0.
+$$
+
+**Conditional prediction:** Higher water prices reduce optimal water use.
+
+Which assumptions make the sign follow? What changes if water use is fixed by a binding quota?
+
+::: notes
+New classroom example. Hold output price, technology, and other inputs fixed. The derivative assumes a differentiable, strictly concave production function and an interior solution.
+:::
+
+## Discussion: Ethridge and Varian
+
+- How does simplifying a problem help us understand it?
+- At what point does simplification remove the mechanism we care about?
+- Would the irrigation model answer a question about farm income, water use, or both?
+- What additional structure would an income question require?
+
+Bring one assumption from your own project into the discussion.
+
+## Cheng: discovery and exposition
+
+Finding an argument and presenting it are different tasks.
+
+A readable proof states:
+
+1. Definitions and assumptions.
+2. A sequence of justified steps.
+3. The conclusion that those steps establish.
+
+Source: @cheng2004proofs.
+
+## Discussion: find the missing step
+
+A student writes:
+
+> Water becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.
+
+- Which part describes a choice? Which part is a prediction?
+- Could adoption change irrigated acreage or crop choice?
+- What assumptions are needed to conclude that total water use falls?
+- Rewrite the argument so each conclusion follows from a stated premise.
+
+::: notes
+New exercise applying Cheng's guidance. This is a hypothetical claim to diagnose, not a claim about observed irrigation outcomes.
+:::
+
+## What Romer calls mathiness
+
+Romer challenges arguments in which the connection between formal symbols, verbal claims, and economic meaning becomes unclear.
+
+- Do the terms mean the same thing throughout the argument?
+- Does the mathematical result support the verbal conclusion?
+- Can the assumptions and derivation be checked?
+
+Source: @romer2015mathiness.
+
+## Discussion: evaluate Romer's argument
+
+- What specific example does Romer use to support his criticism?
+- How does he distinguish mathematical theory from mathiness?
+- Which claims concern the models, and which concern incentives in the profession?
+- What evidence would make you revise your assessment of his argument?
+
+Support your answer with a passage from the reading.
+
+::: notes
+The source deck frames several contested interpretations as conclusions. This discussion asks students to assess those interpretations against the paper.
+:::
+
+## A check against our own biases
+
+- Am I choosing assumptions because they clarify the problem or deliver a preferred result?
+- Have I separated a model implication from an empirical claim?
+- Would I accept the same argument if its conclusion were inconvenient?
+- What criticism would improve the framework?
+
+## Listen for the implicit model
+
+At a seminar, identify:
+
+- The agents and their incentives.
+- The mechanism linking the explanatory variable to the outcome.
+- The assumptions connecting the evidence to that mechanism.
+
+Then ask a question about a specific missing link.
+
+## Workshop: your framework
+
+Write a short account of your project:
+
+1. Research question.
+2. Agents, choices, and constraints.
+3. Mechanism.
+4. Testable prediction.
+5. One assumption that could fail.
+
+Exchange with a partner. Mark the step that needs the most explanation.
+
+## Before you leave
+
+Complete both sentences:
+
+- “My model predicts ___ because ___.”
+- “That prediction depends on ___.”
+
+Next: turn the framework into a clear written argument.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

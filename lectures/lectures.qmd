@@ -1,23 +1,27 @@
 ---
 title: "Lectures"
+description: "Class-meeting slides for Units 4–7."
+format: html
 page-layout: full
-css: custom.css
 listing:
-
-- id: lectures
-  contents: lecture*.qmd
-  sort: "date asc"
-  type: grid
-  categories: false
+  id: lectures
+  contents:
+    - "lecture*.qmd"
+  sort: "order asc"
+  type: table
+  fields: [title, description]
+  field-display-names:
+    title: Lecture
+    description: Focus
   sort-ui: false
   filter-ui: false
-  feed: false
-  fields: [image, date, title, author]
-
-#page-layout: full
 page-navigation: false
 title-block-banner: false
 repo-actions: false
 ---
+
+Slides are organized by unit and class meeting. For example, **4.1** is the first meeting of Unit 4.
+
+See the [schedule](../2026/schedule.qmd) for meeting dates and preparation. Readings and handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 
 

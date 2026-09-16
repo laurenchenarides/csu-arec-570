@@ -1,44 +1,51 @@
 ---
-title: Fall 2026 Course Schedule
+title: Fall 2026 Course Schedule and Readings
 page-layout: full
+toc: false
 repo-actions: false
 ---
 
-| Week | Date  | Day | Unit | Faculty       | Topic                                                       |
-|------|-------|-----|------|---------------|-------------------------------------------------------------|
-| 1    | 8/25  | T   |      | Amanda        | Class Intro + Syllabus                                      |
-| 1    | 8/27  | R   | 1    | Amanda        | What is Economic Research & the Scientific Approach         |
-| 2    | 9/1   | T   | 1    | Amanda        | Methodological Foundations                                  |
-| 2    | 9/3   | R   | 1    | Amanda        | Methodological Foundations                                  |
-| 3    | 9/8   | T   | 2    | Amanda        | Defining a Research Problem/Question                        |
-| 3    | 9/10  | R   | 2    | Amanda        | Finding an Idea                                             |
-| 4    | 9/15  | T   | 2    | Amanda        | Planning the Research Project                               |
-| 4    | 9/17  | R   | 2    | Amanda        | 2-Minute Research Idea Pitch                                |
-| 5    | 9/22  | T   | 3    | Amanda        | Evaluate Pitch Presentations                                |
-| 5    | 9/24  | R   | 3    | Amanda        | Research Efficiency: Reading and Organizing the Literature  |
-| 6    | 9/29  | T   | 3    | Amanda        | Writing the Introduction and Literature Review              |
-| 6    | 10/1  | R   | 3    | Amanda        | Literature Review/Writing Skills                            |
-| 7    | 10/6  | T   | 4    | Lauren        | Conceptual Framework (Theory)                               |
-| 7    | 10/8  | R   | 4    | Lauren        | Conceptual Framework (Theory): Reporting                    |
-| 8    | 10/13 | T   | 5    | Lauren        | Data: Collecting Data—CHAMP Survey                          |
-| 8    | 10/15 | R   | 5    | Lauren        | Data: Collecting Data via API                               |
-| 9    | 10/20 | T   | 5    | Lauren        | Data: Managing Data for Reproducibility (Git)               |
-| 9    | 10/22 | R   | 5    | Lauren        | Data: Managing Data for Reproducibility (Git)               |
-| 10   | 10/27 | T   | 5    | Lauren        | Data: Reporting                                             |
-| 10   | 10/29 | R   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
-| 11   | 11/3  | T   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
-| 11   | 11/5  | R   | 6    | Lauren        | Methods of Analysis: Econometric Models                     |
-| 12   | 11/10 | T   | 6    | Lauren        | Methods of Analysis: Qualitative and Mixed Methods          |
-| 12   | 11/12 | R   | 6    | Lauren        | Methods of Analysis: Qualitative and Mixed Methods          |
-| 13   | 11/17 | T   | 7    | Lauren        | Reviewing                                                   |
-| 13   | 11/19 | R   | 7    | Lauren        | Responses to Reviewers                                      |
-|      | 11/24 | T   |      |               | *Fall Recess*                                               |
-|      | 11/26 | R   |      |               | *Fall Recess (Thanksgiving)*                                |
-| 14   | 12/1  | T   | 8    | Amanda        | Results and Conclusions                                     |
-| 14   | 12/3  | R   | 9    | Amanda        | Research Presentation/Seminar + Ethics in Research          |
-| 15   | 12/8  | T   |      | Amanda/Lauren | 7-Minute Presentations + 5 Minutes for Questions            |
-| 15   | 12/10 | R   |      | Amanda/Lauren | 7-Minute Presentations + 5 Minutes for Questions            |
+**Preparation:** Complete each reading before the class period in which it is listed. All readings and assigned book excerpts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings). See the [course reading list](readings.qmd) for full references.
 
-: {.striped .responsive}
+**Lecture numbers** identify the unit and meeting within that unit: Lecture 4.1 is the first meeting of Unit 4, and Lecture 4.2 is the second. The course introduction, recess, and final presentations are unnumbered.
 
-Note: T—Tuesday; R—Thursday
+::: {.table-responsive}
+
+| Week | Date | Lecture | Faculty | Topic | Complete before class |
+|:----|:-----------|:------|:---------|:-------------------------|:---------------------------------------|
+| 1 | Tue., Aug. 25 | — | Amanda | Class Introduction and Syllabus | Read the [course syllabus](syllabus.qmd). |
+| 1 | Thu., Aug. 27 | 1.1 | Amanda | What Is Economic Research and the Scientific Approach? | • Greenlaw, Chapter 1, “What Is Research?”<br>• Ethridge, Chapter 2, “Research and Methodology”<br>• Kenyon, “Popper’s Philosophy of Science” |
+| 2 | Tue., Sept. 1 | 1.2 | Amanda | Methodological Foundations | • Ethridge, Chapter 3, “Methodological Concepts and Perspectives”<br>• McCloskey, “How Economists Persuade” |
+| 2 | Thu., Sept. 3 | 1.3 | Amanda | Methodological Foundations | • Ethridge, Chapter 4, “Philosophical Foundations”<br>• Larue, “A Defense of Reasonable Pluralism in Economics”<br>• Machlup, “Why Economists Disagree” |
+| 3 | Tue., Sept. 8 | 2.1 | Amanda | Defining a Research Problem or Question | • Ethridge, Chapter 6, “The Research Problem and Objectives”<br>• Greenlaw, Chapter 2, “Overview of the Research Process in Economics” |
+| 3 | Thu., Sept. 10 | 2.2 | Amanda | Finding an Idea | • Davis, “Ph.D. Thesis Research: Where Do I Start?”<br>• Dudenhefer, Sections 5–6:<br>• “Finding a Niche and Making a Contribution”<br>• “Locating and Getting a Handle on the Secondary Literature”<br>• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 1–3 of the course PDF |
+| 4 | Tue., Sept. 15 | 2.3 | Amanda | Planning the Research Project | • Ethridge, Chapter 5, “Planning the Research”<br>• &#42;Bellemare, "How to Write Applied Papers in Economics." |
+| 4 | Thu., Sept. 17 | 2.4 | Amanda | Two-Minute Research Idea Pitch | No assigned reading. Prepare your two-minute research idea pitch. |
+| 5 | Tue., Sept. 22 | 3.1 | Amanda | Evaluate Pitch Presentations | No assigned reading. Be prepared to evaluate the research idea pitches. |
+| 5 | Thu., Sept. 24 | 3.2 | Amanda | Research Efficiency: Reading and Organizing the Literature | • Gosztyla, “How to Find, Read and Organize Papers”<br>• Laubepin, “How to Read (and Understand) a Social Science Journal Article” |
+| 6 | Tue., Sept. 29 | 3.3 | Amanda | Writing the Introduction and Literature Review | • Dudenhefer, Section 18, “Writing Introductions”<br>• Dudenhefer, Section 22, “Writing Literature Reviews”<br>• Head, “The Introduction Formula” |
+| 6 | Thu., Oct. 1 | 3.4 | Amanda | Literature Review and Writing Skills | • Mankiw, “How to Write Well”<br>• David Romer, “Rules for Making It Through Graduate School and Finishing Your Dissertation: ‘Out in Five’” |
+| 7 | Tue., Oct. 6 | [4.1](../lectures/lecture4.1.qmd) | Lauren | Conceptual Framework and Theory | • Cheng, “How to Write Proofs: A Quick Guide”<br>• Ethridge, Chapter 8, “The Conceptual Framework”<br>• Paul Romer, “Mathiness in the Theory of Economic Growth”<br>• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 4–6 of the course PDF |
+| 7 | Thu., Oct. 8 | [4.2](../lectures/lecture4.2.qmd) | Lauren | Conceptual Framework and Theory: Reporting | Chouinard, “Theory Notes” |
+| 8 | Tue., Oct. 13 | [5.1](../lectures/lecture5.1.qmd) | Lauren | Data Collection: Surveys | Champ, “Collecting Nonmarket Valuation Data” |
+| 8 | Thu., Oct. 15 | [5.2](../lectures/lecture5.2.qmd) | Lauren | Data Collection via API | Dominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” |
+| 9 | Tue., Oct. 20 | [5.3](../lectures/lecture5.3.qmd) | Lauren | Managing Data for Reproducibility: Git I | Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 1–4: • Introduction<br>• Automation<br>• Version Control<br>• Directories |
+| 9 | Thu., Oct. 22 | [5.4](../lectures/lecture5.4.qmd) | Lauren | Managing Data for Reproducibility: Git II | Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 5–8 and the appendix: • Keys<br>• Abstraction<br>• Documentation<br>• Management<br>• Code Style appendix |
+| 10 | Tue., Oct. 27 | [5.5](../lectures/lecture5.5.qmd) | Lauren | Data: Reporting | No assigned reading. |
+| 10 | Thu., Oct. 29 | [6.1](../lectures/lecture6.1.qmd) | Lauren | Methods of Analysis: Econometric Models | • Angrist and Pischke, *Mostly Harmless Econometrics*, Chapters 1–3<br>• Jurajda, “Lecture Notes on Identification Strategies”<br>• Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics” |
+| 11 | Tue., Nov. 3 | [6.2](../lectures/lecture6.2.qmd) | Lauren | Methods of Analysis: Econometric Models | Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” |
+| 11 | Thu., Nov. 5 | [6.3](../lectures/lecture6.3.qmd) | Lauren | Methods of Analysis: Econometric Models | Athey and Imbens, “Machine Learning Methods That Economists Should Know About” |
+| 12 | Tue., Nov. 10 | [6.4](../lectures/lecture6.4.qmd) | Lauren | Methods of Analysis: Qualitative and Mixed Methods | • Falk and Heckman, “Lab Experiments Are a Major Source of Knowledge in the Social Sciences”<br>• Starr, “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future” |
+| 12 | Thu., Nov. 12 | [6.5](../lectures/lecture6.5.qmd) | Lauren | Methods of Analysis: Evaluating Empirical Evidence | • Gibson, “Are You Estimating the Right Thing? An Editor Reflects”<br>• Kim, “Tackling False Positives in Business Research: A Statistical Toolbox with Applications” |
+| 13 | Tue., Nov. 17 | [7.1](../lectures/lecture7.1.qmd) | Lauren | Reviewing | • Agricultural and Applied Economics Association, *AJAE Refereeing Criteria*<br>• Berk, Harvey, and Hirshleifer, “Preparing a Referee Report: Guidelines and Perspectives”<br>• Ethridge, Appendix D, “Guidelines for Critiquing Papers”<br>• U.S. Environmental Protection Agency, “Peer Review Process, Evaluation Criteria and Rating Classifications” |
+| 13 | Thu., Nov. 19 | [7.2](../lectures/lecture7.2.qmd) | Lauren | Responding to Reviewers | • Boonpramote, “Writing for Economics Journals: Elements of Publication Success”<br>• Choi, “Rejection and Revision”<br>• Fryer, “A Response to Steven Durlauf and James Heckman” |
+| — | Tue., Nov. 24 | — | — | Thanksgiving Recess | No class. No assigned reading. |
+| — | Thu., Nov. 26 | — | — | Thanksgiving Recess | No class. No assigned reading. |
+| 14 | Tue., Dec. 1 | 8.1 | Amanda | Results and Conclusions | • Bellemare, “The Conclusion Formula”<br>• Bellemare, Chapter 2, “Writing Papers”<br>• Dudenhefer, Section 17e, “Reporting and Interpreting Your Results”<br>• Dudenhefer, Section 19, “Writing the Conclusion” |
+| 14 | Thu., Dec. 3 | 9.1 | Amanda | Research Presentations, Seminars, and Ethics in Research | • Jackson, “Notes on Presenting a Paper”<br>• Shapiro, “How to Give an Applied Micro Talk: Unauthoritative Notes”<br>• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 7–end of the course PDF |
+| 15 | Tue., Dec. 8 | — | Amanda and Lauren | Seven-Minute Presentations and Questions | No assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions. |
+| 15 | Thu., Dec. 10 | — | Amanda and Lauren | Seven-Minute Presentations and Questions | No assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions. |
+
+: Fall 2026 class meetings and preparation. {.striped .hover}
+
+:::

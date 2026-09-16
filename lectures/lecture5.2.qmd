@@ -1,0 +1,196 @@
+---
+title: "Lecture 5.2: Data Collection via API"
+subtitle: "AREC 570 / ECON 530 · Unit 5"
+author: "Lauren Chenarides"
+lecture: "5.2"
+order: 502
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Plan reproducible retrieval and weigh data quantity against quality."
+---
+
+## Before class
+
+- Dominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” [@dominitz2017data].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## What is an API?
+
+An application programming interface provides a defined way for one program to request information from another.
+
+A data request typically specifies:
+
+- Dataset and period.
+- Variables.
+- Geography or other filters.
+- Authentication, when required.
+
+The response must still be interpreted and validated.
+
+## A reproducible retrieval workflow
+
+1. Read the dataset documentation.
+2. Specify a small request.
+3. Save the raw response.
+4. Check the schema, units, and codes.
+5. Transform into an analysis-ready table.
+6. Record the request and retrieval date.
+
+## Sources in the original slides
+
+- USDA NASS: agricultural statistics.
+- CropScape: spatial crop information.
+- Census data through tools such as tidycensus.
+- BLS: labor statistics.
+
+Inspect the documentation for the dataset and access method you intend to use.
+
+## The course ZBP example
+
+The supplied notebook retrieves Census ZIP Business Patterns data by industry and year.
+
+Trace the workflow:
+
+- Select variables, years, and industry codes.
+- Construct requests and save responses.
+- Convert responses into tables.
+- Save cleaned files.
+
+The notebook, API instructions, and classification mapping are on Canvas.
+
+::: notes
+The notebook is a historical teaching example. Review file paths, credentials, endpoint, variables, and classification mapping before a live run. Do not display or copy stored credentials.
+:::
+
+## A successful request is not a valid dataset
+
+- Does each row describe a business, ZIP code, or ZIP-by-industry cell?
+- Are quantities counts, rates, or monetary values?
+- Are zeros distinguishable from suppressed or missing observations?
+- Are industry definitions comparable across years?
+- Are identifiers preserved as text where leading zeros matter?
+
+## Inspect a small response first
+
+Illustrative response:
+
+~~~json
+[
+  ["area_id", "year", "establishments"],
+  ["00123", "2020", "18"],
+  ["00124", "2020", null]
+]
+~~~
+
+Keep the identifier as text. Identify missing-value conventions before converting counts. A missing value is not automatically zero.
+
+## Record the retrieval
+
+- Dataset name and version, if provided.
+- Query parameters and variable definitions.
+- Retrieval date.
+- Geography and classification vintage.
+- Raw file location.
+- Transformations and validation checks.
+
+Store credentials separately from shared code.
+
+## When bulk downloads are better
+
+A bulk file may be preferable when:
+
+- You need most of a dataset.
+- Repeated requests are slow or restricted.
+- A fixed release is easier to archive and reproduce.
+
+Choose an access method that gives a reliable, documented snapshot.
+
+## Dominitz and Manski: the decision problem
+
+With a fixed budget, compare collection methods that differ in cost and information quality.
+
+The paper studies less expensive methods with:
+
+- Nonresponse, or
+- Coarser interval measurements.
+
+More observations do not automatically remove incomplete information.
+
+Source: @dominitz2017data.
+
+## Discussion: what does “better” mean?
+
+- What decision will the data inform?
+- What makes one sampling process more informative?
+- How does the paper separate finite-sample uncertainty from partial identification?
+- Why does the best allocation depend on the loss associated with a wrong decision?
+
+Explain minimax regret in words.
+
+## Exercise: allocate a budget
+
+**Hypothetical choices:** A budget of $6,000 buys:
+
+- 3,000 low-cost responses at $2 each, with incomplete outcome information, or
+- 600 complete interviews at $10 each.
+
+You may combine the methods.
+
+What else must you know before choosing?
+
+::: notes
+New illustration, not a result from the paper. Elicit the target outcome, missingness, information bounds, costs, and decision criterion.
+:::
+
+## Connect the reading to APIs
+
+API access can lower retrieval costs without improving the measurements.
+
+If an API makes ten additional years available, what must be checked before treating those years as comparable evidence?
+
+Consider definitions, coverage, suppression, and collection procedures.
+
+## Workshop: retrieval specification
+
+For your project, write:
+
+1. Dataset and source.
+2. Requested observations and variables.
+3. Raw-data archive plan.
+4. Two validation checks.
+5. One limitation additional observations will not solve.
+
+## Before you leave
+
+Explain the difference between downloading data successfully and obtaining data that can answer your question.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

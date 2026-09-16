@@ -2,19 +2,20 @@
   {
     "listing": "/lectures/lectures.html",
     "items": [
-      "/lectures/lecture1.html",
-      "/lectures/lecture2.html",
-      "/lectures/lecture3.html",
-      "/lectures/lecture4.html",
-      "/lectures/lecture5.html",
-      "/lectures/lecture6.html",
-      "/lectures/lecture7.html",
-      "/lectures/lecture8.html",
-      "/lectures/lecture9.html",
-      "/lectures/lecture10.html",
-      "/lectures/lecture11.html",
-      "/lectures/lecture12.html",
-      "/lectures/lecture13.html"
+      "/lectures/lecture4.1.html",
+      "/lectures/lecture4.2.html",
+      "/lectures/lecture5.1.html",
+      "/lectures/lecture5.2.html",
+      "/lectures/lecture5.3.html",
+      "/lectures/lecture5.4.html",
+      "/lectures/lecture5.5.html",
+      "/lectures/lecture6.1.html",
+      "/lectures/lecture6.2.html",
+      "/lectures/lecture6.3.html",
+      "/lectures/lecture6.4.html",
+      "/lectures/lecture6.5.html",
+      "/lectures/lecture7.1.html",
+      "/lectures/lecture7.2.html"
     ]
   }
 ]
