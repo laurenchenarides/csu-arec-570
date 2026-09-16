@@ -1,0 +1,173 @@
+---
+title: "Lecture 4.2: Reporting the Conceptual Framework"
+subtitle: "AREC 570 / ECON 530 · Unit 4"
+author: "Lauren Chenarides"
+lecture: "4.2"
+order: 402
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Write theory clearly and connect hypotheses to identification."
+---
+
+## Before class
+
+- Chouinard, *Theory Notes* [@chouinard2015theory].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Today's task
+
+Turn an economic mechanism into a section a reader can follow.
+
+- State the role of theory in the paper.
+- Define the model's elements before combining them.
+- Derive and interpret the relevant prediction.
+- Explain the bridge from theory to empirical evidence.
+
+## Theory in theoretical and empirical papers
+
+| Theoretical contribution | Empirical contribution |
+|:---|:---|
+| Develop or modify a model | Explain the mechanism behind the empirical question |
+| Establish analytical results | Derive the hypotheses to be evaluated |
+| Show what changes relative to existing theory | Connect theoretical concepts to measured variables |
+
+Both require explicit assumptions and a coherent argument.
+
+Source: @chouinard2015theory.
+
+## Build the argument in order
+
+1. Explain the relationship to existing theory.
+2. Define agents, choices, and the feasible set.
+3. State assumptions.
+4. Present the objective or relevant relationships.
+5. Explain the derivation.
+6. Interpret the result and connect it to the question.
+
+Avoid making readers infer a missing step.
+
+## Definitions, assumptions, and results
+
+- A **definition** tells readers what a term means.
+- An **assumption** specifies what the argument takes as given.
+- A **proposition** states a result established from those premises.
+- A **corollary** follows from an established result.
+
+Labeling a claim “Proposition” does not establish it.
+
+Source: @chouinard2015theory.
+
+## Make equations readable
+
+- Introduce each symbol.
+- State the domain and units when relevant.
+- Explain what changes and what stays fixed.
+- Follow a mathematical result with its economic interpretation.
+- Put lengthy derivations in an appendix when they interrupt the argument.
+
+## Discussion: Chouinard's advice
+
+- Which guidance applies equally to theoretical and empirical papers?
+- When should a familiar model be summarized rather than derived?
+- What does a reader need before seeing the first equation?
+- Choose one recommendation and explain how it would improve your draft.
+
+## From a prediction to a measurement
+
+Return to the irrigation example.
+
+| Model concept | Possible empirical measure | Question to resolve |
+|:---|:---|:---|
+| Water price | Marginal charge per unit | Is there a fixed fee or tiered rate? |
+| Water use | Metered withdrawals | Do withdrawals equal crop consumption? |
+| Technology | Irrigation system | Can adoption change with the price? |
+
+A theoretical variable and its proxy are rarely interchangeable without explanation.
+
+## Identification asks a different question
+
+The framework explains **why** a relationship might exist.
+
+Identification asks **what evidence distinguishes that relationship from competing explanations**.
+
+For water prices and use:
+
+- Do more water-scarce places set higher prices?
+- Do weather and prices move together?
+- Do farmers select into different pricing arrangements?
+
+## Common threats
+
+- **Omitted variables:** another factor affects both the explanatory variable and outcome.
+- **Reverse causality:** the outcome helps determine the explanatory variable.
+- **Selection:** compared groups differ for reasons related to the outcome.
+
+Naming a regression method does not resolve these threats.
+
+## An identification example from the source slides
+
+The slides discuss airport pollution and health:
+
+- Nearby exposure varies with location, wind, and airport activity.
+- Local weather may affect both pollution and health.
+- Congestion elsewhere in the airport network is proposed as another source of variation.
+
+**Discussion:** What would have to be true for distant congestion to be useful for identification?
+
+::: notes
+Adapted from Unit 4, slide 27, which discusses Schlenker and Walker. Use as an identification exercise; the questions do not establish that the required assumptions hold.
+:::
+
+## Workshop: write the bridge
+
+Draft one paragraph with this structure:
+
+1. “The model predicts …”
+2. “We measure this concept using …”
+3. “We use variation in …”
+4. “Interpreting this variation causally requires …”
+5. “The main competing explanation is …”
+
+## Peer review: can you reconstruct the argument?
+
+Read a partner's paragraph without additional explanation.
+
+- Underline the prediction.
+- Circle the assumption carrying the causal interpretation.
+- Identify one undefined concept.
+- Suggest one revision that makes the logic easier to follow.
+
+## Before you leave
+
+Identify one change to your framework and one piece of evidence you need before selecting an empirical strategy.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

@@ -1,0 +1,187 @@
+---
+title: "Lecture 6.2: Causality and Policy Evaluation"
+subtitle: "AREC 570 / ECON 530 · Unit 6"
+author: "Lauren Chenarides"
+lecture: "6.2"
+order: 602
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Assess RD, difference-in-differences, synthetic controls, and credibility checks."
+---
+
+## Before class
+
+- Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” [@athey2017state].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Separate the target from the tool
+
+- **Estimand:** the quantity we want to learn.
+- **Estimator:** the rule used to estimate it from data.
+- **Estimate:** the numerical result in our sample.
+
+Example: an average treatment effect, a difference-in-means estimator, and its estimated value.
+
+## What creates a credible comparison?
+
+For every design, ask:
+
+1. Who is compared with whom?
+2. What creates the difference in treatment?
+3. What must be true of the untreated counterfactual?
+4. To which population does the result apply?
+
+Source: @athey2017state.
+
+## Regression discontinuity
+
+Treatment changes at a threshold in a running variable.
+
+- Compare observations close to the cutoff.
+- Ask whether other determinants of the outcome change smoothly.
+- Check for manipulation and other policies at the same threshold.
+- Interpret the effect locally.
+
+## Sharp and fuzzy designs
+
+- **Sharp RD:** treatment status changes deterministically at the threshold.
+- **Fuzzy RD:** the probability of treatment changes.
+
+In a fuzzy design, divide the outcome discontinuity by the treatment discontinuity, with additional assumptions for a local causal interpretation.
+
+A weak treatment discontinuity makes inference difficult.
+
+## Discussion: summer school
+
+The source example assigns summer school using a test-score threshold.
+
+- Identify the running variable, cutoff, treatment, and outcome.
+- Why compare students close to the cutoff?
+- Could students or schools influence their position?
+- What would limit generalization to all students?
+
+## Difference-in-differences
+
+$$
+\hat\tau =
+(\bar Y_{T,\mathrm{post}}-\bar Y_{T,\mathrm{pre}})
+-
+(\bar Y_{C,\mathrm{post}}-\bar Y_{C,\mathrm{pre}})
+$$
+
+The comparison group supplies a counterfactual change.
+
+The key assumption concerns **parallel untreated trends**, not identical outcome levels.
+
+## Assess the DiD argument
+
+- Why should untreated trends be comparable?
+- Are there anticipatory responses?
+- Did another policy change at the same time?
+- Did group composition change?
+- Could treatment spill over to the comparison group?
+
+Similar pre-trends are useful evidence, not proof of the identifying assumption.
+
+## Synthetic control
+
+Construct a weighted comparison from untreated units.
+
+- Choose weights using pre-intervention information.
+- Assess pre-intervention fit.
+- Examine the post-intervention gap.
+- Investigate donor contamination and sensitivity.
+
+A close pre-treatment fit does not by itself establish causality.
+
+## Discussion: choose a design
+
+A policy begins in one region, with several years of data before and after.
+
+- What would support DiD?
+- What would make synthetic control attractive?
+- Would a threshold design be available?
+- Which additional institutional information do you need?
+
+Do not select a method only because software can estimate it.
+
+## Placebos probe specific threats
+
+A placebo asks whether the design finds an effect where the proposed mechanism predicts none.
+
+Examples:
+
+- A false treatment date before the intervention.
+- An outcome that should not respond.
+- Predetermined characteristics at an RD cutoff.
+
+Explain why each placebo is informative.
+
+::: notes
+Preserves the lottery example from source slide 38: compare large and small prize winners, then ask whether future winnings predict pre-treatment earnings. For RD, examine discontinuities in predetermined covariates rather than requiring unconditional independence from treatment.
+:::
+
+## Robustness and sensitivity
+
+Change a justified modeling or design choice and explain what that change tests.
+
+- Alternative bandwidth.
+- Alternative comparison group.
+- Alternative measurement.
+- Alternative functional form.
+
+Report informative disagreements. Avoid searching for a specification that preserves a preferred result.
+
+## Discussion: the reading's credibility checks
+
+Choose one recommendation from Athey and Imbens.
+
+- Which identifying assumption does it probe?
+- What result would reduce your confidence?
+- What can the check not establish?
+- How would you report a failure?
+
+## Workshop: a credibility checklist
+
+For your design, propose:
+
+1. One placebo.
+2. One sensitivity analysis.
+3. One external-validity limitation.
+
+State the threat each item addresses.
+
+## Before you leave
+
+Describe a result that would make you abandon or substantially revise your preferred design.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

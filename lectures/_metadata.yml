@@ -1,0 +1,6 @@
+bibliography: ../readings.bib
+execute:
+  eval: false
+  echo: true
+toc: false
+repo-actions: false

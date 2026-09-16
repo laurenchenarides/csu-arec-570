@@ -1,0 +1,189 @@
+---
+title: "Lecture 7.1: Reviewing Research"
+subtitle: "AREC 570 / ECON 530 · Unit 7"
+author: "Lauren Chenarides"
+lecture: "7.1"
+order: 701
+format:
+  revealjs:
+    theme: white
+    width: 1280
+    height: 720
+    margin: 0.08
+    center: false
+    slide-number: c/t
+    transition: none
+    navigation-mode: linear
+    controls: true
+    progress: true
+    scrollable: true
+    auto-stretch: false
+    code-overflow: wrap
+    css: lecture-slides.css
+    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    link-external-newwindow: true
+    pdf-separate-fragments: false
+    citations-hover: true
+    html-math-method: mathml
+description: "Evaluate contribution, credibility, and clarity; write actionable referee comments."
+---
+
+## Before class
+
+- Agricultural and Applied Economics Association, *AJAE Refereeing Criteria* [@aaea2013refereeing].
+- Berk, Harvey, and Hirshleifer, “Preparing a Referee Report: Guidelines and Perspectives” [@berk2015referee].
+- Ethridge, Appendix D, “Guidelines for Critiquing Papers” [@ethridge2004appendixd].
+- U.S. EPA, *Peer Review Process, Evaluation Criteria and Rating Classifications* [@epa2016evaluation].
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## The reviewer's job
+
+Help the editor assess the paper and help the author understand its strengths and weaknesses.
+
+- Identify the contribution.
+- Assess the evidence and reasoning.
+- Distinguish essential revisions from optional improvements.
+- Explain the recommendation.
+
+## Where the report fits
+
+A typical sequence:
+
+1. Submission and editorial screening.
+2. Invitation to reviewers.
+3. Reports and editorial decision.
+4. Revision, rejection, or acceptance.
+
+Procedures vary by journal. Follow the instructions for the specific review.
+
+## Evaluate the paper in front of you
+
+- Engage with its question and intended contribution.
+- Do not require the author to write your preferred different paper.
+- Explain problems rather than merely declaring them.
+- Be direct and constructive.
+
+Source: @berk2015referee.
+
+## AJAE: several dimensions of merit
+
+The assigned criteria address:
+
+- Contribution and originality.
+- Scholarship and analysis.
+- Appeal to the readership.
+- Appropriate illustrations and length.
+
+A report should explain how the paper meets or falls short of relevant criteria.
+
+Source: @aaea2013refereeing.
+
+## Ethridge: follow the argument
+
+- Is the objective clear?
+- Does the sequence of ideas lead toward it?
+- Does the organization help the reader?
+- Are important terms precise and consistent?
+- Which general problem matters more than sentence-level edits?
+
+Source: @ethridge2004appendixd.
+
+## Discussion: identify the binding weakness
+
+A paper has a clear question, polished prose, and precise estimates, but its comparison group is exposed to the treatment.
+
+- Which review criterion is affected?
+- Why does the concern matter?
+- What evidence or revision could address it?
+- When would this be fatal to the paper's main claim?
+
+Hypothetical review exercise.
+
+## Structure a referee report
+
+1. Brief summary of question, method, and main contribution.
+2. Overall assessment.
+3. Major comments, ordered by importance.
+4. Specific comments with locations.
+5. Recommendation communicated as the journal requests.
+
+A summary demonstrates understanding; it should not dominate the report.
+
+## Make a major comment actionable
+
+A strong comment contains:
+
+- **Concern:** what is wrong or unclear?
+- **Consequence:** how does it affect the conclusion?
+- **Remedy:** what analysis or explanation could resolve it?
+- **Priority:** is it essential?
+
+Avoid an unexplained list of preferred robustness checks.
+
+## Exercise: revise a weak comment
+
+> The empirical strategy is unconvincing. Add more controls.
+
+Rewrite it to identify:
+
+- The potential confounder.
+- Why it threatens the interpretation.
+- A feasible diagnostic or revision.
+- What remains uncertain even after that revision.
+
+## Discussion: Berk, Harvey, and Hirshleifer
+
+- How can a reviewer distinguish an essential change from an optional suggestion?
+- What makes a recommendation useful to an editor?
+- Why can unnecessary revision requests slow scientific progress?
+- How should a reviewer handle limits to their own expertise?
+
+## Research proposal review: the EPA example
+
+The assigned historical criteria include:
+
+- Research merit.
+- Responsiveness to the funding call.
+- Project management.
+- Other factors such as innovation and engagement.
+
+A promising idea must also be feasible and appropriate for the call.
+
+Source: @epa2016evaluation, the assigned 2016 document.
+
+## Discussion: journal versus proposal review
+
+Compare the AJAE and EPA criteria.
+
+- Which standards overlap?
+- Which apply mainly to work not yet completed?
+- How should uncertainty about feasibility affect a proposal review?
+- How would you revise your proposal after this comparison?
+
+## Workshop: a short referee report
+
+Review a partner's proposal or a selected course paper.
+
+Write:
+
+1. A two-sentence summary.
+2. Its strongest contribution.
+3. One major concern with a feasible remedy.
+4. One specific clarification.
+5. A reasoned overall assessment.
+
+## Before you leave
+
+Check that your most important criticism explains both why it matters and what the author could do about it.
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+## Course navigation
+
+- [All lectures](lectures.qmd)
+- [Schedule and preparation](../2026/schedule.qmd)
+- [Course reading list](../2026/readings.qmd)

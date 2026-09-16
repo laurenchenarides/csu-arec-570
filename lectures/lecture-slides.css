@@ -1,0 +1,36 @@
+.reveal {
+  font-size: 30px;
+  color: #24332c;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: #1e4d2b;
+  text-transform: none;
+}
+
+.reveal h1 { font-size: 1.7em; }
+.reveal h2 { font-size: 1.3em; }
+.reveal h3 { font-size: 1.1em; }
+.reveal .subtitle { font-size: 0.85em; }
+.reveal li { margin-bottom: 0.35em; }
+.reveal a { color: #236b4b; }
+.reveal blockquote {
+  width: 92%;
+  box-shadow: none;
+  border-left: 5px solid #c8a951;
+  padding: 0.3em 0.8em;
+  font-style: normal;
+  background: #f5f7f4;
+}
+.reveal table { font-size: 0.82em; }
+.reveal table th { border-bottom: 2px solid #1e4d2b; }
+.reveal table td,
+.reveal table th { padding: 0.35em 0.55em; }
+.reveal pre { font-size: 0.65em; box-shadow: none; }
+.reveal img { object-fit: contain; max-width: 100%; }
+.reveal .slide figure { margin: 0.25em auto; }
+.reveal .slide figure > figcaption { font-size: 0.55em; }
+.reveal .footer { font-size: 14px; color: #59675e; }
+.reveal #refs { font-size: 0.7em; }
