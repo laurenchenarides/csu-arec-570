@@ -149,7 +149,7 @@
     }
   </style>
 <meta property="og:title" content="Lecture 4.1: Conceptual Framework and Theory – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Build a model, derive hypotheses, and discuss proof and mathiness.">
+<meta property="og:description" content="Construct a conceptual framework, derive comparative statics, and evaluate formal economic claims.">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -169,26 +169,20 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
-<h2>Before class</h2>
-<ul>
-<li>Cheng, <em>How to Write Proofs: A Quick Guide</em> <span class="citation" data-cites="cheng2004proofs">(<a href="#/references" role="doc-biblioref" onclick="">Cheng 2004</a>)</span>.</li>
-<li>Ethridge, Chapter 8, “The Conceptual Framework” <span class="citation" data-cites="ethridge2004chapter8">(<a href="#/references" role="doc-biblioref" onclick="">Ethridge 2004</a>)</span>.</li>
-<li>Romer, “Mathiness in the Theory of Economic Growth” <span class="citation" data-cites="romer2015mathiness">(<a href="#/references" role="doc-biblioref" onclick="">Romer 2015</a>)</span>.</li>
-<li>Varian, <em>How to Build an Economic Model in Your Spare Time</em>, course PDF pp.&nbsp;4–6 <span class="citation" data-cites="varian1997model">(<a href="#/references" role="doc-biblioref" onclick="">Varian 1997</a>)</span>.</li>
-</ul>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
-</section>
-<section id="what-should-a-framework-accomplish" class="slide level2">
-<h2>What should a framework accomplish?</h2>
-<ul>
-<li>Explain why the research question has an economic mechanism.</li>
-<li>Identify the people making choices and the constraints they face.</li>
-<li>Derive a prediction that could be contradicted by evidence.</li>
-<li>Connect the model to the variables we can observe.</li>
-</ul>
+<section id="make-a-prediction-will-a-new-grocery-store-improve-diets" class="slide level2 scrollable">
+<h2>Make a prediction: will a new grocery store improve diets?</h2>
+<p>A county subsidizes a full-service grocery store in a neighborhood with limited food access.</p>
+<p><strong>Choose before discussing:</strong> Relative to no store entry, average diet quality will…</p>
+<ol type="1">
+<li>Increase.</li>
+<li>Remain unchanged.</li>
+<li>Decrease.</li>
+<li>Have an indeterminate sign without additional assumptions.</li>
+</ol>
+<p><strong>Two minutes · individual → pair:</strong> Select one answer and state the mechanism and assumptions supporting it.</p>
 <aside class="notes">
-<p>Adapted from Unit 4, slides 3–6. Ask students to describe their mechanism before naming an estimator.</p>
+<p>Run this as a commitment exercise. Ask for a show of hands or use a quick poll, but do not resolve it yet. Give students 30 seconds to choose and write, then 60 seconds to compare with a neighbor. Ask two pairs with different answers to share their reasoning.</p>
+<p>Tell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -201,43 +195,255 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-model-is-a-deliberate-simplification" class="slide level2">
-<h2>A model is a deliberate simplification</h2>
-<p>A useful model leaves things out. The question is whether it leaves out something essential to the argument.</p>
+<section id="map-the-mechanism-before-choosing-a-method" class="slide level2">
+<h2>Map the mechanism before choosing a method</h2>
+<p>One possible chain is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">store entry</mtext><mo>→</mo><mtext mathvariant="normal">travel cost falls</mtext><mo>→</mo><mtext mathvariant="normal">shopping changes</mtext><mo>→</mo><mtext mathvariant="normal">diet quality changes</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\text{store entry}
+\rightarrow \text{travel cost falls}
+\rightarrow \text{shopping changes}
+\rightarrow \text{diet quality changes}.
+</annotation></semantics></math></p>
+<p>Prices, product selection, household budgets, preferences, and competing stores may alter the magnitude or sign of the relationship.</p>
+<p><strong>Four minutes · groups of three:</strong> Extend the proposed mechanism with:</p>
 <ul>
-<li>Which details are necessary for the mechanism?</li>
-<li>Which assumptions make the analysis manageable?</li>
-<li>Which conclusions would change if an assumption failed?</li>
+<li>One pathway that would increase diet quality.</li>
+<li>One pathway that would offset or reverse that change.</li>
+<li>One variable needed to distinguish those explanations.</li>
 </ul>
-<p>A regression coefficient alone does not explain a causal mechanism.</p>
+<aside class="notes">
+<p>Require each group to produce three items, then ask one group for each. Possible responses include prices, product mix, shopping frequency, substitution away from other stores, household budgets, preferences, time constraints, and changes by income or vehicle access.</p>
+<p>Debrief: the store opening is observable, but the behavioral links are explanations that require evidence. Those links determine what to measure and how to interpret an estimated effect.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="from-a-problem-to-a-model" class="slide level2 scrollable">
-<h2>From a problem to a model</h2>
-<p>Following Ethridge:</p>
+<section id="should-the-study-introduce-a-conceptual-framework" class="slide level2">
+<h2>Should the study introduce a conceptual framework?</h2>
+<p>For each task, choose <strong>introduce one</strong> or <strong>do not introduce one</strong>:</p>
+<p>A. Estimate whether a grocery subsidy improves diet quality and explain for whom.</p>
+<p>B. Report how many households live more than five miles from a grocery store.</p>
+<p>C. Predict which households will redeem a coupon using out-of-sample accuracy.</p>
+<p>D. Audit whether store-location records contain missing coordinates.</p>
+<p><strong>Three minutes · pairs:</strong> Classify all four. For one case, state what a conceptual framework would add to the analysis.</p>
+<aside class="notes">
+<p>Suggested debrief: introduce a conceptual framework for A because the study proposes a causal relationship, heterogeneous effects, and an economic mechanism. Do not introduce one for B–D as the tasks are currently stated. They still require precise definitions, scope, and appropriate methods. For C, introduce a conceptual framework if the research objective changes from predicting redemption to explaining why redemption changes.</p>
+<p>Decision rule: introduce a conceptual framework when it is needed to specify the mechanism, derive hypotheses, select relevant measures, or interpret the findings.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="functions-of-a-conceptual-framework" class="slide level2">
+<h2>Functions of a conceptual framework</h2>
+<ul>
+<li>Explain why the research question has an economic mechanism.</li>
+<li>Identify the people making choices and the constraints they face.</li>
+<li>Derive a prediction that could be contradicted by evidence.</li>
+<li>Connect the model to the variables we can observe.</li>
+</ul>
+<p><strong>Return to Cases A–D:</strong> Which functions apply to each task?</p>
+<aside class="notes">
+<p>Ask students to describe the mechanism before naming an estimator. A framework is warranted when it changes a decision about the question, measures, design, or interpretation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reading-synthesis-methodological-implications" class="slide level2">
+<h2>Reading synthesis: methodological implications</h2>
+<p><strong>Eight minutes · groups of three or four</strong></p>
+<p>Your group will be assigned one reading:</p>
+<ul>
+<li><strong>Ethridge:</strong> How should a conceptual framework be organized?</li>
+<li><strong>Varian:</strong> Which agents, choices, objectives, and constraints represent the research problem?</li>
+<li><strong>Cheng:</strong> Which practices make each inferential step explicit?</li>
+<li><strong>Romer:</strong> How should formal results be connected to verbal and economic claims?</li>
+</ul>
+<p>Produce <strong>one methodological principle, one supporting passage or example, and one application</strong> to the grocery-store case.</p>
+<aside class="notes">
+<p>Everyone has read all four pieces, so assign readings in class to distribute the analytical work. Require a page number, short passage, or named example. This makes the reading accountable without asking groups to summarize an entire article.</p>
+<p>After five minutes, give each group 30 seconds to report its principle and application. Record the four principles where students can see them; use them again in the claim-evaluation exercise.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="methodological-contributions-of-the-readings" class="slide level2">
+<h2>Methodological contributions of the readings</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reading</th>
+<th>Application to framework development</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ethridge</td>
+<td>Organize the problem, concepts, hypotheses, and relevant evidence.</td>
+</tr>
+<tr class="even">
+<td>Varian</td>
+<td>Identify agents, objectives, choices, constraints, and interactions.</td>
+</tr>
+<tr class="odd">
+<td>Cheng</td>
+<td>Define terms and make every inferential step explicit.</td>
+</tr>
+<tr class="even">
+<td>Romer</td>
+<td>Keep the mathematics, verbal claim, and economic meaning aligned.</td>
+</tr>
+</tbody>
+</table>
+<p>A model deliberately omits features of the setting. Assess whether those omissions alter the conclusion being derived.</p>
+<p>Sources: <span class="citation" data-cites="ethridge2004chapter8">Ethridge (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>; <span class="citation" data-cites="varian1997model">Varian (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>; <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>; <span class="citation" data-cites="romer2015mathiness">Romer (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>.</p>
+</section>
+<section id="conceptual-framework-outline" class="slide level2">
+<h2>Conceptual framework outline</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Question to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Research question</td>
+<td>What relationship or decision do I want to understand?</td>
+</tr>
+<tr class="even">
+<td>Agents and choices</td>
+<td>Who acts, and what can they choose?</td>
+</tr>
+<tr class="odd">
+<td>Objectives and constraints</td>
+<td>What do they want, and what limits them?</td>
+</tr>
+<tr class="even">
+<td>Mechanism</td>
+<td>What sequence connects the cause to the outcome?</td>
+</tr>
+<tr class="odd">
+<td>Prediction</td>
+<td>What should change, in which direction, and for whom?</td>
+</tr>
+<tr class="even">
+<td>Evidence</td>
+<td>What would support or contradict the prediction?</td>
+</tr>
+<tr class="odd">
+<td>Limiting assumption</td>
+<td>Which assumption, if relaxed, could alter the prediction?</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Ask students to keep this outline open on paper or a laptop. They will complete it in stages during the class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="checkpoint-1-draft-your-mechanism" class="slide level2 scrollable">
+<h2>Checkpoint 1: draft your mechanism</h2>
+<p><strong>Four minutes · individual work</strong></p>
+<p>Complete three fields for your own project:</p>
 <ol type="1">
-<li>Locate the problem in the literature.</li>
-<li>Strip it down to the relevant choices and constraints.</li>
-<li>Start with a simple theoretical structure.</li>
-<li>Add the features needed for this question.</li>
-<li>Derive hypotheses and identify the evidence needed to assess them.</li>
+<li>Research question.</li>
+<li>Agents and choices.</li>
+<li>Mechanism, written as a sequence of arrows.</li>
 </ol>
-<p>Source: <span class="citation" data-cites="ethridge2004chapter8">Ethridge (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>.</p>
+<p>Then underline the arrow for which the theoretical or empirical support is least developed.</p>
+<aside class="notes">
+<p>Circulate and ask: “What decision produces that arrow?” or “Could the arrow plausibly run in the opposite direction?” Students should leave this checkpoint with a specific uncertainty to investigate.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="ask-varians-questions" class="slide level2">
-<h2>Ask Varian’s questions</h2>
-<ul>
-<li>Who makes the choices?</li>
-<li>What do these agents want?</li>
-<li>How do they interact?</li>
-<li>What constraints do they face?</li>
-<li>What adjusts when their choices are inconsistent?</li>
-</ul>
-<p><strong>Discussion:</strong> Which answer is least clear in your proposed project?</p>
-<p>Source: <span class="citation" data-cites="varian1997model">Varian (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>, assigned pp.&nbsp;4–6.</p>
+<section id="predict-before-calculating-water-becomes-more-expensive" class="slide level2 scrollable">
+<h2>Predict before calculating: water becomes more expensive</h2>
+<p>A farmer chooses how much irrigation water to use. The price per unit of water rises.</p>
+<p>What happens to optimal water use?</p>
+<ol type="1">
+<li>It falls.</li>
+<li>It stays the same.</li>
+<li>It rises.</li>
+<li>The sign depends on institutional or technological constraints.</li>
+</ol>
+<p><strong>Two minutes · individual → pair:</strong> Choose an answer and state one condition under which it follows.</p>
+<aside class="notes">
+<p>Most students will choose “falls.” Accept it as intuition, then press on the conditions. “It depends” is also defensible if students identify a quota, corner solution, changing technology, crop switching, or another margin.</p>
+<p>Keep the initial answers visible. The next three slides turn the intuition into a conditional prediction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="example-irrigation-under-a-water-price" class="slide level2">
-<h2>Example: irrigation under a water price</h2>
-<p><strong>Illustrative classroom model:</strong> A farmer chooses water use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>.</p>
+<section id="build-the-irrigation-model" class="slide level2 scrollable">
+<h2>Build the irrigation model</h2>
+<p><strong>Model:</strong> A farmer chooses water use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi mathvariant="normal">max</mi><mrow><mi>w</mi><mo>≥</mo><mn>0</mn></mrow></munder><mspace width="0.278em"></mspace><mi>p</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">
 \max_{w\geq 0}\; p f(w)-cw
 </annotation></semantics></math></p>
@@ -246,20 +452,26 @@ Lauren Chenarides
 <li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">c&gt;0</annotation></semantics></math>: price per unit of water.</li>
 <li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(w)</annotation></semantics></math>: production, with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f'(w)&gt;0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f''(w)&lt;0</annotation></semantics></math>.</li>
 </ul>
-<p>For an interior optimum, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">pf'(w^*)=c</annotation></semantics></math>.</p>
-</section>
-<section id="derive-the-prediction" class="slide level2">
-<h2>Derive the prediction</h2>
-<p>Differentiating the first-order condition gives</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo>=</mo><mn>1</mn><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>&lt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
-p f''(w^*)\frac{dw^*}{dc}=1
+<div class="fragment">
+<p>Differentiate profit with respect to the choice variable <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>d</mi><mrow><mi>d</mi><mi>w</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><mi>p</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mi>w</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mo>=</mo><mn>0</mn><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{d}{dw}\left[pf(w)-cw\right]
+=pf'(w)-c=0
 \quad\Rightarrow\quad
-\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}&lt;0.
+pf'(w^*)=c.
 </annotation></semantics></math></p>
-<p><strong>Conditional prediction:</strong> Higher water prices reduce optimal water use.</p>
-<p>Which assumptions make the sign follow? What changes if water use is fixed by a binding quota?</p>
+<p>At the optimum, the <strong>marginal value of water</strong> equals its <strong>marginal cost</strong>.</p>
+</div>
 <aside class="notes">
-<p>New classroom example. Hold output price, technology, and other inputs fixed. The derivative assumes a differentiable, strictly concave production function and an interior solution.</p>
+<p>Walk through the first-order condition before doing the comparative static:</p>
+<ol type="1">
+<li>Treat <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math> as constants when differentiating with respect to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>.</li>
+<li>The derivative of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">pf(w)</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">pf'(w)</annotation></semantics></math>.</li>
+<li>The derivative of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">cw</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>.</li>
+<li>Set marginal profit equal to zero: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">pf'(w^*)-c=0</annotation></semantics></math>.</li>
+<li>The second-order condition is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">pf''(w^*)&lt;0</annotation></semantics></math>. Because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p&gt;0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f''&lt;0</annotation></semantics></math>, this is a maximum.</li>
+</ol>
+<p>Economic interpretation: use water until the value of the extra output produced by one more unit of water equals the price of that water.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -272,41 +484,166 @@ p f''(w^*)\frac{dw^*}{dc}=1
           display:block!important;
       }</style></aside>
 </section>
-<section id="discussion-ethridge-and-varian" class="slide level2">
-<h2>Discussion: Ethridge and Varian</h2>
-<ul>
-<li>How does simplifying a problem help us understand it?</li>
-<li>At what point does simplification remove the mechanism we care about?</li>
-<li>Would the irrigation model answer a question about farm income, water use, or both?</li>
-<li>What additional structure would an income question require?</li>
-</ul>
-<p>Bring one assumption from your own project into the discussion.</p>
+<section id="derive-the-prediction" class="slide level2">
+<h2>Derive the prediction</h2>
+<p>Write the choice explicitly as a function of price: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mo>*</mo></msup><mo>=</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">w^*=w^*(c)</annotation></semantics></math>.</p>
+<p><strong>Before revealing each step, write what you expect to appear.</strong></p>
+<div class="fragment">
+<p>Start with the first-order condition:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+pf'\!\left(w^*(c)\right)=c.
+</annotation></semantics></math></p>
+</div>
+<div class="fragment">
+<p>Differentiate <strong>both sides with respect to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math></strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><munder><mi>p</mi><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">constant</mtext></munder><munder><munder><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><mo accent="true">⏟</mo></munder><mrow><mrow><mtext mathvariant="normal">differentiate </mtext><mspace width="0.333em"></mspace></mrow><msup><mi>f</mi><mo>′</mo></msup></mrow></munder><munder><munder><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo accent="true">⏟</mo></munder><mtext mathvariant="normal">chain rule</mtext></munder><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\underbrace{p}_{\text{constant}}
+\underbrace{f''(w^*)}_{\text{differentiate }f'}
+\underbrace{\frac{dw^*}{dc}}_{\text{chain rule}}
+=1.
+</annotation></semantics></math></p>
+</div>
+<div class="fragment">
+<p>Now isolate the response:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo>&lt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}
+\quad\Rightarrow\quad
+\frac{dw^*}{dc}&lt;0.
+</annotation></semantics></math></p>
+<p><strong>Memory aid:</strong> Differentiate the outside function, then multiply by the derivative of what is inside.</p>
+</div>
+<aside class="notes">
+<p>Say aloud what depends on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>: the optimal choice <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>w</mi><mo>*</mo></msup><annotation encoding="application/x-tex">w^*</annotation></semantics></math> does. That is why the chain rule produces <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup><mi>/</mi><mi>d</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">dw^*/dc</annotation></semantics></math>.</p>
+<p>On the right-hand side, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>d</mi><mi>c</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d(c)/dc=1</annotation></semantics></math>. On the left, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is held fixed and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo stretchy="false" form="prefix">[</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mi>/</mi><mi>d</mi><mi>c</mi><mo>=</mo><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup><mi>/</mi><mi>d</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">d[f'(w^*(c))]/dc=f''(w^*)\,dw^*/dc</annotation></semantics></math>.</p>
+<p>This is also an application of the implicit-function theorem. Define <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>,</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>c</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(w,c)=pf'(w)-c=0</annotation></semantics></math>. Then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msup><mi>w</mi><mo>*</mo></msup><mi>/</mi><mi>d</mi><mi>c</mi><mo>=</mo><mi>−</mi><msub><mi>F</mi><mi>c</mi></msub><mi>/</mi><msub><mi>F</mi><mi>w</mi></msub><mo>=</mo><mi>−</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">dw^*/dc=-F_c/F_w=-(-1)/(pf'')=1/(pf'')</annotation></semantics></math>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="cheng-discovery-and-exposition" class="slide level2 scrollable">
-<h2>Cheng: discovery and exposition</h2>
-<p>Finding an argument and presenting it are different tasks.</p>
-<p>A readable proof states:</p>
+<section id="evaluate-alternative-cases" class="slide level2 scrollable">
+<h2>Evaluate alternative cases</h2>
+<p><strong>Seven minutes · one scenario per group</strong></p>
+<p>A. A water-use quota binds.</p>
+<p>B. The farmer is already at the corner <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">w=0</annotation></semantics></math>.</p>
+<p>C. A new irrigation technology changes the production function.</p>
+<p>D. Farmers can switch crops when water prices change.</p>
+<p>For your scenario, prepare three answers:</p>
 <ol type="1">
-<li>Definitions and assumptions.</li>
-<li>A sequence of justified steps.</li>
-<li>The conclusion that those steps establish.</li>
+<li>Must <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>w</mi><mi>/</mi><mi>d</mi><mi>c</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">dw/dc&lt;0</annotation></semantics></math> still hold?</li>
+<li>Which assumption or feature of the original model changed?</li>
+<li>What additional outcome or variable should the researcher observe?</li>
 </ol>
-<p>Source: <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>.</p>
+<aside class="notes">
+<p>Assign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or introduces a choice margin omitted from the baseline model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="discussion-find-the-missing-step" class="slide level2">
-<h2>Discussion: find the missing step</h2>
+<section id="conditions-for-the-comparative-static-result" class="slide level2">
+<h2>Conditions for the comparative-static result</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-negative-sign-requires">The negative sign requires</h3>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p&gt;0</annotation></semantics></math>.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math> is twice differentiable.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f''(w^*)&lt;0</annotation></semantics></math>: marginal product declines.</li>
+<li>An interior optimum, with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">pf''(w^*)\neq 0</annotation></semantics></math>.</li>
+<li>Output price, technology, and other inputs held fixed.</li>
+</ul>
+<p>Then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p f''(w^*)&lt;0</annotation></semantics></math>, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mo stretchy="false" form="prefix">[</mo><mi>p</mi><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">1/[p f''(w^*)]&lt;0</annotation></semantics></math>.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="a-binding-quota-changes-the-result">A binding quota changes the result</h3>
+<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>w</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar w</annotation></semantics></math> be a cap and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>u</mi></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">w^u(c)</annotation></semantics></math> the unconstrained choice:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>q</mi></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">min</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">{</mo><msup><mi>w</mi><mi>u</mi></msup><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mover><mi>w</mi><mo accent="true">‾</mo></mover><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+w^q(c)=\min\{w^u(c),\bar w\}.
+</annotation></semantics></math></p>
+<p>While the quota binds, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mi>q</mi></msup><mo>=</mo><mover><mi>w</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">w^q=\bar w</annotation></semantics></math>, so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><msup><mi>w</mi><mi>q</mi></msup></mrow><mrow><mi>d</mi><mi>c</mi></mrow></mfrac><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{dw^q}{dc}=0.
+</annotation></semantics></math></p>
+<p>Price changes the quota’s shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.</p>
+</div></div>
+<p><strong>Conditional prediction:</strong> A higher water price reduces water use when price determines an interior choice.</p>
+<aside class="notes">
+<p>The prediction is conditional because it follows from a specific model and a specific region of the choice problem.</p>
+<ul>
+<li>If the farmer is already at <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">w=0</annotation></semantics></math>, a small price increase may leave water use at zero.</li>
+<li>If a maximum-use quota binds, quantity is locally fixed at the quota. The quota’s shadow value falls as water becomes more expensive.</li>
+<li>Once the unconstrained optimum falls below the quota, the quota is slack and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>w</mi><mi>/</mi><mi>d</mi><mi>c</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">dw/dc&lt;0</annotation></semantics></math> again.</li>
+<li>New technology changes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f'(w)</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f''(w)</annotation></semantics></math>. With diminishing marginal product and an interior choice, the own-price response remains negative, but the level of water use and magnitude of the response may change.</li>
+<li>Crop switching introduces another choice margin. Water use within each crop may fall while aggregate use also depends on which crops enter and exit. The one-choice model cannot sign that total response without additional structure.</li>
+</ul>
+<p>Ask students which assumption gives the sign. The immediate mathematical answer is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>″</mo></msup><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f''&lt;0</annotation></semantics></math> together with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p&gt;0</annotation></semantics></math>. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="checkpoint-2-turn-your-mechanism-into-a-prediction" class="slide level2">
+<h2>Checkpoint 2: turn your mechanism into a prediction</h2>
+<p><strong>Four minutes · individual work</strong></p>
+<p>Add three statements to your conceptual framework outline:</p>
+<ul>
+<li>“When ___ changes, I predict ___ will ___.”</li>
+<li>“The reason is that ___.”</li>
+<li>“This prediction may fail if ___.”</li>
+</ul>
+<p>Exchange with a partner. The partner identifies one unsupported link. Revise the statement to make that step explicit.</p>
+<aside class="notes">
+<p>Listen for predictions that merely restate the research question. A testable prediction states a direction, identifies a mechanism, specifies its maintained conditions, and can be contradicted by evidence.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="evaluate-and-revise-an-economic-claim" class="slide level2">
+<h2>Evaluate and revise an economic claim</h2>
 <p>A student writes:</p>
 <blockquote>
 <p>Water becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.</p>
 </blockquote>
+<p><strong>Six minutes · groups with four roles</strong></p>
 <ul>
-<li>Which part describes a choice? Which part is a prediction?</li>
-<li>Could adoption change irrigated acreage or crop choice?</li>
-<li>What assumptions are needed to conclude that total water use falls?</li>
-<li>Rewrite the argument so each conclusion follows from a stated premise.</li>
+<li><strong>Ethridge:</strong> Identify the missing framework element.</li>
+<li><strong>Varian:</strong> Identify an omitted choice, objective, or constraint.</li>
+<li><strong>Cheng:</strong> Identify a conclusion that does not yet follow.</li>
+<li><strong>Romer:</strong> Check whether the words claim more than the model establishes.</li>
 </ul>
+<p>Produce a two-sentence diagnosis and a revised claim. Support the diagnosis with a passage or example from the assigned reading.</p>
+<p>Sources: <span class="citation" data-cites="ethridge2004chapter8">Ethridge (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>; <span class="citation" data-cites="varian1997model">Varian (<a href="#/references" role="doc-biblioref" onclick="">1997</a>)</span>; <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>; <span class="citation" data-cites="romer2015mathiness">Romer (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>.</p>
 <aside class="notes">
-<p>New exercise applying Cheng’s guidance. This is a hypothetical claim to diagnose, not a claim about observed irrigation outcomes.</p>
+<p>This hypothetical claim contains several gaps: adoption is a separate choice; efficiency can lower water use per acre while encouraging greater acreage or a different crop; and the baseline model did not include technology adoption. Have one group read its diagnosis and another read its revision.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -319,27 +656,45 @@ p f''(w^*)\frac{dw^*}{dc}=1
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-romer-calls-mathiness" class="slide level2">
-<h2>What Romer calls mathiness</h2>
-<p>Romer challenges arguments in which the connection between formal symbols, verbal claims, and economic meaning becomes unclear.</p>
-<ul>
-<li>Do the terms mean the same thing throughout the argument?</li>
-<li>Does the mathematical result support the verbal conclusion?</li>
-<li>Can the assumptions and derivation be checked?</li>
-</ul>
-<p>Source: <span class="citation" data-cites="romer2015mathiness">Romer (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>.</p>
-</section>
-<section id="discussion-evaluate-romers-argument" class="slide level2">
-<h2>Discussion: evaluate Romer’s argument</h2>
-<ul>
-<li>What specific example does Romer use to support his criticism?</li>
-<li>How does he distinguish mathematical theory from mathiness?</li>
-<li>Which claims concern the models, and which concern incentives in the profession?</li>
-<li>What evidence would make you revise your assessment of his argument?</li>
-</ul>
-<p>Support your answer with a passage from the reading.</p>
+<section id="revised-claim-and-scope-conditions" class="slide level2">
+<h2>Revised claim and scope conditions</h2>
+<p>The baseline irrigation model supports the following statement:</p>
+<blockquote>
+<p>Holding output price, technology, crop choice, acreage, and other inputs fixed, a higher water price reduces an interior choice of water when production has diminishing marginal product.</p>
+</blockquote>
+<p>It does <strong>not</strong> determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reading</th>
+<th>Final check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ethridge</td>
+<td>Is the claim connected to the research problem and evidence?</td>
+</tr>
+<tr class="even">
+<td>Varian</td>
+<td>Are the relevant choices and constraints represented?</td>
+</tr>
+<tr class="odd">
+<td>Cheng</td>
+<td>Does every conclusion follow from a stated premise?</td>
+</tr>
+<tr class="even">
+<td>Romer</td>
+<td>Do the symbols, words, and economic meaning agree?</td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
-<p>The source deck frames several contested interpretations as conclusions. This discussion asks students to assess those interpretations against the paper.</p>
+<p>Return to the methodological principles recorded during the reading synthesis. Ask which reading identifies each limitation in the original claim. The revision should state the maintained conditions and separate model implications from questions requiring additional structure.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,45 +707,67 @@ p f''(w^*)\frac{dw^*}{dc}=1
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-check-against-our-own-biases" class="slide level2">
-<h2>A check against our own biases</h2>
-<ul>
-<li>Am I choosing assumptions because they clarify the problem or deliver a preferred result?</li>
-<li>Have I separated a model implication from an empirical claim?</li>
-<li>Would I accept the same argument if its conclusion were inconvenient?</li>
-<li>What criticism would improve the framework?</li>
-</ul>
-</section>
-<section id="listen-for-the-implicit-model" class="slide level2">
-<h2>Listen for the implicit model</h2>
-<p>At a seminar, identify:</p>
-<ul>
-<li>The agents and their incentives.</li>
-<li>The mechanism linking the explanatory variable to the outcome.</li>
-<li>The assumptions connecting the evidence to that mechanism.</li>
-</ul>
-<p>Then ask a question about a specific missing link.</p>
-</section>
-<section id="workshop-your-framework" class="slide level2 scrollable">
-<h2>Workshop: your framework</h2>
-<p>Write a short account of your project:</p>
+<section id="complete-your-conceptual-framework-outline" class="slide level2 scrollable">
+<h2>Complete your conceptual framework outline</h2>
+<p><strong>Eight minutes · individual work</strong></p>
+<p>Revise and complete:</p>
 <ol type="1">
 <li>Research question.</li>
-<li>Agents, choices, and constraints.</li>
-<li>Mechanism.</li>
-<li>Testable prediction.</li>
-<li>One assumption that could fail.</li>
+<li>Agents, choices, objectives, and constraints.</li>
+<li>Mechanism, shown as a sequence.</li>
+<li>Directional, testable prediction.</li>
+<li>Evidence that could contradict the prediction.</li>
+<li>One limiting assumption or omitted choice margin.</li>
 </ol>
-<p>Exchange with a partner. Mark the step that needs the most explanation.</p>
+<p>Circle the field where feedback would help most.</p>
+<aside class="notes">
+<p>Students began the outline at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have already identified a field requiring feedback.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="peer-review-of-the-conceptual-framework" class="slide level2">
+<h2>Peer review of the conceptual framework</h2>
+<p><strong>Five minutes · pairs</strong></p>
+<p>The author gets <strong>one minute</strong> to explain the framework. The reviewer then asks:</p>
+<ul>
+<li>What choice or constraint is missing?</li>
+<li>Which link lacks sufficient theoretical or empirical support?</li>
+<li>What alternative mechanism could produce the same observation?</li>
+<li>What evidence would be inconsistent with the prediction?</li>
+</ul>
+<p>The author writes one revision before the roles switch.</p>
+<aside class="notes">
+<p>Require a written revision so peer discussion produces a documented result. If time permits, ask two students to share the question that led to a substantive revision.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="before-you-leave" class="slide level2">
 <h2>Before you leave</h2>
-<p>Complete both sentences:</p>
+<p><strong>Two-minute exit ticket:</strong> Complete all three sentences.</p>
 <ul>
 <li>“My model predicts ___ because ___.”</li>
 <li>“That prediction depends on ___.”</li>
+<li>“The reading most relevant to my revision was ___ because ___.”</li>
 </ul>
-<p>Next: turn the framework into a clear written argument.</p>
+<p>Next: turn the framework into a written argument with explicit assumptions and inferential steps.</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
