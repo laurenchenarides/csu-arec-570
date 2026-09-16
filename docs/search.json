@@ -123,7 +123,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\n\n\nLecture\n\n\n\nFocus\n\n\n\n\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\n\n\nBuild a model, derive hypotheses, and discuss proof and mathiness.\n\n\n\n\n\n\nLecture 4.2: Reporting the Conceptual Framework\n\n\nWrite theory clearly and connect hypotheses to identification.\n\n\n\n\n\n\nLecture 5.1: Data Collection: Surveys\n\n\nConnect sampling, questionnaire design, and measurement to the research question.\n\n\n\n\n\n\nLecture 5.2: Data Collection via API\n\n\nPlan reproducible retrieval and weigh data quantity against quality.\n\n\n\n\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\n\n\nAutomate a project and record clear, recoverable changes.\n\n\n\n\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\n\n\nUse keys, reusable code, documentation, and clear collaboration practices.\n\n\n\n\n\n\nLecture 5.5: Data: Reporting\n\n\nWrite a transparent data section with sample construction and measurement limits.\n\n\n\n\n\n\nLecture 6.1: Econometric Models and Identification\n\n\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n\n\n\n\n\n\nLecture 6.2: Causality and Policy Evaluation\n\n\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n\n\n\n\n\n\nLecture 6.3: Machine Learning in Economic Research\n\n\nDistinguish prediction from causal inference and evaluate model selection.\n\n\n\n\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\n\n\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n\n\n\n\n\n\nLecture 6.5: Evaluating Empirical Evidence\n\n\nCheck the estimand, measurement, uncertainty, and economic significance.\n\n\n\n\n\n\nLecture 7.1: Reviewing Research\n\n\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n\n\n\n\n\n\nLecture 7.2: Responding to Reviewers\n\n\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n\n\n\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\n\n\n\nLecture\n\n\n\nFocus\n\n\n\n\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\n\n\nConstruct a conceptual framework, derive comparative statics, and evaluate formal economic claims.\n\n\n\n\n\n\nLecture 4.2: Reporting the Conceptual Framework\n\n\nWrite theory clearly and connect hypotheses to identification.\n\n\n\n\n\n\nLecture 5.1: Data Collection: Surveys\n\n\nConnect sampling, questionnaire design, and measurement to the research question.\n\n\n\n\n\n\nLecture 5.2: Data Collection via API\n\n\nPlan reproducible retrieval and weigh data quantity against quality.\n\n\n\n\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\n\n\nAutomate a project and record clear, recoverable changes.\n\n\n\n\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\n\n\nUse keys, reusable code, documentation, and clear collaboration practices.\n\n\n\n\n\n\nLecture 5.5: Data: Reporting\n\n\nWrite a transparent data section with sample construction and measurement limits.\n\n\n\n\n\n\nLecture 6.1: Econometric Models and Identification\n\n\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n\n\n\n\n\n\nLecture 6.2: Causality and Policy Evaluation\n\n\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n\n\n\n\n\n\nLecture 6.3: Machine Learning in Economic Research\n\n\nDistinguish prediction from causal inference and evaluate model selection.\n\n\n\n\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\n\n\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n\n\n\n\n\n\nLecture 6.5: Evaluating Empirical Evidence\n\n\nCheck the estimand, measurement, uncertainty, and economic significance.\n\n\n\n\n\n\nLecture 7.1: Reviewing Research\n\n\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n\n\n\n\n\n\nLecture 7.2: Responding to Reviewers\n\n\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture7.1.html",
@@ -886,7 +886,7 @@
     "href": "lectures/lecture4.1.html#what-should-a-framework-accomplish",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "What should a framework accomplish?",
-    "text": "What should a framework accomplish?\n\nExplain why the research question has an economic mechanism.\nIdentify the people making choices and the constraints they face.\nDerive a prediction that could be contradicted by evidence.\nConnect the model to the variables we can observe.\n\n\nAdapted from Unit 4, slides 3–6. Ask students to describe their mechanism before naming an estimator."
+    "text": "What should a framework accomplish?\n\nExplain why the research question has an economic mechanism.\nIdentify the people making choices and the constraints they face.\nDerive a prediction that could be contradicted by evidence.\nConnect the model to the variables we can observe.\n\nReturn to Cases A–D: Which of these requirements matters for each task?\n\nAsk students to describe the mechanism before naming an estimator. A framework earns its place when it changes a decision the researcher must make."
   },
   {
     "objectID": "lectures/lecture4.1.html#a-model-is-a-deliberate-simplification",
@@ -914,14 +914,14 @@
     "href": "lectures/lecture4.1.html#example-irrigation-under-a-water-price",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Example: irrigation under a water price",
-    "text": "Example: irrigation under a water price\nIllustrative classroom model: A farmer chooses water use ww.\nmaxw≥0pf(w)−cw\n\\max_{w\\geq 0}\\; p f(w)-cw\n\n\np&gt;0p&gt;0: output price.\nc&gt;0c&gt;0: price per unit of water.\nf(w)f(w): production, with f′(w)&gt;0f'(w)&gt;0 and f″(w)&lt;0f''(w)&lt;0.\n\nFor an interior optimum, pf′(w*)=cpf'(w^*)=c."
+    "text": "Example: irrigation under a water price\nIllustrative classroom model: A farmer chooses water use ww.\nmaxw≥0pf(w)−cw\n\\max_{w\\geq 0}\\; p f(w)-cw\n\n\np&gt;0p&gt;0: output price.\nc&gt;0c&gt;0: price per unit of water.\nf(w)f(w): production, with f′(w)&gt;0f'(w)&gt;0 and f″(w)&lt;0f''(w)&lt;0.\n\nDifferentiate profit with respect to the choice variable ww:\nddw[pf(w)−cw]=pf′(w)−c=0⇒pf′(w*)=c.\n\\frac{d}{dw}\\left[pf(w)-cw\\right]\n=pf'(w)-c=0\n\\quad\\Rightarrow\\quad\npf'(w^*)=c.\n\nAt the optimum, the marginal value of water equals its marginal cost.\n\nWalk through the first-order condition before doing the comparative static:\n\nTreat pp and cc as constants when differentiating with respect to ww.\nThe derivative of pf(w)pf(w) is pf′(w)pf'(w).\nThe derivative of cwcw is cc.\nSet marginal profit equal to zero: pf′(w*)−c=0pf'(w^*)-c=0.\nThe second-order condition is pf″(w*)&lt;0pf''(w^*)&lt;0. Because p&gt;0p&gt;0 and f″&lt;0f''&lt;0, this is a maximum.\n\nEconomic language: use water until the value of the extra output produced by one more unit of water equals the price of that water."
   },
   {
     "objectID": "lectures/lecture4.1.html#derive-the-prediction",
     "href": "lectures/lecture4.1.html#derive-the-prediction",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Derive the prediction",
-    "text": "Derive the prediction\nDifferentiating the first-order condition gives\npf″(w*)dw*dc=1⇒dw*dc=1pf″(w*)&lt;0.\np f''(w^*)\\frac{dw^*}{dc}=1\n\\quad\\Rightarrow\\quad\n\\frac{dw^*}{dc}=\\frac{1}{p f''(w^*)}&lt;0.\n\nConditional prediction: Higher water prices reduce optimal water use.\nWhich assumptions make the sign follow? What changes if water use is fixed by a binding quota?\n\nNew classroom example. Hold output price, technology, and other inputs fixed. The derivative assumes a differentiable, strictly concave production function and an interior solution."
+    "text": "Derive the prediction\nWrite the choice explicitly as a function of price: w*=w*(c)w^*=w^*(c).\nBefore revealing each step, write what you expect to appear.\n\nStart with the first-order condition:\npf′(w*(c))=c.\npf'\\!\\left(w^*(c)\\right)=c.\n\n\n\nDifferentiate both sides with respect to cc:\np⏟constantf″(w*)⏟differentiate f′dw*dc⏟chain rule=1.\n\\underbrace{p}_{\\text{constant}}\n\\underbrace{f''(w^*)}_{\\text{differentiate }f'}\n\\underbrace{\\frac{dw^*}{dc}}_{\\text{chain rule}}\n=1.\n\n\n\nNow isolate the response:\ndw*dc=1pf″(w*)⇒dw*dc&lt;0.\n\\frac{dw^*}{dc}=\\frac{1}{p f''(w^*)}\n\\quad\\Rightarrow\\quad\n\\frac{dw^*}{dc}&lt;0.\n\nMemory aid: Differentiate the outside function, then multiply by the derivative of what is inside.\n\n\nSay aloud what depends on cc: the optimal choice w*w^* does. That is why the chain rule produces dw*/dcdw^*/dc.\nOn the right-hand side, d(c)/dc=1d(c)/dc=1. On the left, pp is held fixed and d[f′(w*(c))]/dc=f″(w*)dw*/dcd[f'(w^*(c))]/dc=f''(w^*)\\,dw^*/dc.\nThis is also an application of the implicit-function theorem. Define F(w,c)=pf′(w)−c=0F(w,c)=pf'(w)-c=0. Then dw*/dc=−Fc/Fw=−(−1)/(pf″)=1/(pf″)dw^*/dc=-F_c/F_w=-(-1)/(pf'')=1/(pf'')."
   },
   {
     "objectID": "lectures/lecture4.1.html#discussion-ethridge-and-varian",
@@ -984,7 +984,7 @@
     "href": "lectures/lecture4.1.html#before-you-leave",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Before you leave",
-    "text": "Before you leave\nComplete both sentences:\n\n“My model predicts ___ because ___.”\n“That prediction depends on ___.”\n\nNext: turn the framework into a clear written argument."
+    "text": "Before you leave\nTwo-minute exit ticket: Complete all three sentences.\n\n“My model predicts ___ because ___.”\n“That prediction depends on ___.”\n“The reading most relevant to my revision was ___ because ___.”\n\nNext: turn the framework into a written argument with explicit assumptions and inferential steps."
   },
   {
     "objectID": "lectures/lecture4.1.html#references",
@@ -1937,5 +1937,222 @@
     "title": "Lecture 7.2: Responding to Reviewers",
     "section": "Course navigation",
     "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#example-first-will-a-new-grocery-store-improve-diets",
+    "href": "lectures/lecture4.1.html#example-first-will-a-new-grocery-store-improve-diets",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Example first: will a new grocery store improve diets?",
+    "text": "Example first: will a new grocery store improve diets?\nA county subsidizes a full-service grocery store in a neighborhood with limited food access.\nThe policy question is whether the store will improve residents’ diet quality. A plausible chain is:\nstore entry→travel cost falls→shopping changes→diet quality changes.\n\\text{store entry}\n\\rightarrow \\text{travel cost falls}\n\\rightarrow \\text{shopping changes}\n\\rightarrow \\text{diet quality changes}.\n\nBut prices, product selection, household budgets, preferences, and competing stores can strengthen, weaken, or reverse parts of that chain.\nTurn to a neighbor: Which arrow is least obvious? What would you need to observe to assess it?\n\nUse the opening example to separate a policy from its proposed mechanism. The store opening is observable; the behavioral links and final outcome require explanation and evidence."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#when-does-a-conceptual-framework-earn-its-keep",
+    "href": "lectures/lecture4.1.html#when-does-a-conceptual-framework-earn-its-keep",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "When does a conceptual framework earn its keep?",
+    "text": "When does a conceptual framework earn its keep?\n\n\nUse a full framework when you need to\n\nExplain why an intervention could change an outcome.\nChoose outcomes, mechanisms, and competing explanations.\nDerive a testable prediction or interpret heterogeneity.\nDecide what evidence would support or contradict the argument.\n\n\nYou may not need one when the task is to\n\nDescribe who, what, where, or when without making a causal claim.\nAudit data quality or determine whether a variable exists.\nBuild a prediction tool whose value is judged by out-of-sample performance.\nReport a fact that does not depend on a behavioral mechanism.\n\n\nPractical test: If the framework will not change the question, measures, design, or interpretation, simplify it.\n\nEven descriptive and predictive studies need clear definitions and scope. The distinction here is whether the project needs a developed behavioral or causal mechanism, not whether it needs careful reasoning."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#why-is-the-prediction-conditional",
+    "href": "lectures/lecture4.1.html#why-is-the-prediction-conditional",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Why is the prediction conditional?",
+    "text": "Why is the prediction conditional?\n\n\nThe negative sign requires\n\np&gt;0p&gt;0.\nff is twice differentiable.\nf″(w*)&lt;0f''(w^*)&lt;0: marginal product declines.\nAn interior optimum, with pf″(w*)≠0pf''(w^*)\\neq 0.\nOutput price, technology, and other inputs held fixed.\n\nThen pf″(w*)&lt;0p f''(w^*)&lt;0, so 1/[pf″(w*)]&lt;01/[p f''(w^*)]&lt;0.\n\nA binding quota changes the result\nLet w‾\\bar w be a cap and wu(c)w^u(c) the unconstrained choice:\nwq(c)=min⁡{wu(c),w‾}.\nw^q(c)=\\min\\{w^u(c),\\bar w\\}.\n\nWhile the quota binds, wq=w‾w^q=\\bar w, so\ndwqdc=0.\n\\frac{dw^q}{dc}=0.\n\nPrice changes the quota’s shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.\n\nConditional prediction: A higher water price reduces water use when price determines an interior choice.\n\nThe prediction is conditional because it follows from a specific model and a specific region of the choice problem.\n\nIf the farmer is already at w=0w=0, a small price increase may leave water use at zero.\nIf a maximum-use quota binds, quantity is locally fixed at the quota. The quota’s shadow value falls as water becomes more expensive.\nOnce the unconstrained optimum falls below the quota, the quota is slack and dw/dc&lt;0dw/dc&lt;0 again.\n\nAsk students which assumption gives the sign. The immediate mathematical answer is f″&lt;0f''&lt;0 together with p&gt;0p&gt;0. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#opening-prediction-will-a-new-grocery-store-improve-diets",
+    "href": "lectures/lecture4.1.html#opening-prediction-will-a-new-grocery-store-improve-diets",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Opening prediction: will a new grocery store improve diets?",
+    "text": "Opening prediction: will a new grocery store improve diets?\nA county subsidizes a full-service grocery store in a neighborhood with limited food access.\nChoose before discussing: Diet quality will probably…\n\nImprove.\nStay about the same.\nWorsen.\nVary across households.\n\nTwo minutes · individual → pair: Commit to one answer and write one sentence explaining why.\n\nRun this as a commitment exercise. Ask for a show of hands or use a quick poll, but do not resolve it yet. Give students 30 seconds to choose and write, then 60 seconds to compare with a neighbor. Ask two pairs with different answers to share their reasoning.\nTell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#map-the-mechanism-before-choosing-a-method",
+    "href": "lectures/lecture4.1.html#map-the-mechanism-before-choosing-a-method",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Map the mechanism before choosing a method",
+    "text": "Map the mechanism before choosing a method\nOne possible chain is:\nstore entry→travel cost falls→shopping changes→diet quality changes.\n\\text{store entry}\n\\rightarrow \\text{travel cost falls}\n\\rightarrow \\text{shopping changes}\n\\rightarrow \\text{diet quality changes}.\n\nPrices, product selection, household budgets, preferences, and competing stores may alter the magnitude or sign of the relationship.\nFour minutes · groups of three: Extend the proposed mechanism with:\n\nOne pathway that would increase diet quality.\nOne pathway that would offset or reverse that change.\nOne variable needed to distinguish those explanations.\n\n\nRequire each group to produce three items, then ask one group for each. Possible responses include prices, product mix, shopping frequency, substitution away from other stores, household budgets, preferences, time constraints, and changes by income or vehicle access.\nDebrief: the store opening is observable, but the behavioral links are explanations that require evidence. Those links determine what to measure and how to interpret an estimated effect."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#does-this-task-need-a-full-conceptual-framework",
+    "href": "lectures/lecture4.1.html#does-this-task-need-a-full-conceptual-framework",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Does this task need a full conceptual framework?",
+    "text": "Does this task need a full conceptual framework?\nClassify each task as full framework or light framework:\nA. Estimate whether a grocery subsidy improves diet quality and explain for whom.\nB. Report how many households live more than five miles from a grocery store.\nC. Predict which households will redeem a coupon using out-of-sample accuracy.\nD. Audit whether store-location records contain missing coordinates.\nThree minutes · pairs: Classify all four. Choose one disputed case and explain what the framework would change.\n\nSuggested debrief: A needs a developed behavioral and causal framework. B–D still require definitions, scope, and careful reasoning, but a full behavioral model may not change the immediate task. C becomes a framework-intensive question if the goal changes from prediction to explaining why redemption changes.\nUse the practical test: will a framework change the question, measures, design, or interpretation? If not, keep it proportionate."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#reading-roundtable-turn-each-reading-into-a-tool",
+    "href": "lectures/lecture4.1.html#reading-roundtable-turn-each-reading-into-a-tool",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Reading roundtable: turn each reading into a tool",
+    "text": "Reading roundtable: turn each reading into a tool\nEight minutes · groups of three or four\nYour group will be assigned one reading:\n\nEthridge: How should a conceptual framework be organized?\nVarian: How do we turn a real-world problem into a model?\nCheng: How do we make each step of an argument follow?\nRomer: How can formalism obscure rather than clarify an argument?\n\nProduce one rule, one passage or example, and one application to the grocery-store case.\n\nEveryone has read all four pieces, so assign readings in class to distribute the analytical work. Require a page number, short passage, or named example. This makes the reading accountable without asking groups to summarize an entire article.\nAfter five minutes, give each group 30 seconds to report its rule and application. Record the four rules where students can see them; use them again in the claim clinic."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#what-the-four-readings-contribute",
+    "href": "lectures/lecture4.1.html#what-the-four-readings-contribute",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "What the four readings contribute",
+    "text": "What the four readings contribute\n\n\n\n\n\n\n\nReading\nTool for today’s work\n\n\n\n\nEthridge\nOrganize the problem, concepts, hypotheses, and relevant evidence.\n\n\nVarian\nIdentify agents, objectives, choices, constraints, and interactions.\n\n\nCheng\nDefine terms and make every inferential step explicit.\n\n\nRomer\nKeep the mathematics, verbal claim, and economic meaning aligned.\n\n\n\nA useful model is a deliberate simplification. Its value depends on what it clarifies and what its omissions do to the conclusion.\nSources: Ethridge (2004); Varian (1997); Cheng (2004); Romer (2015)."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#use-one-framework-canvas-throughout-class",
+    "href": "lectures/lecture4.1.html#use-one-framework-canvas-throughout-class",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Use one framework canvas throughout class",
+    "text": "Use one framework canvas throughout class\n\n\n\n\n\n\n\nField\nQuestion to answer\n\n\n\n\nResearch question\nWhat relationship or decision do I want to understand?\n\n\nAgents and choices\nWho acts, and what can they choose?\n\n\nObjectives and constraints\nWhat do they want, and what limits them?\n\n\nMechanism\nWhat sequence connects the cause to the outcome?\n\n\nPrediction\nWhat should change, in which direction, and for whom?\n\n\nEvidence\nWhat would support or contradict the prediction?\n\n\nFragile assumption\nWhat failure would change the conclusion?\n\n\n\n\nAsk students to keep this canvas open on paper or a laptop. They will complete it in stages rather than waiting for the final workshop."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#checkpoint-1-draft-your-mechanism",
+    "href": "lectures/lecture4.1.html#checkpoint-1-draft-your-mechanism",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Checkpoint 1: draft your mechanism",
+    "text": "Checkpoint 1: draft your mechanism\nFour minutes · individual work\nComplete three fields for your own project:\n\nResearch question.\nAgents and choices.\nMechanism, written as a sequence of arrows.\n\nThen underline the arrow for which the theoretical or empirical support is least developed.\n\nCirculate and ask: “What decision produces that arrow?” or “Could the arrow plausibly run in the opposite direction?” Students should leave this checkpoint with a specific uncertainty to investigate."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#predict-before-calculating-water-becomes-more-expensive",
+    "href": "lectures/lecture4.1.html#predict-before-calculating-water-becomes-more-expensive",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Predict before calculating: water becomes more expensive",
+    "text": "Predict before calculating: water becomes more expensive\nA farmer chooses how much irrigation water to use. The price per unit of water rises.\nWhat happens to optimal water use?\n\nIt falls.\nIt stays the same.\nIt rises.\nThe sign depends on institutional or technological constraints.\n\nTwo minutes · individual → pair: Choose an answer and state one condition under which it follows.\n\nMost students will choose “falls.” Accept it as intuition, then press on the conditions. “It depends” is also defensible if students identify a quota, corner solution, changing technology, crop switching, or another margin.\nKeep the initial answers visible. The next three slides turn the intuition into a conditional prediction."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#build-the-irrigation-model",
+    "href": "lectures/lecture4.1.html#build-the-irrigation-model",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Build the irrigation model",
+    "text": "Build the irrigation model\nModel: A farmer chooses water use ww.\nmaxw≥0pf(w)−cw\n\\max_{w\\geq 0}\\; p f(w)-cw\n\n\np&gt;0p&gt;0: output price.\nc&gt;0c&gt;0: price per unit of water.\nf(w)f(w): production, with f′(w)&gt;0f'(w)&gt;0 and f″(w)&lt;0f''(w)&lt;0.\n\n\nDifferentiate profit with respect to the choice variable ww:\nddw[pf(w)−cw]=pf′(w)−c=0⇒pf′(w*)=c.\n\\frac{d}{dw}\\left[pf(w)-cw\\right]\n=pf'(w)-c=0\n\\quad\\Rightarrow\\quad\npf'(w^*)=c.\n\nAt the optimum, the marginal value of water equals its marginal cost.\n\n\nWalk through the first-order condition before doing the comparative static:\n\nTreat pp and cc as constants when differentiating with respect to ww.\nThe derivative of pf(w)pf(w) is pf′(w)pf'(w).\nThe derivative of cwcw is cc.\nSet marginal profit equal to zero: pf′(w*)−c=0pf'(w^*)-c=0.\nThe second-order condition is pf″(w*)&lt;0pf''(w^*)&lt;0. Because p&gt;0p&gt;0 and f″&lt;0f''&lt;0, this is a maximum.\n\nEconomic interpretation: use water until the value of the extra output produced by one more unit of water equals the price of that water."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#stress-test-the-prediction",
+    "href": "lectures/lecture4.1.html#stress-test-the-prediction",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Stress-test the prediction",
+    "text": "Stress-test the prediction\nSeven minutes · one scenario per group\nA. A water-use quota binds.\nB. The farmer is already at the corner w=0w=0.\nC. A new irrigation technology changes the production function.\nD. Farmers can switch crops when water prices change.\nFor your scenario, prepare three answers:\n\nMust dw/dc&lt;0dw/dc&lt;0 still hold?\nWhich assumption or feature of the original model changed?\nWhat additional outcome or variable should the researcher observe?\n\n\nAssign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or makes the simple model incomplete."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#debrief-why-is-the-prediction-conditional",
+    "href": "lectures/lecture4.1.html#debrief-why-is-the-prediction-conditional",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Debrief: why is the prediction conditional?",
+    "text": "Debrief: why is the prediction conditional?\n\n\nThe negative sign requires\n\np&gt;0p&gt;0.\nff is twice differentiable.\nf″(w*)&lt;0f''(w^*)&lt;0: marginal product declines.\nAn interior optimum, with pf″(w*)≠0pf''(w^*)\\neq 0.\nOutput price, technology, and other inputs held fixed.\n\nThen pf″(w*)&lt;0p f''(w^*)&lt;0, so 1/[pf″(w*)]&lt;01/[p f''(w^*)]&lt;0.\n\nA binding quota changes the result\nLet w‾\\bar w be a cap and wu(c)w^u(c) the unconstrained choice:\nwq(c)=min⁡{wu(c),w‾}.\nw^q(c)=\\min\\{w^u(c),\\bar w\\}.\n\nWhile the quota binds, wq=w‾w^q=\\bar w, so\ndwqdc=0.\n\\frac{dw^q}{dc}=0.\n\nPrice changes the quota’s shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.\n\nConditional prediction: A higher water price reduces water use when price determines an interior choice.\n\nThe prediction is conditional because it follows from a specific model and a specific region of the choice problem.\n\nIf the farmer is already at w=0w=0, a small price increase may leave water use at zero.\nIf a maximum-use quota binds, quantity is locally fixed at the quota. The quota’s shadow value falls as water becomes more expensive.\nOnce the unconstrained optimum falls below the quota, the quota is slack and dw/dc&lt;0dw/dc&lt;0 again.\nNew technology changes f′(w)f'(w) and f″(w)f''(w). With diminishing marginal product and an interior choice, the own-price response remains negative, but the level of water use and magnitude of the response may change.\nCrop switching introduces another choice margin. Water use within each crop may fall while aggregate use also depends on which crops enter and exit. The one-choice model cannot sign that total response without additional structure.\n\nAsk students which assumption gives the sign. The immediate mathematical answer is f″&lt;0f''&lt;0 together with p&gt;0p&gt;0. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#checkpoint-2-turn-your-mechanism-into-a-prediction",
+    "href": "lectures/lecture4.1.html#checkpoint-2-turn-your-mechanism-into-a-prediction",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Checkpoint 2: turn your mechanism into a prediction",
+    "text": "Checkpoint 2: turn your mechanism into a prediction\nFour minutes · individual work\nAdd three statements to your conceptual framework outline:\n\n“When ___ changes, I predict ___ will ___.”\n“The reason is that ___.”\n“This prediction may fail if ___.”\n\nExchange with a partner. The partner identifies one unsupported link. Revise the statement to make that step explicit.\n\nListen for predictions that merely restate the research question. A testable prediction states a direction, identifies a mechanism, specifies its maintained conditions, and can be contradicted by evidence."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#claim-clinic-use-all-four-readings",
+    "href": "lectures/lecture4.1.html#claim-clinic-use-all-four-readings",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Claim clinic: use all four readings",
+    "text": "Claim clinic: use all four readings\nA student writes:\n\nWater becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.\n\nSix minutes · groups with four roles\n\nEthridge: Identify the missing framework element.\nVarian: Identify an omitted choice, objective, or constraint.\nCheng: Identify a conclusion that does not yet follow.\nRomer: Check whether the words claim more than the model establishes.\n\nProduce a two-sentence diagnosis and a revised claim. Support the diagnosis with a passage or example from the assigned reading.\nSources: Ethridge (2004); Varian (1997); Cheng (2004); Romer (2015).\n\nThis hypothetical claim contains several gaps: adoption is a separate choice; efficiency can lower water use per acre while encouraging greater acreage or a different crop; and the simple model did not include technology adoption. Have one group read its diagnosis and another read its repair."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#debrief-make-the-claim-match-the-model",
+    "href": "lectures/lecture4.1.html#debrief-make-the-claim-match-the-model",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Debrief: make the claim match the model",
+    "text": "Debrief: make the claim match the model\nThe simple irrigation model supports a narrower statement:\n\nHolding output price, technology, crop choice, acreage, and other inputs fixed, a higher water price reduces an interior choice of water when production has diminishing marginal product.\n\nIt does not determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.\n\n\n\n\n\n\n\nReading\nFinal check\n\n\n\n\nEthridge\nIs the claim connected to the research problem and evidence?\n\n\nVarian\nAre the relevant choices and constraints represented?\n\n\nCheng\nDoes every conclusion follow from a stated premise?\n\n\nRomer\nDo the symbols, words, and economic meaning agree?\n\n\n\n\nReturn to the class’s reading-roundtable rules. Ask which reading catches each weakness in the original claim. Emphasize that a narrower claim is often a stronger scholarly claim because a reader can see exactly what establishes it."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#complete-your-framework-canvas",
+    "href": "lectures/lecture4.1.html#complete-your-framework-canvas",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Complete your framework canvas",
+    "text": "Complete your framework canvas\nEight minutes · individual work\nRevise and complete:\n\nResearch question.\nAgents, choices, objectives, and constraints.\nMechanism, shown as a sequence.\nDirectional, testable prediction.\nEvidence that could contradict the prediction.\nOne fragile assumption or omitted margin.\n\nCircle the field where feedback would help most.\n\nStudents began the canvas at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have circled a field early."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#peer-stress-test",
+    "href": "lectures/lecture4.1.html#peer-stress-test",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Peer stress test",
+    "text": "Peer stress test\nFive minutes · pairs\nThe author gets one minute to explain the framework. The reviewer then asks:\n\nWhat choice or constraint is missing?\nWhich arrow has the weakest support?\nWhat alternative mechanism could produce the same observation?\nWhat evidence could prove the prediction wrong?\n\nThe author writes one revision before the roles switch.\n\nRequire a written revision so peer discussion produces a visible result. If time permits, ask two students to share the question that most improved their framework."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#make-a-prediction-will-a-new-grocery-store-improve-diets",
+    "href": "lectures/lecture4.1.html#make-a-prediction-will-a-new-grocery-store-improve-diets",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Make a prediction: will a new grocery store improve diets?",
+    "text": "Make a prediction: will a new grocery store improve diets?\nA county subsidizes a full-service grocery store in a neighborhood with limited food access.\nChoose before discussing: Relative to no store entry, average diet quality will…\n\nIncrease.\nRemain unchanged.\nDecrease.\nHave an indeterminate sign without additional assumptions.\n\nTwo minutes · individual → pair: Select one answer and state the mechanism and assumptions supporting it.\n\nRun this as a commitment exercise. Ask for a show of hands or use a quick poll, but do not resolve it yet. Give students 30 seconds to choose and write, then 60 seconds to compare with a neighbor. Ask two pairs with different answers to share their reasoning.\nTell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#should-the-study-introduce-a-conceptual-framework",
+    "href": "lectures/lecture4.1.html#should-the-study-introduce-a-conceptual-framework",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Should the study introduce a conceptual framework?",
+    "text": "Should the study introduce a conceptual framework?\nFor each task, choose introduce one or do not introduce one:\nA. Estimate whether a grocery subsidy improves diet quality and explain for whom.\nB. Report how many households live more than five miles from a grocery store.\nC. Predict which households will redeem a coupon using out-of-sample accuracy.\nD. Audit whether store-location records contain missing coordinates.\nThree minutes · pairs: Classify all four. For one case, state what a conceptual framework would add to the analysis.\n\nSuggested debrief: introduce a conceptual framework for A because the study proposes a causal relationship, heterogeneous effects, and an economic mechanism. Do not introduce one for B–D as the tasks are currently stated. They still require precise definitions, scope, and appropriate methods. For C, introduce a conceptual framework if the research objective changes from predicting redemption to explaining why redemption changes.\nDecision rule: introduce a conceptual framework when it is needed to specify the mechanism, derive hypotheses, select relevant measures, or interpret the findings."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#functions-of-a-conceptual-framework",
+    "href": "lectures/lecture4.1.html#functions-of-a-conceptual-framework",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Functions of a conceptual framework",
+    "text": "Functions of a conceptual framework\n\nExplain why the research question has an economic mechanism.\nIdentify the people making choices and the constraints they face.\nDerive a prediction that could be contradicted by evidence.\nConnect the model to the variables we can observe.\n\nReturn to Cases A–D: Which functions apply to each task?\n\nAsk students to describe the mechanism before naming an estimator. A framework is warranted when it changes a decision about the question, measures, design, or interpretation."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#reading-synthesis-methodological-implications",
+    "href": "lectures/lecture4.1.html#reading-synthesis-methodological-implications",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Reading synthesis: methodological implications",
+    "text": "Reading synthesis: methodological implications\nEight minutes · groups of three or four\nYour group will be assigned one reading:\n\nEthridge: How should a conceptual framework be organized?\nVarian: Which agents, choices, objectives, and constraints represent the research problem?\nCheng: Which practices make each inferential step explicit?\nRomer: How should formal results be connected to verbal and economic claims?\n\nProduce one methodological principle, one supporting passage or example, and one application to the grocery-store case.\n\nEveryone has read all four pieces, so assign readings in class to distribute the analytical work. Require a page number, short passage, or named example. This makes the reading accountable without asking groups to summarize an entire article.\nAfter five minutes, give each group 30 seconds to report its principle and application. Record the four principles where students can see them; use them again in the claim-evaluation exercise."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#methodological-contributions-of-the-readings",
+    "href": "lectures/lecture4.1.html#methodological-contributions-of-the-readings",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Methodological contributions of the readings",
+    "text": "Methodological contributions of the readings\n\n\n\n\n\n\n\nReading\nApplication to framework development\n\n\n\n\nEthridge\nOrganize the problem, concepts, hypotheses, and relevant evidence.\n\n\nVarian\nIdentify agents, objectives, choices, constraints, and interactions.\n\n\nCheng\nDefine terms and make every inferential step explicit.\n\n\nRomer\nKeep the mathematics, verbal claim, and economic meaning aligned.\n\n\n\nA model deliberately omits features of the setting. Assess whether those omissions alter the conclusion being derived.\nSources: Ethridge (2004); Varian (1997); Cheng (2004); Romer (2015)."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#conceptual-framework-outline",
+    "href": "lectures/lecture4.1.html#conceptual-framework-outline",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Conceptual framework outline",
+    "text": "Conceptual framework outline\n\n\n\n\n\n\n\nField\nQuestion to answer\n\n\n\n\nResearch question\nWhat relationship or decision do I want to understand?\n\n\nAgents and choices\nWho acts, and what can they choose?\n\n\nObjectives and constraints\nWhat do they want, and what limits them?\n\n\nMechanism\nWhat sequence connects the cause to the outcome?\n\n\nPrediction\nWhat should change, in which direction, and for whom?\n\n\nEvidence\nWhat would support or contradict the prediction?\n\n\nLimiting assumption\nWhich assumption, if relaxed, could alter the prediction?\n\n\n\n\nAsk students to keep this outline open on paper or a laptop. They will complete it in stages during the class."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#evaluate-alternative-cases",
+    "href": "lectures/lecture4.1.html#evaluate-alternative-cases",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Evaluate alternative cases",
+    "text": "Evaluate alternative cases\nSeven minutes · one scenario per group\nA. A water-use quota binds.\nB. The farmer is already at the corner w=0w=0.\nC. A new irrigation technology changes the production function.\nD. Farmers can switch crops when water prices change.\nFor your scenario, prepare three answers:\n\nMust dw/dc&lt;0dw/dc&lt;0 still hold?\nWhich assumption or feature of the original model changed?\nWhat additional outcome or variable should the researcher observe?\n\n\nAssign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or introduces a choice margin omitted from the baseline model."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#conditions-for-the-comparative-static-result",
+    "href": "lectures/lecture4.1.html#conditions-for-the-comparative-static-result",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Conditions for the comparative-static result",
+    "text": "Conditions for the comparative-static result\n\n\nThe negative sign requires\n\np&gt;0p&gt;0.\nff is twice differentiable.\nf″(w*)&lt;0f''(w^*)&lt;0: marginal product declines.\nAn interior optimum, with pf″(w*)≠0pf''(w^*)\\neq 0.\nOutput price, technology, and other inputs held fixed.\n\nThen pf″(w*)&lt;0p f''(w^*)&lt;0, so 1/[pf″(w*)]&lt;01/[p f''(w^*)]&lt;0.\n\nA binding quota changes the result\nLet w‾\\bar w be a cap and wu(c)w^u(c) the unconstrained choice:\nwq(c)=min⁡{wu(c),w‾}.\nw^q(c)=\\min\\{w^u(c),\\bar w\\}.\n\nWhile the quota binds, wq=w‾w^q=\\bar w, so\ndwqdc=0.\n\\frac{dw^q}{dc}=0.\n\nPrice changes the quota’s shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.\n\nConditional prediction: A higher water price reduces water use when price determines an interior choice.\n\nThe prediction is conditional because it follows from a specific model and a specific region of the choice problem.\n\nIf the farmer is already at w=0w=0, a small price increase may leave water use at zero.\nIf a maximum-use quota binds, quantity is locally fixed at the quota. The quota’s shadow value falls as water becomes more expensive.\nOnce the unconstrained optimum falls below the quota, the quota is slack and dw/dc&lt;0dw/dc&lt;0 again.\nNew technology changes f′(w)f'(w) and f″(w)f''(w). With diminishing marginal product and an interior choice, the own-price response remains negative, but the level of water use and magnitude of the response may change.\nCrop switching introduces another choice margin. Water use within each crop may fall while aggregate use also depends on which crops enter and exit. The one-choice model cannot sign that total response without additional structure.\n\nAsk students which assumption gives the sign. The immediate mathematical answer is f″&lt;0f''&lt;0 together with p&gt;0p&gt;0. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#evaluate-and-revise-an-economic-claim",
+    "href": "lectures/lecture4.1.html#evaluate-and-revise-an-economic-claim",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Evaluate and revise an economic claim",
+    "text": "Evaluate and revise an economic claim\nA student writes:\n\nWater becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.\n\nSix minutes · groups with four roles\n\nEthridge: Identify the missing framework element.\nVarian: Identify an omitted choice, objective, or constraint.\nCheng: Identify a conclusion that does not yet follow.\nRomer: Check whether the words claim more than the model establishes.\n\nProduce a two-sentence diagnosis and a revised claim. Support the diagnosis with a passage or example from the assigned reading.\nSources: Ethridge (2004); Varian (1997); Cheng (2004); Romer (2015).\n\nThis hypothetical claim contains several gaps: adoption is a separate choice; efficiency can lower water use per acre while encouraging greater acreage or a different crop; and the baseline model did not include technology adoption. Have one group read its diagnosis and another read its revision."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#revised-claim-and-scope-conditions",
+    "href": "lectures/lecture4.1.html#revised-claim-and-scope-conditions",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Revised claim and scope conditions",
+    "text": "Revised claim and scope conditions\nThe baseline irrigation model supports the following statement:\n\nHolding output price, technology, crop choice, acreage, and other inputs fixed, a higher water price reduces an interior choice of water when production has diminishing marginal product.\n\nIt does not determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.\n\n\n\n\n\n\n\nReading\nFinal check\n\n\n\n\nEthridge\nIs the claim connected to the research problem and evidence?\n\n\nVarian\nAre the relevant choices and constraints represented?\n\n\nCheng\nDoes every conclusion follow from a stated premise?\n\n\nRomer\nDo the symbols, words, and economic meaning agree?\n\n\n\n\nReturn to the methodological principles recorded during the reading synthesis. Ask which reading identifies each limitation in the original claim. The revision should state the maintained conditions and separate model implications from questions requiring additional structure."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#complete-your-conceptual-framework-outline",
+    "href": "lectures/lecture4.1.html#complete-your-conceptual-framework-outline",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Complete your conceptual framework outline",
+    "text": "Complete your conceptual framework outline\nEight minutes · individual work\nRevise and complete:\n\nResearch question.\nAgents, choices, objectives, and constraints.\nMechanism, shown as a sequence.\nDirectional, testable prediction.\nEvidence that could contradict the prediction.\nOne limiting assumption or omitted choice margin.\n\nCircle the field where feedback would help most.\n\nStudents began the outline at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have already identified a field requiring feedback."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#peer-review-of-the-conceptual-framework",
+    "href": "lectures/lecture4.1.html#peer-review-of-the-conceptual-framework",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Peer review of the conceptual framework",
+    "text": "Peer review of the conceptual framework\nFive minutes · pairs\nThe author gets one minute to explain the framework. The reviewer then asks:\n\nWhat choice or constraint is missing?\nWhich link lacks sufficient theoretical or empirical support?\nWhat alternative mechanism could produce the same observation?\nWhat evidence would be inconsistent with the prediction?\n\nThe author writes one revision before the roles switch.\n\nRequire a written revision so peer discussion produces a documented result. If time permits, ask two students to share the question that led to a substantive revision."
   }
 ]

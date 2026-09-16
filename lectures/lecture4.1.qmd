@@ -4,7 +4,7 @@ subtitle: "AREC 570 / ECON 530 · Unit 4"
 author: "Lauren Chenarides"
 lecture: "4.1"
 order: 401
-description: "Build a model, derive hypotheses, and discuss proof and mathiness."
+description: "Construct a conceptual framework, derive comparative statics, and evaluate formal economic claims."
 format:
   revealjs:
     theme: white
@@ -28,63 +28,169 @@ format:
     html-math-method: mathml
 ---
 
-## Before class
+## Make a prediction: will a new grocery store improve diets?
 
-- Cheng, *How to Write Proofs: A Quick Guide* [@cheng2004proofs].
-- Ethridge, Chapter 8, “The Conceptual Framework” [@ethridge2004chapter8].
-- Romer, “Mathiness in the Theory of Economic Growth” [@romer2015mathiness].
-- Varian, *How to Build an Economic Model in Your Spare Time*, course PDF pp. 4–6 [@varian1997model].
+A county subsidizes a full-service grocery store in a neighborhood with limited food access.
 
-Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+**Choose before discussing:** Relative to no store entry, average diet quality will…
 
-## What should a framework accomplish?
+1. Increase.
+2. Remain unchanged.
+3. Decrease.
+4. Have an indeterminate sign without additional assumptions.
+
+**Two minutes · individual → pair:** Select one answer and state the mechanism and assumptions supporting it.
+
+::: notes
+Run this as a commitment exercise. Ask for a show of hands or use a quick poll, but do not resolve it yet. Give students 30 seconds to choose and write, then 60 seconds to compare with a neighbor. Ask two pairs with different answers to share their reasoning.
+
+Tell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework.
+:::
+
+## Map the mechanism before choosing a method
+
+One possible chain is:
+
+$$
+\text{store entry}
+\rightarrow \text{travel cost falls}
+\rightarrow \text{shopping changes}
+\rightarrow \text{diet quality changes}.
+$$
+
+Prices, product selection, household budgets, preferences, and competing stores may alter the magnitude or sign of the relationship.
+
+**Four minutes · groups of three:** Extend the proposed mechanism with:
+
+- One pathway that would increase diet quality.
+- One pathway that would offset or reverse that change.
+- One variable needed to distinguish those explanations.
+
+::: notes
+Require each group to produce three items, then ask one group for each. Possible responses include prices, product mix, shopping frequency, substitution away from other stores, household budgets, preferences, time constraints, and changes by income or vehicle access.
+
+Debrief: the store opening is observable, but the behavioral links are explanations that require evidence. Those links determine what to measure and how to interpret an estimated effect.
+:::
+
+## Should the study introduce a conceptual framework?
+
+For each task, choose **introduce one** or **do not introduce one**:
+
+A. Estimate whether a grocery subsidy improves diet quality and explain for whom.
+
+B. Report how many households live more than five miles from a grocery store.
+
+C. Predict which households will redeem a coupon using out-of-sample accuracy.
+
+D. Audit whether store-location records contain missing coordinates.
+
+**Three minutes · pairs:** Classify all four. For one case, state what a conceptual framework would add to the analysis.
+
+::: notes
+Suggested debrief: introduce a conceptual framework for A because the study proposes a causal relationship, heterogeneous effects, and an economic mechanism. Do not introduce one for B–D as the tasks are currently stated. They still require precise definitions, scope, and appropriate methods. For C, introduce a conceptual framework if the research objective changes from predicting redemption to explaining why redemption changes.
+
+Decision rule: introduce a conceptual framework when it is needed to specify the mechanism, derive hypotheses, select relevant measures, or interpret the findings.
+:::
+
+## Functions of a conceptual framework
 
 - Explain why the research question has an economic mechanism.
 - Identify the people making choices and the constraints they face.
 - Derive a prediction that could be contradicted by evidence.
 - Connect the model to the variables we can observe.
 
+**Return to Cases A–D:** Which functions apply to each task?
+
 ::: notes
-Adapted from Unit 4, slides 3–6. Ask students to describe their mechanism before naming an estimator.
+Ask students to describe the mechanism before naming an estimator. A framework is warranted when it changes a decision about the question, measures, design, or interpretation.
 :::
 
-## A model is a deliberate simplification
+## Reading synthesis: methodological implications
 
-A useful model leaves things out. The question is whether it leaves out something essential to the argument.
+**Eight minutes · groups of three or four**
 
-- Which details are necessary for the mechanism?
-- Which assumptions make the analysis manageable?
-- Which conclusions would change if an assumption failed?
+Your group will be assigned one reading:
 
-A regression coefficient alone does not explain a causal mechanism.
+- **Ethridge:** How should a conceptual framework be organized?
+- **Varian:** Which agents, choices, objectives, and constraints represent the research problem?
+- **Cheng:** Which practices make each inferential step explicit?
+- **Romer:** How should formal results be connected to verbal and economic claims?
 
-## From a problem to a model
+Produce **one methodological principle, one supporting passage or example, and one application** to the grocery-store case.
 
-Following Ethridge:
+::: notes
+Everyone has read all four pieces, so assign readings in class to distribute the analytical work. Require a page number, short passage, or named example. This makes the reading accountable without asking groups to summarize an entire article.
 
-1. Locate the problem in the literature.
-2. Strip it down to the relevant choices and constraints.
-3. Start with a simple theoretical structure.
-4. Add the features needed for this question.
-5. Derive hypotheses and identify the evidence needed to assess them.
+After five minutes, give each group 30 seconds to report its principle and application. Record the four principles where students can see them; use them again in the claim-evaluation exercise.
+:::
 
-Source: @ethridge2004chapter8.
+## Methodological contributions of the readings
 
-## Ask Varian's questions
+| Reading | Application to framework development |
+|---|---|
+| Ethridge | Organize the problem, concepts, hypotheses, and relevant evidence. |
+| Varian | Identify agents, objectives, choices, constraints, and interactions. |
+| Cheng | Define terms and make every inferential step explicit. |
+| Romer | Keep the mathematics, verbal claim, and economic meaning aligned. |
 
-- Who makes the choices?
-- What do these agents want?
-- How do they interact?
-- What constraints do they face?
-- What adjusts when their choices are inconsistent?
+A model deliberately omits features of the setting. Assess whether those omissions alter the conclusion being derived.
 
-**Discussion:** Which answer is least clear in your proposed project?
+Sources: @ethridge2004chapter8; @varian1997model; @cheng2004proofs; @romer2015mathiness.
 
-Source: @varian1997model, assigned pp. 4–6.
+## Conceptual framework outline
 
-## Example: irrigation under a water price
+| Field | Question to answer |
+|---|---|
+| Research question | What relationship or decision do I want to understand? |
+| Agents and choices | Who acts, and what can they choose? |
+| Objectives and constraints | What do they want, and what limits them? |
+| Mechanism | What sequence connects the cause to the outcome? |
+| Prediction | What should change, in which direction, and for whom? |
+| Evidence | What would support or contradict the prediction? |
+| Limiting assumption | Which assumption, if relaxed, could alter the prediction? |
 
-**Illustrative classroom model:** A farmer chooses water use $w$.
+::: notes
+Ask students to keep this outline open on paper or a laptop. They will complete it in stages during the class.
+:::
+
+## Checkpoint 1: draft your mechanism
+
+**Four minutes · individual work**
+
+Complete three fields for your own project:
+
+1. Research question.
+2. Agents and choices.
+3. Mechanism, written as a sequence of arrows.
+
+Then underline the arrow for which the theoretical or empirical support is least developed.
+
+::: notes
+Circulate and ask: “What decision produces that arrow?” or “Could the arrow plausibly run in the opposite direction?” Students should leave this checkpoint with a specific uncertainty to investigate.
+:::
+
+## Predict before calculating: water becomes more expensive
+
+A farmer chooses how much irrigation water to use. The price per unit of water rises.
+
+What happens to optimal water use?
+
+1. It falls.
+2. It stays the same.
+3. It rises.
+4. The sign depends on institutional or technological constraints.
+
+**Two minutes · individual → pair:** Choose an answer and state one condition under which it follows.
+
+::: notes
+Most students will choose “falls.” Accept it as intuition, then press on the conditions. “It depends” is also defensible if students identify a quota, corner solution, changing technology, crop switching, or another margin.
+
+Keep the initial answers visible. The next three slides turn the intuition into a conditional prediction.
+:::
+
+## Build the irrigation model
+
+**Model:** A farmer chooses water use $w$.
 
 $$
 \max_{w\geq 0}\; p f(w)-cw
@@ -94,122 +200,251 @@ $$
 - $c>0$: price per unit of water.
 - $f(w)$: production, with $f'(w)>0$ and $f''(w)<0$.
 
-For an interior optimum, $pf'(w^*)=c$.
+::: {.fragment}
+Differentiate profit with respect to the choice variable $w$:
+
+$$
+\frac{d}{dw}\left[pf(w)-cw\right]
+=pf'(w)-c=0
+\quad\Rightarrow\quad
+pf'(w^*)=c.
+$$
+
+At the optimum, the **marginal value of water** equals its **marginal cost**.
+:::
+
+::: notes
+Walk through the first-order condition before doing the comparative static:
+
+1. Treat $p$ and $c$ as constants when differentiating with respect to $w$.
+2. The derivative of $pf(w)$ is $pf'(w)$.
+3. The derivative of $cw$ is $c$.
+4. Set marginal profit equal to zero: $pf'(w^*)-c=0$.
+5. The second-order condition is $pf''(w^*)<0$. Because $p>0$ and $f''<0$, this is a maximum.
+
+Economic interpretation: use water until the value of the extra output produced by one more unit of water equals the price of that water.
+:::
 
 ## Derive the prediction
 
-Differentiating the first-order condition gives
+Write the choice explicitly as a function of price: $w^*=w^*(c)$.
+
+**Before revealing each step, write what you expect to appear.**
+
+::: {.fragment}
+Start with the first-order condition:
 
 $$
-p f''(w^*)\frac{dw^*}{dc}=1
-\quad\Rightarrow\quad
-\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}<0.
+pf'\!\left(w^*(c)\right)=c.
 $$
-
-**Conditional prediction:** Higher water prices reduce optimal water use.
-
-Which assumptions make the sign follow? What changes if water use is fixed by a binding quota?
-
-::: notes
-New classroom example. Hold output price, technology, and other inputs fixed. The derivative assumes a differentiable, strictly concave production function and an interior solution.
 :::
 
-## Discussion: Ethridge and Varian
+::: {.fragment}
+Differentiate **both sides with respect to $c$**:
 
-- How does simplifying a problem help us understand it?
-- At what point does simplification remove the mechanism we care about?
-- Would the irrigation model answer a question about farm income, water use, or both?
-- What additional structure would an income question require?
+$$
+\underbrace{p}_{\text{constant}}
+\underbrace{f''(w^*)}_{\text{differentiate }f'}
+\underbrace{\frac{dw^*}{dc}}_{\text{chain rule}}
+=1.
+$$
+:::
 
-Bring one assumption from your own project into the discussion.
+::: {.fragment}
+Now isolate the response:
 
-## Cheng: discovery and exposition
+$$
+\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}
+\quad\Rightarrow\quad
+\frac{dw^*}{dc}<0.
+$$
 
-Finding an argument and presenting it are different tasks.
+**Memory aid:** Differentiate the outside function, then multiply by the derivative of what is inside.
+:::
 
-A readable proof states:
+::: notes
+Say aloud what depends on $c$: the optimal choice $w^*$ does. That is why the chain rule produces $dw^*/dc$.
 
-1. Definitions and assumptions.
-2. A sequence of justified steps.
-3. The conclusion that those steps establish.
+On the right-hand side, $d(c)/dc=1$. On the left, $p$ is held fixed and
+$d[f'(w^*(c))]/dc=f''(w^*)\,dw^*/dc$.
 
-Source: @cheng2004proofs.
+This is also an application of the implicit-function theorem. Define $F(w,c)=pf'(w)-c=0$. Then
+$dw^*/dc=-F_c/F_w=-(-1)/(pf'')=1/(pf'')$.
+:::
 
-## Discussion: find the missing step
+## Evaluate alternative cases
+
+**Seven minutes · one scenario per group**
+
+A. A water-use quota binds.
+
+B. The farmer is already at the corner $w=0$.
+
+C. A new irrigation technology changes the production function.
+
+D. Farmers can switch crops when water prices change.
+
+For your scenario, prepare three answers:
+
+1. Must $dw/dc<0$ still hold?
+2. Which assumption or feature of the original model changed?
+3. What additional outcome or variable should the researcher observe?
+
+::: notes
+Assign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or introduces a choice margin omitted from the baseline model.
+:::
+
+## Conditions for the comparative-static result
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### The negative sign requires
+
+- $p>0$.
+- $f$ is twice differentiable.
+- $f''(w^*)<0$: marginal product declines.
+- An interior optimum, with $pf''(w^*)\neq 0$.
+- Output price, technology, and other inputs held fixed.
+
+Then $p f''(w^*)<0$, so $1/[p f''(w^*)]<0$.
+:::
+
+::: {.column width="50%"}
+### A binding quota changes the result
+
+Let $\bar w$ be a cap and $w^u(c)$ the unconstrained choice:
+
+$$
+w^q(c)=\min\{w^u(c),\bar w\}.
+$$
+
+While the quota binds, $w^q=\bar w$, so
+
+$$
+\frac{dw^q}{dc}=0.
+$$
+
+Price changes the quota's shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.
+:::
+
+::::
+
+**Conditional prediction:** A higher water price reduces water use when price determines an interior choice.
+
+::: notes
+The prediction is conditional because it follows from a specific model and a specific region of the choice problem.
+
+- If the farmer is already at $w=0$, a small price increase may leave water use at zero.
+- If a maximum-use quota binds, quantity is locally fixed at the quota. The quota's shadow value falls as water becomes more expensive.
+- Once the unconstrained optimum falls below the quota, the quota is slack and $dw/dc<0$ again.
+- New technology changes $f'(w)$ and $f''(w)$. With diminishing marginal product and an interior choice, the own-price response remains negative, but the level of water use and magnitude of the response may change.
+- Crop switching introduces another choice margin. Water use within each crop may fall while aggregate use also depends on which crops enter and exit. The one-choice model cannot sign that total response without additional structure.
+
+Ask students which assumption gives the sign. The immediate mathematical answer is $f''<0$ together with $p>0$. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls.
+:::
+
+## Checkpoint 2: turn your mechanism into a prediction
+
+**Four minutes · individual work**
+
+Add three statements to your conceptual framework outline:
+
+- “When ___ changes, I predict ___ will ___.”
+- “The reason is that ___.”
+- “This prediction may fail if ___.”
+
+Exchange with a partner. The partner identifies one unsupported link. Revise the statement to make that step explicit.
+
+::: notes
+Listen for predictions that merely restate the research question. A testable prediction states a direction, identifies a mechanism, specifies its maintained conditions, and can be contradicted by evidence.
+:::
+
+## Evaluate and revise an economic claim
 
 A student writes:
 
 > Water becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.
 
-- Which part describes a choice? Which part is a prediction?
-- Could adoption change irrigated acreage or crop choice?
-- What assumptions are needed to conclude that total water use falls?
-- Rewrite the argument so each conclusion follows from a stated premise.
+**Six minutes · groups with four roles**
+
+- **Ethridge:** Identify the missing framework element.
+- **Varian:** Identify an omitted choice, objective, or constraint.
+- **Cheng:** Identify a conclusion that does not yet follow.
+- **Romer:** Check whether the words claim more than the model establishes.
+
+Produce a two-sentence diagnosis and a revised claim. Support the diagnosis with a passage or example from the assigned reading.
+
+Sources: @ethridge2004chapter8; @varian1997model; @cheng2004proofs; @romer2015mathiness.
 
 ::: notes
-New exercise applying Cheng's guidance. This is a hypothetical claim to diagnose, not a claim about observed irrigation outcomes.
+This hypothetical claim contains several gaps: adoption is a separate choice; efficiency can lower water use per acre while encouraging greater acreage or a different crop; and the baseline model did not include technology adoption. Have one group read its diagnosis and another read its revision.
 :::
 
-## What Romer calls mathiness
+## Revised claim and scope conditions
 
-Romer challenges arguments in which the connection between formal symbols, verbal claims, and economic meaning becomes unclear.
+The baseline irrigation model supports the following statement:
 
-- Do the terms mean the same thing throughout the argument?
-- Does the mathematical result support the verbal conclusion?
-- Can the assumptions and derivation be checked?
+> Holding output price, technology, crop choice, acreage, and other inputs fixed, a higher water price reduces an interior choice of water when production has diminishing marginal product.
 
-Source: @romer2015mathiness.
+It does **not** determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.
 
-## Discussion: evaluate Romer's argument
-
-- What specific example does Romer use to support his criticism?
-- How does he distinguish mathematical theory from mathiness?
-- Which claims concern the models, and which concern incentives in the profession?
-- What evidence would make you revise your assessment of his argument?
-
-Support your answer with a passage from the reading.
+| Reading | Final check |
+|---|---|
+| Ethridge | Is the claim connected to the research problem and evidence? |
+| Varian | Are the relevant choices and constraints represented? |
+| Cheng | Does every conclusion follow from a stated premise? |
+| Romer | Do the symbols, words, and economic meaning agree? |
 
 ::: notes
-The source deck frames several contested interpretations as conclusions. This discussion asks students to assess those interpretations against the paper.
+Return to the methodological principles recorded during the reading synthesis. Ask which reading identifies each limitation in the original claim. The revision should state the maintained conditions and separate model implications from questions requiring additional structure.
 :::
 
-## A check against our own biases
+## Complete your conceptual framework outline
 
-- Am I choosing assumptions because they clarify the problem or deliver a preferred result?
-- Have I separated a model implication from an empirical claim?
-- Would I accept the same argument if its conclusion were inconvenient?
-- What criticism would improve the framework?
+**Eight minutes · individual work**
 
-## Listen for the implicit model
-
-At a seminar, identify:
-
-- The agents and their incentives.
-- The mechanism linking the explanatory variable to the outcome.
-- The assumptions connecting the evidence to that mechanism.
-
-Then ask a question about a specific missing link.
-
-## Workshop: your framework
-
-Write a short account of your project:
+Revise and complete:
 
 1. Research question.
-2. Agents, choices, and constraints.
-3. Mechanism.
-4. Testable prediction.
-5. One assumption that could fail.
+2. Agents, choices, objectives, and constraints.
+3. Mechanism, shown as a sequence.
+4. Directional, testable prediction.
+5. Evidence that could contradict the prediction.
+6. One limiting assumption or omitted choice margin.
 
-Exchange with a partner. Mark the step that needs the most explanation.
+Circle the field where feedback would help most.
+
+::: notes
+Students began the outline at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have already identified a field requiring feedback.
+:::
+
+## Peer review of the conceptual framework
+
+**Five minutes · pairs**
+
+The author gets **one minute** to explain the framework. The reviewer then asks:
+
+- What choice or constraint is missing?
+- Which link lacks sufficient theoretical or empirical support?
+- What alternative mechanism could produce the same observation?
+- What evidence would be inconsistent with the prediction?
+
+The author writes one revision before the roles switch.
+
+::: notes
+Require a written revision so peer discussion produces a documented result. If time permits, ask two students to share the question that led to a substantive revision.
+:::
 
 ## Before you leave
 
-Complete both sentences:
+**Two-minute exit ticket:** Complete all three sentences.
 
 - “My model predicts ___ because ___.”
 - “That prediction depends on ___.”
+- “The reading most relevant to my revision was ___ because ___.”
 
-Next: turn the framework into a clear written argument.
+Next: turn the framework into a written argument with explicit assumptions and inferential steps.
 
 ## References {.smaller}
 
