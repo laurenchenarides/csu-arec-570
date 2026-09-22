@@ -6,7 +6,7 @@ lecture: "6.5"
 order: 605
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -35,7 +34,7 @@ description: "Check the estimand, measurement, uncertainty, and economic signifi
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 
-## Credibility involves more than identification
+## Credibility involves more than identification {.dense}
 
 A strong design can still estimate a quantity different from the one the researcher intends.
 
@@ -109,7 +108,7 @@ It is not:
 - $\beta$: probability of Type II error under a specified alternative.
 - Power: $1-\beta$.
 
-## Sample size changes power
+## Sample size changes power {.dense}
 
 ![Two panels from Kim showing null and alternative test-statistic distributions and different power as sample size changes.](assets/unit6/image14.png){height=350px}
 
