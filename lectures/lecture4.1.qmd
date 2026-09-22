@@ -7,7 +7,7 @@ order: 401
 description: "Construct a conceptual framework, derive comparative statics, and evaluate formal economic claims."
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -20,7 +20,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -28,7 +27,7 @@ format:
     html-math-method: mathml
 ---
 
-## Make a prediction: will a new grocery store improve diets?
+## Make a prediction: will a new grocery store improve diets? {.dense}
 
 A county subsidizes a full-service grocery store in a neighborhood with limited food access.
 
@@ -47,7 +46,7 @@ Run this as a commitment exercise. Ask for a show of hands or use a quick poll, 
 Tell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework.
 :::
 
-## Map the mechanism before choosing a method
+## Map the mechanism before choosing a method {.dense}
 
 One possible chain is:
 
@@ -72,7 +71,7 @@ Require each group to produce three items, then ask one group for each. Possible
 Debrief: the store opening is observable, but the behavioral links are explanations that require evidence. Those links determine what to measure and how to interpret an estimated effect.
 :::
 
-## Should the study introduce a conceptual framework?
+## Should the study introduce a conceptual framework? {.dense}
 
 For each task, choose **introduce one** or **do not introduce one**:
 
@@ -105,7 +104,7 @@ Decision rule: introduce a conceptual framework when it is needed to specify the
 Ask students to describe the mechanism before naming an estimator. A framework is warranted when it changes a decision about the question, measures, design, or interpretation.
 :::
 
-## Reading synthesis: methodological implications
+## Reading synthesis: methodological implications {.dense}
 
 **Eight minutes · groups of three or four**
 
@@ -124,7 +123,7 @@ Everyone has read all four pieces, so assign readings in class to distribute the
 After five minutes, give each group 30 seconds to report its principle and application. Record the four principles where students can see them; use them again in the claim-evaluation exercise.
 :::
 
-## Methodological contributions of the readings
+## Methodological contributions of the readings {.dense}
 
 | Reading | Application to framework development |
 |---|---|
@@ -137,7 +136,7 @@ A model deliberately omits features of the setting. Assess whether those omissio
 
 Sources: @ethridge2004chapter8; @varian1997model; @cheng2004proofs; @romer2015mathiness.
 
-## Conceptual framework outline
+## Conceptual framework outline {.dense}
 
 | Field | Question to answer |
 |---|---|
@@ -169,7 +168,7 @@ Then underline the arrow for which the theoretical or empirical support is least
 Circulate and ask: “What decision produces that arrow?” or “Could the arrow plausibly run in the opposite direction?” Students should leave this checkpoint with a specific uncertainty to investigate.
 :::
 
-## Predict before calculating: water becomes more expensive
+## Predict before calculating: water becomes more expensive {.dense}
 
 A farmer chooses how much irrigation water to use. The price per unit of water rises.
 
@@ -225,7 +224,7 @@ Walk through the first-order condition before doing the comparative static:
 Economic interpretation: use water until the value of the extra output produced by one more unit of water equals the price of that water.
 :::
 
-## Derive the prediction
+## Derive the prediction {.dense}
 
 Write the choice explicitly as a function of price: $w^*=w^*(c)$.
 
@@ -294,7 +293,7 @@ For your scenario, prepare three answers:
 Assign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or introduces a choice margin omitted from the baseline model.
 :::
 
-## Conditions for the comparative-static result
+## Conditions for the comparative-static result {.dense}
 
 :::: {.columns}
 
@@ -360,7 +359,7 @@ Exchange with a partner. The partner identifies one unsupported link. Revise the
 Listen for predictions that merely restate the research question. A testable prediction states a direction, identifies a mechanism, specifies its maintained conditions, and can be contradicted by evidence.
 :::
 
-## Evaluate and revise an economic claim
+## Evaluate and revise an economic claim {.dense}
 
 A student writes:
 
@@ -389,6 +388,12 @@ The baseline irrigation model supports the following statement:
 
 It does **not** determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.
 
+::: notes
+The revision states the maintained conditions and separates the model implication from questions requiring additional structure.
+:::
+
+## Apply the reading-specific checks {.dense}
+
 | Reading | Final check |
 |---|---|
 | Ethridge | Is the claim connected to the research problem and evidence? |
@@ -400,7 +405,7 @@ It does **not** determine whether farmers adopt new technology or whether total 
 Return to the methodological principles recorded during the reading synthesis. Ask which reading identifies each limitation in the original claim. The revision should state the maintained conditions and separate model implications from questions requiring additional structure.
 :::
 
-## Complete your conceptual framework outline
+## Complete your conceptual framework outline {.dense}
 
 **Eight minutes · individual work**
 
@@ -419,7 +424,7 @@ Circle the field where feedback would help most.
 Students began the outline at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have already identified a field requiring feedback.
 :::
 
-## Peer review of the conceptual framework
+## Peer review of the conceptual framework {.dense}
 
 **Five minutes · pairs**
 

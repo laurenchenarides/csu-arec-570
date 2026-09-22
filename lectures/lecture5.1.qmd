@@ -6,7 +6,7 @@ lecture: "5.1"
 order: 501
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -81,13 +80,13 @@ Example: a homeowner list will not cover all residents if renters matter.
 Preserves the homeowner/renter coverage example in the Unit 5 speaker notes.
 :::
 
-## Probability and nonprobability samples
+## Probability and nonprobability samples {.dense}
 
 ![Sampling decisions: define a study population and sampling frame for probability sampling; nonprobability sampling follows a different recruitment path.](assets/unit5/image2.png){height=430px}
 
 Source: Champ; figure retained from Unit 5, slide 13.
 
-## Where errors can enter
+## Where errors can enter {.dense}
 
 ![Survey process from population through sampling frame, sample, respondents, and measurement, showing coverage, sampling, nonresponse, and measurement errors.](assets/unit5/image3.png){height=430px}
 

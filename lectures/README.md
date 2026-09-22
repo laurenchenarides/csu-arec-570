@@ -32,7 +32,8 @@ Repeated material is consolidated; new numerical examples are labeled illustrati
 
 Shared bibliography and execution settings are in `_metadata.yml`. Each deck
 declares its Reveal.js format directly; shared slide styles are in
-`lecture-slides.css`. Each second-level heading starts a slide.
+`../styles.scss`. Each second-level heading starts a slide. Content-heavy
+slides use the `.dense` slide class defined in that theme.
 Speaker notes use `::: notes` blocks. Examples use non-executing code fences;
 rendering does not retrieve data or run the practice commands.
 

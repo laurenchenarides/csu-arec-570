@@ -6,7 +6,7 @@ lecture: "4.2"
 order: 402
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -43,7 +42,7 @@ Turn an economic mechanism into a section a reader can follow.
 - Derive and interpret the relevant prediction.
 - Explain the bridge from theory to empirical evidence.
 
-## Theory in theoretical and empirical papers
+## Theory in theoretical and empirical papers {.dense}
 
 | Theoretical contribution | Empirical contribution |
 |:---|:---|
@@ -92,7 +91,7 @@ Source: @chouinard2015theory.
 - What does a reader need before seeing the first equation?
 - Choose one recommendation and explain how it would improve your draft.
 
-## From a prediction to a measurement
+## From a prediction to a measurement {.dense}
 
 Return to the irrigation example.
 

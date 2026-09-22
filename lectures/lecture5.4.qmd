@@ -6,7 +6,7 @@ lecture: "5.4"
 order: 504
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -116,7 +115,7 @@ Use comments for:
 
 A codebook should define units and missing-value conventions.
 
-## A task needs an owner
+## A task needs an owner {.dense}
 
 A useful task record contains:
 

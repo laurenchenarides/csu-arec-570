@@ -6,7 +6,7 @@ lecture: "6.1"
 order: 601
 format:
   revealjs:
-    theme: white
+    theme: ../styles.scss
     width: 1280
     height: 720
     margin: 0.08
@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    css: lecture-slides.css
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
@@ -45,7 +44,7 @@ Readings and course handouts are available on [Canvas](https://colostate.instruc
 
 Source: @angrist2009mostly.
 
-## Structural and reduced-form approaches
+## Structural and reduced-form approaches {.dense}
 
 | Structural | Reduced-form / design-based |
 |:---|:---|
@@ -169,7 +168,7 @@ a causal interpretation of $\tau$ needs assumptions about treatment assignment a
 
 Controls can help with comparability or precision. They can also introduce problems if chosen without a causal argument.
 
-## Read the experimental table
+## Read the experimental table {.dense}
 
 ![Table from Mostly Harmless Econometrics comparing estimated small-class effects across specifications with additional controls.](assets/unit6/image5.png){height=440px}
 
