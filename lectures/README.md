@@ -8,8 +8,8 @@ calendar dates and preparation assignments remain in `2026/schedule.qmd`.
 
 | Deck | Main PowerPoint source | Added or expanded material |
 |---|---|---|
-| 4.1 | Unit 4, slides 3–22 | Cheng discussion; irrigation model; framework workshop |
-| 4.2 | Unit 4, slides 23–28 | Chouinard writing guidance; theory-to-evidence workshop |
+| 4.1 | Unit 4, slides 3–22 | Ethridge, Varian, and Romer applied to SNAP retailer stocking requirements |
+| 4.2 | Unit 4, slides 23–28 | Cheng and Chouinard writing guidance; theory-to-evidence workshop |
 | 5.1 | Unit 5, slides 3–19 | Champ discussion; questionnaire exercise |
 | 5.2 | Unit 5, slides 20–25 | Dominitz–Manski discussion; supplied ZBP/API materials |
 | 5.3 | Unit 5, slides 26–30 | Git practice and reading discussion, Sections 1–4 |
@@ -44,6 +44,10 @@ quarto render lectures/lecture4.1.qmd
 quarto render lectures
 quarto render 2026/schedule.qmd
 ```
+
+The student PDF for Lecture 4.1 is generated from the Reveal.js print view and
+stored beside the source as `lecture4.1.pdf`. Rendering the site copies it to
+`docs/lectures/lecture4.1.pdf`.
 
 The lecture listing explicitly renders to HTML. Decks render to Reveal.js.
 The project writes its generated website to `docs/`.
