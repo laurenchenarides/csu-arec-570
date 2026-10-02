@@ -86,9 +86,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-project','listing-description-meta','listing-author-meta','listing-website','listing-bibliography','listing-format','listing-execute','listing-comments','listing-engines','listing-language','listing-toc','listing-repo-actions','listing-title','listing-subtitle','listing-author','listing-lecture','listing-order','listing-pdf','listing-description','listing-path','listing-outputHref','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-project","listing-description-meta","listing-author-meta","listing-website","listing-bibliography","listing-format","listing-execute","listing-comments","listing-engines","listing-language","listing-toc","listing-repo-actions","listing-title","listing-subtitle","listing-author","listing-lecture","listing-order","listing-pdf","listing-description","listing-path","listing-outputHref","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -138,7 +138,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Lectures – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Class-meeting slides for Units 4–7.">
+<meta property="og:description" content="Class-meeting slides for Units 4-7.">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 
@@ -216,7 +216,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    Class-meeting slides for Units 4–7.
+    Class-meeting slides for Units 4-7.
   </div>
 </div>
 
@@ -235,176 +235,90 @@ window.Quarto = {
 
 <p>Slides are organized by unit and class meeting. For example, <strong>4.1</strong> is the first meeting of Unit 4.</p>
 <p>See the <a href="../2026/schedule.html">schedule</a> for meeting dates and preparation. Readings and handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
-<p>Student PDF: <a href="lecture4.1.pdf" target="_blank" rel="noopener">Lecture 4.1 · Conceptual Framework and Theory</a></p>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("#listing-lectures a.listing-title").forEach((link) => {
-    link.target = "_blank";
-    link.rel = "noopener";
-  });
-});
-</script>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-lectures">
-<table class="quarto-listing-table table">
+<div class="quarto-listing quarto-listing-container-custom" id="listing-lectures">
+<table class="table table-hover caption-top">
 <thead>
-<tr>
-
-<th>
-Lecture
-</th>
-
-<th>
-Focus
-</th>
-
+<tr class="header">
+<th data-quarto-table-cell-role="th">Lecture</th>
+<th data-quarto-table-cell-role="th">Focus</th>
+<th data-quarto-table-cell-role="th">Student PDF</th>
 </tr>
 </thead>
 <tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1790978522116" data-listing-reading-time-sort="13" data-listing-word-count-sort="2516" data-listing-title-sort="Lecture 4.1: Conceptual Framework and Theory" data-listing-filename-sort="lecture4.1.qmd">
-<td>
-<a href="../lectures/lecture4.1.html" class="title listing-title">Lecture 4.1: Conceptual Framework and Theory</a>
-</td>
-<td>
-<span class="listing-description">Use theory to analyze a research problem, structure an economic model, and state defensible claims</span>
-</td>
-
+<tr class="odd" data-index="0" data-listing-file-modified-sort="1790980000066" data-listing-reading-time-sort="13" data-listing-word-count-sort="2515">
+<td><a href="../lectures/lecture4.1.html" class="listing-title" target="_blank" rel="noopener">Lecture 4.1: Conceptual Framework and Theory</a></td>
+<td><span class="listing-description">Use theory to analyze a research problem, structure an economic model, and state defensible claims</span></td>
+<td><a href="lecture4.1.pdf" class="listing-pdf text-nowrap" target="_blank" rel="noopener">Download PDF</a></td>
 </tr>
-
-<tr data-index="1" data-listing-file-modified-sort="1790962842214" data-listing-reading-time-sort="5" data-listing-word-count-sort="805" data-listing-title-sort="Lecture 4.2: Reporting the Conceptual Framework" data-listing-filename-sort="lecture4.2.qmd">
-<td>
-<a href="../lectures/lecture4.2.html" class="title listing-title">Lecture 4.2: Reporting the Conceptual Framework</a>
-</td>
-<td>
-<span class="listing-description">Write theory clearly and connect hypotheses to identification.</span>
-</td>
-
+<tr class="even" data-index="1" data-listing-file-modified-sort="1790962842214" data-listing-reading-time-sort="5" data-listing-word-count-sort="805">
+<td><a href="../lectures/lecture4.2.html" class="listing-title" target="_blank" rel="noopener">Lecture 4.2: Reporting the Conceptual Framework</a></td>
+<td><span class="listing-description">Write theory clearly and connect hypotheses to identification.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1790119612483" data-listing-reading-time-sort="4" data-listing-word-count-sort="654" data-listing-title-sort="Lecture 5.1: Data Collection: Surveys" data-listing-filename-sort="lecture5.1.qmd">
-<td>
-<a href="../lectures/lecture5.1.html" class="title listing-title">Lecture 5.1: Data Collection: Surveys</a>
-</td>
-<td>
-<span class="listing-description">Connect sampling, questionnaire design, and measurement to the research question.</span>
-</td>
-
+<tr class="odd" data-index="2" data-listing-file-modified-sort="1790119612483" data-listing-reading-time-sort="4" data-listing-word-count-sort="654">
+<td><a href="../lectures/lecture5.1.html" class="listing-title" target="_blank" rel="noopener">Lecture 5.1: Data Collection: Surveys</a></td>
+<td><span class="listing-description">Connect sampling, questionnaire design, and measurement to the research question.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="3" data-listing-file-modified-sort="1790119152475" data-listing-reading-time-sort="3" data-listing-word-count-sort="593" data-listing-title-sort="Lecture 5.2: Data Collection via API" data-listing-filename-sort="lecture5.2.qmd">
-<td>
-<a href="../lectures/lecture5.2.html" class="title listing-title">Lecture 5.2: Data Collection via API</a>
-</td>
-<td>
-<span class="listing-description">Plan reproducible retrieval and weigh data quantity against quality.</span>
-</td>
-
+<tr class="even" data-index="3" data-listing-file-modified-sort="1790119152475" data-listing-reading-time-sort="3" data-listing-word-count-sort="593">
+<td><a href="../lectures/lecture5.2.html" class="listing-title" target="_blank" rel="noopener">Lecture 5.2: Data Collection via API</a></td>
+<td><span class="listing-description">Plan reproducible retrieval and weigh data quantity against quality.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="4" data-listing-file-modified-sort="1790119154537" data-listing-reading-time-sort="3" data-listing-word-count-sort="473" data-listing-title-sort="Lecture 5.3: Managing Data for Reproducibility: Git I" data-listing-filename-sort="lecture5.3.qmd">
-<td>
-<a href="../lectures/lecture5.3.html" class="title listing-title">Lecture 5.3: Managing Data for Reproducibility: Git I</a>
-</td>
-<td>
-<span class="listing-description">Automate a project and record clear, recoverable changes.</span>
-</td>
-
+<tr class="odd" data-index="4" data-listing-file-modified-sort="1790119154537" data-listing-reading-time-sort="3" data-listing-word-count-sort="473">
+<td><a href="../lectures/lecture5.3.html" class="listing-title" target="_blank" rel="noopener">Lecture 5.3: Managing Data for Reproducibility: Git I</a></td>
+<td><span class="listing-description">Automate a project and record clear, recoverable changes.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="5" data-listing-file-modified-sort="1790119614272" data-listing-reading-time-sort="3" data-listing-word-count-sort="522" data-listing-title-sort="Lecture 5.4: Managing Data for Reproducibility: Git II" data-listing-filename-sort="lecture5.4.qmd">
-<td>
-<a href="../lectures/lecture5.4.html" class="title listing-title">Lecture 5.4: Managing Data for Reproducibility: Git II</a>
-</td>
-<td>
-<span class="listing-description">Use keys, reusable code, documentation, and clear collaboration practices.</span>
-</td>
-
+<tr class="even" data-index="5" data-listing-file-modified-sort="1790119614272" data-listing-reading-time-sort="3" data-listing-word-count-sort="522">
+<td><a href="../lectures/lecture5.4.html" class="listing-title" target="_blank" rel="noopener">Lecture 5.4: Managing Data for Reproducibility: Git II</a></td>
+<td><span class="listing-description">Use keys, reusable code, documentation, and clear collaboration practices.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="6" data-listing-file-modified-sort="1790119158071" data-listing-reading-time-sort="3" data-listing-word-count-sort="455" data-listing-title-sort="Lecture 5.5: Data: Reporting" data-listing-filename-sort="lecture5.5.qmd">
-<td>
-<a href="../lectures/lecture5.5.html" class="title listing-title">Lecture 5.5: Data: Reporting</a>
-</td>
-<td>
-<span class="listing-description">Write a transparent data section with sample construction and measurement limits.</span>
-</td>
-
+<tr class="odd" data-index="6" data-listing-file-modified-sort="1790119158071" data-listing-reading-time-sort="3" data-listing-word-count-sort="455">
+<td><a href="../lectures/lecture5.5.html" class="listing-title" target="_blank" rel="noopener">Lecture 5.5: Data: Reporting</a></td>
+<td><span class="listing-description">Write a transparent data section with sample construction and measurement limits.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="7" data-listing-file-modified-sort="1790119616008" data-listing-reading-time-sort="4" data-listing-word-count-sort="764" data-listing-title-sort="Lecture 6.1: Econometric Models and Identification" data-listing-filename-sort="lecture6.1.qmd">
-<td>
-<a href="../lectures/lecture6.1.html" class="title listing-title">Lecture 6.1: Econometric Models and Identification</a>
-</td>
-<td>
-<span class="listing-description">Distinguish structural and reduced-form questions, selection, and the experimental ideal.</span>
-</td>
-
+<tr class="even" data-index="7" data-listing-file-modified-sort="1790119616008" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
+<td><a href="../lectures/lecture6.1.html" class="listing-title" target="_blank" rel="noopener">Lecture 6.1: Econometric Models and Identification</a></td>
+<td><span class="listing-description">Distinguish structural and reduced-form questions, selection, and the experimental ideal.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="8" data-listing-file-modified-sort="1790119161662" data-listing-reading-time-sort="3" data-listing-word-count-sort="570" data-listing-title-sort="Lecture 6.2: Causality and Policy Evaluation" data-listing-filename-sort="lecture6.2.qmd">
-<td>
-<a href="../lectures/lecture6.2.html" class="title listing-title">Lecture 6.2: Causality and Policy Evaluation</a>
-</td>
-<td>
-<span class="listing-description">Assess RD, difference-in-differences, synthetic controls, and credibility checks.</span>
-</td>
-
+<tr class="odd" data-index="8" data-listing-file-modified-sort="1790119161662" data-listing-reading-time-sort="3" data-listing-word-count-sort="570">
+<td><a href="../lectures/lecture6.2.html" class="listing-title" target="_blank" rel="noopener">Lecture 6.2: Causality and Policy Evaluation</a></td>
+<td><span class="listing-description">Assess RD, difference-in-differences, synthetic controls, and credibility checks.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="9" data-listing-file-modified-sort="1790119617793" data-listing-reading-time-sort="3" data-listing-word-count-sort="477" data-listing-title-sort="Lecture 6.3: Machine Learning in Economic Research" data-listing-filename-sort="lecture6.3.qmd">
-<td>
-<a href="../lectures/lecture6.3.html" class="title listing-title">Lecture 6.3: Machine Learning in Economic Research</a>
-</td>
-<td>
-<span class="listing-description">Distinguish prediction from causal inference and evaluate model selection.</span>
-</td>
-
+<tr class="even" data-index="9" data-listing-file-modified-sort="1790119617793" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<td><a href="../lectures/lecture6.3.html" class="listing-title" target="_blank" rel="noopener">Lecture 6.3: Machine Learning in Economic Research</a></td>
+<td><span class="listing-description">Distinguish prediction from causal inference and evaluate model selection.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="10" data-listing-file-modified-sort="1790119165075" data-listing-reading-time-sort="3" data-listing-word-count-sort="556" data-listing-title-sort="Lecture 6.4: Experiments, Qualitative and Mixed Methods" data-listing-filename-sort="lecture6.4.qmd">
-<td>
-<a href="../lectures/lecture6.4.html" class="title listing-title">Lecture 6.4: Experiments, Qualitative and Mixed Methods</a>
-</td>
-<td>
-<span class="listing-description">Compare controlled variation with open-ended evidence and design a mixed-methods study.</span>
-</td>
-
+<tr class="odd" data-index="10" data-listing-file-modified-sort="1790119165075" data-listing-reading-time-sort="3" data-listing-word-count-sort="556">
+<td><a href="../lectures/lecture6.4.html" class="listing-title" target="_blank" rel="noopener">Lecture 6.4: Experiments, Qualitative and Mixed Methods</a></td>
+<td><span class="listing-description">Compare controlled variation with open-ended evidence and design a mixed-methods study.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="11" data-listing-file-modified-sort="1790119619535" data-listing-reading-time-sort="5" data-listing-word-count-sort="822" data-listing-title-sort="Lecture 6.5: Evaluating Empirical Evidence" data-listing-filename-sort="lecture6.5.qmd">
-<td>
-<a href="../lectures/lecture6.5.html" class="title listing-title">Lecture 6.5: Evaluating Empirical Evidence</a>
-</td>
-<td>
-<span class="listing-description">Check the estimand, measurement, uncertainty, and economic significance.</span>
-</td>
-
+<tr class="even" data-index="11" data-listing-file-modified-sort="1790119619535" data-listing-reading-time-sort="5" data-listing-word-count-sort="822">
+<td><a href="../lectures/lecture6.5.html" class="listing-title" target="_blank" rel="noopener">Lecture 6.5: Evaluating Empirical Evidence</a></td>
+<td><span class="listing-description">Check the estimand, measurement, uncertainty, and economic significance.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="12" data-listing-file-modified-sort="1790119621295" data-listing-reading-time-sort="3" data-listing-word-count-sort="582" data-listing-title-sort="Lecture 7.1: Reviewing Research" data-listing-filename-sort="lecture7.1.qmd">
-<td>
-<a href="../lectures/lecture7.1.html" class="title listing-title">Lecture 7.1: Reviewing Research</a>
-</td>
-<td>
-<span class="listing-description">Evaluate contribution, credibility, and clarity; write actionable referee comments.</span>
-</td>
-
+<tr class="odd" data-index="12" data-listing-file-modified-sort="1790119621295" data-listing-reading-time-sort="3" data-listing-word-count-sort="582">
+<td><a href="../lectures/lecture7.1.html" class="listing-title" target="_blank" rel="noopener">Lecture 7.1: Reviewing Research</a></td>
+<td><span class="listing-description">Evaluate contribution, credibility, and clarity; write actionable referee comments.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
-<tr data-index="13" data-listing-file-modified-sort="1790119623081" data-listing-reading-time-sort="4" data-listing-word-count-sort="631" data-listing-title-sort="Lecture 7.2: Responding to Reviewers" data-listing-filename-sort="lecture7.2.qmd">
-<td>
-<a href="../lectures/lecture7.2.html" class="title listing-title">Lecture 7.2: Responding to Reviewers</a>
-</td>
-<td>
-<span class="listing-description">Plan revisions, answer criticism with evidence, and communicate disagreements clearly.</span>
-</td>
-
+<tr class="even" data-index="13" data-listing-file-modified-sort="1790119623081" data-listing-reading-time-sort="4" data-listing-word-count-sort="631">
+<td><a href="../lectures/lecture7.2.html" class="listing-title" target="_blank" rel="noopener">Lecture 7.2: Responding to Reviewers</a></td>
+<td><span class="listing-description">Plan revisions, answer criticism with evidence, and communicate disagreements clearly.</span></td>
+<td><span aria-label="No PDF available">—</span></td>
 </tr>
-
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
