@@ -29,6 +29,7 @@ description: "Write theory clearly and connect hypotheses to identification."
 
 ## Before class
 
+- Cheng, *How to Write Proofs: A Quick Guide* [@cheng2004proofs].
 - Chouinard, *Theory Notes* [@chouinard2015theory].
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
@@ -41,6 +42,36 @@ Turn an economic mechanism into a section a reader can follow.
 - Define the model's elements before combining them.
 - Derive and interpret the relevant prediction.
 - Explain the bridge from theory to empirical evidence.
+
+## Cheng: expose the inferential structure {.dense}
+
+Cheng’s proof-writing guidance applies to economic arguments even when the paper does not present a formal proof.
+
+1. State the claim precisely.
+2. Identify the premises and maintained assumptions.
+3. Show the intermediate steps that connect the premises to the conclusion.
+4. Distinguish an example from a general result.
+5. Check whether the converse has been asserted without justification.
+
+The reader should be able to identify where each conclusion comes from and which premise would need to change for the conclusion to fail.
+
+Source: @cheng2004proofs.
+
+## Apply Cheng to the SNAP example {.dense}
+
+**Premises**
+
+- A retailer remains SNAP-authorized.
+- The revised stocking requirement binds for that retailer.
+- The qualifying-stock constraint is enforced.
+
+**Conclusion supported by those premises**
+
+> The retailer increases qualifying stock enough to satisfy the requirement.
+
+The argument does not establish that every retailer remains authorized or that local food access improves. Those conclusions require additional premises and evidence.
+
+**Seminar question:** Which premise is most likely to fail in an empirical application, and how would that failure appear in the data?
 
 ## Theory in theoretical and empirical papers {.dense}
 

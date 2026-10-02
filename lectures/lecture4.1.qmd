@@ -4,7 +4,7 @@ subtitle: "AREC 570 / ECON 530 · Unit 4"
 author: "Lauren Chenarides"
 lecture: "4.1"
 order: 401
-description: "Construct a conceptual framework, derive comparative statics, and evaluate formal economic claims."
+description: "Use theory to analyze a research problem, structure an economic model, and state defensible claims"
 format:
   revealjs:
     theme: ../styles.scss
@@ -17,7 +17,7 @@ format:
     navigation-mode: linear
     controls: true
     progress: true
-    scrollable: true
+    scrollable: false
     auto-stretch: false
     code-overflow: wrap
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
@@ -27,429 +27,581 @@ format:
     html-math-method: mathml
 ---
 
-## Make a prediction: will a new grocery store improve diets? {.dense}
+## Readings and sequence
 
-A county subsidizes a full-service grocery store in a neighborhood with limited food access.
+1. **Ethridge, Chapter 8**
+    - What a conceptual framework does in applied economic research
 
-**Choose before discussing:** Relative to no store entry, average diet quality will…
+2. **Varian, “How to Build an Economic Model in Your Spare Time”**
+    - How to isolate a mechanism and structure a useful model
 
-1. Increase.
-2. Remain unchanged.
-3. Decrease.
-4. Have an indeterminate sign without additional assumptions.
-
-**Two minutes · individual → pair:** Select one answer and state the mechanism and assumptions supporting it.
+3. **Romer, “Mathiness in the Theory of Economic Growth”**
+    - How to keep verbal mathematical and empirical arguments aligned
 
 ::: notes
-Run this as a commitment exercise. Ask for a show of hands or use a quick poll, but do not resolve it yet. Give students 30 seconds to choose and write, then 60 seconds to compare with a neighbor. Ask two pairs with different answers to share their reasoning.
-
-Tell students that the point is not to guess the average effect. Their explanations already contain implicit mechanisms and assumptions. Record the initial vote so the class can revisit it after building the framework.
+This lecture follows the readings in sequence and uses the SNAP project to connect their arguments.
 :::
 
-## Map the mechanism before choosing a method {.dense}
+## Example: SNAP retailer stocking requirements
 
-One possible chain is:
+SNAP-authorized retailers must satisfy program eligibility standards. Eligibility requires a minimum assortment of staple foods.
+
+In 2018, a new rule went into effect that changed the minimum number of items per food category to remain eligible.
+
+Changes in how qualifying varieties and stocking units are defined may affect
+
+- Products carried by participating retailers
+- Cost of remaining SNAP authorized
+- Retailer entry into the program *and/or* continued participation *and/or* exit
+- Access to staple foods for SNAP households
+
+::: notes
+Keep the policy description brief. The purpose is to establish the research problem rather than provide the full institutional background.
+:::
+
+## The core policy issue
+
+**Policy concern**
+
+Previous minimum standards could allow SNAP participation with limited nutritious variety
+
+::: {.fragment}
+**Policy intervention**
+
+Require more varieties across staple food categories and more perishable foods
+:::
+
+::: {.fragment}
+**Intended mechanism**
+
+Use the value of SNAP authorization to encourage neighborhood retailers to stock more nutritious foods
+:::
+
+::: {.fragment}
+**Longer-run goal**
+
+Improve convenient access to foods consistent with dietary guidance in low-income and rural communities
+:::
+
+::: notes
+This is the policy rationale. The empirical project evaluates whether the intended mechanism occurs and whether retailer responses alter the result.
+
+The rulemaking record is available through Federal Register docket FNS-2025-0018.
+:::
+
+## Translating the policy issue into a research problem
+
+**Intended stocking pathway**
 
 $$
-\text{store entry}
-\rightarrow \text{travel cost falls}
-\rightarrow \text{shopping changes}
-\rightarrow \text{diet quality changes}.
+\text{stocking requirement}
+\rightarrow \text{retailer inventory}
+\rightarrow \text{local availability}
+\rightarrow \text{purchases and health}
 $$
 
-Prices, product selection, household budgets, preferences, and competing stores may alter the magnitude or sign of the relationship.
+::: {.fragment}
+**Retailer participation pathway**
 
-**Four minutes · groups of three:** Extend the proposed mechanism with:
-
-- One pathway that would increase diet quality.
-- One pathway that would offset or reverse that change.
-- One variable needed to distinguish those explanations.
-
-::: notes
-Require each group to produce three items, then ask one group for each. Possible responses include prices, product mix, shopping frequency, substitution away from other stores, household budgets, preferences, time constraints, and changes by income or vehicle access.
-
-Debrief: the store opening is observable, but the behavioral links are explanations that require evidence. Those links determine what to measure and how to interpret an estimated effect.
+$$
+\text{stocking requirement}
+\rightarrow \text{compliance cost}
+\rightarrow \text{SNAP authorization}
+\rightarrow \text{authorized-store portfolio}
+$$
 :::
 
-## Should the study introduce a conceptual framework? {.dense}
-
-For each task, choose **introduce one** or **do not introduce one**:
-
-A. Estimate whether a grocery subsidy improves diet quality and explain for whom.
-
-B. Report how many households live more than five miles from a grocery store.
-
-C. Predict which households will redeem a coupon using out-of-sample accuracy.
-
-D. Audit whether store-location records contain missing coordinates.
-
-**Three minutes · pairs:** Classify all four. For one case, state what a conceptual framework would add to the analysis.
+For purposes of this example, the application observes the *second* pathway.
 
 ::: notes
-Suggested debrief: introduce a conceptual framework for A because the study proposes a causal relationship, heterogeneous effects, and an economic mechanism. Do not introduce one for B–D as the tasks are currently stated. They still require precise definitions, scope, and appropriate methods. For C, introduce a conceptual framework if the research objective changes from predicting redemption to explaining why redemption changes.
-
-Decision rule: introduce a conceptual framework when it is needed to specify the mechanism, derive hypotheses, select relevant measures, or interpret the findings.
+Inventory remains a theoretical mechanism rather than an observed outcome.
 :::
 
-## Functions of a conceptual framework
+## Begin with a researchable problem
 
-- Explain why the research question has an economic mechanism.
-- Identify the people making choices and the constraints they face.
-- Derive a prediction that could be contradicted by evidence.
-- Connect the model to the variables we can observe.
+**Broad policy question**
 
-**Return to Cases A–D:** Which functions apply to each task?
+> Do stronger stocking standards improve access to staple foods?
+
+**Researchable questions**
+
+1. How do revised standards affect continued SNAP authorization
+2. Which types of retailers are more likely to lose authorization
+3. How does the portfolio and location of authorized retailers change
+4. Are authorization losses concentrated in areas with a higher share of SNAP-participating households?
 
 ::: notes
-Ask students to describe the mechanism before naming an estimator. A framework is warranted when it changes a decision about the question, measures, design, or interpretation.
+If losses are concentrated where SNAP participation is highest then the policy change may be poorly targeted with respect to retailer access.
+
+This question connects the distribution of retailer losses to the communities the program is intended to serve.
 :::
 
-## Reading synthesis: methodological implications {.dense}
+## Where does the conceptual framework enter?
 
-**Eight minutes · groups of three or four**
+There is no universal order but each part has a distinct role.
 
-Your group will be assigned one reading:
+- The **problem statement** identifies the possible loss of SNAP-authorized retailers
+- The **literature review** supplies theory and evidence about regulation retailer participation and food access
+- The **conceptual framework** explains why the rule may change authorization and predicts which stores and communities are most affected
+- The **methods** use annual store authorization and location data to evaluate those predictions
 
-- **Ethridge:** How should a conceptual framework be organized?
-- **Varian:** Which agents, choices, objectives, and constraints represent the research problem?
-- **Cheng:** Which practices make each inferential step explicit?
-- **Romer:** How should formal results be connected to verbal and economic claims?
+The framework states the expected relationships. The empirical design specifies how the evidence will be used to estimate them.
 
-Produce **one methodological principle, one supporting passage or example, and one application** to the grocery-store case.
+# Ethridge, Chapter 8
+
+## Ethridge: conceptualize the problem
+
+For Ethridge, a conceptual framework is an analysis of a specific research problem using relevant theory and concepts [@ethridge2004chapter8].
+
+The framework applies theory to explain the relationships that create or characterize the problem.
+
+It is not a review of standard theory and it is not a description of the empirical method.
+
+## Five elements of a conceptual framework
+
+Ethridge draws on Williams to describe an organized analysis that may include
+
+::: {.incremental}
+- Sources of the problem
+- Alternative solutions to the problem
+- Variables relevant to the analysis
+- Relationships organized into a system
+- Hypotheses about expected results
+:::
+
+Source: Ethridge Chapter 8 pages 130–131
 
 ::: notes
-Everyone has read all four pieces, so assign readings in class to distribute the analytical work. Require a page number, short passage, or named example. This makes the reading accountable without asking groups to summarize an entire article.
-
-After five minutes, give each group 30 seconds to report its principle and application. Record the four principles where students can see them; use them again in the claim-evaluation exercise.
+This five-item list comes directly from Ethridge's discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge.
 :::
 
-## Methodological contributions of the readings {.dense}
+## How Ethridge recommends proceeding
 
-| Reading | Application to framework development |
+::: {.incremental}
+1. Review how related problems have been conceptualized
+2. Reduce the problem to its simplest useful form
+3. Identify the applicable economic theory
+4. Construct a base model using maintained hypotheses
+5. Add dimensions only when they improve the analysis
+6. Assemble hypotheses from the conceptual reasoning
+:::
+
+Source: Ethridge Chapter 8 pages 136–138
+
+## Applying the five elements to the SNAP example
+
+**Source of the problem** Some SNAP retailers may offer limited nutritious variety
+
+::: {.fragment}
+**Proposed solution** Stronger stocking standards
+:::
+
+::: {.fragment}
+**Relevant variables** Authorization status, store type, location, and neighborhood-level SNAP participation rates
+:::
+
+::: {.fragment}
+**Relationship** Compliance costs alter the retailer's decision to remain authorized
+:::
+
+::: {.fragment}
+**Expected result** Authorization losses vary across store types and communities
+:::
+
+## Three kinds of hypotheses in Ethridge
+
+| Type | Role in the conceptual framework |
 |---|---|
-| Ethridge | Organize the problem, concepts, hypotheses, and relevant evidence. |
-| Varian | Identify agents, objectives, choices, constraints, and interactions. |
-| Cheng | Define terms and make every inferential step explicit. |
-| Romer | Keep the mathematics, verbal claim, and economic meaning aligned. |
+| **Maintained hypotheses** | Assumptions accepted for purposes of the analysis |
+| **Diagnostic hypotheses** | Proposed explanations for the source or nature of the problem |
+| **Remedial hypotheses** | Proposed actions expected to address the diagnosed problem |
 
-A model deliberately omits features of the setting. Assess whether those omissions alter the conclusion being derived.
+Maintained hypotheses define the conditions for the reasoning. Diagnostic hypotheses explain the problem. Remedial hypotheses connect a proposed intervention to a response.
 
-Sources: @ethridge2004chapter8; @varian1997model; @cheng2004proofs; @romer2015mathiness.
+## Apply the three hypothesis types
 
-## Conceptual framework outline {.dense}
+**Maintained hypothesis**
 
-| Field | Question to answer |
+Meeting the stronger stocking standard is costly for at least some retailers
+
+::: {.fragment}
+**Diagnostic hypothesis**
+
+Some SNAP households have limited access to nutritious foods because nearby retailers stock too few qualifying products
+:::
+
+::: {.fragment}
+**Remedial hypothesis**
+
+A stronger stocking standard increases nutritious inventory among retailers that comply and remain authorized
+:::
+
+::: notes
+Stress that maintained hypotheses are analytically distinct from diagnostic and remedial hypotheses. The example statements are starting points that require refinement as the model is developed.
+
+Inventory is the policy mechanism in this example but it is not observed in the proposed empirical application. The observed response is whether a store remains authorized.
+:::
+
+## The framework also identifies competing responses
+
+The intended policy mechanism is not the only possible response.
+
+- Some retailers already meet the new standard
+- Some retailers change inventory and remain authorized
+- Some retailers decide that compliance is not worthwhile
+- Some retailers lose authorization
+- Authorization losses may be concentrated by store type or community
+
+The framework distinguishes the unobserved stocking mechanism from the observed authorization outcome.
+
+## Discussion: apply Ethridge to your research
+
+1. What specific condition or relationship requires explanation in your project
+2. Which theory helps you reason through that problem
+3. What maintained hypothesis does your reasoning require
+4. What diagnostic hypothesis follows from the framework
+5. What remedial hypothesis would correspond to a proposed intervention
+
+::: notes
+Students can answer using their own dissertation idea or another current project. The questions do not require knowledge of SNAP policy.
+:::
+
+
+# Varian
+
+## From the concept to the model
+
+**Ethridge asks what the conceptual framework must accomplish**
+
+::: {.fragment}
+Apply relevant theory to the research problem and derive meaningful hypotheses
+:::
+
+::: {.fragment}
+**Varian asks how the economic model should be structured**
+:::
+
+::: {.fragment}
+Identify agents choices objectives constraints interactions and adjustment
+:::
+
+## Varian: start with questions
+
+1. Who makes choices
+2. What can each agent choose
+3. What objective guides each choice
+4. What constraints limit each agent
+5. How do the agents interact
+6. What adjusts when choices are not mutually consistent
+
+Work through the simplest example that retains the mechanism. Add complexity only when it changes the result [@varian1997model].
+
+## Structure the example: agents and choices
+
+**Who makes choices and what can they choose?**
+
+::: {.fragment}
+**Retailers** decide whether the value of SNAP authorization justifies the cost of meeting the rule
+:::
+
+::: {.fragment}
+**Households** choose among the retailers available to them
+:::
+
+::: {.fragment}
+**The regulator** sets stocking standards and determines eligibility
+:::
+
+::: notes
+Pause after the question and solicit possibilities before revealing each response.
+:::
+
+## Structure the example: objectives and constraints
+
+**What do agents want and what limits their choices?**
+
+::: {.fragment}
+**Retailers** value SNAP-related revenue and face compliance procurement shelf-space and spoilage costs
+:::
+
+::: {.fragment}
+**Households** value food and other goods and face income travel time prices and product availability
+:::
+
+::: {.fragment}
+**The regulator** seeks healthier food access and program integrity within administrative constraints
+:::
+
+::: notes
+Pause after the question and let students identify objectives and constraints before revealing the example.
+:::
+
+## Structure the example: interaction and adjustment
+
+**How do choices interact and what adjusts?**
+
+::: {.fragment}
+The stocking standard changes compliance costs for some retailers
+:::
+
+::: {.fragment}
+The value of SNAP customers affects a retailer's willingness to incur those costs
+:::
+
+::: {.fragment}
+Retailers enter remain in or leave the authorized-store network
+:::
+
+::: {.fragment}
+The number type and location of authorized stores adjust across communities
+:::
+
+## A first model: retailer authorization
+
+Let $r$ represent the strictness of the stocking standard.
+
+::: {.fragment}
+For retailer $i$
+
+$$
+B_i=\text{value of SNAP authorization}
+$$
+
+$$
+K_i(r)=\text{cost of meeting the stocking standard}
+$$
+:::
+
+::: {.fragment}
+The observed authorization outcome is
+
+$$
+a_i(r)=
+\begin{cases}
+1 & \text{if } B_i\geq K_i(r)\\
+0 & \text{if } B_i<K_i(r)
+\end{cases}
+$$
+:::
+
+## When does the rule force a change?
+
+**Requires a change — binding**
+
+The new standard requires a retailer to change its inventory to remain eligible
+
+::: {.fragment}
+**Already satisfied — slack**
+
+The retailer already meets the standard so the rule does not require an inventory change
+:::
+
+::: {.fragment}
+**Inventory without the program minimum — unconstrained inventory**
+
+The inventory a retailer would choose without the program minimum. It does not mean that the retailer is exempt from the rule.
+:::
+
+::: notes
+The earlier version referred to standard concavity conditions. In optimization this means the objective has a well-behaved single optimum such as profits with diminishing marginal returns. That assumption is not needed for the simplified authorization model and has been removed.
+
+Without inventory data the empirical analysis cannot identify which individual stores faced a binding standard. The distinction remains useful as a theoretical explanation for why the policy affects some stores more than others.
+:::
+
+## Developing a conceptual model
+
+For market or neighborhood $m$ the number of authorized retailers is
+
+$$
+A_m(r)=\sum_{i\in m}a_i(r)
+$$
+
+::: {.fragment}
+The portfolio also describes
+
+- The number of authorized stores
+- The types of stores that remain
+- Their geographic distribution
+- The communities that experience losses
+:::
+
+Here $A_m(r)$ is the number of authorized retailers in market $m$ under stocking standard $r$. The outcome is the authorized-store network rather than the quantity of inventory.
+
+## Program targeting
+
+Let $S_m$ denote the share of households participating in SNAP in community $m$.
+
+If authorization losses are larger where $S_m$ is higher then the authorized-store network contracts most in communities that rely more heavily on SNAP.
+
+That pattern would suggest a targeting problem relative to the policy's food-access goal.
+
+It would not by itself establish the effect on store inventory household purchases diet or health.
+
+## Maintained hypotheses behind the result
+
+- Meeting the new standard is more costly for some retailers than for others
+- SNAP authorization has positive but heterogeneous value across retailers
+- Retailers can remain authorized lose authorization or operate outside SNAP
+- The policy can change the authorized-store portfolio even when inventory is not observed
+
+These maintained hypotheses support the authorization mechanism. They do not establish its empirical magnitude.
+
+## Match the model to available evidence
+
+| Available data | Outcome supported by the data |
 |---|---|
-| Research question | What relationship or decision do I want to understand? |
-| Agents and choices | Who acts, and what can they choose? |
-| Objectives and constraints | What do they want, and what limits them? |
-| Mechanism | What sequence connects the cause to the outcome? |
-| Prediction | What should change, in which direction, and for whom? |
-| Evidence | What would support or contradict the prediction? |
-| Limiting assumption | Which assumption, if relaxed, could alter the prediction? |
+| Store existence by year | Entry survival and exit |
+| SNAP authorization by year | Entry continuation and loss of authorization |
+| Store characteristics | Composition of the authorized-store portfolio |
+| Store location | Geographic distribution of authorized retailers |
+| Local SNAP participation | Distribution of authorization losses by program reliance |
 
-::: notes
-Ask students to keep this outline open on paper or a laptop. They will complete it in stages during the class.
-:::
+## Mechanisms outside the available data
 
-## Checkpoint 1: draft your mechanism
+- Inventory changes explain how stores may comply
+- Compliance costs explain why authorization responses may differ
+- SNAP revenue explains why authorization is more valuable to some stores
+- Household purchases diet and health lie farther along the policy pathway
 
-**Four minutes · individual work**
+These mechanisms motivate the framework but are not outcomes that this application can test directly.
 
-Complete three fields for your own project:
+## From the model to observable measures
 
-1. Research question.
-2. Agents and choices.
-3. Mechanism, written as a sequence of arrows.
-
-Then underline the arrow for which the theoretical or empirical support is least developed.
-
-::: notes
-Circulate and ask: “What decision produces that arrow?” or “Could the arrow plausibly run in the opposite direction?” Students should leave this checkpoint with a specific uncertainty to investigate.
-:::
-
-## Predict before calculating: water becomes more expensive {.dense}
-
-A farmer chooses how much irrigation water to use. The price per unit of water rises.
-
-What happens to optimal water use?
-
-1. It falls.
-2. It stays the same.
-3. It rises.
-4. The sign depends on institutional or technological constraints.
-
-**Two minutes · individual → pair:** Choose an answer and state one condition under which it follows.
-
-::: notes
-Most students will choose “falls.” Accept it as intuition, then press on the conditions. “It depends” is also defensible if students identify a quota, corner solution, changing technology, crop switching, or another margin.
-
-Keep the initial answers visible. The next three slides turn the intuition into a conditional prediction.
-:::
-
-## Build the irrigation model
-
-**Model:** A farmer chooses water use $w$.
-
-$$
-\max_{w\geq 0}\; p f(w)-cw
-$$
-
-- $p>0$: output price.
-- $c>0$: price per unit of water.
-- $f(w)$: production, with $f'(w)>0$ and $f''(w)<0$.
-
-::: {.fragment}
-Differentiate profit with respect to the choice variable $w$:
-
-$$
-\frac{d}{dw}\left[pf(w)-cw\right]
-=pf'(w)-c=0
-\quad\Rightarrow\quad
-pf'(w^*)=c.
-$$
-
-At the optimum, the **marginal value of water** equals its **marginal cost**.
-:::
-
-::: notes
-Walk through the first-order condition before doing the comparative static:
-
-1. Treat $p$ and $c$ as constants when differentiating with respect to $w$.
-2. The derivative of $pf(w)$ is $pf'(w)$.
-3. The derivative of $cw$ is $c$.
-4. Set marginal profit equal to zero: $pf'(w^*)-c=0$.
-5. The second-order condition is $pf''(w^*)<0$. Because $p>0$ and $f''<0$, this is a maximum.
-
-Economic interpretation: use water until the value of the extra output produced by one more unit of water equals the price of that water.
-:::
-
-## Derive the prediction {.dense}
-
-Write the choice explicitly as a function of price: $w^*=w^*(c)$.
-
-**Before revealing each step, write what you expect to appear.**
-
-::: {.fragment}
-Start with the first-order condition:
-
-$$
-pf'\!\left(w^*(c)\right)=c.
-$$
-:::
-
-::: {.fragment}
-Differentiate **both sides with respect to $c$**:
-
-$$
-\underbrace{p}_{\text{constant}}
-\underbrace{f''(w^*)}_{\text{differentiate }f'}
-\underbrace{\frac{dw^*}{dc}}_{\text{chain rule}}
-=1.
-$$
-:::
-
-::: {.fragment}
-Now isolate the response:
-
-$$
-\frac{dw^*}{dc}=\frac{1}{p f''(w^*)}
-\quad\Rightarrow\quad
-\frac{dw^*}{dc}<0.
-$$
-
-**Memory aid:** Differentiate the outside function, then multiply by the derivative of what is inside.
-:::
-
-::: notes
-Say aloud what depends on $c$: the optimal choice $w^*$ does. That is why the chain rule produces $dw^*/dc$.
-
-On the right-hand side, $d(c)/dc=1$. On the left, $p$ is held fixed and
-$d[f'(w^*(c))]/dc=f''(w^*)\,dw^*/dc$.
-
-This is also an application of the implicit-function theorem. Define $F(w,c)=pf'(w)-c=0$. Then
-$dw^*/dc=-F_c/F_w=-(-1)/(pf'')=1/(pf'')$.
-:::
-
-## Evaluate alternative cases
-
-**Seven minutes · one scenario per group**
-
-A. A water-use quota binds.
-
-B. The farmer is already at the corner $w=0$.
-
-C. A new irrigation technology changes the production function.
-
-D. Farmers can switch crops when water prices change.
-
-For your scenario, prepare three answers:
-
-1. Must $dw/dc<0$ still hold?
-2. Which assumption or feature of the original model changed?
-3. What additional outcome or variable should the researcher observe?
-
-::: notes
-Assign scenarios rather than letting groups choose. Give groups four minutes to work and roughly 30 seconds each to report. Ask the class to identify whether each response changes the sign, makes the response locally zero, or introduces a choice margin omitted from the baseline model.
-:::
-
-## Conditions for the comparative-static result {.dense}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-### The negative sign requires
-
-- $p>0$.
-- $f$ is twice differentiable.
-- $f''(w^*)<0$: marginal product declines.
-- An interior optimum, with $pf''(w^*)\neq 0$.
-- Output price, technology, and other inputs held fixed.
-
-Then $p f''(w^*)<0$, so $1/[p f''(w^*)]<0$.
-:::
-
-::: {.column width="50%"}
-### A binding quota changes the result
-
-Let $\bar w$ be a cap and $w^u(c)$ the unconstrained choice:
-
-$$
-w^q(c)=\min\{w^u(c),\bar w\}.
-$$
-
-While the quota binds, $w^q=\bar w$, so
-
-$$
-\frac{dw^q}{dc}=0.
-$$
-
-Price changes the quota's shadow value and profit, but not water use. If the quota stops binding, the negative price response returns.
-:::
-
-::::
-
-**Conditional prediction:** A higher water price reduces water use when price determines an interior choice.
-
-::: notes
-The prediction is conditional because it follows from a specific model and a specific region of the choice problem.
-
-- If the farmer is already at $w=0$, a small price increase may leave water use at zero.
-- If a maximum-use quota binds, quantity is locally fixed at the quota. The quota's shadow value falls as water becomes more expensive.
-- Once the unconstrained optimum falls below the quota, the quota is slack and $dw/dc<0$ again.
-- New technology changes $f'(w)$ and $f''(w)$. With diminishing marginal product and an interior choice, the own-price response remains negative, but the level of water use and magnitude of the response may change.
-- Crop switching introduces another choice margin. Water use within each crop may fall while aggregate use also depends on which crops enter and exit. The one-choice model cannot sign that total response without additional structure.
-
-Ask students which assumption gives the sign. The immediate mathematical answer is $f''<0$ together with $p>0$. The economic answer is diminishing marginal product: reducing water becomes less costly at the margin as water use falls.
-:::
-
-## Checkpoint 2: turn your mechanism into a prediction
-
-**Four minutes · individual work**
-
-Add three statements to your conceptual framework outline:
-
-- “When ___ changes, I predict ___ will ___.”
-- “The reason is that ___.”
-- “This prediction may fail if ___.”
-
-Exchange with a partner. The partner identifies one unsupported link. Revise the statement to make that step explicit.
-
-::: notes
-Listen for predictions that merely restate the research question. A testable prediction states a direction, identifies a mechanism, specifies its maintained conditions, and can be contradicted by evidence.
-:::
-
-## Evaluate and revise an economic claim {.dense}
-
-A student writes:
-
-> Water becomes more expensive, so farmers adopt efficient irrigation, and total water use falls.
-
-**Six minutes · groups with four roles**
-
-- **Ethridge:** Identify the missing framework element.
-- **Varian:** Identify an omitted choice, objective, or constraint.
-- **Cheng:** Identify a conclusion that does not yet follow.
-- **Romer:** Check whether the words claim more than the model establishes.
-
-Produce a two-sentence diagnosis and a revised claim. Support the diagnosis with a passage or example from the assigned reading.
-
-Sources: @ethridge2004chapter8; @varian1997model; @cheng2004proofs; @romer2015mathiness.
-
-::: notes
-This hypothetical claim contains several gaps: adoption is a separate choice; efficiency can lower water use per acre while encouraging greater acreage or a different crop; and the baseline model did not include technology adoption. Have one group read its diagnosis and another read its revision.
-:::
-
-## Revised claim and scope conditions
-
-The baseline irrigation model supports the following statement:
-
-> Holding output price, technology, crop choice, acreage, and other inputs fixed, a higher water price reduces an interior choice of water when production has diminishing marginal product.
-
-It does **not** determine whether farmers adopt new technology or whether total water use falls after acreage and crop choices adjust.
-
-::: notes
-The revision states the maintained conditions and separates the model implication from questions requiring additional structure.
-:::
-
-## Apply the reading-specific checks {.dense}
-
-| Reading | Final check |
+| Model object | Empirical counterpart |
 |---|---|
-| Ethridge | Is the claim connected to the research problem and evidence? |
-| Varian | Are the relevant choices and constraints represented? |
-| Cheng | Does every conclusion follow from a stated premise? |
-| Romer | Do the symbols, words, and economic meaning agree? |
+| $r$ | Implementation of the revised stocking standard |
+| $a_{it}$ | Store $i$ authorization status in year $t$ |
+| $A_{mt}$ | Number and composition of authorized stores in market $m$ and year $t$ |
+| $S_{mt}$ | Share of households participating in SNAP |
+
+The empirical analysis asks how $a_{it}$ and $A_{mt}$ changed after the policy and whether those changes vary with $S_{mt}$.
+
+## Discussion: apply Varian to your research
+
+1. Who makes the central choice in your model
+2. What is the smallest set of choices objectives and constraints needed for the mechanism
+3. What adjusts when agents make incompatible choices
+4. Which feature can be removed without changing the prediction
+5. Which extension could change the prediction
 
 ::: notes
-Return to the methodological principles recorded during the reading synthesis. Ask which reading identifies each limitation in the original claim. The revision should state the maintained conditions and separate model implications from questions requiring additional structure.
+Students should answer using their own research topic. Ask them to justify why each retained feature is necessary.
 :::
 
-## Complete your conceptual framework outline {.dense}
+# Romer
 
-**Eight minutes · individual work**
+## From the model to the argument
 
-Revise and complete:
+**Varian provides the structure of the economic model**
 
-1. Research question.
-2. Agents, choices, objectives, and constraints.
-3. Mechanism, shown as a sequence.
-4. Directional, testable prediction.
-5. Evidence that could contradict the prediction.
-6. One limiting assumption or omitted choice margin.
-
-Circle the field where feedback would help most.
-
-::: notes
-Students began the outline at Checkpoint 1 and added a prediction at Checkpoint 2. This block is for synthesis and revision. Confer first with students who have already identified a field requiring feedback.
+::: {.fragment}
+Agents choices objectives constraints interactions and adjustment
 :::
 
-## Peer review of the conceptual framework {.dense}
-
-**Five minutes · pairs**
-
-The author gets **one minute** to explain the framework. The reviewer then asks:
-
-- What choice or constraint is missing?
-- Which link lacks sufficient theoretical or empirical support?
-- What alternative mechanism could produce the same observation?
-- What evidence would be inconsistent with the prediction?
-
-The author writes one revision before the roles switch.
-
-::: notes
-Require a written revision so peer discussion produces a documented result. If time permits, ask two students to share the question that led to a substantive revision.
+::: {.fragment}
+**Romer asks whether the model supports the claims made for it**
 :::
 
-## Before you leave
+::: {.fragment}
+Words symbols and empirical interpretations must remain connected
+:::
 
-**Two-minute exit ticket:** Complete all three sentences.
 
-- “My model predicts ___ because ___.”
-- “That prediction depends on ___.”
-- “The reading most relevant to my revision was ___ because ___.”
+## Romer: keep words and symbols connected
 
-Next: turn the framework into a written argument with explicit assumptions and inferential steps.
+Romer’s concern is not the use of mathematics. It is slippage among
+
+- What the verbal argument says
+- What the mathematical model establishes
+- What the empirical evidence can support
+
+Mathematical notation improves the argument only when terms are defined consistently and the conclusion follows from the stated assumptions [@romer2015mathiness].
+
+## Audit the claim
+
+**Claim**
+
+> Stricter stocking requirements improve food access
+
+**Claim supported by the available outcomes**
+
+> Revised stocking standards may change the number type and location of SNAP-authorized retailers
+
+If authorization losses are concentrated in high-SNAP communities then the pattern is inconsistent with the policy's targeting objective.
+
+## What the available data do not establish
+
+The available data do not establish
+
+- How store inventory changed
+- Whether remaining stores offer more nutritious foods
+- How household purchases changed
+- Whether diet or health improved
+
+## A Romer-style consistency check
+
+| Verbal statement | Mathematical statement | Evidence required |
+|---|---|---|
+| Compliance affects authorization | $a_i(r)$ depends on $B_i$ and $K_i(r)$ | Store-year authorization histories |
+| The authorized portfolio changes | $A_{mt}=\sum_{i\in m}a_{it}$ | Store type location and authorization |
+| Losses are concentrated in high-SNAP areas | Authorization losses rise with $S_{mt}$ | Local authorization changes and SNAP participation |
+| Nutritious inventory improves | Inventory rises among continuing stores | Product-level inventory or audit data |
+
+If a row cannot be completed coherently then the claim or model needs revision.
+
+## Discussion: apply Romer to your research
+
+1. Which term in your argument is most likely to change meaning
+2. Which claim is theoretical and which claim is empirical
+3. Does each symbol have a stable verbal interpretation
+4. What conclusion does the model support
+5. What stronger conclusion would require additional theory or evidence
+
+# Synthesis
+
+## Summary of readings
+
+| Reading | Central question | Contribution to a research project |
+|---|---|---|
+| **Ethridge** | What should the conceptual framework accomplish | Defines the problem relationships and hypotheses |
+| **Varian** | How should the economic model be structured | Identifies agents choices objectives constraints interactions and adjustment |
+| **Romer** | How should the argument be disciplined | Keeps words symbols and empirical claims aligned |
+
+Together the readings turn a broad assertion into conditional and refutable claims.
+
+## What belongs in the written framework?
+
+For your project the conceptual framework should state
+
+1. The problem that requires explanation
+2. The relevant theory and concepts
+3. The agents choices objectives and constraints
+4. The mechanisms connecting the proposed cause to the outcome
+5. The maintained diagnostic and remedial hypotheses
+6. The conditions under which each prediction applies
+
+## Research-design implications
+
+The framework generates design questions
+
+- What is the appropriate unit of analysis
+- How will loss of authorization be distinguished from store closure
+- Which store characteristics define the portfolio
+- Which geography defines the relevant community
+- How will local SNAP participation be measured
+- When can each outcome respond
+- Which adjustments could affect the comparison group
+
+These questions should inform the empirical design.
+
+## Apply the sequence to your research
+
+1. **Problem** State the condition that requires explanation
+2. **Theory** Identify the concepts that help explain it
+3. **Structure** Identify agents choices objectives constraints and adjustment
+4. **Prediction** State what should change and under which conditions
+5. **Boundary** State what the model does not establish
+6. **Evidence** Identify an observation that would challenge the proposed mechanism
 
 ## References {.smaller}
 
@@ -461,3 +613,4 @@ Next: turn the framework into a written argument with explicit assumptions and i
 - [All lectures](lectures.qmd)
 - [Schedule and preparation](../2026/schedule.qmd)
 - [Course reading list](../2026/readings.qmd)
+- [Download this lecture as a PDF](lecture4.1.pdf)

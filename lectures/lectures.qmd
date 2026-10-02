@@ -24,6 +24,8 @@ Slides are organized by unit and class meeting. For example, **4.1** is the firs
 
 See the [schedule](../2026/schedule.qmd) for meeting dates and preparation. Readings and handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 
+Student PDF: [Lecture 4.1 · Conceptual Framework and Theory](lecture4.1.pdf){target="_blank" rel="noopener"}
+
 ```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", () => {
