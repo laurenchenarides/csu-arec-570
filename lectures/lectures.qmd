@@ -1,6 +1,6 @@
 ---
 title: "Lectures"
-description: "Class-meeting slides for Units 4–7."
+description: "Class-meeting slides for Units 4-7."
 format: html
 page-layout: full
 listing:
@@ -8,11 +8,7 @@ listing:
   contents:
     - "lecture*.qmd"
   sort: "order asc"
-  type: table
-  fields: [title, description]
-  field-display-names:
-    title: Lecture
-    description: Focus
+  template: lectures-table.ejs.md
   sort-ui: false
   filter-ui: false
 page-navigation: false
@@ -23,18 +19,3 @@ repo-actions: false
 Slides are organized by unit and class meeting. For example, **4.1** is the first meeting of Unit 4.
 
 See the [schedule](../2026/schedule.qmd) for meeting dates and preparation. Readings and handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
-
-Student PDF: [Lecture 4.1 · Conceptual Framework and Theory](lecture4.1.pdf){target="_blank" rel="noopener"}
-
-```{=html}
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("#listing-lectures a.listing-title").forEach((link) => {
-    link.target = "_blank";
-    link.rel = "noopener";
-  });
-});
-</script>
-```
-
-
