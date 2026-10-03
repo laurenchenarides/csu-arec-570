@@ -45,9 +45,9 @@ quarto render lectures
 quarto render 2026/schedule.qmd
 ```
 
-The student PDF for Lecture 4.1 is generated from the Reveal.js print view and
-stored beside the source as `lecture4.1.pdf`. Rendering the site copies it to
-`docs/lectures/lecture4.1.pdf`.
+Student PDFs for Lectures 4.1 and 4.2 are generated from the Reveal.js print
+view and stored beside their sources. Rendering the site copies them to
+`docs/lectures/`.
 
 The lecture listing explicitly renders to HTML. Decks render to Reveal.js.
 The project writes its generated website to `docs/`.

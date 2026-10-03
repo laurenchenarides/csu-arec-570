@@ -4,6 +4,8 @@ subtitle: "AREC 570 / ECON 530 · Unit 4"
 author: "Lauren Chenarides"
 lecture: "4.2"
 order: 402
+pdf: lecture4.2.pdf
+description: "Write a conceptual framework that connects assumptions, model results, empirical hypotheses, and evidence"
 format:
   revealjs:
     theme: ../styles.scss
@@ -16,7 +18,7 @@ format:
     navigation-mode: linear
     controls: true
     progress: true
-    scrollable: true
+    scrollable: false
     auto-stretch: false
     code-overflow: wrap
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
@@ -24,172 +26,498 @@ format:
     pdf-separate-fragments: false
     citations-hover: true
     html-math-method: mathml
-description: "Write theory clearly and connect hypotheses to identification."
 ---
 
-## Before class
+## Readings and sequence
 
-- Cheng, *How to Write Proofs: A Quick Guide* [@cheng2004proofs].
-- Chouinard, *Theory Notes* [@chouinard2015theory].
+1. **Chouinard, “Theory Notes”**
+    - What belongs in the theory section of an empirical paper
 
-Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+2. **Cheng, “How to Write Proofs: A Quick Guide”**
+    - How to make each step in an argument follow from what precedes it
 
-## Today's task
-
-Turn an economic mechanism into a section a reader can follow.
-
-- State the role of theory in the paper.
-- Define the model's elements before combining them.
-- Derive and interpret the relevant prediction.
-- Explain the bridge from theory to empirical evidence.
-
-## Cheng: expose the inferential structure {.dense}
-
-Cheng’s proof-writing guidance applies to economic arguments even when the paper does not present a formal proof.
-
-1. State the claim precisely.
-2. Identify the premises and maintained assumptions.
-3. Show the intermediate steps that connect the premises to the conclusion.
-4. Distinguish an example from a general result.
-5. Check whether the converse has been asserted without justification.
-
-The reader should be able to identify where each conclusion comes from and which premise would need to change for the conclusion to fail.
-
-Source: @cheng2004proofs.
-
-## Apply Cheng to the SNAP example {.dense}
-
-**Premises**
-
-- A retailer remains SNAP-authorized.
-- The revised stocking requirement binds for that retailer.
-- The qualifying-stock constraint is enforced.
-
-**Conclusion supported by those premises**
-
-> The retailer increases qualifying stock enough to satisfy the requirement.
-
-The argument does not establish that every retailer remains authorized or that local food access improves. Those conclusions require additional premises and evidence.
-
-**Seminar question:** Which premise is most likely to fail in an empirical application, and how would that failure appear in the data?
-
-## Theory in theoretical and empirical papers {.dense}
-
-| Theoretical contribution | Empirical contribution |
-|:---|:---|
-| Develop or modify a model | Explain the mechanism behind the empirical question |
-| Establish analytical results | Derive the hypotheses to be evaluated |
-| Show what changes relative to existing theory | Connect theoretical concepts to measured variables |
-
-Both require explicit assumptions and a coherent argument.
-
-Source: @chouinard2015theory.
-
-## Build the argument in order
-
-1. Explain the relationship to existing theory.
-2. Define agents, choices, and the feasible set.
-3. State assumptions.
-4. Present the objective or relevant relationships.
-5. Explain the derivation.
-6. Interpret the result and connect it to the question.
-
-Avoid making readers infer a missing step.
-
-## Definitions, assumptions, and results
-
-- A **definition** tells readers what a term means.
-- An **assumption** specifies what the argument takes as given.
-- A **proposition** states a result established from those premises.
-- A **corollary** follows from an established result.
-
-Labeling a claim “Proposition” does not establish it.
-
-Source: @chouinard2015theory.
-
-## Make equations readable
-
-- Introduce each symbol.
-- State the domain and units when relevant.
-- Explain what changes and what stays fixed.
-- Follow a mathematical result with its economic interpretation.
-- Put lengthy derivations in an appendix when they interrupt the argument.
-
-## Discussion: Chouinard's advice
-
-- Which guidance applies equally to theoretical and empirical papers?
-- When should a familiar model be summarized rather than derived?
-- What does a reader need before seeing the first equation?
-- Choose one recommendation and explain how it would improve your draft.
-
-## From a prediction to a measurement {.dense}
-
-Return to the irrigation example.
-
-| Model concept | Possible empirical measure | Question to resolve |
-|:---|:---|:---|
-| Water price | Marginal charge per unit | Is there a fixed fee or tiered rate? |
-| Water use | Metered withdrawals | Do withdrawals equal crop consumption? |
-| Technology | Irrigation system | Can adoption change with the price? |
-
-A theoretical variable and its proxy are rarely interchangeable without explanation.
-
-## Identification asks a different question
-
-The framework explains **why** a relationship might exist.
-
-Identification asks **what evidence distinguishes that relationship from competing explanations**.
-
-For water prices and use:
-
-- Do more water-scarce places set higher prices?
-- Do weather and prices move together?
-- Do farmers select into different pricing arrangements?
-
-## Common threats
-
-- **Omitted variables:** another factor affects both the explanatory variable and outcome.
-- **Reverse causality:** the outcome helps determine the explanatory variable.
-- **Selection:** compared groups differ for reasons related to the outcome.
-
-Naming a regression method does not resolve these threats.
-
-## An identification example from the source slides
-
-The slides discuss airport pollution and health:
-
-- Nearby exposure varies with location, wind, and airport activity.
-- Local weather may affect both pollution and health.
-- Congestion elsewhere in the airport network is proposed as another source of variation.
-
-**Discussion:** What would have to be true for distant congestion to be useful for identification?
+3. **Application**
+    - How to report the SNAP retailer framework developed in Lecture 4.1
 
 ::: notes
-Adapted from Unit 4, slide 27, which discusses Schlenker and Walker. Use as an identification exercise; the questions do not establish that the required assumptions hold.
+This lecture follows the assigned readings in their schedule order. Chouinard establishes the role and organization of theory. Cheng provides a way to audit the logic within that organization.
+
+[Sources]
+- @chouinard2015theory
+- @cheng2004proofs
+[/Sources]
 :::
 
-## Workshop: write the bridge
+## Start with the claim
 
-Draft one paragraph with this structure:
+> Because stricter stocking standards require healthier foods, they improve food access and diet quality.
 
-1. “The model predicts …”
-2. “We measure this concept using …”
-3. “We use variation in …”
-4. “Interpreting this variation causally requires …”
-5. “The main competing explanation is …”
+Before accepting the claim, ask
 
-## Peer review: can you reconstruct the argument?
+- Which conclusion follows from the model
+- Which outcome is observed in the data
+- Which links require additional evidence
 
-Read a partner's paragraph without additional explanation.
+::: {.fragment}
+The framework may explain changes in retailer authorization. The available data do not establish changes in inventory, purchases, diet, or health.
+:::
 
-- Underline the prediction.
-- Circle the assumption carrying the causal interpretation.
-- Identify one undefined concept.
-- Suggest one revision that makes the logic easier to follow.
+::: notes
+Open with whole-class discussion. Ask students to identify the first inferential step they cannot verify from the proposed data. Reveal the final statement after several responses.
+:::
 
-## Before you leave
+## From constructing the framework to reporting it
 
-Identify one change to your framework and one piece of evidence you need before selecting an empirical strategy.
+| Lecture 4.1 | Lecture 4.2 |
+|---|---|
+| Define the research problem | Explain why the problem requires theory |
+| Identify agents choices and constraints | Introduce each element in a readable order |
+| Derive conditional predictions | Show how each conclusion follows |
+| State what the model and data do not establish | Keep the written claim within those boundaries |
+
+Lecture 4.1 asked what the framework can support. Lecture 4.2 asks how a reader can see why.
+
+# Chouinard
+
+## Theory has a specific job
+
+Chouinard argues that every paper has a theoretical foundation whether or not the author makes it explicit [@chouinard2015theory].
+
+For an empirical paper the theory section should
+
+::: {.incremental}
+- Explain the mechanism behind the research question
+- State the assumptions needed for that mechanism
+- Derive the hypotheses evaluated with data
+- Connect theoretical concepts to empirical measures
+- Bound the conclusions the evidence can support
+:::
+
+## The role of theory depends on the contribution
+
+| Theoretical paper | Empirical paper |
+|---|---|
+| Develop or modify a model | Apply theory to explain the empirical question |
+| Establish analytical results | Derive hypotheses and comparative predictions |
+| Show what changes relative to prior theory | Connect concepts to observed measures |
+| Treat the model as a central contribution | Use the model to discipline the empirical argument |
+
+Both require explicit assumptions and a coherent sequence of reasoning.
+
+Source: @chouinard2015theory
+
+## Match the detail to the theoretical contribution
+
+**Apply established theory**
+
+Summarize the relevant result and explain how it applies to the research problem
+
+::: {.fragment}
+**Modify established theory**
+
+State the baseline model identify the change and show how the result changes
+:::
+
+::: {.fragment}
+**Develop new theory**
+
+Define the setting assumptions relationships and results in sufficient detail to establish the contribution
+:::
+
+The amount of theory should reflect its role in the paper.
+
+::: notes
+Chouinard cautions against rederiving familiar theory when the contribution is an application. More detail is warranted when the paper changes the model or contributes new theory.
+
+[Sources]
+- @chouinard2015theory
+[/Sources]
+:::
+
+## Build from infrastructure to superstructure
+
+Introduce each component before asking the reader to interpret the completed model.
+
+::: {.incremental}
+1. Define the setting and relevant agents
+2. Identify choices and constraints
+3. State the maintained assumptions
+4. Introduce the relationships among model objects
+5. Derive and interpret the result
+6. Connect the result to the empirical question
+:::
+
+Source: @chouinard2015theory
+
+## Apply that sequence to the SNAP example
+
+**Setting and agents** SNAP-authorized retailers respond to a revised stocking standard
+
+::: {.fragment}
+**Choice** Each retailer decides whether authorization remains worthwhile
+:::
+
+::: {.fragment}
+**Constraint** Continued authorization may require costly changes in qualifying inventory
+:::
+
+::: {.fragment}
+**Result** Some retailers may lose authorization when compliance cost exceeds the value of participation
+:::
+
+::: {.fragment}
+**Empirical question** How did the number type and location of authorized retailers change
+:::
+
+## Keep definitions assumptions and results distinct
+
+| Element | SNAP example |
+|---|---|
+| **Definition** | $a_i(r)=1$ means retailer $i$ is authorized under standard $r$ |
+| **Maintained assumption** | The stronger standard raises compliance cost for at least some retailers |
+| **Model result** | A retailer may lose authorization when compliance cost exceeds its value |
+
+Definitions assign meaning. Assumptions establish the conditions for the reasoning. Results must follow from both.
+
+## Use notation only when it reduces the reader's burden
+
+For retailer $i$
+
+- $r$ is the strictness of the stocking standard
+- $B_i$ is the value of SNAP authorization
+- $K_i(r)$ is the cost of meeting standard $r$
+- $a_i(r)$ is authorization status
+
+The index $i$ matters because retailer values and costs differ. Additional notation should be introduced only when it changes or clarifies the argument.
+
+::: notes
+Chouinard recommends recognizable notation defined without delay and used consistently. Ask whether each symbol earns its place by reducing repetition or clarifying heterogeneity.
+
+[Sources]
+- @chouinard2015theory
+[/Sources]
+:::
+
+## Make the equation readable
+
+The retailer remains authorized when the value of authorization covers the compliance cost
+
+$$
+a_i(r)=
+\begin{cases}
+1 & \text{if } B_i\geq K_i(r)\\
+0 & \text{if } B_i<K_i(r)
+\end{cases}
+$$
+
+In words a higher-cost standard can change authorization only for retailers near enough to the participation threshold.
+
+::: notes
+Define the symbols before or immediately after displaying the equation. Then give the economic interpretation. The equation and prose should make the same claim.
+:::
+
+## A model result is not yet an empirical finding
+
+**Model result**
+
+Holding $B_i$ fixed a higher $K_i(r)$ can cause a retailer to lose authorization
+
+::: {.fragment}
+**Empirical hypothesis**
+
+Retailers expected to face higher compliance costs are more likely to lose authorization after implementation
+:::
+
+::: {.fragment}
+**Evidence**
+
+Store-year authorization data can show whether losses differ by observable retailer characteristics
+:::
+
+The evidence may support or challenge the hypothesis without revealing the unobserved compliance cost itself.
+
+## Discussion: apply Chouinard to your research
+
+1. What role does theory serve in your paper
+2. Are you applying modifying or developing a model
+3. Which concept must be defined before the reader sees an equation
+4. Which assumption carries your principal result
+5. What empirical hypothesis follows from that result
+
+::: notes
+Use whole-class discussion. Students may answer using a dissertation chapter or another current project. Ask for the relationship among the five answers rather than separate summaries.
+:::
+
+# Cheng
+
+## A defensible argument has a beginning middle and end
+
+Cheng describes a proof as a sequence of statements in which each statement follows from what came before [@cheng2004proofs].
+
+| Part | Function in an economic argument |
+|---|---|
+| **Beginning** | Definitions assumptions and accepted results |
+| **Middle** | The steps connecting the premises to the result |
+| **End** | The claim the argument was constructed to establish |
+
+The reader should not have to supply a missing step.
+
+## Plan backward and write forward
+
+When developing an argument it is useful to ask
+
+> What would have to be true for this conclusion to follow?
+
+::: {.fragment}
+That question works backward from the intended result and helps identify the required assumptions and intermediate steps.
+:::
+
+::: {.fragment}
+The written argument should then proceed forward from the stated premises to the result.
+:::
+
+::: notes
+Cheng distinguishes the order in which a proof may be discovered from the order in which it should be written. The same distinction applies to an economic argument.
+
+[Sources]
+- @cheng2004proofs
+[/Sources]
+:::
+
+## Apply the beginning middle and end
+
+**Beginning**
+
+The revised standard raises $K_i(r)$ for some retailers while $B_i$ is held fixed
+
+::: {.fragment}
+**Middle**
+
+A retailer remains authorized only when $B_i\geq K_i(r)$
+:::
+
+::: {.fragment}
+**End**
+
+A retailer that crosses the participation threshold loses authorization
+:::
+
+Each part is necessary but each part has a different role.
+
+## Show the threshold crossing
+
+Suppose the standard changes from $r_0$ to $r_1$ and
+
+$$
+K_i(r_0)\leq B_i<K_i(r_1)
+$$
+
+Then
+
+$$
+a_i(r_0)=1
+\quad\text{and}\quad
+a_i(r_1)=0
+$$
+
+The retailer was authorized under the earlier standard and is not authorized under the stronger standard.
+
+::: notes
+This is a conditional model result. It does not establish that the cost increase occurred or caused an observed authorization loss in the data.
+:::
+
+## Do not take a flying leap
+
+The authorization model can support
+
+$$
+\text{higher compliance cost}
+\rightarrow
+\text{possible authorization loss}
+$$
+
+It does not by itself support
+
+$$
+\text{authorization loss}
+\rightarrow
+\text{diet or health change}
+$$
+
+The second claim requires additional relationships and evidence about inventory availability purchases and health.
+
+::: notes
+Cheng calls an unjustified move between statements a flying leap. The problem is not that the conclusion is impossible. The problem is that the stated premises do not establish it.
+
+[Sources]
+- @cheng2004proofs
+[/Sources]
+:::
+
+## Two other errors to avoid
+
+**Incorrect converse**
+
+> A retailer remained authorized therefore the revised requirement was slack
+
+The retailer may instead have changed its inventory to comply.
+
+::: {.fragment}
+**Unstated causal assumption**
+
+> A retailer lost authorization after implementation therefore the revised rule caused the loss
+
+The analysis must distinguish policy exposure from closure reclassification and other changes over time.
+:::
+
+## Audit these claims
+
+A. A higher compliance cost can reduce authorization when the value of authorization is held fixed
+
+B. A retailer that remains authorized must have faced a slack requirement
+
+C. Authorization losses concentrated in high-SNAP communities show that the rule reduced diet quality
+
+For each claim identify
+
+- What follows from the model
+- Which assumption is required
+- What additional evidence would be needed
+
+## What follows from the argument?
+
+**Claim A** follows conditionally from the participation model
+
+::: {.fragment}
+**Claim B** does not follow because continued authorization is consistent with either prior compliance or an inventory adjustment
+:::
+
+::: {.fragment}
+**Claim C** may identify a targeting concern for retailer access but it does not establish a diet-quality effect
+:::
+
+::: notes
+Reveal each response after discussion. For Claim C separate the distribution of retailer losses from later outcomes in the policy pathway.
+:::
+
+## Discussion: apply Cheng to your research
+
+1. What is the final claim your framework is intended to establish
+2. Which premises must be stated before that claim
+3. Which intermediate step is most likely to be omitted
+4. Have you treated a sufficient condition as if it were necessary
+5. Where might your prose claim more than the model establishes
+
+::: notes
+Students should use their own research. Ask for one explicit inference in the form “Given A and B, C follows because...” and examine whether another premise is missing.
+:::
+
+## Organize the written conceptual framework
+
+1. State the research problem that requires explanation
+2. Identify the relevant economic theory
+3. Define agents choices constraints and key terms
+4. State the maintained assumptions
+5. Derive and interpret the model result
+6. Translate the result into an empirical hypothesis
+7. State what the model and available evidence do not establish
+
+The order should help the reader reconstruct the argument without reverse engineering it.
+
+## Connect model objects to available measures
+
+| Model object | Empirical counterpart |
+|---|---|
+| $r$ | Implementation of the revised stocking standard |
+| $a_{it}$ | Store $i$ authorization status in year $t$ |
+| $A_{mt}$ | Number and composition of authorized stores in market $m$ and year $t$ |
+| $S_{mt}$ | Share of households participating in SNAP |
+
+The data do not directly measure $B_i$ $K_i(r)$ or store inventory.
+
+## Framework measurement and identification answer different questions
+
+**Conceptual framework**
+
+Why might the stocking standard change retailer authorization
+
+::: {.fragment}
+**Measurement**
+
+Which observed variables represent authorization retailer type location and program reliance
+:::
+
+::: {.fragment}
+**Identification**
+
+What comparison isolates the response to the policy from other changes over time
+:::
+
+The conceptual framework informs the design but does not substitute for it.
+
+::: notes
+Keep this distinction brief. Identification strategies and threats receive fuller treatment in Unit 6.
+:::
+
+## First draft: where does the argument overreach?
+
+> The revised rule increased required inventory and therefore improved food access. Stores unable to meet the rule lost authorization, so we expect fewer authorized retailers and healthier inventories after 2018.
+
+Ask whether the paragraph
+
+- States the maintained assumptions
+- Separates model results from empirical hypotheses
+- Distinguishes observed from unobserved outcomes
+- Limits the conclusion to what the evidence can support
+
+## Revised paragraph
+
+> The revised standard may raise the cost of continued authorization for retailers that did not already satisfy it. Holding the value of authorization fixed, a retailer loses authorization when the compliance cost exceeds that value. We therefore test whether authorization losses increased after implementation and whether losses varied by store type and local SNAP participation. Because the data do not measure inventory, purchases, or health, these outcomes remain outside the empirical claim.
+
+The revision states the mechanism prediction empirical application and boundary in sequence.
+
+## Boundaries strengthen the argument
+
+The framework supports a conditional prediction about retailer authorization.
+
+The data can describe changes in the number type and location of authorized retailers.
+
+The study cannot directly establish
+
+- Which retailers faced a binding inventory constraint
+- How store inventory changed
+- How household purchases changed
+- Whether diet or health improved
+
+## Apply the reporting sequence to your research
+
+Draft four connected statements
+
+1. **Mechanism** Theory implies that ___ affects ___ because ___
+2. **Condition** This prediction requires ___
+3. **Evidence** I observe the relevant concepts using ___
+4. **Boundary** These data do not establish ___
+
+Then check whether each statement follows from the preceding one.
+
+## A reader should be able to answer six questions
+
+1. What problem does the framework explain
+2. Which theory organizes the explanation
+3. What do the central terms and symbols mean
+4. Which assumptions produce the result
+5. What empirical hypothesis follows
+6. What remains outside the model or evidence
+
+If one answer is missing the written framework is incomplete.
+
+## What the readings contribute
+
+**Chouinard** identifies the components and order of a theory section
+
+**Cheng** requires each conclusion to follow from stated premises
+
+Together they turn a model into a written argument whose scope a reader can evaluate.
 
 ## References {.smaller}
 
@@ -198,6 +526,7 @@ Identify one change to your framework and one piece of evidence you need before 
 
 ## Course navigation
 
-- [All lectures](lectures.qmd)
-- [Schedule and preparation](../2026/schedule.qmd)
-- [Course reading list](../2026/readings.qmd)
+- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
+- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
+- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
+- [Download this lecture as a PDF](https://laurenchenarides.github.io/csu-arec-570/lectures/lecture4.2.pdf)

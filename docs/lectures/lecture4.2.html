@@ -54,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-5105e4f0cc08753ea04f3f398c831aa4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0e15012723572452c2a1092b66eaea46.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -70,7 +70,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -148,7 +147,7 @@
     }
   </style>
 <meta property="og:title" content="Lecture 4.2: Reporting the Conceptual Framework – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Write theory clearly and connect hypotheses to identification.">
+<meta property="og:description" content="Write a conceptual framework that connects assumptions, model results, empirical hypotheses, and evidence">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -168,192 +167,25 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
-<h2>Before class</h2>
-<ul>
-<li>Cheng, <em>How to Write Proofs: A Quick Guide</em> <span class="citation" data-cites="cheng2004proofs">(<a href="#/references" role="doc-biblioref" onclick="">Cheng 2004</a>)</span>.</li>
-<li>Chouinard, <em>Theory Notes</em> <span class="citation" data-cites="chouinard2015theory">(<a href="#/references" role="doc-biblioref" onclick="">Chouinard 2015</a>)</span>.</li>
-</ul>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
-</section>
-<section id="todays-task" class="slide level2">
-<h2>Today’s task</h2>
-<p>Turn an economic mechanism into a section a reader can follow.</p>
-<ul>
-<li>State the role of theory in the paper.</li>
-<li>Define the model’s elements before combining them.</li>
-<li>Derive and interpret the relevant prediction.</li>
-<li>Explain the bridge from theory to empirical evidence.</li>
-</ul>
-</section>
-<section id="cheng-expose-the-inferential-structure" class="slide level2 dense scrollable">
-<h2>Cheng: expose the inferential structure</h2>
-<p>Cheng’s proof-writing guidance applies to economic arguments even when the paper does not present a formal proof.</p>
+<section id="readings-and-sequence" class="slide level2">
+<h2>Readings and sequence</h2>
 <ol type="1">
-<li>State the claim precisely.</li>
-<li>Identify the premises and maintained assumptions.</li>
-<li>Show the intermediate steps that connect the premises to the conclusion.</li>
-<li>Distinguish an example from a general result.</li>
-<li>Check whether the converse has been asserted without justification.</li>
+<li><strong>Chouinard, “Theory Notes”</strong>
+<ul>
+<li>What belongs in the theory section of an empirical paper</li>
+</ul></li>
+<li><strong>Cheng, “How to Write Proofs: A Quick Guide”</strong>
+<ul>
+<li>How to make each step in an argument follow from what precedes it</li>
+</ul></li>
+<li><strong>Application</strong>
+<ul>
+<li>How to report the SNAP retailer framework developed in Lecture 4.1</li>
+</ul></li>
 </ol>
-<p>The reader should be able to identify where each conclusion comes from and which premise would need to change for the conclusion to fail.</p>
-<p>Source: <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>)</span>.</p>
-</section>
-<section id="apply-cheng-to-the-snap-example" class="slide level2 dense">
-<h2>Apply Cheng to the SNAP example</h2>
-<p><strong>Premises</strong></p>
-<ul>
-<li>A retailer remains SNAP-authorized.</li>
-<li>The revised stocking requirement binds for that retailer.</li>
-<li>The qualifying-stock constraint is enforced.</li>
-</ul>
-<p><strong>Conclusion supported by those premises</strong></p>
-<blockquote>
-<p>The retailer increases qualifying stock enough to satisfy the requirement.</p>
-</blockquote>
-<p>The argument does not establish that every retailer remains authorized or that local food access improves. Those conclusions require additional premises and evidence.</p>
-<p><strong>Seminar question:</strong> Which premise is most likely to fail in an empirical application, and how would that failure appear in the data?</p>
-</section>
-<section id="theory-in-theoretical-and-empirical-papers" class="slide level2 dense">
-<h2>Theory in theoretical and empirical papers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Theoretical contribution</th>
-<th style="text-align: left;">Empirical contribution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Develop or modify a model</td>
-<td style="text-align: left;">Explain the mechanism behind the empirical question</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Establish analytical results</td>
-<td style="text-align: left;">Derive the hypotheses to be evaluated</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Show what changes relative to existing theory</td>
-<td style="text-align: left;">Connect theoretical concepts to measured variables</td>
-</tr>
-</tbody>
-</table>
-<p>Both require explicit assumptions and a coherent argument.</p>
-<p>Source: <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>.</p>
-</section>
-<section id="build-the-argument-in-order" class="slide level2 scrollable">
-<h2>Build the argument in order</h2>
-<ol type="1">
-<li>Explain the relationship to existing theory.</li>
-<li>Define agents, choices, and the feasible set.</li>
-<li>State assumptions.</li>
-<li>Present the objective or relevant relationships.</li>
-<li>Explain the derivation.</li>
-<li>Interpret the result and connect it to the question.</li>
-</ol>
-<p>Avoid making readers infer a missing step.</p>
-</section>
-<section id="definitions-assumptions-and-results" class="slide level2">
-<h2>Definitions, assumptions, and results</h2>
-<ul>
-<li>A <strong>definition</strong> tells readers what a term means.</li>
-<li>An <strong>assumption</strong> specifies what the argument takes as given.</li>
-<li>A <strong>proposition</strong> states a result established from those premises.</li>
-<li>A <strong>corollary</strong> follows from an established result.</li>
-</ul>
-<p>Labeling a claim “Proposition” does not establish it.</p>
-<p>Source: <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>.</p>
-</section>
-<section id="make-equations-readable" class="slide level2">
-<h2>Make equations readable</h2>
-<ul>
-<li>Introduce each symbol.</li>
-<li>State the domain and units when relevant.</li>
-<li>Explain what changes and what stays fixed.</li>
-<li>Follow a mathematical result with its economic interpretation.</li>
-<li>Put lengthy derivations in an appendix when they interrupt the argument.</li>
-</ul>
-</section>
-<section id="discussion-chouinards-advice" class="slide level2">
-<h2>Discussion: Chouinard’s advice</h2>
-<ul>
-<li>Which guidance applies equally to theoretical and empirical papers?</li>
-<li>When should a familiar model be summarized rather than derived?</li>
-<li>What does a reader need before seeing the first equation?</li>
-<li>Choose one recommendation and explain how it would improve your draft.</li>
-</ul>
-</section>
-<section id="from-a-prediction-to-a-measurement" class="slide level2 dense">
-<h2>From a prediction to a measurement</h2>
-<p>Return to the irrigation example.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Model concept</th>
-<th style="text-align: left;">Possible empirical measure</th>
-<th style="text-align: left;">Question to resolve</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Water price</td>
-<td style="text-align: left;">Marginal charge per unit</td>
-<td style="text-align: left;">Is there a fixed fee or tiered rate?</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Water use</td>
-<td style="text-align: left;">Metered withdrawals</td>
-<td style="text-align: left;">Do withdrawals equal crop consumption?</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Technology</td>
-<td style="text-align: left;">Irrigation system</td>
-<td style="text-align: left;">Can adoption change with the price?</td>
-</tr>
-</tbody>
-</table>
-<p>A theoretical variable and its proxy are rarely interchangeable without explanation.</p>
-</section>
-<section id="identification-asks-a-different-question" class="slide level2">
-<h2>Identification asks a different question</h2>
-<p>The framework explains <strong>why</strong> a relationship might exist.</p>
-<p>Identification asks <strong>what evidence distinguishes that relationship from competing explanations</strong>.</p>
-<p>For water prices and use:</p>
-<ul>
-<li>Do more water-scarce places set higher prices?</li>
-<li>Do weather and prices move together?</li>
-<li>Do farmers select into different pricing arrangements?</li>
-</ul>
-</section>
-<section id="common-threats" class="slide level2">
-<h2>Common threats</h2>
-<ul>
-<li><strong>Omitted variables:</strong> another factor affects both the explanatory variable and outcome.</li>
-<li><strong>Reverse causality:</strong> the outcome helps determine the explanatory variable.</li>
-<li><strong>Selection:</strong> compared groups differ for reasons related to the outcome.</li>
-</ul>
-<p>Naming a regression method does not resolve these threats.</p>
-</section>
-<section id="an-identification-example-from-the-source-slides" class="slide level2">
-<h2>An identification example from the source slides</h2>
-<p>The slides discuss airport pollution and health:</p>
-<ul>
-<li>Nearby exposure varies with location, wind, and airport activity.</li>
-<li>Local weather may affect both pollution and health.</li>
-<li>Congestion elsewhere in the airport network is proposed as another source of variation.</li>
-</ul>
-<p><strong>Discussion:</strong> What would have to be true for distant congestion to be useful for identification?</p>
 <aside class="notes">
-<p>Adapted from Unit 4, slide 27, which discusses Schlenker and Walker. Use as an identification exercise; the questions do not establish that the required assumptions hold.</p>
+<p>This lecture follows the assigned readings in their schedule order. Chouinard establishes the role and organization of theory. Cheng provides a way to audit the logic within that organization.</p>
+<p>[Sources] - <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span> - <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>/Sources)</span></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -366,30 +198,631 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="workshop-write-the-bridge" class="slide level2 scrollable">
-<h2>Workshop: write the bridge</h2>
-<p>Draft one paragraph with this structure:</p>
-<ol type="1">
-<li>“The model predicts …”</li>
-<li>“We measure this concept using …”</li>
-<li>“We use variation in …”</li>
-<li>“Interpreting this variation causally requires …”</li>
-<li>“The main competing explanation is …”</li>
-</ol>
-</section>
-<section id="peer-review-can-you-reconstruct-the-argument" class="slide level2">
-<h2>Peer review: can you reconstruct the argument?</h2>
-<p>Read a partner’s paragraph without additional explanation.</p>
+<section id="start-with-the-claim" class="slide level2">
+<h2>Start with the claim</h2>
+<blockquote>
+<p>Because stricter stocking standards require healthier foods, they improve food access and diet quality.</p>
+</blockquote>
+<p>Before accepting the claim, ask</p>
 <ul>
-<li>Underline the prediction.</li>
-<li>Circle the assumption carrying the causal interpretation.</li>
-<li>Identify one undefined concept.</li>
-<li>Suggest one revision that makes the logic easier to follow.</li>
+<li>Which conclusion follows from the model</li>
+<li>Which outcome is observed in the data</li>
+<li>Which links require additional evidence</li>
+</ul>
+<div class="fragment">
+<p>The framework may explain changes in retailer authorization. The available data do not establish changes in inventory, purchases, diet, or health.</p>
+</div>
+<aside class="notes">
+<p>Open with whole-class discussion. Ask students to identify the first inferential step they cannot verify from the proposed data. Reveal the final statement after several responses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="from-constructing-the-framework-to-reporting-it" class="slide level2">
+<h2>From constructing the framework to reporting it</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lecture 4.1</th>
+<th>Lecture 4.2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Define the research problem</td>
+<td>Explain why the problem requires theory</td>
+</tr>
+<tr class="even">
+<td>Identify agents choices and constraints</td>
+<td>Introduce each element in a readable order</td>
+</tr>
+<tr class="odd">
+<td>Derive conditional predictions</td>
+<td>Show how each conclusion follows</td>
+</tr>
+<tr class="even">
+<td>State what the model and data do not establish</td>
+<td>Keep the written claim within those boundaries</td>
+</tr>
+</tbody>
+</table>
+<p>Lecture 4.1 asked what the framework can support. Lecture 4.2 asks how a reader can see why.</p>
+</section>
+<section>
+<section id="chouinard" class="title-slide slide level1 center">
+<h1>Chouinard</h1>
+
+</section>
+<section id="theory-has-a-specific-job" class="slide level2">
+<h2>Theory has a specific job</h2>
+<p>Chouinard argues that every paper has a theoretical foundation whether or not the author makes it explicit <span class="citation" data-cites="chouinard2015theory">(<a href="#/references" role="doc-biblioref" onclick="">Chouinard 2015</a>)</span>.</p>
+<p>For an empirical paper the theory section should</p>
+<ul>
+<li class="fragment">Explain the mechanism behind the research question</li>
+<li class="fragment">State the assumptions needed for that mechanism</li>
+<li class="fragment">Derive the hypotheses evaluated with data</li>
+<li class="fragment">Connect theoretical concepts to empirical measures</li>
+<li class="fragment">Bound the conclusions the evidence can support</li>
 </ul>
 </section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Identify one change to your framework and one piece of evidence you need before selecting an empirical strategy.</p>
+<section id="the-role-of-theory-depends-on-the-contribution" class="slide level2">
+<h2>The role of theory depends on the contribution</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Theoretical paper</th>
+<th>Empirical paper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Develop or modify a model</td>
+<td>Apply theory to explain the empirical question</td>
+</tr>
+<tr class="even">
+<td>Establish analytical results</td>
+<td>Derive hypotheses and comparative predictions</td>
+</tr>
+<tr class="odd">
+<td>Show what changes relative to prior theory</td>
+<td>Connect concepts to observed measures</td>
+</tr>
+<tr class="even">
+<td>Treat the model as a central contribution</td>
+<td>Use the model to discipline the empirical argument</td>
+</tr>
+</tbody>
+</table>
+<p>Both require explicit assumptions and a coherent sequence of reasoning.</p>
+<p>Source: <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
+</section>
+<section id="match-the-detail-to-the-theoretical-contribution" class="slide level2">
+<h2>Match the detail to the theoretical contribution</h2>
+<p><strong>Apply established theory</strong></p>
+<p>Summarize the relevant result and explain how it applies to the research problem</p>
+<div class="fragment">
+<p><strong>Modify established theory</strong></p>
+<p>State the baseline model identify the change and show how the result changes</p>
+</div>
+<div class="fragment">
+<p><strong>Develop new theory</strong></p>
+<p>Define the setting assumptions relationships and results in sufficient detail to establish the contribution</p>
+</div>
+<p>The amount of theory should reflect its role in the paper.</p>
+<aside class="notes">
+<p>Chouinard cautions against rederiving familiar theory when the contribution is an application. More detail is warranted when the paper changes the model or contributes new theory.</p>
+<p>[Sources] - <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>/Sources)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="build-from-infrastructure-to-superstructure" class="slide level2">
+<h2>Build from infrastructure to superstructure</h2>
+<p>Introduce each component before asking the reader to interpret the completed model.</p>
+<ol type="1">
+<li class="fragment">Define the setting and relevant agents</li>
+<li class="fragment">Identify choices and constraints</li>
+<li class="fragment">State the maintained assumptions</li>
+<li class="fragment">Introduce the relationships among model objects</li>
+<li class="fragment">Derive and interpret the result</li>
+<li class="fragment">Connect the result to the empirical question</li>
+</ol>
+<p>Source: <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span></p>
+</section>
+<section id="apply-that-sequence-to-the-snap-example" class="slide level2">
+<h2>Apply that sequence to the SNAP example</h2>
+<p><strong>Setting and agents</strong> SNAP-authorized retailers respond to a revised stocking standard</p>
+<div class="fragment">
+<p><strong>Choice</strong> Each retailer decides whether authorization remains worthwhile</p>
+</div>
+<div class="fragment">
+<p><strong>Constraint</strong> Continued authorization may require costly changes in qualifying inventory</p>
+</div>
+<div class="fragment">
+<p><strong>Result</strong> Some retailers may lose authorization when compliance cost exceeds the value of participation</p>
+</div>
+<div class="fragment">
+<p><strong>Empirical question</strong> How did the number type and location of authorized retailers change</p>
+</div>
+</section>
+<section id="keep-definitions-assumptions-and-results-distinct" class="slide level2">
+<h2>Keep definitions assumptions and results distinct</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>SNAP example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Definition</strong></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a_i(r)=1</annotation></semantics></math> means retailer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> is authorized under standard <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><strong>Maintained assumption</strong></td>
+<td>The stronger standard raises compliance cost for at least some retailers</td>
+</tr>
+<tr class="odd">
+<td><strong>Model result</strong></td>
+<td>A retailer may lose authorization when compliance cost exceeds its value</td>
+</tr>
+</tbody>
+</table>
+<p>Definitions assign meaning. Assumptions establish the conditions for the reasoning. Results must follow from both.</p>
+</section>
+<section id="use-notation-only-when-it-reduces-the-readers-burden" class="slide level2">
+<h2>Use notation only when it reduces the reader’s burden</h2>
+<p>For retailer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> is the strictness of the stocking standard</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>i</mi></msub><annotation encoding="application/x-tex">B_i</annotation></semantics></math> is the value of SNAP authorization</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_i(r)</annotation></semantics></math> is the cost of meeting standard <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">a_i(r)</annotation></semantics></math> is authorization status</li>
+</ul>
+<p>The index <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> matters because retailer values and costs differ. Additional notation should be introduced only when it changes or clarifies the argument.</p>
+<aside class="notes">
+<p>Chouinard recommends recognizable notation defined without delay and used consistently. Ask whether each symbol earns its place by reducing repetition or clarifying heterogeneity.</p>
+<p>[Sources] - <span class="citation" data-cites="chouinard2015theory">Chouinard (<a href="#/references" role="doc-biblioref" onclick="">2015</a>/Sources)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="make-the-equation-readable" class="slide level2">
+<h2>Make the equation readable</h2>
+<p>The retailer remains authorized when the value of authorization covers the compliance cost</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mn>1</mn></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>B</mi><mi>i</mi></msub><mo>≥</mo><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>0</mn></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><msub><mi>B</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
+a_i(r)=
+\begin{cases}
+1 &amp; \text{if } B_i\geq K_i(r)\\
+0 &amp; \text{if } B_i&lt;K_i(r)
+\end{cases}
+</annotation></semantics></math></p>
+<p>In words a higher-cost standard can change authorization only for retailers near enough to the participation threshold.</p>
+<aside class="notes">
+<p>Define the symbols before or immediately after displaying the equation. Then give the economic interpretation. The equation and prose should make the same claim.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-model-result-is-not-yet-an-empirical-finding" class="slide level2">
+<h2>A model result is not yet an empirical finding</h2>
+<p><strong>Model result</strong></p>
+<p>Holding <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>i</mi></msub><annotation encoding="application/x-tex">B_i</annotation></semantics></math> fixed a higher <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_i(r)</annotation></semantics></math> can cause a retailer to lose authorization</p>
+<div class="fragment">
+<p><strong>Empirical hypothesis</strong></p>
+<p>Retailers expected to face higher compliance costs are more likely to lose authorization after implementation</p>
+</div>
+<div class="fragment">
+<p><strong>Evidence</strong></p>
+<p>Store-year authorization data can show whether losses differ by observable retailer characteristics</p>
+</div>
+<p>The evidence may support or challenge the hypothesis without revealing the unobserved compliance cost itself.</p>
+</section>
+<section id="discussion-apply-chouinard-to-your-research" class="slide level2">
+<h2>Discussion: apply Chouinard to your research</h2>
+<ol type="1">
+<li>What role does theory serve in your paper</li>
+<li>Are you applying modifying or developing a model</li>
+<li>Which concept must be defined before the reader sees an equation</li>
+<li>Which assumption carries your principal result</li>
+<li>What empirical hypothesis follows from that result</li>
+</ol>
+<aside class="notes">
+<p>Use whole-class discussion. Students may answer using a dissertation chapter or another current project. Ask for the relationship among the five answers rather than separate summaries.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="cheng" class="title-slide slide level1 center">
+<h1>Cheng</h1>
+
+</section>
+<section id="a-defensible-argument-has-a-beginning-middle-and-end" class="slide level2">
+<h2>A defensible argument has a beginning middle and end</h2>
+<p>Cheng describes a proof as a sequence of statements in which each statement follows from what came before <span class="citation" data-cites="cheng2004proofs">(<a href="#/references" role="doc-biblioref" onclick="">Cheng 2004</a>)</span>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Function in an economic argument</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Beginning</strong></td>
+<td>Definitions assumptions and accepted results</td>
+</tr>
+<tr class="even">
+<td><strong>Middle</strong></td>
+<td>The steps connecting the premises to the result</td>
+</tr>
+<tr class="odd">
+<td><strong>End</strong></td>
+<td>The claim the argument was constructed to establish</td>
+</tr>
+</tbody>
+</table>
+<p>The reader should not have to supply a missing step.</p>
+</section>
+<section id="plan-backward-and-write-forward" class="slide level2">
+<h2>Plan backward and write forward</h2>
+<p>When developing an argument it is useful to ask</p>
+<blockquote>
+<p>What would have to be true for this conclusion to follow?</p>
+</blockquote>
+<div class="fragment">
+<p>That question works backward from the intended result and helps identify the required assumptions and intermediate steps.</p>
+</div>
+<div class="fragment">
+<p>The written argument should then proceed forward from the stated premises to the result.</p>
+</div>
+<aside class="notes">
+<p>Cheng distinguishes the order in which a proof may be discovered from the order in which it should be written. The same distinction applies to an economic argument.</p>
+<p>[Sources] - <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>/Sources)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="apply-the-beginning-middle-and-end" class="slide level2">
+<h2>Apply the beginning middle and end</h2>
+<p><strong>Beginning</strong></p>
+<p>The revised standard raises <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_i(r)</annotation></semantics></math> for some retailers while <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>i</mi></msub><annotation encoding="application/x-tex">B_i</annotation></semantics></math> is held fixed</p>
+<div class="fragment">
+<p><strong>Middle</strong></p>
+<p>A retailer remains authorized only when <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>i</mi></msub><mo>≥</mo><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">B_i\geq K_i(r)</annotation></semantics></math></p>
+</div>
+<div class="fragment">
+<p><strong>End</strong></p>
+<p>A retailer that crosses the participation threshold loses authorization</p>
+</div>
+<p>Each part is necessary but each part has a different role.</p>
+</section>
+<section id="show-the-threshold-crossing" class="slide level2">
+<h2>Show the threshold crossing</h2>
+<p>Suppose the standard changes from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>0</mn></msub><annotation encoding="application/x-tex">r_0</annotation></semantics></math> to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>1</mn></msub><annotation encoding="application/x-tex">r_1</annotation></semantics></math> and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><msub><mi>B</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+K_i(r_0)\leq B_i&lt;K_i(r_1)
+</annotation></semantics></math></p>
+<p>Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mspace width="1.0em"></mspace><mtext mathvariant="normal">and</mtext><mspace width="1.0em"></mspace><msub><mi>a</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">
+a_i(r_0)=1
+\quad\text{and}\quad
+a_i(r_1)=0
+</annotation></semantics></math></p>
+<p>The retailer was authorized under the earlier standard and is not authorized under the stronger standard.</p>
+<aside class="notes">
+<p>This is a conditional model result. It does not establish that the cost increase occurred or caused an observed authorization loss in the data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="do-not-take-a-flying-leap" class="slide level2">
+<h2>Do not take a flying leap</h2>
+<p>The authorization model can support</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">higher compliance cost</mtext><mo>→</mo><mtext mathvariant="normal">possible authorization loss</mtext></mrow><annotation encoding="application/x-tex">
+\text{higher compliance cost}
+\rightarrow
+\text{possible authorization loss}
+</annotation></semantics></math></p>
+<p>It does not by itself support</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">authorization loss</mtext><mo>→</mo><mtext mathvariant="normal">diet or health change</mtext></mrow><annotation encoding="application/x-tex">
+\text{authorization loss}
+\rightarrow
+\text{diet or health change}
+</annotation></semantics></math></p>
+<p>The second claim requires additional relationships and evidence about inventory availability purchases and health.</p>
+<aside class="notes">
+<p>Cheng calls an unjustified move between statements a flying leap. The problem is not that the conclusion is impossible. The problem is that the stated premises do not establish it.</p>
+<p>[Sources] - <span class="citation" data-cites="cheng2004proofs">Cheng (<a href="#/references" role="doc-biblioref" onclick="">2004</a>/Sources)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-other-errors-to-avoid" class="slide level2">
+<h2>Two other errors to avoid</h2>
+<p><strong>Incorrect converse</strong></p>
+<blockquote>
+<p>A retailer remained authorized therefore the revised requirement was slack</p>
+</blockquote>
+<p>The retailer may instead have changed its inventory to comply.</p>
+<div class="fragment">
+<p><strong>Unstated causal assumption</strong></p>
+<blockquote>
+<p>A retailer lost authorization after implementation therefore the revised rule caused the loss</p>
+</blockquote>
+<p>The analysis must distinguish policy exposure from closure reclassification and other changes over time.</p>
+</div>
+</section>
+<section id="audit-these-claims" class="slide level2">
+<h2>Audit these claims</h2>
+<p>A. A higher compliance cost can reduce authorization when the value of authorization is held fixed</p>
+<p>B. A retailer that remains authorized must have faced a slack requirement</p>
+<p>C. Authorization losses concentrated in high-SNAP communities show that the rule reduced diet quality</p>
+<p>For each claim identify</p>
+<ul>
+<li>What follows from the model</li>
+<li>Which assumption is required</li>
+<li>What additional evidence would be needed</li>
+</ul>
+</section>
+<section id="what-follows-from-the-argument" class="slide level2">
+<h2>What follows from the argument?</h2>
+<p><strong>Claim A</strong> follows conditionally from the participation model</p>
+<div class="fragment">
+<p><strong>Claim B</strong> does not follow because continued authorization is consistent with either prior compliance or an inventory adjustment</p>
+</div>
+<div class="fragment">
+<p><strong>Claim C</strong> may identify a targeting concern for retailer access but it does not establish a diet-quality effect</p>
+</div>
+<aside class="notes">
+<p>Reveal each response after discussion. For Claim C separate the distribution of retailer losses from later outcomes in the policy pathway.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="discussion-apply-cheng-to-your-research" class="slide level2">
+<h2>Discussion: apply Cheng to your research</h2>
+<ol type="1">
+<li>What is the final claim your framework is intended to establish</li>
+<li>Which premises must be stated before that claim</li>
+<li>Which intermediate step is most likely to be omitted</li>
+<li>Have you treated a sufficient condition as if it were necessary</li>
+<li>Where might your prose claim more than the model establishes</li>
+</ol>
+<aside class="notes">
+<p>Students should use their own research. Ask for one explicit inference in the form “Given A and B, C follows because…” and examine whether another premise is missing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="organize-the-written-conceptual-framework" class="slide level2">
+<h2>Organize the written conceptual framework</h2>
+<ol type="1">
+<li>State the research problem that requires explanation</li>
+<li>Identify the relevant economic theory</li>
+<li>Define agents choices constraints and key terms</li>
+<li>State the maintained assumptions</li>
+<li>Derive and interpret the model result</li>
+<li>Translate the result into an empirical hypothesis</li>
+<li>State what the model and available evidence do not establish</li>
+</ol>
+<p>The order should help the reader reconstruct the argument without reverse engineering it.</p>
+</section>
+<section id="connect-model-objects-to-available-measures" class="slide level2">
+<h2>Connect model objects to available measures</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model object</th>
+<th>Empirical counterpart</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math></td>
+<td>Implementation of the revised stocking standard</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">a_{it}</annotation></semantics></math></td>
+<td>Store <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> authorization status in year <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>A</mi><mrow><mi>m</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">A_{mt}</annotation></semantics></math></td>
+<td>Number and composition of authorized stores in market <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math> and year <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mrow><mi>m</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">S_{mt}</annotation></semantics></math></td>
+<td>Share of households participating in SNAP</td>
+</tr>
+</tbody>
+</table>
+<p>The data do not directly measure <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>i</mi></msub><annotation encoding="application/x-tex">B_i</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_i(r)</annotation></semantics></math> or store inventory.</p>
+</section>
+<section id="framework-measurement-and-identification-answer-different-questions" class="slide level2">
+<h2>Framework measurement and identification answer different questions</h2>
+<p><strong>Conceptual framework</strong></p>
+<p>Why might the stocking standard change retailer authorization</p>
+<div class="fragment">
+<p><strong>Measurement</strong></p>
+<p>Which observed variables represent authorization retailer type location and program reliance</p>
+</div>
+<div class="fragment">
+<p><strong>Identification</strong></p>
+<p>What comparison isolates the response to the policy from other changes over time</p>
+</div>
+<p>The conceptual framework informs the design but does not substitute for it.</p>
+<aside class="notes">
+<p>Keep this distinction brief. Identification strategies and threats receive fuller treatment in Unit 6.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="first-draft-where-does-the-argument-overreach" class="slide level2">
+<h2>First draft: where does the argument overreach?</h2>
+<blockquote>
+<p>The revised rule increased required inventory and therefore improved food access. Stores unable to meet the rule lost authorization, so we expect fewer authorized retailers and healthier inventories after 2018.</p>
+</blockquote>
+<p>Ask whether the paragraph</p>
+<ul>
+<li>States the maintained assumptions</li>
+<li>Separates model results from empirical hypotheses</li>
+<li>Distinguishes observed from unobserved outcomes</li>
+<li>Limits the conclusion to what the evidence can support</li>
+</ul>
+</section>
+<section id="revised-paragraph" class="slide level2">
+<h2>Revised paragraph</h2>
+<blockquote>
+<p>The revised standard may raise the cost of continued authorization for retailers that did not already satisfy it. Holding the value of authorization fixed, a retailer loses authorization when the compliance cost exceeds that value. We therefore test whether authorization losses increased after implementation and whether losses varied by store type and local SNAP participation. Because the data do not measure inventory, purchases, or health, these outcomes remain outside the empirical claim.</p>
+</blockquote>
+<p>The revision states the mechanism prediction empirical application and boundary in sequence.</p>
+</section>
+<section id="boundaries-strengthen-the-argument" class="slide level2">
+<h2>Boundaries strengthen the argument</h2>
+<p>The framework supports a conditional prediction about retailer authorization.</p>
+<p>The data can describe changes in the number type and location of authorized retailers.</p>
+<p>The study cannot directly establish</p>
+<ul>
+<li>Which retailers faced a binding inventory constraint</li>
+<li>How store inventory changed</li>
+<li>How household purchases changed</li>
+<li>Whether diet or health improved</li>
+</ul>
+</section>
+<section id="apply-the-reporting-sequence-to-your-research" class="slide level2">
+<h2>Apply the reporting sequence to your research</h2>
+<p>Draft four connected statements</p>
+<ol type="1">
+<li><strong>Mechanism</strong> Theory implies that ___ affects ___ because ___</li>
+<li><strong>Condition</strong> This prediction requires ___</li>
+<li><strong>Evidence</strong> I observe the relevant concepts using ___</li>
+<li><strong>Boundary</strong> These data do not establish ___</li>
+</ol>
+<p>Then check whether each statement follows from the preceding one.</p>
+</section>
+<section id="a-reader-should-be-able-to-answer-six-questions" class="slide level2">
+<h2>A reader should be able to answer six questions</h2>
+<ol type="1">
+<li>What problem does the framework explain</li>
+<li>Which theory organizes the explanation</li>
+<li>What do the central terms and symbols mean</li>
+<li>Which assumptions produce the result</li>
+<li>What empirical hypothesis follows</li>
+<li>What remains outside the model or evidence</li>
+</ol>
+<p>If one answer is missing the written framework is incomplete.</p>
+</section>
+<section id="what-the-readings-contribute" class="slide level2">
+<h2>What the readings contribute</h2>
+<p><strong>Chouinard</strong> identifies the components and order of a theory section</p>
+<p><strong>Cheng</strong> requires each conclusion to follow from stated premises</p>
+<p>Together they turn a model into a written argument whose scope a reader can evaluate.</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -405,13 +838,14 @@ Chouinard, Hayley H. 2015. <em>Theory Notes</em>. EconS 529 course notes.
 <section id="course-navigation" class="slide level2">
 <h2>Course navigation</h2>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture4.2.pdf">Download this lecture as a PDF</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
