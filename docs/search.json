@@ -2181,14 +2181,14 @@
     "href": "lectures/lecture4.1.html#begin-with-a-researchable-problem",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Begin with a researchable problem",
-    "text": "Begin with a researchable problem\nBroad policy question\n\nDo stronger stocking standards improve access to staple foods?\n\nResearchable questions\n\nHow do revised standards affect continued SNAP authorization\nWhich types of retailers are more likely to lose authorization\nHow does the portfolio and location of authorized retailers change\nAre authorization losses concentrated in areas with a higher share of SNAP-participating households?\n\n\nIf losses are concentrated where SNAP participation is highest then the policy change may be poorly targeted with respect to retailer access.\nThis question connects the distribution of retailer losses to the communities the program is intended to serve."
+    "text": "Begin with a researchable problem\nBroad policy question\n\nDo stronger stocking standards improve access to staple foods?\n\nResearchable questions\n\nHow do revised standards affect continued SNAP authorization?\nWhich types of retailers are more likely to lose authorization?\nHow does the portfolio and location of authorized retailers change?\nAre authorization losses concentrated in areas with a higher share of SNAP-participating households?\n\n\nIf losses are concentrated where SNAP participation is highest then the policy change may be poorly targeted with respect to retailer access.\nThis question connects the distribution of retailer losses to the communities the program is intended to serve."
   },
   {
     "objectID": "lectures/lecture4.1.html#where-does-the-conceptual-framework-enter",
     "href": "lectures/lecture4.1.html#where-does-the-conceptual-framework-enter",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Where does the conceptual framework enter?",
-    "text": "Where does the conceptual framework enter?\nThere is no universal order but each part has a distinct role.\n\nThe problem statement identifies the possible loss of SNAP-authorized retailers\nThe literature review supplies theory and evidence about regulation retailer participation and food access\nThe conceptual framework explains why the rule may change authorization and predicts which stores and communities are most affected\nThe methods use annual store authorization and location data to evaluate those predictions\n\nThe framework states the expected relationships. The empirical design specifies how the evidence will be used to estimate them."
+    "text": "Where does the conceptual framework enter?\nThese parts often develop together while writing a manuscript\n\nThe problem statement identifies the possible loss of SNAP-authorized retailers\nThe literature review offers theory and evidence about regulation retailer participation and food access\nThe conceptual framework explains why the rule may change authorization and predicts which stores and communities are most affected\nThe methods use annual store authorization and location data to evaluate those predictions\n\nDistinguish the conceptual framework from the empirical design\n\nThe framework states the expected relationships\nThe empirical design specifies how the evidence will be used to estimate them"
   },
   {
     "objectID": "lectures/lecture4.1.html#ethridge-the-role-of-a-conceptual-framework",
@@ -2321,7 +2321,7 @@
     "href": "lectures/lecture4.1.html#what-belongs-in-the-written-framework",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "What belongs in the written framework?",
-    "text": "What belongs in the written framework?\nFor your project the conceptual framework should state\n\nThe problem that requires explanation\nThe relevant theory and concepts\nThe agents choices objectives and constraints\nThe mechanisms connecting the proposed cause to the outcome\nThe maintained diagnostic and remedial hypotheses\nThe conditions under which each prediction applies"
+    "text": "What belongs in the written framework?\nFor your project the conceptual framework should state\n\nThe problem that requires explanation\nThe relevant theory and concepts\nThe agents, choices, objectives, and constraints\nThe mechanisms connecting the proposed cause to the outcome\nThe maintained diagnostic and remedial hypotheses\nThe conditions under which each prediction applies"
   },
   {
     "objectID": "lectures/lecture4.1.html#research-design-implications",
@@ -2335,7 +2335,7 @@
     "href": "lectures/lecture4.1.html#apply-the-sequence-to-your-research",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Apply the sequence to your research",
-    "text": "Apply the sequence to your research\n\nProblem State the condition that requires explanation\nTheory Identify the concepts that help explain it\nStructure Identify agents choices objectives constraints and adjustment\nPrediction State what should change and under which conditions\nBoundary State what the model does not establish\nEvidence Identify an observation that would challenge the proposed mechanism"
+    "text": "Apply the sequence to your research\n\nProblem State the condition that requires explanation\nTheory Identify the concepts that help explain it\nStructure Identify agents, choices, objectives, constraints, and adjustment\nPrediction State what should change and under which conditions\nBoundary State what the model does not establish\nEvidence Identify an observation that would challenge the proposed mechanism"
   },
   {
     "objectID": "lectures/lecture4.2.html#cheng-expose-the-inferential-structure",
@@ -2419,7 +2419,7 @@
     "href": "lectures/lecture4.1.html#from-the-concept-to-the-model",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "From the concept to the model",
-    "text": "From the concept to the model\nEthridge asks what the conceptual framework must accomplish\n\nApply relevant theory to the research problem and derive meaningful hypotheses\n\n\nVarian asks how the economic model should be structured\n\n\nIdentify agents choices objectives constraints interactions and adjustment"
+    "text": "From the concept to the model\nEthridge asks what the conceptual framework must accomplish\n\nApply relevant theory to the research problem and derive meaningful hypotheses\n\n\nVarian asks how the economic model should be structured\n\n\nIdentify agents, choices, objectives, constraints, interactions, and adjustment"
   },
   {
     "objectID": "lectures/lecture4.1.html#varian-start-with-questions",
@@ -2496,7 +2496,7 @@
     "href": "lectures/lecture4.1.html#summary-of-readings",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Summary of readings",
-    "text": "Summary of readings\n\n\n\n\n\n\n\n\nReading\nCentral question\nContribution to a research project\n\n\n\n\nEthridge\nWhat should the conceptual framework accomplish\nDefines the problem relationships and hypotheses\n\n\nVarian\nHow should the economic model be structured\nIdentifies agents choices objectives constraints interactions and adjustment\n\n\nRomer\nHow should the argument be disciplined\nKeeps words symbols and empirical claims aligned\n\n\n\nTogether the readings turn a broad assertion into conditional and refutable claims."
+    "text": "Summary of readings\n\n\n\n\n\n\n\n\nReading\nCentral question\nContribution to a research project\n\n\n\n\nEthridge\nWhat should the conceptual framework accomplish\nDefines the problem relationships and hypotheses\n\n\nVarian\nHow should the economic model be structured\nIdentifies agents, choices, objectives, constraints, interactions, and adjustment\n\n\nRomer\nHow should the argument be disciplined\nKeeps words symbols and empirical claims aligned\n\n\n\nTogether the readings turn a broad assertion into conditional and refutable claims."
   },
   {
     "objectID": "lectures/lecture4.1.html#measure-costs-revenue-and-market-outcomes",
@@ -2510,7 +2510,7 @@
     "href": "lectures/lecture4.1.html#example-snap-retailer-stocking-requirements",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Example: SNAP retailer stocking requirements",
-    "text": "Example: SNAP retailer stocking requirements\nSNAP-authorized retailers must satisfy program eligibility standards. Eligibility requires a minimum assortment of staple foods.\nIn 2018, a new rule went into effect that changed the minimum number of items per food category to remain eligible.\nChanges in how qualifying varieties and stocking units are defined may affect\n\nProducts carried by participating retailers\nCost of remaining SNAP authorized\nRetailer entry into the program and/or continued participation and/or exit\nAccess to staple foods for SNAP households\n\n\nKeep the policy description brief. The purpose is to establish the research problem rather than provide the full institutional background."
+    "text": "Example: SNAP retailer stocking requirements\nSNAP-authorized retailers must satisfy program eligibility standards. Eligibility requires a minimum assortment of staple foods.\nIn 2018, a new rule went into effect that changed the minimum number of items per food category to remain eligible.\nChanges in how qualifying varieties (breadth) and stocking units (depth) are defined may affect\n\nProducts carried by participating retailers\nCost of remaining SNAP authorized\nRetailer entry into the program and/or continued participation and/or exit\nAccess to staple foods for SNAP households\n\n\nKeep the policy description brief. The purpose is to establish the research problem rather than provide the full institutional background."
   },
   {
     "objectID": "lectures/lecture4.1.html#the-core-policy-issue",
@@ -2531,7 +2531,7 @@
     "href": "lectures/lecture4.1.html#five-elements-of-a-conceptual-framework",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Five elements of a conceptual framework",
-    "text": "Five elements of a conceptual framework\nEthridge draws on Williams to describe an organized analysis that may include\n\nSources of the problem\nAlternative solutions to the problem\nVariables relevant to the analysis\nRelationships organized into a system\nHypotheses about expected results\n\nSource: Ethridge Chapter 8 pages 130–131\n\nThis five-item list comes directly from Ethridge’s discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge."
+    "text": "Five elements of a conceptual framework\nEthridge draws on Williams to describe an organized analysis that may include\n\nSources of the problem\nProposed solutions to the problem\nVariables relevant to the analysis\nRelationships organized into a system\nHypotheses about expected results\n\nSource: Ethridge Chapter 8 pages 130–131\n\nThis five-item list comes directly from Ethridge’s discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge."
   },
   {
     "objectID": "lectures/lecture4.1.html#how-ethridge-recommends-proceeding",
@@ -2552,7 +2552,7 @@
     "href": "lectures/lecture4.1.html#when-does-the-rule-force-a-change",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "When does the rule force a change?",
-    "text": "When does the rule force a change?\nRequires a change — binding\nThe new standard requires a retailer to change its inventory to remain eligible\n\nAlready satisfied — slack\nThe retailer already meets the standard so the rule does not require an inventory change\n\n\nInventory without the program minimum — unconstrained inventory\nThe inventory a retailer would choose without the program minimum. It does not mean that the retailer is exempt from the rule.\n\n\nThe earlier version referred to standard concavity conditions. In optimization this means the objective has a well-behaved single optimum such as profits with diminishing marginal returns. That assumption is not needed for the simplified authorization model and has been removed.\nWithout inventory data the empirical analysis cannot identify which individual stores faced a binding standard. The distinction remains useful as a theoretical explanation for why the policy affects some stores more than others."
+    "text": "When does the rule force a change?\nRequires a change — binding\nThe new standard requires a retailer to change its inventory to remain eligible\n\nAlready satisfied — slack\nThe retailer already meets the standard so the rule does not require an inventory change\n\n\nInventory without the program minimum — unconstrained inventory\nThe inventory a retailer would choose without the program minimum. It does not mean that the retailer is exempt from the rule.\n\n\nWithout inventory data the empirical analysis cannot identify which individual stores faced a binding standard. The distinction remains useful as a theoretical explanation for why the policy affects some stores more than others."
   },
   {
     "objectID": "lectures/lecture4.1.html#from-retailer-decisions-to-the-store-portfolio",
@@ -2587,7 +2587,7 @@
     "href": "lectures/lecture4.1.html#from-the-model-to-the-argument",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "From the model to the argument",
-    "text": "From the model to the argument\nVarian provides the structure of the economic model\n\nAgents choices objectives constraints interactions and adjustment\n\n\nRomer asks whether the model supports the claims made for it\n\n\nWords symbols and empirical interpretations must remain connected"
+    "text": "From the model to the argument\nVarian provides the structure of the economic model\n\nAgents, choices, objectives, constraints, interactions, and adjustment\n\n\nRomer asks whether the model supports the claims made for it\n\n\nWords symbols and empirical interpretations must remain connected"
   },
   {
     "objectID": "lectures/lecture4.1.html#question-4-program-targeting",
@@ -2846,7 +2846,7 @@
     "href": "lectures/lecture4.2.html#presenting-the-model-in-a-paper",
     "title": "Lecture 4.2: Writing the Conceptual Framework",
     "section": "Presenting the model in a paper",
-    "text": "Presenting the model in a paper\nLecture 4.1 developed a conceptual model of retailer authorization.\nThe next step is to present that reasoning in a paper\n\nExplain why the theory is relevant to the research problem\nDefine the agents choices program rules assumptions and relationships\nShow how the prediction follows from the model\nConnect the prediction to the available evidence"
+    "text": "Presenting the model in a paper\nLecture 4.1 developed a conceptual model of retailer authorization.\nThe next step is to present that reasoning in a paper\n\nExplain why the theory is relevant to the research problem\nDefine the agents, choices, program rules, assumptions, and relationships\nShow how the prediction follows from the model\nConnect the prediction to the available evidence"
   },
   {
     "objectID": "lectures/lecture4.2.html#theory-in-an-empirical-paper",
@@ -2972,7 +2972,7 @@
     "href": "lectures/lecture4.2.html#review-the-following-claim",
     "title": "Lecture 4.2: Writing the Conceptual Framework",
     "section": "Review the following claim",
-    "text": "Review the following claim\n\nBecause stricter stocking standards require healthier foods, they improve food access and diet quality.\n\nUse the retailer model to assess the claim\n\nWhat does the model add?\nThe standard may raise compliance costs and cause some retailers to lose authorization which can reduce the number of SNAP outlets in a community\n\n\nWhat do the available data observe?\nWhether stores remain authorized and how the authorized-store network changes\n\n\nWhat requires additional evidence?\nChanges in inventory food availability purchases diet and health\n\n\nThe quoted claim describes an intended policy pathway. The retailer participation model adds another pathway through compliance cost and authorization. Ask students to distinguish the model result from the later outcomes that would require separate measures and relationships."
+    "text": "Review the following claim\n\nBecause stricter stocking standards require healthier foods, they improve food access and diet quality.\n\nUse the retailer model on the previous slide to assess the claim.\n\nWhat does the model predict?\nThe standard may raise compliance costs and cause some retailers to lose authorization which can reduce the number of SNAP outlets in a community\n\n\nWhat do the available data observe?\nWhether stores remain authorized and how the authorized-store network changes\n\n\nWhat requires additional evidence?\nChanges in inventory food availability purchases diet and health\n\n\nThe quoted claim describes an intended policy pathway. The retailer participation model adds another pathway through compliance cost and authorization. Ask students to distinguish the model result from the later outcomes that would require separate measures and relationships."
   },
   {
     "objectID": "lectures/lecture4.2.html#apply-the-sequence-setting-and-constraint",
@@ -2985,8 +2985,8 @@
     "objectID": "lectures/lecture4.2.html#apply-the-sequence-assumptions-relationship-and-result",
     "href": "lectures/lecture4.2.html#apply-the-sequence-assumptions-relationship-and-result",
     "title": "Lecture 4.2: Writing the Conceptual Framework",
-    "section": "Apply the sequence: assumptions relationship and result",
-    "text": "Apply the sequence: assumptions relationship and result\nMaintained assumptions\nThese are conditions accepted for the model comparison\n\nThe stronger standard does not reduce compliance cost and may raise it by different amounts across retailers\nBiB_i is held fixed when comparing the two standards\nRetailers compare the benefit of authorization with the cost of compliance\n\n\nRelationship ai(r)=1a_i(r)=1 when Bi≥Ki(r)B_i\\geq K_i(r)\n\n\nConditional result Authorization changes when Ki(r)K_i(r) rises from no greater than BiB_i to greater than BiB_i"
+    "section": "Apply the sequence: assumptions, relationship, and result",
+    "text": "Apply the sequence: assumptions, relationship, and result\nMaintained assumptions\nThese are conditions accepted for the model comparison\n\nThe stronger standard does not reduce compliance cost and may raise it by different amounts across retailers\nBiB_i is held fixed when comparing the two standards\nRetailers compare the benefit of authorization with the cost of compliance\n\n\nRelationship ai(r)=1a_i(r)=1 when Bi≥Ki(r)B_i\\geq K_i(r)\n\n\nConditional result Authorization changes when Ki(r)K_i(r) rises from no greater than BiB_i to greater than BiB_i"
   },
   {
     "objectID": "lectures/lecture4.2.html#interpret-the-central-terms-consistently",
@@ -3014,7 +3014,7 @@
     "href": "lectures/lecture4.2.html#organizing-a-written-conceptual-framework",
     "title": "Lecture 4.2: Writing the Conceptual Framework",
     "section": "Organizing a written conceptual framework",
-    "text": "Organizing a written conceptual framework\n\nState the research problem that requires explanation\nIdentify the relevant economic theory\nDefine agents choices institutional constraints and key terms\nState the maintained assumptions\nIntroduce the relationships among model objects\nDerive the result and empirical hypothesis\nState what the model and available evidence do not establish\n\nThe sequence should make the relationship between theory, prediction, and evidence clear."
+    "text": "Organizing a written conceptual framework\n\nState the research problem that requires explanation\nIdentify the relevant economic theory\nDefine agents, choices, institutional constraints, and key terms\nState the maintained assumptions\nIntroduce the relationships among model objects\nDerive the result and empirical hypothesis\nState what the model and available evidence do not establish\n\nThe sequence should make the relationship between theory, prediction, and evidence clear."
   },
   {
     "objectID": "lectures/lecture4.2.html#from-the-framework-to-empirical-design",
@@ -3316,5 +3316,103 @@
     "title": "Lecture 5.1: Data Collection: Surveys",
     "section": "A possible revision still needs to be tested",
     "text": "A possible revision still needs to be tested\nAsk potential respondents\n\nWhat do you think the program would change\nWhat does the payment mean for your household\nWhich information did you use to decide\nWhich words were unclear or interpreted differently\nWhat assumptions did you make that were not stated\n\nCognitive (one-on-one) interviews reveal how respondents understand and answer the question"
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#the-core-policy-issue-and-rationale",
+    "href": "lectures/lecture4.1.html#the-core-policy-issue-and-rationale",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "The core policy issue and rationale",
+    "text": "The core policy issue and rationale\nPolicy concern\nPrevious minimum standards could allow SNAP participation with limited nutritious variety\n\nPolicy intervention\nRequire more varieties across staple food categories and more perishable foods\n\n\nIntended mechanism\nUse the value of SNAP authorization to encourage neighborhood retailers to stock more nutritious foods\n\n\nLonger-run goal\nImprove convenient access to foods consistent with dietary guidance in low-income and rural communities\n\n\nThis is the policy rationale. The empirical project evaluates whether the intended mechanism occurs and whether retailer responses alter the result.\nThe rulemaking record is available through Federal Register docket FNS-2025-0018."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#the-conceptual-framework-also-identifies-competing-responses",
+    "href": "lectures/lecture4.1.html#the-conceptual-framework-also-identifies-competing-responses",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "The conceptual framework also identifies competing responses",
+    "text": "The conceptual framework also identifies competing responses\nThe intended policy mechanism is not the only possible response.\n\nSome retailers already meet the new standard\nSome retailers change inventory and remain authorized\nSome retailers decide that compliance is not worthwhile\nSome retailers lose authorization\nAuthorization losses may be concentrated by store type or community\n\nThe framework distinguishes the unobserved stocking mechanism from the observed authorization outcome."
+  },
+  {
+    "objectID": "lectures/lecture4.1.html#varian-start-with-the-following-questions",
+    "href": "lectures/lecture4.1.html#varian-start-with-the-following-questions",
+    "title": "Lecture 4.1: Conceptual Framework and Theory",
+    "section": "Varian: start with the following questions",
+    "text": "Varian: start with the following questions\n\nWho makes choices?\nWhat can each agent choose?\nWhat objective guides each choice?\nWhat constraints limit each agent?\nHow do the agents interact?\nWhat adjusts when choices are not mutually consistent?\n\nWork through the simplest example that retains the mechanism. Add complexity only when it changes the result (Varian 1997)."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#varying-degrees-of-theory-in-a-paper",
+    "href": "lectures/lecture4.2.html#varying-degrees-of-theory-in-a-paper",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Varying degrees of theory in a paper",
+    "text": "Varying degrees of theory in a paper\nApply established theory\nSummarize the relevant result and explain how it applies to the research problem\n\nModify established theory\nState the baseline model, identify the change, and show how the result changes\n\n\nDevelop new theory\nDefine the setting, assumptions, relationships, and results in sufficient detail to establish the contribution\n\nThe appropriate level of detail depends on how theory contributes to the paper.\n\nChouinard cautions against rederiving familiar theory when the contribution is an application. More detail is warranted when the paper changes the model or contributes new theory.\n[Sources] - Chouinard (2015/Sources)"
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#apply-the-sequence-setting-agents-choices-and-constraints",
+    "href": "lectures/lecture4.2.html#apply-the-sequence-setting-agents-choices-and-constraints",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Apply the sequence: setting, agents, choices, and constraints",
+    "text": "Apply the sequence: setting, agents, choices, and constraints\nSetting and agents SNAP-authorized retailers respond to a revised stocking standard\n\nChoice Each retailer decides whether authorization remains worthwhile\n\n\nInstitutional constraint A retailer must satisfy the stocking standard to remain eligible for SNAP authorization\n\nThe stocking rule limits the retailer’s feasible choices.\nA compliance cost is a consequence of responding to that rule rather than the constraint itself.\n\nUse constraint for a limit on choice imposed by the setting. Here the eligibility rule is the constraint. Do not use constraint as a synonym for an assumption or a cost."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#snap-example-premises",
+    "href": "lectures/lecture4.2.html#snap-example-premises",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "SNAP example: premises",
+    "text": "SNAP example: premises\nResearch problem\nRevised stocking standards may change the number, type, and location of SNAP-authorized retailers\nAgent and choice\nRetailer ii decides whether the benefit of authorization justifies the cost of meeting the standard\nInstitutional constraint\nThe retailer must satisfy stocking standard rr to remain authorized\nMaintained assumptions\n\nA stronger standard does not reduce Ki(r)K_i(r) and may raise it by different amounts across retailers\nBiB_i is held fixed when comparing standards\nThe retailer remains authorized when Bi≥Ki(r)B_i\\geq K_i(r)"
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#snap-example-result-evidence-and-audit",
+    "href": "lectures/lecture4.2.html#snap-example-result-evidence-and-audit",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "SNAP example: result evidence and audit",
+    "text": "SNAP example: result evidence and audit\nMechanism and conditional result\nKi(r0)≤Bi&lt;Ki(r1)⇒ai(r0)=1 and ai(r1)=0\nK_i(r_0)\\leq B_i&lt;K_i(r_1)\n\\quad\\Rightarrow\\quad\na_i(r_0)=1 \\text{ and } a_i(r_1)=0\n\nEmpirical hypothesis\nAuthorization losses increase after implementation among retailers expected to face larger compliance-cost increases\nObservable evidence\nStore-year data show authorization changes by retailer type location and local SNAP participation\nCheng audit\nThe argument does not establish changes in inventory household food access purchases diet or health because those outcomes require additional relationships and evidence\n\nThese two slides provide an example of a complete workshop submission. The premises define the problem, agent, choice, constraint, and maintained assumptions. The second slide states the reasoning, result, empirical hypothesis, available evidence, and boundary. Emphasize that the Cheng audit identifies a missing part of the argument rather than declaring the downstream outcomes impossible."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#group-workshop-build-and-audit-one-framework",
+    "href": "lectures/lecture4.2.html#group-workshop-build-and-audit-one-framework",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Group workshop: build and audit one framework",
+    "text": "Group workshop: build and audit one framework\nChoose one volunteer whose research question the group will workshop\n\n\nBuild with Chouinard\n\nState the research problem and outcome\nIdentify the agents, choices, and institutional constraints\nState the maintained assumptions\nShow the relationship connecting cause to outcome\nDerive a conditional prediction and empirical hypothesis\n\n\nAudit with Cheng\n\nCheck whether each step follows from the preceding step\nIdentify a missing premise, unsupported inference, or outcome outside the evidence\n\nDeliverable\n\nOne framework diagram\nOne empirical hypothesis\nOne step requiring an additional premise or evidence\n\n\n15 minutes · groups of 3–4\n\nAsk for a volunteer in each group whose current research question will be workshopped. The volunteer should explain the research problem briefly and then participate as a group member rather than defend a finished framework. During the report-out ask each group to present its conditional prediction and the step that required the strongest assumption or additional evidence."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#use-the-framework-to-inform-the-empirical-design",
+    "href": "lectures/lecture4.2.html#use-the-framework-to-inform-the-empirical-design",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Use the framework to inform the empirical design",
+    "text": "Use the framework to inform the empirical design\n\n\n\n\n\n\n\n\nStep\nQuestion\nSNAP application\n\n\n\n\nFramework\nWhat mechanism produces the prediction\nA stronger standard may change authorization through compliance cost\n\n\nMeasurement\nWhich variables represent the concepts\nAuthorization retailer type location and local SNAP participation\n\n\nIdentification\nWhat comparison isolates the policy response\nA comparison to what authorization would have been without the change\n\n\n\nThe data do not directly measure BiB_i, Ki(r)K_i(r), or store inventory\n\nIdentification is the argument that the empirical comparison separates the policy response from other changes over time. This slide introduces the concept. Identification strategies and threats receive fuller treatment in Unit 6."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#snap-example-problem-and-structure",
+    "href": "lectures/lecture4.2.html#snap-example-problem-and-structure",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "SNAP example: problem and structure",
+    "text": "SNAP example: problem and structure\nResearch problem\nRevised stocking standards may change the number, type, and location of SNAP-authorized retailers\nEconomic theory\nRetailer participation is a threshold choice in which the benefit of authorization is compared with the cost of compliance\nAgent and choice\nRetailer ii decides whether the benefit of authorization justifies the cost of meeting the standard\nInstitutional constraint\nThe retailer must satisfy stocking standard rr to remain authorized"
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#snap-example-assumptions-and-result",
+    "href": "lectures/lecture4.2.html#snap-example-assumptions-and-result",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "SNAP example: assumptions and result",
+    "text": "SNAP example: assumptions and result\nMaintained assumptions\n\nA stronger standard does not reduce Ki(r)K_i(r) and may raise it by different amounts across retailers\nBiB_i is held fixed when comparing standards\nRetailers compare the benefit of authorization with the cost of compliance\n\nRelationship ai(r)=1a_i(r)=1 when Bi≥Ki(r)B_i\\geq K_i(r)\nConditional result\nKi(r0)≤Bi&lt;Ki(r1)⇒ai(r0)=1 and ai(r1)=0\nK_i(r_0)\\leq B_i&lt;K_i(r_1)\n\\quad\\Rightarrow\\quad\na_i(r_0)=1 \\text{ and } a_i(r_1)=0"
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#snap-example-hypothesis-evidence-and-audit",
+    "href": "lectures/lecture4.2.html#snap-example-hypothesis-evidence-and-audit",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "SNAP example: hypothesis, evidence, and audit",
+    "text": "SNAP example: hypothesis, evidence, and audit\nEmpirical hypothesis\nAuthorization losses increase after implementation among retailers expected to face larger compliance-cost increases\nObservable evidence\nStore-year data show authorization changes by retailer type, location, and local SNAP participation\nCheng audit\nThe argument establishes a conditional prediction about authorization\nChanges in inventory, household food access, purchases, diet, or health require additional relationships and evidence\n\nThese three slides provide an example of a complete workshop submission. Together they define the problem, agent, choice, constraint, maintained assumptions, result, empirical hypothesis, available evidence, and boundary. Emphasize that the Cheng audit identifies a missing part of the argument rather than declaring the downstream outcomes impossible."
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#group-workshop-build-one-framework",
+    "href": "lectures/lecture4.2.html#group-workshop-build-one-framework",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Group workshop: build one framework",
+    "text": "Group workshop: build one framework\nChoose one volunteer whose research question the group will workshop\nBuild with Chouinard\n\nState the research problem and outcome\nIdentify the relevant economic theory\nDefine the agents, choices, and institutional constraints\nState the maintained assumptions and relationships\nDerive a conditional prediction and empirical hypothesis\n\nOutput: A framework diagram that connects the premises to the conditional prediction"
+  },
+  {
+    "objectID": "lectures/lecture4.2.html#group-workshop-audit-and-prepare-to-report",
+    "href": "lectures/lecture4.2.html#group-workshop-audit-and-prepare-to-report",
+    "title": "Lecture 4.2: Writing the Conceptual Framework",
+    "section": "Group workshop: audit and prepare to report",
+    "text": "Group workshop: audit and prepare to report\nAudit with Cheng\n\nCheck whether each step follows from the preceding step\nIdentify a missing premise, unsupported inference, or outcome outside the evidence\n\nPrepare to report\n\nThe research problem and conditional prediction\nOne empirical hypothesis\nOne step requiring an additional premise or evidence\n\n15 minutes · groups of 3–4\n\nAsk for a volunteer in each group whose current research question will be workshopped. The volunteer should explain the research problem briefly and then participate as a group member rather than defend a finished framework. During the report-out ask each group to present its conditional prediction and the step that required the strongest assumption or additional evidence."
   }
 ]
