@@ -53,7 +53,7 @@ Lecture 4.1 developed a conceptual model of retailer authorization.
 The next step is to present that reasoning in a paper
 
 - Explain why the theory is relevant to the research problem
-- Define the agents choices program rules assumptions and relationships
+- Define the agents, choices, program rules, assumptions, and relationships
 - Show how the prediction follows from the model
 - Connect the prediction to the available evidence
 
@@ -79,10 +79,10 @@ $B_i$ is the benefit the retailer receives from authorization. It may include SN
 
 > Because stricter stocking standards require healthier foods, they improve food access and diet quality.
 
-Use the retailer model to assess the claim
+Use the retailer model on the previous slide to assess the claim.
 
 ::: {.fragment}
-**What does the model add?**
+**What does the model predict?**
 
 The standard may raise compliance costs and cause some retailers to lose authorization which can reduce the number of SNAP outlets in a community
 :::
@@ -131,7 +131,7 @@ For an empirical paper the theory section can
 Both require explicit assumptions and a coherent sequence of reasoning.
 
 
-## Match the detail to the theoretical contribution
+## Varying degrees of theory in a paper
 
 **Apply established theory**
 
@@ -173,7 +173,7 @@ Chouinard recommends introducing the model components before presenting the comp
 :::
 
 
-## Apply the sequence: setting and constraint
+## Apply the sequence: setting, agents, choices, and constraints
 
 **Setting and agents** SNAP-authorized retailers respond to a revised stocking standard
 
@@ -185,13 +185,15 @@ Chouinard recommends introducing the model components before presenting the comp
 **Institutional constraint** A retailer must satisfy the stocking standard to remain eligible for SNAP authorization
 :::
 
-The stocking rule limits the retailer's feasible choices. A compliance cost is a consequence of responding to that rule rather than the constraint itself.
+The stocking rule limits the retailer's feasible choices.
+
+A compliance cost is a consequence of responding to that rule rather than the constraint itself.
 
 ::: notes
 Use constraint for a limit on choice imposed by the setting. Here the eligibility rule is the constraint. Do not use constraint as a synonym for an assumption or a cost.
 :::
 
-## Apply the sequence: assumptions relationship and result
+## Apply the sequence: assumptions, relationship, and result
 
 **Maintained assumptions**
 
@@ -354,9 +356,9 @@ The retailer was authorized under the earlier standard and is not authorized und
 This is a conditional model result. It does not establish that the cost increase occurred or caused an observed authorization loss in the data.
 :::
 
-## Cheng's handwaving problem
+## "Handwaving"
 
-Cheng uses **handwaving** for a step that may be plausible but is not established by the stated argument
+**Handwaving** is a term that describes a step that may be plausible but is not established by the stated argument
 
 The authorization model can support
 
@@ -415,11 +417,13 @@ Choose one claim your conceptual framework is intended to support
 Students may use a dissertation chapter another current project or one of the assigned papers. Ask for one explicit inference in the form “Given A and B, C follows because...” and examine whether another premise is missing.
 :::
 
+# Synthesis
+
 ## Organizing a written conceptual framework
 
 1. State the research problem that requires explanation
 2. Identify the relevant economic theory
-3. Define agents choices institutional constraints and key terms
+3. Define agents, choices, institutional constraints, and key terms
 4. State the maintained assumptions
 5. Introduce the relationships among model objects
 6. Derive the result and empirical hypothesis
@@ -427,38 +431,86 @@ Students may use a dissertation chapter another current project or one of the as
 
 The sequence should make the relationship between theory, prediction, and evidence clear.
 
-## From the framework to empirical design
+## Use the framework to inform the empirical design
 
 | Step | Question | SNAP application |
-|---|---|---|
-| **Framework** | What mechanism produces the prediction | A stronger standard may change authorization through compliance cost |
-| **Measurement** | Which variables represent the concepts | Authorization retailer type location and local SNAP participation |
-| **Identification** | What comparison isolates the policy response | A comparison to what authorization would have been without the change |
-
-The data do not directly measure $B_i$, $K_i(r)$, or store inventory
+|--|----|----|
+| **Framework** | What mechanism produces the prediction? | A stronger standard may change authorization through compliance cost |
+| **Measurement** | Which variables represent the concepts? | Authorization retailer type location and local SNAP participation |
+| **Identification** | What comparison isolates the policy response? | A comparison to what authorization would have been without the change |
 
 ::: notes
 Identification is the argument that the empirical comparison separates the policy response from other changes over time. This slide introduces the concept. Identification strategies and threats receive fuller treatment in Unit 6.
 :::
 
-## Consider the following paragraph
+## SNAP example: problem and structure
 
-> The revised rule increased required inventory and therefore improved food access. Stores unable to meet the rule lost authorization, so we expect fewer authorized retailers and healthier inventories after 2018.
+**Research problem**
 
-Consider whether the paragraph
+Revised stocking standards may change the number, type, and location of SNAP-authorized retailers
+
+**Economic theory**
+
+Retailer participation is a threshold choice in which the benefit of authorization is compared with the cost of compliance
+
+**Agent and choice**
+
+Retailer $i$ decides whether the benefit of authorization justifies the cost of meeting the standard
+
+**Institutional constraint**
+
+The retailer must satisfy stocking standard $r$ to remain authorized
+
+## SNAP example: assumptions and result
+
+**Maintained assumptions**
+
+- A stronger standard does not reduce $K_i(r)$ and may raise it by different amounts across retailers
+- $B_i$ is held fixed when comparing standards
+- Retailers compare the benefit of authorization with the cost of compliance
+
+**Relationship** $a_i(r)=1$ when $B_i\geq K_i(r)$
+
+**Conditional result**
+
+$$
+K_i(r_0)\leq B_i<K_i(r_1)
+\quad\Rightarrow\quad
+a_i(r_0)=1 \text{ and } a_i(r_1)=0
+$$
+
+## SNAP example: hypothesis, evidence, and audit
+
+**Empirical hypothesis**
+
+Authorization losses increase after implementation among retailers expected to face larger compliance-cost increases
+
+**Observable evidence**
+
+Store-year data show authorization changes by retailer type, location, and local SNAP participation
+
+**Takeaways**
+
+The argument establishes a conditional prediction about authorization
+
+Changes in inventory, household food access, purchases, diet, or health require additional relationships and evidence
+
+::: notes
+These three slides provide an example of a complete workshop submission. Together they define the problem, agent, choice, constraint, maintained assumptions, result, empirical hypothesis, available evidence, and boundary. Emphasize that the Cheng audit identifies a missing part of the argument rather than declaring the downstream outcomes impossible.
+:::
+
+## SNAP example: in paragraph form
+
+> The revised standard may raise the cost of continued SNAP authorization with the increase varying across retailers. Let $B_i$ denote the benefit a retailer receives from authorization including SNAP-related sales and let $K_i(r)$ denote the compliance cost. Holding $B_i$ fixed the model predicts an authorization loss when $K_i(r)$ exceeds $B_i$. This prediction motivates an analysis of authorization changes by store type and local SNAP participation. The available data do not establish changes in inventory household access purchases diet or health.
+
+The paragraph:
 
 - States the maintained assumptions
 - Separates model results from empirical hypotheses
 - Distinguishes observed from unobserved outcomes
 - Limits the conclusion to what the evidence can support
 
-## Revised paragraph
-
-> The revised standard may raise the cost of continued SNAP authorization with the increase varying across retailers. Let $B_i$ denote the benefit a retailer receives from authorization including SNAP-related sales and let $K_i(r)$ denote the compliance cost. Holding $B_i$ fixed the model predicts an authorization loss when $K_i(r)$ exceeds $B_i$. This prediction motivates an analysis of authorization changes by store type and local SNAP participation. The available data do not establish changes in inventory household access purchases diet or health.
-
-The revision states the mechanism, prediction, empirical application, and boundary in sequence.
-
-## State the scope of the evidence
+## SNAP example: boundaries on the scope of the evidence
 
 The framework supports a conditional prediction about retailer authorization.
 
@@ -471,15 +523,46 @@ The study cannot directly establish
 - How household purchases changed
 - Whether diet or health improved
 
+# Workshoping conceptual frameworks
+
+## In your groups: build a framework
+
+Choose one volunteer whose research question the group will workshop
+
+1. State the research problem and outcome
+2. Identify the relevant economic theory
+3. Define the agents, choices, and institutional constraints
+4. State the maintained assumptions and relationships
+5. Derive a conditional prediction and empirical hypothesis
+
+**Prepare to report**
+
+- The research problem and conditional prediction
+- One empirical hypothesis
+- One step requiring an additional premise or evidence
+
+**15 minutes · groups of 3–4**
+
+## As a class: audit the framework
+
+- Check whether each step follows from the preceding step
+- Identify a missing premise, unsupported inference, or outcome outside the evidence
+
+**Output:** A preliminary framework that connects the premises to the conditional prediction
+
+::: notes
+Ask for a volunteer in each group whose current research question will be workshopped. The volunteer should explain the research problem briefly and then participate as a group member rather than defend a finished framework. During the report-out ask each group to present its conditional prediction and the step that required the strongest assumption or additional evidence.
+:::
+
 ## Apply the reporting sequence to your research
 
-Use one current research question to consider
+For your paper, ask
 
-1. What mechanism connects the cause or policy to the outcome
-2. Which maintained assumptions are required for the prediction
-3. Which theoretical concepts have observable counterparts
-4. What empirical comparison would isolate the proposed effect
-5. Which conclusions remain outside the model or available evidence
+1. What mechanism connects the cause or policy to the outcome?
+2. Which maintained assumptions are required for the prediction?
+3. Which theoretical concepts have observable counterparts?
+4. What empirical comparison would isolate the proposed effect?
+5. Which conclusions remain outside the model or available evidence?
 
 ## Summary of readings
 

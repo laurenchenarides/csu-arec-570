@@ -49,7 +49,7 @@ SNAP-authorized retailers must satisfy program eligibility standards. Eligibilit
 
 In 2018, a new rule went into effect that changed the minimum number of items per food category to remain eligible.
 
-Changes in how qualifying varieties and stocking units are defined may affect
+Changes in how qualifying varieties (breadth) and stocking units (depth) are defined may affect
 
 - Products carried by participating retailers
 - Cost of remaining SNAP authorized
@@ -60,7 +60,7 @@ Changes in how qualifying varieties and stocking units are defined may affect
 Keep the policy description brief. The purpose is to establish the research problem rather than provide the full institutional background.
 :::
 
-## The core policy issue
+## The core policy issue and rationale
 
 **Policy concern**
 
@@ -126,9 +126,9 @@ Inventory remains a theoretical mechanism rather than an observed outcome.
 
 **Researchable questions**
 
-1. How do revised standards affect continued SNAP authorization
-2. Which types of retailers are more likely to lose authorization
-3. How does the portfolio and location of authorized retailers change
+1. How do revised standards affect continued SNAP authorization?
+2. Which types of retailers are more likely to lose authorization?
+3. How does the portfolio and location of authorized retailers change?
 4. Are authorization losses concentrated in areas with a higher share of SNAP-participating households?
 
 ::: notes
@@ -139,14 +139,17 @@ This question connects the distribution of retailer losses to the communities th
 
 ## Where does the conceptual framework enter?
 
-There is no universal order but each part has a distinct role.
+These parts often develop together while writing a manuscript
 
 - The **problem statement** identifies the possible loss of SNAP-authorized retailers
-- The **literature review** supplies theory and evidence about regulation retailer participation and food access
+- The **literature review** offers theory and evidence about regulation retailer participation and food access
 - The **conceptual framework** explains why the rule may change authorization and predicts which stores and communities are most affected
 - The **methods** use annual store authorization and location data to evaluate those predictions
 
-The framework states the expected relationships. The empirical design specifies how the evidence will be used to estimate them.
+Distinguish the conceptual framework from the empirical design
+
+- The framework states the expected relationships
+- The empirical design specifies how the evidence will be used to estimate them
 
 # Ethridge, Chapter 8
 
@@ -162,32 +165,17 @@ It is not a review of standard theory and it is not a description of the empiric
 
 Ethridge draws on Williams to describe an organized analysis that may include
 
-::: {.incremental}
 - Sources of the problem
-- Alternative solutions to the problem
+- Proposed solutions to the problem
 - Variables relevant to the analysis
 - Relationships organized into a system
 - Hypotheses about expected results
-:::
 
 Source: Ethridge Chapter 8 pages 130–131
 
 ::: notes
 This five-item list comes directly from Ethridge's discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge.
 :::
-
-## How Ethridge recommends proceeding
-
-::: {.incremental}
-1. Review how related problems have been conceptualized
-2. Reduce the problem to its simplest useful form
-3. Identify the applicable economic theory
-4. Construct a base model using maintained hypotheses
-5. Add dimensions only when they improve the analysis
-6. Assemble hypotheses from the conceptual reasoning
-:::
-
-Source: Ethridge Chapter 8 pages 136–138
 
 ## Applying the five elements to the SNAP example
 
@@ -243,7 +231,7 @@ Stress that maintained hypotheses are analytically distinct from diagnostic and 
 Inventory is the policy mechanism in this example but it is not observed in the proposed empirical application. The observed response is whether a store remains authorized.
 :::
 
-## The framework also identifies competing responses
+## The conceptual framework also identifies competing responses
 
 The intended policy mechanism is not the only possible response.
 
@@ -254,6 +242,17 @@ The intended policy mechanism is not the only possible response.
 - Authorization losses may be concentrated by store type or community
 
 The framework distinguishes the unobserved stocking mechanism from the observed authorization outcome.
+
+## How Ethridge recommends proceeding
+
+1. Review how related problems have been conceptualized
+2. Reduce the problem to its simplest useful form
+3. Identify the applicable economic theory
+4. Construct a base model using maintained hypotheses
+5. Add dimensions only when they improve the analysis
+6. Assemble hypotheses from the conceptual reasoning
+
+Source: Ethridge Chapter 8 pages 136–138
 
 ## Discussion: apply Ethridge to your research
 
@@ -283,17 +282,17 @@ Apply relevant theory to the research problem and derive meaningful hypotheses
 :::
 
 ::: {.fragment}
-Identify agents choices objectives constraints interactions and adjustment
+Identify agents, choices, objectives, constraints, interactions, and adjustment
 :::
 
-## Varian: start with questions
+## Varian: start with the following questions
 
-1. Who makes choices
-2. What can each agent choose
-3. What objective guides each choice
-4. What constraints limit each agent
-5. How do the agents interact
-6. What adjusts when choices are not mutually consistent
+1. Who makes choices?
+2. What can each agent choose?
+3. What objective guides each choice?
+4. What constraints limit each agent?
+5. How do the agents interact?
+6. What adjusts when choices are not mutually consistent?
 
 Work through the simplest example that retains the mechanism. Add complexity only when it changes the result [@varian1997model].
 
@@ -404,8 +403,6 @@ The inventory a retailer would choose without the program minimum. It does not m
 :::
 
 ::: notes
-The earlier version referred to standard concavity conditions. In optimization this means the objective has a well-behaved single optimum such as profits with diminishing marginal returns. That assumption is not needed for the simplified authorization model and has been removed.
-
 Without inventory data the empirical analysis cannot identify which individual stores faced a binding standard. The distinction remains useful as a theoretical explanation for why the policy affects some stores more than others.
 :::
 
@@ -438,6 +435,17 @@ That pattern would suggest a targeting problem relative to the policy's food-acc
 
 It would not by itself establish the effect on store inventory household purchases diet or health.
 
+## From the model to observable measures
+
+| Model object | Empirical counterpart |
+|---|---|
+| $r$ | Implementation of the revised stocking standard |
+| $a_{it}$ | Store $i$ authorization status in year $t$ |
+| $A_{mt}$ | Number and composition of authorized stores in market $m$ and year $t$ |
+| $S_{mt}$ | Share of households participating in SNAP |
+
+The empirical analysis asks how $a_{it}$ and $A_{mt}$ changed after the policy and whether those changes vary with $S_{mt}$.
+
 ## Maintained hypotheses behind the result
 
 - Meeting the new standard is more costly for some retailers than for others
@@ -466,17 +474,6 @@ These maintained hypotheses support the authorization mechanism. They do not est
 
 These mechanisms motivate the framework but are not outcomes that this application can test directly.
 
-## From the model to observable measures
-
-| Model object | Empirical counterpart |
-|---|---|
-| $r$ | Implementation of the revised stocking standard |
-| $a_{it}$ | Store $i$ authorization status in year $t$ |
-| $A_{mt}$ | Number and composition of authorized stores in market $m$ and year $t$ |
-| $S_{mt}$ | Share of households participating in SNAP |
-
-The empirical analysis asks how $a_{it}$ and $A_{mt}$ changed after the policy and whether those changes vary with $S_{mt}$.
-
 ## Discussion: apply Varian to your research
 
 1. Who makes the central choice in your model
@@ -496,7 +493,7 @@ Students should answer using their own research topic. Ask them to justify why e
 **Varian provides the structure of the economic model**
 
 ::: {.fragment}
-Agents choices objectives constraints interactions and adjustment
+Agents, choices, objectives, constraints, interactions, and adjustment
 :::
 
 ::: {.fragment}
@@ -565,7 +562,7 @@ If a row cannot be completed coherently then the claim or model needs revision.
 | Reading | Central question | Contribution to a research project |
 |---|---|---|
 | **Ethridge** | What should the conceptual framework accomplish | Defines the problem relationships and hypotheses |
-| **Varian** | How should the economic model be structured | Identifies agents choices objectives constraints interactions and adjustment |
+| **Varian** | How should the economic model be structured | Identifies agents, choices, objectives, constraints, interactions, and adjustment |
 | **Romer** | How should the argument be disciplined | Keeps words symbols and empirical claims aligned |
 
 Together the readings turn a broad assertion into conditional and refutable claims.
@@ -576,7 +573,7 @@ For your project the conceptual framework should state
 
 1. The problem that requires explanation
 2. The relevant theory and concepts
-3. The agents choices objectives and constraints
+3. The agents, choices, objectives, and constraints
 4. The mechanisms connecting the proposed cause to the outcome
 5. The maintained diagnostic and remedial hypotheses
 6. The conditions under which each prediction applies
@@ -599,7 +596,7 @@ These questions should inform the empirical design.
 
 1. **Problem** State the condition that requires explanation
 2. **Theory** Identify the concepts that help explain it
-3. **Structure** Identify agents choices objectives constraints and adjustment
+3. **Structure** Identify agents, choices, objectives, constraints, and adjustment
 4. **Prediction** State what should change and under which conditions
 5. **Boundary** State what the model does not establish
 6. **Evidence** Identify an observation that would challenge the proposed mechanism
