@@ -434,9 +434,9 @@ The sequence should make the relationship between theory, prediction, and eviden
 ## Use the framework to inform the empirical design
 
 | Step | Question | SNAP application |
-|--|----|----|
+|---|---|---|
 | **Framework** | What mechanism produces the prediction? | A stronger standard may change authorization through compliance cost |
-| **Measurement** | Which variables represent the concepts? | Authorization retailer type location and local SNAP participation |
+| **Measurement** | Which variables represent the concepts? | Authorization, retailer type, location, and local SNAP participation |
 | **Identification** | What comparison isolates the policy response? | A comparison to what authorization would have been without the change |
 
 ::: notes
@@ -496,14 +496,14 @@ The argument establishes a conditional prediction about authorization
 Changes in inventory, household food access, purchases, diet, or health require additional relationships and evidence
 
 ::: notes
-These three slides provide an example of a complete workshop submission. Together they define the problem, agent, choice, constraint, maintained assumptions, result, empirical hypothesis, available evidence, and boundary. Emphasize that the Cheng audit identifies a missing part of the argument rather than declaring the downstream outcomes impossible.
+These three slides provide an example of a complete workshop submission. Together they define the problem, agent, choice, constraint, maintained assumptions, result, empirical hypothesis, available evidence, and boundary. Emphasize that the boundary identifies a missing part of the argument rather than declaring the downstream outcomes impossible.
 :::
 
 ## SNAP example: in paragraph form
 
-> The revised standard may raise the cost of continued SNAP authorization with the increase varying across retailers. Let $B_i$ denote the benefit a retailer receives from authorization including SNAP-related sales and let $K_i(r)$ denote the compliance cost. Holding $B_i$ fixed the model predicts an authorization loss when $K_i(r)$ exceeds $B_i$. This prediction motivates an analysis of authorization changes by store type and local SNAP participation. The available data do not establish changes in inventory household access purchases diet or health.
+> The revised standard may raise the cost of continued SNAP authorization, with the increase varying across retailers. Let $B_i$ denote the benefit a retailer receives from authorization, including SNAP-related sales, and let $K_i(r)$ denote the compliance cost. Holding $B_i$ fixed, the model predicts an authorization loss when $K_i(r)$ exceeds $B_i$. This prediction motivates an analysis of authorization changes by store type and local SNAP participation. The available data do not establish changes in inventory, household access, purchases, diet, or health.
 
-The paragraph:
+## SNAP example: paragraph checklist
 
 - States the maintained assumptions
 - Separates model results from empirical hypotheses
@@ -523,7 +523,7 @@ The study cannot directly establish
 - How household purchases changed
 - Whether diet or health improved
 
-# Workshoping conceptual frameworks
+# Workshopping conceptual frameworks
 
 ## In your groups: build a framework
 
@@ -535,15 +535,17 @@ Choose one volunteer whose research question the group will workshop
 4. State the maintained assumptions and relationships
 5. Derive a conditional prediction and empirical hypothesis
 
-**Prepare to report**
+**15 minutes · groups of 3–4**
+
+## As a class: present and audit
+
+**Group report**
 
 - The research problem and conditional prediction
 - One empirical hypothesis
 - One step requiring an additional premise or evidence
 
-**15 minutes · groups of 3–4**
-
-## As a class: audit the framework
+**Class audit**
 
 - Check whether each step follows from the preceding step
 - Identify a missing premise, unsupported inference, or outcome outside the evidence
