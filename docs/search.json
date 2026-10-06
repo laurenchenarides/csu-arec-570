@@ -123,7 +123,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nConnect sampling, questionnaire design, and measurement to the research question.\n—\n\n\nLecture 5.2: Data Collection via API\nPlan reproducible retrieval and weigh data quantity against quality.\n—\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via API\nPlan reproducible retrieval and weigh data quantity against quality.\n—\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture7.1.html",
@@ -760,7 +760,7 @@
     "href": "lectures/lecture5.1.html#primary-and-secondary-data",
     "title": "Lecture 5.1: Data Collection: Surveys",
     "section": "Primary and secondary data",
-    "text": "Primary and secondary data\n\n\n\n\n\n\n\nPrimary\nSecondary\n\n\n\n\nCollected for your research purpose\nCollected for another purpose\n\n\nMore control over instrument and sampling\nOften lower acquisition cost\n\n\nResponsibility for collection quality\nResponsibility for understanding provenance and limitations\n\n\n\nNeither category guarantees valid measurement."
+    "text": "Primary and secondary data\n\n\n\n\n\n\n\nPrimary data\nSecondary data\n\n\n\n\nCollected directly for the current study\nExisting data reused for the current study\n\n\nInstrument timing and recruitment can be tailored\nExisting documentation design and variables set the limits\n\n\nResearch team controls and bears responsibility for collection\nResearch team must reconstruct provenance and fitness for use\n\n\nUsually requires more time money and administration\nCan reduce cost time and respondent burden\n\n\n\nSuitability depends on the question population measure and intended inference"
   },
   {
     "objectID": "lectures/lecture5.1.html#trust-requires-institutional-knowledge",
@@ -865,7 +865,7 @@
     "href": "lectures/lecture5.1.html#course-navigation",
     "title": "Lecture 5.1: Data Collection: Surveys",
     "section": "Course navigation",
-    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
+    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list\nDownload this lecture as a PDF"
   },
   {
     "objectID": "lectures/lecture4.1.html",
@@ -3036,5 +3036,285 @@
     "title": "Lecture 4.2: Writing the Conceptual Framework",
     "section": "Summary of readings",
     "text": "Summary of readings\nChouinard identifies the components and order of a theory section\nCheng requires each conclusion to follow from stated premises\nBoth provide guidelines to turn a model into a written argument whose scope a reader can evaluate."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#reading-and-sequence",
+    "href": "lectures/lecture5.1.html#reading-and-sequence",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Reading and sequence",
+    "text": "Reading and sequence\nChamp, “Collecting Nonmarket Valuation Data” (Champ 2017)\n\nChoose between primary and secondary data\nDefine the population frame and sampling approach\nTranslate the desired measures into survey questions\nSelect the mode and fieldwork procedures\nProcess and document the completed data\n\n\nChamp presents these as connected decisions shaped by the research objective budget time and available labor. The lecture follows that sequence using one illustrative nonmarket valuation study."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#example-valuing-a-river-restoration-program",
+    "href": "lectures/lecture5.1.html#example-valuing-a-river-restoration-program",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Example: valuing a river restoration program",
+    "text": "Example: valuing a river restoration program\nIllustrative policy decision\nA county is considering restoration of ten miles of a local river to improve water quality habitat and recreation\n\nFinancing\nThe program would be funded by an annual household fee for five years\n\n\nResearch objective\nEstimate county households’ willingness to pay for the specified program\n\n\nThis is a classroom example rather than a description of a proposed local policy. Keep the policy fixed throughout the lecture so that changes in the population frame question and mode can be interpreted against the same objective."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#the-objective-determines-the-data-requirement",
+    "href": "lectures/lecture5.1.html#the-objective-determines-the-data-requirement",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "The objective determines the data requirement",
+    "text": "The objective determines the data requirement\nThe study needs information about\n\nConditions without the program\nThe environmental change produced by the program\nHousehold choices when the program and payment are presented together\nCharacteristics used to interpret differences in those choices\n\nWater monitoring and visitation records can describe parts of the setting. They do not directly reveal choices for a program that does not yet exist."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#when-is-each-source-appropriate",
+    "href": "lectures/lecture5.1.html#when-is-each-source-appropriate",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "When is each source appropriate?",
+    "text": "When is each source appropriate?\nPrimary data are useful when\n\nThe required construct is absent from existing data\nThe policy or choice is hypothetical\nThe study requires tailored timing questions or recruitment\n\n\nSecondary data are useful when\n\nExisting measures correspond to the required concepts\nThe population units timing and definitions fit the study\nProvenance and data-generating procedures can be assessed"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#apply-the-distinction-to-the-river-study",
+    "href": "lectures/lecture5.1.html#apply-the-distinction-to-the-river-study",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Apply the distinction to the river study",
+    "text": "Apply the distinction to the river study\n\n\n\n\n\n\n\n\nSource\nPotential use\nLimitation\n\n\n\n\nWater-quality monitoring\nDescribe baseline conditions\nDoes not measure household preferences\n\n\nRecreation counts\nMeasure observed site use\nMisses nonusers and passive-use values\n\n\nProperty transactions\nStudy capitalization near the river\nRepresents housing-market choices\n\n\nHousehold survey\nPresent the proposed program and payment\nQuality depends on sampling and survey design\n\n\n\nThe sources can complement one another when each has a defined role"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#discussion-choose-a-source-for-your-research",
+    "href": "lectures/lecture5.1.html#discussion-choose-a-source-for-your-research",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Discussion: choose a source for your research",
+    "text": "Discussion: choose a source for your research\nFor one current research question consider\n\nWhich concept must be observed\nWhether an existing source measures that concept\nWhether its population timing unit and definition fit\nWhat primary collection would add\nWhich limitation would remain after combining sources"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#data-quality-begins-before-the-questionnaire",
+    "href": "lectures/lecture5.1.html#data-quality-begins-before-the-questionnaire",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Data quality begins before the questionnaire",
+    "text": "Data quality begins before the questionnaire\nChamp treats high-quality data as a prerequisite for reliable and valid nonmarket values (Champ 2017)\nThe research objective determines\nwhose values matter→who must be represented→how they can be reached\n\\text{whose values matter}\n\\rightarrow\n\\text{who must be represented}\n\\rightarrow\n\\text{how they can be reached}\n\nA well-worded questionnaire cannot repair a frame that excludes part of the relevant population"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#who-belongs-in-the-river-study-population",
+    "href": "lectures/lecture5.1.html#who-belongs-in-the-river-study-population",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Who belongs in the river study population?",
+    "text": "Who belongs in the river study population?\nPossible beneficiaries include\n\nRiver users\nResidents living near the river\nCounty households that may pay the fee\nNonusers who value habitat preservation\nPeople outside the county who visit or hold passive-use values\n\nThe policy question and payment jurisdiction determine which group the study is intended to represent\n\nChamp emphasizes that passive-use values make geographic boundaries difficult. For this example use county households as the target population because they face the policy choice and payment. Other objectives would imply another population."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#population-frame-sample-and-respondents",
+    "href": "lectures/lecture5.1.html#population-frame-sample-and-respondents",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Population frame sample and respondents",
+    "text": "Population frame sample and respondents\n\n\n\n\n\n\n\nTerm\nExample\n\n\n\n\nStudy population\nCounty households whose values the study will represent\n\n\nSampling frame\nAddress list used to reach those households\n\n\nSample\nAddresses selected from the frame\n\n\nRespondents\nSelected households that complete the survey\n\n\n\nInference becomes less reliable when movement from one row to the next is selective"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#probability-and-nonprobability-sampling",
+    "href": "lectures/lecture5.1.html#probability-and-nonprobability-sampling",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Probability and nonprobability sampling",
+    "text": "Probability and nonprobability sampling\n\n\n\n\nChamp Figure 3.1. The first question is whether the study requires inference beyond the observed sample. Probability sampling gives each frame unit a known nonzero selection probability. Nonprobability recruitment does not."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#probability-sampling-designs-answer-different-needs",
+    "href": "lectures/lecture5.1.html#probability-sampling-designs-answer-different-needs",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Probability sampling designs answer different needs",
+    "text": "Probability sampling designs answer different needs\nSimple random sample\nEvery frame unit has the same probability of being chosen\n\nCluster sample\nSelect geographic groups first when in-person collection makes travel costly\n\n\nStratified random sample\nDivides the sample frame into nonoverlapping subpopulations (strata) based on some measure available for the entire sample frame, e.g., sample separately by characteristics such as distance from the river or urban and rural location"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#when-is-nonprobability-sampling-appropriate",
+    "href": "lectures/lecture5.1.html#when-is-nonprobability-sampling-appropriate",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "When is nonprobability sampling appropriate?",
+    "text": "When is nonprobability sampling appropriate?\nWhen inference to a broader population is not important.\nConvenience, purposive and quota samples can support\n\nFocus groups and cognitive interviews\nPilot testing\nMethod comparisons\nResearch restricted to the recruited participants\n\nThey do not provide known selection probabilities for population estimates\n\nChamp cautions against generalizing beyond a nonprobability sample. Matching or weighting on observed demographics does not reveal how the sample differs on unobserved determinants of the outcome."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#where-errors-enter-the-survey-process",
+    "href": "lectures/lecture5.1.html#where-errors-enter-the-survey-process",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Where errors enter the survey process",
+    "text": "Where errors enter the survey process\n\n\n\n\nChamp Figure 3.2. Use the river example at every transition. An address frame can omit some households. A random sample differs from the frame by chance. Some sampled households do not respond. A completed answer can still mismeasure the intended preference."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#four-errors-require-different-responses",
+    "href": "lectures/lecture5.1.html#four-errors-require-different-responses",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Four errors require different responses",
+    "text": "Four errors require different responses\n\n\n\n\n\n\n\n\nError\nQuestion to ask\nPossible response\n\n\n\n\nCoverage\nWho has no chance of appearing in the frame\nImprove or combine frame sources\n\n\nSampling\nHow much does the selected sample vary by chance\nUse design-based uncertainty and adequate sample size\n\n\nNonresponse\nDoes response relate to the outcome\nTrack response and compare observed characteristics\n\n\nMeasurement\nDoes the answer represent the intended construct\nRevise and test the instrument\n\n\n\n\nA larger sample primarily reduces sampling error. It does not correct coverage nonresponse or measurement error."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#a-good-secondary-source-may-still-need-supplementation",
+    "href": "lectures/lecture5.1.html#a-good-secondary-source-may-still-need-supplementation",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "A good secondary source may still need supplementation",
+    "text": "A good secondary source may still need supplementation\nBefore adding another source identify what is missing\n\nA variable needed for the model\nCoverage of part of the target population\nObservations from a different time or place\nPrecision for a subgroup\n\nThe remedy depends on whether the new source adds information to existing units or adds new units to the sample"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#adding-variables-and-adding-observations-differ",
+    "href": "lectures/lecture5.1.html#adding-variables-and-adding-observations-differ",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Adding variables and adding observations differ",
+    "text": "Adding variables and adding observations differ\n\n\n\n\n\n\n\nSupplement\nWhat can change\n\n\n\n\nVariables for sampled units\nMeasurement definitions match quality and spatial or temporal scale\n\n\nObservations from another source\nCoverage recruitment selection probabilities weights and target population\n\n\n\nAdding a water-quality measure does not alter the original selection probabilities if all sampled units remain in the analysis. Dropping unmatched units can still make the analysis sample selective\nAppending respondents from an online panel can change the sample design and the population represented"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#example-combining-sources-does-not-create-a-probability-sample",
+    "href": "lectures/lecture5.1.html#example-combining-sources-does-not-create-a-probability-sample",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Example: combining sources does not create a probability sample",
+    "text": "Example: combining sources does not create a probability sample\nSuppose an existing survey represents licensed anglers and an added intercept survey recruits people at river access points\nThe combined data still exclude\n\nUnlicensed users\nResidents who do not visit the river\nHouseholds with passive-use values only\n\nThe two sources also have different selection mechanisms and may include some people twice\nThe combined sample may answer a question about recruited river users. It does not represent all county households without additional design information"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#discussion-audit-a-proposed-data-combination",
+    "href": "lectures/lecture5.1.html#discussion-audit-a-proposed-data-combination",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Discussion: audit a proposed data combination",
+    "text": "Discussion: audit a proposed data combination\nFor a combination relevant to your research consider\n\nWhether the new source adds variables or observations\nWhich population each source represents\nWhether units definitions and time periods align\nWhether inclusion probabilities are known and compatible\nWhich inference remains defensible after the combination"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#move-from-the-construct-to-the-question",
+    "href": "lectures/lecture5.1.html#move-from-the-construct-to-the-question",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Move from the construct to the question",
+    "text": "Move from the construct to the question\nFor each desired measure specify\n\nThe theoretical concept\nThe observable response needed\nThe question a respondent can understand\nThe response options or recording rule\nThe analysis variable and units\n\n“Angling experience” could mean skill years fishing trip frequency or equipment use. The construct must be defined before it can be measured"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#a-nonmarket-valuation-scenario-needs-defined-components",
+    "href": "lectures/lecture5.1.html#a-nonmarket-valuation-scenario-needs-defined-components",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "A nonmarket valuation scenario needs defined components",
+    "text": "A nonmarket valuation scenario needs defined components\nThe respondent needs to understand\n\nBaseline conditions without the program\nThe specific environmental change\nHow and when the program would be implemented\nThe payment mechanism amount and duration\nThe choice the respondent is being asked to make\n\nThe description should be accurate neutral and understandable to the study population"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#question-design-checks",
+    "href": "lectures/lecture5.1.html#question-design-checks",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Question-design checks",
+    "text": "Question-design checks\nBefore testing a question ask whether it\n\nMeasures one defined concept\nUses language familiar to respondents\nProvides a clear reference period\nUses response options that match the question\nAvoids leading wording and unsupported information\nPlaces recall demands within what respondents can reasonably report\n\nQuestion order can also affect answers and should be planned and tested"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#exercise-repair-the-valuation-question",
+    "href": "lectures/lecture5.1.html#exercise-repair-the-valuation-question",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Exercise: repair the valuation question",
+    "text": "Exercise: repair the valuation question\n\nDo you agree that our valuable local rivers should receive more funding so families can enjoy cleaner water and better fishing?\n\nUse the preceding checks to identify\n\nThe undefined policy change\nThe missing payment mechanism\nThe concepts combined in one question\nThe words that encourage agreement\nThe choice the respondent is being asked to make\n\nDraft a revision for the illustrative river program"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#one-possible-revision",
+    "href": "lectures/lecture5.1.html#one-possible-revision",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "One possible revision",
+    "text": "One possible revision\nBaseline Without the program current river conditions are expected to continue\n\nProgram The county would restore ten miles of river over five years with the stated changes described in the survey\n\n\nPayment Each county household would pay an annual fee of $X for five years\n\n\nChoice If the program and fee appeared together on the ballot would you vote for or against the program\n\n\nThis is a classroom revision rather than a validated contingent valuation instrument. The environmental outcomes baseline implementation mechanism payment vehicle and consequentiality would require credible supporting detail and testing."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#a-plausible-revision-still-requires-testing",
+    "href": "lectures/lecture5.1.html#a-plausible-revision-still-requires-testing",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "A plausible revision still requires testing",
+    "text": "A plausible revision still requires testing\nAsk potential respondents\n\nWhat do you think the program would change\nWhat does the payment mean for your household\nWhich information did you use to decide\nWhich words were unclear or interpreted differently\nWhat assumptions did you make that were not stated\n\nCognitive interviews reveal how respondents understand and answer the question"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#develop-test-and-refine-the-instrument",
+    "href": "lectures/lecture5.1.html#develop-test-and-refine-the-instrument",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Develop test and refine the instrument",
+    "text": "Develop test and refine the instrument\nDevelop and refine\nFocus groups →\\rightarrow draft instrument →\\rightarrow expert review →\\rightarrow cognitive interviews\n\nTest implementation\nRevised instrument →\\rightarrow pilot survey →\\rightarrow final instrument\n\nRevisions can change the questions recruitment materials mode and field procedures\n\nChamp notes that the final questionnaire may bear little resemblance to the first draft. A pilot also provides information about response rates implementation costs follow-up needs and the distribution of willingness to pay."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#mode-changes-the-data-generating-process",
+    "href": "lectures/lecture5.1.html#mode-changes-the-data-generating-process",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Mode changes the data-generating process",
+    "text": "Mode changes the data-generating process\n\n\n\n\n\n\n\nSelf-administered\nInterviewer-administered\n\n\n\n\nLower cost per response in many settings\nGreater control over eligibility order and completion\n\n\nPrivacy and respondent pacing\nAbility to clarify a complex instrument\n\n\nRequires literacy and clear instructions\nRequires trained interviewers\n\n\nGreater risk of unanswered or reordered questions\nGreater risk of interviewer and social-desirability effects\n\n\n\nOnline mail phone and in-person modes also reach different people and can produce different response patterns"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#fieldwork-begins-before-the-first-response",
+    "href": "lectures/lecture5.1.html#fieldwork-begins-before-the-first-response",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Fieldwork begins before the first response",
+    "text": "Fieldwork begins before the first response\nA sound primary data collection process requires researchers to prepare a written protocol for\n\nEligibility and recruitment\nConsent and confidentiality\nSurvey administration and permitted clarification\nFollow-up contacts\nTracking responses and field outcomes\nEscalating unexpected situations\nProtecting identifiers and survey data\n\nInstitutional review and data-security requirements should be resolved before collection"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#train-interviewers-and-enumerators",
+    "href": "lectures/lecture5.1.html#train-interviewers-and-enumerators",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Train interviewers and enumerators",
+    "text": "Train interviewers and enumerators\nTraining should cover\n\nThe study purpose without coaching a preferred response\nStandard wording order and neutral probes\nEligibility consent and confidentiality procedures\nPractice interviews and feedback\nRecording refusals partial interviews and deviations\nProcedures for technical or safety problems\n\nSupervisors should confirm that each enumerator can administer the protocol consistently before fieldwork"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#quality-assurance-during-collection",
+    "href": "lectures/lecture5.1.html#quality-assurance-during-collection",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Quality assurance during collection",
+    "text": "Quality assurance during collection\n\nTrack invitations contacts completions refusals and ineligible cases\nReview early records before collection accelerates\nCheck ranges skips duplicates timestamps and unusual patterns\nDebrief enumerators and document protocol deviations\nPreserve the original response before any correction\nCompare early and late respondents when useful\n\nQuality checks should identify both data errors and failures in the collection process"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#write-the-codebook-before-collection",
+    "href": "lectures/lecture5.1.html#write-the-codebook-before-collection",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Write the codebook before collection",
+    "text": "Write the codebook before collection\nFor every field record\n\nVariable name and label\nExact question or source\nUnit and reference period\nAllowed values and labels\nCodes for missing refused and not applicable\nSkip logic\nDerived-variable rule\nInstrument and codebook version\n\nWriting the codebook early exposes questions that cannot yet be coded consistently"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#zero-missing-refused-and-not-applicable-differ",
+    "href": "lectures/lecture5.1.html#zero-missing-refused-and-not-applicable-differ",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Zero, missing, refused, and not applicable differ",
+    "text": "Zero, missing, refused, and not applicable differ\nConsider annual river visits\n\n\n\nRecorded value\nMeaning\n\n\n\n\n0\nRespondent made no visits\n\n\nNA_DK\nRespondent does not know\n\n\nNA_REF\nRespondent refused\n\n\nNA_SKIP\nQuestion did not apply because of the survey path\n\n\nblank\nCollection or processing status is unresolved\n\n\n\nCollapsing these values changes the meaning of the analysis variable"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#documentation-supports-assessment-and-reuse",
+    "href": "lectures/lecture5.1.html#documentation-supports-assessment-and-reuse",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Documentation supports assessment and reuse",
+    "text": "Documentation supports assessment and reuse\nDocument while the study is in progress\n\nStudy objective and protocol\nPopulation frame and sample selection\nInstrument recruitment scripts and contact dates\nPilot changes and instrument versions\nFieldwork training costs and deviations\nCodebook cleaning rules and validation checks\nFinal sample disposition and summary statistics\nRaw-data archive access and confidentiality conditions"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#discussion-field-practices-from-experience",
+    "href": "lectures/lecture5.1.html#discussion-field-practices-from-experience",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Discussion: field practices from experience",
+    "text": "Discussion: field practices from experience\nWhat is one practice you have used or learned from an advisor mentor or field team?\n\nWas this a practice that occurred before, during, or after collection?\nWhich failure was is intended to prevent?\nCould it apply broadly or does it depend on the study context?\n\n\nOrganize contributions on the board under before collection during collection and after collection. Distinguish a documented quality-control procedure from a preference that may be specific to one field setting."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#apply-champ-to-your-research",
+    "href": "lectures/lecture5.1.html#apply-champ-to-your-research",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Apply Champ to your research",
+    "text": "Apply Champ to your research\nFor one data source in your project explain\n\nWhy primary or secondary data are appropriate\nWhich population the study is intended to represent\nHow units enter the observed sample\nWhich error is the largest threat to inference\nHow the key measure will be tested or validated\nWhich fieldwork and documentation record another researcher would need"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#summary",
+    "href": "lectures/lecture5.1.html#summary",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Summary",
+    "text": "Summary\nSource choice follows from the research objective and required measure\nSampling determines which population can be represented\nQuestionnaire design turns concepts into responses that can be interpreted\nFieldwork and processing determine whether the design is implemented consistently\nDocumentation makes those decisions assessable and reproducible"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#combining-sources-does-not-create-a-probability-sample",
+    "href": "lectures/lecture5.1.html#combining-sources-does-not-create-a-probability-sample",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Combining sources does not create a probability sample",
+    "text": "Combining sources does not create a probability sample\nSuppose an existing survey represents licensed anglers and an added intercept survey recruits people at river access points\nThe combined data still exclude\n\nUnlicensed users\nResidents who do not visit the river\nHouseholds with passive-use values only\n\nThe two sources also have different selection mechanisms and may include some people twice\nThe combined sample may answer a question about recruited river users. It does not represent all county households without additional design information"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#what-is-the-data-required",
+    "href": "lectures/lecture5.1.html#what-is-the-data-required",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "What is the data required?",
+    "text": "What is the data required?\nThe objective determines the data requirement.\nThe study needs information about:\n\nConditions without the program\nThe environmental change produced by the program\nHousehold choices when the program and payment are presented together\nCharacteristics used to interpret differences in those choices\n\nWater monitoring and visitation records can describe parts of the setting. However, they do not directly reveal choices for a program that does not yet exist."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#apply-the-distinction-to-our-river-study-example",
+    "href": "lectures/lecture5.1.html#apply-the-distinction-to-our-river-study-example",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Apply the distinction to our river study example",
+    "text": "Apply the distinction to our river study example\n\n\n\n\n\n\n\n\nSource\nPotential use\nLimitation\n\n\n\n\nWater-quality monitoring\nDescribe baseline conditions\nDoes not measure household preferences\n\n\nRecreation counts\nMeasure observed site use\nMisses nonusers and passive-use values\n\n\nProperty transactions\nStudy capitalization near the river\nRepresents housing-market choices\n\n\nHousehold survey\nPresent the proposed program and payment\nQuality depends on sampling and survey design\n\n\n\nNote: The sources can complement one another when each has a defined role"
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#moving-from-the-construct-to-the-question",
+    "href": "lectures/lecture5.1.html#moving-from-the-construct-to-the-question",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "Moving from the construct to the question",
+    "text": "Moving from the construct to the question\nFor each desired measure specify\n\nThe theoretical concept\nThe observable response needed\nThe question a respondent can understand\nThe response options or recording rule\nThe analysis variable and units\n\n“Angling experience” could mean skill years fishing trip frequency or equipment use.\nThe construct must be defined before it can be measured."
+  },
+  {
+    "objectID": "lectures/lecture5.1.html#a-possible-revision-still-needs-to-be-tested",
+    "href": "lectures/lecture5.1.html#a-possible-revision-still-needs-to-be-tested",
+    "title": "Lecture 5.1: Data Collection: Surveys",
+    "section": "A possible revision still needs to be tested",
+    "text": "A possible revision still needs to be tested\nAsk potential respondents\n\nWhat do you think the program would change\nWhat does the payment mean for your household\nWhich information did you use to decide\nWhich words were unclear or interpreted differently\nWhat assumptions did you make that were not stated\n\nCognitive (one-on-one) interviews reveal how respondents understand and answer the question"
   }
 ]

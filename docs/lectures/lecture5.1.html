@@ -54,7 +54,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-5105e4f0cc08753ea04f3f398c831aa4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-232bf618fcad4b00490ddb9b2dae4893.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -70,7 +70,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -148,7 +147,7 @@
     }
   </style>
 <meta property="og:title" content="Lecture 5.1: Data Collection: Surveys – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Connect sampling, questionnaire design, and measurement to the research question.">
+<meta property="og:description" content="Choose a data source and design sampling measurement fieldwork and documentation around the research objective">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -168,27 +167,67 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
-<h2>Before class</h2>
-<ul>
-<li>Champ, “Collecting Nonmarket Valuation Data” <span class="citation" data-cites="champ2017collecting">(<a href="#/references" role="doc-biblioref" onclick="">Champ 2017</a>)</span>.</li>
-</ul>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
+<section id="reading-and-sequence" class="slide level2">
+<h2>Reading and sequence</h2>
+<p><strong>Champ, “Collecting Nonmarket Valuation Data”</strong> <span class="citation" data-cites="champ2017collecting">(<a href="#/references" role="doc-biblioref" onclick="">Champ 2017</a>)</span></p>
+<ol type="1">
+<li>Choose between primary and secondary data</li>
+<li>Define the population frame and sampling approach</li>
+<li>Translate the desired measures into survey questions</li>
+<li>Select the mode and fieldwork procedures</li>
+<li>Process and document the completed data</li>
+</ol>
+<aside class="notes">
+<p>Champ presents these as connected decisions shaped by the research objective budget time and available labor. The lecture follows that sequence using one illustrative nonmarket valuation study.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="begin-with-the-question" class="slide level2">
-<h2>Begin with the question</h2>
-<ul>
-<li>What population does the research question concern?</li>
-<li>What outcome or preference must be measured?</li>
-<li>Who can provide that information?</li>
-<li>What would make an answer informative for the proposed decision?</li>
-</ul>
-<p>Data quality is part of research design.</p>
+<section id="example-valuing-a-river-restoration-program" class="slide level2">
+<h2>Example: valuing a river restoration program</h2>
+<p><strong>Illustrative policy decision</strong></p>
+<p>A county is considering restoration of ten miles of a local river to improve water quality habitat and recreation</p>
+<div class="fragment">
+<p><strong>Financing</strong></p>
+<p>The program would be funded by an annual household fee for five years</p>
+</div>
+<div class="fragment">
+<p><strong>Research objective</strong></p>
+<p>Estimate county households’ willingness to pay for the specified program</p>
+</div>
+<aside class="notes">
+<p>This is a classroom example rather than a description of a proposed local policy. Keep the policy fixed throughout the lecture so that changes in the population frame question and mode can be interpreted against the same objective.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="theory-and-data-inform-each-other" class="slide level2">
-<h2>Theory and data inform each other</h2>
-<p>A framework guides what we collect. Available data may also suggest a useful question.</p>
-<p>In either direction, return to the question, mechanism, and target population before choosing an analysis.</p>
+<section id="what-is-the-data-required" class="slide level2">
+<h2>What is the data required?</h2>
+<p>The objective determines the data requirement.</p>
+<p>The study needs information about:</p>
+<ul>
+<li>Conditions without the program</li>
+<li>The environmental change produced by the program</li>
+<li>Household choices when the program and payment are presented together</li>
+<li>Characteristics used to interpret differences in those choices</li>
+</ul>
+<p>Water monitoring and visitation records can describe <em>parts</em> of the setting. However, they do not directly reveal choices for a program that does not yet exist.</p>
 </section>
 <section id="primary-and-secondary-data" class="slide level2">
 <h2>Primary and secondary data</h2>
@@ -199,48 +238,130 @@ Lauren Chenarides
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Primary</th>
-<th style="text-align: left;">Secondary</th>
+<th>Primary data</th>
+<th>Secondary data</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Collected for your research purpose</td>
-<td style="text-align: left;">Collected for another purpose</td>
+<td>Collected directly for the current study</td>
+<td>Existing data reused for the current study</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">More control over instrument and sampling</td>
-<td style="text-align: left;">Often lower acquisition cost</td>
+<td>Instrument timing and recruitment can be tailored</td>
+<td>Existing documentation design and variables set the limits</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Responsibility for collection quality</td>
-<td style="text-align: left;">Responsibility for understanding provenance and limitations</td>
+<td>Research team controls and bears responsibility for collection</td>
+<td>Research team must reconstruct provenance and fitness for use</td>
+</tr>
+<tr class="even">
+<td>Usually requires more time money and administration</td>
+<td>Can reduce cost time and respondent burden</td>
 </tr>
 </tbody>
 </table>
-<p>Neither category guarantees valid measurement.</p>
+<p>Suitability depends on the question population measure and intended inference</p>
 </section>
-<section id="trust-requires-institutional-knowledge" class="slide level2">
-<h2>Trust requires institutional knowledge</h2>
+<section id="when-is-each-source-appropriate" class="slide level2">
+<h2>When is each source appropriate?</h2>
+<p><strong>Primary data are useful when</strong></p>
 <ul>
-<li>Who collected the data, and for what purpose?</li>
-<li>What incentives did respondents and collectors face?</li>
-<li>What checks were performed?</li>
-<li>What documentation would allow you to assess quality?</li>
+<li>The required construct is absent from existing data</li>
+<li>The policy or choice is hypothetical</li>
+<li>The study requires tailored timing questions or recruitment</li>
 </ul>
-<p>An unfamiliar value can be an error, a coding convention, or an important observation.</p>
+<div class="fragment">
+<p><strong>Secondary data are useful when</strong></p>
+<ul>
+<li>Existing measures correspond to the required concepts</li>
+<li>The population units timing and definitions fit the study</li>
+<li>Provenance and data-generating procedures can be assessed</li>
+</ul>
+</div>
 </section>
-<section id="define-the-population-and-frame" class="slide level2">
-<h2>Define the population and frame</h2>
+<section id="apply-the-distinction-to-our-river-study-example" class="slide level2">
+<h2>Apply the distinction to our river study example</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Potential use</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Water-quality monitoring</td>
+<td>Describe baseline conditions</td>
+<td>Does not measure household preferences</td>
+</tr>
+<tr class="even">
+<td>Recreation counts</td>
+<td>Measure observed site use</td>
+<td>Misses nonusers and passive-use values</td>
+</tr>
+<tr class="odd">
+<td>Property transactions</td>
+<td>Study capitalization near the river</td>
+<td>Represents housing-market choices</td>
+</tr>
+<tr class="even">
+<td>Household survey</td>
+<td>Present the proposed program and payment</td>
+<td>Quality depends on sampling and survey design</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The sources can complement one another when each has a defined role</p>
+</section>
+<section id="discussion-choose-a-source-for-your-research" class="slide level2">
+<h2>Discussion: choose a source for your research</h2>
+<p>For one current research question consider</p>
+<ol type="1">
+<li>Which concept must be observed</li>
+<li>Whether an existing source measures that concept</li>
+<li>Whether its population timing unit and definition fit</li>
+<li>What primary collection would add</li>
+<li>Which limitation would remain after combining sources</li>
+</ol>
+</section>
+<section>
+<section id="champ-sampling-and-inference" class="title-slide slide level1 center">
+<h1>Champ: Sampling and inference</h1>
+
+</section>
+<section id="data-quality-begins-before-the-questionnaire" class="slide level2">
+<h2>Data quality begins before the questionnaire</h2>
+<p>Champ treats high-quality data as a prerequisite for reliable and valid nonmarket values <span class="citation" data-cites="champ2017collecting">(<a href="#/references" role="doc-biblioref" onclick="">Champ 2017</a>)</span></p>
+<p>The research objective determines</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">whose values matter</mtext><mo>→</mo><mtext mathvariant="normal">who must be represented</mtext><mo>→</mo><mtext mathvariant="normal">how they can be reached</mtext></mrow><annotation encoding="application/x-tex">
+\text{whose values matter}
+\rightarrow
+\text{who must be represented}
+\rightarrow
+\text{how they can be reached}
+</annotation></semantics></math></p>
+<p>A well-worded questionnaire cannot repair a frame that excludes part of the relevant population</p>
+</section>
+<section id="who-belongs-in-the-river-study-population" class="slide level2">
+<h2>Who belongs in the river study population?</h2>
+<p>Possible beneficiaries include</p>
 <ul>
-<li><strong>Target population:</strong> the group about which you want to make claims.</li>
-<li><strong>Sampling frame:</strong> the list or mechanism used to reach that group.</li>
-<li><strong>Sample:</strong> selected units.</li>
-<li><strong>Respondents:</strong> selected units from whom data are obtained.</li>
+<li>River users</li>
+<li>Residents living near the river</li>
+<li>County households that may pay the fee</li>
+<li>Nonusers who value habitat preservation</li>
+<li>People outside the county who visit or hold passive-use values</li>
 </ul>
-<p>Example: a homeowner list will not cover all residents if renters matter.</p>
+<p>The policy question and payment jurisdiction determine which group the study is intended to represent</p>
 <aside class="notes">
-<p>Preserves the homeowner/renter coverage example in the Unit 5 speaker notes.</p>
+<p>Champ emphasizes that passive-use values make geographic boundaries difficult. For this example use county households as the target population because they face the policy choice and payment. Other objectives would imply another population.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -253,69 +374,301 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="probability-and-nonprobability-samples" class="slide level2 dense">
-<h2>Probability and nonprobability samples</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/unit5/image2.png" height="430"></p>
-<figcaption>Sampling decisions: define a study population and sampling frame for probability sampling; nonprobability sampling follows a different recruitment path.</figcaption>
-</figure>
+<section id="population-frame-sample-and-respondents" class="slide level2">
+<h2>Population frame sample and respondents</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Study population</strong></td>
+<td>County households whose values the study will represent</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling frame</strong></td>
+<td>Address list used to reach those households</td>
+</tr>
+<tr class="odd">
+<td><strong>Sample</strong></td>
+<td>Addresses selected from the frame</td>
+</tr>
+<tr class="even">
+<td><strong>Respondents</strong></td>
+<td>Selected households that complete the survey</td>
+</tr>
+</tbody>
+</table>
+<p>Inference becomes less reliable when movement from one row to the next is selective</p>
+</section>
+<section id="probability-and-nonprobability-sampling" class="slide level2">
+<h2>Probability and nonprobability sampling</h2>
+<div class="figure-center">
+<p><img data-src="assets/unit5/image2.png" alt="Sampling decisions from the need for population inference to probability or nonprobability recruitment" height="475"></p>
 </div>
-<p>Source: Champ; figure retained from Unit 5, slide 13.</p>
+<aside class="notes">
+<p>Champ Figure 3.1. The first question is whether the study requires inference beyond the observed sample. Probability sampling gives each frame unit a known nonzero selection probability. Nonprobability recruitment does not.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="where-errors-can-enter" class="slide level2 dense">
-<h2>Where errors can enter</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/unit5/image3.png" height="430"></p>
-<figcaption>Survey process from population through sampling frame, sample, respondents, and measurement, showing coverage, sampling, nonresponse, and measurement errors.</figcaption>
-</figure>
+<section id="probability-sampling-designs-answer-different-needs" class="slide level2">
+<h2>Probability sampling designs answer different needs</h2>
+<p><strong>Simple random sample</strong></p>
+<p>Every frame unit has the same probability of being chosen</p>
+<div class="fragment">
+<p><strong>Cluster sample</strong></p>
+<p>Select geographic groups first when in-person collection makes travel costly</p>
 </div>
-<p>Source: Champ; figure retained from Unit 5, slides 14–15.</p>
+<div class="fragment">
+<p><strong>Stratified random sample</strong></p>
+<p>Divides the sample frame into nonoverlapping subpopulations (strata) based on some measure available for the entire sample frame, e.g., sample separately by characteristics such as distance from the river or urban and rural location</p>
+</div>
 </section>
-<section id="nonresponse-is-more-than-a-small-sample" class="slide level2">
-<h2>Nonresponse is more than a small sample</h2>
+<section id="when-is-nonprobability-sampling-appropriate" class="slide level2">
+<h2>When is nonprobability sampling appropriate?</h2>
+<p>When inference to a broader population is not important.</p>
+<p>Convenience, purposive and quota samples can support</p>
 <ul>
-<li>A low response rate reduces the amount of information.</li>
-<li>Bias depends on how response relates to the outcome.</li>
-<li>Compare available respondent characteristics with the frame.</li>
-<li>Such comparisons cannot rule out differences on unobserved characteristics.</li>
+<li>Focus groups and cognitive interviews</li>
+<li>Pilot testing</li>
+<li>Method comparisons</li>
+<li>Research restricted to the recruited participants</li>
 </ul>
-<p>Who might be missing from a survey of recreational users?</p>
+<p>They do not provide known selection probabilities for population estimates</p>
+<aside class="notes">
+<p>Champ cautions against generalizing beyond a nonprobability sample. Matching or weighting on observed demographics does not reveal how the sample differs on unobserved determinants of the outcome.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="weights-and-uncertainty" class="slide level2">
-<h2>Weights and uncertainty</h2>
+<section id="where-errors-enter-the-survey-process" class="slide level2">
+<h2>Where errors enter the survey process</h2>
+<div class="figure-center">
+<p><img data-src="assets/unit5/image3.png" alt="Potential coverage sampling nonresponse and measurement errors from the study population through the final measurement" height="470"></p>
+</div>
+<aside class="notes">
+<p>Champ Figure 3.2. Use the river example at every transition. An address frame can omit some households. A random sample differs from the frame by chance. Some sampled households do not respond. A completed answer can still mismeasure the intended preference.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="four-errors-require-different-responses" class="slide level2">
+<h2>Four errors require different responses</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error</th>
+<th>Question to ask</th>
+<th>Possible response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Coverage</strong></td>
+<td>Who has no chance of appearing in the frame</td>
+<td>Improve or combine frame sources</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling</strong></td>
+<td>How much does the selected sample vary by chance</td>
+<td>Use design-based uncertainty and adequate sample size</td>
+</tr>
+<tr class="odd">
+<td><strong>Nonresponse</strong></td>
+<td>Does response relate to the outcome</td>
+<td>Track response and compare observed characteristics</td>
+</tr>
+<tr class="even">
+<td><strong>Measurement</strong></td>
+<td>Does the answer represent the intended construct</td>
+<td>Revise and test the instrument</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>A larger sample primarily reduces sampling error. It does not correct coverage nonresponse or measurement error.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-good-secondary-source-may-still-need-supplementation" class="slide level2">
+<h2>A good secondary source may still need supplementation</h2>
+<p>Before adding another source identify what is missing</p>
 <ul>
-<li>Unequal selection probabilities may require weights.</li>
-<li>Nonresponse adjustments depend on assumptions.</li>
-<li>Standard errors should account for the survey design where relevant.</li>
-<li>A large sample does not repair an incorrect sampling frame.</li>
+<li>A variable needed for the model</li>
+<li>Coverage of part of the target population</li>
+<li>Observations from a different time or place</li>
+<li>Precision for a subgroup</li>
 </ul>
+<p>The remedy depends on whether the new source adds information to existing units or adds new units to the sample</p>
 </section>
-<section id="write-questions-people-can-answer" class="slide level2">
-<h2>Write questions people can answer</h2>
+<section id="adding-variables-and-adding-observations-differ" class="slide level2">
+<h2>Adding variables and adding observations differ</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Supplement</th>
+<th>What can change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Variables for sampled units</strong></td>
+<td>Measurement definitions match quality and spatial or temporal scale</td>
+</tr>
+<tr class="even">
+<td><strong>Observations from another source</strong></td>
+<td>Coverage recruitment selection probabilities weights and target population</td>
+</tr>
+</tbody>
+</table>
+<p>Adding a water-quality measure does not alter the original selection probabilities if all sampled units remain in the analysis. Dropping unmatched units can still make the analysis sample selective</p>
+<p>Appending respondents from an online panel can change the sample design and the population represented</p>
+</section>
+<section id="combining-sources-does-not-create-a-probability-sample" class="slide level2">
+<h2>Combining sources does not create a probability sample</h2>
+<p>Suppose an existing survey represents licensed anglers and an added intercept survey recruits people at river access points</p>
+<p>The combined data still exclude</p>
 <ul>
-<li>Ask about one concept at a time.</li>
-<li>Specify the reference period.</li>
-<li>Use clear, consistent response options.</li>
-<li>Avoid leading wording.</li>
-<li>Pretest how respondents interpret the question.</li>
+<li>Unlicensed users</li>
+<li>Residents who do not visit the river</li>
+<li>Households with passive-use values only</li>
 </ul>
-<p>Source: <span class="citation" data-cites="champ2017collecting">Champ (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>.</p>
+<p>The two sources also have different selection mechanisms and may include some people twice</p>
+<p>The combined sample may answer a question about recruited river users. It does not represent all county households without additional design information</p>
 </section>
-<section id="exercise-repair-a-question" class="slide level2">
-<h2>Exercise: repair a question</h2>
+<section id="discussion-audit-a-proposed-data-combination" class="slide level2">
+<h2>Discussion: audit a proposed data combination</h2>
+<p>For a combination relevant to your research consider</p>
+<ol type="1">
+<li>Whether the new source adds variables or observations</li>
+<li>Which population each source represents</li>
+<li>Whether units definitions and time periods align</li>
+<li>Whether inclusion probabilities are known and compatible</li>
+<li>Which inference remains defensible after the combination</li>
+</ol>
+</section></section>
+<section>
+<section id="champ-questionnaire-design" class="title-slide slide level1 center">
+<h1>Champ: Questionnaire design</h1>
+
+</section>
+<section id="moving-from-the-construct-to-the-question" class="slide level2">
+<h2>Moving from the construct to the question</h2>
+<p>For each desired measure specify</p>
+<ol type="1">
+<li>The theoretical concept</li>
+<li>The observable response needed</li>
+<li>The question a respondent can understand</li>
+<li>The response options or recording rule</li>
+<li>The analysis variable and units</li>
+</ol>
+<p>“Angling experience” could mean skill years fishing trip frequency or equipment use.</p>
+<p>The construct must be defined before it can be measured.</p>
+</section>
+<section id="a-nonmarket-valuation-scenario-needs-defined-components" class="slide level2">
+<h2>A nonmarket valuation scenario needs defined components</h2>
+<p>The respondent needs to understand</p>
+<ul>
+<li>Baseline conditions without the program</li>
+<li>The specific environmental change</li>
+<li>How and when the program would be implemented</li>
+<li>The payment mechanism amount and duration</li>
+<li>The choice the respondent is being asked to make</li>
+</ul>
+<p>The description should be accurate neutral and understandable to the study population</p>
+</section>
+<section id="question-design-checks" class="slide level2">
+<h2>Question-design checks</h2>
+<p>Before testing a question ask whether it</p>
+<ul>
+<li>Measures one defined concept</li>
+<li>Uses language familiar to respondents</li>
+<li>Provides a clear reference period</li>
+<li>Uses response options that match the question</li>
+<li>Avoids leading wording and unsupported information</li>
+<li>Places recall demands within what respondents can reasonably report</li>
+</ul>
+<p>Question order can also affect answers and should be planned and tested</p>
+</section>
+<section id="exercise-repair-the-valuation-question" class="slide level2">
+<h2>Exercise: repair the valuation question</h2>
 <blockquote>
 <p>Do you agree that our valuable local rivers should receive more funding so families can enjoy cleaner water and better fishing?</p>
 </blockquote>
-<ul>
-<li>How many concepts are combined?</li>
-<li>What is the payment mechanism?</li>
-<li>What exactly changes under the proposed policy?</li>
-<li>Rewrite the question and explain your choices.</li>
-</ul>
+<p>Use the preceding checks to identify</p>
+<ol type="1">
+<li>The undefined policy change</li>
+<li>The missing payment mechanism</li>
+<li>The concepts combined in one question</li>
+<li>The words that encourage agreement</li>
+<li>The choice the respondent is being asked to make</li>
+</ol>
+<p>Draft a revision for the illustrative river program</p>
+</section>
+<section id="one-possible-revision" class="slide level2">
+<h2>One possible revision</h2>
+<p><strong>Baseline</strong> Without the program current river conditions are expected to continue</p>
+<div class="fragment">
+<p><strong>Program</strong> The county would restore ten miles of river over five years with the stated changes described in the survey</p>
+</div>
+<div class="fragment">
+<p><strong>Payment</strong> Each county household would pay an annual fee of $X for five years</p>
+</div>
+<div class="fragment">
+<p><strong>Choice</strong> If the program and fee appeared together on the ballot would you vote for or against the program</p>
+</div>
 <aside class="notes">
-<p>New exercise. A classroom revision is not a validated valuation instrument.</p>
+<p>This is a classroom revision rather than a validated contingent valuation instrument. The environmental outcomes baseline implementation mechanism payment vehicle and consequentiality would require credible supporting detail and testing.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -328,51 +681,224 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="mode-and-administration" class="slide level2">
-<h2>Mode and administration</h2>
+<section id="a-possible-revision-still-needs-to-be-tested" class="slide level2">
+<h2>A possible revision still needs to be tested</h2>
+<p>Ask potential respondents</p>
 <ul>
-<li>Interviewers can clarify questions but may influence responses.</li>
-<li>Self-administered surveys provide privacy but less clarification.</li>
-<li>Online recruitment changes who is reached and who participates.</li>
-<li>Plan consent, confidentiality, and institutional review before collection.</li>
+<li>What do you think the program would change</li>
+<li>What does the payment mean for your household</li>
+<li>Which information did you use to decide</li>
+<li>Which words were unclear or interpreted differently</li>
+<li>What assumptions did you make that were not stated</li>
+</ul>
+<p>Cognitive (one-on-one) interviews reveal how respondents understand and answer the question</p>
+</section>
+<section id="develop-test-and-refine-the-instrument" class="slide level2">
+<h2>Develop test and refine the instrument</h2>
+<p><strong>Develop and refine</strong></p>
+<p>Focus groups <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> draft instrument <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> expert review <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> cognitive interviews</p>
+<div class="fragment">
+<p><strong>Test implementation</strong></p>
+<p>Revised instrument <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> pilot survey <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math> final instrument</p>
+</div>
+<p>Revisions can change the questions recruitment materials mode and field procedures</p>
+<aside class="notes">
+<p>Champ notes that the final questionnaire may bear little resemblance to the first draft. A pilot also provides information about response rates implementation costs follow-up needs and the distribution of willingness to pay.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mode-changes-the-data-generating-process" class="slide level2">
+<h2>Mode changes the data-generating process</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Self-administered</th>
+<th>Interviewer-administered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lower cost per response in many settings</td>
+<td>Greater control over eligibility order and completion</td>
+</tr>
+<tr class="even">
+<td>Privacy and respondent pacing</td>
+<td>Ability to clarify a complex instrument</td>
+</tr>
+<tr class="odd">
+<td>Requires literacy and clear instructions</td>
+<td>Requires trained interviewers</td>
+</tr>
+<tr class="even">
+<td>Greater risk of unanswered or reordered questions</td>
+<td>Greater risk of interviewer and social-desirability effects</td>
+</tr>
+</tbody>
+</table>
+<p>Online mail phone and in-person modes also reach different people and can produce different response patterns</p>
+</section></section>
+<section>
+<section id="best-practices-fieldwork-processing-and-documentation" class="title-slide slide level1 center">
+<h1>Best practices: Fieldwork processing and documentation</h1>
+
+</section>
+<section id="fieldwork-begins-before-the-first-response" class="slide level2">
+<h2>Fieldwork begins before the first response</h2>
+<p>A sound primary data collection process requires researchers to prepare a written protocol for</p>
+<ul>
+<li>Eligibility and recruitment</li>
+<li>Consent and confidentiality</li>
+<li>Survey administration and permitted clarification</li>
+<li>Follow-up contacts</li>
+<li>Tracking responses and field outcomes</li>
+<li>Escalating unexpected situations</li>
+<li>Protecting identifiers and survey data</li>
+</ul>
+<p>Institutional review and data-security requirements should be resolved before collection</p>
+</section>
+<section id="train-interviewers-and-enumerators" class="slide level2">
+<h2>Train interviewers and enumerators</h2>
+<p>Training should cover</p>
+<ul>
+<li>The study purpose without coaching a preferred response</li>
+<li>Standard wording order and neutral probes</li>
+<li>Eligibility consent and confidentiality procedures</li>
+<li>Practice interviews and feedback</li>
+<li>Recording refusals partial interviews and deviations</li>
+<li>Procedures for technical or safety problems</li>
+</ul>
+<p>Supervisors should confirm that each enumerator can administer the protocol consistently before fieldwork</p>
+</section>
+<section id="quality-assurance-during-collection" class="slide level2">
+<h2>Quality assurance during collection</h2>
+<ul>
+<li>Track invitations contacts completions refusals and ineligible cases</li>
+<li>Review early records before collection accelerates</li>
+<li>Check ranges skips duplicates timestamps and unusual patterns</li>
+<li>Debrief enumerators and document protocol deviations</li>
+<li>Preserve the original response before any correction</li>
+<li>Compare early and late respondents when useful</li>
+</ul>
+<p>Quality checks should identify both data errors and failures in the collection process</p>
+</section>
+<section id="write-the-codebook-before-collection" class="slide level2">
+<h2>Write the codebook before collection</h2>
+<p>For every field record</p>
+<ul>
+<li>Variable name and label</li>
+<li>Exact question or source</li>
+<li>Unit and reference period</li>
+<li>Allowed values and labels</li>
+<li>Codes for missing refused and not applicable</li>
+<li>Skip logic</li>
+<li>Derived-variable rule</li>
+<li>Instrument and codebook version</li>
+</ul>
+<p>Writing the codebook early exposes questions that cannot yet be coded consistently</p>
+</section>
+<section id="zero-missing-refused-and-not-applicable-differ" class="slide level2">
+<h2>Zero, missing, refused, and not applicable differ</h2>
+<p>Consider annual river visits</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Recorded value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td>Respondent made no visits</td>
+</tr>
+<tr class="even">
+<td><code>NA_DK</code></td>
+<td>Respondent does not know</td>
+</tr>
+<tr class="odd">
+<td><code>NA_REF</code></td>
+<td>Respondent refused</td>
+</tr>
+<tr class="even">
+<td><code>NA_SKIP</code></td>
+<td>Question did not apply because of the survey path</td>
+</tr>
+<tr class="odd">
+<td>blank</td>
+<td>Collection or processing status is unresolved</td>
+</tr>
+</tbody>
+</table>
+<p>Collapsing these values changes the meaning of the analysis variable</p>
+</section>
+<section id="documentation-supports-assessment-and-reuse" class="slide level2">
+<h2>Documentation supports assessment and reuse</h2>
+<p>Document while the study is in progress</p>
+<ul>
+<li>Study objective and protocol</li>
+<li>Population frame and sample selection</li>
+<li>Instrument recruitment scripts and contact dates</li>
+<li>Pilot changes and instrument versions</li>
+<li>Fieldwork training costs and deviations</li>
+<li>Codebook cleaning rules and validation checks</li>
+<li>Final sample disposition and summary statistics</li>
+<li>Raw-data archive access and confidentiality conditions</li>
 </ul>
 </section>
-<section id="processing-is-part-of-collection" class="slide level2">
-<h2>Processing is part of collection</h2>
-<ul>
-<li>Define codes before data entry.</li>
-<li>Distinguish missing, inapplicable, refused, and zero.</li>
-<li>Preserve original responses.</li>
-<li>Document corrections and transformations.</li>
-<li>Check permissible values and inconsistent combinations.</li>
-</ul>
-</section>
-<section id="discussion-champ" class="slide level2 scrollable">
-<h2>Discussion: Champ</h2>
-<p>For a proposed nonmarket valuation study:</p>
+<section id="discussion-field-practices-from-experience" class="slide level2">
+<h2>Discussion: field practices from experience</h2>
+<p>What is one practice you have used or learned from an advisor mentor or field team?</p>
 <ol type="1">
-<li>Who is affected by the environmental change?</li>
-<li>Does the sampling frame include them?</li>
-<li>Which survey mode would you choose?</li>
-<li>Which error is the largest threat?</li>
-<li>What pretest would reveal a problem before launch?</li>
+<li>Was this a practice that occurred before, during, or after collection?</li>
+<li>Which failure was is intended to prevent?</li>
+<li>Could it apply broadly or does it depend on the study context?</li>
+</ol>
+<aside class="notes">
+<p>Organize contributions on the board under before collection during collection and after collection. Distinguish a documented quality-control procedure from a preference that may be specific to one field setting.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="apply-champ-to-your-research" class="slide level2">
+<h2>Apply Champ to your research</h2>
+<p>For one data source in your project explain</p>
+<ol type="1">
+<li>Why primary or secondary data are appropriate</li>
+<li>Which population the study is intended to represent</li>
+<li>How units enter the observed sample</li>
+<li>Which error is the largest threat to inference</li>
+<li>How the key measure will be tested or validated</li>
+<li>Which fieldwork and documentation record another researcher would need</li>
 </ol>
 </section>
-<section id="workshop-collection-plan" class="slide level2">
-<h2>Workshop: collection plan</h2>
-<p>Use the course data checklist to specify:</p>
-<ul>
-<li>Research question and target population.</li>
-<li>Frame and recruitment method.</li>
-<li>Key outcome and proposed question.</li>
-<li>Likely coverage or nonresponse problem.</li>
-<li>One design change that reduces that problem.</li>
-</ul>
-<p>The checklist and Champ example are on Canvas.</p>
-</section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Name the largest threat to your collection plan. Explain why increasing the sample size would or would not address it.</p>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>Source choice</strong> follows from the research objective and required measure</p>
+<p><strong>Sampling</strong> determines which population can be represented</p>
+<p><strong>Questionnaire design</strong> turns concepts into responses that can be interpreted</p>
+<p><strong>Fieldwork and processing</strong> determine whether the design is implemented consistently</p>
+<p><strong>Documentation</strong> makes those decisions assessable and reproducible</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -385,13 +911,14 @@ Champ, Patricia A. 2017. <span>“Collecting Nonmarket Valuation Data.”</span>
 <section id="course-navigation" class="slide level2">
 <h2>Course navigation</h2>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture5.1.pdf">Download this lecture as a PDF</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
