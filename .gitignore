@@ -9,6 +9,12 @@
 
 # Extensions and backups
 /_extensions/
+!/_extensions/
+/_extensions/*
+!/_extensions/r-wasm/
+/_extensions/r-wasm/*
+!/_extensions/r-wasm/live/
+!/_extensions/r-wasm/live/**
 /_backup/
 
 #R Temporal Files
