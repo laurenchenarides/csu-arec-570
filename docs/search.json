@@ -123,7 +123,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via API\nPlan reproducible retrieval and weigh data quantity against quality.\n—\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture7.1.html",
@@ -1234,16 +1234,16 @@
   {
     "objectID": "lectures/lecture5.2.html#references",
     "href": "lectures/lecture5.2.html#references",
-    "title": "Lecture 5.2: Data Collection via API",
+    "title": "Lecture 5.2: Data Collection via APIs",
     "section": "References",
     "text": "References\n\n\nDominitz, Jeff, and Charles F. Manski. 2017. “More Data or Better Data? A Statistical Decision Problem.” The Review of Economic Studies 84 (4): 1583–605. https://doi.org/10.1093/restud/rdx005."
   },
   {
     "objectID": "lectures/lecture5.2.html#course-navigation",
     "href": "lectures/lecture5.2.html#course-navigation",
-    "title": "Lecture 5.2: Data Collection via API",
+    "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Course navigation",
-    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
+    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list\nDownload this lecture as a PDF"
   },
   {
     "objectID": "lectures/lecture5.4.html",
@@ -3470,5 +3470,313 @@
     "title": "Lecture 4.2: Writing the Conceptual Framework",
     "section": "SNAP example: paragraph checklist",
     "text": "SNAP example: paragraph checklist\n\nStates the maintained assumptions\nSeparates model results from empirical hypotheses\nDistinguishes observed from unobserved outcomes\nLimits the conclusion to what the evidence can support"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#reading-and-sequence",
+    "href": "lectures/lecture5.2.html#reading-and-sequence",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Reading and sequence",
+    "text": "Reading and sequence\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” (Dominitz and Manski 2017)\n\nConnect APIs to secondary data collection\nRetrieve four types of data in R\nCheck what each downloaded observation represents\nDocument a reproducible retrieval\nShare the current data plan for each research project\n\nReadings and course handouts are available on Canvas"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#apis-deliver-secondary-data",
+    "href": "lectures/lecture5.2.html#apis-deliver-secondary-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "APIs deliver secondary data",
+    "text": "APIs deliver secondary data\nThe organization responsible for the source determines\n\nWhat is measured\nWhich people, places, or activities are covered\nWhen observations are collected and released\nHow uncertainty, missing values, and revisions are recorded\n\nAn application programming interface provides a documented way for R to request selected records from that source\n\nLecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#what-happens-when-r-calls-an-api",
+    "href": "lectures/lecture5.2.html#what-happens-when-r-calls-an-api",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "What happens when R calls an API",
+    "text": "What happens when R calls an API\nR function→request→data service→response→R object\n\\text{R function}\n\\longrightarrow\n\\text{request}\n\\longrightarrow\n\\text{data service}\n\\longrightarrow\n\\text{response}\n\\longrightarrow\n\\text{R object}\n\n\nEndpoint is the web address for a data service\nParameters specify the place, time, variables, and other selections\nResponse is the information returned by the service\nR package translates the response into a familiar object\n\nMany services transmit a structured text format called JSON. The packages in today’s examples read that format and return a data frame, map, or raster"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#four-applications",
+    "href": "lectures/lecture5.2.html#four-applications",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Four applications",
+    "text": "Four applications\n\n\n\n\n\n\n\n\nApplication\nSource\nReturned to R\n\n\n\n\nLand use\nUSDA Cropland Data Layer\nRaster map or summary table\n\n\nWater\nUSGS Water Data\nDaily time series\n\n\nWeather\nNASA POWER\nDaily weather table\n\n\nPopulation\nCensus ACS\nEstimates margins of error and map geometry\n\n\n\nEach example begins with a small request that can be inspected before the request is expanded"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#install-the-r-packages",
+    "href": "lectures/lecture5.2.html#install-the-r-packages",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Install the R packages",
+    "text": "Install the R packages\nRun this installation once on your computer\ninstall.packages(c(\n  \"CropScapeR\",\n  \"dataRetrieval\",\n  \"nasapower\",\n  \"tidycensus\",\n  \"ggplot2\",\n  \"dplyr\"\n))\nCreate a folder for files returned by the services\ndir.create(\"data/raw\", recursive = TRUE, showWarnings = FALSE)"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#a-retrieval-workflow",
+    "href": "lectures/lecture5.2.html#a-retrieval-workflow",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "A retrieval workflow",
+    "text": "A retrieval workflow\n\nRead the source documentation\nDefine the place, time period, variables, and unit of observation\nRun a small request\nInspect column names, values, units, and missingness\nSave the returned file or object\nRecord the request and retrieval date\nExpand the request after the checks are complete\n\n\nA small request might cover one county, one station, or one month. This keeps errors visible and makes it easier to learn the returned structure."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#example-1-land-use",
+    "href": "lectures/lecture5.2.html#example-1-land-use",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Example 1: land use",
+    "text": "Example 1: land use\nQuestion\nWhich crop and land-cover classes does the Cropland Data Layer assign in Larimer County in 2024?\nSource\nUSDA NASS Cropland Data Layer through the CropScape service\nObservation\nEach raster cell has a modeled crop or land-cover class for a particular year\nCropScape documentation | CropScapeR documentation"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#request-a-cropland-data-layer-map",
+    "href": "lectures/lecture5.2.html#request-a-cropland-data-layer-map",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Request a Cropland Data Layer map",
+    "text": "Request a Cropland Data Layer map\nlibrary(CropScapeR)\n\nlarimer_cdl &lt;- GetCDLData(\n  aoi = \"08069\",\n  year = 2024,\n  type = \"f\",\n  save_path = \"data/raw/cdl_larimer_2024.tif\"\n)\n\nraster::plot(larimer_cdl)\n08069 is the five-digit Census code for Larimer County\nThe saved GeoTIFF contains a grid of land-cover codes and the information needed to locate those cells on a map"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#use-and-assess-the-land-use-data",
+    "href": "lectures/lecture5.2.html#use-and-assess-the-land-use-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Use and assess the land-use data",
+    "text": "Use and assess the land-use data\nPossible uses\n\nMap crop locations\nCalculate acreage by crop class\nCompare annual crop patterns\nDefine land-use exposure near water infrastructure or development\n\nChecks\n\nCrop-class definitions for each year\nClassification accuracy for the study region and crop\nPixel resolution and coordinate system\nTreatment of double cropping and small fields\nConsistency of the study boundary across years\n\nThe CDL records modeled land-cover classes. Parcel ownership, zoning, and management practices require additional sources"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#example-2-water",
+    "href": "lectures/lecture5.2.html#example-2-water",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Example 2: water",
+    "text": "Example 2: water\nQuestion\nWhat was the daily flow of the Cache la Poudre River during the 2024 growing season?\nSource\nUSGS Water Data API\nObservation\nEach row reports a daily statistic for one parameter at one monitoring location\nUSGS monitoring location 06752260 | dataRetrieval tutorial"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#request-daily-streamflow",
+    "href": "lectures/lecture5.2.html#request-daily-streamflow",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Request daily streamflow",
+    "text": "Request daily streamflow\nlibrary(dataRetrieval)\n\npoudre_flow &lt;- read_waterdata_daily(\n  monitoring_location_id = \"USGS-06752260\",\n  parameter_code = \"00060\",\n  time = c(\"2024-04-01\", \"2024-09-30\")\n)\n\nnames(poudre_flow)\nhead(poudre_flow)\n00060 is the USGS parameter code for discharge\nThe returned columns include date, value, unit, approval status, qualifiers, station geometry, and a time-series identifier"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#plot-and-summarize-streamflow",
+    "href": "lectures/lecture5.2.html#plot-and-summarize-streamflow",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Plot and summarize streamflow",
+    "text": "Plot and summarize streamflow\nlibrary(ggplot2)\n\nggplot(poudre_flow, aes(x = time, y = value)) +\n  geom_line(color = \"#245a81\") +\n  labs(\n    x = NULL,\n    y = \"Daily discharge\",\n    title = \"Cache la Poudre River at Fort Collins\"\n  )\nThe daily records can also be summarized as\n\nGrowing-season mean or median flow\nNumber of days below a selected threshold\nTiming of peak flow\nDeviations from a historical seasonal pattern"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#assess-the-streamflow-series",
+    "href": "lectures/lecture5.2.html#assess-the-streamflow-series",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Assess the streamflow series",
+    "text": "Assess the streamflow series\n\nConfirm the monitoring location and parameter\nRead the unit attached to each series\nExamine provisional and approved status\nIdentify missing dates and changes in the operating record\nLearn whether reservoirs, diversions, or return flows affect the gauge\nDefine the geographic relationship between the gauge and the study area\n\nThe gauge measures conditions at one point on a river network. A study of irrigation access may also require diversion service areas, water rights, or delivery records\n\nUse the read_waterdata functions for the modern USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#example-3-weather",
+    "href": "lectures/lecture5.2.html#example-3-weather",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Example 3: weather",
+    "text": "Example 3: weather\nQuestion\nWhat temperature and precipitation conditions occurred near Fort Collins during the 2024 growing season?\nSource\nNASA Prediction Of Worldwide Energy Resources or POWER\nObservation\nEach row reports modeled weather conditions for a grid cell and day\nNASA POWER documentation | nasapower documentation"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#request-daily-weather",
+    "href": "lectures/lecture5.2.html#request-daily-weather",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Request daily weather",
+    "text": "Request daily weather\nlibrary(nasapower)\n\nfort_collins_weather &lt;- get_power(\n  community = \"AG\",\n  lonlat = c(-105.08, 40.58),\n  pars = c(\"T2M_MAX\", \"T2M_MIN\", \"PRECTOTCORR\"),\n  temporal_api = \"daily\",\n  dates = c(\"2024-04-01\", \"2024-09-30\")\n)\n\nhead(fort_collins_weather)\nAG selects parameters prepared for agricultural applications\nThe three requested measures are maximum temperature, minimum temperature, and precipitation"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#use-and-assess-the-weather-data",
+    "href": "lectures/lecture5.2.html#use-and-assess-the-weather-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Use and assess the weather data",
+    "text": "Use and assess the weather data\nPossible uses\n\nCount high-temperature days\nCalculate growing degree days\nSum growing-season precipitation\nConstruct weather exposures for farms, counties, or markets\n\nChecks\n\nGrid-cell resolution\nCoordinates assigned to each study unit\nParameter definition and unit\nTime standard and daily aggregation\nVersion and revision status\n\nPOWER provides grid-cell estimates. Conditions at fields within the same cell can vary"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#example-4-census-acs",
+    "href": "lectures/lecture5.2.html#example-4-census-acs",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Example 4: Census ACS",
+    "text": "Example 4: Census ACS\nQuestion\nHow does median household income vary across census tracts in Larimer County?\nSource\nAmerican Community Survey five-year estimates\nObservation\nEach row reports an estimate and margin of error for one variable and geographic area\nCensus API guidance | tidycensus documentation"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#store-the-census-api-key",
+    "href": "lectures/lecture5.2.html#store-the-census-api-key",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Store the Census API key",
+    "text": "Store the Census API key\nRequest a free key from the Census API key page\nOpen the user-level environment file from R\ninstall.packages(\"usethis\")\nusethis::edit_r_environ()\nAdd one line to that file and restart R\nCENSUS_API_KEY=replace_with_your_key\nThe environment file stays on your computer. Shared scripts read the key with Sys.getenv(\"CENSUS_API_KEY\")"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#request-tract-estimates-and-geometry",
+    "href": "lectures/lecture5.2.html#request-tract-estimates-and-geometry",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Request tract estimates and geometry",
+    "text": "Request tract estimates and geometry\nlibrary(tidycensus)\n\nlarimer_income &lt;- get_acs(\n  geography = \"tract\",\n  variables = c(median_income = \"B19013_001\"),\n  state = \"CO\",\n  county = \"Larimer\",\n  year = 2024,\n  survey = \"acs5\",\n  geometry = TRUE,\n  key = Sys.getenv(\"CENSUS_API_KEY\")\n)\n\nhead(larimer_income)\nThe result contains a geographic identifier, name, estimate, margin of error, and tract geometry"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#map-the-acs-estimates",
+    "href": "lectures/lecture5.2.html#map-the-acs-estimates",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Map the ACS estimates",
+    "text": "Map the ACS estimates\nlibrary(ggplot2)\n\nggplot(larimer_income) +\n  geom_sf(aes(fill = estimate), color = NA) +\n  labs(\n    fill = \"Median income\",\n    title = \"Median household income by census tract\"\n  )\nThe default margin of error describes a 90 percent confidence interval\nestimate±margin of error\n\\text{estimate} \\pm \\text{margin of error}"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#assess-the-acs-estimates",
+    "href": "lectures/lecture5.2.html#assess-the-acs-estimates",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Assess the ACS estimates",
+    "text": "Assess the ACS estimates\n\nTreat the five-year estimate as a pooled period ending in the named year\nRetain the margin of error\nIdentify estimates with large uncertainty\nUse geographic identifiers as character values\nRecord the tract boundary vintage\nAdjust monetary values when comparing periods\n\nACS data can describe the population and socioeconomic setting for a land or water study. Exposure measures and program participation may come from separate sources"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#the-unit-changes-across-sources",
+    "href": "lectures/lecture5.2.html#the-unit-changes-across-sources",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "The unit changes across sources",
+    "text": "The unit changes across sources\n\n\n\nSource\nUnit returned by the request\nTime\nGeography\n\n\n\n\nCropland Data Layer\nRaster cell\nAnnual\nGrid\n\n\nUSGS Water Data\nGauge and day\nDaily\nMonitoring point\n\n\nNASA POWER\nGrid cell and day\nDaily\nWeather grid\n\n\nCensus ACS\nEstimate and area\nFive-year period\nCensus tract\n\n\n\nA combined dataset requires a written rule for assigning pixels, gauges, weather cells, and census areas to the study units"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#combining-the-downloads",
+    "href": "lectures/lecture5.2.html#combining-the-downloads",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Combining the downloads",
+    "text": "Combining the downloads\nFor every join record\n\nIdentifier used by each source\nGeographic crosswalk or spatial rule\nTime aggregation rule\nNumber of observations before and after the join\nUnmatched locations and periods\nTreatment of revised, suppressed, and missing values\n\nThe combined analytic sample includes the observations that satisfy all source coverage and matching rules\n\nConnect this point to Lecture 5.1. Adding a secondary source can change the analytic sample because locations or years with complete matches may differ from the intended study population."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#the-reading-allocating-the-collection-budget",
+    "href": "lectures/lecture5.2.html#the-reading-allocating-the-collection-budget",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "The reading: allocating the collection budget",
+    "text": "The reading: allocating the collection budget\nDominitz and Manski ask how to allocate a fixed budget across collection processes that differ in cost and information (Dominitz and Manski 2017)\nAPI access reduces the time required to retrieve additional observations\nResearch time is also required to\n\nVerify definitions and units\nExamine coverage, missing values, flags, and uncertainty\nSelect spatial and temporal aggregation rules\nValidate joins across sources\nArchive metadata and retrieval records\n\nQuestion: How should a researcher allocate one additional week across these tasks?"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#select-the-access-method",
+    "href": "lectures/lecture5.2.html#select-the-access-method",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Select the access method",
+    "text": "Select the access method\n\n\n\n\n\n\n\nProject need\nUseful access method\n\n\n\n\nA defined subset repeated across places or periods\nAPI request\n\n\nMost records in a fixed release\nBulk download\n\n\nA few values needed once\nWeb table or manual download\n\n\nRepeated data cleaning and analysis\nScripted retrieval with archived raw files\n\n\n\nChoose the method after reviewing the source documentation update schedule and request limits"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#other-apis-for-applied-economics",
+    "href": "lectures/lecture5.2.html#other-apis-for-applied-economics",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Other APIs for applied economics",
+    "text": "Other APIs for applied economics\nAgriculture and food\n\nUSDA NASS Quick Stats\nUSDA AMS Market News\nUSDA ERS ARMS\nUSDA FoodData Central\nUSDA NRCS Soil Data Access\n\nNatural resources and energy\n\nNOAA Climate Data\nWater Quality Portal\nEPA ECHO\nUS Forest Service FIA\nUS Energy Information Administration"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#other-apis-for-applied-economics-1",
+    "href": "lectures/lecture5.2.html#other-apis-for-applied-economics-1",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Other APIs for applied economics",
+    "text": "Other APIs for applied economics\nPopulation, firms, and regional economies\n\nCensus County Business Patterns and ZIP Business Patterns\nBureau of Labor Statistics\nBureau of Economic Analysis\nFederal Reserve Economic Data\n\nInternational applications\n\nWorld Bank Indicators\nFAOSTAT\nOECD Data Explorer\n\nStart with the documentation for the specific dataset and release used in the research"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#document-the-retrieval",
+    "href": "lectures/lecture5.2.html#document-the-retrieval",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Document the retrieval",
+    "text": "Document the retrieval\nKeep these items with the project\n\nSource and dataset name\nData documentation\nRetrieval script\nParameters submitted through the script\nRetrieval date\nRaw files returned by the service\nProcessing script and data dictionary\nPackage and R versions\nValidation results\n\nStore API keys in the user environment file and exclude that file from version control"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#class-share-where-is-your-data-plan",
+    "href": "lectures/lecture5.2.html#class-share-where-is-your-data-plan",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Class share: where is your data plan",
+    "text": "Class share: where is your data plan\nWe will go around the room. For your project describe\n\nThe outcome exposure or behavior you need to observe\nThe primary secondary or combined collection approach you expect to use\nA source package website or other tool you have found helpful\nThe part of the collection process you are still working through\nThe next concrete step in your data search or collection\n\n\nAllow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#summary",
+    "href": "lectures/lecture5.2.html#summary",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Summary",
+    "text": "Summary\nAPIs provide scripted access to secondary data\nR packages translate requests and responses into familiar R objects\nSource documentation defines the population, measures, timing, geography, and uncertainty\nSmall requests make the returned structure easier to inspect\nRetrieval records support reproducibility\nData joins help define the final analytic sample"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#use-the-land-use-data",
+    "href": "lectures/lecture5.2.html#use-the-land-use-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Use the land-use data",
+    "text": "Use the land-use data\n\nMap crop locations\nCalculate acreage by crop class\nCompare annual crop patterns\nDefine land-use exposure near water infrastructure or development"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#assess-the-land-use-data",
+    "href": "lectures/lecture5.2.html#assess-the-land-use-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Assess the land-use data",
+    "text": "Assess the land-use data\n\nCrop-class definitions for each year\nClassification accuracy for the study region and crop\nPixel resolution and coordinate system\nTreatment of double cropping and small fields\nConsistency of the study boundary across years\n\nThe CDL records modeled land-cover classes. Parcel ownership, zoning, and management practices require additional sources"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#use-the-weather-data",
+    "href": "lectures/lecture5.2.html#use-the-weather-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Use the weather data",
+    "text": "Use the weather data\n\nCount high-temperature days\nCalculate growing degree days\nSum growing-season precipitation\nConstruct weather exposures for farms, counties, or markets"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#assess-the-weather-data",
+    "href": "lectures/lecture5.2.html#assess-the-weather-data",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Assess the weather data",
+    "text": "Assess the weather data\n\nGrid-cell resolution\nCoordinates assigned to each study unit\nParameter definition and unit\nTime standard and daily aggregation\nVersion and revision status\n\nPOWER provides grid-cell estimates. Conditions at fields within the same cell can vary"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#other-apis-agriculture-and-food",
+    "href": "lectures/lecture5.2.html#other-apis-agriculture-and-food",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Other APIs: agriculture and food",
+    "text": "Other APIs: agriculture and food\n\nUSDA NASS Quick Stats\nUSDA AMS Market News\nUSDA ERS ARMS\nUSDA FoodData Central\nUSDA NRCS Soil Data Access"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#other-apis-natural-resources-and-energy",
+    "href": "lectures/lecture5.2.html#other-apis-natural-resources-and-energy",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Other APIs: natural resources and energy",
+    "text": "Other APIs: natural resources and energy\n\nNOAA Climate Data\nWater Quality Portal\nEPA ECHO\nUS Forest Service FIA\nUS Energy Information Administration"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#other-apis-economies-and-populations",
+    "href": "lectures/lecture5.2.html#other-apis-economies-and-populations",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Other APIs: economies and populations",
+    "text": "Other APIs: economies and populations\nPopulation, firms, and regional economies\n\nCensus County Business Patterns and ZIP Business Patterns\nBureau of Labor Statistics\nBureau of Economic Analysis\nFederal Reserve Economic Data\n\nInternational applications\n\nWorld Bank Indicators\nFAOSTAT\nOECD Data Explorer\n\nStart with the documentation for the specific dataset and release used in the research"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#class-share-where-are-you-in-the-process",
+    "href": "lectures/lecture5.2.html#class-share-where-are-you-in-the-process",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Class share: where are you in the process?",
+    "text": "Class share: where are you in the process?\nWe will go around the room. For your project describe\n\nThe outcome, exposure, or behavior you need to observe\nThe primary, secondary, or combined collection approach you expect to use\nA source, package, website, or other tool you have found helpful\nThe part of the collection process you are still working through\nThe next concrete step in your data search or collection\n\n\nAllow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#run-r-in-the-html-slides",
+    "href": "lectures/lecture5.2.html#run-r-in-the-html-slides",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Run R in the HTML slides",
+    "text": "Run R in the HTML slides\n\nWait for the R ready message after opening the HTML lecture\nSelect Run Code to execute a live cell\nChange a named value such as threshold or selected\nSelect Start Over to restore the original code\n\nThe API retrieval slides show the complete request code for RStudio. The live cells use compact classroom extracts shaped like the returned records, so every student can run them from the course site\nThe PDF contains the initial code for reference"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#try-it-summarize-land-cover-records",
+    "href": "lectures/lecture5.2.html#try-it-summarize-land-cover-records",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Try it: summarize land-cover records",
+    "text": "Try it: summarize land-cover records\nChange selected, then run the cell. The classroom extract has the same class-and-acreage structure used in a CDL summary"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#try-it-define-a-low-flow-threshold",
+    "href": "lectures/lecture5.2.html#try-it-define-a-low-flow-threshold",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Try it: define a low-flow threshold",
+    "text": "Try it: define a low-flow threshold\nChange threshold, then run the cell. The compact series represents the date and value columns returned by the water request"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#try-it-construct-weather-exposures",
+    "href": "lectures/lecture5.2.html#try-it-construct-weather-exposures",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Try it: construct weather exposures",
+    "text": "Try it: construct weather exposures\nChange heat_threshold, then run the cell. The classroom extract has daily maximum temperature and precipitation columns"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#try-it-use-the-acs-margin-of-error",
+    "href": "lectures/lecture5.2.html#try-it-use-the-acs-margin-of-error",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Try it: use the ACS margin of error",
+    "text": "Try it: use the ACS margin of error\nChange relative_moe_limit, then run the cell. The classroom extract contains one estimate and margin of error for each tract"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#try-it-define-weather-exposures",
+    "href": "lectures/lecture5.2.html#try-it-define-weather-exposures",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Try it: define weather exposures",
+    "text": "Try it: define weather exposures\nChange heat_threshold, then run the cell. The extract contains daily maximum temperature and precipitation"
   }
 ]

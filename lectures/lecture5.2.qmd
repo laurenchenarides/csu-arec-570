@@ -1,11 +1,14 @@
 ---
-title: "Lecture 5.2: Data Collection via API"
-subtitle: "AREC 570 / ECON 530 · Unit 5"
+title: "Lecture 5.2: Data Collection via APIs"
+subtitle: "AREC 570 / ECON 530 / Unit 5"
 author: "Lauren Chenarides"
 lecture: "5.2"
 order: 502
+pdf: lecture5.2.pdf
+description: "Use R to retrieve and document secondary data on land use water weather and communities"
+engine: knitr
 format:
-  revealjs:
+  live-revealjs:
     theme: ../styles.scss
     width: 1280
     height: 720
@@ -16,172 +19,570 @@ format:
     navigation-mode: linear
     controls: true
     progress: true
-    scrollable: true
+    scrollable: false
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
+    footer: "AREC 570 / ECON 530 / Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
     html-math-method: mathml
-description: "Plan reproducible retrieval and weigh data quantity against quality."
+webr:
+  cell-options:
+    autorun: false
+    runbutton: true
+    edit: true
+    startover: true
+    min-lines: 5
+    max-lines: 9
+    fig-width: 6
+    fig-height: 2.1
 ---
 
-## Before class
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-- Dominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” [@dominitz2017data].
+## Reading and sequence
 
-Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+**Dominitz and Manski, "More Data or Better Data? A Statistical Decision Problem"** [@dominitz2017data]
 
-## What is an API?
+1. Connect APIs to secondary data collection
+2. Retrieve four types of data in R
+3. Check what each downloaded observation represents
+4. Document a reproducible retrieval
+5. Share the current data plan for each research project
 
-An application programming interface provides a defined way for one program to request information from another.
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings)
 
-A data request typically specifies:
+## APIs deliver secondary data
 
-- Dataset and period.
-- Variables.
-- Geography or other filters.
-- Authentication, when required.
+The organization responsible for the source determines
 
-The response must still be interpreted and validated.
+- What is measured
+- Which people, places, or activities are covered
+- When observations are collected and released
+- How uncertainty, missing values, and revisions are recorded
 
-## A reproducible retrieval workflow
-
-1. Read the dataset documentation.
-2. Specify a small request.
-3. Save the raw response.
-4. Check the schema, units, and codes.
-5. Transform into an analysis-ready table.
-6. Record the request and retrieval date.
-
-## Sources in the original slides
-
-- USDA NASS: agricultural statistics.
-- CropScape: spatial crop information.
-- Census data through tools such as tidycensus.
-- BLS: labor statistics.
-
-Inspect the documentation for the dataset and access method you intend to use.
-
-## The course ZBP example
-
-The supplied notebook retrieves Census ZIP Business Patterns data by industry and year.
-
-Trace the workflow:
-
-- Select variables, years, and industry codes.
-- Construct requests and save responses.
-- Convert responses into tables.
-- Save cleaned files.
-
-The notebook, API instructions, and classification mapping are on Canvas.
+An **application programming interface** provides a documented way for R to request selected records from that source
 
 ::: notes
-The notebook is a historical teaching example. Review file paths, credentials, endpoint, variables, and classification mapping before a live run. Do not display or copy stored credentials.
+Lecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization.
 :::
 
-## A successful request is not a valid dataset
+## What happens when R calls an API
 
-- Does each row describe a business, ZIP code, or ZIP-by-industry cell?
-- Are quantities counts, rates, or monetary values?
-- Are zeros distinguishable from suppressed or missing observations?
-- Are industry definitions comparable across years?
-- Are identifiers preserved as text where leading zeros matter?
+$$
+\text{R function}
+\longrightarrow
+\text{request}
+\longrightarrow
+\text{data service}
+\longrightarrow
+\text{response}
+\longrightarrow
+\text{R object}
+$$
 
-## Inspect a small response first
+- **Endpoint** is the web address for a data service
+- **Parameters** specify the place, time, variables, and other selections
+- **Response** is the information returned by the service
+- **R package** translates the response into a familiar object
 
-Illustrative response:
+Many services transmit a structured text format called **JSON**. The packages in today's examples read that format and return a data frame, map, or raster
 
-~~~json
-[
-  ["area_id", "year", "establishments"],
-  ["00123", "2020", "18"],
-  ["00124", "2020", null]
-]
-~~~
+## Four applications
 
-Keep the identifier as text. Identify missing-value conventions before converting counts. A missing value is not automatically zero.
+| Application | Source | Returned to R |
+|---|---|---|
+| Land use | USDA Cropland Data Layer | Raster map or summary table |
+| Water | USGS Water Data | Daily time series |
+| Weather | NASA POWER | Daily weather table |
+| Population | Census ACS | Estimates margins of error and map geometry |
 
-## Record the retrieval
+Each example begins with a small request that can be inspected before the request is expanded
 
-- Dataset name and version, if provided.
-- Query parameters and variable definitions.
-- Retrieval date.
-- Geography and classification vintage.
-- Raw file location.
-- Transformations and validation checks.
+## Run R in the HTML slides
 
-Store credentials separately from shared code.
+- Wait for the R ready message after opening the HTML lecture
+- Select **Run Code** to execute a live cell
+- Change a named value such as `threshold` or `selected`
+- Select **Start Over** to restore the original code
 
-## When bulk downloads are better
+The API retrieval slides show the complete request code for RStudio. The live cells use compact classroom extracts shaped like the returned records, so every student can run them from the course site
 
-A bulk file may be preferable when:
+The PDF contains the initial code for reference
 
-- You need most of a dataset.
-- Repeated requests are slow or restricted.
-- A fixed release is easier to archive and reproduce.
+## Install the R packages
 
-Choose an access method that gives a reliable, documented snapshot.
+Run this installation once on your computer
 
-## Dominitz and Manski: the decision problem
+```r
+install.packages(c(
+  "CropScapeR",
+  "dataRetrieval",
+  "nasapower",
+  "tidycensus",
+  "ggplot2",
+  "dplyr"
+))
+```
 
-With a fixed budget, compare collection methods that differ in cost and information quality.
+Create a folder for files returned by the services
 
-The paper studies less expensive methods with:
+```r
+dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
+```
 
-- Nonresponse, or
-- Coarser interval measurements.
+## A retrieval workflow
 
-More observations do not automatically remove incomplete information.
-
-Source: @dominitz2017data.
-
-## Discussion: what does “better” mean?
-
-- What decision will the data inform?
-- What makes one sampling process more informative?
-- How does the paper separate finite-sample uncertainty from partial identification?
-- Why does the best allocation depend on the loss associated with a wrong decision?
-
-Explain minimax regret in words.
-
-## Exercise: allocate a budget
-
-**Hypothetical choices:** A budget of $6,000 buys:
-
-- 3,000 low-cost responses at $2 each, with incomplete outcome information, or
-- 600 complete interviews at $10 each.
-
-You may combine the methods.
-
-What else must you know before choosing?
+1. Read the source documentation
+2. Define the place, time period, variables, and unit of observation
+3. Run a small request
+4. Inspect column names, values, units, and missingness
+5. Save the returned file or object
+6. Record the request and retrieval date
+7. Expand the request after the checks are complete
 
 ::: notes
-New illustration, not a result from the paper. Elicit the target outcome, missingness, information bounds, costs, and decision criterion.
+A small request might cover one county, one station, or one month. This keeps errors visible and makes it easier to learn the returned structure.
 :::
 
-## Connect the reading to APIs
+## Example 1: land use
 
-API access can lower retrieval costs without improving the measurements.
+**Question**
 
-If an API makes ten additional years available, what must be checked before treating those years as comparable evidence?
+Which crop and land-cover classes does the Cropland Data Layer assign in Larimer County in 2024?
 
-Consider definitions, coverage, suppression, and collection procedures.
+**Source**
 
-## Workshop: retrieval specification
+USDA NASS Cropland Data Layer through the CropScape service
 
-For your project, write:
+**Observation**
 
-1. Dataset and source.
-2. Requested observations and variables.
-3. Raw-data archive plan.
-4. Two validation checks.
-5. One limitation additional observations will not solve.
+Each raster cell has a modeled crop or land-cover class for a particular year
 
-## Before you leave
+[CropScape documentation](https://nassgeodata.gmu.edu/CropScape/devhelp/cropscapews.html) | [CropScapeR documentation](https://cran.r-project.org/package=CropScapeR)
 
-Explain the difference between downloading data successfully and obtaining data that can answer your question.
+## Request a Cropland Data Layer map
+
+```r
+library(CropScapeR)
+
+larimer_cdl <- GetCDLData(
+  aoi = "08069",
+  year = 2024,
+  type = "f",
+  save_path = "data/raw/cdl_larimer_2024.tif"
+)
+
+raster::plot(larimer_cdl)
+```
+
+`08069` is the five-digit Census code for Larimer County
+
+The saved GeoTIFF contains a grid of land-cover codes and the information needed to locate those cells on a map
+
+## Use the land-use data
+
+- Map crop locations
+- Calculate acreage by crop class
+- Compare annual crop patterns
+- Define land-use exposure near water infrastructure or development
+
+## Try it: summarize land-cover records
+
+Change `selected`, then run the cell. The classroom extract has the same class-and-acreage structure used in a CDL summary
+
+```{webr}
+#| label: live-cdl-summary
+#| autorun: true
+cdl <- data.frame(
+  class = c("Corn", "Alfalfa", "Grassland", "Developed", "Other"),
+  acres = c(14200, 8900, 180500, 72400, 12600)
+)
+selected <- c("Corn", "Alfalfa")
+chosen <- subset(cdl, class %in% selected)
+chosen$county_share <- round(chosen$acres / sum(cdl$acres), 3)
+chosen
+```
+
+## Assess the land-use data
+
+- Crop-class definitions for each year
+- Classification accuracy for the study region and crop
+- Pixel resolution and coordinate system
+- Treatment of double cropping and small fields
+- Consistency of the study boundary across years
+
+The CDL records modeled land-cover classes. Parcel ownership, zoning, and management practices require additional sources
+
+## Example 2: water
+
+**Question**
+
+What was the daily flow of the Cache la Poudre River during the 2024 growing season?
+
+**Source**
+
+USGS Water Data API
+
+**Observation**
+
+Each row reports a daily statistic for one parameter at one monitoring location
+
+[USGS monitoring location 06752260](https://waterdata.usgs.gov/monitoring-location/USGS-06752260/) | [dataRetrieval tutorial](https://doi-usgs.github.io/dataRetrieval/articles/tutorial.html)
+
+## Request daily streamflow
+
+```r
+library(dataRetrieval)
+
+poudre_flow <- read_waterdata_daily(
+  monitoring_location_id = "USGS-06752260",
+  parameter_code = "00060",
+  time = c("2024-04-01", "2024-09-30")
+)
+
+names(poudre_flow)
+head(poudre_flow)
+```
+
+`00060` is the USGS parameter code for discharge
+
+The returned columns include date, value, unit, approval status, qualifiers, station geometry, and a time-series identifier
+
+## Try it: define a low-flow threshold
+
+Change `threshold`, then run the cell. The compact series represents the date and value columns returned by the water request
+
+```{webr}
+#| label: live-streamflow-threshold
+poudre_flow <- data.frame(
+  date = as.Date("2024-07-01") + 0:13,
+  flow = c(970, 910, 820, 760, 680, 610, 540, 490, 450, 420, 390, 360, 335, 310)
+)
+threshold <- 500
+cat("Days below threshold:", sum(poudre_flow$flow < threshold))
+plot(flow ~ date, poudre_flow, type = "l", xlab = "", ylab = "Daily discharge")
+abline(h = threshold, col = "#C4513A", lty = 2)
+```
+
+## Assess the streamflow series
+
+- Confirm the monitoring location and parameter
+- Read the unit attached to each series
+- Examine provisional and approved status
+- Identify missing dates and changes in the operating record
+- Learn whether reservoirs, diversions, or return flows affect the gauge
+- Define the geographic relationship between the gauge and the study area
+
+The gauge measures conditions at one point on a river network. A study of irrigation access may also require diversion service areas, water rights, or delivery records
+
+::: notes
+Use the read_waterdata functions for the modern USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027.
+:::
+
+## Example 3: weather
+
+**Question**
+
+What temperature and precipitation conditions occurred near Fort Collins during the 2024 growing season?
+
+**Source**
+
+NASA Prediction Of Worldwide Energy Resources or POWER
+
+**Observation**
+
+Each row reports modeled weather conditions for a grid cell and day
+
+[NASA POWER documentation](https://power.larc.nasa.gov/docs/services/api/) | [nasapower documentation](https://docs.ropensci.org/nasapower/)
+
+## Request daily weather
+
+```r
+library(nasapower)
+
+fort_collins_weather <- get_power(
+  community = "AG",
+  lonlat = c(-105.08, 40.58),
+  pars = c("T2M_MAX", "T2M_MIN", "PRECTOTCORR"),
+  temporal_api = "daily",
+  dates = c("2024-04-01", "2024-09-30")
+)
+
+head(fort_collins_weather)
+```
+
+`AG` selects parameters prepared for agricultural applications
+
+The three requested measures are maximum temperature, minimum temperature, and precipitation
+
+## Use the weather data
+
+- Count high-temperature days
+- Calculate growing degree days
+- Sum growing-season precipitation
+- Construct weather exposures for farms, counties, or markets
+
+## Try it: define weather exposures
+
+Change `heat_threshold`, then run the cell. The extract contains daily maximum temperature and precipitation
+
+```{webr}
+#| label: live-weather-exposure
+tmax <- c(29, 31, 33, 35, 36, 34, 30, 28, 32, 37, 38, 35, 31, 29)
+precip <- c(0, 0, 1.2, 0, 0, 4.8, 0, 7.1, 0, 0, 0, 0.5, 2.4, 0)
+heat_threshold <- 35
+c(heat_days = sum(tmax >= heat_threshold),
+  total_precip_mm = sum(precip))
+plot(tmax, type = "b", xlab = "Day", ylab = "Maximum temperature (C)")
+abline(h = heat_threshold, col = "#C4513A", lty = 2)
+```
+
+## Assess the weather data
+
+- Grid-cell resolution
+- Coordinates assigned to each study unit
+- Parameter definition and unit
+- Time standard and daily aggregation
+- Version and revision status
+
+POWER provides grid-cell estimates. Conditions at fields within the same cell can vary
+
+## Example 4: Census ACS
+
+**Question**
+
+How does median household income vary across census tracts in Larimer County?
+
+**Source**
+
+American Community Survey five-year estimates
+
+**Observation**
+
+Each row reports an estimate and margin of error for one variable and geographic area
+
+[Census API guidance](https://www.census.gov/data/developers/guidance.html) | [tidycensus documentation](https://walker-data.com/tidycensus/)
+
+## Store the Census API key
+
+Request a free key from the [Census API key page](https://api.census.gov/data/key_signup.html)
+
+Open the user-level environment file from R
+
+```r
+install.packages("usethis")
+usethis::edit_r_environ()
+```
+
+Add one line to that file and restart R
+
+```text
+CENSUS_API_KEY=replace_with_your_key
+```
+
+The environment file stays on your computer. Shared scripts read the key with `Sys.getenv("CENSUS_API_KEY")`
+
+## Request tract estimates and geometry
+
+```r
+library(tidycensus)
+
+larimer_income <- get_acs(
+  geography = "tract",
+  variables = c(median_income = "B19013_001"),
+  state = "CO",
+  county = "Larimer",
+  year = 2024,
+  survey = "acs5",
+  geometry = TRUE,
+  key = Sys.getenv("CENSUS_API_KEY")
+)
+
+head(larimer_income)
+```
+
+The result contains a geographic identifier, name, estimate, margin of error, and tract geometry
+
+## Map the ACS estimates
+
+```r
+library(ggplot2)
+
+ggplot(larimer_income) +
+  geom_sf(aes(fill = estimate), color = NA) +
+  labs(
+    fill = "Median income",
+    title = "Median household income by census tract"
+  )
+```
+
+The default margin of error describes a 90 percent confidence interval
+
+$$
+\text{estimate} \pm \text{margin of error}
+$$
+
+## Try it: use the ACS margin of error
+
+Change `relative_moe_limit`, then run the cell. The classroom extract contains one estimate and margin of error for each tract
+
+```{webr}
+#| label: live-acs-uncertainty
+acs <- data.frame(
+  tract = c("001", "002", "003", "004"),
+  estimate = c(68400, 52100, 79300, 44700),
+  moe = c(4100, 8700, 5200, 9600)
+)
+relative_moe_limit <- 0.15
+acs$relative_moe <- round(acs$moe / acs$estimate, 2)
+acs$retain <- acs$relative_moe <= relative_moe_limit
+acs
+```
+
+## Assess the ACS estimates
+
+- Treat the five-year estimate as a pooled period ending in the named year
+- Retain the margin of error
+- Identify estimates with large uncertainty
+- Use geographic identifiers as character values
+- Record the tract boundary vintage
+- Adjust monetary values when comparing periods
+
+ACS data can describe the population and socioeconomic setting for a land or water study. Exposure measures and program participation may come from separate sources
+
+## The unit changes across sources
+
+| Source | Unit returned by the request | Time | Geography |
+|---|---|---|---|
+| Cropland Data Layer | Raster cell | Annual | Grid |
+| USGS Water Data | Gauge and day | Daily | Monitoring point |
+| NASA POWER | Grid cell and day | Daily | Weather grid |
+| Census ACS | Estimate and area | Five-year period | Census tract |
+
+A combined dataset requires a written rule for assigning pixels, gauges, weather cells, and census areas to the study units
+
+## Combining the downloads
+
+For every join record
+
+- Identifier used by each source
+- Geographic crosswalk or spatial rule
+- Time aggregation rule
+- Number of observations before and after the join
+- Unmatched locations and periods
+- Treatment of revised, suppressed, and missing values
+
+The combined analytic sample includes the observations that satisfy all source coverage and matching rules
+
+::: notes
+Connect this point to Lecture 5.1. Adding a secondary source can change the analytic sample because locations or years with complete matches may differ from the intended study population.
+:::
+
+## The reading: allocating the collection budget
+
+Dominitz and Manski ask how to allocate a fixed budget across collection processes that differ in cost and information [@dominitz2017data]
+
+API access reduces the time required to retrieve additional observations
+
+Research time is also required to
+
+- Verify definitions and units
+- Examine coverage, missing values, flags, and uncertainty
+- Select spatial and temporal aggregation rules
+- Validate joins across sources
+- Archive metadata and retrieval records
+
+**Question:** How should a researcher allocate one additional week across these tasks?
+
+## Select the access method
+
+| Project need | Useful access method |
+|---|---|
+| A defined subset repeated across places or periods | API request |
+| Most records in a fixed release | Bulk download |
+| A few values needed once | Web table or manual download |
+| Repeated data cleaning and analysis | Scripted retrieval with archived raw files |
+
+Choose the method after reviewing the source documentation update schedule and request limits
+
+## Other APIs: agriculture and food
+
+- USDA NASS Quick Stats
+- USDA AMS Market News
+- USDA ERS ARMS
+- USDA FoodData Central
+- USDA NRCS Soil Data Access
+
+## Other APIs: natural resources and energy
+
+- NOAA Climate Data
+- Water Quality Portal
+- EPA ECHO
+- US Forest Service FIA
+- US Energy Information Administration
+
+## Other APIs: economies and populations
+
+**Population, firms, and regional economies**
+
+- Census County Business Patterns and ZIP Business Patterns
+- Bureau of Labor Statistics
+- Bureau of Economic Analysis
+- Federal Reserve Economic Data
+
+**International applications**
+
+- World Bank Indicators
+- FAOSTAT
+- OECD Data Explorer
+
+Start with the documentation for the specific dataset and release used in the research
+
+## Document the retrieval
+
+Keep these items with the project
+
+- Source and dataset name
+- Data documentation
+- Retrieval script
+- Parameters submitted through the script
+- Retrieval date
+- Raw files returned by the service
+- Processing script and data dictionary
+- Package and R versions
+- Validation results
+
+Store API keys in the user environment file and exclude that file from version control
+
+## Class share: where are you in the process?
+
+We will go around the room. For your project describe
+
+1. The outcome, exposure, or behavior you need to observe
+2. The primary, secondary, or combined collection approach you expect to use
+3. A source, package, website, or other tool you have found helpful
+4. The part of the collection process you are still working through
+5. The next concrete step in your data search or collection
+
+::: notes
+Allow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code.
+:::
+
+## Summary
+
+**APIs** provide scripted access to secondary data
+
+**R packages** translate requests and responses into familiar R objects
+
+**Source documentation** defines the population, measures, timing, geography, and uncertainty
+
+**Small requests** make the returned structure easier to inspect
+
+**Retrieval records** support reproducibility
+
+**Data joins** help define the final analytic sample
 
 ## References {.smaller}
 
@@ -190,6 +591,7 @@ Explain the difference between downloading data successfully and obtaining data 
 
 ## Course navigation
 
-- [All lectures](lectures.qmd)
-- [Schedule and preparation](../2026/schedule.qmd)
-- [Course reading list](../2026/readings.qmd)
+- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
+- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
+- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
+- [Download this lecture as a PDF](https://laurenchenarides.github.io/csu-arec-570/lectures/lecture5.2.pdf)
