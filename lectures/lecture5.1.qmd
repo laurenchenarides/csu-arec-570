@@ -44,21 +44,11 @@ Champ presents these as connected decisions shaped by the research objective bud
 
 ## Example: valuing a river restoration program
 
-**Illustrative policy decision**
-
 A county is considering restoration of ten miles of a local river to improve water quality habitat and recreation
 
-::: {.fragment}
-**Financing**
-
 The program would be funded by an annual household fee for five years
-:::
 
-::: {.fragment}
-**Research objective**
-
-Estimate county households' willingness to pay for the specified program
-:::
+Research objective: Estimate county households' willingness to pay for the specified program
 
 ::: notes
 This is a classroom example rather than a description of a proposed local policy. Keep the policy fixed throughout the lecture so that changes in the population frame question and mode can be interpreted against the same objective.
@@ -66,7 +56,7 @@ This is a classroom example rather than a description of a proposed local policy
 
 ## What is the data required?
 
-The objective determines the data requirement.
+Look at the objective to determine the data requirement: *Estimate county households' willingness to pay for the specified program*
 
 The study needs information about:
 
@@ -75,7 +65,14 @@ The study needs information about:
 - Household choices when the program and payment are presented together
 - Characteristics used to interpret differences in those choices
 
-Water monitoring and visitation records can describe *parts* of the setting. However, they do not directly reveal choices for a program that does not yet exist.
+Other options wouldn't allow you to achieve the objective:
+
+- Water monitoring data
+- Visitation records 
+
+::: notes
+These do not directly reveal choices for a program that does not yet exist.
+:::
 
 ## Primary and secondary data
 
@@ -113,13 +110,12 @@ Suitability depends on the question population measure and intended inference
 | Property transactions | Study capitalization near the river | Represents housing-market choices |
 | Household survey | Present the proposed program and payment | Quality depends on sampling and survey design |
 
-Note: The sources can complement one another when each has a defined role
 
 ## Discussion: choose a source for your research
 
-For one current research question consider
+For your research project consider
 
-1. Which concept must be observed
+1. Which concept(s) must be observed
 2. Whether an existing source measures that concept
 3. Whether its population timing unit and definition fit
 4. What primary collection would add
@@ -129,19 +125,10 @@ For one current research question consider
 
 ## Data quality begins before the questionnaire
 
-Champ treats high-quality data as a prerequisite for reliable and valid nonmarket values [@champ2017collecting]
+Primer on non-market valuation addresses important concepts whether you're collecting primary data or using secondary data.
 
-The research objective determines
+A well-worded questionnaire cannot repair a frame that excludes part of the relevant population.
 
-$$
-\text{whose values matter}
-\rightarrow
-\text{who must be represented}
-\rightarrow
-\text{how they can be reached}
-$$
-
-A well-worded questionnaire cannot repair a frame that excludes part of the relevant population
 
 ## Who belongs in the river study population?
 
@@ -180,11 +167,15 @@ Inference becomes less reliable when movement from one row to the next is select
 Champ Figure 3.1. The first question is whether the study requires inference beyond the observed sample. Probability sampling gives each frame unit a known nonzero selection probability. Nonprobability recruitment does not.
 :::
 
-## Probability sampling designs answer different needs
+## Types of probability sampling designs
 
+Use probability sampling when inference to a broader population is important.
+
+::: {.fragment}
 **Simple random sample**
 
 Every frame unit has the same probability of being chosen
+:::
 
 ::: {.fragment}
 **Cluster sample**
@@ -203,7 +194,7 @@ Divides the sample frame into nonoverlapping subpopulations (strata) based on so
 
 When inference to a broader population is not important.
 
-Convenience, purposive and quota samples can support
+Convenience, purposive, and quota samples can support
 
 - Focus groups and cognitive interviews
 - Pilot testing
@@ -222,11 +213,13 @@ Champ cautions against generalizing beyond a nonprobability sample. Matching or 
 ![](assets/unit5/image3.png){height=470px fig-alt="Potential coverage sampling nonresponse and measurement errors from the study population through the final measurement"}
 :::
 
+> Note: A larger sample primarily reduces sampling error. It does not correct coverage nonresponse or measurement error.
+
 ::: notes
 Champ Figure 3.2. Use the river example at every transition. An address frame can omit some households. A random sample differs from the frame by chance. Some sampled households do not respond. A completed answer can still mismeasure the intended preference.
 :::
 
-## Four errors require different responses
+## Four types of errors
 
 | Error | Question to ask | Possible response |
 |---|---|---|
@@ -235,11 +228,14 @@ Champ Figure 3.2. Use the river example at every transition. An address frame ca
 | **Nonresponse** | Does response relate to the outcome | Track response and compare observed characteristics |
 | **Measurement** | Does the answer represent the intended construct | Revise and test the instrument |
 
+
 ::: notes
 A larger sample primarily reduces sampling error. It does not correct coverage nonresponse or measurement error.
 :::
 
 ## A good secondary source may still need supplementation
+
+If you can accomplish your research objective using a secondary source, you may still need to merge it with other data. 
 
 Before adding another source identify what is missing
 
@@ -248,18 +244,18 @@ Before adding another source identify what is missing
 - Observations from a different time or place
 - Precision for a subgroup
 
-The remedy depends on whether the new source adds information to existing units or adds new units to the sample
-
 ## Adding variables and adding observations differ
 
 | Supplement | What can change |
 |---|---|
-| **Variables for sampled units** | Measurement definitions match quality and spatial or temporal scale |
-| **Observations from another source** | Coverage recruitment selection probabilities weights and target population |
+| **Variables for sampled units** | Measurement definitions, match quality, and spatial or temporal scale |
+| **Observations from another source** | Coverage, recruitment, selection probabilities, weights, and target population |
 
-Adding a water-quality measure does not alter the original selection probabilities if all sampled units remain in the analysis. Dropping unmatched units can still make the analysis sample selective
+## Does the new source add information to existing units or adds new units to the sample?
 
-Appending respondents from an online panel can change the sample design and the population represented
+- Adding a water-quality measure does not alter the original selection probabilities if all sampled units remain in the analysis. 
+- Dropping unmatched units can make the analysis sample selective.
+- Appending respondents from an online panel can change the sample design and the population represented.
 
 ## Combining sources does not create a probability sample
 
@@ -275,33 +271,29 @@ The two sources also have different selection mechanisms and may include some pe
 
 The combined sample may answer a question about recruited river users. It does not represent all county households without additional design information
 
-## Discussion: audit a proposed data combination
+## Check in
 
-For a combination relevant to your research consider
-
-1. Whether the new source adds variables or observations
-2. Which population each source represents
-3. Whether units definitions and time periods align
-4. Whether inclusion probabilities are known and compatible
-5. Which inference remains defensible after the combination
+1. Sampling
+2. Sampling errors
+3. Adding variables vs. adding observations
 
 # Champ: Questionnaire design
 
-## Moving from the construct to the question
+## Considerations for questionnaire design
 
-For each desired measure specify
-
-1. The theoretical concept
-2. The observable response needed
-3. The question a respondent can understand
-4. The response options or recording rule
-5. The analysis variable and units
-
-“Angling experience” could mean skill years fishing trip frequency or equipment use. 
+The construct “angling experience” could mean skill, years fishing, trip frequency, or equipment use. 
 
 The construct must be defined before it can be measured.
 
-## A nonmarket valuation scenario needs defined components
+For each desired measure specify
+
+1. The theoretical concept (take this from your conceptual framework)
+2. The observable response needed (what is your outcome)
+3. The question a respondent can understand (this takes trial and error)
+4. The response options or recording rule
+5. The analysis variable and units
+
+## In a nonmarket valuation study, questionnaires need defined components
 
 The respondent needs to understand
 
@@ -330,17 +322,25 @@ Question order can also affect answers and should be planned and tested
 
 > Do you agree that our valuable local rivers should receive more funding so families can enjoy cleaner water and better fishing?
 
-Use the preceding checks to identify
+Based on this question, what are some issues?
 
-1. The undefined policy change
-2. The missing payment mechanism
-3. The concepts combined in one question
-4. The words that encourage agreement
-5. The choice the respondent is being asked to make
+1. The policy change is undefined
+2. The payment mechanism is missing
+3. Multiple concepts are combined in one question
+4. The words encourage agreement
+5. The respondent has no choice to decide among
 
-Draft a revision for the illustrative river program
+What could a revised question look like?
 
 ## One possible revision
+
+> Without the program, current river conditions are expected to continue. The county would restore ten miles of river over five years with the stated changes described in the survey. Each county household would pay an annual fee of \$X for five years. If the program and fee appeared together on the ballot, would you vote for or against the program?
+
+::: notes
+This is a classroom revision rather than a validated contingent valuation instrument. The environmental outcomes baseline implementation mechanism payment vehicle and consequentiality would require credible supporting detail and testing.
+:::
+
+## One possible revision: broken down
 
 **Baseline** Without the program current river conditions are expected to continue
 
@@ -360,7 +360,7 @@ Draft a revision for the illustrative river program
 This is a classroom revision rather than a validated contingent valuation instrument. The environmental outcomes baseline implementation mechanism payment vehicle and consequentiality would require credible supporting detail and testing.
 :::
 
-## A possible revision still needs to be tested
+## Questions still need to be tested
 
 Ask potential respondents
 
@@ -374,23 +374,26 @@ Cognitive (one-on-one) interviews reveal how respondents understand and answer t
 
 ## Develop test and refine the instrument
 
-**Develop and refine**
+- Start with a focus group 
+- Draft instrument 
+- Seek expert review 
+- Perform cognitive (one-on-one) interviews
 
-Focus groups $\rightarrow$ draft instrument $\rightarrow$ expert review $\rightarrow$ cognitive interviews
+To test: 
 
-::: {.fragment}
-**Test implementation**
+- Revise instrument 
+- Pilot survey 
+- Develop final instrument
 
-Revised instrument $\rightarrow$ pilot survey $\rightarrow$ final instrument
-:::
-
-Revisions can change the questions recruitment materials mode and field procedures
+Revisions can change the questions, recruitment materials, mode, and field procedures
 
 ::: notes
 Champ notes that the final questionnaire may bear little resemblance to the first draft. A pilot also provides information about response rates implementation costs follow-up needs and the distribution of willingness to pay.
 :::
 
 ## Mode changes the data-generating process
+
+Mode = how the survey is administered
 
 | Self-administered | Interviewer-administered |
 |---|---|
@@ -415,7 +418,7 @@ A sound primary data collection process requires researchers to prepare a writte
 - Escalating unexpected situations
 - Protecting identifiers and survey data
 
-Institutional review and data-security requirements should be resolved before collection
+Institutional review and data-security requirements should be resolved before collection. Similar best practices when using secondary data.
 
 ## Train interviewers and enumerators
 
@@ -458,6 +461,8 @@ Writing the codebook early exposes questions that cannot yet be coded consistent
 
 ## Zero, missing, refused, and not applicable differ
 
+In your codebook, make note of what is a missing response versus a zero, refused, or N/A.
+
 Consider annual river visits
 
 | Recorded value | Meaning |
@@ -483,7 +488,7 @@ Document while the study is in progress
 - Final sample disposition and summary statistics
 - Raw-data archive access and confidentiality conditions
 
-## Discussion: field practices from experience
+## Check in
 
 What is one practice you have used or learned from an advisor mentor or field team?
 
