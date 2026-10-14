@@ -68,26 +68,49 @@ An **application programming interface** provides a documented way for R to requ
 Lecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization.
 :::
 
-## What happens when R calls an API
+## Working in R and RStudio
 
-$$
-\text{R function}
-\longrightarrow
-\text{request}
-\longrightarrow
-\text{data service}
-\longrightarrow
-\text{response}
-\longrightarrow
-\text{R object}
-$$
+**R** is the programming language that sends each request and holds the returned data. **RStudio** is the application where you write R code in a script, run it, and see the results
 
-- **Endpoint** is the web address for a data service
-- **Parameters** specify the place, time, variables, and other selections
-- **Response** is the information returned by the service
-- **R package** translates the response into a familiar object
+Collecting data with code has three advantages over clicking through a website
 
-Many services transmit a structured text format called **JSON**. The packages in today's examples read that format and return a data frame, map, or raster
+- The script records exactly what was requested: place, period, and variables
+- Rerunning the script repeats the request, for you or a coauthor
+- Changing one value extends the request to more counties or years
+
+Today you will run the requests in RStudio and try short exercises inside these slides
+
+::: notes
+Stata and Python have packages for many of the same APIs. The course uses R because of its Census, water, and geospatial packages.
+:::
+
+## What happens when R calls an API {.dense}
+
+| Step | What happens | Streamflow example |
+|:---------------|:-----------------------------------|:-----------------------------------|
+| 1. R function | You call a package function and list what you want | `read_waterdata_daily()` with a station, a parameter, and dates |
+| 2. Request | The package adds those **parameters** to the service's web address, called the **endpoint** | `api.waterdata.usgs.gov/...?monitoring_location_id=USGS-06752260&parameter_code=00060` |
+| 3. Data service | The agency's server finds the matching records | USGS Water Data |
+| 4. Response | The server returns the records as structured text, usually **JSON** | One record per day |
+| 5. R object | The package converts the text into a data frame | 183 rows, one per day |
+
+## From response to R object
+
+The service returns text like this for each day (simplified)
+
+```json
+{"time": "2024-07-01", "value": 86.4, "unit_of_measure": "ft^3/s", "approval_status": "Approved"}
+```
+
+The R package turns the records into rows of a data frame
+
+```text
+  time       value unit_of_measure approval_status
+  2024-07-01  86.4 ft^3/s          Approved
+  2024-07-02 162   ft^3/s          Approved
+```
+
+You work with the data frame; the package handles the request and the JSON
 
 ## Getting access
 
@@ -109,15 +132,13 @@ A key is a personal credential. Store it in your user environment file and keep 
 | Environment and natural resources | Water, weather, climate, land cover, pollution, hazards |
 | International organizations | Cross-country development, agriculture, trade |
 
-As we scan the next slides, write down the two sources closest to your project
-
 ::: notes
 Scan the catalog quickly. Students return to it in the class share at the end of the meeting. In the R column, httr2 means the request is written directly against the documented endpoint because no maintained package exists.
 :::
 
 ## Census Bureau: people and places {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | American Community Survey | Income, poverty, housing, and commuting by tract or county | `tidycensus` | Yes |
 | ACS Public Use Microdata | Person and household records | `tidycensus` | Yes |
@@ -129,7 +150,7 @@ Scan the catalog quickly. Students return to it in the class share at the end of
 
 ## Census Bureau: businesses and labor markets {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | County and ZIP Business Patterns | Establishments, employment, and payroll by industry | `censusapi` | Yes |
 | Nonemployer Statistics | Self-employment and small businesses by industry | `censusapi` | Yes |
@@ -139,7 +160,7 @@ Scan the catalog quickly. Students return to it in the class share at the end of
 
 ## Census Bureau: trade, indicators, and geography {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | International Trade | Monthly imports and exports by product and partner | `censusapi` | Yes |
 | Economic Indicators | Retail sales, housing starts, and manufacturing | `censusapi` | Yes |
@@ -150,7 +171,7 @@ Geographic identifiers and boundaries link nearly every source in this catalog
 
 ## Federal statistics: prices, income, and labor {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | Bureau of Labor Statistics | CPI, PPI, employment, and wages (QCEW, LAUS, OEWS) | `blsR` | Yes |
 | Bureau of Economic Analysis | GDP and personal income by state and county | `bea.R` | Yes |
@@ -162,7 +183,7 @@ Geographic identifiers and boundaries link nearly every source in this catalog
 
 ## Federal statistics: energy, finance, and spending {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | Energy Information Administration | Energy prices, production, and consumption by state | `eia` | Yes |
 | CFPB HMDA | Mortgage applications and lending decisions | `httr2` | No |
@@ -174,7 +195,7 @@ Geographic identifiers and boundaries link nearly every source in this catalog
 
 ## USDA: production and markets {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | NASS Quick Stats | Acreage, yields, prices, inventories, and the Census of Agriculture | `rnassqs` | Yes |
 | NASS Cropland Data Layer | Annual 30-meter crop and land-cover map | `CropScapeR` | No |
@@ -190,7 +211,7 @@ Older community packages exist for ARMS (rarms) and AMS mandatory price reportin
 
 ## USDA: food, soils, snow, and forests {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | FoodData Central | Nutrient composition of foods | `httr2` | api.data.gov |
 | NRCS Soil Data Access | Soil properties and productivity (SSURGO) | `soilDB` | No |
@@ -201,7 +222,7 @@ Older community packages exist for ARMS (rarms) and AMS mandatory price reportin
 
 ## Environment: water, drought, and hazards {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | USGS Water Data | Streamflow and groundwater levels | `dataRetrieval` | No |
 | Water Quality Portal | Samples from federal, state, and tribal monitoring | `dataRetrieval` | No |
@@ -212,7 +233,7 @@ Older community packages exist for ARMS (rarms) and AMS mandatory price reportin
 
 ## Environment: weather and climate {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | NOAA NCEI | Daily station weather records (GHCN-Daily) | `httr2` | No |
 | PRISM | Gridded U.S. temperature and precipitation | `prism` | No |
@@ -227,7 +248,7 @@ Install climateR from GitHub (mikejohnson51/climateR); it is not on CRAN.
 
 ## Environment: land, pollution, and energy {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | NASA Earthdata | MODIS and Landsat imagery: vegetation, land cover, fire | `earthdatalogin`, `rstac` | Account |
 | Google Earth Engine | Processing large satellite archives | `rgee` | Account |
@@ -238,7 +259,7 @@ Install climateR from GitHub (mikejohnson51/climateR); it is not on CRAN.
 
 ## International {.dense}
 
-| Source | Economists use it for | R | Key |
+| Source | Economists use it for | R | Key Required |
 |:-----------------|:----------------------------|:-----------|:-------|
 | World Bank Indicators | Development indicators by country and year | `WDI` | No |
 | FAOSTAT | Agricultural production, trade, prices, and land use | `FAOSTAT` | Varies |
@@ -247,17 +268,23 @@ Install climateR from GitHub (mikejohnson51/climateR); it is not on CRAN.
 | IMF | Financial statistics and commodity prices | `imf.data` | No |
 | Eurostat | EU regional and sectoral statistics | `eurostat` | No |
 
-## Not every source has an API
+## Sources without an API {.dense}
 
-Bulk download or license
+Some providers distribute data only as files to download, or only to users who sign a license or data-use agreement
 
-- RMA Summary of Business: crop insurance by county and crop
-- IRS Statistics of Income: income by ZIP code and county migration
-- ERS data products such as the Food Environment Atlas
-- State agencies: water rights, land records, and licensing
-- Commercial data such as scanner or point-of-sale records, under a license
+| Access | Examples |
+|:----------------|:------------------------------------------------|
+| File download | RMA Summary of Business (crop insurance by county and crop); IRS Statistics of Income (income by ZIP code, county migration); ERS data products such as the Food Environment Atlas; state water-rights and land records |
+| License or agreement | Scanner and point-of-sale data; restricted federal microdata |
 
-A download script records the URL, the file, and the download date
+Download files with a short R script so the URL, file, and date are recorded
+
+```r
+url <- "https://www.irs.gov/pub/irs-soi/22zpallagi.csv"   # IRS SOI, ZIP code data, tax year 2022
+download.file(url, "data/raw/irs_soi_zip_2022.csv", mode = "wb")
+```
+
+For licensed data, record the provider, version, delivery date, and license terms
 
 ## APIs change and disappear
 
@@ -280,47 +307,46 @@ This sets up Lecture 5.3: raw files, retrieval records, and version control are 
 | Environment: weather | NASA POWER | Daily weather table |
 | Census Bureau | American Community Survey | Estimates, margins of error, and map geometry |
 
-The four sources differ in access, unit of observation, and geography. Each example begins with a small request that can be inspected before the request is expanded
+The four sources differ in access, unit of observation, and geography. 
 
-## Run R in the HTML slides
+Each example begins with a small request that can be inspected before the request is expanded
 
-- Wait for the R ready message after opening the HTML lecture
-- Select **Run Code** to execute a live cell
-- Change a named value such as `threshold` or `selected`
-- Select **Start Over** to restore the original code
+## Two ways to run today's code
 
-The API retrieval slides show the complete request code for RStudio. The live cells use compact classroom extracts shaped like the returned records, so every student can run them from the course site
+**In RStudio.** The *Request* slides show code that contacts each agency's server and downloads the 2024 data. You will run it from `api_examples.R` in the follow-along repository
 
-The PDF contains the initial code for reference
+**In these slides.** The *Try it* slides run R inside your web browser, with no installation
 
-## Install the R packages
+1. Open the HTML version of this lecture and wait for the *R ready* message
+2. Select **Run Code**, change the value named in the instructions, and run again
+3. Select **Start Over** to restore the original code
 
-Run this installation once on your computer
-
-```r
-install.packages(c(
-  "CropScapeR",
-  "dataRetrieval",
-  "nasapower",
-  "tidycensus",
-  "ggplot2",
-  "dplyr"
-))
-```
-
-Create a folder for files returned by the services
-
-```r
-dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
-```
+The browser version of R cannot install the API packages or contact most agency servers, so each *Try it* cell starts from rows of the real 2024 downloads typed into the cell. The PDF shows the code without running it
 
 ## Follow-along repository
 
 [github.com/laurenchenarides/arec_570_demo](https://github.com/laurenchenarides/arec_570_demo)
 
-- Today's four requests are in `api_examples.R` at the `5.2-retrieve` tag
-- The full API catalog is in `docs/api-catalog.md`
-- Lectures 5.3 to 5.5 turn the same project into a reproducible, documented repository, one tagged stage per lecture
+For today, download the Lecture 5.2 version as a ZIP file; Git is not needed yet
+
+1. Download [arec_570_demo-5.2-retrieve.zip](https://github.com/laurenchenarides/arec_570_demo/archive/refs/tags/5.2-retrieve.zip) and unzip it
+2. Double-click `arec_570_demo.Rproj` to open the project in RStudio
+3. Open `api_examples.R` and run one line at a time with **Ctrl+Enter** (**Cmd+Return** on a Mac)
+
+The repository also holds the full API catalog (`docs/api-catalog.md`). Lectures 5.3 to 5.5 build on the same project
+
+## Install the R packages
+
+Run once in the RStudio Console. The list matches the top of `api_examples.R`
+
+```r
+install.packages(c(
+  "CropScapeR", "dataRetrieval", "nasapower", "tidycensus",
+  "ggplot2", "dplyr", "readr", "sf"
+))
+```
+
+`api_examples.R` creates a `data/raw` folder inside the project and saves each download there
 
 ## A retrieval workflow
 
@@ -380,28 +406,31 @@ The saved GeoTIFF contains a grid of land-cover codes and the information needed
 
 ## Try it: summarize land-cover records
 
-Change `selected`, then run the cell. The classroom extract has the same class-and-acreage structure used in a CDL summary
+Change `selected`, then run the cell. The acreage comes from the 2024 Larimer County download; "All other classes" combines the remaining 29 classes
 
 ```{webr}
 #| label: live-cdl-summary
 #| autorun: true
 cdl <- data.frame(
-  class = c("Corn", "Alfalfa", "Grassland", "Developed", "Other"),
-  acres = c(14200, 8900, 180500, 72400, 12600)
+  class = c("Evergreen Forest", "Grass/Pasture", "Shrubland",
+            "Corn", "Alfalfa", "Winter Wheat", "All other classes"),
+  acres = c(584635.7, 485338.1, 410812.1, 13266.7, 9022.6, 2386.3, 180286.1)
 )
-selected <- c("Corn", "Alfalfa")
+selected <- c("Corn", "Alfalfa", "Winter Wheat")
 chosen <- subset(cdl, class %in% selected)
-chosen$county_share <- round(chosen$acres / sum(cdl$acres), 3)
+chosen$county_share <- round(chosen$acres / sum(cdl$acres), 4)
 chosen
 ```
 
-## Assess the land-use data
+## Before using the land-use data
 
-- Crop-class definitions for each year
-- Classification accuracy for the study region and crop
-- Pixel resolution and coordinate system
-- Treatment of double cropping and small fields
-- Consistency of the study boundary across years
+Questions to answer from the CDL documentation
+
+- How does the CDL define each crop class, and did the definitions change across years?
+- How accurate is the classification for this crop and state? (NASS publishes accuracy tables by state)
+- What do the 30-meter pixels and the map projection imply for small fields?
+- How are double-cropped fields classified?
+- Does the study boundary stay the same across years?
 
 The CDL records modeled land-cover classes. Parcel ownership, zoning, and management practices require additional sources
 
@@ -442,33 +471,35 @@ The returned columns include date, value, unit, approval status, qualifiers, sta
 
 ## Try it: define a low-flow threshold
 
-Change `threshold`, then run the cell. The compact series represents the date and value columns returned by the water request
+Change `threshold`, then run the cell. The values are daily mean discharge for July 1 to 14, 2024, from the streamflow download
 
 ```{webr}
 #| label: live-streamflow-threshold
 poudre_flow <- data.frame(
   date = as.Date("2024-07-01") + 0:13,
-  flow = c(970, 910, 820, 760, 680, 610, 540, 490, 450, 420, 390, 360, 335, 310)
+  flow = c(86.4, 162, 117, 68.2, 101, 92, 30.3, 7.66, 22.4, 35.7, 38.6, 51, 25.9, 27.1)
 )
-threshold <- 500
+threshold <- 20
 cat("Days below threshold:", sum(poudre_flow$flow < threshold))
-plot(flow ~ date, poudre_flow, type = "l", xlab = "", ylab = "Daily discharge")
+plot(flow ~ date, poudre_flow, type = "l", xlab = "", ylab = "Daily discharge (cubic feet per second)")
 abline(h = threshold, col = "#C4513A", lty = 2)
 ```
 
-## Assess the streamflow series
+## Before using the streamflow series
 
-- Confirm the monitoring location and parameter
-- Read the unit attached to each series
-- Examine provisional and approved status
-- Identify missing dates and changes in the operating record
-- Learn whether reservoirs, diversions, or return flows affect the gauge
-- Define the geographic relationship between the gauge and the study area
+Questions to answer from the USGS record
+
+- Is this the right monitoring location and parameter (00060, discharge)?
+- What unit does the series use (cubic feet per second)?
+- Which values are provisional or revised? In the 2024 download, 72 of 183 days carry the qualifier REVISED
+- Are any dates missing?
+- Do reservoirs, diversions, or return flows upstream affect the gauge?
+- How does one gauge relate to the study area?
 
 The gauge measures conditions at one point on a river network. A study of irrigation access may also require diversion service areas, water rights, or delivery records
 
 ::: notes
-Use the read_waterdata functions for the modern USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027.
+Use the read_waterdata functions for the current USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027.
 :::
 
 ## Example 3: weather
@@ -516,28 +547,30 @@ The three requested measures are maximum temperature, minimum temperature, and p
 
 ## Try it: define weather exposures
 
-Change `heat_threshold`, then run the cell. The extract contains daily maximum temperature and precipitation
+Change `heat_threshold`, then run the cell. The values are daily maximum temperature and precipitation for July 1 to 14, 2024, from the weather download
 
 ```{webr}
 #| label: live-weather-exposure
-tmax <- c(29, 31, 33, 35, 36, 34, 30, 28, 32, 37, 38, 35, 31, 29)
-precip <- c(0, 0, 1.2, 0, 0, 4.8, 0, 7.1, 0, 0, 0, 0.5, 2.4, 0)
+tmax <- c(33.71, 30.82, 33.09, 30.03, 29.01, 32.76, 23.65, 28.66, 32.02, 34.21, 36.76, 38.52, 37.90, 38.55)
+precip <- c(3.08, 0.95, 0.03, 0.01, 0.02, 0.01, 2.94, 0.03, 0.26, 0.16, 0.04, 0, 0.05, 0.26)
 heat_threshold <- 35
 c(heat_days = sum(tmax >= heat_threshold),
   total_precip_mm = sum(precip))
-plot(tmax, type = "b", xlab = "Day", ylab = "Maximum temperature (C)")
+plot(tmax, type = "b", xlab = "Day of July", ylab = "Maximum temperature (C)")
 abline(h = heat_threshold, col = "#C4513A", lty = 2)
 ```
 
-## Assess the weather data
+## Before using the weather data
 
-- Grid-cell resolution
-- Coordinates assigned to each study unit
-- Parameter definition and unit
-- Time standard and daily aggregation
-- Version and revision status
+Questions to answer from the POWER documentation
 
-POWER provides grid-cell estimates. Conditions at fields within the same cell can vary
+- How large is the grid cell? (About 0.5° by 0.625°, roughly 55 by 53 km near Fort Collins)
+- Which coordinates represent each farm, county, or market in the study?
+- How is each variable defined, and in what unit?
+- Which time standard defines a day? (POWER daily values use local solar time)
+- Which data version was retrieved, and can values be revised?
+
+Every location in a grid cell receives the same values, so conditions at individual fields can differ from the cell estimate
 
 ## Example 4: Census ACS
 
@@ -562,6 +595,8 @@ The Census Bureau requires a key for every request
 1. Complete the form at [api.census.gov/data/key_signup.html](https://api.census.gov/data/key_signup.html)
 2. Open the email from the Census Bureau and select the activation link
 3. Keep the 40-character key from that email for the next step
+
+Until your key is active, skip section 4 of `api_examples.R`; sections 1 to 3 need no key
 
 ## Store the Census API key
 
@@ -624,7 +659,7 @@ $$
 
 ## Try it: use the ACS margin of error
 
-Change `relative_moe_limit`, then run the cell. The classroom extract contains one estimate and margin of error for each tract
+Change `relative_moe_limit`, then run the cell. The four tracts are illustrative values with the same columns as the ACS download
 
 ```{webr}
 #| label: live-acs-uncertainty
@@ -639,16 +674,18 @@ acs$retain <- acs$relative_moe <= relative_moe_limit
 acs
 ```
 
-## Assess the ACS estimates
+## Before using the ACS estimates
 
-- Treat the five-year estimate as a pooled period ending in the named year
-- Retain the margin of error
-- Identify estimates with large uncertainty
-- Use geographic identifiers as character values
-- Record the tract boundary vintage
-- Adjust monetary values when comparing periods
+Questions to answer from the ACS documentation
 
-ACS data can describe the population and socioeconomic setting for a land or water study. Exposure measures and program participation may come from separate sources
+- The 2024 five-year estimate pools responses from 2020 to 2024. Does a pooled period suit the question?
+- How large is each margin of error relative to its estimate?
+- Which tracts have estimates too uncertain to use?
+- Are geographic identifiers stored as text, so leading zeros survive?
+- Which tract boundaries apply? (2020 boundaries for the 2024 release)
+- Are dollar values adjusted to a common year when comparing periods?
+
+ACS data describe the population and socioeconomic setting; exposure measures come from other sources
 
 ## The unit changes across sources
 
@@ -721,43 +758,44 @@ Keep these items with the project
 
 Store API keys in the user environment file and exclude that file from version control
 
-## Class share: where are you in the process?
+## Class share: your data plan
 
-We will go around the room. For your project describe
+Write one line for each item, specific enough that a classmate could start the same search
 
-1. The outcome, exposure, or behavior you need to observe
-2. The primary, secondary, or combined collection approach you expect to use
-3. The two catalog sources you marked, or another source or tool you have found helpful
-4. The part of the collection process you are still working through
-5. The next concrete step in your data search or collection
+1. **Outcome or exposure:** the behavior or condition you need to observe
+2. **Approach:** primary, secondary, or combined collection
+3. **Sources and access:** the two catalog sources you marked, with the access type (API, file download, or license) and whether a key is required
+4. **Unit of observation:** what one row represents, such as county-year or gauge-day
+5. **Open question:** the part of collection you are still working through
+6. **Next step:** one concrete action and when you will take it
+
+Share your plan in about one minute. Template: `docs/data-plan.md` in the follow-along repository
 
 ::: notes
 Allow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code.
 :::
 
-## Fork or template? {.dense}
+## Example: the demo project's data plan {.dense}
 
-Two ways to copy a GitHub repository into your account
-
-| | Fork | Template |
-|:----------------|:------------------------------|:------------------------------|
-| History | Keeps every commit (and tags, if you uncheck *Copy the main branch only*) | Starts a new history |
-| Link to the original | Pull later updates; propose changes back | None |
-| Visibility | Public when the original is public | Public or private |
-| Use it for | Following a project that keeps changing | Starting your own project from a standard layout |
-
-For this course, **fork** the demo repository: the fork keeps the tag for each lecture, and **Sync fork** brings in updates. Keep your own research in a separate private repository
+| Item | Demo project |
+|:-------------------|:--------------------------------------------------|
+| Outcome or exposure | Low-flow days and heat days on the Cache la Poudre River, 2024 growing season |
+| Approach | Secondary, combined from public APIs |
+| Sources and access | USGS Water Data (API, no key); NASA POWER (API, no key) |
+| Unit of observation | Day: gauge-day for streamflow, grid cell-day for weather |
+| Open question | How to assign one gauge and one weather grid cell to farms across the county |
+| Next step | This week, request 2015 to 2024 for the same gauge and count revised values by year |
 
 ## Before Lecture 5.3
 
-Complete Parts One through Three of [docs/setup-rstudio.md](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
+Complete Parts One and Two of [docs/setup-rstudio.md](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
 
 1. Install Git and restart RStudio
-2. Create a GitHub account and connect RStudio with `usethis` and a personal access token
-3. Request, activate, and store a Census API key
-4. Fork the demo repository (uncheck *Copy the main branch only*) and open it in RStudio as a new project
+2. Create a GitHub account
+3. Connect RStudio to GitHub with `usethis` and a personal access token
+4. Request, activate, and store a Census API key
 
-Bring a laptop where `usethis::git_sitrep()` runs without errors and `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`
+Bring a laptop where `usethis::git_sitrep()` runs without errors and `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`. We will copy the demo repository into your GitHub account together in class
 
 ::: notes
 Installing Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control.

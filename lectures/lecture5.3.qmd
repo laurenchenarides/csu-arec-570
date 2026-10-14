@@ -102,6 +102,30 @@ Git records selected snapshots and the history connecting them.
 
 GitHub hosts repositories and supports collaboration. Git also works locally.
 
+## Fork or template? {.dense}
+
+Two ways to copy a GitHub repository into your account
+
+| | Fork | Template |
+|:----------------|:------------------------------|:------------------------------|
+| History | Keeps every commit (and tags, if you uncheck *Copy the main branch only*) | Starts a new history |
+| Link to the original | Pull later updates; propose changes back | None |
+| Visibility | Public when the original is public | Public or private |
+| Use it for | Following a project that keeps changing | Starting your own project from a standard layout |
+
+For this course, **fork** the demo repository: the fork keeps the tag for each lecture, and **Sync fork** brings in updates. Keep your own research in a separate private repository
+
+## Fork the demo repository
+
+Follow Part Three of [docs/setup-rstudio.md](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
+
+1. On [github.com/laurenchenarides/arec_570_demo](https://github.com/laurenchenarides/arec_570_demo), select **Fork**
+2. Uncheck **Copy the main branch only**, then select **Create fork**
+3. On your fork, select **Code** and copy the HTTPS URL
+4. In RStudio: **File > New Project > Version Control > Git**, paste the URL, and select **Create Project**
+
+The Git tab appears in the upper-right pane of RStudio
+
 ## First commit in a practice folder
 
 ~~~bash
