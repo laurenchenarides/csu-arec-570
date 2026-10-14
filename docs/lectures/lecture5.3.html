@@ -297,6 +297,58 @@ Lauren Chenarides
 </ul>
 <p>GitHub hosts repositories and supports collaboration. Git also works locally.</p>
 </section>
+<section id="fork-or-template" class="slide level2 dense">
+<h2>Fork or template?</h2>
+<p>Two ways to copy a GitHub repository into your account</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 39%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Fork</th>
+<th style="text-align: left;">Template</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">History</td>
+<td style="text-align: left;">Keeps every commit (and tags, if you uncheck <em>Copy the main branch only</em>)</td>
+<td style="text-align: left;">Starts a new history</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Link to the original</td>
+<td style="text-align: left;">Pull later updates; propose changes back</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Visibility</td>
+<td style="text-align: left;">Public when the original is public</td>
+<td style="text-align: left;">Public or private</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Use it for</td>
+<td style="text-align: left;">Following a project that keeps changing</td>
+<td style="text-align: left;">Starting your own project from a standard layout</td>
+</tr>
+</tbody>
+</table>
+<p>For this course, <strong>fork</strong> the demo repository: the fork keeps the tag for each lecture, and <strong>Sync fork</strong> brings in updates. Keep your own research in a separate private repository</p>
+</section>
+<section id="fork-the-demo-repository" class="slide level2 scrollable">
+<h2>Fork the demo repository</h2>
+<p>Follow Part Three of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
+<ol type="1">
+<li>On <a href="https://github.com/laurenchenarides/arec_570_demo">github.com/laurenchenarides/arec_570_demo</a>, select <strong>Fork</strong></li>
+<li>Uncheck <strong>Copy the main branch only</strong>, then select <strong>Create fork</strong></li>
+<li>On your fork, select <strong>Code</strong> and copy the HTTPS URL</li>
+<li>In RStudio: <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>, paste the URL, and select <strong>Create Project</strong></li>
+</ol>
+<p>The Git tab appears in the upper-right pane of RStudio</p>
+</section>
 <section id="first-commit-in-a-practice-folder" class="slide level2">
 <h2>First commit in a practice folder</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="fu">git</span> init</span>

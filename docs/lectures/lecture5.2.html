@@ -273,26 +273,83 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-happens-when-r-calls-an-api" class="slide level2">
-<h2>What happens when R calls an API</h2>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">R function</mtext><mo>→</mo><mtext mathvariant="normal">request</mtext><mo>→</mo><mtext mathvariant="normal">data service</mtext><mo>→</mo><mtext mathvariant="normal">response</mtext><mo>→</mo><mtext mathvariant="normal">R object</mtext></mrow><annotation encoding="application/x-tex">
-\text{R function}
-\longrightarrow
-\text{request}
-\longrightarrow
-\text{data service}
-\longrightarrow
-\text{response}
-\longrightarrow
-\text{R object}
-</annotation></semantics></math></p>
+<section id="working-in-r-and-rstudio" class="slide level2">
+<h2>Working in R and RStudio</h2>
+<p><strong>R</strong> is the programming language that sends each request and holds the returned data. <strong>RStudio</strong> is the application where you write R code in a script, run it, and see the results</p>
+<p>Collecting data with code has three advantages over clicking through a website</p>
 <ul>
-<li><strong>Endpoint</strong> is the web address for a data service</li>
-<li><strong>Parameters</strong> specify the place, time, variables, and other selections</li>
-<li><strong>Response</strong> is the information returned by the service</li>
-<li><strong>R package</strong> translates the response into a familiar object</li>
+<li>The script records exactly what was requested: place, period, and variables</li>
+<li>Rerunning the script repeats the request, for you or a coauthor</li>
+<li>Changing one value extends the request to more counties or years</li>
 </ul>
-<p>Many services transmit a structured text format called <strong>JSON</strong>. The packages in today’s examples read that format and return a data frame, map, or raster</p>
+<p>Today you will run the requests in RStudio and try short exercises inside these slides</p>
+<aside class="notes">
+<p>Stata and Python have packages for many of the same APIs. The course uses R because of its Census, water, and geospatial packages.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-happens-when-r-calls-an-api" class="slide level2 dense">
+<h2>What happens when R calls an API</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Step</th>
+<th style="text-align: left;">What happens</th>
+<th style="text-align: left;">Streamflow example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. R function</td>
+<td style="text-align: left;">You call a package function and list what you want</td>
+<td style="text-align: left;"><code>read_waterdata_daily()</code> with a station, a parameter, and dates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Request</td>
+<td style="text-align: left;">The package adds those <strong>parameters</strong> to the service’s web address, called the <strong>endpoint</strong></td>
+<td style="text-align: left;"><code>api.waterdata.usgs.gov/...?monitoring_location_id=USGS-06752260&amp;parameter_code=00060</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Data service</td>
+<td style="text-align: left;">The agency’s server finds the matching records</td>
+<td style="text-align: left;">USGS Water Data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4. Response</td>
+<td style="text-align: left;">The server returns the records as structured text, usually <strong>JSON</strong></td>
+<td style="text-align: left;">One record per day</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. R object</td>
+<td style="text-align: left;">The package converts the text into a data frame</td>
+<td style="text-align: left;">183 rows, one per day</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="from-response-to-r-object" class="slide level2">
+<h2>From response to R object</h2>
+<p>The service returns text like this for each day (simplified)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a aria-label="1"></a><span class="fu">{</span><span class="dt">"time"</span><span class="fu">:</span> <span class="st">"2024-07-01"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="fl">86.4</span><span class="fu">,</span> <span class="dt">"unit_of_measure"</span><span class="fu">:</span> <span class="st">"ft^3/s"</span><span class="fu">,</span> <span class="dt">"approval_status"</span><span class="fu">:</span> <span class="st">"Approved"</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The R package turns the records into rows of a data frame</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>  time       value unit_of_measure approval_status</span>
+<span id="cb2-2"><a aria-label="2"></a>  2024-07-01  86.4 ft^3/s          Approved</span>
+<span id="cb2-3"><a aria-label="3"></a>  2024-07-02 162   ft^3/s          Approved</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You work with the data frame; the package handles the request and the JSON</p>
 </section>
 <section id="getting-access" class="slide level2">
 <h2>Getting access</h2>
@@ -340,7 +397,6 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
-<p>As we scan the next slides, write down the two sources closest to your project</p>
 <aside class="notes">
 <p>Scan the catalog quickly. Students return to it in the class share at the end of the meeting. In the R column, httr2 means the request is written directly against the documented endpoint because no maintained package exists.</p>
 <style type="text/css">
@@ -369,7 +425,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -421,7 +477,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -472,7 +528,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -518,7 +574,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -570,7 +626,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -622,7 +678,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -687,7 +743,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -733,7 +789,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -779,7 +835,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -838,7 +894,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -895,7 +951,7 @@ Lauren Chenarides
 <th style="text-align: left;">Source</th>
 <th style="text-align: left;">Economists use it for</th>
 <th style="text-align: left;">R</th>
-<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Key Required</th>
 </tr>
 </thead>
 <tbody>
@@ -938,17 +994,35 @@ Lauren Chenarides
 </tbody>
 </table>
 </section>
-<section id="not-every-source-has-an-api" class="slide level2">
-<h2>Not every source has an API</h2>
-<p>Bulk download or license</p>
-<ul>
-<li>RMA Summary of Business: crop insurance by county and crop</li>
-<li>IRS Statistics of Income: income by ZIP code and county migration</li>
-<li>ERS data products such as the Food Environment Atlas</li>
-<li>State agencies: water rights, land records, and licensing</li>
-<li>Commercial data such as scanner or point-of-sale records, under a license</li>
-</ul>
-<p>A download script records the URL, the file, and the download date</p>
+<section id="sources-without-an-api" class="slide level2 dense">
+<h2>Sources without an API</h2>
+<p>Some providers distribute data only as files to download, or only to users who sign a license or data-use agreement</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 74%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Access</th>
+<th style="text-align: left;">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">File download</td>
+<td style="text-align: left;">RMA Summary of Business (crop insurance by county and crop); IRS Statistics of Income (income by ZIP code, county migration); ERS data products such as the Food Environment Atlas; state water-rights and land records</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License or agreement</td>
+<td style="text-align: left;">Scanner and point-of-sale data; restricted federal microdata</td>
+</tr>
+</tbody>
+</table>
+<p>Download files with a short R script so the URL, file, and date are recorded</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://www.irs.gov/pub/irs-soi/22zpallagi.csv"</span>   <span class="co"># IRS SOI, ZIP code data, tax year 2022</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">download.file</span>(url, <span class="st">"data/raw/irs_soi_zip_2022.csv"</span>, <span class="at">mode =</span> <span class="st">"wb"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For licensed data, record the provider, version, delivery date, and license terms</p>
 </section>
 <section id="apis-change-and-disappear" class="slide level2">
 <h2>APIs change and disappear</h2>
@@ -1010,41 +1084,39 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
-<p>The four sources differ in access, unit of observation, and geography. Each example begins with a small request that can be inspected before the request is expanded</p>
+<p>The four sources differ in access, unit of observation, and geography.</p>
+<p>Each example begins with a small request that can be inspected before the request is expanded</p>
 </section>
-<section id="run-r-in-the-html-slides" class="slide level2">
-<h2>Run R in the HTML slides</h2>
-<ul>
-<li>Wait for the R ready message after opening the HTML lecture</li>
-<li>Select <strong>Run Code</strong> to execute a live cell</li>
-<li>Change a named value such as <code>threshold</code> or <code>selected</code></li>
+<section id="two-ways-to-run-todays-code" class="slide level2">
+<h2>Two ways to run today’s code</h2>
+<p><strong>In RStudio.</strong> The <em>Request</em> slides show code that contacts each agency’s server and downloads the 2024 data. You will run it from <code>api_examples.R</code> in the follow-along repository</p>
+<p><strong>In these slides.</strong> The <em>Try it</em> slides run R inside your web browser, with no installation</p>
+<ol type="1">
+<li>Open the HTML version of this lecture and wait for the <em>R ready</em> message</li>
+<li>Select <strong>Run Code</strong>, change the value named in the instructions, and run again</li>
 <li>Select <strong>Start Over</strong> to restore the original code</li>
-</ul>
-<p>The API retrieval slides show the complete request code for RStudio. The live cells use compact classroom extracts shaped like the returned records, so every student can run them from the course site</p>
-<p>The PDF contains the initial code for reference</p>
-</section>
-<section id="install-the-r-packages" class="slide level2">
-<h2>Install the R packages</h2>
-<p>Run this installation once on your computer</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
-<span id="cb1-2"><a aria-label="2"></a>  <span class="st">"CropScapeR"</span>,</span>
-<span id="cb1-3"><a aria-label="3"></a>  <span class="st">"dataRetrieval"</span>,</span>
-<span id="cb1-4"><a aria-label="4"></a>  <span class="st">"nasapower"</span>,</span>
-<span id="cb1-5"><a aria-label="5"></a>  <span class="st">"tidycensus"</span>,</span>
-<span id="cb1-6"><a aria-label="6"></a>  <span class="st">"ggplot2"</span>,</span>
-<span id="cb1-7"><a aria-label="7"></a>  <span class="st">"dplyr"</span></span>
-<span id="cb1-8"><a aria-label="8"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Create a folder for files returned by the services</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">dir.create</span>(<span class="st">"data/raw"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</ol>
+<p>The browser version of R cannot install the API packages or contact most agency servers, so each <em>Try it</em> cell starts from rows of the real 2024 downloads typed into the cell. The PDF shows the code without running it</p>
 </section>
 <section id="follow-along-repository" class="slide level2">
 <h2>Follow-along repository</h2>
 <p><a href="https://github.com/laurenchenarides/arec_570_demo">github.com/laurenchenarides/arec_570_demo</a></p>
-<ul>
-<li>Today’s four requests are in <code>api_examples.R</code> at the <code>5.2-retrieve</code> tag</li>
-<li>The full API catalog is in <code>docs/api-catalog.md</code></li>
-<li>Lectures 5.3 to 5.5 turn the same project into a reproducible, documented repository, one tagged stage per lecture</li>
-</ul>
+<p>For today, download the Lecture 5.2 version as a ZIP file; Git is not needed yet</p>
+<ol type="1">
+<li>Download <a href="https://github.com/laurenchenarides/arec_570_demo/archive/refs/tags/5.2-retrieve.zip">arec_570_demo-5.2-retrieve.zip</a> and unzip it</li>
+<li>Double-click <code>arec_570_demo.Rproj</code> to open the project in RStudio</li>
+<li>Open <code>api_examples.R</code> and run one line at a time with <strong>Ctrl+Enter</strong> (<strong>Cmd+Return</strong> on a Mac)</li>
+</ol>
+<p>The repository also holds the full API catalog (<code>docs/api-catalog.md</code>). Lectures 5.3 to 5.5 build on the same project</p>
+</section>
+<section id="install-the-r-packages" class="slide level2">
+<h2>Install the R packages</h2>
+<p>Run once in the RStudio Console. The list matches the top of <code>api_examples.R</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="st">"CropScapeR"</span>, <span class="st">"dataRetrieval"</span>, <span class="st">"nasapower"</span>, <span class="st">"tidycensus"</span>,</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="st">"ggplot2"</span>, <span class="st">"dplyr"</span>, <span class="st">"readr"</span>, <span class="st">"sf"</span></span>
+<span id="cb4-4"><a aria-label="4"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>api_examples.R</code> creates a <code>data/raw</code> folder inside the project and saves each download there</p>
 </section>
 <section id="a-retrieval-workflow" class="slide level2">
 <h2>A retrieval workflow</h2>
@@ -1083,16 +1155,16 @@ Lauren Chenarides
 </section>
 <section id="request-a-cropland-data-layer-map" class="slide level2">
 <h2>Request a Cropland Data Layer map</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(CropScapeR)</span>
-<span id="cb3-2"><a aria-label="2"></a></span>
-<span id="cb3-3"><a aria-label="3"></a>larimer_cdl <span class="ot">&lt;-</span> <span class="fu">GetCDLData</span>(</span>
-<span id="cb3-4"><a aria-label="4"></a>  <span class="at">aoi =</span> <span class="st">"08069"</span>,</span>
-<span id="cb3-5"><a aria-label="5"></a>  <span class="at">year =</span> <span class="dv">2024</span>,</span>
-<span id="cb3-6"><a aria-label="6"></a>  <span class="at">type =</span> <span class="st">"f"</span>,</span>
-<span id="cb3-7"><a aria-label="7"></a>  <span class="at">save_path =</span> <span class="st">"data/raw/cdl_larimer_2024.tif"</span></span>
-<span id="cb3-8"><a aria-label="8"></a>)</span>
-<span id="cb3-9"><a aria-label="9"></a></span>
-<span id="cb3-10"><a aria-label="10"></a>raster<span class="sc">::</span><span class="fu">plot</span>(larimer_cdl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(CropScapeR)</span>
+<span id="cb5-2"><a aria-label="2"></a></span>
+<span id="cb5-3"><a aria-label="3"></a>larimer_cdl <span class="ot">&lt;-</span> <span class="fu">GetCDLData</span>(</span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="at">aoi =</span> <span class="st">"08069"</span>,</span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="at">year =</span> <span class="dv">2024</span>,</span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="at">type =</span> <span class="st">"f"</span>,</span>
+<span id="cb5-7"><a aria-label="7"></a>  <span class="at">save_path =</span> <span class="st">"data/raw/cdl_larimer_2024.tif"</span></span>
+<span id="cb5-8"><a aria-label="8"></a>)</span>
+<span id="cb5-9"><a aria-label="9"></a></span>
+<span id="cb5-10"><a aria-label="10"></a>raster<span class="sc">::</span><span class="fu">plot</span>(larimer_cdl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>08069</code> is the five-digit Census code for Larimer County</p>
 <p>The saved GeoTIFF contains a grid of land-cover codes and the information needed to locate those cells on a map</p>
 </section>
@@ -1107,26 +1179,27 @@ Lauren Chenarides
 </section>
 <section id="try-it-summarize-land-cover-records" class="slide level2">
 <h2>Try it: summarize land-cover records</h2>
-<p>Change <code>selected</code>, then run the cell. The classroom extract has the same class-and-acreage structure used in a CDL summary</p>
+<p>Change <code>selected</code>, then run the cell. The acreage comes from the 2024 Larimer County download; “All other classes” combines the remaining 29 classes</p>
 <div class="cell" data-autorun="true">
 <div>
 <div id="webr-1" class="exercise-cell">
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoiY2RsIDwtIGRhdGEuZnJhbWUoXG4gIGNsYXNzID0gYyhcIkNvcm5cIiwgXCJBbGZhbGZhXCIsIFwiR3Jhc3NsYW5kXCIsIFwiRGV2ZWxvcGVkXCIsIFwiT3RoZXJcIiksXG4gIGFjcmVzID0gYygxNDIwMCwgODkwMCwgMTgwNTAwLCA3MjQwMCwgMTI2MDApXG4pXG5zZWxlY3RlZCA8LSBjKFwiQ29yblwiLCBcIkFsZmFsZmFcIilcbmNob3NlbiA8LSBzdWJzZXQoY2RsLCBjbGFzcyAlaW4lIHNlbGVjdGVkKVxuY2hvc2VuJGNvdW50eV9zaGFyZSA8LSByb3VuZChjaG9zZW4kYWNyZXMgLyBzdW0oY2RsJGFjcmVzKSwgMylcbmNob3NlbiJ9
+eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoiY2RsIDwtIGRhdGEuZnJhbWUoXG4gIGNsYXNzID0gYyhcIkV2ZXJncmVlbiBGb3Jlc3RcIiwgXCJHcmFzcy9QYXN0dXJlXCIsIFwiU2hydWJsYW5kXCIsXG4gICAgICAgICAgICBcIkNvcm5cIiwgXCJBbGZhbGZhXCIsIFwiV2ludGVyIFdoZWF0XCIsIFwiQWxsIG90aGVyIGNsYXNzZXNcIiksXG4gIGFjcmVzID0gYyg1ODQ2MzUuNywgNDg1MzM4LjEsIDQxMDgxMi4xLCAxMzI2Ni43LCA5MDIyLjYsIDIzODYuMywgMTgwMjg2LjEpXG4pXG5zZWxlY3RlZCA8LSBjKFwiQ29yblwiLCBcIkFsZmFsZmFcIiwgXCJXaW50ZXIgV2hlYXRcIilcbmNob3NlbiA8LSBzdWJzZXQoY2RsLCBjbGFzcyAlaW4lIHNlbGVjdGVkKVxuY2hvc2VuJGNvdW50eV9zaGFyZSA8LSByb3VuZChjaG9zZW4kYWNyZXMgLyBzdW0oY2RsJGFjcmVzKSwgNClcbmNob3NlbiJ9
 </script>
 </div>
 </div>
 </section>
-<section id="assess-the-land-use-data" class="slide level2">
-<h2>Assess the land-use data</h2>
+<section id="before-using-the-land-use-data" class="slide level2">
+<h2>Before using the land-use data</h2>
+<p>Questions to answer from the CDL documentation</p>
 <ul>
-<li>Crop-class definitions for each year</li>
-<li>Classification accuracy for the study region and crop</li>
-<li>Pixel resolution and coordinate system</li>
-<li>Treatment of double cropping and small fields</li>
-<li>Consistency of the study boundary across years</li>
+<li>How does the CDL define each crop class, and did the definitions change across years?</li>
+<li>How accurate is the classification for this crop and state? (NASS publishes accuracy tables by state)</li>
+<li>What do the 30-meter pixels and the map projection imply for small fields?</li>
+<li>How are double-cropped fields classified?</li>
+<li>Does the study boundary stay the same across years?</li>
 </ul>
 <p>The CDL records modeled land-cover classes. Parcel ownership, zoning, and management practices require additional sources</p>
 </section>
@@ -1142,46 +1215,47 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </section>
 <section id="request-daily-streamflow" class="slide level2">
 <h2>Request daily streamflow</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">library</span>(dataRetrieval)</span>
-<span id="cb4-2"><a aria-label="2"></a></span>
-<span id="cb4-3"><a aria-label="3"></a>poudre_flow <span class="ot">&lt;-</span> <span class="fu">read_waterdata_daily</span>(</span>
-<span id="cb4-4"><a aria-label="4"></a>  <span class="at">monitoring_location_id =</span> <span class="st">"USGS-06752260"</span>,</span>
-<span id="cb4-5"><a aria-label="5"></a>  <span class="at">parameter_code =</span> <span class="st">"00060"</span>,</span>
-<span id="cb4-6"><a aria-label="6"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="st">"2024-04-01"</span>, <span class="st">"2024-09-30"</span>)</span>
-<span id="cb4-7"><a aria-label="7"></a>)</span>
-<span id="cb4-8"><a aria-label="8"></a></span>
-<span id="cb4-9"><a aria-label="9"></a><span class="fu">names</span>(poudre_flow)</span>
-<span id="cb4-10"><a aria-label="10"></a><span class="fu">head</span>(poudre_flow)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">library</span>(dataRetrieval)</span>
+<span id="cb6-2"><a aria-label="2"></a></span>
+<span id="cb6-3"><a aria-label="3"></a>poudre_flow <span class="ot">&lt;-</span> <span class="fu">read_waterdata_daily</span>(</span>
+<span id="cb6-4"><a aria-label="4"></a>  <span class="at">monitoring_location_id =</span> <span class="st">"USGS-06752260"</span>,</span>
+<span id="cb6-5"><a aria-label="5"></a>  <span class="at">parameter_code =</span> <span class="st">"00060"</span>,</span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="st">"2024-04-01"</span>, <span class="st">"2024-09-30"</span>)</span>
+<span id="cb6-7"><a aria-label="7"></a>)</span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="fu">names</span>(poudre_flow)</span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">head</span>(poudre_flow)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>00060</code> is the USGS parameter code for discharge</p>
 <p>The returned columns include date, value, unit, approval status, qualifiers, station geometry, and a time-series identifier</p>
 </section>
 <section id="try-it-define-a-low-flow-threshold" class="slide level2">
 <h2>Try it: define a low-flow threshold</h2>
-<p>Change <code>threshold</code>, then run the cell. The compact series represents the date and value columns returned by the water request</p>
+<p>Change <code>threshold</code>, then run the cell. The values are daily mean discharge for July 1 to 14, 2024, from the streamflow download</p>
 <div class="cell">
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoicG91ZHJlX2Zsb3cgPC0gZGF0YS5mcmFtZShcbiAgZGF0ZSA9IGFzLkRhdGUoXCIyMDI0LTA3LTAxXCIpICsgMDoxMyxcbiAgZmxvdyA9IGMoOTcwLCA5MTAsIDgyMCwgNzYwLCA2ODAsIDYxMCwgNTQwLCA0OTAsIDQ1MCwgNDIwLCAzOTAsIDM2MCwgMzM1LCAzMTApXG4pXG50aHJlc2hvbGQgPC0gNTAwXG5jYXQoXCJEYXlzIGJlbG93IHRocmVzaG9sZDpcIiwgc3VtKHBvdWRyZV9mbG93JGZsb3cgPCB0aHJlc2hvbGQpKVxucGxvdChmbG93IH4gZGF0ZSwgcG91ZHJlX2Zsb3csIHR5cGUgPSBcImxcIiwgeGxhYiA9IFwiXCIsIHlsYWIgPSBcIkRhaWx5IGRpc2NoYXJnZVwiKVxuYWJsaW5lKGggPSB0aHJlc2hvbGQsIGNvbCA9IFwiI0M0NTEzQVwiLCBsdHkgPSAyKSJ9
+eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoicG91ZHJlX2Zsb3cgPC0gZGF0YS5mcmFtZShcbiAgZGF0ZSA9IGFzLkRhdGUoXCIyMDI0LTA3LTAxXCIpICsgMDoxMyxcbiAgZmxvdyA9IGMoODYuNCwgMTYyLCAxMTcsIDY4LjIsIDEwMSwgOTIsIDMwLjMsIDcuNjYsIDIyLjQsIDM1LjcsIDM4LjYsIDUxLCAyNS45LCAyNy4xKVxuKVxudGhyZXNob2xkIDwtIDIwXG5jYXQoXCJEYXlzIGJlbG93IHRocmVzaG9sZDpcIiwgc3VtKHBvdWRyZV9mbG93JGZsb3cgPCB0aHJlc2hvbGQpKVxucGxvdChmbG93IH4gZGF0ZSwgcG91ZHJlX2Zsb3csIHR5cGUgPSBcImxcIiwgeGxhYiA9IFwiXCIsIHlsYWIgPSBcIkRhaWx5IGRpc2NoYXJnZSAoY3ViaWMgZmVldCBwZXIgc2Vjb25kKVwiKVxuYWJsaW5lKGggPSB0aHJlc2hvbGQsIGNvbCA9IFwiI0M0NTEzQVwiLCBsdHkgPSAyKSJ9
 </script>
 </div>
 </div>
 </section>
-<section id="assess-the-streamflow-series" class="slide level2">
-<h2>Assess the streamflow series</h2>
+<section id="before-using-the-streamflow-series" class="slide level2">
+<h2>Before using the streamflow series</h2>
+<p>Questions to answer from the USGS record</p>
 <ul>
-<li>Confirm the monitoring location and parameter</li>
-<li>Read the unit attached to each series</li>
-<li>Examine provisional and approved status</li>
-<li>Identify missing dates and changes in the operating record</li>
-<li>Learn whether reservoirs, diversions, or return flows affect the gauge</li>
-<li>Define the geographic relationship between the gauge and the study area</li>
+<li>Is this the right monitoring location and parameter (00060, discharge)?</li>
+<li>What unit does the series use (cubic feet per second)?</li>
+<li>Which values are provisional or revised? In the 2024 download, 72 of 183 days carry the qualifier REVISED</li>
+<li>Are any dates missing?</li>
+<li>Do reservoirs, diversions, or return flows upstream affect the gauge?</li>
+<li>How does one gauge relate to the study area?</li>
 </ul>
 <p>The gauge measures conditions at one point on a river network. A study of irrigation access may also require diversion service areas, water rights, or delivery records</p>
 <aside class="notes">
-<p>Use the read_waterdata functions for the modern USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027.</p>
+<p>Use the read_waterdata functions for the current USGS Water Data APIs. USGS plans to decommission the services used by readNWIS functions in 2027.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1206,17 +1280,17 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </section>
 <section id="request-daily-weather" class="slide level2">
 <h2>Request daily weather</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(nasapower)</span>
-<span id="cb5-2"><a aria-label="2"></a></span>
-<span id="cb5-3"><a aria-label="3"></a>fort_collins_weather <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
-<span id="cb5-4"><a aria-label="4"></a>  <span class="at">community =</span> <span class="st">"AG"</span>,</span>
-<span id="cb5-5"><a aria-label="5"></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">105.08</span>, <span class="fl">40.58</span>),</span>
-<span id="cb5-6"><a aria-label="6"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"T2M_MAX"</span>, <span class="st">"T2M_MIN"</span>, <span class="st">"PRECTOTCORR"</span>),</span>
-<span id="cb5-7"><a aria-label="7"></a>  <span class="at">temporal_api =</span> <span class="st">"daily"</span>,</span>
-<span id="cb5-8"><a aria-label="8"></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">"2024-04-01"</span>, <span class="st">"2024-09-30"</span>)</span>
-<span id="cb5-9"><a aria-label="9"></a>)</span>
-<span id="cb5-10"><a aria-label="10"></a></span>
-<span id="cb5-11"><a aria-label="11"></a><span class="fu">head</span>(fort_collins_weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">library</span>(nasapower)</span>
+<span id="cb7-2"><a aria-label="2"></a></span>
+<span id="cb7-3"><a aria-label="3"></a>fort_collins_weather <span class="ot">&lt;-</span> <span class="fu">get_power</span>(</span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="at">community =</span> <span class="st">"AG"</span>,</span>
+<span id="cb7-5"><a aria-label="5"></a>  <span class="at">lonlat =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">105.08</span>, <span class="fl">40.58</span>),</span>
+<span id="cb7-6"><a aria-label="6"></a>  <span class="at">pars =</span> <span class="fu">c</span>(<span class="st">"T2M_MAX"</span>, <span class="st">"T2M_MIN"</span>, <span class="st">"PRECTOTCORR"</span>),</span>
+<span id="cb7-7"><a aria-label="7"></a>  <span class="at">temporal_api =</span> <span class="st">"daily"</span>,</span>
+<span id="cb7-8"><a aria-label="8"></a>  <span class="at">dates =</span> <span class="fu">c</span>(<span class="st">"2024-04-01"</span>, <span class="st">"2024-09-30"</span>)</span>
+<span id="cb7-9"><a aria-label="9"></a>)</span>
+<span id="cb7-10"><a aria-label="10"></a></span>
+<span id="cb7-11"><a aria-label="11"></a><span class="fu">head</span>(fort_collins_weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>AG</code> selects parameters prepared for agricultural applications</p>
 <p>The three requested measures are maximum temperature, minimum temperature, and precipitation</p>
 </section>
@@ -1231,28 +1305,29 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </section>
 <section id="try-it-define-weather-exposures" class="slide level2">
 <h2>Try it: define weather exposures</h2>
-<p>Change <code>heat_threshold</code>, then run the cell. The extract contains daily maximum temperature and precipitation</p>
+<p>Change <code>heat_threshold</code>, then run the cell. The values are daily maximum temperature and precipitation for July 1 to 14, 2024, from the weather download</p>
 <div class="cell">
 <div>
 <div id="webr-3" class="exercise-cell">
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoidG1heCA8LSBjKDI5LCAzMSwgMzMsIDM1LCAzNiwgMzQsIDMwLCAyOCwgMzIsIDM3LCAzOCwgMzUsIDMxLCAyOSlcbnByZWNpcCA8LSBjKDAsIDAsIDEuMiwgMCwgMCwgNC44LCAwLCA3LjEsIDAsIDAsIDAsIDAuNSwgMi40LCAwKVxuaGVhdF90aHJlc2hvbGQgPC0gMzVcbmMoaGVhdF9kYXlzID0gc3VtKHRtYXggPj0gaGVhdF90aHJlc2hvbGQpLFxuICB0b3RhbF9wcmVjaXBfbW0gPSBzdW0ocHJlY2lwKSlcbnBsb3QodG1heCwgdHlwZSA9IFwiYlwiLCB4bGFiID0gXCJEYXlcIiwgeWxhYiA9IFwiTWF4aW11bSB0ZW1wZXJhdHVyZSAoQylcIilcbmFibGluZShoID0gaGVhdF90aHJlc2hvbGQsIGNvbCA9IFwiI0M0NTEzQVwiLCBsdHkgPSAyKSJ9
+eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0IjoiMi4xIiwiZmlnLXdpZHRoIjoiNiIsIm1heC1saW5lcyI6IjkiLCJtaW4tbGluZXMiOiI1IiwicnVuYnV0dG9uIjp0cnVlLCJzdGFydG92ZXIiOnRydWV9LCJjb2RlIjoidG1heCA8LSBjKDMzLjcxLCAzMC44MiwgMzMuMDksIDMwLjAzLCAyOS4wMSwgMzIuNzYsIDIzLjY1LCAyOC42NiwgMzIuMDIsIDM0LjIxLCAzNi43NiwgMzguNTIsIDM3LjkwLCAzOC41NSlcbnByZWNpcCA8LSBjKDMuMDgsIDAuOTUsIDAuMDMsIDAuMDEsIDAuMDIsIDAuMDEsIDIuOTQsIDAuMDMsIDAuMjYsIDAuMTYsIDAuMDQsIDAsIDAuMDUsIDAuMjYpXG5oZWF0X3RocmVzaG9sZCA8LSAzNVxuYyhoZWF0X2RheXMgPSBzdW0odG1heCA+PSBoZWF0X3RocmVzaG9sZCksXG4gIHRvdGFsX3ByZWNpcF9tbSA9IHN1bShwcmVjaXApKVxucGxvdCh0bWF4LCB0eXBlID0gXCJiXCIsIHhsYWIgPSBcIkRheSBvZiBKdWx5XCIsIHlsYWIgPSBcIk1heGltdW0gdGVtcGVyYXR1cmUgKEMpXCIpXG5hYmxpbmUoaCA9IGhlYXRfdGhyZXNob2xkLCBjb2wgPSBcIiNDNDUxM0FcIiwgbHR5ID0gMikifQ==
 </script>
 </div>
 </div>
 </section>
-<section id="assess-the-weather-data" class="slide level2">
-<h2>Assess the weather data</h2>
+<section id="before-using-the-weather-data" class="slide level2">
+<h2>Before using the weather data</h2>
+<p>Questions to answer from the POWER documentation</p>
 <ul>
-<li>Grid-cell resolution</li>
-<li>Coordinates assigned to each study unit</li>
-<li>Parameter definition and unit</li>
-<li>Time standard and daily aggregation</li>
-<li>Version and revision status</li>
+<li>How large is the grid cell? (About 0.5° by 0.625°, roughly 55 by 53 km near Fort Collins)</li>
+<li>Which coordinates represent each farm, county, or market in the study?</li>
+<li>How is each variable defined, and in what unit?</li>
+<li>Which time standard defines a day? (POWER daily values use local solar time)</li>
+<li>Which data version was retrieved, and can values be revised?</li>
 </ul>
-<p>POWER provides grid-cell estimates. Conditions at fields within the same cell can vary</p>
+<p>Every location in a grid cell receives the same values, so conditions at individual fields can differ from the cell estimate</p>
 </section>
 <section id="example-4-census-acs" class="slide level2">
 <h2>Example 4: Census ACS</h2>
@@ -1272,45 +1347,46 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 <li>Open the email from the Census Bureau and select the activation link</li>
 <li>Keep the 40-character key from that email for the next step</li>
 </ol>
+<p>Until your key is active, skip section 4 of <code>api_examples.R</code>; sections 1 to 3 need no key</p>
 </section>
 <section id="store-the-census-api-key" class="slide level2">
 <h2>Store the Census API key</h2>
 <p>Open the user-level environment file from R</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
-<span id="cb6-2"><a aria-label="2"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Add one line, save the file, and restart R (<strong>Session &gt; Restart R</strong>)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a aria-label="1"></a>CENSUS_API_KEY=paste_your_key_here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a aria-label="1"></a>CENSUS_API_KEY=paste_your_key_here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Check that R can read it: <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code></p>
 <p>The file stays in your home directory, outside every project. Scripts read the key with <code>Sys.getenv("CENSUS_API_KEY")</code></p>
 </section>
 <section id="request-tract-estimates-and-geometry" class="slide level2">
 <h2>Request tract estimates and geometry</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(tidycensus)</span>
-<span id="cb8-2"><a aria-label="2"></a></span>
-<span id="cb8-3"><a aria-label="3"></a>larimer_income <span class="ot">&lt;-</span> <span class="fu">get_acs</span>(</span>
-<span id="cb8-4"><a aria-label="4"></a>  <span class="at">geography =</span> <span class="st">"tract"</span>,</span>
-<span id="cb8-5"><a aria-label="5"></a>  <span class="at">variables =</span> <span class="fu">c</span>(<span class="at">median_income =</span> <span class="st">"B19013_001"</span>),</span>
-<span id="cb8-6"><a aria-label="6"></a>  <span class="at">state =</span> <span class="st">"CO"</span>,</span>
-<span id="cb8-7"><a aria-label="7"></a>  <span class="at">county =</span> <span class="st">"Larimer"</span>,</span>
-<span id="cb8-8"><a aria-label="8"></a>  <span class="at">year =</span> <span class="dv">2024</span>,</span>
-<span id="cb8-9"><a aria-label="9"></a>  <span class="at">survey =</span> <span class="st">"acs5"</span>,</span>
-<span id="cb8-10"><a aria-label="10"></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-11"><a aria-label="11"></a>  <span class="at">key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"CENSUS_API_KEY"</span>)</span>
-<span id="cb8-12"><a aria-label="12"></a>)</span>
-<span id="cb8-13"><a aria-label="13"></a></span>
-<span id="cb8-14"><a aria-label="14"></a><span class="fu">head</span>(larimer_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">library</span>(tidycensus)</span>
+<span id="cb10-2"><a aria-label="2"></a></span>
+<span id="cb10-3"><a aria-label="3"></a>larimer_income <span class="ot">&lt;-</span> <span class="fu">get_acs</span>(</span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="at">geography =</span> <span class="st">"tract"</span>,</span>
+<span id="cb10-5"><a aria-label="5"></a>  <span class="at">variables =</span> <span class="fu">c</span>(<span class="at">median_income =</span> <span class="st">"B19013_001"</span>),</span>
+<span id="cb10-6"><a aria-label="6"></a>  <span class="at">state =</span> <span class="st">"CO"</span>,</span>
+<span id="cb10-7"><a aria-label="7"></a>  <span class="at">county =</span> <span class="st">"Larimer"</span>,</span>
+<span id="cb10-8"><a aria-label="8"></a>  <span class="at">year =</span> <span class="dv">2024</span>,</span>
+<span id="cb10-9"><a aria-label="9"></a>  <span class="at">survey =</span> <span class="st">"acs5"</span>,</span>
+<span id="cb10-10"><a aria-label="10"></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-11"><a aria-label="11"></a>  <span class="at">key =</span> <span class="fu">Sys.getenv</span>(<span class="st">"CENSUS_API_KEY"</span>)</span>
+<span id="cb10-12"><a aria-label="12"></a>)</span>
+<span id="cb10-13"><a aria-label="13"></a></span>
+<span id="cb10-14"><a aria-label="14"></a><span class="fu">head</span>(larimer_income)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The result contains a geographic identifier, name, estimate, margin of error, and tract geometry</p>
 </section>
 <section id="map-the-acs-estimates" class="slide level2">
 <h2>Map the ACS estimates</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-2"><a aria-label="2"></a></span>
-<span id="cb9-3"><a aria-label="3"></a><span class="fu">ggplot</span>(larimer_income) <span class="sc">+</span></span>
-<span id="cb9-4"><a aria-label="4"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> estimate), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a aria-label="5"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-6"><a aria-label="6"></a>    <span class="at">fill =</span> <span class="st">"Median income"</span>,</span>
-<span id="cb9-7"><a aria-label="7"></a>    <span class="at">title =</span> <span class="st">"Median household income by census tract"</span></span>
-<span id="cb9-8"><a aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a aria-label="2"></a></span>
+<span id="cb11-3"><a aria-label="3"></a><span class="fu">ggplot</span>(larimer_income) <span class="sc">+</span></span>
+<span id="cb11-4"><a aria-label="4"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> estimate), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a aria-label="5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-6"><a aria-label="6"></a>    <span class="at">fill =</span> <span class="st">"Median income"</span>,</span>
+<span id="cb11-7"><a aria-label="7"></a>    <span class="at">title =</span> <span class="st">"Median household income by census tract"</span></span>
+<span id="cb11-8"><a aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The default margin of error describes a 90 percent confidence interval</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">estimate</mtext><mo>±</mo><mtext mathvariant="normal">margin of error</mtext></mrow><annotation encoding="application/x-tex">
 \text{estimate} \pm \text{margin of error}
@@ -1318,7 +1394,7 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </section>
 <section id="try-it-use-the-acs-margin-of-error" class="slide level2">
 <h2>Try it: use the ACS margin of error</h2>
-<p>Change <code>relative_moe_limit</code>, then run the cell. The classroom extract contains one estimate and margin of error for each tract</p>
+<p>Change <code>relative_moe_limit</code>, then run the cell. The four tracts are illustrative values with the same columns as the ACS download</p>
 <div class="cell">
 <div>
 <div id="webr-4" class="exercise-cell">
@@ -1330,17 +1406,18 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </div>
 </div>
 </section>
-<section id="assess-the-acs-estimates" class="slide level2">
-<h2>Assess the ACS estimates</h2>
+<section id="before-using-the-acs-estimates" class="slide level2">
+<h2>Before using the ACS estimates</h2>
+<p>Questions to answer from the ACS documentation</p>
 <ul>
-<li>Treat the five-year estimate as a pooled period ending in the named year</li>
-<li>Retain the margin of error</li>
-<li>Identify estimates with large uncertainty</li>
-<li>Use geographic identifiers as character values</li>
-<li>Record the tract boundary vintage</li>
-<li>Adjust monetary values when comparing periods</li>
+<li>The 2024 five-year estimate pools responses from 2020 to 2024. Does a pooled period suit the question?</li>
+<li>How large is each margin of error relative to its estimate?</li>
+<li>Which tracts have estimates too uncertain to use?</li>
+<li>Are geographic identifiers stored as text, so leading zeros survive?</li>
+<li>Which tract boundaries apply? (2020 boundaries for the 2024 release)</li>
+<li>Are dollar values adjusted to a common year when comparing periods?</li>
 </ul>
-<p>ACS data can describe the population and socioeconomic setting for a land or water study. Exposure measures and program participation may come from separate sources</p>
+<p>ACS data describe the population and socioeconomic setting; exposure measures come from other sources</p>
 </section>
 <section id="the-unit-changes-across-sources" class="slide level2">
 <h2>The unit changes across sources</h2>
@@ -1472,16 +1549,18 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </ul>
 <p>Store API keys in the user environment file and exclude that file from version control</p>
 </section>
-<section id="class-share-where-are-you-in-the-process" class="slide level2">
-<h2>Class share: where are you in the process?</h2>
-<p>We will go around the room. For your project describe</p>
+<section id="class-share-your-data-plan" class="slide level2">
+<h2>Class share: your data plan</h2>
+<p>Write one line for each item, specific enough that a classmate could start the same search</p>
 <ol type="1">
-<li>The outcome, exposure, or behavior you need to observe</li>
-<li>The primary, secondary, or combined collection approach you expect to use</li>
-<li>The two catalog sources you marked, or another source or tool you have found helpful</li>
-<li>The part of the collection process you are still working through</li>
-<li>The next concrete step in your data search or collection</li>
+<li><strong>Outcome or exposure:</strong> the behavior or condition you need to observe</li>
+<li><strong>Approach:</strong> primary, secondary, or combined collection</li>
+<li><strong>Sources and access:</strong> the two catalog sources you marked, with the access type (API, file download, or license) and whether a key is required</li>
+<li><strong>Unit of observation:</strong> what one row represents, such as county-year or gauge-day</li>
+<li><strong>Open question:</strong> the part of collection you are still working through</li>
+<li><strong>Next step:</strong> one concrete action and when you will take it</li>
 </ol>
+<p>Share your plan in about one minute. Template: <code>docs/data-plan.md</code> in the follow-along repository</p>
 <aside class="notes">
 <p>Allow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code.</p>
 <style type="text/css">
@@ -1496,57 +1575,57 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
           display:block!important;
       }</style></aside>
 </section>
-<section id="fork-or-template" class="slide level2 dense">
-<h2>Fork or template?</h2>
-<p>Two ways to copy a GitHub repository into your account</p>
+<section id="example-the-demo-projects-data-plan" class="slide level2 dense">
+<h2>Example: the demo project’s data plan</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 39%">
-<col style="width: 39%">
+<col style="width: 28%">
+<col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Fork</th>
-<th style="text-align: left;">Template</th>
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Demo project</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">History</td>
-<td style="text-align: left;">Keeps every commit (and tags, if you uncheck <em>Copy the main branch only</em>)</td>
-<td style="text-align: left;">Starts a new history</td>
+<td style="text-align: left;">Outcome or exposure</td>
+<td style="text-align: left;">Low-flow days and heat days on the Cache la Poudre River, 2024 growing season</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Link to the original</td>
-<td style="text-align: left;">Pull later updates; propose changes back</td>
-<td style="text-align: left;">None</td>
+<td style="text-align: left;">Approach</td>
+<td style="text-align: left;">Secondary, combined from public APIs</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Visibility</td>
-<td style="text-align: left;">Public when the original is public</td>
-<td style="text-align: left;">Public or private</td>
+<td style="text-align: left;">Sources and access</td>
+<td style="text-align: left;">USGS Water Data (API, no key); NASA POWER (API, no key)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Use it for</td>
-<td style="text-align: left;">Following a project that keeps changing</td>
-<td style="text-align: left;">Starting your own project from a standard layout</td>
+<td style="text-align: left;">Unit of observation</td>
+<td style="text-align: left;">Day: gauge-day for streamflow, grid cell-day for weather</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Open question</td>
+<td style="text-align: left;">How to assign one gauge and one weather grid cell to farms across the county</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Next step</td>
+<td style="text-align: left;">This week, request 2015 to 2024 for the same gauge and count revised values by year</td>
 </tr>
 </tbody>
 </table>
-<p>For this course, <strong>fork</strong> the demo repository: the fork keeps the tag for each lecture, and <strong>Sync fork</strong> brings in updates. Keep your own research in a separate private repository</p>
 </section>
 <section id="before-lecture-5.3" class="slide level2">
 <h2>Before Lecture 5.3</h2>
-<p>Complete Parts One through Three of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
+<p>Complete Parts One and Two of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
 <ol type="1">
 <li>Install Git and restart RStudio</li>
-<li>Create a GitHub account and connect RStudio with <code>usethis</code> and a personal access token</li>
+<li>Create a GitHub account</li>
+<li>Connect RStudio to GitHub with <code>usethis</code> and a personal access token</li>
 <li>Request, activate, and store a Census API key</li>
-<li>Fork the demo repository (uncheck <em>Copy the main branch only</em>) and open it in RStudio as a new project</li>
 </ol>
-<p>Bring a laptop where <code>usethis::git_sitrep()</code> runs without errors and <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code></p>
+<p>Bring a laptop where <code>usethis::git_sitrep()</code> runs without errors and <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code>. We will copy the demo repository into your GitHub account together in class</p>
 <aside class="notes">
 <p>Installing Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control.</p>
 <style type="text/css">
