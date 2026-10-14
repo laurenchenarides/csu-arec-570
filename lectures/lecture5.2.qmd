@@ -45,7 +45,7 @@ webr:
 
 **Dominitz and Manski, "More Data or Better Data? A Statistical Decision Problem"** [@dominitz2017data]
 
-1. Connect APIs to secondary data collection
+1. Survey the APIs available to economists
 2. Retrieve four types of data in R
 3. Check what each downloaded observation represents
 4. Document a reproducible retrieval
@@ -89,16 +89,198 @@ $$
 
 Many services transmit a structured text format called **JSON**. The packages in today's examples read that format and return a data frame, map, or raster
 
-## Four applications
+## Getting access
 
-| Application | Source | Returned to R |
-|---|---|---|
-| Land use | USDA Cropland Data Layer | Raster map or summary table |
-| Water | USGS Water Data | Daily time series |
-| Weather | NASA POWER | Daily weather table |
-| Population | Census ACS | Estimates margins of error and map geometry |
+Services use one of three arrangements
 
-Each example begins with a small request that can be inspected before the request is expanded
+- **Open:** no registration, as with USGS Water Data, NASA POWER, and the World Bank
+- **Agency key:** a free key from one agency, as with Census, BLS, BEA, FRED, and NASS
+- **Shared key:** one [api.data.gov](https://api.data.gov/signup/) key works across many federal services, including ERS and FoodData Central
+
+A key is a personal credential. Store it in your user environment file and keep it out of shared code and repositories
+
+## The API landscape
+
+| Provider | Typical research uses |
+|:--------------------|:------------------------------------|
+| Census Bureau | Population, households, businesses, labor markets, trade |
+| Other federal statistical agencies | Prices, income, employment, energy, finance |
+| USDA | Production, prices, farm finances, food, soils, forests |
+| Environment and natural resources | Water, weather, climate, land cover, pollution, hazards |
+| International organizations | Cross-country development, agriculture, trade |
+
+As we scan the next slides, write down the two sources closest to your project
+
+::: notes
+Scan the catalog quickly. Students return to it in the class share at the end of the meeting. In the R column, httr2 means the request is written directly against the documented endpoint because no maintained package exists.
+:::
+
+## Census Bureau: people and places {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| American Community Survey | Income, poverty, housing, and commuting by tract or county | `tidycensus` | Yes |
+| ACS Public Use Microdata | Person and household records | `tidycensus` | Yes |
+| Decennial Census | Population counts and demographics | `tidycensus` | Yes |
+| Population Estimates | Annual population, births, deaths, and migration | `tidycensus` | Yes |
+| SAIPE and SAHIE | County poverty, median income, and uninsured rates | `censusapi` | Yes |
+
+[Census API dataset list](https://api.census.gov/data.html) | [Census developer guidance](https://www.census.gov/data/developers.html)
+
+## Census Bureau: businesses and labor markets {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| County and ZIP Business Patterns | Establishments, employment, and payroll by industry | `censusapi` | Yes |
+| Nonemployer Statistics | Self-employment and small businesses by industry | `censusapi` | Yes |
+| Economic Census and Annual Business Survey | Sales, ownership, and firm characteristics | `censusapi` | Yes |
+| Quarterly Workforce Indicators | Hires, separations, and earnings by worker group | `censusapi` | Yes |
+| LEHD Origin-Destination (LODES) | Where people live and work, by census block | `lehdr` | No |
+
+## Census Bureau: trade, indicators, and geography {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| International Trade | Monthly imports and exports by product and partner | `censusapi` | Yes |
+| Economic Indicators | Retail sales, housing starts, and manufacturing | `censusapi` | Yes |
+| TIGER/Line boundaries | Tract, county, and ZIP code tabulation area maps | `tigris` | No |
+| Census Geocoder | Assigning addresses to tracts and blocks | `tidygeocoder` | No |
+
+Geographic identifiers and boundaries link nearly every source in this catalog
+
+## Federal statistics: prices, income, and labor {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| Bureau of Labor Statistics | CPI, PPI, employment, and wages (QCEW, LAUS, OEWS) | `blsR` | Yes |
+| Bureau of Economic Analysis | GDP and personal income by state and county | `bea.R` | Yes |
+| FRED and ALFRED | Macro and regional series, including past vintages | `fredr` | Yes |
+| IPUMS | Harmonized Census, ACS, and CPS microdata; NHGIS tables | `ipumsr` | Yes |
+| HUD User | USPS ZIP code crosswalks and Fair Market Rents | `httr2` | Yes |
+
+[BLS](https://www.bls.gov/developers/) | [BEA](https://apps.bea.gov/api/) | [FRED](https://fred.stlouisfed.org/docs/api/fred/) | [IPUMS](https://developer.ipums.org/)
+
+## Federal statistics: energy, finance, and spending {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| Energy Information Administration | Energy prices, production, and consumption by state | `eia` | Yes |
+| CFPB HMDA | Mortgage applications and lending decisions | `httr2` | No |
+| USAspending | Federal grants, contracts, and payments by place | `httr2` | No |
+| Treasury Fiscal Data | Federal debt, receipts, and interest rates | `httr2` | No |
+| FDIC BankFind | Bank branches and financial reports | `httr2` | No |
+
+[EIA Open Data](https://www.eia.gov/opendata/)
+
+## USDA: production and markets {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| NASS Quick Stats | Acreage, yields, prices, inventories, and the Census of Agriculture | `rnassqs` | Yes |
+| NASS Cropland Data Layer | Annual 30-meter crop and land-cover map | `CropScapeR` | No |
+| AMS Market News | Cash grain, livestock, dairy, and specialty crop prices | `httr2` | Yes |
+| FAS Open Data | Global supply and use (PSD), trade (GATS), export sales | `httr2` | Varies |
+| ERS ARMS | Farm finances, costs of production, and practices | `httr2` | api.data.gov |
+
+[Quick Stats API](https://quickstats.nass.usda.gov/api) | [MyMarketNews](https://mymarketnews.ams.usda.gov/) | [ERS data APIs](https://www.ers.usda.gov/developer/data-apis)
+
+::: notes
+Older community packages exist for ARMS (rarms) and AMS mandatory price reporting (usdampr), but they have not been updated in several years. ERS publishes R snippets for the ARMS API.
+:::
+
+## USDA: food, soils, snow, and forests {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| FoodData Central | Nutrient composition of foods | `httr2` | api.data.gov |
+| NRCS Soil Data Access | Soil properties and productivity (SSURGO) | `soilDB` | No |
+| NRCS Air and Water Database | Snowpack and soil moisture (SNOTEL, SCAN) | `soilDB` | No |
+| Forest Inventory and Analysis | Forest area, volume, growth, and removals | `rFIA` | No |
+
+[Soil Data Access](https://sdmdataaccess.nrcs.usda.gov/)
+
+## Environment: water, drought, and hazards {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| USGS Water Data | Streamflow and groundwater levels | `dataRetrieval` | No |
+| Water Quality Portal | Samples from federal, state, and tribal monitoring | `dataRetrieval` | No |
+| U.S. Drought Monitor | Weekly drought categories by county | `httr2` | No |
+| OpenFEMA | Disaster declarations, flood insurance claims, and assistance | `httr2` | No |
+
+[USGS Water Data APIs](https://api.waterdata.usgs.gov/) | [Drought Monitor services](https://droughtmonitor.unl.edu/DmData/DataDownload/WebServiceInfo.aspx) | [OpenFEMA](https://www.fema.gov/about/openfema/api)
+
+## Environment: weather and climate {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| NOAA NCEI | Daily station weather records (GHCN-Daily) | `httr2` | No |
+| PRISM | Gridded U.S. temperature and precipitation | `prism` | No |
+| gridMET and Daymet | Daily gridded weather for exposure measures | `climateR`, `daymetr` | No |
+| NASA POWER | Global daily weather and solar radiation | `nasapower` | No |
+
+[NCEI data service](https://www.ncei.noaa.gov/access/search/documentation/data-service/) | [nasapower](https://docs.ropensci.org/nasapower/)
+
+::: notes
+Install climateR from GitHub (mikejohnson51/climateR); it is not on CRAN.
+:::
+
+## Environment: land, pollution, and energy {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| NASA Earthdata | MODIS and Landsat imagery: vegetation, land cover, fire | `earthdatalogin`, `rstac` | Account |
+| Google Earth Engine | Processing large satellite archives | `rgee` | Account |
+| EPA Air Quality System | Monitor-level air pollution | `RAQSAPI` | Yes |
+| EPA ECHO | Facility permits, inspections, and enforcement | `echor` | No |
+| EPA Envirofacts | Toxic releases (TRI) and greenhouse gas reporting | `httr2` | No |
+| NREL developer APIs | Solar resource, utility rates, fueling stations | `httr2` | api.data.gov |
+
+## International {.dense}
+
+| Source | Economists use it for | R | Key |
+|:-----------------|:----------------------------|:-----------|:-------|
+| World Bank Indicators | Development indicators by country and year | `WDI` | No |
+| FAOSTAT | Agricultural production, trade, prices, and land use | `FAOSTAT` | Varies |
+| UN Comtrade | Bilateral trade by product | `comtradr` | Yes |
+| OECD Data Explorer | Country statistics, including agricultural support | `rsdmx` | No |
+| IMF | Financial statistics and commodity prices | `imf.data` | No |
+| Eurostat | EU regional and sectoral statistics | `eurostat` | No |
+
+## Not every source has an API
+
+Bulk download or license
+
+- RMA Summary of Business: crop insurance by county and crop
+- IRS Statistics of Income: income by ZIP code and county migration
+- ERS data products such as the Food Environment Atlas
+- State agencies: water rights, land records, and licensing
+- Commercial data such as scanner or point-of-sale records, under a license
+
+A download script records the URL, the file, and the download date
+
+## APIs change and disappear
+
+- NOAA moved station data from the Climate Data Online API to a new data service, and the `rnoaa` package left CRAN in 2024
+- EPA removed EJScreen and its map services in February 2025; reconstructions are now hosted outside EPA
+- USGS plans to retire the services behind the `readNWIS` functions in 2027
+
+Save the raw response and the retrieval date so the data can be reproduced after a service changes
+
+::: notes
+This sets up Lecture 5.3: raw files, retrieval records, and version control are the protection against a source that changes after the analysis is written.
+:::
+
+## Today's four examples
+
+| Catalog group | Source | Returned to R |
+|:----------------|:----------------|:--------------------|
+| USDA | Cropland Data Layer | Raster map or summary table |
+| Environment: water | USGS Water Data | Daily time series |
+| Environment: weather | NASA POWER | Daily weather table |
+| Census Bureau | American Community Survey | Estimates, margins of error, and map geometry |
+
+The four sources differ in access, unit of observation, and geography. Each example begins with a small request that can be inspected before the request is expanded
 
 ## Run R in the HTML slides
 
@@ -131,6 +313,14 @@ Create a folder for files returned by the services
 ```r
 dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
 ```
+
+## Follow-along repository
+
+[github.com/laurenchenarides/arec_570_demo](https://github.com/laurenchenarides/arec_570_demo)
+
+- Today's four requests are in `api_examples.R` at the `5.2-retrieve` tag
+- The full API catalog is in `docs/api-catalog.md`
+- Lectures 5.3 to 5.5 turn the same project into a reproducible, documented repository, one tagged stage per lecture
 
 ## A retrieval workflow
 
@@ -365,9 +555,15 @@ Each row reports an estimate and margin of error for one variable and geographic
 
 [Census API guidance](https://www.census.gov/data/developers/guidance.html) | [tidycensus documentation](https://walker-data.com/tidycensus/)
 
-## Store the Census API key
+## Get a Census API key
 
-Request a free key from the [Census API key page](https://api.census.gov/data/key_signup.html)
+The Census Bureau requires a key for every request
+
+1. Complete the form at [api.census.gov/data/key_signup.html](https://api.census.gov/data/key_signup.html)
+2. Open the email from the Census Bureau and select the activation link
+3. Keep the 40-character key from that email for the next step
+
+## Store the Census API key
 
 Open the user-level environment file from R
 
@@ -376,13 +572,15 @@ install.packages("usethis")
 usethis::edit_r_environ()
 ```
 
-Add one line to that file and restart R
+Add one line, save the file, and restart R (**Session > Restart R**)
 
 ```text
-CENSUS_API_KEY=replace_with_your_key
+CENSUS_API_KEY=paste_your_key_here
 ```
 
-The environment file stays on your computer. Shared scripts read the key with `Sys.getenv("CENSUS_API_KEY")`
+Check that R can read it: `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`
+
+The file stays in your home directory, outside every project. Scripts read the key with `Sys.getenv("CENSUS_API_KEY")`
 
 ## Request tract estimates and geometry
 
@@ -507,39 +705,6 @@ Research time is also required to
 
 Choose the method after reviewing the source documentation update schedule and request limits
 
-## Other APIs: agriculture and food
-
-- USDA NASS Quick Stats
-- USDA AMS Market News
-- USDA ERS ARMS
-- USDA FoodData Central
-- USDA NRCS Soil Data Access
-
-## Other APIs: natural resources and energy
-
-- NOAA Climate Data
-- Water Quality Portal
-- EPA ECHO
-- US Forest Service FIA
-- US Energy Information Administration
-
-## Other APIs: economies and populations
-
-**Population, firms, and regional economies**
-
-- Census County Business Patterns and ZIP Business Patterns
-- Bureau of Labor Statistics
-- Bureau of Economic Analysis
-- Federal Reserve Economic Data
-
-**International applications**
-
-- World Bank Indicators
-- FAOSTAT
-- OECD Data Explorer
-
-Start with the documentation for the specific dataset and release used in the research
-
 ## Document the retrieval
 
 Keep these items with the project
@@ -562,12 +727,40 @@ We will go around the room. For your project describe
 
 1. The outcome, exposure, or behavior you need to observe
 2. The primary, secondary, or combined collection approach you expect to use
-3. A source, package, website, or other tool you have found helpful
+3. The two catalog sources you marked, or another source or tool you have found helpful
 4. The part of the collection process you are still working through
 5. The next concrete step in your data search or collection
 
 ::: notes
 Allow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code.
+:::
+
+## Fork or template? {.dense}
+
+Two ways to copy a GitHub repository into your account
+
+| | Fork | Template |
+|:----------------|:------------------------------|:------------------------------|
+| History | Keeps every commit (and tags, if you uncheck *Copy the main branch only*) | Starts a new history |
+| Link to the original | Pull later updates; propose changes back | None |
+| Visibility | Public when the original is public | Public or private |
+| Use it for | Following a project that keeps changing | Starting your own project from a standard layout |
+
+For this course, **fork** the demo repository: the fork keeps the tag for each lecture, and **Sync fork** brings in updates. Keep your own research in a separate private repository
+
+## Before Lecture 5.3
+
+Complete Parts One through Three of [docs/setup-rstudio.md](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
+
+1. Install Git and restart RStudio
+2. Create a GitHub account and connect RStudio with `usethis` and a personal access token
+3. Request, activate, and store a Census API key
+4. Fork the demo repository (uncheck *Copy the main branch only*) and open it in RStudio as a new project
+
+Bring a laptop where `usethis::git_sitrep()` runs without errors and `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`
+
+::: notes
+Installing Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control.
 :::
 
 ## Summary

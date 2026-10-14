@@ -241,7 +241,7 @@ Lauren Chenarides
 <h2>Reading and sequence</h2>
 <p><strong>Dominitz and Manski, “More Data or Better Data? A Statistical Decision Problem”</strong> <span class="citation" data-cites="dominitz2017data">(<a href="#/references" role="doc-biblioref" onclick="">Dominitz and Manski 2017</a>)</span></p>
 <ol type="1">
-<li>Connect APIs to secondary data collection</li>
+<li>Survey the APIs available to economists</li>
 <li>Retrieve four types of data in R</li>
 <li>Check what each downloaded observation represents</li>
 <li>Document a reproducible retrieval</li>
@@ -294,45 +294,723 @@ Lauren Chenarides
 </ul>
 <p>Many services transmit a structured text format called <strong>JSON</strong>. The packages in today’s examples read that format and return a data frame, map, or raster</p>
 </section>
-<section id="four-applications" class="slide level2">
-<h2>Four applications</h2>
+<section id="getting-access" class="slide level2">
+<h2>Getting access</h2>
+<p>Services use one of three arrangements</p>
+<ul>
+<li><strong>Open:</strong> no registration, as with USGS Water Data, NASA POWER, and the World Bank</li>
+<li><strong>Agency key:</strong> a free key from one agency, as with Census, BLS, BEA, FRED, and NASS</li>
+<li><strong>Shared key:</strong> one <a href="https://api.data.gov/signup/">api.data.gov</a> key works across many federal services, including ERS and FoodData Central</li>
+</ul>
+<p>A key is a personal credential. Store it in your user environment file and keep it out of shared code and repositories</p>
+</section>
+<section id="the-api-landscape" class="slide level2">
+<h2>The API landscape</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 36%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Application</th>
-<th>Source</th>
-<th>Returned to R</th>
+<th style="text-align: left;">Provider</th>
+<th style="text-align: left;">Typical research uses</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Land use</td>
-<td>USDA Cropland Data Layer</td>
-<td>Raster map or summary table</td>
+<td style="text-align: left;">Census Bureau</td>
+<td style="text-align: left;">Population, households, businesses, labor markets, trade</td>
 </tr>
 <tr class="even">
-<td>Water</td>
-<td>USGS Water Data</td>
-<td>Daily time series</td>
+<td style="text-align: left;">Other federal statistical agencies</td>
+<td style="text-align: left;">Prices, income, employment, energy, finance</td>
 </tr>
 <tr class="odd">
-<td>Weather</td>
-<td>NASA POWER</td>
-<td>Daily weather table</td>
+<td style="text-align: left;">USDA</td>
+<td style="text-align: left;">Production, prices, farm finances, food, soils, forests</td>
 </tr>
 <tr class="even">
-<td>Population</td>
-<td>Census ACS</td>
-<td>Estimates margins of error and map geometry</td>
+<td style="text-align: left;">Environment and natural resources</td>
+<td style="text-align: left;">Water, weather, climate, land cover, pollution, hazards</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">International organizations</td>
+<td style="text-align: left;">Cross-country development, agriculture, trade</td>
 </tr>
 </tbody>
 </table>
-<p>Each example begins with a small request that can be inspected before the request is expanded</p>
+<p>As we scan the next slides, write down the two sources closest to your project</p>
+<aside class="notes">
+<p>Scan the catalog quickly. Students return to it in the class share at the end of the meeting. In the R column, httr2 means the request is written directly against the documented endpoint because no maintained package exists.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="census-bureau-people-and-places" class="slide level2 dense">
+<h2>Census Bureau: people and places</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">American Community Survey</td>
+<td style="text-align: left;">Income, poverty, housing, and commuting by tract or county</td>
+<td style="text-align: left;"><code>tidycensus</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACS Public Use Microdata</td>
+<td style="text-align: left;">Person and household records</td>
+<td style="text-align: left;"><code>tidycensus</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Decennial Census</td>
+<td style="text-align: left;">Population counts and demographics</td>
+<td style="text-align: left;"><code>tidycensus</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Population Estimates</td>
+<td style="text-align: left;">Annual population, births, deaths, and migration</td>
+<td style="text-align: left;"><code>tidycensus</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SAIPE and SAHIE</td>
+<td style="text-align: left;">County poverty, median income, and uninsured rates</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.census.gov/data.html">Census API dataset list</a> | <a href="https://www.census.gov/data/developers.html">Census developer guidance</a></p>
+</section>
+<section id="census-bureau-businesses-and-labor-markets" class="slide level2 dense">
+<h2>Census Bureau: businesses and labor markets</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">County and ZIP Business Patterns</td>
+<td style="text-align: left;">Establishments, employment, and payroll by industry</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nonemployer Statistics</td>
+<td style="text-align: left;">Self-employment and small businesses by industry</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Economic Census and Annual Business Survey</td>
+<td style="text-align: left;">Sales, ownership, and firm characteristics</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quarterly Workforce Indicators</td>
+<td style="text-align: left;">Hires, separations, and earnings by worker group</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LEHD Origin-Destination (LODES)</td>
+<td style="text-align: left;">Where people live and work, by census block</td>
+<td style="text-align: left;"><code>lehdr</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="census-bureau-trade-indicators-and-geography" class="slide level2 dense">
+<h2>Census Bureau: trade, indicators, and geography</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">International Trade</td>
+<td style="text-align: left;">Monthly imports and exports by product and partner</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Economic Indicators</td>
+<td style="text-align: left;">Retail sales, housing starts, and manufacturing</td>
+<td style="text-align: left;"><code>censusapi</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TIGER/Line boundaries</td>
+<td style="text-align: left;">Tract, county, and ZIP code tabulation area maps</td>
+<td style="text-align: left;"><code>tigris</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Census Geocoder</td>
+<td style="text-align: left;">Assigning addresses to tracts and blocks</td>
+<td style="text-align: left;"><code>tidygeocoder</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<p>Geographic identifiers and boundaries link nearly every source in this catalog</p>
+</section>
+<section id="federal-statistics-prices-income-and-labor" class="slide level2 dense">
+<h2>Federal statistics: prices, income, and labor</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bureau of Labor Statistics</td>
+<td style="text-align: left;">CPI, PPI, employment, and wages (QCEW, LAUS, OEWS)</td>
+<td style="text-align: left;"><code>blsR</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bureau of Economic Analysis</td>
+<td style="text-align: left;">GDP and personal income by state and county</td>
+<td style="text-align: left;"><code>bea.R</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FRED and ALFRED</td>
+<td style="text-align: left;">Macro and regional series, including past vintages</td>
+<td style="text-align: left;"><code>fredr</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IPUMS</td>
+<td style="text-align: left;">Harmonized Census, ACS, and CPS microdata; NHGIS tables</td>
+<td style="text-align: left;"><code>ipumsr</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HUD User</td>
+<td style="text-align: left;">USPS ZIP code crosswalks and Fair Market Rents</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.bls.gov/developers/">BLS</a> | <a href="https://apps.bea.gov/api/">BEA</a> | <a href="https://fred.stlouisfed.org/docs/api/fred/">FRED</a> | <a href="https://developer.ipums.org/">IPUMS</a></p>
+</section>
+<section id="federal-statistics-energy-finance-and-spending" class="slide level2 dense">
+<h2>Federal statistics: energy, finance, and spending</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Energy Information Administration</td>
+<td style="text-align: left;">Energy prices, production, and consumption by state</td>
+<td style="text-align: left;"><code>eia</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CFPB HMDA</td>
+<td style="text-align: left;">Mortgage applications and lending decisions</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">USAspending</td>
+<td style="text-align: left;">Federal grants, contracts, and payments by place</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Treasury Fiscal Data</td>
+<td style="text-align: left;">Federal debt, receipts, and interest rates</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FDIC BankFind</td>
+<td style="text-align: left;">Bank branches and financial reports</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.eia.gov/opendata/">EIA Open Data</a></p>
+</section>
+<section id="usda-production-and-markets" class="slide level2 dense">
+<h2>USDA: production and markets</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NASS Quick Stats</td>
+<td style="text-align: left;">Acreage, yields, prices, inventories, and the Census of Agriculture</td>
+<td style="text-align: left;"><code>rnassqs</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NASS Cropland Data Layer</td>
+<td style="text-align: left;">Annual 30-meter crop and land-cover map</td>
+<td style="text-align: left;"><code>CropScapeR</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AMS Market News</td>
+<td style="text-align: left;">Cash grain, livestock, dairy, and specialty crop prices</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FAS Open Data</td>
+<td style="text-align: left;">Global supply and use (PSD), trade (GATS), export sales</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">Varies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ERS ARMS</td>
+<td style="text-align: left;">Farm finances, costs of production, and practices</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">api.data.gov</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://quickstats.nass.usda.gov/api">Quick Stats API</a> | <a href="https://mymarketnews.ams.usda.gov/">MyMarketNews</a> | <a href="https://www.ers.usda.gov/developer/data-apis">ERS data APIs</a></p>
+<aside class="notes">
+<p>Older community packages exist for ARMS (rarms) and AMS mandatory price reporting (usdampr), but they have not been updated in several years. ERS publishes R snippets for the ARMS API.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="usda-food-soils-snow-and-forests" class="slide level2 dense">
+<h2>USDA: food, soils, snow, and forests</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">FoodData Central</td>
+<td style="text-align: left;">Nutrient composition of foods</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">api.data.gov</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NRCS Soil Data Access</td>
+<td style="text-align: left;">Soil properties and productivity (SSURGO)</td>
+<td style="text-align: left;"><code>soilDB</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NRCS Air and Water Database</td>
+<td style="text-align: left;">Snowpack and soil moisture (SNOTEL, SCAN)</td>
+<td style="text-align: left;"><code>soilDB</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Forest Inventory and Analysis</td>
+<td style="text-align: left;">Forest area, volume, growth, and removals</td>
+<td style="text-align: left;"><code>rFIA</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://sdmdataaccess.nrcs.usda.gov/">Soil Data Access</a></p>
+</section>
+<section id="environment-water-drought-and-hazards" class="slide level2 dense">
+<h2>Environment: water, drought, and hazards</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USGS Water Data</td>
+<td style="text-align: left;">Streamflow and groundwater levels</td>
+<td style="text-align: left;"><code>dataRetrieval</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Water Quality Portal</td>
+<td style="text-align: left;">Samples from federal, state, and tribal monitoring</td>
+<td style="text-align: left;"><code>dataRetrieval</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">U.S. Drought Monitor</td>
+<td style="text-align: left;">Weekly drought categories by county</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OpenFEMA</td>
+<td style="text-align: left;">Disaster declarations, flood insurance claims, and assistance</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://api.waterdata.usgs.gov/">USGS Water Data APIs</a> | <a href="https://droughtmonitor.unl.edu/DmData/DataDownload/WebServiceInfo.aspx">Drought Monitor services</a> | <a href="https://www.fema.gov/about/openfema/api">OpenFEMA</a></p>
+</section>
+<section id="environment-weather-and-climate" class="slide level2 dense">
+<h2>Environment: weather and climate</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NOAA NCEI</td>
+<td style="text-align: left;">Daily station weather records (GHCN-Daily)</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PRISM</td>
+<td style="text-align: left;">Gridded U.S. temperature and precipitation</td>
+<td style="text-align: left;"><code>prism</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gridMET and Daymet</td>
+<td style="text-align: left;">Daily gridded weather for exposure measures</td>
+<td style="text-align: left;"><code>climateR</code>, <code>daymetr</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NASA POWER</td>
+<td style="text-align: left;">Global daily weather and solar radiation</td>
+<td style="text-align: left;"><code>nasapower</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.ncei.noaa.gov/access/search/documentation/data-service/">NCEI data service</a> | <a href="https://docs.ropensci.org/nasapower/">nasapower</a></p>
+<aside class="notes">
+<p>Install climateR from GitHub (mikejohnson51/climateR); it is not on CRAN.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="environment-land-pollution-and-energy" class="slide level2 dense">
+<h2>Environment: land, pollution, and energy</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NASA Earthdata</td>
+<td style="text-align: left;">MODIS and Landsat imagery: vegetation, land cover, fire</td>
+<td style="text-align: left;"><code>earthdatalogin</code>, <code>rstac</code></td>
+<td style="text-align: left;">Account</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Google Earth Engine</td>
+<td style="text-align: left;">Processing large satellite archives</td>
+<td style="text-align: left;"><code>rgee</code></td>
+<td style="text-align: left;">Account</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EPA Air Quality System</td>
+<td style="text-align: left;">Monitor-level air pollution</td>
+<td style="text-align: left;"><code>RAQSAPI</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EPA ECHO</td>
+<td style="text-align: left;">Facility permits, inspections, and enforcement</td>
+<td style="text-align: left;"><code>echor</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EPA Envirofacts</td>
+<td style="text-align: left;">Toxic releases (TRI) and greenhouse gas reporting</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NREL developer APIs</td>
+<td style="text-align: left;">Solar resource, utility rates, fueling stations</td>
+<td style="text-align: left;"><code>httr2</code></td>
+<td style="text-align: left;">api.data.gov</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="international" class="slide level2 dense">
+<h2>International</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 43%">
+<col style="width: 17%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Economists use it for</th>
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">World Bank Indicators</td>
+<td style="text-align: left;">Development indicators by country and year</td>
+<td style="text-align: left;"><code>WDI</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FAOSTAT</td>
+<td style="text-align: left;">Agricultural production, trade, prices, and land use</td>
+<td style="text-align: left;"><code>FAOSTAT</code></td>
+<td style="text-align: left;">Varies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">UN Comtrade</td>
+<td style="text-align: left;">Bilateral trade by product</td>
+<td style="text-align: left;"><code>comtradr</code></td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OECD Data Explorer</td>
+<td style="text-align: left;">Country statistics, including agricultural support</td>
+<td style="text-align: left;"><code>rsdmx</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IMF</td>
+<td style="text-align: left;">Financial statistics and commodity prices</td>
+<td style="text-align: left;"><code>imf.data</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eurostat</td>
+<td style="text-align: left;">EU regional and sectoral statistics</td>
+<td style="text-align: left;"><code>eurostat</code></td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="not-every-source-has-an-api" class="slide level2">
+<h2>Not every source has an API</h2>
+<p>Bulk download or license</p>
+<ul>
+<li>RMA Summary of Business: crop insurance by county and crop</li>
+<li>IRS Statistics of Income: income by ZIP code and county migration</li>
+<li>ERS data products such as the Food Environment Atlas</li>
+<li>State agencies: water rights, land records, and licensing</li>
+<li>Commercial data such as scanner or point-of-sale records, under a license</li>
+</ul>
+<p>A download script records the URL, the file, and the download date</p>
+</section>
+<section id="apis-change-and-disappear" class="slide level2">
+<h2>APIs change and disappear</h2>
+<ul>
+<li>NOAA moved station data from the Climate Data Online API to a new data service, and the <code>rnoaa</code> package left CRAN in 2024</li>
+<li>EPA removed EJScreen and its map services in February 2025; reconstructions are now hosted outside EPA</li>
+<li>USGS plans to retire the services behind the <code>readNWIS</code> functions in 2027</li>
+</ul>
+<p>Save the raw response and the retrieval date so the data can be reproduced after a service changes</p>
+<aside class="notes">
+<p>This sets up Lecture 5.3: raw files, retrieval records, and version control are the protection against a source that changes after the analysis is written.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="todays-four-examples" class="slide level2">
+<h2>Today’s four examples</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Catalog group</th>
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Returned to R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">USDA</td>
+<td style="text-align: left;">Cropland Data Layer</td>
+<td style="text-align: left;">Raster map or summary table</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Environment: water</td>
+<td style="text-align: left;">USGS Water Data</td>
+<td style="text-align: left;">Daily time series</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Environment: weather</td>
+<td style="text-align: left;">NASA POWER</td>
+<td style="text-align: left;">Daily weather table</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Census Bureau</td>
+<td style="text-align: left;">American Community Survey</td>
+<td style="text-align: left;">Estimates, margins of error, and map geometry</td>
+</tr>
+</tbody>
+</table>
+<p>The four sources differ in access, unit of observation, and geography. Each example begins with a small request that can be inspected before the request is expanded</p>
 </section>
 <section id="run-r-in-the-html-slides" class="slide level2">
 <h2>Run R in the HTML slides</h2>
@@ -358,6 +1036,15 @@ Lauren Chenarides
 <span id="cb1-8"><a aria-label="8"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create a folder for files returned by the services</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">dir.create</span>(<span class="st">"data/raw"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="follow-along-repository" class="slide level2">
+<h2>Follow-along repository</h2>
+<p><a href="https://github.com/laurenchenarides/arec_570_demo">github.com/laurenchenarides/arec_570_demo</a></p>
+<ul>
+<li>Today’s four requests are in <code>api_examples.R</code> at the <code>5.2-retrieve</code> tag</li>
+<li>The full API catalog is in <code>docs/api-catalog.md</code></li>
+<li>Lectures 5.3 to 5.5 turn the same project into a reproducible, documented repository, one tagged stage per lecture</li>
+</ul>
 </section>
 <section id="a-retrieval-workflow" class="slide level2">
 <h2>A retrieval workflow</h2>
@@ -577,15 +1264,24 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 <p>Each row reports an estimate and margin of error for one variable and geographic area</p>
 <p><a href="https://www.census.gov/data/developers/guidance.html">Census API guidance</a> | <a href="https://walker-data.com/tidycensus/">tidycensus documentation</a></p>
 </section>
+<section id="get-a-census-api-key" class="slide level2">
+<h2>Get a Census API key</h2>
+<p>The Census Bureau requires a key for every request</p>
+<ol type="1">
+<li>Complete the form at <a href="https://api.census.gov/data/key_signup.html">api.census.gov/data/key_signup.html</a></li>
+<li>Open the email from the Census Bureau and select the activation link</li>
+<li>Keep the 40-character key from that email for the next step</li>
+</ol>
+</section>
 <section id="store-the-census-api-key" class="slide level2">
 <h2>Store the Census API key</h2>
-<p>Request a free key from the <a href="https://api.census.gov/data/key_signup.html">Census API key page</a></p>
 <p>Open the user-level environment file from R</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
 <span id="cb6-2"><a aria-label="2"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add one line to that file and restart R</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a aria-label="1"></a>CENSUS_API_KEY=replace_with_your_key</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The environment file stays on your computer. Shared scripts read the key with <code>Sys.getenv("CENSUS_API_KEY")</code></p>
+<p>Add one line, save the file, and restart R (<strong>Session &gt; Restart R</strong>)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a aria-label="1"></a>CENSUS_API_KEY=paste_your_key_here</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check that R can read it: <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code></p>
+<p>The file stays in your home directory, outside every project. Scripts read the key with <code>Sys.getenv("CENSUS_API_KEY")</code></p>
 </section>
 <section id="request-tract-estimates-and-geometry" class="slide level2">
 <h2>Request tract estimates and geometry</h2>
@@ -760,43 +1456,6 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </table>
 <p>Choose the method after reviewing the source documentation update schedule and request limits</p>
 </section>
-<section id="other-apis-agriculture-and-food" class="slide level2">
-<h2>Other APIs: agriculture and food</h2>
-<ul>
-<li>USDA NASS Quick Stats</li>
-<li>USDA AMS Market News</li>
-<li>USDA ERS ARMS</li>
-<li>USDA FoodData Central</li>
-<li>USDA NRCS Soil Data Access</li>
-</ul>
-</section>
-<section id="other-apis-natural-resources-and-energy" class="slide level2">
-<h2>Other APIs: natural resources and energy</h2>
-<ul>
-<li>NOAA Climate Data</li>
-<li>Water Quality Portal</li>
-<li>EPA ECHO</li>
-<li>US Forest Service FIA</li>
-<li>US Energy Information Administration</li>
-</ul>
-</section>
-<section id="other-apis-economies-and-populations" class="slide level2">
-<h2>Other APIs: economies and populations</h2>
-<p><strong>Population, firms, and regional economies</strong></p>
-<ul>
-<li>Census County Business Patterns and ZIP Business Patterns</li>
-<li>Bureau of Labor Statistics</li>
-<li>Bureau of Economic Analysis</li>
-<li>Federal Reserve Economic Data</li>
-</ul>
-<p><strong>International applications</strong></p>
-<ul>
-<li>World Bank Indicators</li>
-<li>FAOSTAT</li>
-<li>OECD Data Explorer</li>
-</ul>
-<p>Start with the documentation for the specific dataset and release used in the research</p>
-</section>
 <section id="document-the-retrieval" class="slide level2">
 <h2>Document the retrieval</h2>
 <p>Keep these items with the project</p>
@@ -819,12 +1478,77 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 <ol type="1">
 <li>The outcome, exposure, or behavior you need to observe</li>
 <li>The primary, secondary, or combined collection approach you expect to use</li>
-<li>A source, package, website, or other tool you have found helpful</li>
+<li>The two catalog sources you marked, or another source or tool you have found helpful</li>
 <li>The part of the collection process you are still working through</li>
 <li>The next concrete step in your data search or collection</li>
 </ol>
 <aside class="notes">
 <p>Allow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="fork-or-template" class="slide level2 dense">
+<h2>Fork or template?</h2>
+<p>Two ways to copy a GitHub repository into your account</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 39%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Fork</th>
+<th style="text-align: left;">Template</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">History</td>
+<td style="text-align: left;">Keeps every commit (and tags, if you uncheck <em>Copy the main branch only</em>)</td>
+<td style="text-align: left;">Starts a new history</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Link to the original</td>
+<td style="text-align: left;">Pull later updates; propose changes back</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Visibility</td>
+<td style="text-align: left;">Public when the original is public</td>
+<td style="text-align: left;">Public or private</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Use it for</td>
+<td style="text-align: left;">Following a project that keeps changing</td>
+<td style="text-align: left;">Starting your own project from a standard layout</td>
+</tr>
+</tbody>
+</table>
+<p>For this course, <strong>fork</strong> the demo repository: the fork keeps the tag for each lecture, and <strong>Sync fork</strong> brings in updates. Keep your own research in a separate private repository</p>
+</section>
+<section id="before-lecture-5.3" class="slide level2">
+<h2>Before Lecture 5.3</h2>
+<p>Complete Parts One through Three of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
+<ol type="1">
+<li>Install Git and restart RStudio</li>
+<li>Create a GitHub account and connect RStudio with <code>usethis</code> and a personal access token</li>
+<li>Request, activate, and store a Census API key</li>
+<li>Fork the demo repository (uncheck <em>Copy the main branch only</em>) and open it in RStudio as a new project</li>
+</ol>
+<p>Bring a laptop where <code>usethis::git_sitrep()</code> runs without errors and <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code></p>
+<aside class="notes">
+<p>Installing Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

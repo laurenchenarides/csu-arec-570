@@ -1502,7 +1502,7 @@
     "href": "lectures/lecture5.2.html#reading-and-sequence",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Reading and sequence",
-    "text": "Reading and sequence\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” (Dominitz and Manski 2017)\n\nConnect APIs to secondary data collection\nRetrieve four types of data in R\nCheck what each downloaded observation represents\nDocument a reproducible retrieval\nShare the current data plan for each research project\n\nReadings and course handouts are available on Canvas"
+    "text": "Reading and sequence\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” (Dominitz and Manski 2017)\n\nSurvey the APIs available to economists\nRetrieve four types of data in R\nCheck what each downloaded observation represents\nDocument a reproducible retrieval\nShare the current data plan for each research project\n\nReadings and course handouts are available on Canvas"
   },
   {
     "objectID": "lectures/lecture5.2.html#apis-deliver-secondary-data",
@@ -1656,7 +1656,7 @@
     "href": "lectures/lecture5.2.html#store-the-census-api-key",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Store the Census API key",
-    "text": "Store the Census API key\nRequest a free key from the Census API key page\nOpen the user-level environment file from R\ninstall.packages(\"usethis\")\nusethis::edit_r_environ()\nAdd one line to that file and restart R\nCENSUS_API_KEY=replace_with_your_key\nThe environment file stays on your computer. Shared scripts read the key with Sys.getenv(\"CENSUS_API_KEY\")"
+    "text": "Store the Census API key\nOpen the user-level environment file from R\ninstall.packages(\"usethis\")\nusethis::edit_r_environ()\nAdd one line, save the file, and restart R (Session &gt; Restart R)\nCENSUS_API_KEY=paste_your_key_here\nCheck that R can read it: nzchar(Sys.getenv(\"CENSUS_API_KEY\")) returns TRUE\nThe file stays in your home directory, outside every project. Scripts read the key with Sys.getenv(\"CENSUS_API_KEY\")"
   },
   {
     "objectID": "lectures/lecture5.2.html#request-tract-estimates-and-geometry",
@@ -1747,7 +1747,7 @@
     "href": "lectures/lecture5.2.html#class-share-where-are-you-in-the-process",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Class share: where are you in the process?",
-    "text": "Class share: where are you in the process?\nWe will go around the room. For your project describe\n\nThe outcome, exposure, or behavior you need to observe\nThe primary, secondary, or combined collection approach you expect to use\nA source, package, website, or other tool you have found helpful\nThe part of the collection process you are still working through\nThe next concrete step in your data search or collection\n\n\nAllow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code."
+    "text": "Class share: where are you in the process?\nWe will go around the room. For your project describe\n\nThe outcome, exposure, or behavior you need to observe\nThe primary, secondary, or combined collection approach you expect to use\nThe two catalog sources you marked, or another source or tool you have found helpful\nThe part of the collection process you are still working through\nThe next concrete step in your data search or collection\n\n\nAllow about one minute per student. Record recurring sources and problems on the board. Use the final few minutes to identify classmates who are using related data or tools and may be able to exchange documentation or code."
   },
   {
     "objectID": "lectures/lecture5.2.html#summary",
@@ -2434,5 +2434,145 @@
     "title": "Lectures",
     "section": "",
     "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#getting-access",
+    "href": "lectures/lecture5.2.html#getting-access",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Getting access",
+    "text": "Getting access\nServices use one of three arrangements\n\nOpen: no registration, as with USGS Water Data, NASA POWER, and the World Bank\nAgency key: a free key from one agency, as with Census, BLS, BEA, FRED, and NASS\nShared key: one api.data.gov key works across many federal services, including ERS and FoodData Central\n\nA key is a personal credential. Store it in your user environment file and keep it out of shared code and repositories"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#the-api-landscape",
+    "href": "lectures/lecture5.2.html#the-api-landscape",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "The API landscape",
+    "text": "The API landscape\n\n\n\n\n\n\n\nProvider\nTypical research uses\n\n\n\n\nCensus Bureau\nPopulation, households, businesses, labor markets, trade\n\n\nOther federal statistical agencies\nPrices, income, employment, energy, finance\n\n\nUSDA\nProduction, prices, farm finances, food, soils, forests\n\n\nEnvironment and natural resources\nWater, weather, climate, land cover, pollution, hazards\n\n\nInternational organizations\nCross-country development, agriculture, trade\n\n\n\nAs we scan the next slides, write down the two sources closest to your project\n\nScan the catalog quickly. Students return to it in the class share at the end of the meeting. In the R column, httr2 means the request is written directly against the documented endpoint because no maintained package exists."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#census-bureau-people-and-places",
+    "href": "lectures/lecture5.2.html#census-bureau-people-and-places",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Census Bureau: people and places",
+    "text": "Census Bureau: people and places\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nAmerican Community Survey\nIncome, poverty, housing, and commuting by tract or county\ntidycensus\nYes\n\n\nACS Public Use Microdata\nPerson and household records\ntidycensus\nYes\n\n\nDecennial Census\nPopulation counts and demographics\ntidycensus\nYes\n\n\nPopulation Estimates\nAnnual population, births, deaths, and migration\ntidycensus\nYes\n\n\nSAIPE and SAHIE\nCounty poverty, median income, and uninsured rates\ncensusapi\nYes\n\n\n\nCensus API dataset list | Census developer guidance"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#census-bureau-businesses-and-labor-markets",
+    "href": "lectures/lecture5.2.html#census-bureau-businesses-and-labor-markets",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Census Bureau: businesses and labor markets",
+    "text": "Census Bureau: businesses and labor markets\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nCounty and ZIP Business Patterns\nEstablishments, employment, and payroll by industry\ncensusapi\nYes\n\n\nNonemployer Statistics\nSelf-employment and small businesses by industry\ncensusapi\nYes\n\n\nEconomic Census and Annual Business Survey\nSales, ownership, and firm characteristics\ncensusapi\nYes\n\n\nQuarterly Workforce Indicators\nHires, separations, and earnings by worker group\ncensusapi\nYes\n\n\nLEHD Origin-Destination (LODES)\nWhere people live and work, by census block\nlehdr\nNo"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#census-bureau-trade-indicators-and-geography",
+    "href": "lectures/lecture5.2.html#census-bureau-trade-indicators-and-geography",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Census Bureau: trade, indicators, and geography",
+    "text": "Census Bureau: trade, indicators, and geography\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nInternational Trade\nMonthly imports and exports by product and partner\ncensusapi\nYes\n\n\nEconomic Indicators\nRetail sales, housing starts, and manufacturing\ncensusapi\nYes\n\n\nTIGER/Line boundaries\nTract, county, and ZIP code tabulation area maps\ntigris\nNo\n\n\nCensus Geocoder\nAssigning addresses to tracts and blocks\ntidygeocoder\nNo\n\n\n\nGeographic identifiers and boundaries link nearly every source in this catalog"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#federal-statistics-prices-income-and-labor",
+    "href": "lectures/lecture5.2.html#federal-statistics-prices-income-and-labor",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Federal statistics: prices, income, and labor",
+    "text": "Federal statistics: prices, income, and labor\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nBureau of Labor Statistics\nCPI, PPI, employment, and wages (QCEW, LAUS, OEWS)\nblsR\nYes\n\n\nBureau of Economic Analysis\nGDP and personal income by state and county\nbea.R\nYes\n\n\nFRED and ALFRED\nMacro and regional series, including past vintages\nfredr\nYes\n\n\nIPUMS\nHarmonized Census, ACS, and CPS microdata; NHGIS tables\nipumsr\nYes\n\n\nHUD User\nUSPS ZIP code crosswalks and Fair Market Rents\nhttr2\nYes\n\n\n\nBLS | BEA | FRED | IPUMS"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#federal-statistics-energy-finance-and-spending",
+    "href": "lectures/lecture5.2.html#federal-statistics-energy-finance-and-spending",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Federal statistics: energy, finance, and spending",
+    "text": "Federal statistics: energy, finance, and spending\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nEnergy Information Administration\nEnergy prices, production, and consumption by state\neia\nYes\n\n\nCFPB HMDA\nMortgage applications and lending decisions\nhttr2\nNo\n\n\nUSAspending\nFederal grants, contracts, and payments by place\nhttr2\nNo\n\n\nTreasury Fiscal Data\nFederal debt, receipts, and interest rates\nhttr2\nNo\n\n\nFDIC BankFind\nBank branches and financial reports\nhttr2\nNo\n\n\n\nEIA Open Data"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#usda-production-and-markets",
+    "href": "lectures/lecture5.2.html#usda-production-and-markets",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "USDA: production and markets",
+    "text": "USDA: production and markets\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nNASS Quick Stats\nAcreage, yields, prices, inventories, and the Census of Agriculture\nrnassqs\nYes\n\n\nNASS Cropland Data Layer\nAnnual 30-meter crop and land-cover map\nCropScapeR\nNo\n\n\nAMS Market News\nCash grain, livestock, dairy, and specialty crop prices\nhttr2\nYes\n\n\nFAS Open Data\nGlobal supply and use (PSD), trade (GATS), export sales\nhttr2\nVaries\n\n\nERS ARMS\nFarm finances, costs of production, and practices\nhttr2\napi.data.gov\n\n\n\nQuick Stats API | MyMarketNews | ERS data APIs\n\nOlder community packages exist for ARMS (rarms) and AMS mandatory price reporting (usdampr), but they have not been updated in several years. ERS publishes R snippets for the ARMS API."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#usda-food-soils-snow-and-forests",
+    "href": "lectures/lecture5.2.html#usda-food-soils-snow-and-forests",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "USDA: food, soils, snow, and forests",
+    "text": "USDA: food, soils, snow, and forests\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nFoodData Central\nNutrient composition of foods\nhttr2\napi.data.gov\n\n\nNRCS Soil Data Access\nSoil properties and productivity (SSURGO)\nsoilDB\nNo\n\n\nNRCS Air and Water Database\nSnowpack and soil moisture (SNOTEL, SCAN)\nsoilDB\nNo\n\n\nForest Inventory and Analysis\nForest area, volume, growth, and removals\nrFIA\nNo\n\n\n\nSoil Data Access"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#environment-water-drought-and-hazards",
+    "href": "lectures/lecture5.2.html#environment-water-drought-and-hazards",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Environment: water, drought, and hazards",
+    "text": "Environment: water, drought, and hazards\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nUSGS Water Data\nStreamflow and groundwater levels\ndataRetrieval\nNo\n\n\nWater Quality Portal\nSamples from federal, state, and tribal monitoring\ndataRetrieval\nNo\n\n\nU.S. Drought Monitor\nWeekly drought categories by county\nhttr2\nNo\n\n\nOpenFEMA\nDisaster declarations, flood insurance claims, and assistance\nhttr2\nNo\n\n\n\nUSGS Water Data APIs | Drought Monitor services | OpenFEMA"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#environment-weather-and-climate",
+    "href": "lectures/lecture5.2.html#environment-weather-and-climate",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Environment: weather and climate",
+    "text": "Environment: weather and climate\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nNOAA NCEI\nDaily station weather records (GHCN-Daily)\nhttr2\nNo\n\n\nPRISM\nGridded U.S. temperature and precipitation\nprism\nNo\n\n\ngridMET and Daymet\nDaily gridded weather for exposure measures\nclimateR, daymetr\nNo\n\n\nNASA POWER\nGlobal daily weather and solar radiation\nnasapower\nNo\n\n\n\nNCEI data service | nasapower\n\nInstall climateR from GitHub (mikejohnson51/climateR); it is not on CRAN."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#environment-land-pollution-and-energy",
+    "href": "lectures/lecture5.2.html#environment-land-pollution-and-energy",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Environment: land, pollution, and energy",
+    "text": "Environment: land, pollution, and energy\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nNASA Earthdata\nMODIS and Landsat imagery: vegetation, land cover, fire\nearthdatalogin, rstac\nAccount\n\n\nGoogle Earth Engine\nProcessing large satellite archives\nrgee\nAccount\n\n\nEPA Air Quality System\nMonitor-level air pollution\nRAQSAPI\nYes\n\n\nEPA ECHO\nFacility permits, inspections, and enforcement\nechor\nNo\n\n\nEPA Envirofacts\nToxic releases (TRI) and greenhouse gas reporting\nhttr2\nNo\n\n\nNREL developer APIs\nSolar resource, utility rates, fueling stations\nhttr2\napi.data.gov"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#international",
+    "href": "lectures/lecture5.2.html#international",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "International",
+    "text": "International\n\n\n\n\n\n\n\n\n\nSource\nEconomists use it for\nR\nKey\n\n\n\n\nWorld Bank Indicators\nDevelopment indicators by country and year\nWDI\nNo\n\n\nFAOSTAT\nAgricultural production, trade, prices, and land use\nFAOSTAT\nVaries\n\n\nUN Comtrade\nBilateral trade by product\ncomtradr\nYes\n\n\nOECD Data Explorer\nCountry statistics, including agricultural support\nrsdmx\nNo\n\n\nIMF\nFinancial statistics and commodity prices\nimf.data\nNo\n\n\nEurostat\nEU regional and sectoral statistics\neurostat\nNo"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#not-every-source-has-an-api",
+    "href": "lectures/lecture5.2.html#not-every-source-has-an-api",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Not every source has an API",
+    "text": "Not every source has an API\nBulk download or license\n\nRMA Summary of Business: crop insurance by county and crop\nIRS Statistics of Income: income by ZIP code and county migration\nERS data products such as the Food Environment Atlas\nState agencies: water rights, land records, and licensing\nCommercial data such as scanner or point-of-sale records, under a license\n\nA download script records the URL, the file, and the download date"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#apis-change-and-disappear",
+    "href": "lectures/lecture5.2.html#apis-change-and-disappear",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "APIs change and disappear",
+    "text": "APIs change and disappear\n\nNOAA moved station data from the Climate Data Online API to a new data service, and the rnoaa package left CRAN in 2024\nEPA removed EJScreen and its map services in February 2025; reconstructions are now hosted outside EPA\nUSGS plans to retire the services behind the readNWIS functions in 2027\n\nSave the raw response and the retrieval date so the data can be reproduced after a service changes\n\nThis sets up Lecture 5.3: raw files, retrieval records, and version control are the protection against a source that changes after the analysis is written."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#todays-four-examples",
+    "href": "lectures/lecture5.2.html#todays-four-examples",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Today’s four examples",
+    "text": "Today’s four examples\n\n\n\n\n\n\n\n\nCatalog group\nSource\nReturned to R\n\n\n\n\nUSDA\nCropland Data Layer\nRaster map or summary table\n\n\nEnvironment: water\nUSGS Water Data\nDaily time series\n\n\nEnvironment: weather\nNASA POWER\nDaily weather table\n\n\nCensus Bureau\nAmerican Community Survey\nEstimates, margins of error, and map geometry\n\n\n\nThe four sources differ in access, unit of observation, and geography. Each example begins with a small request that can be inspected before the request is expanded"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#follow-along-repository",
+    "href": "lectures/lecture5.2.html#follow-along-repository",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Follow-along repository",
+    "text": "Follow-along repository\ngithub.com/laurenchenarides/arec_570_demo\n\nToday’s four requests are in api_examples.R at the 5.2-retrieve tag\nThe full API catalog is in docs/api-catalog.md\nLectures 5.3 to 5.5 turn the same project into a reproducible, documented repository, one tagged stage per lecture"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#before-lecture-5.3",
+    "href": "lectures/lecture5.2.html#before-lecture-5.3",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Before Lecture 5.3",
+    "text": "Before Lecture 5.3\nComplete Parts One through Three of docs/setup-rstudio.md\n\nInstall Git and restart RStudio\nCreate a GitHub account and connect RStudio with usethis and a personal access token\nRequest, activate, and store a Census API key\nFork the demo repository (uncheck Copy the main branch only) and open it in RStudio as a new project\n\nBring a laptop where usethis::git_sitrep() runs without errors and nzchar(Sys.getenv(\"CENSUS_API_KEY\")) returns TRUE\n\nInstalling Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control."
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#get-a-census-api-key",
+    "href": "lectures/lecture5.2.html#get-a-census-api-key",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Get a Census API key",
+    "text": "Get a Census API key\nThe Census Bureau requires a key for every request\n\nComplete the form at api.census.gov/data/key_signup.html\nOpen the email from the Census Bureau and select the activation link\nKeep the 40-character key from that email for the next step"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#fork-or-template",
+    "href": "lectures/lecture5.2.html#fork-or-template",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Fork or template?",
+    "text": "Fork or template?\nTwo ways to copy a GitHub repository into your account\n\n\n\n\n\n\n\n\n\nFork\nTemplate\n\n\n\n\nHistory\nKeeps every commit (and tags, if you uncheck Copy the main branch only)\nStarts a new history\n\n\nLink to the original\nPull later updates; propose changes back\nNone\n\n\nVisibility\nPublic when the original is public\nPublic or private\n\n\nUse it for\nFollowing a project that keeps changing\nStarting your own project from a standard layout\n\n\n\nFor this course, fork the demo repository: the fork keeps the tag for each lecture, and Sync fork brings in updates. Keep your own research in a separate private repository"
   }
 ]
