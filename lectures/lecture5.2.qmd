@@ -90,18 +90,32 @@ Stata and Python have packages for many of the same APIs. The course uses R beca
 | 1. R function | You call a package function and list what you want | `read_waterdata_daily()` with a station, a parameter, and dates |
 | 2. Request | The package adds those **parameters** to the service's web address, called the **endpoint** | `api.waterdata.usgs.gov/...?monitoring_location_id=USGS-06752260&parameter_code=00060` |
 | 3. Data service | The agency's server finds the matching records | USGS Water Data |
-| 4. Response | The server returns the records as structured text, usually **JSON** | One record per day |
-| 5. R object | The package converts the text into a data frame | 183 rows, one per day |
+| 4. Response | The server returns the records in a **format** the service chooses: JSON or CSV for tables, GeoTIFF or NetCDF for grids | JSON text, one record per day |
+| 5. R object | The package reads that format and returns a data frame, raster, or map layer | 183 rows, one per day |
 
-## Converting a JSON file to an R object
+## Response formats {.dense}
 
-The service returns text like this for each day (simplified)
+Each service chooses the formats it offers. R packages read all of them
+
+| Format | What it holds | Today's examples | R reader |
+|:--------------|:-------------------------|:--------------------------|:-----------------|
+| JSON | Records as labeled text | USGS Water Data; Census API; error messages | `jsonlite`, used inside `dataRetrieval` and `tidycensus` |
+| CSV | Rows and columns as plain text | CDL acreage; NASA POWER through `nasapower` | `readr` |
+| GeoTIFF (`.tif`) | One grid of values with map coordinates | Cropland Data Layer | `terra` |
+| NetCDF (`.nc`) | Grids over space and time, with units and metadata | NASA POWER regional request; gridMET | `terra`, `ncdf4` |
+| Shapefile, GeoPackage | Points, lines, and polygons | Census tract boundaries | `sf` |
+
+Tables often travel as JSON or CSV. Grids travel as GeoTIFF or NetCDF, because the same grid written as text would be far larger
+
+## Example: a JSON response becomes a data frame
+
+The USGS service returns text like this for each day (simplified)
 
 ```json
 {"time": "2024-07-01", "value": 86.4, "unit_of_measure": "ft^3/s", "approval_status": "Approved"}
 ```
 
-The R package handles the request and the JSON and turns the records into rows of a data frame
+`dataRetrieval` reads the JSON and turns the records into rows of a data frame
 
 ```text
   time       value unit_of_measure approval_status
@@ -109,7 +123,15 @@ The R package handles the request and the JSON and turns the records into rows o
   2024-07-02 162   ft^3/s          Approved
 ```
 
-You then work with the data frame
+You then work with the data frame; the JSON is never saved unless you save it
+
+## Which format did the server send?
+
+- **Documentation** lists the formats and the parameter that picks one. NASA POWER takes `format=JSON`, `CSV`, or `NETCDF`
+- **The response header** names the format in `Content-Type`: `application/json`, `text/csv`, `image/tiff`, `application/x-netcdf`
+- **Saving the raw response** keeps the file exactly as sent, before any package converts it
+
+The packages in today's examples choose a format for you. `nasapower`, for example, requests CSV
 
 ## Getting access
 
@@ -574,6 +596,82 @@ Questions to answer from the POWER documentation
 - Which data version was retrieved, and can values be revised?
 
 Every location in a grid cell receives the same values, so conditions at individual fields can differ from the cell estimate
+
+## Extension: the weather data as a NetCDF grid
+
+**Question**
+
+How did maximum temperature vary across northern Colorado during the July 2024 heat wave?
+
+**Why a different request**
+
+The point request returns one grid cell. A *regional* request returns every cell in a box, over every day requested, in one NetCDF file
+
+**Request**
+
+NASA POWER, daily maximum temperature, 39.5 to 41.5 N and 104.5 to 106.5 W, July 10 to 16, 2024
+
+## Without an API: downloading by hand
+
+From the [POWER Data Access Viewer](https://power.larc.nasa.gov/data-access-viewer/)
+
+1. Choose the user community (Agroclimatology) and the temporal level (daily)
+2. Select a region on the map, or type the corner coordinates
+3. Enter the start and end dates
+4. Check each parameter: maximum temperature
+5. Choose the output format (NetCDF) and submit
+6. Download the file, move it into `data/raw`, and rename it
+7. Write down every choice, so the file can be explained later
+
+Another year, region, or variable means repeating all seven steps
+
+## With an API: one request in a script
+
+```r
+library(httr2)
+library(terra)
+
+request("https://power.larc.nasa.gov/api/temporal/daily/regional") |>
+  req_url_query(parameters = "T2M_MAX", community = "AG",
+                `latitude-min` = 39.5, `latitude-max` = 41.5,
+                `longitude-min` = -106.5, `longitude-max` = -104.5,
+                start = "20240710", end = "20240716", format = "NETCDF") |>
+  req_perform(path = "data/raw/power_tmax_2024-07.nc")
+
+tmax <- rast("data/raw/power_tmax_2024-07.nc")
+tmax   # 15 grid cells (5 rows x 3 columns), 7 daily layers, degrees C
+```
+
+Each argument replaces a click. The file is saved exactly as the server sent it
+
+## What the NetCDF file holds
+
+:::: {.columns}
+::: {.column width="52%"}
+![](assets/unit5/power_netcdf_grid.png){height=500px fig-alt="Map of NASA POWER maximum temperature grid cells for July 12, 2024, over northern Colorado, with the Larimer County outline and the Fort Collins gauge"}
+:::
+::: {.column width="48%"}
+- Three dimensions: longitude, latitude, and day
+- 15 cells x 7 days = 105 values in one 21 KB file
+- Units (degrees C) and variable names travel inside the file
+- `terra` reads each day as one layer of a raster
+
+Fort Collins sits in one of the two hottest cells on July 12. The cells to its west, over the mountains, ran 8 to 9 degrees cooler
+:::
+::::
+
+## Download by hand or request through an API? {.dense}
+
+| | Download by hand | API request in a script |
+|:-----------------|:------------------------------|:------------------------------|
+| Record of choices | Notes, if you write them | The code is the record |
+| Another year, region, or variable | Repeat every step | Change one value, or loop |
+| Consistency | A wrong box or date is easy to miss | The same request every time |
+| A coauthor reproduces it | Follows your written steps | Runs the script |
+| When a request fails | A website message | An error the script reports. A box smaller than 2 degrees returns a JSON message saying so |
+| Best suited to | A first look at the data | Repeated or growing requests |
+
+Downloading by hand is reasonable for exploring a source. Once the data enter the analysis, write the request as code
 
 ## Example 4: Census ACS
 
