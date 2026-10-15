@@ -247,7 +247,6 @@ Lauren Chenarides
 <li>Document a reproducible retrieval</li>
 <li>Share the current data plan for each research project</li>
 </ol>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a></p>
 </section>
 <section id="apis-deliver-secondary-data" class="slide level2">
 <h2>APIs deliver secondary data</h2>
@@ -258,7 +257,7 @@ Lauren Chenarides
 <li>When observations are collected and released</li>
 <li>How uncertainty, missing values, and revisions are recorded</li>
 </ul>
-<p>An <strong>application programming interface</strong> provides a documented way for R to request selected records from that source</p>
+<p>An <strong>application programming interface</strong> provides a documented way for R (or other programming languages) to request selected records from that source</p>
 <aside class="notes">
 <p>Lecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization.</p>
 <style type="text/css">
@@ -282,7 +281,7 @@ Lauren Chenarides
 <li>Rerunning the script repeats the request, for you or a coauthor</li>
 <li>Changing one value extends the request to more counties or years</li>
 </ul>
-<p>Today you will run the requests in RStudio and try short exercises inside these slides</p>
+<p>Today we will run API requests in RStudio and try short exercises inside these slides</p>
 <aside class="notes">
 <p>Stata and Python have packages for many of the same APIs. The course uses R because of its Census, water, and geospatial packages.</p>
 <style type="text/css">
@@ -341,15 +340,15 @@ Lauren Chenarides
 </tbody>
 </table>
 </section>
-<section id="from-response-to-r-object" class="slide level2">
-<h2>From response to R object</h2>
+<section id="converting-a-json-file-to-an-r-object" class="slide level2">
+<h2>Converting a JSON file to an R object</h2>
 <p>The service returns text like this for each day (simplified)</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a aria-label="1"></a><span class="fu">{</span><span class="dt">"time"</span><span class="fu">:</span> <span class="st">"2024-07-01"</span><span class="fu">,</span> <span class="dt">"value"</span><span class="fu">:</span> <span class="fl">86.4</span><span class="fu">,</span> <span class="dt">"unit_of_measure"</span><span class="fu">:</span> <span class="st">"ft^3/s"</span><span class="fu">,</span> <span class="dt">"approval_status"</span><span class="fu">:</span> <span class="st">"Approved"</span><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The R package turns the records into rows of a data frame</p>
+<p>The R package handles the request and the JSON and turns the records into rows of a data frame</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>  time       value unit_of_measure approval_status</span>
 <span id="cb2-2"><a aria-label="2"></a>  2024-07-01  86.4 ft^3/s          Approved</span>
 <span id="cb2-3"><a aria-label="3"></a>  2024-07-02 162   ft^3/s          Approved</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You work with the data frame; the package handles the request and the JSON</p>
+<p>You then work with the data frame</p>
 </section>
 <section id="getting-access" class="slide level2">
 <h2>Getting access</h2>
@@ -1019,6 +1018,7 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
+<p><strong>If this is the case:</strong></p>
 <p>Download files with a short R script so the URL, file, and date are recorded</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://www.irs.gov/pub/irs-soi/22zpallagi.csv"</span>   <span class="co"># IRS SOI, ZIP code data, tax year 2022</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">download.file</span>(url, <span class="st">"data/raw/irs_soi_zip_2022.csv"</span>, <span class="at">mode =</span> <span class="st">"wb"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1045,6 +1045,11 @@ Lauren Chenarides
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section>
+<section id="examples" class="title-slide slide level1 center">
+<h1>Examples</h1>
+
 </section>
 <section id="todays-four-examples" class="slide level2">
 <h2>Today’s four examples</h2>
@@ -1092,7 +1097,7 @@ Lauren Chenarides
 <p><strong>In RStudio.</strong> The <em>Request</em> slides show code that contacts each agency’s server and downloads the 2024 data. You will run it from <code>api_examples.R</code> in the follow-along repository</p>
 <p><strong>In these slides.</strong> The <em>Try it</em> slides run R inside your web browser, with no installation</p>
 <ol type="1">
-<li>Open the HTML version of this lecture and wait for the <em>R ready</em> message</li>
+<li>Open the <a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture5.2.html#/two-ways-to-run-todays-code">HTML version</a> of this lecture and wait for the <em>R ready</em> message</li>
 <li>Select <strong>Run Code</strong>, change the value named in the instructions, and run again</li>
 <li>Select <strong>Start Over</strong> to restore the original code</li>
 </ol>
@@ -1484,9 +1489,14 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="dominitz-and-manski" class="title-slide slide level1 center">
+<h1>Dominitz and Manski</h1>
+
 </section>
-<section id="the-reading-allocating-the-collection-budget" class="slide level2">
-<h2>The reading: allocating the collection budget</h2>
+<section id="allocating-the-collection-budget" class="slide level2">
+<h2>Allocating the collection budget</h2>
 <p>Dominitz and Manski ask how to allocate a fixed budget across collection processes that differ in cost and information <span class="citation" data-cites="dominitz2017data">(<a href="#/references" role="doc-biblioref" onclick="">Dominitz and Manski 2017</a>)</span></p>
 <p>API access reduces the time required to retrieve additional observations</p>
 <p>Research time is also required to</p>
@@ -1618,14 +1628,16 @@ eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlZGl0Ijp0cnVlLCJldmFsIjp0cnVlLCJmaWctaGVpZ2h0
 </section>
 <section id="before-lecture-5.3" class="slide level2">
 <h2>Before Lecture 5.3</h2>
-<p>Complete Parts One and Two of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
+<p>On your laptop, complete Parts One and Two of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md">docs/setup-rstudio.md</a></p>
 <ol type="1">
 <li>Install Git and restart RStudio</li>
 <li>Create a GitHub account</li>
 <li>Connect RStudio to GitHub with <code>usethis</code> and a personal access token</li>
 <li>Request, activate, and store a Census API key</li>
 </ol>
-<p>Bring a laptop where <code>usethis::git_sitrep()</code> runs without errors and <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code>. We will copy the demo repository into your GitHub account together in class</p>
+<p>Bring the laptop that you used to complete this exercise with you to class.</p>
+<p>Make sure <code>usethis::git_sitrep()</code> runs without errors and <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code>.</p>
+<p>We will copy the demo repository into your GitHub account together in class.</p>
 <aside class="notes">
 <p>Installing Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control.</p>
 <style type="text/css">
@@ -1684,7 +1696,7 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC00IiwiaW5saW5lIjpmYWxzZSwibWV0
 <script type="vfs-file">
 W10=
 </script>
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
