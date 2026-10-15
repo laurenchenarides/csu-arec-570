@@ -800,7 +800,7 @@ On your laptop, complete Parts One and Two of [docs/setup-rstudio.md](https://gi
 3. Connect RStudio to GitHub with `usethis` and a personal access token
 4. Request, activate, and store a Census API key
 
-Bring the this laptop that you used to complete this exercise with you to class.
+Bring the laptop that you used to complete this exercise with you to class.
 
 Make sure `usethis::git_sitrep()` runs without errors and `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`. 
 

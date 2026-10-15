@@ -1502,14 +1502,14 @@
     "href": "lectures/lecture5.2.html#reading-and-sequence",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Reading and sequence",
-    "text": "Reading and sequence\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” (Dominitz and Manski 2017)\n\nSurvey the APIs available to economists\nRetrieve four types of data in R\nCheck what each downloaded observation represents\nDocument a reproducible retrieval\nShare the current data plan for each research project\n\nReadings and course handouts are available on Canvas"
+    "text": "Reading and sequence\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem” (Dominitz and Manski 2017)\n\nSurvey the APIs available to economists\nRetrieve four types of data in R\nCheck what each downloaded observation represents\nDocument a reproducible retrieval\nShare the current data plan for each research project"
   },
   {
     "objectID": "lectures/lecture5.2.html#apis-deliver-secondary-data",
     "href": "lectures/lecture5.2.html#apis-deliver-secondary-data",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "APIs deliver secondary data",
-    "text": "APIs deliver secondary data\nThe organization responsible for the source determines\n\nWhat is measured\nWhich people, places, or activities are covered\nWhen observations are collected and released\nHow uncertainty, missing values, and revisions are recorded\n\nAn application programming interface provides a documented way for R to request selected records from that source\n\nLecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization."
+    "text": "APIs deliver secondary data\nThe organization responsible for the source determines\n\nWhat is measured\nWhich people, places, or activities are covered\nWhen observations are collected and released\nHow uncertainty, missing values, and revisions are recorded\n\nAn application programming interface provides a documented way for R (or other programming languages) to request selected records from that source\n\nLecture 5.1 introduced primary and secondary data. An API is one way to receive secondary data collected and maintained by another organization."
   },
   {
     "objectID": "lectures/lecture5.2.html#what-happens-when-r-calls-an-api",
@@ -2559,7 +2559,7 @@
     "href": "lectures/lecture5.2.html#before-lecture-5.3",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Before Lecture 5.3",
-    "text": "Before Lecture 5.3\nComplete Parts One and Two of docs/setup-rstudio.md\n\nInstall Git and restart RStudio\nCreate a GitHub account\nConnect RStudio to GitHub with usethis and a personal access token\nRequest, activate, and store a Census API key\n\nBring a laptop where usethis::git_sitrep() runs without errors and nzchar(Sys.getenv(\"CENSUS_API_KEY\")) returns TRUE. We will copy the demo repository into your GitHub account together in class\n\nInstalling Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control."
+    "text": "Before Lecture 5.3\nOn your laptop, complete Parts One and Two of docs/setup-rstudio.md\n\nInstall Git and restart RStudio\nCreate a GitHub account\nConnect RStudio to GitHub with usethis and a personal access token\nRequest, activate, and store a Census API key\n\nBring the laptop that you used to complete this exercise with you to class.\nMake sure usethis::git_sitrep() runs without errors and nzchar(Sys.getenv(\"CENSUS_API_KEY\")) returns TRUE.\nWe will copy the demo repository into your GitHub account together in class.\n\nInstalling Git and creating a token on Windows can take twenty minutes. Doing it before class keeps Lecture 5.3 focused on project structure and version control."
   },
   {
     "objectID": "lectures/lecture5.2.html#get-a-census-api-key",
@@ -2580,7 +2580,7 @@
     "href": "lectures/lecture5.2.html#working-in-r-and-rstudio",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Working in R and RStudio",
-    "text": "Working in R and RStudio\nR is the programming language that sends each request and holds the returned data. RStudio is the application where you write R code in a script, run it, and see the results\nCollecting data with code has three advantages over clicking through a website\n\nThe script records exactly what was requested: place, period, and variables\nRerunning the script repeats the request, for you or a coauthor\nChanging one value extends the request to more counties or years\n\nToday you will run the requests in RStudio and try short exercises inside these slides\n\nStata and Python have packages for many of the same APIs. The course uses R because of its Census, water, and geospatial packages."
+    "text": "Working in R and RStudio\nR is the programming language that sends each request and holds the returned data. RStudio is the application where you write R code in a script, run it, and see the results\nCollecting data with code has three advantages over clicking through a website\n\nThe script records exactly what was requested: place, period, and variables\nRerunning the script repeats the request, for you or a coauthor\nChanging one value extends the request to more counties or years\n\nToday we will run API requests in RStudio and try short exercises inside these slides\n\nStata and Python have packages for many of the same APIs. The course uses R because of its Census, water, and geospatial packages."
   },
   {
     "objectID": "lectures/lecture5.2.html#from-response-to-r-object",
@@ -2594,7 +2594,7 @@
     "href": "lectures/lecture5.2.html#sources-without-an-api",
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Sources without an API",
-    "text": "Sources without an API\nSome providers distribute data only as files to download, or only to users who sign a license or data-use agreement\n\n\n\n\n\n\n\nAccess\nExamples\n\n\n\n\nFile download\nRMA Summary of Business (crop insurance by county and crop); IRS Statistics of Income (income by ZIP code, county migration); ERS data products such as the Food Environment Atlas; state water-rights and land records\n\n\nLicense or agreement\nScanner and point-of-sale data; restricted federal microdata\n\n\n\nDownload files with a short R script so the URL, file, and date are recorded\nurl &lt;- \"https://www.irs.gov/pub/irs-soi/22zpallagi.csv\"   # IRS SOI, ZIP code data, tax year 2022\ndownload.file(url, \"data/raw/irs_soi_zip_2022.csv\", mode = \"wb\")\nFor licensed data, record the provider, version, delivery date, and license terms"
+    "text": "Sources without an API\nSome providers distribute data only as files to download, or only to users who sign a license or data-use agreement\n\n\n\n\n\n\n\nAccess\nExamples\n\n\n\n\nFile download\nRMA Summary of Business (crop insurance by county and crop); IRS Statistics of Income (income by ZIP code, county migration); ERS data products such as the Food Environment Atlas; state water-rights and land records\n\n\nLicense or agreement\nScanner and point-of-sale data; restricted federal microdata\n\n\n\nIf this is the case:\nDownload files with a short R script so the URL, file, and date are recorded\nurl &lt;- \"https://www.irs.gov/pub/irs-soi/22zpallagi.csv\"   # IRS SOI, ZIP code data, tax year 2022\ndownload.file(url, \"data/raw/irs_soi_zip_2022.csv\", mode = \"wb\")\nFor licensed data, record the provider, version, delivery date, and license terms"
   },
   {
     "objectID": "lectures/lecture5.2.html#two-ways-to-run-todays-code",
@@ -2658,5 +2658,19 @@
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Fork the demo repository",
     "text": "Fork the demo repository\nFollow Part Three of docs/setup-rstudio.md\n\nOn github.com/laurenchenarides/arec_570_demo, select Fork\nUncheck Copy the main branch only, then select Create fork\nOn your fork, select Code and copy the HTTPS URL\nIn RStudio: File &gt; New Project &gt; Version Control &gt; Git, paste the URL, and select Create Project\n\nThe Git tab appears in the upper-right pane of RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#converting-a-json-file-to-an-r-object",
+    "href": "lectures/lecture5.2.html#converting-a-json-file-to-an-r-object",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Converting a JSON file to an R object",
+    "text": "Converting a JSON file to an R object\nThe service returns text like this for each day (simplified)\n{\"time\": \"2024-07-01\", \"value\": 86.4, \"unit_of_measure\": \"ft^3/s\", \"approval_status\": \"Approved\"}\nThe R package handles the request and the JSON and turns the records into rows of a data frame\n  time       value unit_of_measure approval_status\n  2024-07-01  86.4 ft^3/s          Approved\n  2024-07-02 162   ft^3/s          Approved\nYou then work with the data frame"
+  },
+  {
+    "objectID": "lectures/lecture5.2.html#allocating-the-collection-budget",
+    "href": "lectures/lecture5.2.html#allocating-the-collection-budget",
+    "title": "Lecture 5.2: Data Collection via APIs",
+    "section": "Allocating the collection budget",
+    "text": "Allocating the collection budget\nDominitz and Manski ask how to allocate a fixed budget across collection processes that differ in cost and information (Dominitz and Manski 2017)\nAPI access reduces the time required to retrieve additional observations\nResearch time is also required to\n\nVerify definitions and units\nExamine coverage, missing values, flags, and uncertainty\nSelect spatial and temporal aggregation rules\nValidate joins across sources\nArchive metadata and retrieval records\n\nQuestion: How should a researcher allocate one additional week across these tasks?"
   }
 ]
