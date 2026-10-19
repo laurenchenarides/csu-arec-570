@@ -494,7 +494,7 @@
     "href": "lectures/lecture5.3.html#reproducibility-starts-with-organization",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Reproducibility starts with organization",
-    "text": "Reproducibility starts with organization\nCan another person reconstruct a result from the same inputs?\nThey need inputs, code, execution order, software requirements, and a record of the version used.\nSource: Gentzkow and Shapiro (2014)."
+    "text": "Reproducibility starts with organization\nCan another researcher reconstruct a result from the same inputs?\nThey need\n\nOriginal inputs\nCode for every transformation\nThe order in which the code runs\nSoftware and package requirements\nThe project version used for the result\n\nSource: Gentzkow and Shapiro (2014)"
   },
   {
     "objectID": "lectures/lecture5.3.html#discussion-the-cost-of-manual-steps",
@@ -508,21 +508,21 @@
     "href": "lectures/lecture5.3.html#automate-the-sequence",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Automate the sequence",
-    "text": "Automate the sequence\nA main script expresses the order of operations.\n# Run from the project root.\nsource(\"code/01_clean.R\")\nsource(\"code/02_analyze.R\")\nsource(\"code/03_tables.R\")\nEach step reads documented inputs and writes predictable outputs."
+    "text": "Automate the sequence\nrun_all.R expresses the order of operations\nsource(\"code/00_setup.R\")\nsource(\"code/01_get_cdl.R\")\nsource(\"code/02_get_streamflow.R\")\nsource(\"code/03_get_weather.R\")\nsource(\"code/04_get_acs.R\")\nsource(\"code/05_build_daily.R\")\nsource(\"code/06_outputs.R\")\nOne command rebuilds the project from documented inputs"
   },
   {
     "objectID": "lectures/lecture5.3.html#separate-files-by-function",
     "href": "lectures/lecture5.3.html#separate-files-by-function",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Separate files by function",
-    "text": "Separate files by function\nproject/\n  README.md\n  run.R\n  code/\n  data/\n    raw/\n    derived/\n  output/\n    tables/\n    figures/\nKeep raw inputs unchanged. Regenerate derived files through code."
+    "text": "Separate files by function\ncode/                    scripts and reusable functions\ndata/raw/                source files as retrieved\ndata/derived/            files constructed from source data\noutput/figures/          figures produced by code\noutput/tables/           tables produced by code\ndocs/                    codebook and project documentation\nRaw inputs remain unchanged. Scripts rebuild derived data and outputs"
   },
   {
     "objectID": "lectures/lecture5.3.html#paths-should-travel-with-the-project",
     "href": "lectures/lecture5.3.html#paths-should-travel-with-the-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Paths should travel with the project",
-    "text": "Paths should travel with the project\nPrefer paths relative to the project root:\nread.csv(\"data/raw/survey.csv\")\nA path containing your user directory will usually fail on another computer.\nState where the main script should be run."
+    "text": "Paths should travel with the project\nUse paths relative to the project root\nread.csv(\"data/raw/streamflow.csv\")\nA path that begins with a person’s user directory usually fails on another computer\nread.csv(\"C:/Users/jane/Desktop/streamflow.csv\")"
   },
   {
     "objectID": "lectures/lecture5.3.html#what-git-records",
@@ -556,8 +556,8 @@
     "objectID": "lectures/lecture5.3.html#what-belongs-outside-the-repository",
     "href": "lectures/lecture5.3.html#what-belongs-outside-the-repository",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
-    "section": "What belongs outside the repository?",
-    "text": "What belongs outside the repository?\nCommon exclusions:\n\nCredentials and local configuration.\nConfidential or restricted data.\nLarge raw-data files.\nReproducible temporary outputs.\n\nA .gitignore file prevents matching untracked files from being added by default. It does not remove already tracked files."
+    "section": "What belongs outside the repository",
+    "text": "What belongs outside the repository\nCommon exclusions in .gitignore\n\nAPI keys and credentials such as .Renviron\nConfidential or restricted data\nLarge source files stored in an archive\nDerived files rebuilt by code\nR session files such as .RData and .Rhistory\n\n.gitignore applies to files Git has not started tracking"
   },
   {
     "objectID": "lectures/lecture5.3.html#discussion-gentzkow-and-shapiro",
@@ -578,7 +578,7 @@
     "href": "lectures/lecture5.3.html#before-you-leave",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Before you leave",
-    "text": "Before you leave\nShow two commits. Explain what changed, why, and which result could be affected."
+    "text": "Before you leave\nConfirm that your fork contains one new commit from today’s exercise\nBe prepared to show\n\nThe line you changed\nThe commit message\nThe same commit in RStudio and on GitHub\nOne file your research repository should exclude"
   },
   {
     "objectID": "lectures/lecture5.3.html#references",
@@ -592,7 +592,7 @@
     "href": "lectures/lecture5.3.html#course-navigation",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Course navigation",
-    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
+    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list\nDownload this lecture as a PDF"
   },
   {
     "objectID": "lectures/lecture5.1.html#reading-and-sequence",
@@ -2433,7 +2433,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nAutomate a project and record clear, recoverable changes.\n—\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture5.2.html#getting-access",
@@ -2728,5 +2728,250 @@
     "title": "Lecture 5.2: Data Collection via APIs",
     "section": "Download by hand or request through an API?",
     "text": "Download by hand or request through an API?\n\n\n\n\n\n\n\n\n\nDownload by hand\nAPI request in a script\n\n\n\n\nRecord of choices\nNotes, if you write them\nThe code is the record\n\n\nAnother year, region, or variable\nRepeat every step\nChange one value, or loop\n\n\nConsistency\nA wrong box or date is easy to miss\nThe same request every time\n\n\nA coauthor reproduces it\nFollows your written steps\nRuns the script\n\n\nWhen a request fails\nA website message\nAn error the script reports. A box smaller than 2 degrees returns a JSON message saying so\n\n\nBest suited to\nA first look at the data\nRepeated or growing requests\n\n\n\nDownloading by hand is reasonable for exploring a source. Once the data enter the analysis, write the request as code"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#reading-and-sequence",
+    "href": "lectures/lecture5.3.html#reading-and-sequence",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Reading and sequence",
+    "text": "Reading and sequence\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1-4 (Gentzkow and Shapiro 2014)\n\nConnect the API exercise to a reproducible project\nOrganize files so the project can run on another computer\nDefine the roles of Git, GitHub, and RStudio\nChoose among creating, forking, templating, and cloning a repository\nPractice the pull, edit, stage, commit, and push workflow"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#where-we-left-off-in-lecture-5.2",
+    "href": "lectures/lecture5.3.html#where-we-left-off-in-lecture-5.2",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Where we left off in Lecture 5.2",
+    "text": "Where we left off in Lecture 5.2\nThe arec_570_demo project retrieved land-use, streamflow, weather, and Census data through APIs\n\nR scripts recorded the requests\nRaw downloads preserved the responses\nA retrieval log recorded source, date, and parameters\ndocs/data-plan.md connected the sources to a research question\n\nToday we organize that work and begin recording its history"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#follow-along-repository",
+    "href": "lectures/lecture5.3.html#follow-along-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Follow-along repository",
+    "text": "Follow-along repository\narec_570_demo develops in stages across Unit 5\n\n\n\n\n\n\n\n\nTag\nLecture\nAddition\n\n\n\n\n5.2-retrieve\nAPI collection\nRetrieval script\n\n\n5.3-structure\nStructure and Git\nFolders, run_all.R, and .gitignore\n\n\n5.4-collaborate\nCollaboration\nIssues, branches, and pull requests\n\n\n5.5-report\nReporting\nCodebook, sample, and data section"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#start-with-a-recognizable-project-root",
+    "href": "lectures/lecture5.3.html#start-with-a-recognizable-project-root",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Start with a recognizable project root",
+    "text": "Start with a recognizable project root\narec_570_demo/\n  README.md\n  arec_570_demo.Rproj\n  run_all.R\n  code/\n  data/\n  output/\n  docs/\n  lab_diary.md\nThe .Rproj file opens the project with this folder as the working directory"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#discussion-where-does-memory-enter-the-workflow",
+    "href": "lectures/lecture5.3.html#discussion-where-does-memory-enter-the-workflow",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Discussion: where does memory enter the workflow?",
+    "text": "Discussion: where does memory enter the workflow?\nConsider one result in your current research project\n\nWhich steps happen through code\nWhich steps happen through menus or manual edits\nWhere does the order of operations live\nWhich inputs could change over time\nWhat would another researcher need to ask you before running it"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#what-version-control-adds",
+    "href": "lectures/lecture5.3.html#what-version-control-adds",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "What version control adds",
+    "text": "What version control adds\nVersion control records selected states of a project and the changes connecting them\nA useful history can answer\n\nWhat changed\nWho made the change\nWhen the change was recorded\nWhy the change was made\nWhich version produced a reported result"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#git-github-and-rstudio-have-different-roles",
+    "href": "lectures/lecture5.3.html#git-github-and-rstudio-have-different-roles",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Git, GitHub, and RStudio have different roles",
+    "text": "Git, GitHub, and RStudio have different roles\n\n\n\n\n\n\n\nTool\nRole in the workflow\n\n\n\n\nGit\nRecords file changes and commits on the computer\n\n\nGitHub\nHosts a remote copy and supports sharing and collaboration\n\n\nRStudio\nProvides buttons and menus that run Git commands\n\n\n\nGit supplies the version history. GitHub gives that history an online location"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#a-repository-is-the-project-and-its-history",
+    "href": "lectures/lecture5.3.html#a-repository-is-the-project-and-its-history",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "A repository is the project and its history",
+    "text": "A repository is the project and its history\nA repository contains\n\nThe working files currently visible in the project folder\nA hidden .git directory containing the local history\nOptional connections to remote repositories such as GitHub\n\nThe project folder becomes a Git repository when Git is initialized or when a repository is cloned"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#three-locations-in-the-workflow",
+    "href": "lectures/lecture5.3.html#three-locations-in-the-workflow",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Three locations in the workflow",
+    "text": "Three locations in the workflow\nWorking files              Local Git history              GitHub repository\non your computer           on your computer               online remote\n\nedit files  --commit--&gt;    saved checkpoints  --push--&gt;  shared checkpoints\n            &lt;--restore--                       &lt;--pull--\nA commit saves to the local history. A push sends local commits to GitHub"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#setup-checkpoint",
+    "href": "lectures/lecture5.3.html#setup-checkpoint",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Setup checkpoint",
+    "text": "Setup checkpoint\nLecture 5.2 assigned Parts One and Two of docs/setup-rstudio.md\nRun these checks in the RStudio Console\nsystem(\"git --version\")\nusethis::git_sitrep()\nnzchar(Sys.getenv(\"CENSUS_API_KEY\"))\nLook for a Git version, your GitHub identity and token, and [1] TRUE"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#creating-forking-and-cloning-answer-different-questions",
+    "href": "lectures/lecture5.3.html#creating-forking-and-cloning-answer-different-questions",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Creating, forking, and cloning answer different questions",
+    "text": "Creating, forking, and cloning answer different questions\n\n\n\n\n\n\n\n\nAction\nQuestion it answers\nResult\n\n\n\n\nCreate\nWhere should a new repository begin\nA repository under your account\n\n\nFork\nHow can I make an account-level copy linked to another repository\nA linked repository under your account\n\n\nUse template\nHow can I start from an existing layout and begin a new history\nAn independent repository under your account\n\n\nClone\nHow do I obtain a local working copy of a remote repository\nA project folder and local Git history\n\n\n\nCreating or forking usually happens before cloning"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#create-a-repository-for-your-research",
+    "href": "lectures/lecture5.3.html#create-a-repository-for-your-research",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Create a repository for your research",
+    "text": "Create a repository for your research\nUse create when the project belongs to you or your research team\nFor an existing RStudio project\nusethis::use_git()\nusethis::use_github(private = TRUE)\nReview .gitignore before the first commit. Keep restricted or licensed data outside GitHub"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#clone-a-repository-you-can-access",
+    "href": "lectures/lecture5.3.html#clone-a-repository-you-can-access",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Clone a repository you can access",
+    "text": "Clone a repository you can access\nUse clone when the remote repository already exists and you need a local working copy\nIn RStudio\n\nCopy the repository’s HTTPS URL from Code\nSelect File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a parent folder\nSelect Create Project\n\nCloning copies files, branches, and history and configures the remote as origin"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#fork-a-repository-into-your-account",
+    "href": "lectures/lecture5.3.html#fork-a-repository-into-your-account",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Fork a repository into your account",
+    "text": "Fork a repository into your account\nUse fork when you want a linked copy of another person’s repository under your GitHub account\nA fork supports\n\nPulling later updates from the original repository\nMaking changes in a repository you own\nProposing changes to the original repository in a pull request\n\nFor this course, fork the demo so you can receive updates across Lectures 5.3 to 5.5"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#use-a-template-for-an-independent-project",
+    "href": "lectures/lecture5.3.html#use-a-template-for-an-independent-project",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Use a template for an independent project",
+    "text": "Use a template for an independent project\nUse template when the files provide a useful starting structure for a new project\nThe new repository receives\n\nThe template’s files and folders\nA new history beginning in the new repository\nThe visibility setting you choose\n\nThis is useful for a lab project layout or a standard replication package"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#choose-the-starting-action",
+    "href": "lectures/lecture5.3.html#choose-the-starting-action",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Choose the starting action",
+    "text": "Choose the starting action\nWhat action fits each situation?\nA. You are beginning your dissertation chapter in an empty project\nB. A coauthor added you to an existing private repository\nC. You want your own copy of the class demo and need later course updates\nD. Your lab publishes a standard project layout for independent studies\n\nDiscuss the reasoning before revealing the answers: A create, B clone, C fork and then clone, D use template and then clone"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#follow-along-fork-the-demo",
+    "href": "lectures/lecture5.3.html#follow-along-fork-the-demo",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Follow along: fork the demo",
+    "text": "Follow along: fork the demo\nOpen github.com/laurenchenarides/arec_570_demo while signed in\n\nSelect Fork\nUncheck Copy the main branch only so the lecture tags are included\nSelect Create fork\nConfirm that the address is github.com/your-username/arec_570_demo\n\nYour fork remains linked to the course repository for later synchronization"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#follow-along-clone-your-fork",
+    "href": "lectures/lecture5.3.html#follow-along-clone-your-fork",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Follow along: clone your fork",
+    "text": "Follow along: clone your fork\n\nOn your fork, select Code and copy the HTTPS URL\nIn RStudio select File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a regular parent folder such as GitProjects\nSelect Create Project\nConfirm that the project name appears in the upper-right corner\nConfirm that a Git tab appears beside Environment and History\n\nThe local repository’s origin points to your fork"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#origin-and-upstream-describe-remote-locations",
+    "href": "lectures/lecture5.3.html#origin-and-upstream-describe-remote-locations",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Origin and upstream describe remote locations",
+    "text": "Origin and upstream describe remote locations\n\n\n\n\n\n\n\nName\nRepository\n\n\n\n\norigin\nThe remote repository cloned to your computer, which is your fork in this exercise\n\n\nupstream\nA conventional name for the original course repository\n\n\n\nGitHub’s Sync fork retrieves changes from the course repository into your fork\nAfter syncing the fork, Pull retrieves those changes to the local project"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#inspect-the-change-from-lecture-5.2-to-5.3",
+    "href": "lectures/lecture5.3.html#inspect-the-change-from-lecture-5.2-to-5.3",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Inspect the change from Lecture 5.2 to 5.3",
+    "text": "Inspect the change from Lecture 5.2 to 5.3\nOpen the comparison between 5.2-retrieve and 5.3-structure\nLook for\n\nThe division of one retrieval script into numbered scripts\nThe addition of run_all.R\nThe separation of raw data, derived data, and outputs\nThe addition of .gitignore\nThe retrieval log and documentation\n\nWhich change most improves another researcher’s ability to reproduce the project?"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#git-records-changes-through-three-states",
+    "href": "lectures/lecture5.3.html#git-records-changes-through-three-states",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Git records changes through three states",
+    "text": "Git records changes through three states\n\n\n\nState\nMeaning\n\n\n\n\nWorking directory\nFiles currently being edited\n\n\nStaging area\nChanges selected for the next commit\n\n\nCommit\nA recorded snapshot with an explanatory message\n\n\n\nStaging lets one work session become several coherent commits"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#read-the-rstudio-git-pane",
+    "href": "lectures/lecture5.3.html#read-the-rstudio-git-pane",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Read the RStudio Git pane",
+    "text": "Read the RStudio Git pane\n\n\n\nStatus\nMeaning\n\n\n\n\nM\nA tracked file was modified\n\n\n?\nA new file is untracked\n\n\nA\nA new file is staged for its first commit\n\n\nD\nA tracked file was deleted\n\n\nR\nA tracked file was renamed or moved\n\n\n\nDiff shows changed lines. The Staged boxes select files for the next commit"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#the-everyday-git-loop",
+    "href": "lectures/lecture5.3.html#the-everyday-git-loop",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "The everyday Git loop",
+    "text": "The everyday Git loop\n\nPull before beginning a work session\nMake one coherent change\nInspect the changed lines with Diff\nStage the files that belong to the change\nWrite a specific commit message and select Commit\nPush the commits to GitHub\n\nRepeat the edit, inspect, stage, and commit steps as the work develops"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#follow-along-record-one-research-decision",
+    "href": "lectures/lecture5.3.html#follow-along-record-one-research-decision",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Follow along: record one research decision",
+    "text": "Follow along: record one research decision\nCreate docs/class-notes.md and add one sentence explaining a geographic or temporal choice in the demo project\nThen use the Git pane\n\nInspect the changed line with Diff\nCheck the Staged box for docs/class-notes.md\nCommit with Document geographic assignment rule\nSelect Push\nOpen your fork on GitHub and locate the new commit"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#the-corresponding-git-commands",
+    "href": "lectures/lecture5.3.html#the-corresponding-git-commands",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "The corresponding Git commands",
+    "text": "The corresponding Git commands\ngit pull\ngit status\ngit diff\ngit add docs/class-notes.md\ngit diff --staged\ngit commit -m \"Document geographic assignment rule\"\ngit push\nThe RStudio buttons run these commands\nCompanion reference: docs/git-in-rstudio.md"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#write-commit-messages-for-future-readers",
+    "href": "lectures/lecture5.3.html#write-commit-messages-for-future-readers",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Write commit messages for future readers",
+    "text": "Write commit messages for future readers\n\n\n\n\n\n\n\nGeneral message\nResearch-specific message\n\n\n\n\nupdates\nCode suppressed ACS estimates as missing\n\n\nfixed bug\nKeep FIPS codes as text to preserve leading zeros\n\n\nfinal version\nRestrict sample to the April-September growing season\n\n\n\nA useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#pull-and-push-move-commits",
+    "href": "lectures/lecture5.3.html#pull-and-push-move-commits",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Pull and push move commits",
+    "text": "Pull and push move commits\nPull brings remote commits into the local repository\nPush sends local commits to the remote repository\nWhen a push is rejected because the remote has newer commits\n\nPull the remote commits\nReview any conflicts Git reports\nComplete the merge if required\nPush the combined history\n\nLecture 5.4 develops branches, conflicts, and pull requests"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#history-makes-earlier-states-inspectable",
+    "href": "lectures/lecture5.3.html#history-makes-earlier-states-inspectable",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "History makes earlier states inspectable",
+    "text": "History makes earlier states inspectable\nUse History in RStudio or Commits on GitHub to inspect\n\nThe files changed in a commit\nThe exact lines added and removed\nThe author and date\nThe commit message\nThe identifier for the snapshot\n\nTags such as 5.2-retrieve give a name to a particular commit"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#what-belongs-in-the-repository",
+    "href": "lectures/lecture5.3.html#what-belongs-in-the-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "What belongs in the repository",
+    "text": "What belongs in the repository\nTrack files that explain or implement the research\n\nSource code\nREADME files and project documentation\nData dictionaries and retrieval logs\nSmall configuration files without credentials\nManuscript and presentation source files\n\nCommit generated outputs when the research team or publication process requires them"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#check-before-the-first-commit",
+    "href": "lectures/lecture5.3.html#check-before-the-first-commit",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Check before the first commit",
+    "text": "Check before the first commit\nOpen .gitignore and git status before staging a new project\nAsk\n\nDoes any file contain a password or API key\nDoes the project contain restricted or licensed data\nIs a large file available from a stable archive or reproducible download\nCan a derived file be rebuilt by the project scripts\nDoes each tracked file help explain, run, or report the research\n\nRevoke any credential that enters a commit because earlier commits retain the file contents"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#common-problems-and-first-checks",
+    "href": "lectures/lecture5.3.html#common-problems-and-first-checks",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Common problems and first checks",
+    "text": "Common problems and first checks\n\n\n\n\n\n\n\nProblem\nFirst check\n\n\n\n\nThe Git tab is missing\nConfirm that the .Rproj inside a Git repository is open\n\n\nGit rejects a commit\nCheck the configured name and email with usethis::git_sitrep()\n\n\nGitHub rejects authentication\nCheck whether the personal access token is present and current\n\n\nA push is rejected\nPull and inspect the incoming commits\n\n\nA file never appears in the Git pane\nCheck the patterns in .gitignore\n\n\n\nRecord the exact error message when asking for help"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#apply-the-workflow-to-your-research-project",
+    "href": "lectures/lecture5.3.html#apply-the-workflow-to-your-research-project",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Apply the workflow to your research project",
+    "text": "Apply the workflow to your research project\nFor one current project, identify\n\nThe project root\nThe command or script that reproduces the main result\nThe files Git should track\nThe files .gitignore should exclude\nThe people who need repository access\nThe first research decision that deserves a commit\n\nDiscuss one unresolved choice with the class"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#return-to-gentzkow-and-shapiro",
+    "href": "lectures/lecture5.3.html#return-to-gentzkow-and-shapiro",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Return to Gentzkow and Shapiro",
+    "text": "Return to Gentzkow and Shapiro\nHow do the reading’s recommendations appear in the demo repository?\n\nAutomation through run_all.R\nSeparate directories for code, raw data, derived data, and outputs\nRelative paths from the project root\nVersion history for code and documentation\nREADME files that describe execution and file roles\n\nWhich recommendation would require the largest change in your current workflow?"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#summary",
+    "href": "lectures/lecture5.3.html#summary",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Summary",
+    "text": "Summary\nProject structure records where inputs, code, and outputs belong\nGit records local changes as commits\nGitHub hosts a remote repository for sharing and collaboration\nCreate, fork, and template determine how a repository begins\nClone creates the local working copy\nPull, edit, stage, commit, and push form the everyday workflow"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#how-a-repository-reaches-your-computer",
+    "href": "lectures/lecture5.3.html#how-a-repository-reaches-your-computer",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "How a repository reaches your computer",
+    "text": "How a repository reaches your computer\nNew research project       Create repository  --&gt; Clone\nCourse demo                Fork repository    --&gt; Clone\nLab project scaffold       Use template       --&gt; Clone\nCoauthor's repository                              Clone\nCreate, fork, and use template describe how a remote repository begins\nClone creates the local project folder and Git history"
   }
 ]
