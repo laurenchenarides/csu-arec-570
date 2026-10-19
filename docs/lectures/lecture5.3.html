@@ -233,16 +233,614 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="reading-and-sequence" class="slide level2">
-<h2>Reading and sequence</h2>
-<p><strong>Gentzkow and Shapiro, <em>Code and Data for the Social Sciences</em>, Sections 1-4</strong> <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></p>
+<section id="reading-and-todays-path" class="slide level2">
+<h2>Reading and today’s path</h2>
+<p><strong>Gentzkow and Shapiro, <em>Code and Data for the Social Sciences</em>, Sections 1–4</strong> <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></p>
+<p><strong>Bryan, <em>Excuse Me, Do You Have a Moment to Talk About Version Control?</em>, 2017</strong> <span class="citation" data-cites="bryan2017version">(<a href="#/references" role="doc-biblioref" onclick="">Bryan 2017</a>)</span></p>
 <ol type="1">
-<li>Connect the API exercise to a reproducible project</li>
-<li>Organize files so the project can run on another computer</li>
-<li>Define the roles of Git, GitHub, and RStudio</li>
-<li>Choose among creating, forking, templating, and cloning a repository</li>
-<li>Practice the pull, edit, stage, commit, and push workflow</li>
+<li>Organize a project so another researcher can follow it</li>
+<li>Identify where undocumented memory enters the workflow</li>
+<li>Set up Git, GitHub, and RStudio</li>
+<li>Take one research project from its first commit through GitHub</li>
+<li>Choose a workflow for team projects and reusable templates</li>
 </ol>
+</section>
+<section id="reproducibility-starts-with-organization" class="slide level2">
+<h2>Reproducibility starts with organization</h2>
+<p>Can another researcher reconstruct a result from the same inputs?</p>
+<p>They need</p>
+<ul>
+<li>Original inputs</li>
+<li>Code for every transformation</li>
+<li>The order in which the code runs</li>
+<li>Software and package requirements</li>
+<li>The project version used for the result</li>
+</ul>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></p>
+</section>
+<section id="start-with-a-recognizable-project-root" class="slide level2">
+<h2>Start with a recognizable project root</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>research_project/</span>
+<span id="cb1-2"><a aria-label="2"></a>  README.md</span>
+<span id="cb1-3"><a aria-label="3"></a>  research_project.Rproj</span>
+<span id="cb1-4"><a aria-label="4"></a>  run_all.R</span>
+<span id="cb1-5"><a aria-label="5"></a>  code/</span>
+<span id="cb1-6"><a aria-label="6"></a>  data/</span>
+<span id="cb1-7"><a aria-label="7"></a>  output/</span>
+<span id="cb1-8"><a aria-label="8"></a>  docs/</span>
+<span id="cb1-9"><a aria-label="9"></a>  lab_diary.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>.Rproj</code> file opens this folder as the project root</p>
+</section>
+<section id="separate-files-by-function" class="slide level2">
+<h2>Separate files by function</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>code/                    scripts and reusable functions</span>
+<span id="cb2-2"><a aria-label="2"></a>data/raw/                source files as retrieved</span>
+<span id="cb2-3"><a aria-label="3"></a>data/derived/            files constructed from source data</span>
+<span id="cb2-4"><a aria-label="4"></a>output/figures/          figures produced by code</span>
+<span id="cb2-5"><a aria-label="5"></a>output/tables/           tables produced by code</span>
+<span id="cb2-6"><a aria-label="6"></a>docs/                    codebook and project documentation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Raw inputs remain unchanged. Scripts rebuild derived data and outputs</p>
+</section>
+<section id="paths-should-travel-with-the-project" class="slide level2">
+<h2>Paths should travel with the project</h2>
+<p>Use paths relative to the project root</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">read.csv</span>(<span class="st">"data/raw/streamflow.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A path beginning with one person’s user directory usually fails on another computer</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/jane/Desktop/streamflow.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="automate-the-sequence" class="slide level2">
+<h2>Automate the sequence</h2>
+<p><code>run_all.R</code> records the order of operations</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">source</span>(<span class="st">"code/00_setup.R"</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">source</span>(<span class="st">"code/01_get_cdl.R"</span>)</span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">source</span>(<span class="st">"code/02_get_streamflow.R"</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">source</span>(<span class="st">"code/03_get_weather.R"</span>)</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">source</span>(<span class="st">"code/04_get_acs.R"</span>)</span>
+<span id="cb5-6"><a aria-label="6"></a><span class="fu">source</span>(<span class="st">"code/05_build_daily.R"</span>)</span>
+<span id="cb5-7"><a aria-label="7"></a><span class="fu">source</span>(<span class="st">"code/06_outputs.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>One command rebuilds the project from documented inputs</p>
+</section>
+<section id="where-does-memory-enter-the-workflow" class="slide level2">
+<h2>Where does memory enter the workflow?</h2>
+<p>Consider one result in your current research project</p>
+<ul>
+<li>Which steps happen through code</li>
+<li>Which steps happen through menus or manual edits</li>
+<li>Where the order of operations is recorded</li>
+<li>Which inputs can change over time</li>
+<li>What another researcher would need to ask before running it</li>
+</ul>
+</section>
+<section id="documentation-replaces-memory" class="slide level2">
+<h2>Documentation replaces memory</h2>
+<p>Different records answer different questions</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Record</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Scripts and <code>run_all.R</code></td>
+<td>What operations produced the result</td>
+</tr>
+<tr class="even">
+<td>README</td>
+<td>How should a new researcher run the project</td>
+</tr>
+<tr class="odd">
+<td>Codebook</td>
+<td>What do the variables and values mean</td>
+</tr>
+<tr class="even">
+<td>Retrieval log</td>
+<td>Where and when did the inputs originate</td>
+</tr>
+<tr class="odd">
+<td>Lab diary</td>
+<td>Why did the researcher make a decision</td>
+</tr>
+<tr class="even">
+<td>Version history</td>
+<td>What changed across project states</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-version-control-adds" class="slide level2">
+<h2>What version control adds</h2>
+<p>Version control gives a project a documented history. At selected points, it records the state of the project’s files together with the author, date, and reason for the change.</p>
+<p>That history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.</p>
+<p>Source: <span class="citation" data-cites="bryan2017version">Bryan (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
+</section>
+<section id="git-github-and-rstudio-have-different-roles" class="slide level2">
+<h2>Git, GitHub, and RStudio have different roles</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Git</strong></td>
+<td>Software that records the history of a project on your computer</td>
+</tr>
+<tr class="even">
+<td><strong>GitHub</strong></td>
+<td>An online service that hosts a copy of a Git project and supports sharing</td>
+</tr>
+<tr class="odd">
+<td><strong>RStudio</strong></td>
+<td>An editor that lets you work with project files and run Git through buttons, menus, and the Terminal</td>
+</tr>
+</tbody>
+</table>
+<p>A Git project can remain entirely on one computer. GitHub adds an online copy. RStudio calls Git commands on your behalf <span class="citation" data-cites="bryan2017version">(<a href="#/references" role="doc-biblioref" onclick="">Bryan 2017</a>)</span></p>
+</section>
+<section id="one-project-can-exist-in-three-locations" class="slide level2">
+<h2>One project can exist in three locations</h2>
+<p><img data-src="assets/unit5/version-control-locations.svg" alt="A research project's working files and local Git history are on the student's computer, while a remote copy is hosted on GitHub. Commits connect working files to local history, and push and pull connect local history to GitHub."></p>
+<aside class="notes">
+<p>Walk from left to right. Saving changes the working files. Committing records a checkpoint in local Git history. Pushing copies local commits to GitHub. Pulling brings commits from GitHub into the local repository.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control-vocabulary" class="slide level2">
+<h2>Version control vocabulary</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Repository</strong></td>
+<td>A project and its Git history</td>
+</tr>
+<tr class="even">
+<td><strong>Working directory</strong></td>
+<td>The files currently visible in the project folder</td>
+</tr>
+<tr class="odd">
+<td><strong>Tracked file</strong></td>
+<td>A file whose changes Git follows</td>
+</tr>
+<tr class="even">
+<td><strong>Staging area</strong></td>
+<td>The changes selected for the next commit</td>
+</tr>
+<tr class="odd">
+<td><strong>Commit</strong></td>
+<td>A recorded checkpoint in the project history</td>
+</tr>
+<tr class="even">
+<td><strong>Diff</strong></td>
+<td>The lines added, removed, or changed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="version-control-vocabulary-1" class="slide level2">
+<h2>Version control vocabulary</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Commit message</strong></td>
+<td>A short explanation attached to a commit</td>
+</tr>
+<tr class="even">
+<td><strong>Tag</strong></td>
+<td>A readable name attached to an important commit</td>
+</tr>
+<tr class="odd">
+<td><strong>Local</strong></td>
+<td>The repository on your computer</td>
+</tr>
+<tr class="even">
+<td><strong>Remote</strong></td>
+<td>A connected repository hosted online</td>
+</tr>
+<tr class="odd">
+<td><strong>Origin</strong></td>
+<td>The default name for the remote connected to the local repository</td>
+</tr>
+<tr class="even">
+<td><strong>Push</strong></td>
+<td>Send local commits to a remote</td>
+</tr>
+<tr class="odd">
+<td><strong>Pull</strong></td>
+<td>Bring remote commits into the local repository</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="saving-committing-and-pushing-are-separate-actions" class="slide level2">
+<h2>Saving, committing, and pushing are separate actions</h2>
+<div class="fragment">
+<p><strong>Save</strong> writes the current file to the working directory</p>
+</div>
+<div class="fragment">
+<p><strong>Commit</strong> records selected changes in the local Git history</p>
+</div>
+<div class="fragment">
+<p><strong>Push</strong> sends local commits to GitHub</p>
+</div>
+<aside class="notes">
+<p>A saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-time-setup" class="slide level2">
+<h2>One-time setup</h2>
+<p>Complete these steps once on each computer</p>
+<ol type="1">
+<li>Install Git</li>
+<li>Create a GitHub account</li>
+<li>Tell Git your name and email</li>
+<li>Create a GitHub personal access token</li>
+<li>Store the token for RStudio and Git</li>
+<li>Verify the connection</li>
+</ol>
+<p>The demo repository provides detailed instructions in <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md"><code>docs/setup-rstudio.md</code></a></p>
+</section>
+<section id="step-1-install-git" class="slide level2">
+<h2>Step 1: install Git</h2>
+<p>Download Git from <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></p>
+<p>Restart RStudio after installation, then run</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">system</span>(<span class="st">"git --version"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A successful check prints a version such as <code>git version 2.51.0</code></p>
+</section>
+<section id="steps-2-and-3-create-accounts-and-identify-yourself" class="slide level2">
+<h2>Steps 2 and 3: create accounts and identify yourself</h2>
+<p>Create an account at <a href="https://github.com">github.com</a></p>
+<p>Install two helper packages and configure Git</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"usethis"</span>, <span class="st">"gitcreds"</span>))</span>
+<span id="cb7-2"><a aria-label="2"></a></span>
+<span id="cb7-3"><a aria-label="3"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="at">user.name =</span> <span class="st">"Your Name"</span>,</span>
+<span id="cb7-5"><a aria-label="5"></a>  <span class="at">user.email =</span> <span class="st">"you@example.edu"</span></span>
+<span id="cb7-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use an email connected to your GitHub account</p>
+</section>
+<section id="steps-4-and-5-connect-github" class="slide level2">
+<h2>Steps 4 and 5: connect GitHub</h2>
+<p>Create a personal access token</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Copy the token from GitHub, then store it</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Treat the token like a password. Keep it out of scripts, <code>.Renviron</code>, and commits</p>
+</section>
+<section id="step-6-verify-the-setup" class="slide level2">
+<h2>Step 6: verify the setup</h2>
+<p>Run</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check for</p>
+<ul>
+<li>The expected Git version</li>
+<li>Your name and email</li>
+<li>A stored GitHub token</li>
+<li>A recognized GitHub account</li>
+</ul>
+<aside class="notes">
+<p>Pause for a live RStudio walkthrough. Open the Terminal to show <code>git --version</code>, then run <code>usethis::git_sitrep()</code> in the Console. Ask students to compare their output with the projected output.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="case-1-your-own-research-project" class="slide level2">
+<h2>Case 1: your own research project</h2>
+<p>You have an existing RStudio project with scripts, data documentation, and early results</p>
+<p>Your goal is to</p>
+<ol type="1">
+<li>Review which files belong in Git</li>
+<li>Initialize the local repository</li>
+<li>Make the first commit</li>
+<li>Create a private GitHub repository</li>
+<li>Use the workflow during each research session</li>
+</ol>
+</section>
+<section id="start-to-finish-workflow" class="slide level2">
+<h2>Start-to-finish workflow</h2>
+<p><img data-src="assets/unit5/own-project-workflow.svg" alt="Six steps for placing an existing RStudio project under version control: open the project, review files, initialize Git, commit, create the GitHub remote, and begin the daily workflow."></p>
+</section>
+<section id="open-the-project-in-rstudio" class="slide level2">
+<h2>Open the project in RStudio</h2>
+<p>Open the <code>.Rproj</code> file inside the project root</p>
+<p>Confirm that</p>
+<ul>
+<li>The project name appears in the upper-right corner</li>
+<li>The Files pane begins at the project root</li>
+<li>Relative paths run successfully</li>
+<li>The project contains a README or equivalent instructions</li>
+</ul>
+</section>
+<section id="decide-what-git-should-track" class="slide level2">
+<h2>Decide what Git should track</h2>
+<p>Track files that explain, run, or report the research</p>
+<ul>
+<li>Source code</li>
+<li>README files and project documentation</li>
+<li>Data dictionaries and retrieval logs</li>
+<li>Small configuration files without credentials</li>
+<li>Manuscript and presentation source files</li>
+</ul>
+<p>Generated outputs can follow the project team’s publication and archival policy</p>
+</section>
+<section id="use-.gitignore-for-excluded-files" class="slide level2">
+<h2>Use <code>.gitignore</code> for excluded files</h2>
+<p>Common exclusions include</p>
+<ul>
+<li>API keys and credentials</li>
+<li>Confidential or restricted data</li>
+<li>Large source files stored in an archive</li>
+<li>Derived files rebuilt by code</li>
+<li>R session files such as <code>.RData</code> and <code>.Rhistory</code></li>
+</ul>
+<p><code>.gitignore</code> applies to files Git has not started tracking</p>
+</section>
+<section id="check-before-the-first-commit" class="slide level2">
+<h2>Check before the first commit</h2>
+<p>Open <code>.gitignore</code> and review every file in the project</p>
+<ul>
+<li>Does any file contain a password or API key</li>
+<li>Does the project contain restricted or licensed data</li>
+<li>Is a large file available from a stable archive or reproducible download</li>
+<li>Can a derived file be rebuilt by the project scripts</li>
+<li>Does each tracked file help explain, run, or report the research</li>
+</ul>
+<p>Revoke any credential that enters a commit because earlier commits retain its contents</p>
+</section>
+<section id="initialize-the-local-repository" class="slide level2">
+<h2>Initialize the local repository</h2>
+<p>Run in the RStudio Console</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RStudio may restart the project. A <strong>Git</strong> tab should then appear beside Environment and History</p>
+<p>This command creates the hidden <code>.git</code> directory that stores local history</p>
+</section>
+<section id="git-records-changes-through-three-states" class="slide level2">
+<h2>Git records changes through three states</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>State</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Working directory</strong></td>
+<td>Files currently being edited</td>
+</tr>
+<tr class="even">
+<td><strong>Staging area</strong></td>
+<td>Changes selected for the next commit</td>
+</tr>
+<tr class="odd">
+<td><strong>Commit</strong></td>
+<td>A recorded checkpoint with an explanatory message</td>
+</tr>
+</tbody>
+</table>
+<p>Staging lets one work session become several coherent commits</p>
+</section>
+<section id="read-the-rstudio-git-pane" class="slide level2">
+<h2>Read the RStudio Git pane</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>M</code></td>
+<td>A tracked file was modified</td>
+</tr>
+<tr class="even">
+<td><code>?</code></td>
+<td>A new file is untracked</td>
+</tr>
+<tr class="odd">
+<td><code>A</code></td>
+<td>A new file is staged for its first commit</td>
+</tr>
+<tr class="even">
+<td><code>D</code></td>
+<td>A tracked file was deleted</td>
+</tr>
+<tr class="odd">
+<td><code>R</code></td>
+<td>A tracked file was renamed or moved</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diff</strong> shows changed lines. The <strong>Staged</strong> boxes select changes for the next commit</p>
+</section>
+<section id="make-the-first-commit" class="slide level2">
+<h2>Make the first commit</h2>
+<ol type="1">
+<li>Open the Git pane</li>
+<li>Select <strong>Diff</strong> and inspect the proposed files</li>
+<li>Stage the files that belong in the repository</li>
+<li>Enter <code>Create initial project structure</code></li>
+<li>Select <strong>Commit</strong></li>
+</ol>
+<p>The commit now exists in local Git history</p>
+</section>
+<section id="create-the-private-github-repository" class="slide level2">
+<h2>Create the private GitHub repository</h2>
+<p>Run in the RStudio Console</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">private =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This command</p>
+<ul>
+<li>Creates a GitHub repository under your account</li>
+<li>Connects the local repository to the GitHub remote</li>
+<li>Names that remote <code>origin</code></li>
+<li>Pushes the current branch and commits</li>
+</ul>
+</section>
+<section id="the-everyday-git-workflow" class="slide level2">
+<h2>The everyday Git workflow</h2>
+<ol type="1">
+<li><strong>Pull</strong> before beginning a work session</li>
+<li>Make one coherent change</li>
+<li>Inspect the changed lines with <strong>Diff</strong></li>
+<li>Stage the files that belong to the change</li>
+<li>Write a specific message and <strong>Commit</strong></li>
+<li><strong>Push</strong> the commits to GitHub</li>
+</ol>
+<p>Repeat the edit, inspect, stage, and commit steps as the work develops</p>
+</section>
+<section id="follow-along-in-rstudio" class="slide level2">
+<h2>Follow along in RStudio</h2>
+<p>In a practice project</p>
+<ol type="1">
+<li>Add one sentence to <code>README.md</code></li>
+<li>Save the file</li>
+<li>Inspect the changed line with <strong>Diff</strong></li>
+<li>Stage <code>README.md</code></li>
+<li>Commit with <code>Clarify project research question</code></li>
+<li>Push the commit</li>
+<li>Open GitHub and locate the same commit</li>
+</ol>
+<aside class="notes">
+<p>Show each location after every action. After saving, point to the modified status in RStudio. After committing, show History. After pushing, refresh GitHub and open the commit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-corresponding-git-commands" class="slide level2">
+<h2>The corresponding Git commands</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="fu">git</span> pull</span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">git</span> status</span>
+<span id="cb13-3"><a aria-label="3"></a><span class="fu">git</span> diff</span>
+<span id="cb13-4"><a aria-label="4"></a><span class="fu">git</span> add README.md</span>
+<span id="cb13-5"><a aria-label="5"></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
+<span id="cb13-6"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Clarify project research question"</span></span>
+<span id="cb13-7"><a aria-label="7"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The RStudio buttons run these commands</p>
+<p>Companion reference: <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/git-in-rstudio.md"><code>docs/git-in-rstudio.md</code></a></p>
+</section>
+<section id="a-diff-shows-what-changed" class="slide level2">
+<h2>A diff shows what changed</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb14-1"><a aria-label="1"></a><span class="st">- This project studies water use</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="va">+ This project studies how irrigation restrictions affect water use</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The diff records the changed text</p>
+<p>The commit message records the reason for that change</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a aria-label="1"></a>Clarify treatment and outcome in research question</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="write-messages-for-future-readers" class="slide level2">
+<h2>Write messages for future readers</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>General message</th>
+<th>Research-specific message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>updates</code></td>
+<td><code>Code suppressed ACS estimates as missing</code></td>
+</tr>
+<tr class="even">
+<td><code>fixed bug</code></td>
+<td><code>Keep FIPS codes as text to preserve leading zeros</code></td>
+</tr>
+<tr class="odd">
+<td><code>final version</code></td>
+<td><code>Restrict sample to the April–September growing season</code></td>
+</tr>
+</tbody>
+</table>
+<p>A useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation</p>
+</section>
+<section id="history-makes-earlier-states-inspectable" class="slide level2">
+<h2>History makes earlier states inspectable</h2>
+<p>Use <strong>History</strong> in RStudio or <strong>Commits</strong> on GitHub to inspect</p>
+<ul>
+<li>The files changed in a commit</li>
+<li>The exact lines added and removed</li>
+<li>The author and date</li>
+<li>The commit message</li>
+<li>The identifier for the checkpoint</li>
+</ul>
+<p>Tags such as <code>5.2-retrieve</code> give a readable name to a particular commit</p>
+</section>
+<section id="case-2-shared-work-and-reusable-projects" class="slide level2">
+<h2>Case 2: shared work and reusable projects</h2>
+<p>A remote repository already exists when</p>
+<ul>
+<li>A coauthor invites you to a team repository</li>
+<li>You want your own linked copy of public work</li>
+<li>A lab or instructor provides a reusable template</li>
+<li>You want to contribute a change to another repository</li>
+</ul>
+<p>The starting action depends on ownership and purpose</p>
 </section>
 <section id="where-we-left-off-in-lecture-5.2" class="slide level2">
 <h2>Where we left off in Lecture 5.2</h2>
@@ -295,86 +893,22 @@ Lauren Chenarides
 </tbody>
 </table>
 </section>
-<section id="reproducibility-starts-with-organization" class="slide level2">
-<h2>Reproducibility starts with organization</h2>
-<p>Can another researcher reconstruct a result from the same inputs?</p>
-<p>They need</p>
+<section id="completed-before-class" class="slide level2">
+<h2>Completed before class</h2>
+<p>Lecture 5.2 assigned Parts One and Two of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md"><code>docs/setup-rstudio.md</code></a></p>
 <ul>
-<li>Original inputs</li>
-<li>Code for every transformation</li>
-<li>The order in which the code runs</li>
-<li>Software and package requirements</li>
-<li>The project version used for the result</li>
+<li>Install Git and restart RStudio</li>
+<li>Create a GitHub account</li>
+<li>Configure your Git name and email</li>
+<li>Create and store a GitHub personal access token</li>
+<li>Request, activate, and store a Census API key</li>
+<li>Run <code>usethis::git_sitrep()</code> without errors</li>
+<li>Confirm <code>nzchar(Sys.getenv("CENSUS_API_KEY"))</code> returns <code>TRUE</code></li>
 </ul>
-<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></p>
+<p>Bring the laptop used to complete these steps</p>
 </section>
-<section id="start-with-a-recognizable-project-root" class="slide level2">
-<h2>Start with a recognizable project root</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>arec_570_demo/</span>
-<span id="cb1-2"><a aria-label="2"></a>  README.md</span>
-<span id="cb1-3"><a aria-label="3"></a>  arec_570_demo.Rproj</span>
-<span id="cb1-4"><a aria-label="4"></a>  run_all.R</span>
-<span id="cb1-5"><a aria-label="5"></a>  code/</span>
-<span id="cb1-6"><a aria-label="6"></a>  data/</span>
-<span id="cb1-7"><a aria-label="7"></a>  output/</span>
-<span id="cb1-8"><a aria-label="8"></a>  docs/</span>
-<span id="cb1-9"><a aria-label="9"></a>  lab_diary.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>.Rproj</code> file opens the project with this folder as the working directory</p>
-</section>
-<section id="separate-files-by-function" class="slide level2">
-<h2>Separate files by function</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>code/                    scripts and reusable functions</span>
-<span id="cb2-2"><a aria-label="2"></a>data/raw/                source files as retrieved</span>
-<span id="cb2-3"><a aria-label="3"></a>data/derived/            files constructed from source data</span>
-<span id="cb2-4"><a aria-label="4"></a>output/figures/          figures produced by code</span>
-<span id="cb2-5"><a aria-label="5"></a>output/tables/           tables produced by code</span>
-<span id="cb2-6"><a aria-label="6"></a>docs/                    codebook and project documentation</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Raw inputs remain unchanged. Scripts rebuild derived data and outputs</p>
-</section>
-<section id="paths-should-travel-with-the-project" class="slide level2">
-<h2>Paths should travel with the project</h2>
-<p>Use paths relative to the project root</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">read.csv</span>(<span class="st">"data/raw/streamflow.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A path that begins with a person’s user directory usually fails on another computer</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/jane/Desktop/streamflow.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="automate-the-sequence" class="slide level2">
-<h2>Automate the sequence</h2>
-<p><code>run_all.R</code> expresses the order of operations</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">source</span>(<span class="st">"code/00_setup.R"</span>)</span>
-<span id="cb5-2"><a aria-label="2"></a><span class="fu">source</span>(<span class="st">"code/01_get_cdl.R"</span>)</span>
-<span id="cb5-3"><a aria-label="3"></a><span class="fu">source</span>(<span class="st">"code/02_get_streamflow.R"</span>)</span>
-<span id="cb5-4"><a aria-label="4"></a><span class="fu">source</span>(<span class="st">"code/03_get_weather.R"</span>)</span>
-<span id="cb5-5"><a aria-label="5"></a><span class="fu">source</span>(<span class="st">"code/04_get_acs.R"</span>)</span>
-<span id="cb5-6"><a aria-label="6"></a><span class="fu">source</span>(<span class="st">"code/05_build_daily.R"</span>)</span>
-<span id="cb5-7"><a aria-label="7"></a><span class="fu">source</span>(<span class="st">"code/06_outputs.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>One command rebuilds the project from documented inputs</p>
-</section>
-<section id="discussion-where-does-memory-enter-the-workflow" class="slide level2">
-<h2>Discussion: where does memory enter the workflow?</h2>
-<p>Consider one result in your current research project</p>
-<ul>
-<li>Which steps happen through code</li>
-<li>Which steps happen through menus or manual edits</li>
-<li>Where does the order of operations live</li>
-<li>Which inputs could change over time</li>
-<li>What would another researcher need to ask you before running it</li>
-</ul>
-</section>
-<section id="what-version-control-adds" class="slide level2">
-<h2>What version control adds</h2>
-<p>Version control records selected states of a project and the changes connecting them</p>
-<p>A useful history can answer</p>
-<ul>
-<li>What changed</li>
-<li>Who made the change</li>
-<li>When the change was recorded</li>
-<li>Why the change was made</li>
-<li>Which version produced a reported result</li>
-</ul>
-</section>
-<section id="git-github-and-rstudio-have-different-roles" class="slide level2">
-<h2>Git, GitHub, and RStudio have different roles</h2>
+<section id="vocabulary-for-shared-repositories" class="slide level2">
+<h2>Vocabulary for shared repositories</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 50%">
@@ -382,75 +916,68 @@ Lauren Chenarides
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tool</th>
-<th>Role in the workflow</th>
+<th>Term</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Git</strong></td>
-<td>Records file changes and commits on the computer</td>
+<td><strong>Clone</strong></td>
+<td>A local copy of a remote repository and its history</td>
 </tr>
 <tr class="even">
-<td><strong>GitHub</strong></td>
-<td>Hosts a remote copy and supports sharing and collaboration</td>
+<td><strong>Fork</strong></td>
+<td>A linked GitHub copy under your account</td>
 </tr>
 <tr class="odd">
-<td><strong>RStudio</strong></td>
-<td>Provides buttons and menus that run Git commands</td>
+<td><strong>Template</strong></td>
+<td>An independent repository created from a standard set of files</td>
+</tr>
+<tr class="even">
+<td><strong>Upstream</strong></td>
+<td>A conventional name for the original repository behind a fork</td>
 </tr>
 </tbody>
 </table>
-<p>Git supplies the version history. GitHub gives that history an online location</p>
+<p>Branches, merges, and pull requests receive fuller treatment in Lecture 5.4</p>
 </section>
-<section id="a-repository-is-the-project-and-its-history" class="slide level2">
-<h2>A repository is the project and its history</h2>
-<p>A <strong>repository</strong> contains</p>
-<ul>
-<li>The working files currently visible in the project folder</li>
-<li>A hidden <code>.git</code> directory containing the local history</li>
-<li>Optional connections to remote repositories such as GitHub</li>
-</ul>
-<p>The project folder becomes a Git repository when Git is initialized or when a repository is cloned</p>
+<section id="choose-how-your-local-project-begins" class="slide level2">
+<h2>Choose how your local project begins</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Starting action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>You have access to a team repository</td>
+<td><strong>Clone</strong> the team repository</td>
+</tr>
+<tr class="even">
+<td>You want a linked copy of public or course work</td>
+<td><strong>Fork</strong>, then <strong>clone</strong> your fork</td>
+</tr>
+<tr class="odd">
+<td>You want an independent project with a standard structure</td>
+<td><strong>Use template</strong>, then <strong>clone</strong> the new repository</td>
+</tr>
+<tr class="even">
+<td>You already have your own local project</td>
+<td><strong>Initialize Git</strong>, then create a GitHub remote</td>
+</tr>
+</tbody>
+</table>
+<p>Cloning is the step that creates the working project on your computer</p>
 </section>
-<section id="three-locations-in-the-workflow" class="slide level2">
-<h2>Three locations in the workflow</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>Working files              Local Git history              GitHub repository</span>
-<span id="cb6-2"><a aria-label="2"></a>on your computer           on your computer               online remote</span>
-<span id="cb6-3"><a aria-label="3"></a></span>
-<span id="cb6-4"><a aria-label="4"></a>edit files  --commit--&gt;    saved checkpoints  --push--&gt;  shared checkpoints</span>
-<span id="cb6-5"><a aria-label="5"></a>            &lt;--restore--                       &lt;--pull--</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A commit saves to the local history. A push sends local commits to GitHub</p>
-</section>
-<section id="setup-checkpoint" class="slide level2">
-<h2>Setup checkpoint</h2>
-<p>Lecture 5.2 assigned Parts One and Two of <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md"><code>docs/setup-rstudio.md</code></a></p>
-<p>Run these checks in the RStudio Console</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">system</span>(<span class="st">"git --version"</span>)</span>
-<span id="cb7-2"><a aria-label="2"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>()</span>
-<span id="cb7-3"><a aria-label="3"></a><span class="fu">nzchar</span>(<span class="fu">Sys.getenv</span>(<span class="st">"CENSUS_API_KEY"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Look for a Git version, your GitHub identity and token, and <code>[1] TRUE</code></p>
-</section>
-<section id="how-a-repository-reaches-your-computer" class="slide level2">
-<h2>How a repository reaches your computer</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a aria-label="1"></a>New research project       Create repository  --&gt; Clone</span>
-<span id="cb8-2"><a aria-label="2"></a>Course demo                Fork repository    --&gt; Clone</span>
-<span id="cb8-3"><a aria-label="3"></a>Lab project scaffold       Use template       --&gt; Clone</span>
-<span id="cb8-4"><a aria-label="4"></a>Coauthor's repository                              Clone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Create</strong>, <strong>fork</strong>, and <strong>use template</strong> describe how a remote repository begins</p>
-<p><strong>Clone</strong> creates the local project folder and Git history</p>
-</section>
-<section id="create-a-repository-for-your-research" class="slide level2">
-<h2>Create a repository for your research</h2>
-<p>Use <strong>create</strong> when the project belongs to you or your research team</p>
-<p>For an existing RStudio project</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
-<span id="cb9-2"><a aria-label="2"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">private =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Review <code>.gitignore</code> before the first commit. Keep restricted or licensed data outside GitHub</p>
-</section>
-<section id="clone-a-repository-you-can-access" class="slide level2">
-<h2>Clone a repository you can access</h2>
-<p>Use <strong>clone</strong> when the remote repository already exists and you need a local working copy</p>
+<section id="clone-a-team-repository" class="slide level2">
+<h2>Clone a team repository</h2>
+<p>Use <strong>clone</strong> when the repository already exists and you have permission to work in it</p>
 <p>In RStudio</p>
 <ol type="1">
 <li>Copy the repository’s HTTPS URL from <strong>Code</strong></li>
@@ -458,39 +985,38 @@ Lauren Chenarides
 <li>Paste the URL and choose a parent folder</li>
 <li>Select <strong>Create Project</strong></li>
 </ol>
-<p>Cloning copies files, branches, and history and configures the remote as <code>origin</code></p>
+<p>Cloning copies files and history and configures the remote as <code>origin</code></p>
 </section>
-<section id="fork-a-repository-into-your-account" class="slide level2">
-<h2>Fork a repository into your account</h2>
-<p>Use <strong>fork</strong> when you want a linked copy of another person’s repository under your GitHub account</p>
+<section id="fork-public-or-course-work" class="slide level2">
+<h2>Fork public or course work</h2>
+<p>Use <strong>fork</strong> when you want a linked GitHub copy under your account</p>
 <p>A fork supports</p>
 <ul>
-<li>Pulling later updates from the original repository</li>
-<li>Making changes in a repository you own</li>
-<li>Proposing changes to the original repository in a pull request</li>
+<li>Receiving later updates from the original repository</li>
+<li>Developing changes in a repository you control</li>
+<li>Proposing changes through a pull request</li>
 </ul>
-<p>For this course, fork the demo so you can receive updates across Lectures 5.3 to 5.5</p>
+<p>After creating the fork on GitHub, clone your fork to RStudio</p>
 </section>
 <section id="use-a-template-for-an-independent-project" class="slide level2">
 <h2>Use a template for an independent project</h2>
-<p>Use <strong>template</strong> when the files provide a useful starting structure for a new project</p>
+<p>Use <strong>template</strong> when a repository provides a reusable starting structure</p>
 <p>The new repository receives</p>
 <ul>
-<li>The template’s files and folders</li>
-<li>A new history beginning in the new repository</li>
-<li>The visibility setting you choose</li>
+<li>The template’s current files and folders</li>
+<li>A new Git history</li>
+<li>The repository name and visibility you choose</li>
 </ul>
-<p>This is useful for a lab project layout or a standard replication package</p>
+<p>A personal website template is one example. Your website becomes an independent project with its own history</p>
 </section>
-<section id="choose-the-starting-action" class="slide level2">
-<h2>Choose the starting action</h2>
-<p>What action fits each situation?</p>
-<p>A. You are beginning your dissertation chapter in an empty project</p>
-<p>B. A coauthor added you to an existing private repository</p>
-<p>C. You want your own copy of the class demo and need later course updates</p>
-<p>D. Your lab publishes a standard project layout for independent studies</p>
+<section id="which-action-fits-the-project" class="slide level2">
+<h2>Which action fits the project?</h2>
+<p>A. Your advisor adds you to a private team repository</p>
+<p>B. You want your own version of the course demo and need later course updates</p>
+<p>C. Your department offers a personal website template</p>
+<p>D. You have an existing dissertation project on your computer</p>
 <aside class="notes">
-<p>Discuss the reasoning before revealing the answers: A create, B clone, C fork and then clone, D use template and then clone</p>
+<p>Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -508,9 +1034,9 @@ Lauren Chenarides
 <p>Open <a href="https://github.com/laurenchenarides/arec_570_demo">github.com/laurenchenarides/arec_570_demo</a> while signed in</p>
 <ol type="1">
 <li>Select <strong>Fork</strong></li>
-<li>Uncheck <strong>Copy the main branch only</strong> so the lecture tags are included</li>
+<li>Clear <strong>Copy the main branch only</strong> so the lecture tags are included</li>
 <li>Select <strong>Create fork</strong></li>
-<li>Confirm that the address is <code>github.com/your-username/arec_570_demo</code></li>
+<li>Confirm the address is <code>github.com/your-username/arec_570_demo</code></li>
 </ol>
 <p>Your fork remains linked to the course repository for later synchronization</p>
 </section>
@@ -519,39 +1045,35 @@ Lauren Chenarides
 <ol type="1">
 <li>On your fork, select <strong>Code</strong> and copy the HTTPS URL</li>
 <li>In RStudio select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong></li>
-<li>Paste the URL and choose a regular parent folder such as <code>GitProjects</code></li>
+<li>Paste the URL and choose a parent folder such as <code>GitProjects</code></li>
 <li>Select <strong>Create Project</strong></li>
-<li>Confirm that the project name appears in the upper-right corner</li>
-<li>Confirm that a <strong>Git</strong> tab appears beside Environment and History</li>
+<li>Confirm the project name appears in the upper-right corner</li>
+<li>Confirm a <strong>Git</strong> tab appears beside Environment and History</li>
 </ol>
 <p>The local repository’s <code>origin</code> points to your fork</p>
 </section>
-<section id="origin-and-upstream-describe-remote-locations" class="slide level2">
-<h2>Origin and upstream describe remote locations</h2>
+<section id="origin-and-upstream-identify-remotes" class="slide level2">
+<h2>Origin and upstream identify remotes</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
-<th>Repository</th>
+<th>Repository in this exercise</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>origin</code></td>
-<td>The remote repository cloned to your computer, which is your fork in this exercise</td>
+<td>Your fork on GitHub</td>
 </tr>
 <tr class="even">
 <td><code>upstream</code></td>
-<td>A conventional name for the original course repository</td>
+<td>The original course repository</td>
 </tr>
 </tbody>
 </table>
-<p>GitHub’s <strong>Sync fork</strong> retrieves changes from the course repository into your fork</p>
-<p>After syncing the fork, <strong>Pull</strong> retrieves those changes to the local project</p>
+<p>GitHub’s <strong>Sync fork</strong> brings course updates into your fork</p>
+<p>After syncing the fork, <strong>Pull</strong> brings those commits to the local project</p>
 </section>
 <section id="inspect-the-change-from-lecture-5.2-to-5.3" class="slide level2">
 <h2>Inspect the change from Lecture 5.2 to 5.3</h2>
@@ -566,137 +1088,23 @@ Lauren Chenarides
 </ul>
 <p>Which change most improves another researcher’s ability to reproduce the project?</p>
 </section>
-<section id="git-records-changes-through-three-states" class="slide level2">
-<h2>Git records changes through three states</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>State</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Working directory</strong></td>
-<td>Files currently being edited</td>
-</tr>
-<tr class="even">
-<td><strong>Staging area</strong></td>
-<td>Changes selected for the next commit</td>
-</tr>
-<tr class="odd">
-<td><strong>Commit</strong></td>
-<td>A recorded snapshot with an explanatory message</td>
-</tr>
-</tbody>
-</table>
-<p>Staging lets one work session become several coherent commits</p>
-</section>
-<section id="read-the-rstudio-git-pane" class="slide level2">
-<h2>Read the RStudio Git pane</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Status</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>M</code></td>
-<td>A tracked file was modified</td>
-</tr>
-<tr class="even">
-<td><code>?</code></td>
-<td>A new file is untracked</td>
-</tr>
-<tr class="odd">
-<td><code>A</code></td>
-<td>A new file is staged for its first commit</td>
-</tr>
-<tr class="even">
-<td><code>D</code></td>
-<td>A tracked file was deleted</td>
-</tr>
-<tr class="odd">
-<td><code>R</code></td>
-<td>A tracked file was renamed or moved</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Diff</strong> shows changed lines. The <strong>Staged</strong> boxes select files for the next commit</p>
-</section>
-<section id="the-everyday-git-loop" class="slide level2">
-<h2>The everyday Git loop</h2>
-<ol type="1">
-<li><strong>Pull</strong> before beginning a work session</li>
-<li>Make one coherent change</li>
-<li>Inspect the changed lines with <strong>Diff</strong></li>
-<li>Stage the files that belong to the change</li>
-<li>Write a specific commit message and select <strong>Commit</strong></li>
-<li><strong>Push</strong> the commits to GitHub</li>
-</ol>
-<p>Repeat the edit, inspect, stage, and commit steps as the work develops</p>
-</section>
-<section id="follow-along-record-one-research-decision" class="slide level2">
-<h2>Follow along: record one research decision</h2>
+<section id="record-one-research-decision" class="slide level2">
+<h2>Record one research decision</h2>
 <p>Create <code>docs/class-notes.md</code> and add one sentence explaining a geographic or temporal choice in the demo project</p>
-<p>Then use the Git pane</p>
 <ol type="1">
 <li>Inspect the changed line with <strong>Diff</strong></li>
-<li>Check the <strong>Staged</strong> box for <code>docs/class-notes.md</code></li>
+<li>Stage <code>docs/class-notes.md</code></li>
 <li>Commit with <code>Document geographic assignment rule</code></li>
-<li>Select <strong>Push</strong></li>
+<li>Push the commit</li>
 <li>Open your fork on GitHub and locate the new commit</li>
 </ol>
+<p>The new file belongs to your fork, so later course updates can remain separate</p>
 </section>
-<section id="the-corresponding-git-commands" class="slide level2">
-<h2>The corresponding Git commands</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a aria-label="1"></a><span class="fu">git</span> pull</span>
-<span id="cb10-2"><a aria-label="2"></a><span class="fu">git</span> status</span>
-<span id="cb10-3"><a aria-label="3"></a><span class="fu">git</span> diff</span>
-<span id="cb10-4"><a aria-label="4"></a><span class="fu">git</span> add docs/class-notes.md</span>
-<span id="cb10-5"><a aria-label="5"></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
-<span id="cb10-6"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Document geographic assignment rule"</span></span>
-<span id="cb10-7"><a aria-label="7"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The RStudio buttons run these commands</p>
-<p>Companion reference: <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/git-in-rstudio.md"><code>docs/git-in-rstudio.md</code></a></p>
-</section>
-<section id="write-commit-messages-for-future-readers" class="slide level2">
-<h2>Write commit messages for future readers</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>General message</th>
-<th>Research-specific message</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>updates</code></td>
-<td><code>Code suppressed ACS estimates as missing</code></td>
-</tr>
-<tr class="even">
-<td><code>fixed bug</code></td>
-<td><code>Keep FIPS codes as text to preserve leading zeros</code></td>
-</tr>
-<tr class="odd">
-<td><code>final version</code></td>
-<td><code>Restrict sample to the April-September growing season</code></td>
-</tr>
-</tbody>
-</table>
-<p>A useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation</p>
-</section>
-<section id="pull-and-push-move-commits" class="slide level2">
-<h2>Pull and push move commits</h2>
+<section id="pull-and-push-synchronize-commits" class="slide level2">
+<h2>Pull and push synchronize commits</h2>
 <p><strong>Pull</strong> brings remote commits into the local repository</p>
 <p><strong>Push</strong> sends local commits to the remote repository</p>
-<p>When a push is rejected because the remote has newer commits</p>
+<p>When GitHub reports newer remote commits</p>
 <ol type="1">
 <li>Pull the remote commits</li>
 <li>Review any conflicts Git reports</li>
@@ -704,55 +1112,6 @@ Lauren Chenarides
 <li>Push the combined history</li>
 </ol>
 <p>Lecture 5.4 develops branches, conflicts, and pull requests</p>
-</section>
-<section id="history-makes-earlier-states-inspectable" class="slide level2">
-<h2>History makes earlier states inspectable</h2>
-<p>Use <strong>History</strong> in RStudio or <strong>Commits</strong> on GitHub to inspect</p>
-<ul>
-<li>The files changed in a commit</li>
-<li>The exact lines added and removed</li>
-<li>The author and date</li>
-<li>The commit message</li>
-<li>The identifier for the snapshot</li>
-</ul>
-<p>Tags such as <code>5.2-retrieve</code> give a name to a particular commit</p>
-</section>
-<section id="what-belongs-in-the-repository" class="slide level2">
-<h2>What belongs in the repository</h2>
-<p>Track files that explain or implement the research</p>
-<ul>
-<li>Source code</li>
-<li>README files and project documentation</li>
-<li>Data dictionaries and retrieval logs</li>
-<li>Small configuration files without credentials</li>
-<li>Manuscript and presentation source files</li>
-</ul>
-<p>Commit generated outputs when the research team or publication process requires them</p>
-</section>
-<section id="what-belongs-outside-the-repository" class="slide level2">
-<h2>What belongs outside the repository</h2>
-<p>Common exclusions in <code>.gitignore</code></p>
-<ul>
-<li>API keys and credentials such as <code>.Renviron</code></li>
-<li>Confidential or restricted data</li>
-<li>Large source files stored in an archive</li>
-<li>Derived files rebuilt by code</li>
-<li>R session files such as <code>.RData</code> and <code>.Rhistory</code></li>
-</ul>
-<p><code>.gitignore</code> applies to files Git has not started tracking</p>
-</section>
-<section id="check-before-the-first-commit" class="slide level2">
-<h2>Check before the first commit</h2>
-<p>Open <code>.gitignore</code> and <code>git status</code> before staging a new project</p>
-<p>Ask</p>
-<ul>
-<li>Does any file contain a password or API key</li>
-<li>Does the project contain restricted or licensed data</li>
-<li>Is a large file available from a stable archive or reproducible download</li>
-<li>Can a derived file be rebuilt by the project scripts</li>
-<li>Does each tracked file help explain, run, or report the research</li>
-</ul>
-<p>Revoke any credential that enters a commit because earlier commits retain the file contents</p>
 </section>
 <section id="common-problems-and-first-checks" class="slide level2">
 <h2>Common problems and first checks</h2>
@@ -770,7 +1129,7 @@ Lauren Chenarides
 <tbody>
 <tr class="odd">
 <td>The Git tab is missing</td>
-<td>Confirm that the <code>.Rproj</code> inside a Git repository is open</td>
+<td>Confirm the <code>.Rproj</code> inside a Git repository is open</td>
 </tr>
 <tr class="even">
 <td>Git rejects a commit</td>
@@ -801,9 +1160,9 @@ Lauren Chenarides
 <li>The files Git should track</li>
 <li>The files <code>.gitignore</code> should exclude</li>
 <li>The people who need repository access</li>
-<li>The first research decision that deserves a commit</li>
+<li>The next research decision that deserves a commit</li>
 </ol>
-<p>Discuss one unresolved choice with the class</p>
+<p>Share one unresolved choice with the class</p>
 </section>
 <section id="return-to-gentzkow-and-shapiro" class="slide level2">
 <h2>Return to Gentzkow and Shapiro</h2>
@@ -815,7 +1174,7 @@ Lauren Chenarides
 <li>Version history for code and documentation</li>
 <li>README files that describe execution and file roles</li>
 </ul>
-<p>Which recommendation would require the largest change in your current workflow?</p>
+<p>Which recommendation requires the largest change in your current workflow?</p>
 </section>
 <section id="before-you-leave" class="slide level2">
 <h2>Before you leave</h2>
@@ -833,13 +1192,16 @@ Lauren Chenarides
 <p><strong>Project structure</strong> records where inputs, code, and outputs belong</p>
 <p><strong>Git</strong> records local changes as commits</p>
 <p><strong>GitHub</strong> hosts a remote repository for sharing and collaboration</p>
-<p><strong>Create, fork, and template</strong> determine how a repository begins</p>
-<p><strong>Clone</strong> creates the local working copy</p>
-<p><strong>Pull, edit, stage, commit, and push</strong> form the everyday workflow</p>
+<p><strong>RStudio</strong> provides an interface for editing files and using Git</p>
+<p><strong>Clone, fork, and template</strong> describe different ways to begin from an existing repository</p>
+<p><strong>Pull, edit, inspect, stage, commit, and push</strong> form the everyday workflow</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bryan2017version" class="csl-entry" role="listitem">
+Bryan, Jennifer. 2017. <span>“Excuse Me, Do You Have a Moment to Talk about Version Control?”</span> <em>PeerJ Preprints</em> 5: e3159v2. <a href="https://doi.org/10.7287/peerj.preprints.3159v2">https://doi.org/10.7287/peerj.preprints.3159v2</a>.
+</div>
 <div id="ref-gentzkow2014code" class="csl-entry" role="listitem">
 Gentzkow, Matthew, and Jesse M. Shapiro. 2014. <em>Code and Data for the Social Sciences: A Practitioner’s Guide</em>. University of Chicago mimeo. <a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf</a>.
 </div>

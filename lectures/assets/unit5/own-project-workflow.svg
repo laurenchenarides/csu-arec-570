@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Start-to-finish workflow for an existing research project</title>
+  <desc id="desc">Open the RStudio project, review files, initialize Git, make the first commit, create a GitHub remote, and begin the daily workflow.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1E4D2B"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="360" fill="#FFFFFF"/>
+  <path d="M115 153 H1080" stroke="#1E4D2B" stroke-width="5" marker-end="url(#arrow)"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(115 153)">
+      <circle r="55" fill="#1E4D2B"/>
+      <text y="10" font-size="30" font-weight="700" fill="#FFFFFF">1</text>
+      <text y="92" font-size="21" font-weight="700" fill="#1E4D2B">Open the</text>
+      <text y="119" font-size="21" font-weight="700" fill="#1E4D2B">RStudio project</text>
+    </g>
+    <g transform="translate(305 153)">
+      <circle r="55" fill="#FFFFFF" stroke="#1E4D2B" stroke-width="5"/>
+      <text y="10" font-size="30" font-weight="700" fill="#1E4D2B">2</text>
+      <text y="92" font-size="21" font-weight="700" fill="#1E4D2B">Review files and</text>
+      <text y="119" font-size="21" font-weight="700" fill="#1E4D2B">.gitignore</text>
+    </g>
+    <g transform="translate(495 153)">
+      <circle r="55" fill="#FFFFFF" stroke="#1E4D2B" stroke-width="5"/>
+      <text y="10" font-size="30" font-weight="700" fill="#1E4D2B">3</text>
+      <text y="92" font-size="21" font-weight="700" fill="#1E4D2B">Initialize</text>
+      <text y="119" font-size="21" font-weight="700" fill="#1E4D2B">Git</text>
+    </g>
+    <g transform="translate(685 153)">
+      <circle r="55" fill="#FFFFFF" stroke="#1E4D2B" stroke-width="5"/>
+      <text y="10" font-size="30" font-weight="700" fill="#1E4D2B">4</text>
+      <text y="92" font-size="21" font-weight="700" fill="#1E4D2B">Make the</text>
+      <text y="119" font-size="21" font-weight="700" fill="#1E4D2B">first commit</text>
+    </g>
+    <g transform="translate(875 153)">
+      <circle r="55" fill="#FFFFFF" stroke="#1E4D2B" stroke-width="5"/>
+      <text y="10" font-size="30" font-weight="700" fill="#1E4D2B">5</text>
+      <text y="92" font-size="21" font-weight="700" fill="#1E4D2B">Create the</text>
+      <text y="119" font-size="21" font-weight="700" fill="#1E4D2B">GitHub remote</text>
+    </g>
+    <g transform="translate(1065 153)">
+      <circle r="55" fill="#245A81"/>
+      <text y="10" font-size="30" font-weight="700" fill="#FFFFFF">6</text>
+      <text y="92" font-size="21" font-weight="700" fill="#245A81">Use the daily</text>
+      <text y="119" font-size="21" font-weight="700" fill="#245A81">workflow</text>
+    </g>
+  </g>
+</svg>
