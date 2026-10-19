@@ -2741,7 +2741,7 @@
     "href": "lectures/lecture5.3.html#where-we-left-off-in-lecture-5.2",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Where we left off in Lecture 5.2",
-    "text": "Where we left off in Lecture 5.2\nThe arec_570_demo project retrieved land-use, streamflow, weather, and Census data through APIs\n\nR scripts recorded the requests\nRaw downloads preserved the responses\nA retrieval log recorded source, date, and parameters\ndocs/data-plan.md connected the sources to a research question\n\nToday we organize that work and begin recording its history"
+    "text": "Where we left off in Lecture 5.2\nThe arec_570_demo project retrieved land-use, streamflow, weather, and Census data through APIs\n\nR scripts recorded the requests\nRaw downloads preserved the responses\nA retrieval log recorded source, date, and parameters"
   },
   {
     "objectID": "lectures/lecture5.3.html#follow-along-repository",
@@ -3014,7 +3014,7 @@
     "href": "lectures/lecture5.3.html#saving-committing-and-pushing-are-separate-actions",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Saving, committing, and pushing are separate actions",
-    "text": "Saving, committing, and pushing are separate actions\n\nSave writes the current file to the working directory\n\n\nCommit records selected changes in the local Git history\n\n\nPush sends local commits to GitHub\n\n\nA saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information."
+    "text": "Saving, committing, and pushing are separate actions\nSave writes the current file to the working directory\nCommit records selected changes in the local Git history\nPush sends local commits to GitHub\n\nA saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information."
   },
   {
     "objectID": "lectures/lecture5.3.html#one-time-setup",
@@ -3028,7 +3028,7 @@
     "href": "lectures/lecture5.3.html#step-1-install-git",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Step 1: install Git",
-    "text": "Step 1: install Git\nDownload Git from git-scm.com/downloads\nRestart RStudio after installation, then run\nsystem(\"git --version\")\nA successful check prints a version such as git version 2.51.0"
+    "text": "Step 1: install Git\nDownload Git from git-scm.com/downloads\nRestart RStudio after installation, then, in your Console window, run\nsystem(\"git --version\")\nA successful check prints a version such as git version 2.55.0.windows.3"
   },
   {
     "objectID": "lectures/lecture5.3.html#steps-2-and-3-create-accounts-and-identify-yourself",
@@ -3154,14 +3154,14 @@
     "href": "lectures/lecture5.3.html#vocabulary-for-shared-repositories",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Vocabulary for shared repositories",
-    "text": "Vocabulary for shared repositories\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nClone\nA local copy of a remote repository and its history\n\n\nFork\nA linked GitHub copy under your account\n\n\nTemplate\nAn independent repository created from a standard set of files\n\n\nUpstream\nA conventional name for the original repository behind a fork\n\n\n\nBranches, merges, and pull requests receive fuller treatment in Lecture 5.4"
+    "text": "Vocabulary for shared repositories\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nClone\nA local copy of a remote repository and its history\n\n\nFork\nA linked GitHub copy under your account\n\n\nTemplate\nAn independent repository created from a standard set of files\n\n\n\nLecture 5.4 will cover branches, merges, and pull requests"
   },
   {
     "objectID": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
     "href": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Choose how your local project begins",
-    "text": "Choose how your local project begins\n\n\n\n\n\n\n\nSituation\nStarting action\n\n\n\n\nYou have access to a team repository\nClone the team repository\n\n\nYou want a linked copy of public or course work\nFork, then clone your fork\n\n\nYou want an independent project with a standard structure\nUse template, then clone the new repository\n\n\nYou already have your own local project\nInitialize Git, then create a GitHub remote\n\n\n\nCloning is the step that creates the working project on your computer"
+    "text": "Choose how your local project begins\n\n\n\n\n\n\n\nSituation\nStarting action\n\n\n\n\nYou have access to a team repository\nClone the team repository\n\n\nYou want a linked copy of public or course work\nFork, then clone your fork\n\n\nYou want an independent project with a standard structure\nUse template, then clone the new repository\n\n\n\nCloning is the step that creates the working project on your computer"
   },
   {
     "objectID": "lectures/lecture5.3.html#clone-a-team-repository",
@@ -3182,7 +3182,7 @@
     "href": "lectures/lecture5.3.html#which-action-fits-the-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Which action fits the project?",
-    "text": "Which action fits the project?\nA. Your advisor adds you to a private team repository\nB. You want your own version of the course demo and need later course updates\nC. Your department offers a personal website template\nD. You have an existing dissertation project on your computer\n\nAsk for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote."
+    "text": "Which action fits the project?\nA. Your advisor adds you to a private team repository\nB. You want your own version of the course demo and need later course updates\nC. Your department offers a personal website template\n\nAsk for the action and the reason. A is clone. B is fork and clone. C is use template and clone."
   },
   {
     "objectID": "lectures/lecture5.3.html#origin-and-upstream-identify-remotes",
@@ -3210,6 +3210,69 @@
     "href": "lectures/lecture5.3.html#version-control-vocabulary-1",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Version control vocabulary",
-    "text": "Version control vocabulary\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nCommit message\nA short explanation attached to a commit\n\n\nTag\nA readable name attached to an important commit\n\n\nLocal\nThe repository on your computer\n\n\nRemote\nA connected repository hosted online\n\n\nOrigin\nThe default name for the remote connected to the local repository\n\n\nPush\nSend local commits to a remote\n\n\nPull\nBring remote commits into the local repository"
+    "text": "Version control vocabulary\n\n\n\nTerm\nMeaning\n\n\n\n\nCommit message\nA short explanation attached to a commit\n\n\nTag\nA readable name attached to an important commit\n\n\nLocal\nThe repository on your computer\n\n\nRemote\nA connected repository hosted online\n\n\nMain\nThe conventional name for the project’s primary branch\n\n\nPush\nSend local commits to a remote\n\n\nPull\nBring remote commits into the local repository"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#main-and-origin-name-different-things",
+    "href": "lectures/lecture5.3.html#main-and-origin-name-different-things",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "main and origin name different things",
+    "text": "main and origin name different things\n\n\n\n\n\n\n\n\nName\nType\nWhat to look for\n\n\n\n\nmain\nBranch\nThe project’s primary line of commits\n\n\norigin\nRemote\nThe GitHub repository connected to the local project\n\n\n\nCheck the current branch and connected remotes in the RStudio Terminal\ngit branch --show-current\ngit remote -v\nmain appears as a branch. origin appears beside the GitHub URL used for pull and push"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#starting-from-an-existing-repository",
+    "href": "lectures/lecture5.3.html#starting-from-an-existing-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Starting from an existing repository",
+    "text": "Starting from an existing repository\nA remote repository already exists when\n\nA coauthor invites you to a team repository\nYou want your own linked copy of public work\nA lab or instructor provides a reusable template\nYou want to contribute a change to another repository\n\nThe starting action depends on ownership and purpose"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#case-2-clone-a-team-repository",
+    "href": "lectures/lecture5.3.html#case-2-clone-a-team-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Case 2: clone a team repository",
+    "text": "Case 2: clone a team repository\nYour advisor adds you to an existing private repository for a joint project\nThe team already shares one GitHub repository. You need a local copy containing the same files and history\nUse clone when the repository already exists and you have permission to work in it"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#clone-the-team-repository-in-rstudio",
+    "href": "lectures/lecture5.3.html#clone-the-team-repository-in-rstudio",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Clone the team repository in RStudio",
+    "text": "Clone the team repository in RStudio\nIn RStudio\n\nCopy the repository’s HTTPS URL from Code\nSelect File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a parent folder\nSelect Create Project\n\nCloning copies files and history, names the team repository origin, and usually opens its default branch, main"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#case-3-fork-public-or-course-work",
+    "href": "lectures/lecture5.3.html#case-3-fork-public-or-course-work",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Case 3: fork public or course work",
+    "text": "Case 3: fork public or course work\nYou want your own copy of the course repository and need to receive later course updates\nUse fork when you want a linked GitHub copy under your account\nA fork supports\n\nReceiving later updates from the original repository\nDeveloping changes in a repository you control\nProposing changes through a pull request\n\nAfter creating the fork on GitHub, clone your fork to RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#origin-upstream-and-main",
+    "href": "lectures/lecture5.3.html#origin-upstream-and-main",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Origin, upstream, and main",
+    "text": "Origin, upstream, and main\n\n\nEmphasize that main is a branch in each repository. origin and upstream identify repositories from the perspective of the local project. In this course, students use GitHub’s Sync fork action, so they do not need to configure a local upstream remote."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#read-the-three-names-in-this-exercise",
+    "href": "lectures/lecture5.3.html#read-the-three-names-in-this-exercise",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Read the three names in this exercise",
+    "text": "Read the three names in this exercise\n\n\n\n\n\n\n\n\nName\nType\nMeaning in this exercise\n\n\n\n\nmain\nBranch\nThe primary line of commits in each repository\n\n\norigin\nLocal remote name\nYour fork on GitHub\n\n\nupstream\nFork relationship or remote name\nThe original course repository\n\n\n\nCourse updates: Sync fork updates your fork from the course repository. Pull then updates local main from origin\nupstream appears in git remote -v only when configured as a second remote. Lecture 5.4 creates a separate branch and merges its commits into main"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#case-4-use-a-template-for-an-independent-project",
+    "href": "lectures/lecture5.3.html#case-4-use-a-template-for-an-independent-project",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Case 4: use a template for an independent project",
+    "text": "Case 4: use a template for an independent project\nYour department provides a personal website template and you want an independent website repository\nUse template when a repository provides a reusable starting structure\nThe new repository receives\n\nThe template’s current files and folders\nA new Git history\nThe repository name and visibility you choose\n\nAfter creating the repository from the template, clone the new repository to RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#why-synchronize-local-and-remote-history",
+    "href": "lectures/lecture5.3.html#why-synchronize-local-and-remote-history",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Why synchronize local and remote history?",
+    "text": "Why synchronize local and remote history?\nA commit initially exists only in the repository where it was created\n\nPush makes local commits available on GitHub\nPull brings GitHub commits to the computer\nRegular synchronization gives collaborators access to current work\nFrequent pulls reduce the number of changes that must be reconciled later"
   }
 ]
