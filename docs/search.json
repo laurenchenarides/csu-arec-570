@@ -508,7 +508,7 @@
     "href": "lectures/lecture5.3.html#automate-the-sequence",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Automate the sequence",
-    "text": "Automate the sequence\nrun_all.R expresses the order of operations\nsource(\"code/00_setup.R\")\nsource(\"code/01_get_cdl.R\")\nsource(\"code/02_get_streamflow.R\")\nsource(\"code/03_get_weather.R\")\nsource(\"code/04_get_acs.R\")\nsource(\"code/05_build_daily.R\")\nsource(\"code/06_outputs.R\")\nOne command rebuilds the project from documented inputs"
+    "text": "Automate the sequence\nrun_all.R records the order of operations\nsource(\"code/00_setup.R\")\nsource(\"code/01_get_cdl.R\")\nsource(\"code/02_get_streamflow.R\")\nsource(\"code/03_get_weather.R\")\nsource(\"code/04_get_acs.R\")\nsource(\"code/05_build_daily.R\")\nsource(\"code/06_outputs.R\")\nOne command rebuilds the project from documented inputs"
   },
   {
     "objectID": "lectures/lecture5.3.html#separate-files-by-function",
@@ -522,7 +522,7 @@
     "href": "lectures/lecture5.3.html#paths-should-travel-with-the-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Paths should travel with the project",
-    "text": "Paths should travel with the project\nUse paths relative to the project root\nread.csv(\"data/raw/streamflow.csv\")\nA path that begins with a person’s user directory usually fails on another computer\nread.csv(\"C:/Users/jane/Desktop/streamflow.csv\")"
+    "text": "Paths should travel with the project\nUse paths relative to the project root\nread.csv(\"data/raw/streamflow.csv\")\nA path beginning with one person’s user directory usually fails on another computer\nread.csv(\"C:/Users/jane/Desktop/streamflow.csv\")"
   },
   {
     "objectID": "lectures/lecture5.3.html#what-git-records",
@@ -585,7 +585,7 @@
     "href": "lectures/lecture5.3.html#references",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "References",
-    "text": "References\n\n\nGentzkow, Matthew, and Jesse M. Shapiro. 2014. Code and Data for the Social Sciences: A Practitioner’s Guide. University of Chicago mimeo. https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf."
+    "text": "References\n\n\nBryan, Jennifer. 2017. “Excuse Me, Do You Have a Moment to Talk about Version Control?” PeerJ Preprints 5: e3159v2. https://doi.org/10.7287/peerj.preprints.3159v2.\n\n\nGentzkow, Matthew, and Jesse M. Shapiro. 2014. Code and Data for the Social Sciences: A Practitioner’s Guide. University of Chicago mimeo. https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf."
   },
   {
     "objectID": "lectures/lecture5.3.html#course-navigation",
@@ -2755,7 +2755,7 @@
     "href": "lectures/lecture5.3.html#start-with-a-recognizable-project-root",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Start with a recognizable project root",
-    "text": "Start with a recognizable project root\narec_570_demo/\n  README.md\n  arec_570_demo.Rproj\n  run_all.R\n  code/\n  data/\n  output/\n  docs/\n  lab_diary.md\nThe .Rproj file opens the project with this folder as the working directory"
+    "text": "Start with a recognizable project root\nresearch_project/\n  README.md\n  research_project.Rproj\n  run_all.R\n  code/\n  data/\n  output/\n  docs/\n  lab_diary.md\nThe .Rproj file opens this folder as the project root"
   },
   {
     "objectID": "lectures/lecture5.3.html#discussion-where-does-memory-enter-the-workflow",
@@ -2769,14 +2769,14 @@
     "href": "lectures/lecture5.3.html#what-version-control-adds",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "What version control adds",
-    "text": "What version control adds\nVersion control records selected states of a project and the changes connecting them\nA useful history can answer\n\nWhat changed\nWho made the change\nWhen the change was recorded\nWhy the change was made\nWhich version produced a reported result"
+    "text": "What version control adds\nVersion control gives a project a documented history. At selected points, it records the state of the project’s files together with the author, date, and reason for the change.\nThat history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.\nSource: Bryan (2017)"
   },
   {
     "objectID": "lectures/lecture5.3.html#git-github-and-rstudio-have-different-roles",
     "href": "lectures/lecture5.3.html#git-github-and-rstudio-have-different-roles",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Git, GitHub, and RStudio have different roles",
-    "text": "Git, GitHub, and RStudio have different roles\n\n\n\n\n\n\n\nTool\nRole in the workflow\n\n\n\n\nGit\nRecords file changes and commits on the computer\n\n\nGitHub\nHosts a remote copy and supports sharing and collaboration\n\n\nRStudio\nProvides buttons and menus that run Git commands\n\n\n\nGit supplies the version history. GitHub gives that history an online location"
+    "text": "Git, GitHub, and RStudio have different roles\n\n\n\n\n\n\n\nTool\nRole\n\n\n\n\nGit\nSoftware that records the history of a project on your computer\n\n\nGitHub\nAn online service that hosts a copy of a Git project and supports sharing\n\n\nRStudio\nAn editor that lets you work with project files and run Git through buttons, menus, and the Terminal\n\n\n\nA Git project can remain entirely on one computer. GitHub adds an online copy. RStudio calls Git commands on your behalf (Bryan 2017)"
   },
   {
     "objectID": "lectures/lecture5.3.html#a-repository-is-the-project-and-its-history",
@@ -2832,7 +2832,7 @@
     "href": "lectures/lecture5.3.html#use-a-template-for-an-independent-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Use a template for an independent project",
-    "text": "Use a template for an independent project\nUse template when the files provide a useful starting structure for a new project\nThe new repository receives\n\nThe template’s files and folders\nA new history beginning in the new repository\nThe visibility setting you choose\n\nThis is useful for a lab project layout or a standard replication package"
+    "text": "Use a template for an independent project\nUse template when a repository provides a reusable starting structure\nThe new repository receives\n\nThe template’s current files and folders\nA new Git history\nThe repository name and visibility you choose\n\nA personal website template is one example. Your website becomes an independent project with its own history"
   },
   {
     "objectID": "lectures/lecture5.3.html#choose-the-starting-action",
@@ -2846,14 +2846,14 @@
     "href": "lectures/lecture5.3.html#follow-along-fork-the-demo",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Follow along: fork the demo",
-    "text": "Follow along: fork the demo\nOpen github.com/laurenchenarides/arec_570_demo while signed in\n\nSelect Fork\nUncheck Copy the main branch only so the lecture tags are included\nSelect Create fork\nConfirm that the address is github.com/your-username/arec_570_demo\n\nYour fork remains linked to the course repository for later synchronization"
+    "text": "Follow along: fork the demo\nOpen github.com/laurenchenarides/arec_570_demo while signed in\n\nSelect Fork\nClear Copy the main branch only so the lecture tags are included\nSelect Create fork\nConfirm the address is github.com/your-username/arec_570_demo\n\nYour fork remains linked to the course repository for later synchronization"
   },
   {
     "objectID": "lectures/lecture5.3.html#follow-along-clone-your-fork",
     "href": "lectures/lecture5.3.html#follow-along-clone-your-fork",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Follow along: clone your fork",
-    "text": "Follow along: clone your fork\n\nOn your fork, select Code and copy the HTTPS URL\nIn RStudio select File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a regular parent folder such as GitProjects\nSelect Create Project\nConfirm that the project name appears in the upper-right corner\nConfirm that a Git tab appears beside Environment and History\n\nThe local repository’s origin points to your fork"
+    "text": "Follow along: clone your fork\n\nOn your fork, select Code and copy the HTTPS URL\nIn RStudio select File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a parent folder such as GitProjects\nSelect Create Project\nConfirm the project name appears in the upper-right corner\nConfirm a Git tab appears beside Environment and History\n\nThe local repository’s origin points to your fork"
   },
   {
     "objectID": "lectures/lecture5.3.html#origin-and-upstream-describe-remote-locations",
@@ -2874,14 +2874,14 @@
     "href": "lectures/lecture5.3.html#git-records-changes-through-three-states",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Git records changes through three states",
-    "text": "Git records changes through three states\n\n\n\nState\nMeaning\n\n\n\n\nWorking directory\nFiles currently being edited\n\n\nStaging area\nChanges selected for the next commit\n\n\nCommit\nA recorded snapshot with an explanatory message\n\n\n\nStaging lets one work session become several coherent commits"
+    "text": "Git records changes through three states\n\n\n\nState\nMeaning\n\n\n\n\nWorking directory\nFiles currently being edited\n\n\nStaging area\nChanges selected for the next commit\n\n\nCommit\nA recorded checkpoint with an explanatory message\n\n\n\nStaging lets one work session become several coherent commits"
   },
   {
     "objectID": "lectures/lecture5.3.html#read-the-rstudio-git-pane",
     "href": "lectures/lecture5.3.html#read-the-rstudio-git-pane",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Read the RStudio Git pane",
-    "text": "Read the RStudio Git pane\n\n\n\nStatus\nMeaning\n\n\n\n\nM\nA tracked file was modified\n\n\n?\nA new file is untracked\n\n\nA\nA new file is staged for its first commit\n\n\nD\nA tracked file was deleted\n\n\nR\nA tracked file was renamed or moved\n\n\n\nDiff shows changed lines. The Staged boxes select files for the next commit"
+    "text": "Read the RStudio Git pane\n\n\n\nStatus\nMeaning\n\n\n\n\nM\nA tracked file was modified\n\n\n?\nA new file is untracked\n\n\nA\nA new file is staged for its first commit\n\n\nD\nA tracked file was deleted\n\n\nR\nA tracked file was renamed or moved\n\n\n\nDiff shows changed lines. The Staged boxes select changes for the next commit"
   },
   {
     "objectID": "lectures/lecture5.3.html#the-everyday-git-loop",
@@ -2902,7 +2902,7 @@
     "href": "lectures/lecture5.3.html#the-corresponding-git-commands",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "The corresponding Git commands",
-    "text": "The corresponding Git commands\ngit pull\ngit status\ngit diff\ngit add docs/class-notes.md\ngit diff --staged\ngit commit -m \"Document geographic assignment rule\"\ngit push\nThe RStudio buttons run these commands\nCompanion reference: docs/git-in-rstudio.md"
+    "text": "The corresponding Git commands\ngit pull\ngit status\ngit diff\ngit add README.md\ngit diff --staged\ngit commit -m \"Clarify project research question\"\ngit push\nThe RStudio buttons run these commands\nCompanion reference: docs/git-in-rstudio.md"
   },
   {
     "objectID": "lectures/lecture5.3.html#write-commit-messages-for-future-readers",
@@ -2923,7 +2923,7 @@
     "href": "lectures/lecture5.3.html#history-makes-earlier-states-inspectable",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "History makes earlier states inspectable",
-    "text": "History makes earlier states inspectable\nUse History in RStudio or Commits on GitHub to inspect\n\nThe files changed in a commit\nThe exact lines added and removed\nThe author and date\nThe commit message\nThe identifier for the snapshot\n\nTags such as 5.2-retrieve give a name to a particular commit"
+    "text": "History makes earlier states inspectable\nUse History in RStudio or Commits on GitHub to inspect\n\nThe files changed in a commit\nThe exact lines added and removed\nThe author and date\nThe commit message\nThe identifier for the checkpoint\n\nTags such as 5.2-retrieve give a readable name to a particular commit"
   },
   {
     "objectID": "lectures/lecture5.3.html#what-belongs-in-the-repository",
@@ -2937,35 +2937,35 @@
     "href": "lectures/lecture5.3.html#check-before-the-first-commit",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Check before the first commit",
-    "text": "Check before the first commit\nOpen .gitignore and git status before staging a new project\nAsk\n\nDoes any file contain a password or API key\nDoes the project contain restricted or licensed data\nIs a large file available from a stable archive or reproducible download\nCan a derived file be rebuilt by the project scripts\nDoes each tracked file help explain, run, or report the research\n\nRevoke any credential that enters a commit because earlier commits retain the file contents"
+    "text": "Check before the first commit\nOpen .gitignore and review every file in the project\n\nDoes any file contain a password or API key\nDoes the project contain restricted or licensed data\nIs a large file available from a stable archive or reproducible download\nCan a derived file be rebuilt by the project scripts\nDoes each tracked file help explain, run, or report the research\n\nRevoke any credential that enters a commit because earlier commits retain its contents"
   },
   {
     "objectID": "lectures/lecture5.3.html#common-problems-and-first-checks",
     "href": "lectures/lecture5.3.html#common-problems-and-first-checks",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Common problems and first checks",
-    "text": "Common problems and first checks\n\n\n\n\n\n\n\nProblem\nFirst check\n\n\n\n\nThe Git tab is missing\nConfirm that the .Rproj inside a Git repository is open\n\n\nGit rejects a commit\nCheck the configured name and email with usethis::git_sitrep()\n\n\nGitHub rejects authentication\nCheck whether the personal access token is present and current\n\n\nA push is rejected\nPull and inspect the incoming commits\n\n\nA file never appears in the Git pane\nCheck the patterns in .gitignore\n\n\n\nRecord the exact error message when asking for help"
+    "text": "Common problems and first checks\n\n\n\n\n\n\n\nProblem\nFirst check\n\n\n\n\nThe Git tab is missing\nConfirm the .Rproj inside a Git repository is open\n\n\nGit rejects a commit\nCheck the configured name and email with usethis::git_sitrep()\n\n\nGitHub rejects authentication\nCheck whether the personal access token is present and current\n\n\nA push is rejected\nPull and inspect the incoming commits\n\n\nA file never appears in the Git pane\nCheck the patterns in .gitignore\n\n\n\nRecord the exact error message when asking for help"
   },
   {
     "objectID": "lectures/lecture5.3.html#apply-the-workflow-to-your-research-project",
     "href": "lectures/lecture5.3.html#apply-the-workflow-to-your-research-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Apply the workflow to your research project",
-    "text": "Apply the workflow to your research project\nFor one current project, identify\n\nThe project root\nThe command or script that reproduces the main result\nThe files Git should track\nThe files .gitignore should exclude\nThe people who need repository access\nThe first research decision that deserves a commit\n\nDiscuss one unresolved choice with the class"
+    "text": "Apply the workflow to your research project\nFor one current project, identify\n\nThe project root\nThe command or script that reproduces the main result\nThe files Git should track\nThe files .gitignore should exclude\nThe people who need repository access\nThe next research decision that deserves a commit\n\nShare one unresolved choice with the class"
   },
   {
     "objectID": "lectures/lecture5.3.html#return-to-gentzkow-and-shapiro",
     "href": "lectures/lecture5.3.html#return-to-gentzkow-and-shapiro",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Return to Gentzkow and Shapiro",
-    "text": "Return to Gentzkow and Shapiro\nHow do the reading’s recommendations appear in the demo repository?\n\nAutomation through run_all.R\nSeparate directories for code, raw data, derived data, and outputs\nRelative paths from the project root\nVersion history for code and documentation\nREADME files that describe execution and file roles\n\nWhich recommendation would require the largest change in your current workflow?"
+    "text": "Return to Gentzkow and Shapiro\nHow do the reading’s recommendations appear in the demo repository?\n\nAutomation through run_all.R\nSeparate directories for code, raw data, derived data, and outputs\nRelative paths from the project root\nVersion history for code and documentation\nREADME files that describe execution and file roles\n\nWhich recommendation requires the largest change in your current workflow?"
   },
   {
     "objectID": "lectures/lecture5.3.html#summary",
     "href": "lectures/lecture5.3.html#summary",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Summary",
-    "text": "Summary\nProject structure records where inputs, code, and outputs belong\nGit records local changes as commits\nGitHub hosts a remote repository for sharing and collaboration\nCreate, fork, and template determine how a repository begins\nClone creates the local working copy\nPull, edit, stage, commit, and push form the everyday workflow"
+    "text": "Summary\nProject structure records where inputs, code, and outputs belong\nGit records local changes as commits\nGitHub hosts a remote repository for sharing and collaboration\nRStudio provides an interface for editing files and using Git\nClone, fork, and template describe different ways to begin from an existing repository\nPull, edit, inspect, stage, commit, and push form the everyday workflow"
   },
   {
     "objectID": "lectures/lecture5.3.html#how-a-repository-reaches-your-computer",
@@ -2973,5 +2973,243 @@
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "How a repository reaches your computer",
     "text": "How a repository reaches your computer\nNew research project       Create repository  --&gt; Clone\nCourse demo                Fork repository    --&gt; Clone\nLab project scaffold       Use template       --&gt; Clone\nCoauthor's repository                              Clone\nCreate, fork, and use template describe how a remote repository begins\nClone creates the local project folder and Git history"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#reading-and-todays-path",
+    "href": "lectures/lecture5.3.html#reading-and-todays-path",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Reading and today’s path",
+    "text": "Reading and today’s path\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1–4 (Gentzkow and Shapiro 2014)\nBryan, Excuse Me, Do You Have a Moment to Talk About Version Control?, 2017 (Bryan 2017)\n\nOrganize a project so another researcher can follow it\nIdentify where undocumented memory enters the workflow\nSet up Git, GitHub, and RStudio\nTake one research project from its first commit through GitHub\nChoose a workflow for team projects and reusable templates"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#where-does-memory-enter-the-workflow",
+    "href": "lectures/lecture5.3.html#where-does-memory-enter-the-workflow",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Where does memory enter the workflow?",
+    "text": "Where does memory enter the workflow?\nConsider one result in your current research project\n\nWhich steps happen through code\nWhich steps happen through menus or manual edits\nWhere the order of operations is recorded\nWhich inputs can change over time\nWhat another researcher would need to ask before running it"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#documentation-replaces-memory",
+    "href": "lectures/lecture5.3.html#documentation-replaces-memory",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Documentation replaces memory",
+    "text": "Documentation replaces memory\nDifferent records answer different questions\n\n\n\nRecord\nQuestion it answers\n\n\n\n\nScripts and run_all.R\nWhat operations produced the result\n\n\nREADME\nHow should a new researcher run the project\n\n\nCodebook\nWhat do the variables and values mean\n\n\nRetrieval log\nWhere and when did the inputs originate\n\n\nLab diary\nWhy did the researcher make a decision\n\n\nVersion history\nWhat changed across project states"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#one-project-can-exist-in-three-locations",
+    "href": "lectures/lecture5.3.html#one-project-can-exist-in-three-locations",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "One project can exist in three locations",
+    "text": "One project can exist in three locations\n\n\nWalk from left to right. Saving changes the working files. Committing records a checkpoint in local Git history. Pushing copies local commits to GitHub. Pulling brings commits from GitHub into the local repository."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#version-control-vocabulary",
+    "href": "lectures/lecture5.3.html#version-control-vocabulary",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Version control vocabulary",
+    "text": "Version control vocabulary\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nRepository\nA project and its Git history\n\n\nWorking directory\nThe files currently visible in the project folder\n\n\nTracked file\nA file whose changes Git follows\n\n\nStaging area\nThe changes selected for the next commit\n\n\nCommit\nA recorded checkpoint in the project history\n\n\nDiff\nThe lines added, removed, or changed"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#saving-committing-and-pushing-are-separate-actions",
+    "href": "lectures/lecture5.3.html#saving-committing-and-pushing-are-separate-actions",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Saving, committing, and pushing are separate actions",
+    "text": "Saving, committing, and pushing are separate actions\n\nSave writes the current file to the working directory\n\n\nCommit records selected changes in the local Git history\n\n\nPush sends local commits to GitHub\n\n\nA saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#one-time-setup",
+    "href": "lectures/lecture5.3.html#one-time-setup",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "One-time setup",
+    "text": "One-time setup\nComplete these steps once on each computer\n\nInstall Git\nCreate a GitHub account\nTell Git your name and email\nCreate a GitHub personal access token\nStore the token for RStudio and Git\nVerify the connection\n\nThe demo repository provides detailed instructions in docs/setup-rstudio.md"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#step-1-install-git",
+    "href": "lectures/lecture5.3.html#step-1-install-git",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Step 1: install Git",
+    "text": "Step 1: install Git\nDownload Git from git-scm.com/downloads\nRestart RStudio after installation, then run\nsystem(\"git --version\")\nA successful check prints a version such as git version 2.51.0"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#steps-2-and-3-create-accounts-and-identify-yourself",
+    "href": "lectures/lecture5.3.html#steps-2-and-3-create-accounts-and-identify-yourself",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Steps 2 and 3: create accounts and identify yourself",
+    "text": "Steps 2 and 3: create accounts and identify yourself\nCreate an account at github.com\nInstall two helper packages and configure Git\ninstall.packages(c(\"usethis\", \"gitcreds\"))\n\nusethis::use_git_config(\n  user.name = \"Your Name\",\n  user.email = \"you@example.edu\"\n)\nUse an email connected to your GitHub account"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#steps-4-and-5-connect-github",
+    "href": "lectures/lecture5.3.html#steps-4-and-5-connect-github",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Steps 4 and 5: connect GitHub",
+    "text": "Steps 4 and 5: connect GitHub\nCreate a personal access token\nusethis::create_github_token()\nCopy the token from GitHub, then store it\ngitcreds::gitcreds_set()\nTreat the token like a password. Keep it out of scripts, .Renviron, and commits"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#step-6-verify-the-setup",
+    "href": "lectures/lecture5.3.html#step-6-verify-the-setup",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Step 6: verify the setup",
+    "text": "Step 6: verify the setup\nRun\nusethis::git_sitrep()\nCheck for\n\nThe expected Git version\nYour name and email\nA stored GitHub token\nA recognized GitHub account\n\n\nPause for a live RStudio walkthrough. Open the Terminal to show git --version, then run usethis::git_sitrep() in the Console. Ask students to compare their output with the projected output."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#case-1-your-own-research-project",
+    "href": "lectures/lecture5.3.html#case-1-your-own-research-project",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Case 1: your own research project",
+    "text": "Case 1: your own research project\nYou have an existing RStudio project with scripts, data documentation, and early results\nYour goal is to\n\nReview which files belong in Git\nInitialize the local repository\nMake the first commit\nCreate a private GitHub repository\nUse the workflow during each research session"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#start-to-finish-workflow",
+    "href": "lectures/lecture5.3.html#start-to-finish-workflow",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Start-to-finish workflow",
+    "text": "Start-to-finish workflow"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#open-the-project-in-rstudio",
+    "href": "lectures/lecture5.3.html#open-the-project-in-rstudio",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Open the project in RStudio",
+    "text": "Open the project in RStudio\nOpen the .Rproj file inside the project root\nConfirm that\n\nThe project name appears in the upper-right corner\nThe Files pane begins at the project root\nRelative paths run successfully\nThe project contains a README or equivalent instructions"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#decide-what-git-should-track",
+    "href": "lectures/lecture5.3.html#decide-what-git-should-track",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Decide what Git should track",
+    "text": "Decide what Git should track\nTrack files that explain, run, or report the research\n\nSource code\nREADME files and project documentation\nData dictionaries and retrieval logs\nSmall configuration files without credentials\nManuscript and presentation source files\n\nGenerated outputs can follow the project team’s publication and archival policy"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#use-.gitignore-for-excluded-files",
+    "href": "lectures/lecture5.3.html#use-.gitignore-for-excluded-files",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Use .gitignore for excluded files",
+    "text": "Use .gitignore for excluded files\nCommon exclusions include\n\nAPI keys and credentials\nConfidential or restricted data\nLarge source files stored in an archive\nDerived files rebuilt by code\nR session files such as .RData and .Rhistory\n\n.gitignore applies to files Git has not started tracking"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#initialize-the-local-repository",
+    "href": "lectures/lecture5.3.html#initialize-the-local-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Initialize the local repository",
+    "text": "Initialize the local repository\nRun in the RStudio Console\nusethis::use_git()\nRStudio may restart the project. A Git tab should then appear beside Environment and History\nThis command creates the hidden .git directory that stores local history"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#make-the-first-commit",
+    "href": "lectures/lecture5.3.html#make-the-first-commit",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Make the first commit",
+    "text": "Make the first commit\n\nOpen the Git pane\nSelect Diff and inspect the proposed files\nStage the files that belong in the repository\nEnter Create initial project structure\nSelect Commit\n\nThe commit now exists in local Git history"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#create-the-private-github-repository",
+    "href": "lectures/lecture5.3.html#create-the-private-github-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Create the private GitHub repository",
+    "text": "Create the private GitHub repository\nRun in the RStudio Console\nusethis::use_github(private = TRUE)\nThis command\n\nCreates a GitHub repository under your account\nConnects the local repository to the GitHub remote\nNames that remote origin\nPushes the current branch and commits"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#the-everyday-git-workflow",
+    "href": "lectures/lecture5.3.html#the-everyday-git-workflow",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "The everyday Git workflow",
+    "text": "The everyday Git workflow\n\nPull before beginning a work session\nMake one coherent change\nInspect the changed lines with Diff\nStage the files that belong to the change\nWrite a specific message and Commit\nPush the commits to GitHub\n\nRepeat the edit, inspect, stage, and commit steps as the work develops"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#follow-along-in-rstudio",
+    "href": "lectures/lecture5.3.html#follow-along-in-rstudio",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Follow along in RStudio",
+    "text": "Follow along in RStudio\nIn a practice project\n\nAdd one sentence to README.md\nSave the file\nInspect the changed line with Diff\nStage README.md\nCommit with Clarify project research question\nPush the commit\nOpen GitHub and locate the same commit\n\n\nShow each location after every action. After saving, point to the modified status in RStudio. After committing, show History. After pushing, refresh GitHub and open the commit."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#a-diff-shows-what-changed",
+    "href": "lectures/lecture5.3.html#a-diff-shows-what-changed",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "A diff shows what changed",
+    "text": "A diff shows what changed\n- This project studies water use\n+ This project studies how irrigation restrictions affect water use\nThe diff records the changed text\nThe commit message records the reason for that change\nClarify treatment and outcome in research question"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#write-messages-for-future-readers",
+    "href": "lectures/lecture5.3.html#write-messages-for-future-readers",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Write messages for future readers",
+    "text": "Write messages for future readers\n\n\n\n\n\n\n\nGeneral message\nResearch-specific message\n\n\n\n\nupdates\nCode suppressed ACS estimates as missing\n\n\nfixed bug\nKeep FIPS codes as text to preserve leading zeros\n\n\nfinal version\nRestrict sample to the April–September growing season\n\n\n\nA useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#case-2-shared-work-and-reusable-projects",
+    "href": "lectures/lecture5.3.html#case-2-shared-work-and-reusable-projects",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Case 2: shared work and reusable projects",
+    "text": "Case 2: shared work and reusable projects\nA remote repository already exists when\n\nA coauthor invites you to a team repository\nYou want your own linked copy of public work\nA lab or instructor provides a reusable template\nYou want to contribute a change to another repository\n\nThe starting action depends on ownership and purpose"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#completed-before-class",
+    "href": "lectures/lecture5.3.html#completed-before-class",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Completed before class",
+    "text": "Completed before class\nLecture 5.2 assigned Parts One and Two of docs/setup-rstudio.md\n\nInstall Git and restart RStudio\nCreate a GitHub account\nConfigure your Git name and email\nCreate and store a GitHub personal access token\nRequest, activate, and store a Census API key\nRun usethis::git_sitrep() without errors\nConfirm nzchar(Sys.getenv(\"CENSUS_API_KEY\")) returns TRUE\n\nBring the laptop used to complete these steps"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#vocabulary-for-shared-repositories",
+    "href": "lectures/lecture5.3.html#vocabulary-for-shared-repositories",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Vocabulary for shared repositories",
+    "text": "Vocabulary for shared repositories\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nClone\nA local copy of a remote repository and its history\n\n\nFork\nA linked GitHub copy under your account\n\n\nTemplate\nAn independent repository created from a standard set of files\n\n\nUpstream\nA conventional name for the original repository behind a fork\n\n\n\nBranches, merges, and pull requests receive fuller treatment in Lecture 5.4"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
+    "href": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Choose how your local project begins",
+    "text": "Choose how your local project begins\n\n\n\n\n\n\n\nSituation\nStarting action\n\n\n\n\nYou have access to a team repository\nClone the team repository\n\n\nYou want a linked copy of public or course work\nFork, then clone your fork\n\n\nYou want an independent project with a standard structure\nUse template, then clone the new repository\n\n\nYou already have your own local project\nInitialize Git, then create a GitHub remote\n\n\n\nCloning is the step that creates the working project on your computer"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#clone-a-team-repository",
+    "href": "lectures/lecture5.3.html#clone-a-team-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Clone a team repository",
+    "text": "Clone a team repository\nUse clone when the repository already exists and you have permission to work in it\nIn RStudio\n\nCopy the repository’s HTTPS URL from Code\nSelect File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a parent folder\nSelect Create Project\n\nCloning copies files and history and configures the remote as origin"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#fork-public-or-course-work",
+    "href": "lectures/lecture5.3.html#fork-public-or-course-work",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Fork public or course work",
+    "text": "Fork public or course work\nUse fork when you want a linked GitHub copy under your account\nA fork supports\n\nReceiving later updates from the original repository\nDeveloping changes in a repository you control\nProposing changes through a pull request\n\nAfter creating the fork on GitHub, clone your fork to RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#which-action-fits-the-project",
+    "href": "lectures/lecture5.3.html#which-action-fits-the-project",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Which action fits the project?",
+    "text": "Which action fits the project?\nA. Your advisor adds you to a private team repository\nB. You want your own version of the course demo and need later course updates\nC. Your department offers a personal website template\nD. You have an existing dissertation project on your computer\n\nAsk for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote."
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#origin-and-upstream-identify-remotes",
+    "href": "lectures/lecture5.3.html#origin-and-upstream-identify-remotes",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Origin and upstream identify remotes",
+    "text": "Origin and upstream identify remotes\n\n\n\nName\nRepository in this exercise\n\n\n\n\norigin\nYour fork on GitHub\n\n\nupstream\nThe original course repository\n\n\n\nGitHub’s Sync fork brings course updates into your fork\nAfter syncing the fork, Pull brings those commits to the local project"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#record-one-research-decision",
+    "href": "lectures/lecture5.3.html#record-one-research-decision",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Record one research decision",
+    "text": "Record one research decision\nCreate docs/class-notes.md and add one sentence explaining a geographic or temporal choice in the demo project\n\nInspect the changed line with Diff\nStage docs/class-notes.md\nCommit with Document geographic assignment rule\nPush the commit\nOpen your fork on GitHub and locate the new commit\n\nThe new file belongs to your fork, so later course updates can remain separate"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#pull-and-push-synchronize-commits",
+    "href": "lectures/lecture5.3.html#pull-and-push-synchronize-commits",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Pull and push synchronize commits",
+    "text": "Pull and push synchronize commits\nPull brings remote commits into the local repository\nPush sends local commits to the remote repository\nWhen GitHub reports newer remote commits\n\nPull the remote commits\nReview any conflicts Git reports\nComplete the merge if required\nPush the combined history\n\nLecture 5.4 develops branches, conflicts, and pull requests"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#version-control-vocabulary-1",
+    "href": "lectures/lecture5.3.html#version-control-vocabulary-1",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Version control vocabulary",
+    "text": "Version control vocabulary\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nCommit message\nA short explanation attached to a commit\n\n\nTag\nA readable name attached to an important commit\n\n\nLocal\nThe repository on your computer\n\n\nRemote\nA connected repository hosted online\n\n\nOrigin\nThe default name for the remote connected to the local repository\n\n\nPush\nSend local commits to a remote\n\n\nPull\nBring remote commits into the local repository"
   }
 ]

@@ -28,15 +28,470 @@ format:
     html-math-method: mathml
 ---
 
-## Reading and sequence
+## Reading and today's path
 
-**Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 1-4** [@gentzkow2014code]
+**Gentzkow and Shapiro, *Code and Data for the Social Sciences*, Sections 1–4** [@gentzkow2014code]
 
-1. Connect the API exercise to a reproducible project
-2. Organize files so the project can run on another computer
-3. Define the roles of Git, GitHub, and RStudio
-4. Choose among creating, forking, templating, and cloning a repository
-5. Practice the pull, edit, stage, commit, and push workflow
+**Bryan, *Excuse Me, Do You Have a Moment to Talk About Version Control?*, 2017** [@bryan2017version]
+
+1. Organize a project so another researcher can follow it
+2. Identify where undocumented memory enters the workflow
+3. Set up Git, GitHub, and RStudio
+4. Take one research project from its first commit through GitHub
+5. Choose a workflow for team projects and reusable templates
+
+## Reproducibility starts with organization
+
+Can another researcher reconstruct a result from the same inputs?
+
+They need
+
+- Original inputs
+- Code for every transformation
+- The order in which the code runs
+- Software and package requirements
+- The project version used for the result
+
+Source: @gentzkow2014code
+
+## Start with a recognizable project root
+
+~~~text
+research_project/
+  README.md
+  research_project.Rproj
+  run_all.R
+  code/
+  data/
+  output/
+  docs/
+  lab_diary.md
+~~~
+
+The `.Rproj` file opens this folder as the project root
+
+## Separate files by function
+
+~~~text
+code/                    scripts and reusable functions
+data/raw/                source files as retrieved
+data/derived/            files constructed from source data
+output/figures/          figures produced by code
+output/tables/           tables produced by code
+docs/                    codebook and project documentation
+~~~
+
+Raw inputs remain unchanged. Scripts rebuild derived data and outputs
+
+## Paths should travel with the project
+
+Use paths relative to the project root
+
+~~~r
+read.csv("data/raw/streamflow.csv")
+~~~
+
+A path beginning with one person's user directory usually fails on another computer
+
+~~~r
+read.csv("C:/Users/jane/Desktop/streamflow.csv")
+~~~
+
+## Automate the sequence
+
+`run_all.R` records the order of operations
+
+~~~r
+source("code/00_setup.R")
+source("code/01_get_cdl.R")
+source("code/02_get_streamflow.R")
+source("code/03_get_weather.R")
+source("code/04_get_acs.R")
+source("code/05_build_daily.R")
+source("code/06_outputs.R")
+~~~
+
+One command rebuilds the project from documented inputs
+
+## Where does memory enter the workflow?
+
+Consider one result in your current research project
+
+- Which steps happen through code
+- Which steps happen through menus or manual edits
+- Where the order of operations is recorded
+- Which inputs can change over time
+- What another researcher would need to ask before running it
+
+## Documentation replaces memory
+
+Different records answer different questions
+
+| Record | Question it answers |
+|---|---|
+| Scripts and `run_all.R` | What operations produced the result |
+| README | How should a new researcher run the project |
+| Codebook | What do the variables and values mean |
+| Retrieval log | Where and when did the inputs originate |
+| Lab diary | Why did the researcher make a decision |
+| Version history | What changed across project states |
+
+## What version control adds
+
+Version control gives a project a documented history. At selected points, it records the state of the project's files together with the author, date, and reason for the change.
+
+That history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.
+
+Source: @bryan2017version
+
+## Git, GitHub, and RStudio have different roles
+
+| Tool | Role |
+|---|---|
+| **Git** | Software that records the history of a project on your computer |
+| **GitHub** | An online service that hosts a copy of a Git project and supports sharing |
+| **RStudio** | An editor that lets you work with project files and run Git through buttons, menus, and the Terminal |
+
+A Git project can remain entirely on one computer. GitHub adds an online copy. RStudio calls Git commands on your behalf [@bryan2017version]
+
+## One project can exist in three locations
+
+![](assets/unit5/version-control-locations.svg){fig-alt="A research project's working files and local Git history are on the student's computer, while a remote copy is hosted on GitHub. Commits connect working files to local history, and push and pull connect local history to GitHub."}
+
+::: notes
+Walk from left to right. Saving changes the working files. Committing records a checkpoint in local Git history. Pushing copies local commits to GitHub. Pulling brings commits from GitHub into the local repository.
+:::
+
+## Version control vocabulary
+
+| Term | Meaning |
+|---|---|
+| **Repository** | A project and its Git history |
+| **Working directory** | The files currently visible in the project folder |
+| **Tracked file** | A file whose changes Git follows |
+| **Staging area** | The changes selected for the next commit |
+| **Commit** | A recorded checkpoint in the project history |
+| **Diff** | The lines added, removed, or changed |
+
+## Version control vocabulary
+
+| Term | Meaning |
+|---|---|
+| **Commit message** | A short explanation attached to a commit |
+| **Tag** | A readable name attached to an important commit |
+| **Local** | The repository on your computer |
+| **Remote** | A connected repository hosted online |
+| **Origin** | The default name for the remote connected to the local repository |
+| **Push** | Send local commits to a remote |
+| **Pull** | Bring remote commits into the local repository |
+
+## Saving, committing, and pushing are separate actions
+
+::: {.fragment}
+**Save** writes the current file to the working directory
+:::
+
+::: {.fragment}
+**Commit** records selected changes in the local Git history
+:::
+
+::: {.fragment}
+**Push** sends local commits to GitHub
+:::
+
+::: notes
+A saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information.
+:::
+
+## One-time setup
+
+Complete these steps once on each computer
+
+1. Install Git
+2. Create a GitHub account
+3. Tell Git your name and email
+4. Create a GitHub personal access token
+5. Store the token for RStudio and Git
+6. Verify the connection
+
+The demo repository provides detailed instructions in [`docs/setup-rstudio.md`](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
+
+## Step 1: install Git
+
+Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)
+
+Restart RStudio after installation, then run
+
+~~~r
+system("git --version")
+~~~
+
+A successful check prints a version such as `git version 2.51.0`
+
+## Steps 2 and 3: create accounts and identify yourself
+
+Create an account at [github.com](https://github.com)
+
+Install two helper packages and configure Git
+
+~~~r
+install.packages(c("usethis", "gitcreds"))
+
+usethis::use_git_config(
+  user.name = "Your Name",
+  user.email = "you@example.edu"
+)
+~~~
+
+Use an email connected to your GitHub account
+
+## Steps 4 and 5: connect GitHub
+
+Create a personal access token
+
+~~~r
+usethis::create_github_token()
+~~~
+
+Copy the token from GitHub, then store it
+
+~~~r
+gitcreds::gitcreds_set()
+~~~
+
+Treat the token like a password. Keep it out of scripts, `.Renviron`, and commits
+
+## Step 6: verify the setup
+
+Run
+
+~~~r
+usethis::git_sitrep()
+~~~
+
+Check for
+
+- The expected Git version
+- Your name and email
+- A stored GitHub token
+- A recognized GitHub account
+
+::: notes
+Pause for a live RStudio walkthrough. Open the Terminal to show `git --version`, then run `usethis::git_sitrep()` in the Console. Ask students to compare their output with the projected output.
+:::
+
+## Case 1: your own research project
+
+You have an existing RStudio project with scripts, data documentation, and early results
+
+Your goal is to
+
+1. Review which files belong in Git
+2. Initialize the local repository
+3. Make the first commit
+4. Create a private GitHub repository
+5. Use the workflow during each research session
+
+## Start-to-finish workflow
+
+![](assets/unit5/own-project-workflow.svg){fig-alt="Six steps for placing an existing RStudio project under version control: open the project, review files, initialize Git, commit, create the GitHub remote, and begin the daily workflow."}
+
+## Open the project in RStudio
+
+Open the `.Rproj` file inside the project root
+
+Confirm that
+
+- The project name appears in the upper-right corner
+- The Files pane begins at the project root
+- Relative paths run successfully
+- The project contains a README or equivalent instructions
+
+## Decide what Git should track
+
+Track files that explain, run, or report the research
+
+- Source code
+- README files and project documentation
+- Data dictionaries and retrieval logs
+- Small configuration files without credentials
+- Manuscript and presentation source files
+
+Generated outputs can follow the project team's publication and archival policy
+
+## Use `.gitignore` for excluded files
+
+Common exclusions include
+
+- API keys and credentials
+- Confidential or restricted data
+- Large source files stored in an archive
+- Derived files rebuilt by code
+- R session files such as `.RData` and `.Rhistory`
+
+`.gitignore` applies to files Git has not started tracking
+
+## Check before the first commit
+
+Open `.gitignore` and review every file in the project
+
+- Does any file contain a password or API key
+- Does the project contain restricted or licensed data
+- Is a large file available from a stable archive or reproducible download
+- Can a derived file be rebuilt by the project scripts
+- Does each tracked file help explain, run, or report the research
+
+Revoke any credential that enters a commit because earlier commits retain its contents
+
+## Initialize the local repository
+
+Run in the RStudio Console
+
+~~~r
+usethis::use_git()
+~~~
+
+RStudio may restart the project. A **Git** tab should then appear beside Environment and History
+
+This command creates the hidden `.git` directory that stores local history
+
+## Git records changes through three states
+
+| State | Meaning |
+|---|---|
+| **Working directory** | Files currently being edited |
+| **Staging area** | Changes selected for the next commit |
+| **Commit** | A recorded checkpoint with an explanatory message |
+
+Staging lets one work session become several coherent commits
+
+## Read the RStudio Git pane
+
+| Status | Meaning |
+|---|---|
+| `M` | A tracked file was modified |
+| `?` | A new file is untracked |
+| `A` | A new file is staged for its first commit |
+| `D` | A tracked file was deleted |
+| `R` | A tracked file was renamed or moved |
+
+**Diff** shows changed lines. The **Staged** boxes select changes for the next commit
+
+## Make the first commit
+
+1. Open the Git pane
+2. Select **Diff** and inspect the proposed files
+3. Stage the files that belong in the repository
+4. Enter `Create initial project structure`
+5. Select **Commit**
+
+The commit now exists in local Git history
+
+## Create the private GitHub repository
+
+Run in the RStudio Console
+
+~~~r
+usethis::use_github(private = TRUE)
+~~~
+
+This command
+
+- Creates a GitHub repository under your account
+- Connects the local repository to the GitHub remote
+- Names that remote `origin`
+- Pushes the current branch and commits
+
+## The everyday Git workflow
+
+1. **Pull** before beginning a work session
+2. Make one coherent change
+3. Inspect the changed lines with **Diff**
+4. Stage the files that belong to the change
+5. Write a specific message and **Commit**
+6. **Push** the commits to GitHub
+
+Repeat the edit, inspect, stage, and commit steps as the work develops
+
+## Follow along in RStudio
+
+In a practice project
+
+1. Add one sentence to `README.md`
+2. Save the file
+3. Inspect the changed line with **Diff**
+4. Stage `README.md`
+5. Commit with `Clarify project research question`
+6. Push the commit
+7. Open GitHub and locate the same commit
+
+::: notes
+Show each location after every action. After saving, point to the modified status in RStudio. After committing, show History. After pushing, refresh GitHub and open the commit.
+:::
+
+## The corresponding Git commands
+
+~~~bash
+git pull
+git status
+git diff
+git add README.md
+git diff --staged
+git commit -m "Clarify project research question"
+git push
+~~~
+
+The RStudio buttons run these commands
+
+Companion reference: [`docs/git-in-rstudio.md`](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/git-in-rstudio.md)
+
+## A diff shows what changed
+
+~~~diff
+- This project studies water use
++ This project studies how irrigation restrictions affect water use
+~~~
+
+The diff records the changed text
+
+The commit message records the reason for that change
+
+~~~text
+Clarify treatment and outcome in research question
+~~~
+
+## Write messages for future readers
+
+| General message | Research-specific message |
+|---|---|
+| `updates` | `Code suppressed ACS estimates as missing` |
+| `fixed bug` | `Keep FIPS codes as text to preserve leading zeros` |
+| `final version` | `Restrict sample to the April–September growing season` |
+
+A useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation
+
+## History makes earlier states inspectable
+
+Use **History** in RStudio or **Commits** on GitHub to inspect
+
+- The files changed in a commit
+- The exact lines added and removed
+- The author and date
+- The commit message
+- The identifier for the checkpoint
+
+Tags such as `5.2-retrieve` give a readable name to a particular commit
+
+## Case 2: shared work and reusable projects
+
+A remote repository already exists when
+
+- A coauthor invites you to a team repository
+- You want your own linked copy of public work
+- A lab or instructor provides a reusable template
+- You want to contribute a change to another repository
+
+The starting action depends on ownership and purpose
 
 ## Where we left off in Lecture 5.2
 
@@ -60,176 +515,45 @@ Today we organize that work and begin recording its history
 | `5.4-collaborate` | Collaboration | Issues, branches, and pull requests |
 | `5.5-report` | Reporting | Codebook, sample, and data section |
 
-## Reproducibility starts with organization
-
-Can another researcher reconstruct a result from the same inputs?
-
-They need
-
-- Original inputs
-- Code for every transformation
-- The order in which the code runs
-- Software and package requirements
-- The project version used for the result
-
-Source: @gentzkow2014code
-
-## Start with a recognizable project root
-
-~~~text
-arec_570_demo/
-  README.md
-  arec_570_demo.Rproj
-  run_all.R
-  code/
-  data/
-  output/
-  docs/
-  lab_diary.md
-~~~
-
-The `.Rproj` file opens the project with this folder as the working directory
-
-## Separate files by function
-
-~~~text
-code/                    scripts and reusable functions
-data/raw/                source files as retrieved
-data/derived/            files constructed from source data
-output/figures/          figures produced by code
-output/tables/           tables produced by code
-docs/                    codebook and project documentation
-~~~
-
-Raw inputs remain unchanged. Scripts rebuild derived data and outputs
-
-## Paths should travel with the project
-
-Use paths relative to the project root
-
-~~~r
-read.csv("data/raw/streamflow.csv")
-~~~
-
-A path that begins with a person's user directory usually fails on another computer
-
-~~~r
-read.csv("C:/Users/jane/Desktop/streamflow.csv")
-~~~
-
-## Automate the sequence
-
-`run_all.R` expresses the order of operations
-
-~~~r
-source("code/00_setup.R")
-source("code/01_get_cdl.R")
-source("code/02_get_streamflow.R")
-source("code/03_get_weather.R")
-source("code/04_get_acs.R")
-source("code/05_build_daily.R")
-source("code/06_outputs.R")
-~~~
-
-One command rebuilds the project from documented inputs
-
-## Discussion: where does memory enter the workflow?
-
-Consider one result in your current research project
-
-- Which steps happen through code
-- Which steps happen through menus or manual edits
-- Where does the order of operations live
-- Which inputs could change over time
-- What would another researcher need to ask you before running it
-
-## What version control adds
-
-Version control records selected states of a project and the changes connecting them
-
-A useful history can answer
-
-- What changed
-- Who made the change
-- When the change was recorded
-- Why the change was made
-- Which version produced a reported result
-
-## Git, GitHub, and RStudio have different roles
-
-| Tool | Role in the workflow |
-|---|---|
-| **Git** | Records file changes and commits on the computer |
-| **GitHub** | Hosts a remote copy and supports sharing and collaboration |
-| **RStudio** | Provides buttons and menus that run Git commands |
-
-Git supplies the version history. GitHub gives that history an online location
-
-## A repository is the project and its history
-
-A **repository** contains
-
-- The working files currently visible in the project folder
-- A hidden `.git` directory containing the local history
-- Optional connections to remote repositories such as GitHub
-
-The project folder becomes a Git repository when Git is initialized or when a repository is cloned
-
-## Three locations in the workflow
-
-```text
-Working files              Local Git history              GitHub repository
-on your computer           on your computer               online remote
-
-edit files  --commit-->    saved checkpoints  --push-->  shared checkpoints
-            <--restore--                       <--pull--
-```
-
-A commit saves to the local history. A push sends local commits to GitHub
-
-## Setup checkpoint
+## Completed before class
 
 Lecture 5.2 assigned Parts One and Two of [`docs/setup-rstudio.md`](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/setup-rstudio.md)
 
-Run these checks in the RStudio Console
+- Install Git and restart RStudio
+- Create a GitHub account
+- Configure your Git name and email
+- Create and store a GitHub personal access token
+- Request, activate, and store a Census API key
+- Run `usethis::git_sitrep()` without errors
+- Confirm `nzchar(Sys.getenv("CENSUS_API_KEY"))` returns `TRUE`
 
-~~~r
-system("git --version")
-usethis::git_sitrep()
-nzchar(Sys.getenv("CENSUS_API_KEY"))
-~~~
+Bring the laptop used to complete these steps
 
-Look for a Git version, your GitHub identity and token, and `[1] TRUE`
+## Vocabulary for shared repositories
 
-## How a repository reaches your computer
+| Term | Meaning |
+|---|---|
+| **Clone** | A local copy of a remote repository and its history |
+| **Fork** | A linked GitHub copy under your account |
+| **Template** | An independent repository created from a standard set of files |
+| **Upstream** | A conventional name for the original repository behind a fork |
 
-```text
-New research project       Create repository  --> Clone
-Course demo                Fork repository    --> Clone
-Lab project scaffold       Use template       --> Clone
-Coauthor's repository                              Clone
-```
+Branches, merges, and pull requests receive fuller treatment in Lecture 5.4
 
-**Create**, **fork**, and **use template** describe how a remote repository begins
+## Choose how your local project begins
 
-**Clone** creates the local project folder and Git history
+| Situation | Starting action |
+|---|---|
+| You have access to a team repository | **Clone** the team repository |
+| You want a linked copy of public or course work | **Fork**, then **clone** your fork |
+| You want an independent project with a standard structure | **Use template**, then **clone** the new repository |
+| You already have your own local project | **Initialize Git**, then create a GitHub remote |
 
-## Create a repository for your research
+Cloning is the step that creates the working project on your computer
 
-Use **create** when the project belongs to you or your research team
+## Clone a team repository
 
-For an existing RStudio project
-
-~~~r
-usethis::use_git()
-usethis::use_github(private = TRUE)
-~~~
-
-Review `.gitignore` before the first commit. Keep restricted or licensed data outside GitHub
-
-## Clone a repository you can access
-
-Use **clone** when the remote repository already exists and you need a local working copy
+Use **clone** when the repository already exists and you have permission to work in it
 
 In RStudio
 
@@ -238,46 +562,44 @@ In RStudio
 3. Paste the URL and choose a parent folder
 4. Select **Create Project**
 
-Cloning copies files, branches, and history and configures the remote as `origin`
+Cloning copies files and history and configures the remote as `origin`
 
-## Fork a repository into your account
+## Fork public or course work
 
-Use **fork** when you want a linked copy of another person's repository under your GitHub account
+Use **fork** when you want a linked GitHub copy under your account
 
 A fork supports
 
-- Pulling later updates from the original repository
-- Making changes in a repository you own
-- Proposing changes to the original repository in a pull request
+- Receiving later updates from the original repository
+- Developing changes in a repository you control
+- Proposing changes through a pull request
 
-For this course, fork the demo so you can receive updates across Lectures 5.3 to 5.5
+After creating the fork on GitHub, clone your fork to RStudio
 
 ## Use a template for an independent project
 
-Use **template** when the files provide a useful starting structure for a new project
+Use **template** when a repository provides a reusable starting structure
 
 The new repository receives
 
-- The template's files and folders
-- A new history beginning in the new repository
-- The visibility setting you choose
+- The template's current files and folders
+- A new Git history
+- The repository name and visibility you choose
 
-This is useful for a lab project layout or a standard replication package
+A personal website template is one example. Your website becomes an independent project with its own history
 
-## Choose the starting action
+## Which action fits the project?
 
-What action fits each situation?
+A. Your advisor adds you to a private team repository
 
-A. You are beginning your dissertation chapter in an empty project
+B. You want your own version of the course demo and need later course updates
 
-B. A coauthor added you to an existing private repository
+C. Your department offers a personal website template
 
-C. You want your own copy of the class demo and need later course updates
-
-D. Your lab publishes a standard project layout for independent studies
+D. You have an existing dissertation project on your computer
 
 ::: notes
-Discuss the reasoning before revealing the answers: A create, B clone, C fork and then clone, D use template and then clone
+Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote.
 :::
 
 ## Follow along: fork the demo
@@ -285,9 +607,9 @@ Discuss the reasoning before revealing the answers: A create, B clone, C fork an
 Open [github.com/laurenchenarides/arec_570_demo](https://github.com/laurenchenarides/arec_570_demo) while signed in
 
 1. Select **Fork**
-2. Uncheck **Copy the main branch only** so the lecture tags are included
+2. Clear **Copy the main branch only** so the lecture tags are included
 3. Select **Create fork**
-4. Confirm that the address is `github.com/your-username/arec_570_demo`
+4. Confirm the address is `github.com/your-username/arec_570_demo`
 
 Your fork remains linked to the course repository for later synchronization
 
@@ -295,23 +617,23 @@ Your fork remains linked to the course repository for later synchronization
 
 1. On your fork, select **Code** and copy the HTTPS URL
 2. In RStudio select **File > New Project > Version Control > Git**
-3. Paste the URL and choose a regular parent folder such as `GitProjects`
+3. Paste the URL and choose a parent folder such as `GitProjects`
 4. Select **Create Project**
-5. Confirm that the project name appears in the upper-right corner
-6. Confirm that a **Git** tab appears beside Environment and History
+5. Confirm the project name appears in the upper-right corner
+6. Confirm a **Git** tab appears beside Environment and History
 
 The local repository's `origin` points to your fork
 
-## Origin and upstream describe remote locations
+## Origin and upstream identify remotes
 
-| Name | Repository |
+| Name | Repository in this exercise |
 |---|---|
-| `origin` | The remote repository cloned to your computer, which is your fork in this exercise |
-| `upstream` | A conventional name for the original course repository |
+| `origin` | Your fork on GitHub |
+| `upstream` | The original course repository |
 
-GitHub's **Sync fork** retrieves changes from the course repository into your fork
+GitHub's **Sync fork** brings course updates into your fork
 
-After syncing the fork, **Pull** retrieves those changes to the local project
+After syncing the fork, **Pull** brings those commits to the local project
 
 ## Inspect the change from Lecture 5.2 to 5.3
 
@@ -327,84 +649,25 @@ Look for
 
 Which change most improves another researcher's ability to reproduce the project?
 
-## Git records changes through three states
-
-| State | Meaning |
-|---|---|
-| **Working directory** | Files currently being edited |
-| **Staging area** | Changes selected for the next commit |
-| **Commit** | A recorded snapshot with an explanatory message |
-
-Staging lets one work session become several coherent commits
-
-## Read the RStudio Git pane
-
-| Status | Meaning |
-|---|---|
-| `M` | A tracked file was modified |
-| `?` | A new file is untracked |
-| `A` | A new file is staged for its first commit |
-| `D` | A tracked file was deleted |
-| `R` | A tracked file was renamed or moved |
-
-**Diff** shows changed lines. The **Staged** boxes select files for the next commit
-
-## The everyday Git loop
-
-1. **Pull** before beginning a work session
-2. Make one coherent change
-3. Inspect the changed lines with **Diff**
-4. Stage the files that belong to the change
-5. Write a specific commit message and select **Commit**
-6. **Push** the commits to GitHub
-
-Repeat the edit, inspect, stage, and commit steps as the work develops
-
-## Follow along: record one research decision
+## Record one research decision
 
 Create `docs/class-notes.md` and add one sentence explaining a geographic or temporal choice in the demo project
 
-Then use the Git pane
-
 1. Inspect the changed line with **Diff**
-2. Check the **Staged** box for `docs/class-notes.md`
+2. Stage `docs/class-notes.md`
 3. Commit with `Document geographic assignment rule`
-4. Select **Push**
+4. Push the commit
 5. Open your fork on GitHub and locate the new commit
 
-## The corresponding Git commands
+The new file belongs to your fork, so later course updates can remain separate
 
-~~~bash
-git pull
-git status
-git diff
-git add docs/class-notes.md
-git diff --staged
-git commit -m "Document geographic assignment rule"
-git push
-~~~
-
-The RStudio buttons run these commands
-
-Companion reference: [`docs/git-in-rstudio.md`](https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/git-in-rstudio.md)
-
-## Write commit messages for future readers
-
-| General message | Research-specific message |
-|---|---|
-| `updates` | `Code suppressed ACS estimates as missing` |
-| `fixed bug` | `Keep FIPS codes as text to preserve leading zeros` |
-| `final version` | `Restrict sample to the April-September growing season` |
-
-A useful message identifies the completed change. Add an explanation when a change alters the sample or interpretation
-
-## Pull and push move commits
+## Pull and push synchronize commits
 
 **Pull** brings remote commits into the local repository
 
 **Push** sends local commits to the remote repository
 
-When a push is rejected because the remote has newer commits
+When GitHub reports newer remote commits
 
 1. Pull the remote commits
 2. Review any conflicts Git reports
@@ -413,61 +676,11 @@ When a push is rejected because the remote has newer commits
 
 Lecture 5.4 develops branches, conflicts, and pull requests
 
-## History makes earlier states inspectable
-
-Use **History** in RStudio or **Commits** on GitHub to inspect
-
-- The files changed in a commit
-- The exact lines added and removed
-- The author and date
-- The commit message
-- The identifier for the snapshot
-
-Tags such as `5.2-retrieve` give a name to a particular commit
-
-## What belongs in the repository
-
-Track files that explain or implement the research
-
-- Source code
-- README files and project documentation
-- Data dictionaries and retrieval logs
-- Small configuration files without credentials
-- Manuscript and presentation source files
-
-Commit generated outputs when the research team or publication process requires them
-
-## What belongs outside the repository
-
-Common exclusions in `.gitignore`
-
-- API keys and credentials such as `.Renviron`
-- Confidential or restricted data
-- Large source files stored in an archive
-- Derived files rebuilt by code
-- R session files such as `.RData` and `.Rhistory`
-
-`.gitignore` applies to files Git has not started tracking
-
-## Check before the first commit
-
-Open `.gitignore` and `git status` before staging a new project
-
-Ask
-
-- Does any file contain a password or API key
-- Does the project contain restricted or licensed data
-- Is a large file available from a stable archive or reproducible download
-- Can a derived file be rebuilt by the project scripts
-- Does each tracked file help explain, run, or report the research
-
-Revoke any credential that enters a commit because earlier commits retain the file contents
-
 ## Common problems and first checks
 
 | Problem | First check |
 |---|---|
-| The Git tab is missing | Confirm that the `.Rproj` inside a Git repository is open |
+| The Git tab is missing | Confirm the `.Rproj` inside a Git repository is open |
 | Git rejects a commit | Check the configured name and email with `usethis::git_sitrep()` |
 | GitHub rejects authentication | Check whether the personal access token is present and current |
 | A push is rejected | Pull and inspect the incoming commits |
@@ -484,9 +697,9 @@ For one current project, identify
 3. The files Git should track
 4. The files `.gitignore` should exclude
 5. The people who need repository access
-6. The first research decision that deserves a commit
+6. The next research decision that deserves a commit
 
-Discuss one unresolved choice with the class
+Share one unresolved choice with the class
 
 ## Return to Gentzkow and Shapiro
 
@@ -498,7 +711,7 @@ How do the reading's recommendations appear in the demo repository?
 - Version history for code and documentation
 - README files that describe execution and file roles
 
-Which recommendation would require the largest change in your current workflow?
+Which recommendation requires the largest change in your current workflow?
 
 ## Before you leave
 
@@ -519,11 +732,11 @@ Be prepared to show
 
 **GitHub** hosts a remote repository for sharing and collaboration
 
-**Create, fork, and template** determine how a repository begins
+**RStudio** provides an interface for editing files and using Git
 
-**Clone** creates the local working copy
+**Clone, fork, and template** describe different ways to begin from an existing repository
 
-**Pull, edit, stage, commit, and push** form the everyday workflow
+**Pull, edit, inspect, stage, commit, and push** form the everyday workflow
 
 ## References {.smaller}
 
