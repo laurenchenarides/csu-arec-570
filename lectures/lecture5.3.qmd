@@ -181,23 +181,18 @@ Walk from left to right. Saving changes the working files. Committing records a 
 | **Tag** | A readable name attached to an important commit |
 | **Local** | The repository on your computer |
 | **Remote** | A connected repository hosted online |
-| **Origin** | The default name for the remote connected to the local repository |
+| **Main** | The conventional name for the project's primary branch |
 | **Push** | Send local commits to a remote |
 | **Pull** | Bring remote commits into the local repository |
 
 ## Saving, committing, and pushing are separate actions
 
-::: {.fragment}
 **Save** writes the current file to the working directory
-:::
 
-::: {.fragment}
 **Commit** records selected changes in the local Git history
-:::
 
-::: {.fragment}
 **Push** sends local commits to GitHub
-:::
+
 
 ::: notes
 A saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information.
@@ -220,13 +215,13 @@ The demo repository provides detailed instructions in [`docs/setup-rstudio.md`](
 
 Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)
 
-Restart RStudio after installation, then run
+Restart RStudio after installation, then, in your Console window, run
 
 ~~~r
 system("git --version")
 ~~~
 
-A successful check prints a version such as `git version 2.51.0`
+A successful check prints a version such as `git version 2.55.0.windows.3`
 
 ## Steps 2 and 3: create accounts and identify yourself
 
@@ -402,6 +397,22 @@ This command
 - Names that remote `origin`
 - Pushes the current branch and commits
 
+## `main` and `origin` name different things
+
+| Name | Type | What to look for |
+|---|---|---|
+| `main` | Branch | The project's primary line of commits |
+| `origin` | Remote | The GitHub repository connected to the local project |
+
+Check the current branch and connected remotes in the RStudio Terminal
+
+~~~bash
+git branch --show-current
+git remote -v
+~~~
+
+`main` appears as a branch. `origin` appears beside the GitHub URL used for pull and push
+
 ## The everyday Git workflow
 
 1. **Pull** before beginning a work session
@@ -482,7 +493,7 @@ Use **History** in RStudio or **Commits** on GitHub to inspect
 
 Tags such as `5.2-retrieve` give a readable name to a particular commit
 
-## Case 2: shared work and reusable projects
+## Starting from an existing repository
 
 A remote repository already exists when
 
@@ -500,9 +511,6 @@ The `arec_570_demo` project retrieved land-use, streamflow, weather, and Census 
 - R scripts recorded the requests
 - Raw downloads preserved the responses
 - A retrieval log recorded source, date, and parameters
-- `docs/data-plan.md` connected the sources to a research question
-
-Today we organize that work and begin recording its history
 
 ## Follow-along repository
 
@@ -536,9 +544,8 @@ Bring the laptop used to complete these steps
 | **Clone** | A local copy of a remote repository and its history |
 | **Fork** | A linked GitHub copy under your account |
 | **Template** | An independent repository created from a standard set of files |
-| **Upstream** | A conventional name for the original repository behind a fork |
 
-Branches, merges, and pull requests receive fuller treatment in Lecture 5.4
+Lecture 5.4 will cover branches, merges, and pull requests
 
 ## Choose how your local project begins
 
@@ -547,13 +554,18 @@ Branches, merges, and pull requests receive fuller treatment in Lecture 5.4
 | You have access to a team repository | **Clone** the team repository |
 | You want a linked copy of public or course work | **Fork**, then **clone** your fork |
 | You want an independent project with a standard structure | **Use template**, then **clone** the new repository |
-| You already have your own local project | **Initialize Git**, then create a GitHub remote |
 
 Cloning is the step that creates the working project on your computer
 
-## Clone a team repository
+## Case 2: clone a team repository
+
+Your advisor adds you to an existing private repository for a joint project
+
+The team already shares one GitHub repository. You need a local copy containing the same files and history
 
 Use **clone** when the repository already exists and you have permission to work in it
+
+## Clone the team repository in RStudio
 
 In RStudio
 
@@ -562,9 +574,11 @@ In RStudio
 3. Paste the URL and choose a parent folder
 4. Select **Create Project**
 
-Cloning copies files and history and configures the remote as `origin`
+Cloning copies files and history, names the team repository `origin`, and usually opens its default branch, `main`
 
-## Fork public or course work
+## Case 3: fork public or course work
+
+You want your own copy of the course repository and need to receive later course updates
 
 Use **fork** when you want a linked GitHub copy under your account
 
@@ -575,32 +589,6 @@ A fork supports
 - Proposing changes through a pull request
 
 After creating the fork on GitHub, clone your fork to RStudio
-
-## Use a template for an independent project
-
-Use **template** when a repository provides a reusable starting structure
-
-The new repository receives
-
-- The template's current files and folders
-- A new Git history
-- The repository name and visibility you choose
-
-A personal website template is one example. Your website becomes an independent project with its own history
-
-## Which action fits the project?
-
-A. Your advisor adds you to a private team repository
-
-B. You want your own version of the course demo and need later course updates
-
-C. Your department offers a personal website template
-
-D. You have an existing dissertation project on your computer
-
-::: notes
-Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote.
-:::
 
 ## Follow along: fork the demo
 
@@ -624,42 +612,60 @@ Your fork remains linked to the course repository for later synchronization
 
 The local repository's `origin` points to your fork
 
-## Origin and upstream identify remotes
+## Origin, upstream, and `main`
 
-| Name | Repository in this exercise |
-|---|---|
-| `origin` | Your fork on GitHub |
-| `upstream` | The original course repository |
+![](assets/unit5/origin-upstream-main.svg){fig-alt="A local clone on a laptop and a personal GitHub fork are connected through push and pull. The personal fork is labeled origin. The original course repository is labeled upstream and sends updates to the fork through GitHub's Sync fork action. Each repository contains a branch named main."}
 
-GitHub's **Sync fork** brings course updates into your fork
+::: notes
+Emphasize that `main` is a branch in each repository. `origin` and `upstream` identify repositories from the perspective of the local project. In this course, students use GitHub's Sync fork action, so they do not need to configure a local `upstream` remote.
+:::
 
-After syncing the fork, **Pull** brings those commits to the local project
+## Read the three names in this exercise
 
-## Inspect the change from Lecture 5.2 to 5.3
+| Name | Type | Meaning in this exercise |
+|---|---|---|
+| `main` | Branch | The primary line of commits in each repository |
+| `origin` | Local remote name | Your fork on GitHub |
+| `upstream` | Fork relationship or remote name | The original course repository |
 
-Open the [comparison between `5.2-retrieve` and `5.3-structure`](https://github.com/laurenchenarides/arec_570_demo/compare/5.2-retrieve...5.3-structure)
+**Course updates:** **Sync fork** updates your fork from the course repository. **Pull** then updates local `main` from `origin`
 
-Look for
+`upstream` appears in `git remote -v` only when configured as a second remote. Lecture 5.4 creates a separate branch and merges its commits into `main`
 
-- The division of one retrieval script into numbered scripts
-- The addition of `run_all.R`
-- The separation of raw data, derived data, and outputs
-- The addition of `.gitignore`
-- The retrieval log and documentation
+## Case 4: use a template for an independent project
 
-Which change most improves another researcher's ability to reproduce the project?
+Your department provides a personal website template and you want an independent website repository
 
-## Record one research decision
+Use **template** when a repository provides a reusable starting structure
 
-Create `docs/class-notes.md` and add one sentence explaining a geographic or temporal choice in the demo project
+The new repository receives
 
-1. Inspect the changed line with **Diff**
-2. Stage `docs/class-notes.md`
-3. Commit with `Document geographic assignment rule`
-4. Push the commit
-5. Open your fork on GitHub and locate the new commit
+- The template's current files and folders
+- A new Git history
+- The repository name and visibility you choose
 
-The new file belongs to your fork, so later course updates can remain separate
+After creating the repository from the template, clone the new repository to RStudio
+
+## Which action fits the project?
+
+A. Your advisor adds you to a private team repository
+
+B. You want your own version of the course demo and need later course updates
+
+C. Your department offers a personal website template
+
+::: notes
+Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone.
+:::
+
+## Why synchronize local and remote history?
+
+A commit initially exists only in the repository where it was created
+
+- **Push** makes local commits available on GitHub
+- **Pull** brings GitHub commits to the computer
+- Regular synchronization gives collaborators access to current work
+- Frequent pulls reduce the number of changes that must be reconciled later
 
 ## Pull and push synchronize commits
 

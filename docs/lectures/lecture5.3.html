@@ -446,10 +446,6 @@ Lauren Chenarides
 <section id="version-control-vocabulary-1" class="slide level2">
 <h2>Version control vocabulary</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Term</th>
@@ -474,8 +470,8 @@ Lauren Chenarides
 <td>A connected repository hosted online</td>
 </tr>
 <tr class="odd">
-<td><strong>Origin</strong></td>
-<td>The default name for the remote connected to the local repository</td>
+<td><strong>Main</strong></td>
+<td>The conventional name for the project’s primary branch</td>
 </tr>
 <tr class="even">
 <td><strong>Push</strong></td>
@@ -490,15 +486,9 @@ Lauren Chenarides
 </section>
 <section id="saving-committing-and-pushing-are-separate-actions" class="slide level2">
 <h2>Saving, committing, and pushing are separate actions</h2>
-<div class="fragment">
 <p><strong>Save</strong> writes the current file to the working directory</p>
-</div>
-<div class="fragment">
 <p><strong>Commit</strong> records selected changes in the local Git history</p>
-</div>
-<div class="fragment">
 <p><strong>Push</strong> sends local commits to GitHub</p>
-</div>
 <aside class="notes">
 <p>A saved file can remain uncommitted. A local commit can remain unpushed. Ask students where each action stores information.</p>
 <style type="text/css">
@@ -529,9 +519,9 @@ Lauren Chenarides
 <section id="step-1-install-git" class="slide level2">
 <h2>Step 1: install Git</h2>
 <p>Download Git from <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></p>
-<p>Restart RStudio after installation, then run</p>
+<p>Restart RStudio after installation, then, in your Console window, run</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">system</span>(<span class="st">"git --version"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A successful check prints a version such as <code>git version 2.51.0</code></p>
+<p>A successful check prints a version such as <code>git version 2.55.0.windows.3</code></p>
 </section>
 <section id="steps-2-and-3-create-accounts-and-identify-yourself" class="slide level2">
 <h2>Steps 2 and 3: create accounts and identify yourself</h2>
@@ -731,6 +721,39 @@ Lauren Chenarides
 <li>Pushes the current branch and commits</li>
 </ul>
 </section>
+<section id="main-and-origin-name-different-things" class="slide level2">
+<h2><code>main</code> and <code>origin</code> name different things</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>What to look for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>main</code></td>
+<td>Branch</td>
+<td>The project’s primary line of commits</td>
+</tr>
+<tr class="even">
+<td><code>origin</code></td>
+<td>Remote</td>
+<td>The GitHub repository connected to the local project</td>
+</tr>
+</tbody>
+</table>
+<p>Check the current branch and connected remotes in the RStudio Terminal</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="fu">git</span> branch <span class="at">--show-current</span></span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>main</code> appears as a branch. <code>origin</code> appears beside the GitHub URL used for pull and push</p>
+</section>
 <section id="the-everyday-git-workflow" class="slide level2">
 <h2>The everyday Git workflow</h2>
 <ol type="1">
@@ -771,23 +794,23 @@ Lauren Chenarides
 </section>
 <section id="the-corresponding-git-commands" class="slide level2">
 <h2>The corresponding Git commands</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a aria-label="1"></a><span class="fu">git</span> pull</span>
-<span id="cb13-2"><a aria-label="2"></a><span class="fu">git</span> status</span>
-<span id="cb13-3"><a aria-label="3"></a><span class="fu">git</span> diff</span>
-<span id="cb13-4"><a aria-label="4"></a><span class="fu">git</span> add README.md</span>
-<span id="cb13-5"><a aria-label="5"></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
-<span id="cb13-6"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Clarify project research question"</span></span>
-<span id="cb13-7"><a aria-label="7"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a aria-label="1"></a><span class="fu">git</span> pull</span>
+<span id="cb14-2"><a aria-label="2"></a><span class="fu">git</span> status</span>
+<span id="cb14-3"><a aria-label="3"></a><span class="fu">git</span> diff</span>
+<span id="cb14-4"><a aria-label="4"></a><span class="fu">git</span> add README.md</span>
+<span id="cb14-5"><a aria-label="5"></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
+<span id="cb14-6"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Clarify project research question"</span></span>
+<span id="cb14-7"><a aria-label="7"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The RStudio buttons run these commands</p>
 <p>Companion reference: <a href="https://github.com/laurenchenarides/arec_570_demo/blob/main/docs/git-in-rstudio.md"><code>docs/git-in-rstudio.md</code></a></p>
 </section>
 <section id="a-diff-shows-what-changed" class="slide level2">
 <h2>A diff shows what changed</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb14-1"><a aria-label="1"></a><span class="st">- This project studies water use</span></span>
-<span id="cb14-2"><a aria-label="2"></a><span class="va">+ This project studies how irrigation restrictions affect water use</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb15-1"><a aria-label="1"></a><span class="st">- This project studies water use</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="va">+ This project studies how irrigation restrictions affect water use</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The diff records the changed text</p>
 <p>The commit message records the reason for that change</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a aria-label="1"></a>Clarify treatment and outcome in research question</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a aria-label="1"></a>Clarify treatment and outcome in research question</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="write-messages-for-future-readers" class="slide level2">
 <h2>Write messages for future readers</h2>
@@ -831,8 +854,8 @@ Lauren Chenarides
 </ul>
 <p>Tags such as <code>5.2-retrieve</code> give a readable name to a particular commit</p>
 </section>
-<section id="case-2-shared-work-and-reusable-projects" class="slide level2">
-<h2>Case 2: shared work and reusable projects</h2>
+<section id="starting-from-an-existing-repository" class="slide level2">
+<h2>Starting from an existing repository</h2>
 <p>A remote repository already exists when</p>
 <ul>
 <li>A coauthor invites you to a team repository</li>
@@ -849,9 +872,7 @@ Lauren Chenarides
 <li>R scripts recorded the requests</li>
 <li>Raw downloads preserved the responses</li>
 <li>A retrieval log recorded source, date, and parameters</li>
-<li><code>docs/data-plan.md</code> connected the sources to a research question</li>
 </ul>
-<p>Today we organize that work and begin recording its history</p>
 </section>
 <section id="follow-along-repository" class="slide level2">
 <h2>Follow-along repository</h2>
@@ -933,13 +954,9 @@ Lauren Chenarides
 <td><strong>Template</strong></td>
 <td>An independent repository created from a standard set of files</td>
 </tr>
-<tr class="even">
-<td><strong>Upstream</strong></td>
-<td>A conventional name for the original repository behind a fork</td>
-</tr>
 </tbody>
 </table>
-<p>Branches, merges, and pull requests receive fuller treatment in Lecture 5.4</p>
+<p>Lecture 5.4 will cover branches, merges, and pull requests</p>
 </section>
 <section id="choose-how-your-local-project-begins" class="slide level2">
 <h2>Choose how your local project begins</h2>
@@ -967,17 +984,18 @@ Lauren Chenarides
 <td>You want an independent project with a standard structure</td>
 <td><strong>Use template</strong>, then <strong>clone</strong> the new repository</td>
 </tr>
-<tr class="even">
-<td>You already have your own local project</td>
-<td><strong>Initialize Git</strong>, then create a GitHub remote</td>
-</tr>
 </tbody>
 </table>
 <p>Cloning is the step that creates the working project on your computer</p>
 </section>
-<section id="clone-a-team-repository" class="slide level2">
-<h2>Clone a team repository</h2>
+<section id="case-2-clone-a-team-repository" class="slide level2">
+<h2>Case 2: clone a team repository</h2>
+<p>Your advisor adds you to an existing private repository for a joint project</p>
+<p>The team already shares one GitHub repository. You need a local copy containing the same files and history</p>
 <p>Use <strong>clone</strong> when the repository already exists and you have permission to work in it</p>
+</section>
+<section id="clone-the-team-repository-in-rstudio" class="slide level2">
+<h2>Clone the team repository in RStudio</h2>
 <p>In RStudio</p>
 <ol type="1">
 <li>Copy the repository’s HTTPS URL from <strong>Code</strong></li>
@@ -985,10 +1003,11 @@ Lauren Chenarides
 <li>Paste the URL and choose a parent folder</li>
 <li>Select <strong>Create Project</strong></li>
 </ol>
-<p>Cloning copies files and history and configures the remote as <code>origin</code></p>
+<p>Cloning copies files and history, names the team repository <code>origin</code>, and usually opens its default branch, <code>main</code></p>
 </section>
-<section id="fork-public-or-course-work" class="slide level2">
-<h2>Fork public or course work</h2>
+<section id="case-3-fork-public-or-course-work" class="slide level2">
+<h2>Case 3: fork public or course work</h2>
+<p>You want your own copy of the course repository and need to receive later course updates</p>
 <p>Use <strong>fork</strong> when you want a linked GitHub copy under your account</p>
 <p>A fork supports</p>
 <ul>
@@ -997,37 +1016,6 @@ Lauren Chenarides
 <li>Proposing changes through a pull request</li>
 </ul>
 <p>After creating the fork on GitHub, clone your fork to RStudio</p>
-</section>
-<section id="use-a-template-for-an-independent-project" class="slide level2">
-<h2>Use a template for an independent project</h2>
-<p>Use <strong>template</strong> when a repository provides a reusable starting structure</p>
-<p>The new repository receives</p>
-<ul>
-<li>The template’s current files and folders</li>
-<li>A new Git history</li>
-<li>The repository name and visibility you choose</li>
-</ul>
-<p>A personal website template is one example. Your website becomes an independent project with its own history</p>
-</section>
-<section id="which-action-fits-the-project" class="slide level2">
-<h2>Which action fits the project?</h2>
-<p>A. Your advisor adds you to a private team repository</p>
-<p>B. You want your own version of the course demo and need later course updates</p>
-<p>C. Your department offers a personal website template</p>
-<p>D. You have an existing dissertation project on your computer</p>
-<aside class="notes">
-<p>Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone. D is initialize Git and create the remote.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="follow-along-fork-the-demo" class="slide level2">
 <h2>Follow along: fork the demo</h2>
@@ -1052,53 +1040,99 @@ Lauren Chenarides
 </ol>
 <p>The local repository’s <code>origin</code> points to your fork</p>
 </section>
-<section id="origin-and-upstream-identify-remotes" class="slide level2">
-<h2>Origin and upstream identify remotes</h2>
+<section id="origin-upstream-and-main" class="slide level2">
+<h2>Origin, upstream, and <code>main</code></h2>
+<p><img data-src="assets/unit5/origin-upstream-main.svg" alt="A local clone on a laptop and a personal GitHub fork are connected through push and pull. The personal fork is labeled origin. The original course repository is labeled upstream and sends updates to the fork through GitHub's Sync fork action. Each repository contains a branch named main."></p>
+<aside class="notes">
+<p>Emphasize that <code>main</code> is a branch in each repository. <code>origin</code> and <code>upstream</code> identify repositories from the perspective of the local project. In this course, students use GitHub’s Sync fork action, so they do not need to configure a local <code>upstream</code> remote.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="read-the-three-names-in-this-exercise" class="slide level2">
+<h2>Read the three names in this exercise</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name</th>
-<th>Repository in this exercise</th>
+<th>Type</th>
+<th>Meaning in this exercise</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>origin</code></td>
-<td>Your fork on GitHub</td>
+<td><code>main</code></td>
+<td>Branch</td>
+<td>The primary line of commits in each repository</td>
 </tr>
 <tr class="even">
+<td><code>origin</code></td>
+<td>Local remote name</td>
+<td>Your fork on GitHub</td>
+</tr>
+<tr class="odd">
 <td><code>upstream</code></td>
+<td>Fork relationship or remote name</td>
 <td>The original course repository</td>
 </tr>
 </tbody>
 </table>
-<p>GitHub’s <strong>Sync fork</strong> brings course updates into your fork</p>
-<p>After syncing the fork, <strong>Pull</strong> brings those commits to the local project</p>
+<p><strong>Course updates:</strong> <strong>Sync fork</strong> updates your fork from the course repository. <strong>Pull</strong> then updates local <code>main</code> from <code>origin</code></p>
+<p><code>upstream</code> appears in <code>git remote -v</code> only when configured as a second remote. Lecture 5.4 creates a separate branch and merges its commits into <code>main</code></p>
 </section>
-<section id="inspect-the-change-from-lecture-5.2-to-5.3" class="slide level2">
-<h2>Inspect the change from Lecture 5.2 to 5.3</h2>
-<p>Open the <a href="https://github.com/laurenchenarides/arec_570_demo/compare/5.2-retrieve...5.3-structure">comparison between <code>5.2-retrieve</code> and <code>5.3-structure</code></a></p>
-<p>Look for</p>
+<section id="case-4-use-a-template-for-an-independent-project" class="slide level2">
+<h2>Case 4: use a template for an independent project</h2>
+<p>Your department provides a personal website template and you want an independent website repository</p>
+<p>Use <strong>template</strong> when a repository provides a reusable starting structure</p>
+<p>The new repository receives</p>
 <ul>
-<li>The division of one retrieval script into numbered scripts</li>
-<li>The addition of <code>run_all.R</code></li>
-<li>The separation of raw data, derived data, and outputs</li>
-<li>The addition of <code>.gitignore</code></li>
-<li>The retrieval log and documentation</li>
+<li>The template’s current files and folders</li>
+<li>A new Git history</li>
+<li>The repository name and visibility you choose</li>
 </ul>
-<p>Which change most improves another researcher’s ability to reproduce the project?</p>
+<p>After creating the repository from the template, clone the new repository to RStudio</p>
 </section>
-<section id="record-one-research-decision" class="slide level2">
-<h2>Record one research decision</h2>
-<p>Create <code>docs/class-notes.md</code> and add one sentence explaining a geographic or temporal choice in the demo project</p>
-<ol type="1">
-<li>Inspect the changed line with <strong>Diff</strong></li>
-<li>Stage <code>docs/class-notes.md</code></li>
-<li>Commit with <code>Document geographic assignment rule</code></li>
-<li>Push the commit</li>
-<li>Open your fork on GitHub and locate the new commit</li>
-</ol>
-<p>The new file belongs to your fork, so later course updates can remain separate</p>
+<section id="which-action-fits-the-project" class="slide level2">
+<h2>Which action fits the project?</h2>
+<p>A. Your advisor adds you to a private team repository</p>
+<p>B. You want your own version of the course demo and need later course updates</p>
+<p>C. Your department offers a personal website template</p>
+<aside class="notes">
+<p>Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-synchronize-local-and-remote-history" class="slide level2">
+<h2>Why synchronize local and remote history?</h2>
+<p>A commit initially exists only in the repository where it was created</p>
+<ul>
+<li><strong>Push</strong> makes local commits available on GitHub</li>
+<li><strong>Pull</strong> brings GitHub commits to the computer</li>
+<li>Regular synchronization gives collaborators access to current work</li>
+<li>Frequent pulls reduce the number of changes that must be reconciled later</li>
+</ul>
 </section>
 <section id="pull-and-push-synchronize-commits" class="slide level2">
 <h2>Pull and push synchronize commits</h2>
