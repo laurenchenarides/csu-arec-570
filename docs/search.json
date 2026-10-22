@@ -1789,7 +1789,7 @@
     "href": "lectures/lecture5.4.html#keys-define-the-observations",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Keys define the observations",
-    "text": "Keys define the observations\nA key is a field or combination of fields that uniquely identifies a row.\n\n\n\ncounty_id\nyear\npopulation\n\n\n\n\n08069\n2020\n100\n\n\n08069\n2021\n105\n\n\n08123\n2020\n90\n\n\n\nIllustrative values. The key is county and year together."
+    "text": "Keys define the observations\nA key is a field or combination of fields that uniquely identifies a row\n\n\n\n\n\n\n\n\nData structure\nOne row represents\nPossible key\n\n\n\n\nHousehold survey\nOne household in one wave\nhousehold_id, wave\n\n\nCounty panel\nOne county in one year\ncounty_fips, year\n\n\nParcel transactions\nOne recorded sale\ntransaction_id\n\n\n\nCleaned tables should have keys that are unique and nonmissing\nSource: Gentzkow and Shapiro (2014), Section 5"
   },
   {
     "objectID": "lectures/lecture5.4.html#check-the-key-before-joining",
@@ -1852,7 +1852,7 @@
     "href": "lectures/lecture5.4.html#code-style-supports-review",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Code style supports review",
-    "text": "Code style supports review\n\nUse meaningful names.\nKeep indentation consistent.\nSeparate distinct operations.\nPrefer readable expressions.\nAvoid repeated unexplained numbers.\n\nWhich style rule prevents a plausible research error?\nSource: Gentzkow and Shapiro (2014), appendix."
+    "text": "Code style supports review\n\nGive scripts and functions one clear purpose\nUse names that identify the concept and unit\nMake function inputs and outputs explicit\nSeparate key calculations from setup code\nWrite logical conditions in the form a reader would describe them\nUse consistent naming and indentation across the project\nReturn informative errors for invalid inputs\n\nSource: Gentzkow and Shapiro (2014), Code Style appendix"
   },
   {
     "objectID": "lectures/lecture5.4.html#workshop-hand-off-the-project",
@@ -1866,7 +1866,7 @@
     "href": "lectures/lecture5.4.html#before-you-leave",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Before you leave",
-    "text": "Before you leave\nFix one obstacle revealed by the handoff. Make a commit explaining the improvement."
+    "text": "Before you leave\nShow one of the following\n\nA branch created for a current research task\nA commit that records a coherent change\nA draft pull-request description for a proposed change\n\nAlso identify the key of one dataset used in that task"
   },
   {
     "objectID": "lectures/lecture5.4.html#references",
@@ -2433,7 +2433,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse keys, reusable code, documentation, and clear collaboration practices.\n—\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse branches pull requests and data-management practices to make research changes reviewable\nDownload PDF\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture5.2.html#getting-access",
@@ -2965,7 +2965,7 @@
     "href": "lectures/lecture5.3.html#summary",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Summary",
-    "text": "Summary\nProject structure records where inputs, code, and outputs belong\nGit records local changes as commits\nGitHub hosts a remote repository for sharing and collaboration\nRStudio provides an interface for editing files and using Git\nClone, fork, and template describe different ways to begin from an existing repository\nPull, edit, inspect, stage, commit, and push form the everyday workflow"
+    "text": "Summary\nProject structure records where inputs, code, and outputs belong\nGit records local changes as commits\nGitHub hosts a remote repository for sharing and collaboration\nRStudio provides an interface for editing files and using Git\nClone and fork describe different ways to begin from an existing repository\nPull, edit, inspect, stage, commit, and push form the everyday workflow"
   },
   {
     "objectID": "lectures/lecture5.3.html#how-a-repository-reaches-your-computer",
@@ -2979,7 +2979,7 @@
     "href": "lectures/lecture5.3.html#reading-and-todays-path",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Reading and today’s path",
-    "text": "Reading and today’s path\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1–4 (Gentzkow and Shapiro 2014)\nBryan, Excuse Me, Do You Have a Moment to Talk About Version Control?, 2017 (Bryan 2017)\n\nOrganize a project so another researcher can follow it\nIdentify where undocumented memory enters the workflow\nSet up Git, GitHub, and RStudio\nTake one research project from its first commit through GitHub\nChoose a workflow for team projects and reusable templates"
+    "text": "Reading and today’s path\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1–4 (Gentzkow and Shapiro 2014)\nBryan, Excuse Me, Do You Have a Moment to Talk About Version Control?, 2017 (Bryan 2017)\n\nOrganize a project so another researcher can follow it\nIdentify where undocumented memory enters the workflow\nSet up Git, GitHub, and RStudio\nTake one research project from its first commit through GitHub\nChoose a workflow for team projects and public repositories"
   },
   {
     "objectID": "lectures/lecture5.3.html#where-does-memory-enter-the-workflow",
@@ -3154,14 +3154,14 @@
     "href": "lectures/lecture5.3.html#vocabulary-for-shared-repositories",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Vocabulary for shared repositories",
-    "text": "Vocabulary for shared repositories\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nClone\nA local copy of a remote repository and its history\n\n\nFork\nA linked GitHub copy under your account\n\n\nTemplate\nAn independent repository created from a standard set of files\n\n\n\nLecture 5.4 will cover branches, merges, and pull requests"
+    "text": "Vocabulary for shared repositories\n\n\n\nTerm\nMeaning\n\n\n\n\nClone\nA local copy of a remote repository and its history\n\n\nFork\nA linked GitHub copy under your account\n\n\n\nLecture 5.4 will cover branches, merges, and pull requests"
   },
   {
     "objectID": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
     "href": "lectures/lecture5.3.html#choose-how-your-local-project-begins",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Choose how your local project begins",
-    "text": "Choose how your local project begins\n\n\n\n\n\n\n\nSituation\nStarting action\n\n\n\n\nYou have access to a team repository\nClone the team repository\n\n\nYou want a linked copy of public or course work\nFork, then clone your fork\n\n\nYou want an independent project with a standard structure\nUse template, then clone the new repository\n\n\n\nCloning is the step that creates the working project on your computer"
+    "text": "Choose how your local project begins\n\n\n\n\n\n\n\nSituation\nStarting action\n\n\n\n\nYou have access to a team repository\nClone the team repository\n\n\nYou want a linked copy of public or course work\nFork, then clone your fork\n\n\n\nCloning is the step that creates the working project on your computer"
   },
   {
     "objectID": "lectures/lecture5.3.html#clone-a-team-repository",
@@ -3182,7 +3182,7 @@
     "href": "lectures/lecture5.3.html#which-action-fits-the-project",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Which action fits the project?",
-    "text": "Which action fits the project?\nA. Your advisor adds you to a private team repository\nB. You want your own version of the course demo and need later course updates\nC. Your department offers a personal website template\n\nAsk for the action and the reason. A is clone. B is fork and clone. C is use template and clone."
+    "text": "Which action fits the project?\nA. Your advisor adds you to a private team repository\nB. You want your own version of the course demo and need later course updates\n\nAsk for the action and the reason. A is clone. B is fork and clone."
   },
   {
     "objectID": "lectures/lecture5.3.html#origin-and-upstream-identify-remotes",
@@ -3210,7 +3210,7 @@
     "href": "lectures/lecture5.3.html#version-control-vocabulary-1",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Version control vocabulary",
-    "text": "Version control vocabulary\n\n\n\nTerm\nMeaning\n\n\n\n\nCommit message\nA short explanation attached to a commit\n\n\nTag\nA readable name attached to an important commit\n\n\nLocal\nThe repository on your computer\n\n\nRemote\nA connected repository hosted online\n\n\nMain\nThe conventional name for the project’s primary branch\n\n\nPush\nSend local commits to a remote\n\n\nPull\nBring remote commits into the local repository"
+    "text": "Version control vocabulary\n\n\n\nTerm\nMeaning\n\n\n\n\nCommit message\nA short explanation attached to a commit\n\n\nTag\nA fixed readable name for a selected commit\n\n\nLocal\nThe repository on your computer\n\n\nRemote\nA connected repository hosted online\n\n\nMain\nThe conventional name for the project’s primary branch\n\n\nPush\nSend local commits to a remote\n\n\nPull\nBring remote commits into the local repository"
   },
   {
     "objectID": "lectures/lecture5.3.html#main-and-origin-name-different-things",
@@ -3274,5 +3274,432 @@
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Why synchronize local and remote history?",
     "text": "Why synchronize local and remote history?\nA commit initially exists only in the repository where it was created\n\nPush makes local commits available on GitHub\nPull brings GitHub commits to the computer\nRegular synchronization gives collaborators access to current work\nFrequent pulls reduce the number of changes that must be reconciled later"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#what-if-you-want-to-start-from-an-existing-repository",
+    "href": "lectures/lecture5.3.html#what-if-you-want-to-start-from-an-existing-repository",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "What if you want to start from an existing repository?",
+    "text": "What if you want to start from an existing repository?\nA remote repository already exists when\n\nA coauthor invites you to a team repository\nYou want your own linked copy of public work\nYou want to contribute a change to another repository\n\nThe starting action depends on ownership and purpose"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#reading-and-todays-path",
+    "href": "lectures/lecture5.4.html#reading-and-todays-path",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Reading and today’s path",
+    "text": "Reading and today’s path\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 5-8 and the Code Style appendix (Gentzkow and Shapiro 2014)\n\nDistinguish cloning, forking, and repository permissions\nFollow one research task through a branch, pull request, review, and merge\nUse keys, abstraction, documentation, management, and code style to make the task reviewable\nApply the workflow to a current research project"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#where-we-left-off",
+    "href": "lectures/lecture5.4.html#where-we-left-off",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Where we left off",
+    "text": "Where we left off\nLecture 5.3 established a version control workflow for an individual research project\n\nOrganize the project around inputs, code, and outputs\nUse Git to record local commits\nUse GitHub to share the repository\nClone an existing team repository when you have access\n\nWe stopped before Case 3: fork public or course work"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#case-3-fork-public-or-course-work",
+    "href": "lectures/lecture5.4.html#case-3-fork-public-or-course-work",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Case 3: fork public or course work",
+    "text": "Case 3: fork public or course work\nYou want your own copy of the course repository, plan to make changes, and lack write access to the course repository\nUse fork when you want a linked GitHub copy under your account\nA fork supports\n\nPushing branches to a repository you control\nSyncing later updates from the original repository\nProposing changes to the original repository through a pull request\n\nAfter creating the fork on GitHub, clone your fork to RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#follow-along-fork-the-demo",
+    "href": "lectures/lecture5.4.html#follow-along-fork-the-demo",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Follow along: fork the demo",
+    "text": "Follow along: fork the demo\nOpen github.com/laurenchenarides/arec_570_demo while signed in\n\nSelect Fork\nClear Copy the main branch only so the lecture tags are included\nSelect Create fork\nConfirm the address is github.com/your-username/arec_570_demo\n\nYour fork remains linked to the course repository for later synchronization"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#follow-along-clone-your-fork",
+    "href": "lectures/lecture5.4.html#follow-along-clone-your-fork",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Follow along: clone your fork",
+    "text": "Follow along: clone your fork\n\nOn your fork, select Code and copy the HTTPS URL\nIn RStudio select File &gt; New Project &gt; Version Control &gt; Git\nPaste the URL and choose a parent folder such as GitProjects\nSelect Create Project\nConfirm the project name appears in the upper-right corner\nConfirm a Git tab appears beside Environment and History\n\nThe local repository’s origin points to your fork"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#origin-upstream-and-main",
+    "href": "lectures/lecture5.4.html#origin-upstream-and-main",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Origin, upstream, and main",
+    "text": "Origin, upstream, and main\n\n\nEmphasize that main is a branch in each repository. origin is created automatically by cloning. upstream is a conventional name that the user adds when using terminal commands to communicate directly with the original repository."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#read-the-three-names-in-this-exercise",
+    "href": "lectures/lecture5.4.html#read-the-three-names-in-this-exercise",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Read the three names in this exercise",
+    "text": "Read the three names in this exercise\n\n\n\n\n\n\n\n\nName\nType\nMeaning in this exercise\n\n\n\n\nmain\nBranch name\nThe primary line of accepted commits in each repository\n\n\norigin\nRemote nickname\nThe GitHub repository that was cloned, here your fork\n\n\nupstream\nRemote nickname\nThe original repository, added manually for terminal synchronization\n\n\n\nUse git remote -v to see which remote nicknames exist locally\n\nGitHub records the fork relationship on the website even when the local repository has only origin. The name upstream exists locally only after the user adds it."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#synchronize-the-fork-before-starting-a-task",
+    "href": "lectures/lecture5.4.html#synchronize-the-fork-before-starting-a-task",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Synchronize the fork before starting a task",
+    "text": "Synchronize the fork before starting a task\nOn your fork on GitHub\n\nSelect Sync fork\nSelect Update branch when updates are available\n\nIn RStudio\n\nSwitch to main\nSelect Pull in the Git pane\nConfirm Git reports that local main is current\n\nThe update path is upstream/main to origin/main to local main"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#pull-and-push-synchronize-commits",
+    "href": "lectures/lecture5.4.html#pull-and-push-synchronize-commits",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Pull and push synchronize commits",
+    "text": "Pull and push synchronize commits\nPull brings commits from the current branch on origin into the local branch\nPush sends local commits from the current branch to the matching branch on origin\nWhen GitHub contains newer commits\n\nPull the remote commits\nReview any conflict Git reports\nComplete the merge when required\nPush the combined history"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#one-collaboration-case-for-today",
+    "href": "lectures/lecture5.4.html#one-collaboration-case-for-today",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "One collaboration case for today",
+    "text": "One collaboration case for today\nThe demo repository contains a completed task that combines daily streamflow and weather data\nDeliverables\n\nBuild one daily file keyed by date\nVerify that each source contains one row per date\nJoin the sources with an explicit one-to-one relationship\nRecord sample construction and update the project documentation\n\nThe work was developed on the add-daily-panel branch and then merged into main"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#start-with-a-github-issue",
+    "href": "lectures/lecture5.4.html#start-with-a-github-issue",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Start with a GitHub issue",
+    "text": "Start with a GitHub issue\nAn issue gives the research task a durable record\n\n\n\n\n\n\n\nIssue field\nQuestion it answers\n\n\n\n\nDeliverable\nWhat will exist when the task is finished\n\n\nOwner\nWho is responsible for the task\n\n\nInputs and dependencies\nWhat data, code, or prior decisions the task requires\n\n\nDone when\nWhat a reviewer can check\n\n\nDecisions\nWhich choices were made and why\n\n\n\nThe demo repository includes a research-task issue template"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#example-issue-build-the-daily-panel",
+    "href": "lectures/lecture5.4.html#example-issue-build-the-daily-panel",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Example issue: build the daily panel",
+    "text": "Example issue: build the daily panel\nDeliverable\ncode/05_build_daily.R and a derived file with one row per date\nInputs and dependencies\nUSGS daily streamflow, NASA POWER daily weather, and the project settings in 00_setup.R\nDone when\n\nSource keys are unique and nonmissing\nThe join is declared one-to-one\nrun_all.R completes successfully\nThe code README lists the new inputs and outputs"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#one-task-moves-through-git-and-github",
+    "href": "lectures/lecture5.4.html#one-task-moves-through-git-and-github",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "One task moves through Git and GitHub",
+    "text": "One task moves through Git and GitHub\n\n\nUse the diagram to preview the complete cycle. The next slides walk through each part in RStudio and GitHub."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#create-a-branch-from-current-main",
+    "href": "lectures/lecture5.4.html#create-a-branch-from-current-main",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Create a branch from current main",
+    "text": "Create a branch from current main\nIn the RStudio Git pane\n\nConfirm the branch menu shows main\nSelect New Branch\nName the branch add-daily-panel\nKeep Sync branch with remote selected\nSelect Create\n\nThe terminal equivalent is\ngit switch -c add-daily-panel\ngit push -u origin add-daily-panel"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#work-and-commit-on-the-branch",
+    "href": "lectures/lecture5.4.html#work-and-commit-on-the-branch",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Work and commit on the branch",
+    "text": "Work and commit on the branch\n\nEdit the files required by the task\nRun the relevant scripts and inspect the outputs\nInspect the diff in the RStudio Git pane\nStage the files that belong to the task\nCommit with a message that describes the research change\nPush the branch to GitHub\n\nJoin streamflow and weather by date\nEach commit should leave the branch in a state another researcher can inspect"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#open-a-pull-request",
+    "href": "lectures/lecture5.4.html#open-a-pull-request",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Open a pull request",
+    "text": "Open a pull request\nAfter pushing the branch, GitHub offers Compare & pull request\n\nSet the base branch to main\nSet the compare branch to add-daily-panel\nUse the deliverable as the title\nExplain what changed and why\nReport how the change was checked\n\nTo practice without proposing a change to the course repository, set the base repository to your fork"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#review-the-research-change",
+    "href": "lectures/lecture5.4.html#review-the-research-change",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Review the research change",
+    "text": "Review the research change\nThe Files changed tab shows the exact proposed edits\nA reviewer can ask\n\nDoes each table have a clear unit of observation\nAre keys unique and nonmissing\nDoes the join use the intended matching relationship\nDo the scripts rebuild the stated outputs\nAre thresholds, units, and missing values documented\nDoes the pull request contain one coherent task"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#revise-through-the-same-branch",
+    "href": "lectures/lecture5.4.html#revise-through-the-same-branch",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Revise through the same branch",
+    "text": "Revise through the same branch\nReview comments identify a question or requested change on a specific line\nThe author then\n\nEdits the branch in RStudio\nRuns the relevant checks\nCommits the revision\nPushes the branch again\n\nThe new commit appears in the same pull request and preserves the review record"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#merge-then-update-local-main",
+    "href": "lectures/lecture5.4.html#merge-then-update-local-main",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Merge, then update local main",
+    "text": "Merge, then update local main\nAfter approval on GitHub\n\nSelect Merge pull request\nDelete the remote task branch\n\nBack in RStudio\n\nSwitch to main\nPull the merged commits from origin/main\nConfirm the project runs from the updated main\nDelete the local task branch when it is no longer needed"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#a-conflict-requires-a-research-decision",
+    "href": "lectures/lecture5.4.html#a-conflict-requires-a-research-decision",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "A conflict requires a research decision",
+    "text": "A conflict requires a research decision\nGit marks a conflict when two branches contain incompatible edits to the same part of a file\n  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nheat_threshold_c &lt;- 35\n  =======\nheat_threshold_c &lt;- 32\n  &gt;&gt;&gt;&gt;&gt;&gt;&gt; add-daily-panel\nThe researcher must determine which threshold matches the agreed definition and evidence\n\nHEAD labels the version on the branch currently checked out. The final file may keep either value or a new value. The decision comes from the research design and documentation."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#resolve-the-conflict-and-record-the-decision",
+    "href": "lectures/lecture5.4.html#resolve-the-conflict-and-record-the-decision",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Resolve the conflict and record the decision",
+    "text": "Resolve the conflict and record the decision\n\nRead both versions and the evidence for each\nDecide the final code with the relevant collaborator\nEdit the file and remove the conflict markers\nRun the code affected by the decision\nStage the resolved file and complete the merge commit\n\nThe commit message should record the chosen definition and its source"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#collaboration-vocabulary",
+    "href": "lectures/lecture5.4.html#collaboration-vocabulary",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Collaboration vocabulary",
+    "text": "Collaboration vocabulary\n\n\n\nTerm\nMeaning in this workflow\n\n\n\n\nBranch\nA line of commits for one proposed change\n\n\nPull request\nA request to review and merge one branch\n\n\nReview\nComments, requested revisions, or approval\n\n\nMerge\nThe operation that adds accepted commits to main\n\n\nConflict\nCompeting edits that require a human decision"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#what-makes-a-change-reviewable",
+    "href": "lectures/lecture5.4.html#what-makes-a-change-reviewable",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "What makes a change reviewable?",
+    "text": "What makes a change reviewable?\nVersion control shows what changed, who changed it, and when\nThe assigned reading addresses what a reviewer needs to understand the change\n\nKeys state what each row represents\nAbstraction gives repeated logic one maintained implementation\nDocumentation records sources, definitions, and decisions\nManagement assigns tasks and records their status\nCode style makes the implementation easier to inspect"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#state-the-relationship-before-joining",
+    "href": "lectures/lecture5.4.html#state-the-relationship-before-joining",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "State the relationship before joining",
+    "text": "State the relationship before joining\nThe demo checks each source before combining it\ncheck_key(flow, \"date\")\ncheck_key(weather, \"date\")\n\ndaily &lt;- full_join(\n  flow, weather, by = \"date\", relationship = \"one-to-one\"\n)\n\ncheck_key(daily, \"date\")\nThe stated relationship turns an assumption about the merge into a checkable condition"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#discussion-find-the-merge-problem",
+    "href": "lectures/lecture5.4.html#discussion-find-the-merge-problem",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Discussion: find the merge problem",
+    "text": "Discussion: find the merge problem\nA reservoir-month table is joined to a water-right-month table using reservoir and month\n\nWhat does one row represent after the join\nWhy does reservoir storage appear more than once\nWhich calculation could double count storage\nWhich fields identify each row after the join\n\n\nThe joined table has one row per water right, reservoir, and month. Reservoir-level values repeat across rights and require care in later summaries."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#keep-each-table-at-the-level-it-describes",
+    "href": "lectures/lecture5.4.html#keep-each-table-at-the-level-it-describes",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Keep each table at the level it describes",
+    "text": "Keep each table at the level it describes\nKeeping data normalized means storing each fact once at its natural unit\n\n\n\nTable\nNatural key\nOne row represents\n\n\n\n\nStates\nstate_id\nOne state\n\n\nCounties\ncounty_id\nOne county\n\n\nCounty population\ncounty_id, year\nOne county in one year\n\n\n\nStore state attributes in the state table and county attributes in the county table\nCombine tables when the analysis requires information from more than one level\nSource: Gentzkow and Shapiro (2014), Section 5"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#abstraction-gives-repeated-logic-one-definition",
+    "href": "lectures/lecture5.4.html#abstraction-gives-repeated-logic-one-definition",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Abstraction gives repeated logic one definition",
+    "text": "Abstraction gives repeated logic one definition\nAbstraction places a repeated operation in one function or program\n\nThe operation has a descriptive name\nInputs and outputs are explicit\nRepeated calls use the same maintained implementation\nChanges to the operation are made in one place\n\nGentzkow and Shapiro recommend abstraction when it removes repetition or clarifies the operation\nSource: Gentzkow and Shapiro (2014), Section 6"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#when-should-a-step-become-a-function",
+    "href": "lectures/lecture5.4.html#when-should-a-step-become-a-function",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "When should a step become a function?",
+    "text": "When should a step become a function?\n\nIs the same logic repeated in several scripts\nWould one name make the purpose easier to recognize\nCan the inputs and outputs be stated clearly\nCan the function reject invalid inputs with a useful message\nCan the function be checked separately from the full project\n\nKeep a one-time transformation in the script when its direct form is easier to read"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#documentation-records-research-decisions",
+    "href": "lectures/lecture5.4.html#documentation-records-research-decisions",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Documentation records research decisions",
+    "text": "Documentation records research decisions\nCode names and structure should explain the operation itself\nDocumentation should record information such as\n\nThe source of a definition or threshold\nThe reason for an unexpected choice\nThe units and reference period\nA limitation a future user could miss\nThe inputs and outputs of each script\n\nMaintain documentation alongside the code it describes\nSource: Gentzkow and Shapiro (2014), Section 7"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#the-demo-uses-several-documentation-layers",
+    "href": "lectures/lecture5.4.html#the-demo-uses-several-documentation-layers",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "The demo uses several documentation layers",
+    "text": "The demo uses several documentation layers\n\n\n\n\n\n\n\nLocation\nWhat it records\n\n\n\n\nREADME.md\nProject purpose and reproduction steps\n\n\ncode/README.md\nScript order, inputs, and outputs\n\n\ndata/retrieval_log.csv\nSource, request, retrieval date, and software version\n\n\nlab_diary.md\nDecisions, attempts, and unresolved questions\n\n\nTask plan\nDeliverable, owner, dependencies, and completion criteria\n\n\nPull request\nProposed change, review, and approval\n\n\n\nEach layer answers a different question about the project"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#management-connects-the-reading-to-github",
+    "href": "lectures/lecture5.4.html#management-connects-the-reading-to-github",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Management connects the reading to GitHub",
+    "text": "Management connects the reading to GitHub\nGentzkow and Shapiro recommend a task system with clear ownership and a durable record (Gentzkow and Shapiro 2014)\n\n\n\nResearch-management need\nGitHub record\n\n\n\n\nDefine the task\nIssue title and deliverable\n\n\nAssign responsibility\nAssignee\n\n\nState completion criteria\nChecklist under Done when\n\n\nRecord discussion\nIssue and pull-request comments\n\n\nTrack status\nOpen, in review, or closed\n\n\nPreserve the accepted change\nMerged commits on main\n\n\n\nKeep decisions with the task so a collaborator can find them later"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#review-this-proposed-change",
+    "href": "lectures/lecture5.4.html#review-this-proposed-change",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Review this proposed change",
+    "text": "Review this proposed change\ndaily2 &lt;- left_join(flow, weather, by = \"date\") |&gt;\n  mutate(x = ifelse(T2M_MAX &gt;= 35, 1, 0))\n\nwrite.csv(daily2, \"data.csv\")\nWhat would you ask before approving the pull request\n\nThe unit of observation and key\nThe expected join relationship\nThe meaning and unit of x\nThe source of the threshold\nThe treatment of missing values\nThe purpose and location of the output file"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#a-more-reviewable-revision",
+    "href": "lectures/lecture5.4.html#a-more-reviewable-revision",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "A more reviewable revision",
+    "text": "A more reviewable revision\nheat_threshold_c &lt;- 35\n\ncheck_key(flow, \"date\")\ncheck_key(weather, \"date\")\n\ndaily &lt;- left_join(\n  flow, weather, by = \"date\", relationship = \"one-to-one\"\n) |&gt;\n  mutate(heat_day = tmax_c &gt;= heat_threshold_c)\n\nwrite_csv(daily, \"data/derived/daily_flow_weather_2024.csv\")\nThe pull request should also identify the source or rationale for heat_threshold_c"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#follow-along-complete-one-full-cycle",
+    "href": "lectures/lecture5.4.html#follow-along-complete-one-full-cycle",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Follow along: complete one full cycle",
+    "text": "Follow along: complete one full cycle\nIn your fork of arec_570_demo\n\nSync the fork and pull local main\nOpen an issue named Clarify the daily panel key and units\nCreate the branch clarify-daily-panel\nEdit code/README.md to state the daily panel’s unit, key, and main variable units\nInspect, commit, and push the change\nOpen a pull request from the branch to main in your fork\nAsk a classmate to review the change\nMerge the pull request and pull the updated main"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#apply-the-workflow-to-your-research-project",
+    "href": "lectures/lecture5.4.html#apply-the-workflow-to-your-research-project",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Apply the workflow to your research project",
+    "text": "Apply the workflow to your research project\nChoose one task you expect to complete next\n\nWhat concrete deliverable defines the task\nWho owns the task\nWhich inputs or prior decisions it requires\nWhat conditions define completion\nWhat branch name describes the change\nWhich dataset key or code check matters most\nWhat evidence a reviewer should inspect\n\nBe prepared to share the task and one completion criterion"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#summary",
+    "href": "lectures/lecture5.4.html#summary",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Summary",
+    "text": "Summary\nSync, fetch, and pull bring accepted remote commits into the current project history\nBranches and commits organize one research task and its version history\nPull requests and review make proposed changes visible before they enter main\nKeys and explicit join relationships protect the unit of observation\nAbstraction, documentation, management, and code style make research changes easier to inspect and reuse"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#clone-and-fork-are-different-operations",
+    "href": "lectures/lecture5.4.html#clone-and-fork-are-different-operations",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Clone and fork are different operations",
+    "text": "Clone and fork are different operations\n\n\n\n\n\n\n\n\n\nClone\nFork\n\n\n\n\nWhat it creates\nA Git repository on your computer\nA GitHub repository under your account\n\n\nHistory\nCopies the files and commit history\nCopies the repository and history on GitHub\n\n\nLater updates\nFetch or pull from the remote you cloned\nSync from the original repository, then pull to your computer\n\n\nWhere you can push\nTo the remote when you have write access\nTo the fork because you control it\n\n\nLocal work\nReady to open in RStudio\nRequires cloning the fork to your computer\n\n\n\nThe remote repository’s permissions determine whether GitHub accepts a push from a clone\nControl of a fork includes pushing branches, changing repository settings, and adding collaborators. Changes reach the original repository through a pull request reviewed by its maintainers"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#choose-from-your-access-and-purpose",
+    "href": "lectures/lecture5.4.html#choose-from-your-access-and-purpose",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Choose from your access and purpose",
+    "text": "Choose from your access and purpose\n\n\n\n\n\n\n\n\nSituation\nStarting action\nHow changes return to main\n\n\n\n\nYour own repository already exists on GitHub\nClone it\nPush a branch and merge it into main\n\n\nA team gives you write access to its repository\nClone the shared repository\nPush a branch and open a pull request to the shared main\n\n\nYou want to read or run a public repository\nClone the original repository\nPull later updates from its origin\n\n\nYou want to propose changes and lack write access\nFork, then clone your fork\nPush to the fork and open a pull request to the original repository\n\n\nYou want a personal version of public or course work\nFork, then clone your fork\nMerge changes into your fork’s main\n\n\n\nAsk two questions: Do I need to push changes? and Do I have write access to the original repository?"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#branches-and-merges-work-in-both-arrangements",
+    "href": "lectures/lecture5.4.html#branches-and-merges-work-in-both-arrangements",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Branches and merges work in both arrangements",
+    "text": "Branches and merges work in both arrangements\nBranches and merges are Git features available in every repository\n\n\n\n\n\n\n\n\n\nShared repository\nFork workflow\n\n\n\n\nRemote you push to\nThe team repository\nYour fork\n\n\nPermission required\nWrite access to the team repository\nWrite access to your fork\n\n\nBranch location on GitHub\nThe team repository\nYour fork\n\n\nPull-request target\nThe team repository’s main\nThe original repository’s main or your fork’s main\n\n\nWho can merge\nA person with merge permission in the target repository\nA person with merge permission in the target repository\n\n\n\nA fork changes repository ownership and permissions. The branch and merge workflow remains available in either arrangement"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#clone-creates-the-local-working-repository",
+    "href": "lectures/lecture5.4.html#clone-creates-the-local-working-repository",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Clone creates the local working repository",
+    "text": "Clone creates the local working repository\nCloning creates a complete local Git repository from a remote repository\n\nThe clone includes the files and commit history\nGit names the source repository origin\nA commit records a version in the local repository\nFetch and pull bring later updates from origin\nPush copies local commits to origin when your GitHub account has write access\n\nThe clone records the remote repository as origin so Git knows where to fetch, pull, and push\nThe remote repository’s permissions determine whether GitHub accepts a push"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#fork-creates-a-github-repository-you-control",
+    "href": "lectures/lecture5.4.html#fork-creates-a-github-repository-you-control",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Fork creates a GitHub repository you control",
+    "text": "Fork creates a GitHub repository you control\nForking creates a linked copy of a GitHub repository under your account\n\nYour account can push branches to the fork\nYour account can change settings and add collaborators\nSync fork brings accepted changes from the original repository\nCloning the fork creates the local working repository\nA pull request proposes changes to the original repository\n\nUpdates arrive in the fork when you use Sync fork\nForking does not create a local copy on your computer. Clone the fork when you are ready to work in RStudio"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#choose-from-access-and-purpose",
+    "href": "lectures/lecture5.4.html#choose-from-access-and-purpose",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Choose from access and purpose",
+    "text": "Choose from access and purpose\n1. Do I need to push changes?\n\nIf no, clone the original repository and pull later updates when needed\nIf yes, ask whether you have write access to the original repository\n\n2. Do I have write access to the original repository?\n\nIf yes, clone the original repository and push a branch there\nIf no, fork the original repository on GitHub, then clone your fork and push there\n\nYour local origin is the repository you cloned"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#branches-and-merges-belong-to-git",
+    "href": "lectures/lecture5.4.html#branches-and-merges-belong-to-git",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Branches and merges belong to Git",
+    "text": "Branches and merges belong to Git\n\nA local repository can create branches and merge them into local main\nA team collaborator can push a branch to the shared repository and open a pull request\nA fork owner can push a branch to the fork and open a pull request\nThe pull request can target the fork’s main or the original repository’s main\nA person with permission in the target repository completes the merge\n\nA fork changes which remote repository you control and where your branches are pushed"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#decide-where-the-version-history-should-live",
+    "href": "lectures/lecture5.4.html#decide-where-the-version-history-should-live",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Decide where the version history should live",
+    "text": "Decide where the version history should live\nA commit records version history on your computer\nA push copies those commits to GitHub\n1. Should my commits also be stored on GitHub?\n\nIf no, the local repository keeps the version history\nIf yes, ask whether you have write access to the original repository\n\n2. Do I have write access to the original repository?\n\nIf yes, clone the original repository and push a branch there\nIf no, fork the original repository on GitHub, then clone your fork and push there\n\nYour local origin is the repository you cloned"
+  },
+  {
+    "objectID": "lectures/lecture5.3.html#branches-move-while-tags-stay-fixed",
+    "href": "lectures/lecture5.3.html#branches-move-while-tags-stay-fixed",
+    "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
+    "section": "Branches move while tags stay fixed",
+    "text": "Branches move while tags stay fixed\n\n\n\n\n\n\n\n\n\nBranch\nTag\n\n\n\n\nWhat it identifies\nThe current commit in an ongoing line of work\nOne selected commit\n\n\nWhat happens after a new commit\nThe branch name advances to the new commit\nThe tag remains with the selected commit\n\n\nCommon use\nDeveloping and reviewing changes\nMarking a release, data freeze, or submitted version\n\n\n\nA tag such as v1.0 gives one commit a durable name that is easier to recognize than its commit hash\n\nGit permits a tag to be deleted and recreated, but the usual practice is to treat a published tag as fixed. A tag does not create a separate line of development. To continue developing from a tagged commit, create a branch from that tag."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#choose-how-the-project-reaches-your-computer",
+    "href": "lectures/lecture5.4.html#choose-how-the-project-reaches-your-computer",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Choose how the project reaches your computer",
+    "text": "Choose how the project reaches your computer\n\n\nStart with the desired destination for future commits. A clone creates the local repository in every pathway involving an existing GitHub repository. A fork adds a personal GitHub repository before that clone."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#a-fork-is-your-github-copy-of-the-original-repository",
+    "href": "lectures/lecture5.4.html#a-fork-is-your-github-copy-of-the-original-repository",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "A fork is your GitHub copy of the original repository",
+    "text": "A fork is your GitHub copy of the original repository\nGitHub creates the fork under your account and records which repository it came from\n\nClone the fork to create the local working repository\nThe local name origin points to your fork\nPush sends your local commits to your fork\nA pull request asks the original repository’s owners to accept your commits\nSync or fetch can bring later changes from the original repository into your work\n\nYour fork and the original remain separate repositories"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#changes-travel-in-two-directions",
+    "href": "lectures/lecture5.4.html#changes-travel-in-two-directions",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Changes travel in two directions",
+    "text": "Changes travel in two directions\n\n\n\n\n\n\n\n\nDirection\nPath\nResult\n\n\n\n\nYour changes\nLocal branch, then push to origin\nYour fork is updated\n\n\nProposed contribution\nFork branch, then pull request\nThe original changes if its owner merges the request\n\n\nOriginal updates with GitHub\nSync fork, then pull from origin\nYour fork and local copy are updated\n\n\nOriginal updates with Git\nFetch upstream, merge, then push to origin\nYour local copy and fork are updated\n\n\n\nPush targets the repository named origin. In this pathway, origin is your fork"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#case-3-contribute-without-write-access",
+    "href": "lectures/lecture5.4.html#case-3-contribute-without-write-access",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Case 3: contribute without write access",
+    "text": "Case 3: contribute without write access\nYou plan to make changes to the course repository and lack write access to it\n\nFork the course repository on GitHub\nClone your fork to the computer\nCreate a branch, commit, and push to your fork\nOpen a pull request if you want to propose the changes to the course repository\nBring later course updates into the fork when needed\n\nThe course repository changes only when its owner accepts and merges a pull request"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#update-a-fork-through-github",
+    "href": "lectures/lecture5.4.html#update-a-fork-through-github",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Update a fork through GitHub",
+    "text": "Update a fork through GitHub\nOn your fork’s GitHub page\n\nSelect Sync fork\nSelect Update branch when updates are available\n\nGitHub copies accepted commits from the original repository’s main into your fork’s main\nChanges on a separate branch do not interfere with synchronizing main\nIn RStudio\n\nSwitch to main\nSelect Pull in the Git pane\nConfirm Git reports that local main is current\n\n\nThe update path is original main to fork main to local main"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#update-a-fork-through-the-terminal",
+    "href": "lectures/lecture5.4.html#update-a-fork-through-the-terminal",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Update a fork through the terminal",
+    "text": "Update a fork through the terminal\nAdd the original repository as upstream once\ngit remote add upstream https://github.com/laurenchenarides/arec_570_demo.git\ngit remote -v\nBring later updates into local main, then update the fork\ngit fetch upstream\ngit switch main\ngit merge --ff-only upstream/main\ngit push origin main\n\nThe --ff-only option updates main only when Git can move it directly to the newer upstream commit. It stops when local main contains competing commits. Keeping project work on separate branches makes this update path easier to maintain."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#management-connects-the-reading-to-the-workflow",
+    "href": "lectures/lecture5.4.html#management-connects-the-reading-to-the-workflow",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Management connects the reading to the workflow",
+    "text": "Management connects the reading to the workflow\nGentzkow and Shapiro recommend a task system with clear ownership and a durable record (Gentzkow and Shapiro 2014)\n\n\n\nResearch-management need\nPossible record\n\n\n\n\nDefine the task\nTask plan or lab diary entry\n\n\nAssign responsibility\nNamed owner in a shared task list\n\n\nState completion criteria\nChecklist in the task plan\n\n\nRecord discussion\nLab diary and pull-request comments\n\n\nTrack status\nShared task list\n\n\nPreserve the accepted change\nMerged commits on main\n\n\n\nKeep decisions with the task so a collaborator can find them later"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#reading-and-sequence",
+    "href": "lectures/lecture5.4.html#reading-and-sequence",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Reading and sequence",
+    "text": "Reading and sequence\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 5-8 and the Code Style appendix (Gentzkow and Shapiro 2014)\n\nDistinguish cloning, forking, and repository permissions\nFollow one research task through a branch, pull request, review, and merge\nUse keys, abstraction, documentation, management, and code style to make the task reviewable\nApply the workflow to a current research project"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#when-git-reports-a-merge-conflict",
+    "href": "lectures/lecture5.4.html#when-git-reports-a-merge-conflict",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "When Git reports a merge conflict",
+    "text": "When Git reports a merge conflict\nA conflict occurs when the branches being combined changed the same part of a file in different ways\n\nGit pauses the pull or merge\nThe Git pane identifies each conflicted file\nThe file contains both versions between conflict markers\nThe researcher decides what the final file should contain\n\nGit preserves both versions because it cannot determine which edit is correct for the project\n\nConflict markers begin with &lt;&lt;&lt;&lt;&lt;&lt;&lt;, separate the versions with =======, and end with &gt;&gt;&gt;&gt;&gt;&gt;&gt;. HEAD identifies the version on the branch currently checked out. The other label identifies the incoming branch or commit."
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#resolve-a-merge-conflict",
+    "href": "lectures/lecture5.4.html#resolve-a-merge-conflict",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Resolve a merge conflict",
+    "text": "Resolve a merge conflict\n\nOpen every file marked as conflicted\nFind each set of conflict markers\nCompare the current and incoming versions\nKeep one version, combine them, or write a new final version\nDelete all conflict markers and save the file\nRun the checks affected by the change\nStage the resolved files and complete the merge commit\n\nThe commit message should summarize the resolution when the choice affects the research record"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#the-readings-five-practices",
+    "href": "lectures/lecture5.4.html#the-readings-five-practices",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "The reading’s five practices",
+    "text": "The reading’s five practices\nGentzkow and Shapiro organize the assigned sections around five practices (Gentzkow and Shapiro 2014)\n\nKeys state what each row represents\nAbstraction gives repeated logic one maintained implementation\nDocumentation records sources, definitions, and decisions\nManagement assigns tasks and records their status\nCode style makes the implementation easier to inspect"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#check-keys-before-combining-tables",
+    "href": "lectures/lecture5.4.html#check-keys-before-combining-tables",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Check keys before combining tables",
+    "text": "Check keys before combining tables\nFor every table\n\nState what one row represents\nIdentify the field or fields that should be unique\nCheck for missing key values\nCheck for duplicate key values\n\nBefore a join, state whether each key should appear once or many times in each table\nAfter a join, confirm that the resulting rows still represent the intended unit of observation"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#documentation-has-different-scopes",
+    "href": "lectures/lecture5.4.html#documentation-has-different-scopes",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Documentation has different scopes",
+    "text": "Documentation has different scopes\n\n\n\nLocation\nWhat it records\n\n\n\n\nREADME.md\nProject purpose and reproduction steps\n\n\nData dictionary\nVariable definitions, units, and codes\n\n\nScript header\nPurpose, inputs, outputs, and dependencies\n\n\nLab diary\nDecisions, attempts, and unresolved questions\n\n\nTask record\nDeliverable, owner, status, and completion criteria\n\n\n\nEach layer answers a different question about the project"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#management-makes-responsibility-and-status-visible",
+    "href": "lectures/lecture5.4.html#management-makes-responsibility-and-status-visible",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Management makes responsibility and status visible",
+    "text": "Management makes responsibility and status visible\nGentzkow and Shapiro recommend a task system with clear ownership and a durable record (Gentzkow and Shapiro 2014)\n\n\n\nResearch-management need\nPossible record\n\n\n\n\nDefine the task\nTask plan or lab diary entry\n\n\nAssign responsibility\nNamed owner in a shared task list\n\n\nState completion criteria\nChecklist in the task plan\n\n\nRecord discussion\nComments attached to the task\n\n\nTrack status\nShared task list\n\n\nPreserve the result\nLink to the completed files or output\n\n\n\nKeep decisions with the task so a collaborator can find them later"
+  },
+  {
+    "objectID": "lectures/lecture5.4.html#questions-for-evaluating-a-research-workflow",
+    "href": "lectures/lecture5.4.html#questions-for-evaluating-a-research-workflow",
+    "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
+    "section": "Questions for evaluating a research workflow",
+    "text": "Questions for evaluating a research workflow\n\nDoes every cleaned table have a unique and nonmissing key\nDoes each table store information at a consistent level\nIs repeated logic defined in one maintained place\nCan the documentation be kept current as the project changes\nDoes every task have an owner, status, and completion criteria\nCan another researcher follow the names and control flow in the code\n\nThese questions summarize Sections 5–8 and the Code Style appendix"
   }
 ]

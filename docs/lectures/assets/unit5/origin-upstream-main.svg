@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
   <title id="title">Origin, upstream, and main in a forked project</title>
-  <desc id="desc">The local clone and personal GitHub fork exchange commits through push and pull. The fork is the origin remote. GitHub Sync fork brings updates from the original course repository, which is the upstream source. Each repository contains a main branch.</desc>
+  <desc id="desc">The local clone and personal GitHub fork exchange commits through push and pull. The fork is the origin remote. Sync or fetch brings updates from the original course repository, which can be added as the upstream remote. A pull request proposes changes in the opposite direction. Each repository contains a main branch.</desc>
   <defs>
     <marker id="greenArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#1E4D2B"/>
     </marker>
     <marker id="blueArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#245A81"/>
+    </marker>
+    <marker id="goldArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8B6F31"/>
     </marker>
   </defs>
   <rect width="1200" height="390" fill="#FFFFFF"/>
@@ -25,7 +28,7 @@
 
   <rect x="865" y="65" width="300" height="205" rx="20" fill="#F7F4EC" stroke="#8B6F31" stroke-width="3"/>
   <text x="1015" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#6B541F">Course repository</text>
-  <text x="1015" y="153" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#25352B">upstream source</text>
+  <text x="1015" y="153" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#25352B">optional remote: upstream</text>
   <rect x="925" y="185" width="180" height="47" rx="23" fill="#EDE5D3"/>
   <text x="1015" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#6B541F">branch: main</text>
 
@@ -34,8 +37,10 @@
   <line x1="440" y1="215" x2="345" y2="215" stroke="#245A81" stroke-width="4" marker-end="url(#blueArrow)"/>
   <text x="392" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#245A81">pull</text>
 
-  <line x1="855" y1="172" x2="760" y2="172" stroke="#1E4D2B" stroke-width="4" marker-end="url(#greenArrow)"/>
-  <text x="808" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1E4D2B">Sync fork</text>
+  <line x1="855" y1="205" x2="760" y2="205" stroke="#1E4D2B" stroke-width="4" marker-end="url(#greenArrow)"/>
+  <text x="808" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1E4D2B">sync / fetch</text>
+  <line x1="750" y1="125" x2="855" y2="125" stroke="#8B6F31" stroke-width="4" marker-end="url(#goldArrow)"/>
+  <text x="803" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#6B541F">pull request</text>
 
   <rect x="150" y="315" width="900" height="48" rx="24" fill="#F1F3F2"/>
   <text x="600" y="347" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#25352B">

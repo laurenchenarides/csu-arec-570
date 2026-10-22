@@ -38,7 +38,7 @@ format:
 2. Identify where undocumented memory enters the workflow
 3. Set up Git, GitHub, and RStudio
 4. Take one research project from its first commit through GitHub
-5. Choose a workflow for team projects and reusable templates
+5. Choose a workflow for team projects and public repositories
 
 ## Reproducibility starts with organization
 
@@ -178,12 +178,26 @@ Walk from left to right. Saving changes the working files. Committing records a 
 | Term | Meaning |
 |---|---|
 | **Commit message** | A short explanation attached to a commit |
-| **Tag** | A readable name attached to an important commit |
+| **Tag** | A fixed readable name for a selected commit |
 | **Local** | The repository on your computer |
 | **Remote** | A connected repository hosted online |
 | **Main** | The conventional name for the project's primary branch |
 | **Push** | Send local commits to a remote |
 | **Pull** | Bring remote commits into the local repository |
+
+## Branches move while tags stay fixed
+
+| | Branch | Tag |
+|---|---|---|
+| **What it identifies** | The current commit in an ongoing line of work | One selected commit |
+| **What happens after a new commit** | The branch name advances to the new commit | The tag remains with the selected commit |
+| **Common use** | Developing and reviewing changes | Marking a release, data freeze, or submitted version |
+
+A tag such as `v1.0` gives one commit a durable name that is easier to recognize than its commit hash
+
+::: notes
+Git permits a tag to be deleted and recreated, but the usual practice is to treat a published tag as fixed. A tag does not create a separate line of development. To continue developing from a tagged commit, create a branch from that tag.
+:::
 
 ## Saving, committing, and pushing are separate actions
 
@@ -493,13 +507,12 @@ Use **History** in RStudio or **Commits** on GitHub to inspect
 
 Tags such as `5.2-retrieve` give a readable name to a particular commit
 
-## Starting from an existing repository
+## What if you want to start from an existing repository?
 
 A remote repository already exists when
 
 - A coauthor invites you to a team repository
 - You want your own linked copy of public work
-- A lab or instructor provides a reusable template
 - You want to contribute a change to another repository
 
 The starting action depends on ownership and purpose
@@ -543,7 +556,6 @@ Bring the laptop used to complete these steps
 |---|---|
 | **Clone** | A local copy of a remote repository and its history |
 | **Fork** | A linked GitHub copy under your account |
-| **Template** | An independent repository created from a standard set of files |
 
 Lecture 5.4 will cover branches, merges, and pull requests
 
@@ -553,7 +565,6 @@ Lecture 5.4 will cover branches, merges, and pull requests
 |---|---|
 | You have access to a team repository | **Clone** the team repository |
 | You want a linked copy of public or course work | **Fork**, then **clone** your fork |
-| You want an independent project with a standard structure | **Use template**, then **clone** the new repository |
 
 Cloning is the step that creates the working project on your computer
 
@@ -632,30 +643,14 @@ Emphasize that `main` is a branch in each repository. `origin` and `upstream` id
 
 `upstream` appears in `git remote -v` only when configured as a second remote. Lecture 5.4 creates a separate branch and merges its commits into `main`
 
-## Case 4: use a template for an independent project
-
-Your department provides a personal website template and you want an independent website repository
-
-Use **template** when a repository provides a reusable starting structure
-
-The new repository receives
-
-- The template's current files and folders
-- A new Git history
-- The repository name and visibility you choose
-
-After creating the repository from the template, clone the new repository to RStudio
-
 ## Which action fits the project?
 
 A. Your advisor adds you to a private team repository
 
 B. You want your own version of the course demo and need later course updates
 
-C. Your department offers a personal website template
-
 ::: notes
-Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone.
+Ask for the action and the reason. A is clone. B is fork and clone.
 :::
 
 ## Why synchronize local and remote history?
@@ -740,7 +735,7 @@ Be prepared to show
 
 **RStudio** provides an interface for editing files and using Git
 
-**Clone, fork, and template** describe different ways to begin from an existing repository
+**Clone and fork** describe different ways to begin from an existing repository
 
 **Pull, edit, inspect, stage, commit, and push** form the everyday workflow
 

@@ -242,7 +242,7 @@ Lauren Chenarides
 <li>Identify where undocumented memory enters the workflow</li>
 <li>Set up Git, GitHub, and RStudio</li>
 <li>Take one research project from its first commit through GitHub</li>
-<li>Choose a workflow for team projects and reusable templates</li>
+<li>Choose a workflow for team projects and public repositories</li>
 </ol>
 </section>
 <section id="reproducibility-starts-with-organization" class="slide level2">
@@ -459,7 +459,7 @@ Lauren Chenarides
 </tr>
 <tr class="even">
 <td><strong>Tag</strong></td>
-<td>A readable name attached to an important commit</td>
+<td>A fixed readable name for a selected commit</td>
 </tr>
 <tr class="odd">
 <td><strong>Local</strong></td>
@@ -483,6 +483,54 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
+</section>
+<section id="branches-move-while-tags-stay-fixed" class="slide level2">
+<h2>Branches move while tags stay fixed</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Branch</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>What it identifies</strong></td>
+<td>The current commit in an ongoing line of work</td>
+<td>One selected commit</td>
+</tr>
+<tr class="even">
+<td><strong>What happens after a new commit</strong></td>
+<td>The branch name advances to the new commit</td>
+<td>The tag remains with the selected commit</td>
+</tr>
+<tr class="odd">
+<td><strong>Common use</strong></td>
+<td>Developing and reviewing changes</td>
+<td>Marking a release, data freeze, or submitted version</td>
+</tr>
+</tbody>
+</table>
+<p>A tag such as <code>v1.0</code> gives one commit a durable name that is easier to recognize than its commit hash</p>
+<aside class="notes">
+<p>Git permits a tag to be deleted and recreated, but the usual practice is to treat a published tag as fixed. A tag does not create a separate line of development. To continue developing from a tagged commit, create a branch from that tag.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="saving-committing-and-pushing-are-separate-actions" class="slide level2">
 <h2>Saving, committing, and pushing are separate actions</h2>
@@ -854,13 +902,12 @@ Lauren Chenarides
 </ul>
 <p>Tags such as <code>5.2-retrieve</code> give a readable name to a particular commit</p>
 </section>
-<section id="starting-from-an-existing-repository" class="slide level2">
-<h2>Starting from an existing repository</h2>
+<section id="what-if-you-want-to-start-from-an-existing-repository" class="slide level2">
+<h2>What if you want to start from an existing repository?</h2>
 <p>A remote repository already exists when</p>
 <ul>
 <li>A coauthor invites you to a team repository</li>
 <li>You want your own linked copy of public work</li>
-<li>A lab or instructor provides a reusable template</li>
 <li>You want to contribute a change to another repository</li>
 </ul>
 <p>The starting action depends on ownership and purpose</p>
@@ -931,10 +978,6 @@ Lauren Chenarides
 <section id="vocabulary-for-shared-repositories" class="slide level2">
 <h2>Vocabulary for shared repositories</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Term</th>
@@ -949,10 +992,6 @@ Lauren Chenarides
 <tr class="even">
 <td><strong>Fork</strong></td>
 <td>A linked GitHub copy under your account</td>
-</tr>
-<tr class="odd">
-<td><strong>Template</strong></td>
-<td>An independent repository created from a standard set of files</td>
 </tr>
 </tbody>
 </table>
@@ -979,10 +1018,6 @@ Lauren Chenarides
 <tr class="even">
 <td>You want a linked copy of public or course work</td>
 <td><strong>Fork</strong>, then <strong>clone</strong> your fork</td>
-</tr>
-<tr class="odd">
-<td>You want an independent project with a standard structure</td>
-<td><strong>Use template</strong>, then <strong>clone</strong> the new repository</td>
 </tr>
 </tbody>
 </table>
@@ -1093,25 +1128,12 @@ Lauren Chenarides
 <p><strong>Course updates:</strong> <strong>Sync fork</strong> updates your fork from the course repository. <strong>Pull</strong> then updates local <code>main</code> from <code>origin</code></p>
 <p><code>upstream</code> appears in <code>git remote -v</code> only when configured as a second remote. Lecture 5.4 creates a separate branch and merges its commits into <code>main</code></p>
 </section>
-<section id="case-4-use-a-template-for-an-independent-project" class="slide level2">
-<h2>Case 4: use a template for an independent project</h2>
-<p>Your department provides a personal website template and you want an independent website repository</p>
-<p>Use <strong>template</strong> when a repository provides a reusable starting structure</p>
-<p>The new repository receives</p>
-<ul>
-<li>The template’s current files and folders</li>
-<li>A new Git history</li>
-<li>The repository name and visibility you choose</li>
-</ul>
-<p>After creating the repository from the template, clone the new repository to RStudio</p>
-</section>
 <section id="which-action-fits-the-project" class="slide level2">
 <h2>Which action fits the project?</h2>
 <p>A. Your advisor adds you to a private team repository</p>
 <p>B. You want your own version of the course demo and need later course updates</p>
-<p>C. Your department offers a personal website template</p>
 <aside class="notes">
-<p>Ask for the action and the reason. A is clone. B is fork and clone. C is use template and clone.</p>
+<p>Ask for the action and the reason. A is clone. B is fork and clone.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1227,7 +1249,7 @@ Lauren Chenarides
 <p><strong>Git</strong> records local changes as commits</p>
 <p><strong>GitHub</strong> hosts a remote repository for sharing and collaboration</p>
 <p><strong>RStudio</strong> provides an interface for editing files and using Git</p>
-<p><strong>Clone, fork, and template</strong> describe different ways to begin from an existing repository</p>
+<p><strong>Clone and fork</strong> describe different ways to begin from an existing repository</p>
 <p><strong>Pull, edit, inspect, stage, commit, and push</strong> form the everyday workflow</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
