@@ -136,7 +136,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -214,7 +213,7 @@
     }
   </style>
 <meta property="og:title" content="Lecture 5.4: Managing Data for Reproducibility: Git II – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Use keys, reusable code, documentation, and clear collaboration practices.">
+<meta property="og:description" content="Use branches pull requests and data-management practices to make research changes reviewable">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -223,7 +222,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Lecture 5.4: Managing Data for Reproducibility: Git II</h1>
-  <p class="subtitle">AREC 570 / ECON 530 · Unit 5</p>
+  <p class="subtitle">AREC 570 / ECON 530 / Unit 5</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -234,169 +233,652 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
-<h2>Before class</h2>
-<ul>
-<li>Gentzkow and Shapiro, <em>Code and Data for the Social Sciences</em>, Sections 5–8 and the Code Style appendix <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span>.</li>
-</ul>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
+<section id="reading-and-sequence" class="slide level2">
+<h2>Reading and sequence</h2>
+<p><strong>Gentzkow and Shapiro, <em>Code and Data for the Social Sciences</em>, Sections 5-8 and the Code Style appendix</strong> <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></p>
+<ol type="1">
+<li>Distinguish cloning, forking, and repository permissions</li>
+<li>Follow one research task through a branch, pull request, review, and merge</li>
+<li>Use keys, abstraction, documentation, management, and code style to make the task reviewable</li>
+<li>Apply the workflow to a current research project</li>
+</ol>
 </section>
-<section id="make-the-project-understandable-to-others" class="slide level2">
-<h2>Make the project understandable to others</h2>
-<p>A collaborator needs to know:</p>
+<section id="where-we-left-off" class="slide level2">
+<h2>Where we left off</h2>
+<p>Lecture 5.3 established a version control workflow for an individual research project</p>
 <ul>
-<li>What identifies an observation.</li>
-<li>What each transformation does.</li>
-<li>How tasks and changes are coordinated.</li>
-<li>How to reproduce the result.</li>
+<li>Organize the project around inputs, code, and outputs</li>
+<li>Use Git to record local commits</li>
+<li>Use GitHub to share the repository</li>
+<li>Clone an existing team repository when you have access</li>
 </ul>
-<p>Version control supports this work; it does not replace a clear design.</p>
+<p>We stopped before <strong>Case 3: fork public or course work</strong></p>
 </section>
-<section id="keys-define-the-observations" class="slide level2">
-<h2>Keys define the observations</h2>
-<p>A <strong>key</strong> is a field or combination of fields that uniquely identifies a row.</p>
+<section id="choose-how-the-project-reaches-your-computer" class="slide level2">
+<h2>Choose how the project reaches your computer</h2>
+<p><img data-src="assets/unit5/repository-start-decision.svg" alt="A decision tree distinguishes four starting points. A new project is initialized locally and connected to a new GitHub repository. An existing repository is cloned directly when the student has write access. Without write access, the student clones directly for local use or forks and then clones when commits need to be stored on GitHub."></p>
+<aside class="notes">
+<p>Start with the desired destination for future commits. A clone creates the local repository in every pathway involving an existing GitHub repository. A fork adds a personal GitHub repository before that clone.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="clone-creates-the-local-working-repository" class="slide level2">
+<h2>Clone creates the local working repository</h2>
+<p>Cloning creates a complete local Git repository from a remote repository</p>
+<ul>
+<li>The clone includes the files and commit history</li>
+<li>Git names the source repository <code>origin</code></li>
+<li>A commit records a version in the local repository</li>
+<li>Fetch and pull bring later updates from <code>origin</code></li>
+<li>Push copies local commits to <code>origin</code> when your GitHub account has write access</li>
+</ul>
+<p>The clone records the remote repository as <code>origin</code> so Git knows where to fetch, pull, and push</p>
+<p>The remote repository’s permissions determine whether GitHub accepts a push</p>
+</section>
+<section id="a-fork-is-your-github-copy-of-the-original-repository" class="slide level2">
+<h2>A fork is your GitHub copy of the original repository</h2>
+<p>GitHub creates the fork under your account and records which repository it came from</p>
+<ul>
+<li>Clone the fork to create the local working repository</li>
+<li>The local name <code>origin</code> points to your fork</li>
+<li>Push sends your local commits to your fork</li>
+<li>A pull request asks the original repository’s owners to accept your commits</li>
+<li>Sync or fetch can bring later changes from the original repository into your work</li>
+</ul>
+<p>Your fork and the original remain separate repositories</p>
+</section>
+<section id="case-3-contribute-without-write-access" class="slide level2">
+<h2>Case 3: contribute without write access</h2>
+<p>You plan to make changes to the course repository and lack write access to it</p>
+<ol type="1">
+<li>Fork the course repository on GitHub</li>
+<li>Clone your fork to the computer</li>
+<li>Create a branch, commit, and push to your fork</li>
+<li>Open a pull request if you want to propose the changes to the course repository</li>
+<li>Bring later course updates into the fork when needed</li>
+</ol>
+<p>The course repository changes only when its owner accepts and merges a pull request</p>
+</section>
+<section id="follow-along-fork-the-demo" class="slide level2">
+<h2>Follow along: fork the demo</h2>
+<p>Open <a href="https://github.com/laurenchenarides/arec_570_demo">github.com/laurenchenarides/arec_570_demo</a> while signed in</p>
+<ol type="1">
+<li>Select <strong>Fork</strong></li>
+<li>Clear <strong>Copy the main branch only</strong> so the lecture tags are included</li>
+<li>Select <strong>Create fork</strong></li>
+<li>Confirm the address is <code>github.com/your-username/arec_570_demo</code></li>
+</ol>
+<p>Your fork remains linked to the course repository for later synchronization</p>
+</section>
+<section id="follow-along-clone-your-fork" class="slide level2">
+<h2>Follow along: clone your fork</h2>
+<ol type="1">
+<li>On your fork, select <strong>Code</strong> and copy the HTTPS URL</li>
+<li>In RStudio select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong></li>
+<li>Paste the URL and choose a parent folder such as <code>GitProjects</code></li>
+<li>Select <strong>Create Project</strong></li>
+<li>Confirm the project name appears in the upper-right corner</li>
+<li>Confirm a <strong>Git</strong> tab appears beside Environment and History</li>
+</ol>
+<p>The local repository’s <code>origin</code> points to your fork</p>
+</section>
+<section id="origin-upstream-and-main" class="slide level2">
+<h2>Origin, upstream, and <code>main</code></h2>
+<p><img data-src="assets/unit5/origin-upstream-main.svg" alt="A local clone and personal GitHub fork exchange commits through push and pull. The fork is origin. Sync or fetch brings updates from the original course repository, which can be added as upstream. A pull request proposes changes from the fork to the original. Each repository contains a branch named main."></p>
+<aside class="notes">
+<p>Emphasize that <code>main</code> is a branch in each repository. <code>origin</code> is created automatically by cloning. <code>upstream</code> is a conventional name that the user adds when using terminal commands to communicate directly with the original repository.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="read-the-three-names-in-this-exercise" class="slide level2">
+<h2>Read the three names in this exercise</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">county_id</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">population</th>
+<th>Name</th>
+<th>Type</th>
+<th>Meaning in this exercise</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">08069</td>
-<td style="text-align: right;">2020</td>
-<td style="text-align: right;">100</td>
+<td><code>main</code></td>
+<td>Branch name</td>
+<td>The primary line of accepted commits in each repository</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">08069</td>
-<td style="text-align: right;">2021</td>
-<td style="text-align: right;">105</td>
+<td><code>origin</code></td>
+<td>Remote nickname</td>
+<td>The GitHub repository that was cloned, here your fork</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">08123</td>
-<td style="text-align: right;">2020</td>
-<td style="text-align: right;">90</td>
+<td><code>upstream</code></td>
+<td>Remote nickname</td>
+<td>The original repository, added manually for terminal synchronization</td>
 </tr>
 </tbody>
 </table>
-<p>Illustrative values. The key is county and year together.</p>
+<p>Use <code>git remote -v</code> to see which remote nicknames exist locally</p>
+<aside class="notes">
+<p>GitHub records the fork relationship on the website even when the local repository has only <code>origin</code>. The name <code>upstream</code> exists locally only after the user adds it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="check-the-key-before-joining" class="slide level2">
-<h2>Check the key before joining</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyNA</span>(data[<span class="fu">c</span>(<span class="st">"county_id"</span>, <span class="st">"year"</span>)]))</span>
-<span id="cb1-2"><a aria-label="2"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyDuplicated</span>(data[<span class="fu">c</span>(<span class="st">"county_id"</span>, <span class="st">"year"</span>)]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Before merging:</p>
-<ul>
-<li>State the expected matching relationship.</li>
-<li>Inspect unmatched keys.</li>
-<li>Compare row counts before and after.</li>
-</ul>
-<p>Keep identifiers as text when leading zeros matter.</p>
-</section>
-<section id="exercise-find-the-merge-problem" class="slide level2">
-<h2>Exercise: find the merge problem</h2>
-<p>A county-year table is joined to a county-industry-year table using county and year.</p>
-<ul>
-<li>Should the row count increase?</li>
-<li>What becomes the unit of observation?</li>
-<li>What happens if county population is later summed?</li>
-<li>How would you prevent double counting?</li>
-</ul>
-</section>
-<section id="abstraction-write-the-idea-once" class="slide level2">
-<h2>Abstraction: write the idea once</h2>
-<p>Use a function or loop for repeated transformations.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>rate_per_1000 <span class="ot">&lt;-</span> <span class="cf">function</span>(events, population) {</span>
-<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(population <span class="sc">&gt;</span> <span class="dv">0</span>))</span>
-<span id="cb2-3"><a aria-label="3"></a>  <span class="dv">1000</span> <span class="sc">*</span> events <span class="sc">/</span> population</span>
-<span id="cb2-4"><a aria-label="4"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>State assumptions about missing values, units, and valid inputs.</p>
-</section>
-<section id="discussion-when-does-abstraction-help" class="slide level2">
-<h2>Discussion: when does abstraction help?</h2>
-<ul>
-<li>When is a function clearer than repeated code?</li>
-<li>When does a general solution become harder to understand?</li>
-<li>What would make a function easier to check?</li>
-<li>Which repeated step in your project is worth simplifying?</li>
-</ul>
-<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 6.</p>
-</section>
-<section id="documentation-explains-decisions" class="slide level2">
-<h2>Documentation explains decisions</h2>
-<p>Use names and structure to show what code does.</p>
-<p>Use comments for:</p>
-<ul>
-<li>Why a choice was made.</li>
-<li>A source or definition.</li>
-<li>An unexpected but intentional rule.</li>
-<li>A limitation a future user might miss.</li>
-</ul>
-<p>A codebook should define units and missing-value conventions.</p>
-</section>
-<section id="a-task-needs-an-owner" class="slide level2 dense">
-<h2>A task needs an owner</h2>
-<p>A useful task record contains:</p>
-<ul>
-<li>A concrete deliverable.</li>
-<li>One responsible person.</li>
-<li>Inputs and dependencies.</li>
-<li>A definition of completion.</li>
-<li>A place to record decisions.</li>
-</ul>
-<p>What goes wrong in the reading’s email exchange about robustness checks?</p>
-<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 8.</p>
-</section>
-<section id="a-branch-for-a-focused-change" class="slide level2">
-<h2>A branch for a focused change</h2>
-<p>In the practice repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="fu">git</span> switch <span class="at">-c</span> clarify-codebook</span>
-<span id="cb3-2"><a aria-label="2"></a><span class="co"># Edit the README, then:</span></span>
-<span id="cb3-3"><a aria-label="3"></a><span class="fu">git</span> add README.md</span>
-<span id="cb3-4"><a aria-label="4"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Clarify missing-value codes"</span></span>
-<span id="cb3-5"><a aria-label="5"></a><span class="fu">git</span> switch main</span>
-<span id="cb3-6"><a aria-label="6"></a><span class="fu">git</span> merge clarify-codebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Use the actual default branch name if it is not <code>main</code>.</p>
-</section>
-<section id="a-conflict-requires-a-decision" class="slide level2 scrollable">
-<h2>A conflict requires a decision</h2>
+<section id="update-a-fork-through-github" class="slide level2">
+<h2>Update a fork through GitHub</h2>
+<p>On your fork’s GitHub page</p>
 <ol type="1">
-<li>Read both versions and understand their intentions.</li>
-<li>Edit the file to the agreed result.</li>
-<li>Remove conflict markers.</li>
-<li>Check the result, stage it, and complete the merge.</li>
+<li>Select <strong>Sync fork</strong></li>
+<li>Select <strong>Update branch</strong> when updates are available</li>
 </ol>
-<p>Do not choose a version solely because it is newer.</p>
+<p>GitHub copies accepted commits from the original repository’s <code>main</code> into your fork’s <code>main</code></p>
+<p>Changes on a separate branch do not interfere with synchronizing <code>main</code></p>
+<p>In RStudio</p>
+<ol start="3" type="1">
+<li>Switch to <code>main</code></li>
+<li>Select <strong>Pull</strong> in the Git pane</li>
+<li>Confirm Git reports that local <code>main</code> is current</li>
+</ol>
+<aside class="notes">
+<p>The update path is original <code>main</code> to fork <code>main</code> to local <code>main</code></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="update-a-fork-through-the-terminal" class="slide level2">
+<h2>Update a fork through the terminal</h2>
+<p>Add the original repository as <code>upstream</code> once</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="fu">git</span> remote add upstream https://github.com/laurenchenarides/arec_570_demo.git</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Bring later updates into local <code>main</code>, then update the fork</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">git</span> switch main</span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">git</span> merge <span class="at">--ff-only</span> upstream/main</span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>The <code>--ff-only</code> option updates <code>main</code> only when Git can move it directly to the newer upstream commit. It stops when local <code>main</code> contains competing commits. Keeping project work on separate branches makes this update path easier to maintain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pull-and-push-synchronize-commits" class="slide level2">
+<h2>Pull and push synchronize commits</h2>
+<p><strong>Pull</strong> brings commits from the current branch on <code>origin</code> into the local branch</p>
+<p><strong>Push</strong> sends local commits from the current branch to the matching branch on <code>origin</code></p>
+<p>When GitHub contains newer commits</p>
+<ol type="1">
+<li>Pull the remote commits</li>
+<li>Review any conflict Git reports</li>
+<li>Complete the merge when required</li>
+<li>Push the combined history</li>
+</ol>
+</section>
+<section id="create-a-branch-from-current-main" class="slide level2">
+<h2>Create a branch from current <code>main</code></h2>
+<p>In the RStudio Git pane</p>
+<ol type="1">
+<li>Confirm the branch menu shows <code>main</code></li>
+<li>Select <strong>New Branch</strong></li>
+<li>Name the branch <code>add-daily-panel</code></li>
+<li>Keep <strong>Sync branch with remote</strong> selected</li>
+<li>Select <strong>Create</strong></li>
+</ol>
+<p>The terminal equivalent is</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="fu">git</span> switch <span class="at">-c</span> add-daily-panel</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">git</span> push <span class="at">-u</span> origin add-daily-panel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="work-and-commit-on-the-branch" class="slide level2">
+<h2>Work and commit on the branch</h2>
+<ol type="1">
+<li>Edit the files required by the task</li>
+<li>Run the relevant scripts and inspect the outputs</li>
+<li>Inspect the diff in the RStudio Git pane</li>
+<li>Stage the files that belong to the task</li>
+<li>Commit with a message that describes the research change</li>
+<li>Push the branch to GitHub</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>Join streamflow and weather by date</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each commit should leave the branch in a state another researcher can inspect</p>
+</section>
+<section id="open-a-pull-request" class="slide level2">
+<h2>Open a pull request</h2>
+<p>After pushing the branch, GitHub offers <strong>Compare &amp; pull request</strong></p>
+<ul>
+<li>Set the base branch to <code>main</code></li>
+<li>Set the compare branch to <code>add-daily-panel</code></li>
+<li>Use the deliverable as the title</li>
+<li>Explain what changed and why</li>
+<li>Report how the change was checked</li>
+</ul>
+<p>To practice without proposing a change to the course repository, set the <strong>base repository</strong> to your fork</p>
+</section>
+<section id="review-the-research-change" class="slide level2">
+<h2>Review the research change</h2>
+<p>The <strong>Files changed</strong> tab shows the exact proposed edits</p>
+<p>A reviewer can ask</p>
+<ul>
+<li>Does each table have a clear unit of observation</li>
+<li>Are keys unique and nonmissing</li>
+<li>Does the join use the intended matching relationship</li>
+<li>Do the scripts rebuild the stated outputs</li>
+<li>Are thresholds, units, and missing values documented</li>
+<li>Does the pull request contain one coherent task</li>
+</ul>
+</section>
+<section id="revise-through-the-same-branch" class="slide level2">
+<h2>Revise through the same branch</h2>
+<p>Review comments identify a question or requested change on a specific line</p>
+<p>The author then</p>
+<ol type="1">
+<li>Edits the branch in RStudio</li>
+<li>Runs the relevant checks</li>
+<li>Commits the revision</li>
+<li>Pushes the branch again</li>
+</ol>
+<p>The new commit appears in the same pull request and preserves the review record</p>
+</section>
+<section id="merge-then-update-local-main" class="slide level2">
+<h2>Merge, then update local <code>main</code></h2>
+<p>After approval on GitHub</p>
+<ol type="1">
+<li>Select <strong>Merge pull request</strong></li>
+<li>Delete the remote task branch</li>
+</ol>
+<p>Back in RStudio</p>
+<ol start="3" type="1">
+<li>Switch to <code>main</code></li>
+<li>Pull the merged commits from <code>origin/main</code></li>
+<li>Confirm the project runs from the updated <code>main</code></li>
+<li>Delete the local task branch when it is no longer needed</li>
+</ol>
+</section>
+<section id="when-git-reports-a-merge-conflict" class="slide level2">
+<h2>When Git reports a merge conflict</h2>
+<p>A conflict occurs when the branches being combined changed the same part of a file in different ways</p>
+<ul>
+<li>Git pauses the pull or merge</li>
+<li>The Git pane identifies each conflicted file</li>
+<li>The file contains both versions between conflict markers</li>
+<li>The researcher decides what the final file should contain</li>
+</ul>
+<p>Git preserves both versions because it cannot determine which edit is correct for the project</p>
+<aside class="notes">
+<p>Conflict markers begin with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, separate the versions with <code>=======</code>, and end with <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>. <code>HEAD</code> identifies the version on the branch currently checked out. The other label identifies the incoming branch or commit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="resolve-a-merge-conflict" class="slide level2">
+<h2>Resolve a merge conflict</h2>
+<ol type="1">
+<li>Open every file marked as conflicted</li>
+<li>Find each set of conflict markers</li>
+<li>Compare the current and incoming versions</li>
+<li>Keep one version, combine them, or write a new final version</li>
+<li>Delete all conflict markers and save the file</li>
+<li>Run the checks affected by the change</li>
+<li>Stage the resolved files and complete the merge commit</li>
+</ol>
+<p>The commit message should summarize the resolution when the choice affects the research record</p>
+</section>
+<section id="collaboration-vocabulary" class="slide level2">
+<h2>Collaboration vocabulary</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning in this workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Branch</strong></td>
+<td>A line of commits for one proposed change</td>
+</tr>
+<tr class="even">
+<td><strong>Pull request</strong></td>
+<td>A request to review and merge one branch</td>
+</tr>
+<tr class="odd">
+<td><strong>Review</strong></td>
+<td>Comments, requested revisions, or approval</td>
+</tr>
+<tr class="even">
+<td><strong>Merge</strong></td>
+<td>The operation that adds accepted commits to <code>main</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Conflict</strong></td>
+<td>Competing edits that require a human decision</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<section id="gentzkow-and-shapiro-data-and-code-practices" class="title-slide slide level1 center">
+<h1>Gentzkow and Shapiro: data and code practices</h1>
+
+</section>
+<section id="the-readings-five-practices" class="slide level2">
+<h2>The reading’s five practices</h2>
+<p>Gentzkow and Shapiro organize the assigned sections around five practices <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></p>
+<ul>
+<li><strong>Keys</strong> state what each row represents</li>
+<li><strong>Abstraction</strong> gives repeated logic one maintained implementation</li>
+<li><strong>Documentation</strong> records sources, definitions, and decisions</li>
+<li><strong>Management</strong> assigns tasks and records their status</li>
+<li><strong>Code style</strong> makes the implementation easier to inspect</li>
+</ul>
+</section>
+<section id="keys-define-the-observations" class="slide level2">
+<h2>Keys define the observations</h2>
+<p>A <strong>key</strong> is a field or combination of fields that uniquely identifies a row</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data structure</th>
+<th>One row represents</th>
+<th>Possible key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Household survey</td>
+<td>One household in one wave</td>
+<td><code>household_id</code>, <code>wave</code></td>
+</tr>
+<tr class="even">
+<td>County panel</td>
+<td>One county in one year</td>
+<td><code>county_fips</code>, <code>year</code></td>
+</tr>
+<tr class="odd">
+<td>Parcel transactions</td>
+<td>One recorded sale</td>
+<td><code>transaction_id</code></td>
+</tr>
+</tbody>
+</table>
+<p>Cleaned tables should have keys that are unique and nonmissing</p>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 5</p>
+</section>
+<section id="check-keys-before-combining-tables" class="slide level2">
+<h2>Check keys before combining tables</h2>
+<p>For every table</p>
+<ol type="1">
+<li>State what one row represents</li>
+<li>Identify the field or fields that should be unique</li>
+<li>Check for missing key values</li>
+<li>Check for duplicate key values</li>
+</ol>
+<p>Before a join, state whether each key should appear once or many times in each table</p>
+<p>After a join, confirm that the resulting rows still represent the intended unit of observation</p>
+</section>
+<section id="keep-each-table-at-the-level-it-describes" class="slide level2">
+<h2>Keep each table at the level it describes</h2>
+<p>Keeping data normalized means storing each fact once at its natural unit</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Table</th>
+<th>Natural key</th>
+<th>One row represents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>States</td>
+<td><code>state_id</code></td>
+<td>One state</td>
+</tr>
+<tr class="even">
+<td>Counties</td>
+<td><code>county_id</code></td>
+<td>One county</td>
+</tr>
+<tr class="odd">
+<td>County population</td>
+<td><code>county_id</code>, <code>year</code></td>
+<td>One county in one year</td>
+</tr>
+</tbody>
+</table>
+<p>Store state attributes in the state table and county attributes in the county table</p>
+<p>Combine tables when the analysis requires information from more than one level</p>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 5</p>
+</section>
+<section id="abstraction-gives-repeated-logic-one-definition" class="slide level2">
+<h2>Abstraction gives repeated logic one definition</h2>
+<p>Abstraction places a repeated operation in one function or program</p>
+<ul>
+<li>The operation has a descriptive name</li>
+<li>Inputs and outputs are explicit</li>
+<li>Repeated calls use the same maintained implementation</li>
+<li>Changes to the operation are made in one place</li>
+</ul>
+<p>Gentzkow and Shapiro recommend abstraction when it removes repetition or clarifies the operation</p>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 6</p>
+</section>
+<section id="when-should-a-step-become-a-function" class="slide level2">
+<h2>When should a step become a function?</h2>
+<ul>
+<li>Is the same logic repeated in several scripts</li>
+<li>Would one name make the purpose easier to recognize</li>
+<li>Can the inputs and outputs be stated clearly</li>
+<li>Can the function reject invalid inputs with a useful message</li>
+<li>Can the function be checked separately from the full project</li>
+</ul>
+<p>Keep a one-time transformation in the script when its direct form is easier to read</p>
+</section>
+<section id="documentation-records-research-decisions" class="slide level2">
+<h2>Documentation records research decisions</h2>
+<p>Code names and structure should explain the operation itself</p>
+<p>Documentation should record information such as</p>
+<ul>
+<li>The source of a definition or threshold</li>
+<li>The reason for an unexpected choice</li>
+<li>The units and reference period</li>
+<li>A limitation a future user could miss</li>
+<li>The inputs and outputs of each script</li>
+</ul>
+<p>Maintain documentation alongside the code it describes</p>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Section 7</p>
+</section>
+<section id="documentation-has-different-scopes" class="slide level2">
+<h2>Documentation has different scopes</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>What it records</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>README.md</code></td>
+<td>Project purpose and reproduction steps</td>
+</tr>
+<tr class="even">
+<td>Data dictionary</td>
+<td>Variable definitions, units, and codes</td>
+</tr>
+<tr class="odd">
+<td>Script header</td>
+<td>Purpose, inputs, outputs, and dependencies</td>
+</tr>
+<tr class="even">
+<td>Lab diary</td>
+<td>Decisions, attempts, and unresolved questions</td>
+</tr>
+<tr class="odd">
+<td>Task record</td>
+<td>Deliverable, owner, status, and completion criteria</td>
+</tr>
+</tbody>
+</table>
+<p>Each layer answers a different question about the project</p>
+</section>
+<section id="management-makes-responsibility-and-status-visible" class="slide level2">
+<h2>Management makes responsibility and status visible</h2>
+<p>Gentzkow and Shapiro recommend a task system with clear ownership and a durable record <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Research-management need</th>
+<th>Possible record</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Define the task</td>
+<td>Task plan or lab diary entry</td>
+</tr>
+<tr class="even">
+<td>Assign responsibility</td>
+<td>Named owner in a shared task list</td>
+</tr>
+<tr class="odd">
+<td>State completion criteria</td>
+<td>Checklist in the task plan</td>
+</tr>
+<tr class="even">
+<td>Record discussion</td>
+<td>Comments attached to the task</td>
+</tr>
+<tr class="odd">
+<td>Track status</td>
+<td>Shared task list</td>
+</tr>
+<tr class="even">
+<td>Preserve the result</td>
+<td>Link to the completed files or output</td>
+</tr>
+</tbody>
+</table>
+<p>Keep decisions with the task so a collaborator can find them later</p>
 </section>
 <section id="code-style-supports-review" class="slide level2">
 <h2>Code style supports review</h2>
 <ul>
-<li>Use meaningful names.</li>
-<li>Keep indentation consistent.</li>
-<li>Separate distinct operations.</li>
-<li>Prefer readable expressions.</li>
-<li>Avoid repeated unexplained numbers.</li>
+<li>Give scripts and functions one clear purpose</li>
+<li>Use names that identify the concept and unit</li>
+<li>Make function inputs and outputs explicit</li>
+<li>Separate key calculations from setup code</li>
+<li>Write logical conditions in the form a reader would describe them</li>
+<li>Use consistent naming and indentation across the project</li>
+<li>Return informative errors for invalid inputs</li>
 </ul>
-<p>Which style rule prevents a plausible research error?</p>
-<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, appendix.</p>
+<p>Source: <span class="citation" data-cites="gentzkow2014code">Gentzkow and Shapiro (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Code Style appendix</p>
 </section>
-<section id="workshop-hand-off-the-project" class="slide level2 scrollable">
-<h2>Workshop: hand off the project</h2>
-<p>Ask a partner to identify:</p>
-<ol type="1">
-<li>The key in one dataset.</li>
-<li>How to reproduce one output.</li>
-<li>Where a variable is defined.</li>
-<li>Who owns an unfinished task.</li>
-<li>Why the most recent change was made.</li>
-</ol>
-<p>Record the first point where they need your help.</p>
+<section id="questions-for-evaluating-a-research-workflow" class="slide level2">
+<h2>Questions for evaluating a research workflow</h2>
+<ul>
+<li>Does every cleaned table have a unique and nonmissing key</li>
+<li>Does each table store information at a consistent level</li>
+<li>Is repeated logic defined in one maintained place</li>
+<li>Can the documentation be kept current as the project changes</li>
+<li>Does every task have an owner, status, and completion criteria</li>
+<li>Can another researcher follow the names and control flow in the code</li>
+</ul>
+<p>These questions summarize Sections 5–8 and the Code Style appendix</p>
+</section></section>
+<section>
+<section id="apply-the-ideas-to-your-research" class="title-slide slide level1 center">
+<h1>Apply the ideas to your research</h1>
+
+</section>
+<section id="apply-the-workflow-to-your-research-project" class="slide level2">
+<h2>Apply the workflow to your research project</h2>
+<p>Choose one task you expect to complete next</p>
+<ul>
+<li>What concrete deliverable defines the task</li>
+<li>Who owns the task</li>
+<li>Which inputs or prior decisions it requires</li>
+<li>What conditions define completion</li>
+<li>What branch name describes the change</li>
+<li>Which dataset key or code check matters most</li>
+<li>What evidence a reviewer should inspect</li>
+</ul>
+<p>Be prepared to share the task and one completion criterion</p>
 </section>
 <section id="before-you-leave" class="slide level2">
 <h2>Before you leave</h2>
-<p>Fix one obstacle revealed by the handoff. Make a commit explaining the improvement.</p>
+<p>Show one of the following</p>
+<ul>
+<li>A branch created for a current research task</li>
+<li>A commit that records a coherent change</li>
+<li>A draft pull-request description for a proposed change</li>
+</ul>
+<p>Also identify the key of one dataset used in that task</p>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>Sync, fetch, and pull</strong> bring accepted remote commits into the current project history</p>
+<p><strong>Branches and commits</strong> organize one research task and its version history</p>
+<p><strong>Pull requests and review</strong> make proposed changes visible before they enter <code>main</code></p>
+<p><strong>Keys and explicit join relationships</strong> protect the unit of observation</p>
+<p><strong>Abstraction, documentation, management, and code style</strong> make research changes easier to inspect and reuse</p>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -415,11 +897,11 @@ Gentzkow, Matthew, and Jesse M. Shapiro. 2014. <em>Code and Data for the Social 
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>AREC 570 / ECON 530 · Methodology of Economic Research</p>
+<p>AREC 570 / ECON 530 / Methodology of Economic Research</p>
 </div>
 </div></div>
 
