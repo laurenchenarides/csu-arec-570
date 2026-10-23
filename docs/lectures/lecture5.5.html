@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Lauren Chenarides">
-  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 5.5: Data: Reporting</title>
+  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 5.5: VS Code, GitHub, and the Data Section</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-232bf618fcad4b00490ddb9b2dae4893.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -128,8 +194,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Lecture 5.5: Data: Reporting – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Write a transparent data section with sample construction and measurement limits.">
+<meta property="og:title" content="Lecture 5.5: VS Code, GitHub, and the Data Section – AREC 570/ECON 530 Methodology of Economic Research">
+<meta property="og:description" content="Use VS Code with Git and GitHub, then write a data section whose sample, measures, descriptive evidence, and repository support the empirical claims.">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -137,7 +203,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 5.5: Data: Reporting</h1>
+  <h1 class="title">Lecture 5.5: VS Code, GitHub, and the Data Section</h1>
   <p class="subtitle">AREC 570 / ECON 530 · Unit 5</p>
 
 <div class="quarto-title-authors">
@@ -149,127 +215,32 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
-<h2>Before class</h2>
+<section id="todays-sequence" class="slide level2">
+<h2>Today’s sequence</h2>
+<p><strong>First third: VS Code as the research workspace</strong></p>
 <ul>
-<li>No assigned reading. We will apply the Unit 5 material and the course data checklist.</li>
+<li>Open and run a research repository</li>
+<li>Review changes and use Git</li>
+<li>Connect local commits to GitHub</li>
 </ul>
-<p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
-</section>
-<section id="make-the-evidence-assessable" class="slide level2">
-<h2>Make the evidence assessable</h2>
-<p>A reader should understand:</p>
+<p><strong>Remaining two thirds: the data section and its repository evidence</strong></p>
 <ul>
-<li>Where the data came from.</li>
-<li>Which population and period they describe.</li>
-<li>How the analysis sample was constructed.</li>
-<li>What the key variables measure.</li>
-<li>Which limitations remain.</li>
+<li>Establish data fit for the hypotheses</li>
+<li>Document the sample and variable construction</li>
+<li>Develop the empirical setting with descriptive statistics</li>
+<li>Link manuscript claims to code and outputs</li>
 </ul>
 </section>
-<section id="start-with-provenance" class="slide level2">
-<h2>Start with provenance</h2>
-<p>For each source, report:</p>
-<ul>
-<li>Provider and dataset.</li>
-<li>Collection purpose and method.</li>
-<li>Release or retrieval date.</li>
-<li>Geographic and time coverage.</li>
-<li>Access conditions relevant to replication.</li>
-</ul>
-<p>Cite the dataset as well as papers using it.</p>
+<section>
+<section id="vs-code-as-a-research-workspace" class="title-slide slide level1 center">
+<h1>VS Code as a research workspace</h1>
+
 </section>
-<section id="define-the-unit-of-observation" class="slide level2">
-<h2>Define the unit of observation</h2>
-<p>“County data” is not enough.</p>
-<p>Is one row a county, county-year, county-industry-year, or county-month?</p>
-<p>Explain the key and how the observation unit relates to the population in your question.</p>
-</section>
-<section id="show-sample-construction" class="slide level2">
-<h2>Show sample construction</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Step</th>
-<th style="text-align: right;">Observations retained</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Raw records</td>
-<td style="text-align: right;">1,000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Keep target period</td>
-<td style="text-align: right;">850</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Remove verified duplicates</td>
-<td style="text-align: right;">830</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Require observed outcome</td>
-<td style="text-align: right;">790</td>
-</tr>
-</tbody>
-</table>
-<p>Illustrative counts. Explain each exclusion and whether excluded observations differ systematically.</p>
-</section>
-<section id="missing-is-not-zero" class="slide level2">
-<h2>Missing is not zero</h2>
-<p>Distinguish a true zero from:</p>
-<ul>
-<li>An unanswered question.</li>
-<li>A suppressed value.</li>
-<li>An inapplicable question.</li>
-<li>A failed link between datasets.</li>
-</ul>
-<p>Report your treatment of each relevant category.</p>
-</section>
-<section id="explain-variable-construction" class="slide level2">
-<h2>Explain variable construction</h2>
-<p>Include:</p>
-<ul>
-<li>Original field or survey question.</li>
-<li>Units and reference period.</li>
-<li>Transformation.</li>
-<li>Interpretation.</li>
-</ul>
-<p>For monetary measures, state whether values are nominal or adjusted; identify the base period if adjusted.</p>
-</section>
-<section id="report-merges-and-aggregation" class="slide level2">
-<h2>Report merges and aggregation</h2>
-<ul>
-<li>Which identifiers were used?</li>
-<li>What matching relationship was expected?</li>
-<li>How many records failed to match?</li>
-<li>Did merging duplicate observations?</li>
-<li>How were finer observations aggregated?</li>
-</ul>
-<p>State whether weights were used and what they represent.</p>
-</section>
-<section id="descriptive-statistics-should-answer-questions" class="slide level2">
-<h2>Descriptive statistics should answer questions</h2>
-<ul>
-<li>What does the sample look like?</li>
-<li>How much relevant variation is present?</li>
-<li>Are extreme values plausible?</li>
-<li>Do treatment and comparison groups differ?</li>
-<li>Does each row use the same sample?</li>
-</ul>
-<p>Include units and sample sizes in table notes.</p>
-</section>
-<section id="workshop-the-course-data-checklist" class="slide level2 scrollable">
-<h2>Workshop: the course data checklist</h2>
-<p>Complete the three parts:</p>
-<ol type="1">
-<li><strong>Scoping the question:</strong> mechanism and expected outcomes.</li>
-<li><strong>Understanding the data:</strong> fields, coverage, unit, key, quality, and cleaning.</li>
-<li><strong>Developing measures:</strong> concept, advantages, limitations, and validation.</li>
-</ol>
-<p>The blank checklist and Champ example are on Canvas.</p>
+<section id="the-ide-brings-the-workflow-into-one-window" class="slide level2">
+<h2>The IDE brings the workflow into one window</h2>
+<p><img data-src="assets/unit5/vscode-research-workflow.svg" alt="A VS Code workspace contains the file explorer, editor, terminal, and source control view. Source control records commits in the local Git repository, which exchanges commits with GitHub through push and pull."></p>
 <aside class="notes">
-<p>New meeting based on the course data checklist and accompanying Champ example. The example’s numbers and proposed cleaning rules are illustrations, not observed results or universal rules.</p>
+<p>Allocate about one third of class to this section. The main point is that VS Code provides interfaces to the project files, R and Quarto, the local Git repository, and the GitHub remote.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -282,36 +253,1125 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="critique-the-worked-example" class="slide level2">
-<h2>Critique the worked example</h2>
-<p>Using the Champ checklist example:</p>
+<section id="required-tools-for-the-vs-code-workflow" class="slide level2">
+<h2>Required tools for the VS Code workflow</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Role in the workflow</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Git</td>
+<td>Local version history</td>
+<td><code>git --version</code></td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>Statistical computing</td>
+<td><code>R --version</code></td>
+</tr>
+<tr class="odd">
+<td>VS Code</td>
+<td>Editor and integrated workspace</td>
+<td>Open the application</td>
+</tr>
+<tr class="even">
+<td>R extension</td>
+<td>R terminal, completion, plots, and help</td>
+<td>Create an R terminal</td>
+</tr>
+<tr class="odd">
+<td>Quarto extension</td>
+<td>Edit, execute, render, and preview <code>.qmd</code> files</td>
+<td>Preview a <code>.qmd</code> file</td>
+</tr>
+</tbody>
+</table>
+<p>Install the R language server from an R console</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"languageserver"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Sources: <a href="https://code.visualstudio.com/docs/languages/r">R in VS Code</a> and <a href="https://quarto.org/docs/tools/vscode/">Quarto in VS Code</a></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="opening-the-repository-root" class="slide level2 scrollable">
+<h2>Opening the repository root</h2>
+<ol type="1">
+<li>Clone the repository or locate its existing local folder</li>
+<li>Select <strong>File &gt; Open Folder</strong> and choose the repository root</li>
+<li>Review the active branch in the lower-left status bar</li>
+<li>Open the integrated terminal and run <code>git status</code></li>
+</ol>
+<p>The repository root contains <code>.git</code> and the project files</p>
+</section>
+<section id="workspace-checks-before-editing" class="slide level2">
+<h2>Workspace checks before editing</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>VS Code area</th>
+<th>What to verify</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Explorer</td>
+<td>Project structure and expected files</td>
+</tr>
+<tr class="even">
+<td>Status bar</td>
+<td>Active branch and repository status</td>
+</tr>
+<tr class="odd">
+<td>Source Control</td>
+<td>Uncommitted and staged changes</td>
+</tr>
+<tr class="even">
+<td>Terminal</td>
+<td>Working directory and available software</td>
+</tr>
+<tr class="odd">
+<td>Extensions</td>
+<td>R and Quarto support enabled for this workspace</td>
+</tr>
+</tbody>
+</table>
+<p>Start the session by pulling accepted commits into the current branch</p>
+</section>
+<section id="r-execution-within-vs-code" class="slide level2 scrollable">
+<h2>R execution within VS Code</h2>
+<p>Open the Command Palette with <code>Ctrl+Shift+P</code></p>
+<ol type="1">
+<li>Run <strong>R: Create R terminal</strong></li>
+<li>Open an <code>.R</code> file</li>
+<li>Select code and press <code>Ctrl+Enter</code></li>
+</ol>
+<p>Run the master script from the R terminal</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">source</span>(<span class="st">"code/run_all.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="paths-and-the-project-root" class="slide level2">
+<h2>Paths and the project root</h2>
 <ul>
-<li>Does the willingness-to-pay measure match the question?</li>
-<li>What is lost by deleting incomplete responses?</li>
-<li>What justifies calling a value an outlier?</li>
-<li>How could alternative decisions change the sample?</li>
+<li>Use paths relative to the repository root</li>
+<li>Place computer-specific settings in an ignored configuration file</li>
+<li>Record package requirements and external software</li>
+<li>Provide one documented command that rebuilds the analysis</li>
+<li>Direct generated outputs to predictable folders</li>
 </ul>
-<p>Assess the consequences of each cleaning rule.</p>
+<p>A collaborator should be able to identify the entry point from the README</p>
 </section>
-<section id="write-one-data-paragraph" class="slide level2">
-<h2>Write one data paragraph</h2>
-<p>Include source, observation unit, sample boundaries, key variables, an important transformation, and the largest limitation.</p>
-<p>Exchange paragraphs. Can your partner reconstruct the sample?</p>
+<section id="the-git-cycle-in-source-control" class="slide level2 scrollable">
+<h2>The Git cycle in Source Control</h2>
+<ol type="1">
+<li>Pull the current branch and switch to a task branch</li>
+<li>Edit and run the project</li>
+<li>Inspect each changed file and stage the intended changes</li>
+<li>Commit with a message that describes the research change</li>
+<li>Push the branch to GitHub</li>
+</ol>
+<p>The Source Control view and terminal operate on the same local Git repository</p>
+<p>Source: <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source control in VS Code</a></p>
 </section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Identify one claim your data support and one they cannot support without additional information.</p>
-</section>
-<section id="course-navigation" class="slide level2">
-<h2>Course navigation</h2>
+<section id="diff-review-before-committing" class="slide level2">
+<h2>Diff review before committing</h2>
+<p>Ask four questions</p>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li>Does every changed file belong to this task</li>
+<li>Do the additions implement the intended research decision</li>
+<li>Did an output, credential, or large data file enter the change accidentally</li>
+<li>Can the commit message explain the change without opening every file</li>
+</ul>
+<p>Stage a coherent set of files after reviewing the diff</p>
+</section>
+<section id="github-features-in-vs-code" class="slide level2">
+<h2>GitHub features in VS Code</h2>
+<p>Built-in Git support handles cloning, pulling, committing, and pushing</p>
+<p>The <strong>GitHub Pull Requests and Issues</strong> extension adds</p>
+<ul>
+<li>Pull-request creation</li>
+<li>File-by-file review</li>
+<li>Inline comments</li>
+<li>Local checkout of a proposed change</li>
+</ul>
+<p>Repository permissions still determine where a branch can be pushed</p>
+<p>Source: <a href="https://code.visualstudio.com/docs/sourcecontrol/github">Work with GitHub in VS Code</a></p>
+</section>
+<section id="vs-code-demo" class="slide level2 scrollable">
+<h2>VS Code Demo</h2>
+<ol type="1">
+<li>Open the repository and locate the analysis entry point</li>
+<li>Identify the active branch and remote</li>
+<li>Open one R script and one LaTeX file</li>
+<li>Edit a demonstration branch, inspect the diff, and commit</li>
+<li>Push the branch and locate it on GitHub</li>
+</ol>
+<aside class="notes">
+<p>Use a disposable demonstration branch. Show the Explorer, integrated terminal, Source Control view, diff editor, and GitHub branch. Keep the demonstration to about ten minutes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="writing-the-data-section" class="title-slide slide level1 center">
+<h1>Writing the data section</h1>
+
+</section>
+<section id="research-question-and-testable-hypotheses" class="slide level2 scrollable">
+<h2>Research question and testable hypotheses</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<p><strong>Research question</strong></p>
+<blockquote>
+<p>How did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?</p>
+</blockquote>
+</div><div class="column" style="width:58%;">
+<p><strong>Framework-derived hypotheses</strong></p>
+<ol type="1">
+<li>Retail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods</li>
+<li>Within-chain price differences vary with state enforcement status if APG protections affect pricing</li>
+<li>Retail prices respond to wholesale acquisition costs, and pass-through may change during the SOE</li>
+<li>More frequent promotions can reduce net transaction prices while posted prices remain similar</li>
+</ol>
+</div></div>
+<aside class="notes">
+<p>The framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-data-section-makes-an-empirical-argument" class="slide level2">
+<h2>The data section makes an empirical argument</h2>
+<p>The section should establish that the observed data can evaluate the hypotheses under stated conditions</p>
+<ul>
+<li>The population and setting correspond to the research question</li>
+<li>The sample contains the observations and variation required by the hypotheses</li>
+<li>The measures represent the concepts in the framework</li>
+<li>The construction rules can be reproduced</li>
+<li>The limitations define the scope of interpretation</li>
+</ul>
+</section>
+<section id="evidence-chain-for-a-data-section" class="slide level2">
+<h2>Evidence chain for a data section</h2>
+<p><img data-src="assets/unit5/data-section-evidence-chain.svg" alt="The conceptual hypothesis determines data requirements, the analytic sample, variable construction, descriptive evidence, and the boundaries of the empirical claim. Repository artifacts support each step."></p>
+<aside class="notes">
+<p>Use this diagram to organize the remainder of the lecture. The manuscript states each link. The repository documents and implements the sample, measures, and descriptive outputs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="hypotheses-determine-data-requirements" class="slide level2">
+<h2>Hypotheses determine data requirements</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part of a hypothesis</th>
+<th>What the data section must establish</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outcome</td>
+<td>The measure, unit, and reference period</td>
+</tr>
+<tr class="even">
+<td>Explanatory factor</td>
+<td>The observed variable that represents the proposed mechanism</td>
+</tr>
+<tr class="odd">
+<td>Comparison</td>
+<td>The groups, places, or periods that generate variation</td>
+</tr>
+<tr class="even">
+<td>Population</td>
+<td>The units to which the hypothesis applies</td>
+</tr>
+<tr class="odd">
+<td>Conditions</td>
+<td>The controls, restrictions, and assumptions needed for interpretation</td>
+</tr>
+</tbody>
+</table>
+<p>The hypothesis determines the observations, measures, and variation the data section must establish</p>
+</section>
+<section id="a-complete-source-description" class="slide level2">
+<h2>A complete source description</h2>
+<p>Address the questions that determine provenance and coverage</p>
+<ul>
+<li>Who collected or assembled the data</li>
+<li>Why the data were collected</li>
+<li>When and where collection occurred</li>
+<li>Who or what was observed</li>
+<li>How observations were recorded</li>
+<li>Which population the source covers</li>
+<li>Which access, licensing, or confidentiality conditions apply</li>
+</ul>
+<p>Add information that affects interpretation or replication</p>
+</section>
+<section id="selection-rules-define-the-target-of-inference" class="slide level2">
+<h2>Selection rules define the target of inference</h2>
+<p>Report</p>
+<ul>
+<li>The population from which the sample is drawn</li>
+<li>Every inclusion and exclusion rule</li>
+<li>The order in which the rules are applied</li>
+<li>The observations lost at each consequential step</li>
+<li>Whether attrition or missingness differs across groups or time</li>
+<li>How the analytic sample compares with the population of interest</li>
+</ul>
+<p>Explain how each rule affects the claims the sample can support</p>
+</section>
+<section id="define-the-observation-unit-and-key" class="slide level2">
+<h2>Define the observation unit and key</h2>
+<p>The observation unit states what one row represents</p>
+<p>The key is the field or combination of fields that uniquely identifies each row</p>
+<ul>
+<li>Connect the observation unit to the actors, outcomes, and timing in the hypotheses</li>
+<li>Explain any aggregation from the source records to the analytic unit</li>
+<li>State how records from different sources are matched</li>
+<li>Verify that the key is unique and nonmissing</li>
+</ul>
+</section>
+<section id="variable-construction-connects-concepts-to-fields" class="slide level2">
+<h2>Variable construction connects concepts to fields</h2>
+<p>For each central variable report</p>
+<ul>
+<li>The concept from the framework</li>
+<li>The source fields</li>
+<li>The unit and reference period</li>
+<li>The aggregation or transformation</li>
+<li>The interpretation of the resulting value</li>
+<li>The treatment of missing or implausible values</li>
+<li>The limitations of the measure</li>
+</ul>
+<p>Give enough information for another researcher to reconstruct the variable</p>
+</section>
+<section id="missing-data-and-sample-loss" class="slide level2">
+<h2>Missing data and sample loss</h2>
+<p>For every consequential restriction state</p>
+<ul>
+<li>Which field is missing or invalid</li>
+<li>How many observations are affected</li>
+<li>Whether the loss is concentrated by place, time, product, or group</li>
+<li>How the analysis treats the affected observations</li>
+<li>How the restriction changes the interpretation of the sample</li>
+</ul>
+</section>
+<section id="imputation-documentation" class="slide level2">
+<h2>Imputation documentation</h2>
+<p>Report</p>
+<ul>
+<li>Which variables contain imputed values</li>
+<li>The unit and time window used for imputation</li>
+<li>The algorithm and predictors</li>
+<li>The assumptions required by the method</li>
+<li>The number and share of values imputed</li>
+<li>An indicator that identifies imputed observations</li>
+<li>A sensitivity analysis using observed values</li>
+</ul>
+<p>Keep the original value and the imputed value in separate fields</p>
+</section>
+<section id="proxies-and-empirical-scope" class="slide level2">
+<h2>Proxies and empirical scope</h2>
+<p>A proxy is an observed measure used to represent an unobserved concept</p>
+<p>For each proxy</p>
+<ul>
+<li>Name the concept the hypothesis requires</li>
+<li>Define the observed measure</li>
+<li>Explain why the measure represents the concept</li>
+<li>Identify the relevant dimensions the measure omits</li>
+<li>Limit the empirical claim to what the measure can support</li>
+</ul>
+<p>Measurement limits should appear in the data section and in the interpretation of the results</p>
+</section></section>
+<section>
+<section id="example-price-gouging-study" class="title-slide slide level1 center">
+<h1>Example: price-gouging study</h1>
+
+</section>
+<section id="data-provenance-and-scope" class="slide level2">
+<h2>Data provenance and scope</h2>
+<p>The opening paragraph identifies the source, records, period, locations, firms, and geography</p>
+<blockquote>
+<p>We use item-level scanner data from DecaData, which report daily retail transactions from January 1, 2018, through July 17, 2023 for 549 grocery stores affiliated with three major retail chains operating across five Southeastern U.S. states</p>
+</blockquote>
+<aside class="notes">
+<p>Source: <code>manuscript_v13.tex</code>, Data Source subsection. Ask students what they know after one sentence and what questions still remain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-the-opening-sentence-establishes" class="slide level2">
+<h2>What the opening sentence establishes</h2>
+<ul>
+<li>The data provider</li>
+<li>The type and frequency of the records</li>
+<li>The observation period</li>
+<li>The number and type of locations</li>
+<li>The number of chains</li>
+<li>The geographic coverage</li>
+</ul>
+<p>The remaining source description explains the chains, product records, and access conditions</p>
+</section>
+<section id="sample-entry-and-selection-rules" class="slide level2 scrollable">
+<h2>Sample entry and selection rules</h2>
+<p>The price-gouging manuscript reports a three-stage product-selection procedure</p>
+<ol type="1">
+<li>Restrict the universe to 47 perishable fruit and vegetable categories</li>
+<li>Apply a coverage screen around policy activation and expiration</li>
+<li>Rank passing products by sales and volume and select five items</li>
+</ol>
+<p><strong>Coverage screen:</strong> present in 80 percent of both 26-week windows, observed for five weeks on each side, and passing in 75 percent of stores</p>
+</section>
+<section id="analytic-sample-construction" class="slide level2">
+<h2>Analytic sample construction</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Item-level transactions</td>
+<td>74 product categories</td>
+</tr>
+<tr class="even">
+<td>Perishable produce restriction</td>
+<td>47 candidate categories</td>
+</tr>
+<tr class="odd">
+<td>Coverage screen</td>
+<td>Products observed near activation and expiration</td>
+</tr>
+<tr class="even">
+<td>Sales and volume ranking</td>
+<td>Five focal products</td>
+</tr>
+<tr class="odd">
+<td>Analytic restrictions</td>
+<td>Positive quantity, price, and wholesale cost</td>
+</tr>
+<tr class="even">
+<td>Final panel</td>
+<td>604,121 store-product-week observations</td>
+</tr>
+</tbody>
+</table>
+<p>The manuscript should report the counts available at each consequential stage</p>
+</section>
+<section id="observation-unit-and-key" class="slide level2">
+<h2>Observation unit and key</h2>
+<p>The analysis aggregates transactions to the <strong>store-product-week</strong> level</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></td>
+<td>Store</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math></td>
+<td>Product</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math></td>
+<td>State</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+<td>Week</td>
+</tr>
+</tbody>
+</table>
+<p>The key is the combination of store, product, and week</p>
+<p>State identifies the policy environment associated with each store</p>
+</section>
+<section id="net-retail-price-construction" class="slide level2">
+<h2>Net retail price construction</h2>
+<p>For store <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>, product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>, state <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>, and week <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>p</mi><mrow><mi>j</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mrow><mi>n</mi><mi>e</mi><mi>t</mi></mrow></msubsup><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>t</mi></mrow></munder><mi>n</mi><mi>e</mi><mi>t</mi><mi>_</mi><mi>s</mi><mi>a</mi><mi>l</mi><mi>e</mi><msub><mi>s</mi><mrow><mi>i</mi><mi>j</mi><mi>s</mi><mi>d</mi></mrow></msub></mrow><mrow><munder><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>t</mi></mrow></munder><mi>v</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><msub><mi>e</mi><mrow><mi>i</mi><mi>j</mi><mi>s</mi><mi>d</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+p^{net}_{jist}
+=
+\frac{\sum_{d \in t} net\_sales_{ijsd}}
+     {\sum_{d \in t} volume_{ijsd}}
+</annotation></semantics></math></p>
+<ul>
+<li>The numerator is total transaction revenue after promotional discounts</li>
+<li>The denominator is total units or pounds sold</li>
+<li>The ratio is the average price paid at the register</li>
+<li>Units follow the product, pounds for random-weight produce and units for packaged lettuce</li>
+</ul>
+</section>
+<section id="cost-and-margin-construction" class="slide level2">
+<h2>Cost and margin construction</h2>
+<p>Average wholesale acquisition cost</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>j</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>t</mi></mrow></munder><mi>t</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>_</mi><mi>c</mi><mi>o</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>i</mi><mi>j</mi><mi>s</mi><mi>d</mi></mrow></msub></mrow><mrow><munder><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>t</mi></mrow></munder><mi>v</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><msub><mi>e</mi><mrow><mi>i</mi><mi>j</mi><mi>s</mi><mi>d</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+w_{jist}
+=
+\frac{\sum_{d \in t} total\_cost_{ijsd}}
+     {\sum_{d \in t} volume_{ijsd}}
+</annotation></semantics></math></p>
+<p>Retail-wholesale margin</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>M</mi><mrow><mi>j</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mrow><mi>n</mi><mi>e</mi><mi>t</mi></mrow></msubsup><mo>=</mo><msubsup><mi>p</mi><mrow><mi>j</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><mrow><mi>n</mi><mi>e</mi><mi>t</mi></mrow></msubsup><mo>−</mo><msub><mi>w</mi><mrow><mi>j</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+M^{net}_{jist}=p^{net}_{jist}-w_{jist}
+</annotation></semantics></math></p>
+<p>The shared product, store, week, and physical unit give the spread a direct interpretation</p>
+</section>
+<section id="policy-measures" class="slide level2">
+<h2>Policy measures</h2>
+<p>The empirical setting determines three periods for each state</p>
+<ul>
+<li><strong>Pre-SOE</strong> weeks before the emergency declaration</li>
+<li><strong>SOE</strong> weeks when the declaration and associated APG protections were active</li>
+<li><strong>Post-SOE</strong> weeks after the declaration expired</li>
+</ul>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>O</mi><msub><mi>E</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">SOE_{st}</annotation></semantics></math> links the state-level legal setting to each store-product-week</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>u</mi><msub><mi>r</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Dur_{st}</annotation></semantics></math> counts weeks since activation during the emergency period</p>
+<p>Report the date source and the rule used to assign partial weeks</p>
+</section>
+<section id="sample-restrictions-and-missing-observations" class="slide level2">
+<h2>Sample restrictions and missing observations</h2>
+<p>The analysis requires positive quantities, retail prices, and wholesale costs</p>
+<p>Price-change models also require consecutive observations for the same store and product</p>
+<p>The data section should report</p>
+<ul>
+<li>The number of observations removed by each restriction</li>
+<li>The concentration of losses by product, store, state, and period</li>
+<li>The implications for the analytic sample and each hypothesis</li>
+</ul>
+</section>
+<section id="proxies-interpretation-and-scope" class="slide level2">
+<h2>Proxies, interpretation, and scope</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Construct</th>
+<th>Available measure</th>
+<th>Scope of interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Consumer price</td>
+<td>Net transaction price</td>
+<td>Average register price for the item within the week</td>
+</tr>
+<tr class="even">
+<td>Retailer input cost</td>
+<td>Wholesale acquisition cost</td>
+<td>Procurement cost recorded in the point-of-sale system</td>
+</tr>
+<tr class="odd">
+<td>Retail margin</td>
+<td>Net price minus acquisition cost</td>
+<td>Retail-wholesale spread</td>
+</tr>
+<tr class="even">
+<td>Policy exposure</td>
+<td>Active state emergency declaration</td>
+<td>Statutory APG exposure by state and week</td>
+</tr>
+</tbody>
+</table>
+<p>Labor, logistics, handling, shrink, and spoilage remain outside the observed cost measure</p>
+</section>
+<section id="limitations-and-empirical-claims" class="slide level2">
+<h2>Limitations and empirical claims</h2>
+<p>The manuscript identifies three central boundaries</p>
+<ul>
+<li>Wholesale acquisition cost captures one component of retailer cost</li>
+<li>Category-level averages can change with the composition of products purchased</li>
+<li>Policy exposure varies at the state-week level across five states</li>
+</ul>
+<p>These boundaries guide the language used for margins, price indexes, and policy interpretation</p>
+</section>
+<section id="price-and-margin-claims" class="slide level2">
+<h2>Price and margin claims</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Empirical claim</th>
+<th>Data feature that supports it</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prices changed during the SOE</td>
+<td>Weekly net price for the same products and stores</td>
+<td>Other contemporaneous changes remain part of the reduced-form setting</td>
+</tr>
+<tr class="even">
+<td>Margins changed during the SOE</td>
+<td>Retail price and acquisition cost use the same unit</td>
+<td>The spread omits other retailer costs</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uniformity-and-pass-through-claims" class="slide level2">
+<h2>Uniformity and pass-through claims</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Empirical claim</th>
+<th>Data feature that supports it</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pricing uniformity changed</td>
+<td>Multiple stores within the same chain and week</td>
+<td>Store coverage changes over time</td>
+</tr>
+<tr class="even">
+<td>Pass-through changed</td>
+<td>Retail and wholesale price changes are observed together</td>
+<td>Wholesale costs may reflect shared upstream conditions</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="descriptive-statistics-as-evidence" class="title-slide slide level1 center">
+<h1>Descriptive statistics as evidence</h1>
+
+</section>
+<section id="descriptive-evidence-required-for-the-hypotheses" class="slide level2">
+<h2>Descriptive evidence required for the hypotheses</h2>
+<ul>
+<li>The scale and composition of the analytic sample</li>
+<li>The variation required to evaluate the hypotheses</li>
+<li>The distribution and units of the central measures</li>
+<li>Differences across periods or comparison groups</li>
+<li>Extreme values, missingness, and panel imbalance</li>
+<li>Patterns that motivate later estimation</li>
+</ul>
+<p>Design the table after deciding which empirical questions it should answer</p>
+</section>
+<section id="a-descriptive-paragraph-has-four-jobs" class="slide level2 scrollable">
+<h2>A descriptive paragraph has four jobs</h2>
+<ol type="1">
+<li><strong>Orient</strong> the reader to the sample, unit, period, and comparison</li>
+<li><strong>Identify</strong> the pattern that matters for the research question</li>
+<li><strong>Quantify</strong> its magnitude with a small number of interpretable values</li>
+<li><strong>Qualify</strong> the pattern with sample composition or measurement information</li>
+</ol>
+</section>
+<section id="roles-of-tables-figures-text-and-the-repository" class="slide level2">
+<h2>Roles of tables, figures, text, and the repository</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Table body</td>
+<td>Complete values, units, and sample sizes</td>
+</tr>
+<tr class="even">
+<td>Table notes</td>
+<td>Definitions, weights, transformations, and sample restrictions</td>
+</tr>
+<tr class="odd">
+<td>Figure</td>
+<td>Time patterns, distributions, or comparisons</td>
+</tr>
+<tr class="even">
+<td>Main text</td>
+<td>Interpretation tied to the research question</td>
+</tr>
+<tr class="odd">
+<td>Repository</td>
+<td>Code that constructs every reported value</td>
+</tr>
+</tbody>
+</table>
+<p>Check that statistics compared in the text use the same sample and unit</p>
+</section></section>
+<section>
+<section id="example-descriptive-evidence-in-the-price-gouging-study" class="title-slide slide level1 center">
+<h1>Example: descriptive evidence in the price-gouging study</h1>
+
+</section>
+<section id="establish-the-scale-and-composition" class="slide level2">
+<h2>Establish the scale and composition</h2>
+<p>The descriptive section begins with the analytic scale</p>
+<blockquote>
+<p>The panel covers 604,121 observations across 549 unique store locations and three retail chains operating in five Southeastern states from January 2018 through July 2023</p>
+</blockquote>
+<p>It then reports changes in store coverage over time and identifies which retailers account for the decline</p>
+<p>This information prepares the reader to evaluate panel balance and sample composition</p>
+</section>
+<section id="describe-patterns-relevant-to-the-hypotheses" class="slide level2">
+<h2>Describe patterns relevant to the hypotheses</h2>
+<p>The manuscript connects three pieces of descriptive evidence</p>
+<blockquote>
+<p>Upon the SOE activation in March 2020, total weekly volume rose sharply, increasing 27.4 percent relative to the four preceding weeks</p>
+</blockquote>
+<blockquote>
+<p>Both nominal and real prices fell immediately at activation and remained below their pre-SOE range for the duration of enforcement</p>
+</blockquote>
+<blockquote>
+<p>Wholesale costs were generally unchanged across periods for most products. Dollar margins narrowed during the SOE for all five products</p>
+</blockquote>
+<aside class="notes">
+<p>Source: <code>manuscript_v13.tex</code>, Descriptive Evidence section. The sentences move from demand conditions to prices, wholesale costs, and margins. Each pattern corresponds to an element of the research question or framework.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-the-descriptive-discussion-is-organized" class="slide level2">
+<h2>How the descriptive discussion is organized</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Job</th>
+<th>Evidence used in the example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Orient</td>
+<td>Sample size, stores, chains, states, and period</td>
+</tr>
+<tr class="even">
+<td>Identify</td>
+<td>Volume, price, cost, and margin patterns during the SOE</td>
+</tr>
+<tr class="odd">
+<td>Quantify</td>
+<td>A 27.4 percent increase in volume and product-level changes</td>
+</tr>
+<tr class="even">
+<td>Qualify</td>
+<td>Changes in store coverage and differences across products</td>
+</tr>
+</tbody>
+</table>
+<p>The discussion gives the reader context for the regression results that follow</p>
+</section></section>
+<section>
+<section id="the-repository-supports-the-data-section" class="title-slide slide level1 center">
+<h1>The repository supports the data section</h1>
+
+</section>
+<section id="the-paper-and-repository-answer-connected-questions" class="slide level2">
+<h2>The paper and repository answer connected questions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Manuscript question</th>
+<th>Repository evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where do the data come from</td>
+<td>README data overview and access documentation</td>
+</tr>
+<tr class="even">
+<td>How is the sample constructed</td>
+<td>SQL build and panel-construction scripts</td>
+</tr>
+<tr class="odd">
+<td>How are variables defined</td>
+<td>README variable table and transformation code</td>
+</tr>
+<tr class="even">
+<td>How are exclusions applied</td>
+<td>Analysis-sample filters in code</td>
+</tr>
+<tr class="odd">
+<td>Where do descriptive values come from</td>
+<td>Ordered scripts that write tables and figures</td>
+</tr>
+<tr class="even">
+<td>How can the analysis be rerun</td>
+<td>Quick Start, package list, configuration, and master script</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-readme-is-the-entry-point" class="slide level2">
+<h2>The README is the entry point</h2>
+<p>The <a href="https://github.com/laurenchenarides/price_gouging">price-gouging repository</a> documents</p>
+<ul>
+<li>The research question and empirical setting</li>
+<li>Required SQL builds and local configuration</li>
+<li>The command that runs the analysis</li>
+<li>Data coverage and access restrictions</li>
+<li>Core variables and their interpretation</li>
+<li>Known limitations</li>
+<li>The mapping from scripts to manuscript sections and outputs</li>
+</ul>
+<p>A new collaborator should know where to begin after reading the README</p>
+</section>
+<section id="scripts-mirror-the-data-argument" class="slide level2">
+<h2>Scripts mirror the data argument</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Repository artifact</th>
+<th>Data-section role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>code/00_read_in_data.R</code></td>
+<td>Retrieves source tables and assembles the initial panel</td>
+</tr>
+<tr class="even">
+<td><code>code/02_build_panel.R</code></td>
+<td>Constructs measures, timing variables, and the estimation sample</td>
+</tr>
+<tr class="odd">
+<td><code>code/03_descriptive_tables.R</code></td>
+<td>Produces coverage and descriptive tables</td>
+</tr>
+<tr class="even">
+<td><code>code/run_all.R</code></td>
+<td>Runs the scripts in the intended order</td>
+</tr>
+<tr class="odd">
+<td><code>code/sql/</code></td>
+<td>Documents upstream construction of the source tables</td>
+</tr>
+<tr class="even">
+<td><code>tables_latex/</code> and <code>figures/</code></td>
+<td>Store manuscript-ready outputs</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="git-tracking-by-access-and-purpose" class="slide level2">
+<h2>Git tracking by access and purpose</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Track in Git</th>
+<th>Keep outside Git</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source code and SQL</td>
+<td>Licensed transaction records</td>
+</tr>
+<tr class="even">
+<td>README and variable documentation</td>
+<td>Credentials and connection strings</td>
+</tr>
+<tr class="odd">
+<td>Package and software requirements</td>
+<td>Computer-specific configuration</td>
+</tr>
+<tr class="even">
+<td>Small metadata and public inputs</td>
+<td>Large intermediate data files</td>
+</tr>
+<tr class="odd">
+<td>Selected tables and figures</td>
+<td>Regenerable bulk outputs</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>.gitignore</code> for restricted, sensitive, computer-specific, and regenerable files</p>
+<p>Document how an authorized user supplies each required local input</p>
+</section>
+<section id="computing-environment" class="slide level2">
+<h2>Computing environment</h2>
+<p>Record</p>
+<ul>
+<li>R and external software requirements</li>
+<li>Package names and versions when version differences matter</li>
+<li>Database or API dependencies</li>
+<li>Required environment variables or configuration fields</li>
+<li>The order of scripts</li>
+<li>Random seeds for stochastic procedures</li>
+<li>The expected output folders</li>
+</ul>
+<p>Provide a safe example configuration with placeholder values when local settings are required</p>
+</section>
+<section id="manuscript-statements-and-repository-artifacts" class="slide level2">
+<h2>Manuscript statements and repository artifacts</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Manuscript statement</th>
+<th>Supporting artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Final sample contains 604,121 observations</td>
+<td>Summary table produced by <code>03_descriptive_tables.R</code></td>
+</tr>
+<tr class="even">
+<td>The key is store-product-week</td>
+<td>Panel-construction code and README data structure</td>
+</tr>
+<tr class="odd">
+<td>Net price is transaction revenue divided by volume</td>
+<td>Variable-construction code and README definition</td>
+</tr>
+<tr class="even">
+<td>Five products pass the selection procedure</td>
+<td>Product coverage output and selection code</td>
+</tr>
+<tr class="odd">
+<td>Descriptive means differ across SOE periods</td>
+<td>Period-means table and figure scripts</td>
+</tr>
+</tbody>
+</table>
+<p>This mapping helps a coauthor, reviewer, or future researcher verify a statement efficiently</p>
+</section>
+<section id="repository-audit" class="slide level2">
+<h2>Repository audit</h2>
+<ul>
+<li>Can I identify the project purpose and empirical setting</li>
+<li>Can I find the analytic unit, key, sample period, and central variables</li>
+<li>Can I distinguish source data, intermediate data, and final outputs</li>
+<li>Can I locate every sample restriction and transformation</li>
+<li>Can I reproduce the descriptive tables from documented inputs</li>
+<li>Can I identify restricted materials and the process for authorized access</li>
+<li>Can I connect each manuscript table and figure to the script that produces it</li>
+</ul>
+</section></section>
+<section>
+<section id="apply-the-workflow-to-your-project" class="title-slide slide level1 center">
+<h1>Apply the workflow to your project</h1>
+
+</section>
+<section id="fit-to-hypothesis-matrix" class="slide level2">
+<h2>Fit-to-hypothesis matrix</h2>
+<p>Choose one hypothesis from your conceptual framework</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Your project</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hypothesis</td>
+<td>What relationship will be evaluated</td>
+</tr>
+<tr class="even">
+<td>Required observations</td>
+<td>Who or what must be observed</td>
+</tr>
+<tr class="odd">
+<td>Required variation</td>
+<td>Across whom, where, or when</td>
+</tr>
+<tr class="even">
+<td>Constructed measures</td>
+<td>How the concepts become variables</td>
+</tr>
+<tr class="odd">
+<td>Sample restrictions</td>
+<td>Which observations enter the analysis</td>
+</tr>
+<tr class="even">
+<td>Main limitation</td>
+<td>Which interpretation requires care</td>
+</tr>
+<tr class="odd">
+<td>Repository evidence</td>
+<td>Which file documents or implements the step</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-section-spine" class="slide level2 scrollable">
+<h2>Data-section spine</h2>
+<p>Write one or two sentences for each heading</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><strong>Source and provenance</strong></li>
+<li><strong>Coverage and population</strong></li>
+<li><strong>Sample selection</strong></li>
+<li><strong>Observation unit and key</strong></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="5" type="1">
+<li><strong>Variable construction</strong></li>
+<li><strong>Missing data and imputation</strong></li>
+<li><strong>Limitations and scope</strong></li>
+<li><strong>Descriptive evidence</strong></li>
+</ol>
+</div></div>
+</section>
+<section id="group-workshop" class="slide level2 scrollable">
+<h2>Group workshop</h2>
+<p>Choose one volunteer project and work through the evidence chain</p>
+<ol type="1">
+<li>State one hypothesis</li>
+<li>Identify the population and required variation</li>
+<li>Define the observation unit and sample boundaries</li>
+<li>Explain one central variable construction</li>
+<li>Identify one proxy or measurement limitation</li>
+<li>Name the repository artifact that should support each step</li>
+</ol>
+<aside class="notes">
+<p>Invite a volunteer whose data plan is developed enough to discuss. Keep the questions general so the class can contribute from different fields. Record the completed matrix where everyone can see it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="preparation-for-the-next-project-meeting" class="slide level2">
+<h2>Preparation for the next project meeting</h2>
+<p>Prepare two items for your own project</p>
+<ul>
+<li>A five-sentence outline covering source, sample, observation unit, central measures, and main limitation</li>
+<li>A repository checklist naming the README content, build script, variable documentation, and first descriptive output still needed</li>
+</ul>
+<p>Bring both items to the next project meeting or advising conversation</p>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>VS Code</strong> brings the project files, R or Quarto execution, Git, and GitHub into one workspace</p>
+<p><strong>The data section</strong> establishes provenance, sample construction, variable construction, and interpretive scope</p>
+<p><strong>Descriptive statistics</strong> develop the empirical setting and quantify the variation relevant to the hypotheses</p>
+<p><strong>The repository</strong> provides the documentation and code needed to verify and reproduce the data section</p>
+</section>
+<section id="resources-and-course-navigation" class="slide level2">
+<h2>Resources and course navigation</h2>
+<ul>
+<li><a href="https://github.com/laurenchenarides/price_gouging">Price-gouging research repository</a></li>
+<li><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source control in VS Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/r">R in VS Code</a></li>
+<li><a href="https://quarto.org/docs/tools/vscode/">Quarto in VS Code</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

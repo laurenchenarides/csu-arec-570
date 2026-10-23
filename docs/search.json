@@ -471,9 +471,9 @@
   {
     "objectID": "lectures/lecture5.5.html#before-you-leave",
     "href": "lectures/lecture5.5.html#before-you-leave",
-    "title": "Lecture 5.5: Data: Reporting",
+    "title": "Lecture 5.5: From Repository to Data Section",
     "section": "Before you leave",
-    "text": "Before you leave\nIdentify one claim your data support and one they cannot support without additional information."
+    "text": "Before you leave\nPrepare two items for your own project\n\nA five-sentence outline covering source, sample, observation unit, central measures, and main limitation\nA repository checklist naming the README content, build script, variable documentation, and first descriptive output still needed\n\nBring both items to the next project meeting or advising conversation"
   },
   {
     "objectID": "lectures/lecture5.5.html#course-navigation",
@@ -2433,7 +2433,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse branches pull requests and data-management practices to make research changes reviewable\nDownload PDF\n\n\nLecture 5.5: Data: Reporting\nWrite a transparent data section with sample construction and measurement limits.\n—\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse branches pull requests and data-management practices to make research changes reviewable\nDownload PDF\n\n\nLecture 5.5: VS Code, GitHub, and the Data Section\nUse VS Code with Git and GitHub, then write a data section whose sample, measures, descriptive evidence, and repository support the empirical claims.\nDownload PDF\n\n\nLecture 6.1: Econometric Models and Identification\nDistinguish structural and reduced-form questions, selection, and the experimental ideal.\n—\n\n\nLecture 6.2: Causality and Policy Evaluation\nAssess RD, difference-in-differences, synthetic controls, and credibility checks.\n—\n\n\nLecture 6.3: Machine Learning in Economic Research\nDistinguish prediction from causal inference and evaluate model selection.\n—\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture5.2.html#getting-access",
@@ -3701,5 +3701,635 @@
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Questions for evaluating a research workflow",
     "text": "Questions for evaluating a research workflow\n\nDoes every cleaned table have a unique and nonmissing key\nDoes each table store information at a consistent level\nIs repeated logic defined in one maintained place\nCan the documentation be kept current as the project changes\nDoes every task have an owner, status, and completion criteria\nCan another researcher follow the names and control flow in the code\n\nThese questions summarize Sections 5–8 and the Code Style appendix"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#todays-sequence",
+    "href": "lectures/lecture5.5.html#todays-sequence",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Today’s sequence",
+    "text": "Today’s sequence\nFirst third: VS Code as the research workspace\n\nOpen and run a research repository\nReview changes and use Git\nConnect local commits to GitHub\n\nRemaining two thirds: the data section and its repository evidence\n\nEstablish data fit for the hypotheses\nDocument the sample and variable construction\nDevelop the empirical setting with descriptive statistics\nLink manuscript claims to code and outputs"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-ide-brings-the-workflow-into-one-window",
+    "href": "lectures/lecture5.5.html#the-ide-brings-the-workflow-into-one-window",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The IDE brings the workflow into one window",
+    "text": "The IDE brings the workflow into one window\n\n\nAllocate about one third of class to this section. The main point is that VS Code provides interfaces to the project files, R and Quarto, the local Git repository, and the GitHub remote."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#install-the-required-tools-once",
+    "href": "lectures/lecture5.5.html#install-the-required-tools-once",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Install the required tools once",
+    "text": "Install the required tools once\n\n\n\n\n\n\n\n\nTool\nRole in the workflow\nCheck\n\n\n\n\nGit\nLocal version history\ngit --version\n\n\nR\nStatistical computing\nR --version\n\n\nVS Code\nEditor and integrated workspace\nOpen the application\n\n\nR extension\nR terminal, completion, plots, and help\nCreate an R terminal\n\n\nQuarto extension\nEdit, execute, render, and preview .qmd files\nPreview a .qmd file\n\n\n\nInstall the R language server from an R console\ninstall.packages(\"languageserver\")\nSources: R in VS Code and Quarto in VS Code"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#open-the-repository-root",
+    "href": "lectures/lecture5.5.html#open-the-repository-root",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Open the repository root",
+    "text": "Open the repository root\n\nClone the repository or locate its existing local folder\nSelect File &gt; Open Folder and choose the repository root\nReview the active branch in the lower-left status bar\nOpen the integrated terminal and run git status\n\nThe repository root contains .git and the project files"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#read-the-workspace-before-editing",
+    "href": "lectures/lecture5.5.html#read-the-workspace-before-editing",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Read the workspace before editing",
+    "text": "Read the workspace before editing\n\n\n\nVS Code area\nWhat to verify\n\n\n\n\nExplorer\nProject structure and expected files\n\n\nStatus bar\nActive branch and repository status\n\n\nSource Control\nUncommitted and staged changes\n\n\nTerminal\nWorking directory and available software\n\n\nExtensions\nR and Quarto support enabled for this workspace\n\n\n\nStart the session by pulling accepted commits into the current branch"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#run-r-within-vs-code",
+    "href": "lectures/lecture5.5.html#run-r-within-vs-code",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Run R within VS Code",
+    "text": "Run R within VS Code\nOpen the Command Palette with Ctrl+Shift+P\n\nRun R: Create R terminal\nOpen an .R file\nSelect code and press Ctrl+Enter\n\nRun the master script from the R terminal\nsource(\"code/run_all.R\")"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#work-from-one-project-root",
+    "href": "lectures/lecture5.5.html#work-from-one-project-root",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Work from one project root",
+    "text": "Work from one project root\n\nUse paths relative to the repository root\nPlace computer-specific settings in an ignored configuration file\nRecord package requirements and external software\nProvide one documented command that rebuilds the analysis\nDirect generated outputs to predictable folders\n\nA collaborator should be able to identify the entry point from the README"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#use-source-control-for-the-git-cycle",
+    "href": "lectures/lecture5.5.html#use-source-control-for-the-git-cycle",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Use Source Control for the Git cycle",
+    "text": "Use Source Control for the Git cycle\n\nPull the current branch and switch to a task branch\nEdit and run the project\nInspect each changed file and stage the intended changes\nCommit with a message that describes the research change\nPush the branch to GitHub\n\nThe Source Control view and terminal operate on the same local Git repository\nSource: Source control in VS Code"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#inspect-the-diff-before-committing",
+    "href": "lectures/lecture5.5.html#inspect-the-diff-before-committing",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Inspect the diff before committing",
+    "text": "Inspect the diff before committing\nAsk four questions\n\nDoes every changed file belong to this task\nDo the additions implement the intended research decision\nDid an output, credential, or large data file enter the change accidentally\nCan the commit message explain the change without opening every file\n\nStage a coherent set of files after reviewing the diff"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#github-features-in-vs-code",
+    "href": "lectures/lecture5.5.html#github-features-in-vs-code",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "GitHub features in VS Code",
+    "text": "GitHub features in VS Code\nBuilt-in Git support handles cloning, pulling, committing, and pushing\nThe GitHub Pull Requests and Issues extension adds\n\nPull-request creation\nFile-by-file review\nInline comments\nLocal checkout of a proposed change\n\nRepository permissions still determine where a branch can be pushed\nSource: Work with GitHub in VS Code"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#live-demonstration-with-the-price-gouging-repository",
+    "href": "lectures/lecture5.5.html#live-demonstration-with-the-price-gouging-repository",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Live demonstration with the price-gouging repository",
+    "text": "Live demonstration with the price-gouging repository\nOpen github.com/laurenchenarides/price_gouging\n\nOpen the repository and locate the analysis entry point\nIdentify the active branch and remote\nOpen one R script and one LaTeX file\nEdit a demonstration branch, inspect the diff, and commit\nPush the branch and locate it on GitHub\n\n\nUse a disposable demonstration branch. Show the Explorer, integrated terminal, Source Control view, diff editor, and GitHub branch. Keep the demonstration to about ten minutes."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-data-section-makes-an-empirical-argument",
+    "href": "lectures/lecture5.5.html#the-data-section-makes-an-empirical-argument",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The data section makes an empirical argument",
+    "text": "The data section makes an empirical argument\nThe section should establish that the observed data can evaluate the hypotheses under stated conditions\n\nThe population and setting correspond to the research question\nThe sample contains the observations and variation required by the hypotheses\nThe measures represent the concepts in the framework\nThe construction rules can be reproduced\nThe limitations define the scope of interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#build-an-evidence-chain",
+    "href": "lectures/lecture5.5.html#build-an-evidence-chain",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Build an evidence chain",
+    "text": "Build an evidence chain\n\n\nUse this diagram to organize the remainder of the lecture. The manuscript states each link. The repository documents and implements the sample, measures, and descriptive outputs."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#begin-with-the-hypotheses",
+    "href": "lectures/lecture5.5.html#begin-with-the-hypotheses",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Begin with the hypotheses",
+    "text": "Begin with the hypotheses\n\n\n\n\n\n\n\nQuestion in the price-gouging study\nData requirement\n\n\n\n\nDid retail prices and margins change during states of emergency\nRepeated retail prices, wholesale costs, and policy timing\n\n\nDid chains change cross-store pricing patterns\nMultiple stores within chains across states and weeks\n\n\nDid wholesale cost pass-through change\nRetail price and acquisition cost for the same product, store, and week\n\n\nDid promotional activity contribute to price changes\nPosted prices, transaction prices, and promotional status\n\n\n\nThe hypothesis determines the observations, measures, and variation the data section must establish"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-opening-paragraph-establishes-provenance-and-scope",
+    "href": "lectures/lecture5.5.html#the-opening-paragraph-establishes-provenance-and-scope",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The opening paragraph establishes provenance and scope",
+    "text": "The opening paragraph establishes provenance and scope\n\nWe use item-level scanner data from DecaData, which report daily retail transactions from January 1, 2018, through July 17, 2023 for 549 grocery stores affiliated with three major retail chains operating across five Southeastern U.S. states\n\n\nSource: manuscript_v13.tex, Data Source subsection. Ask students what they know after one sentence and what questions still remain."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#a-complete-source-description",
+    "href": "lectures/lecture5.5.html#a-complete-source-description",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "A complete source description",
+    "text": "A complete source description\nAddress the questions that determine provenance and coverage\n\nWho collected or assembled the data\nWhy the data were collected\nWhen and where collection occurred\nWho or what was observed\nHow observations were recorded\nWhich population the source covers\nWhich access, licensing, or confidentiality conditions apply\n\nAdd information that affects interpretation or replication"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#explain-how-observations-enter-the-sample",
+    "href": "lectures/lecture5.5.html#explain-how-observations-enter-the-sample",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Explain how observations enter the sample",
+    "text": "Explain how observations enter the sample\nThe price-gouging manuscript reports a three-stage product-selection procedure\n\nRestrict the universe to 47 perishable fruit and vegetable categories\nApply a coverage screen around policy activation and expiration\nRank passing products by sales and volume and select five items\n\nCoverage screen: present in 80 percent of both 26-week windows, observed for five weeks on each side, and passing in 75 percent of stores"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#selection-rules-define-the-target-of-inference",
+    "href": "lectures/lecture5.5.html#selection-rules-define-the-target-of-inference",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Selection rules define the target of inference",
+    "text": "Selection rules define the target of inference\nReport\n\nThe population from which the sample is drawn\nEvery inclusion and exclusion rule\nThe order in which the rules are applied\nThe observations lost at each consequential step\nWhether attrition or missingness differs across groups or time\nHow the analytic sample compares with the population of interest\n\nExplain how each rule affects the claims the sample can support"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#trace-the-analytic-sample",
+    "href": "lectures/lecture5.5.html#trace-the-analytic-sample",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Trace the analytic sample",
+    "text": "Trace the analytic sample\n\n\n\n\n\n\n\nStage\nResult\n\n\n\n\nItem-level retail transactions\nPackaged and random-weight products across 74 categories\n\n\nPerishable fruit and vegetable restriction\n47 candidate categories\n\n\nCoverage screen\nProducts regularly observed around activation and expiration\n\n\nSales and volume ranking\nFive focal products\n\n\nAnalytic restrictions\nPositive quantity, price, and wholesale cost\n\n\nFinal estimation panel\n604,121 store–product–week observations\n\n\n\nThe manuscript should report the counts available at each consequential stage"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#define-the-observation-unit-and-key",
+    "href": "lectures/lecture5.5.html#define-the-observation-unit-and-key",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Define the observation unit and key",
+    "text": "Define the observation unit and key\nThe observation unit states what one row represents\nThe key is the field or combination of fields that uniquely identifies each row\n\nConnect the observation unit to the actors, outcomes, and timing in the hypotheses\nExplain any aggregation from the source records to the analytic unit\nState how records from different sources are matched\nVerify that the key is unique and nonmissing"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#variable-construction-connects-concepts-to-fields",
+    "href": "lectures/lecture5.5.html#variable-construction-connects-concepts-to-fields",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Variable construction connects concepts to fields",
+    "text": "Variable construction connects concepts to fields\nFor each central variable report\n\nThe concept from the framework\nThe source fields\nThe unit and reference period\nThe aggregation or transformation\nThe interpretation of the resulting value\nThe treatment of missing or implausible values\nThe limitations of the measure\n\nGive enough information for another researcher to reconstruct the variable"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#example-construct-the-net-retail-price",
+    "href": "lectures/lecture5.5.html#example-construct-the-net-retail-price",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Example: construct the net retail price",
+    "text": "Example: construct the net retail price\nFor store ii, product jj, state ss, and week tt\npjistnet=∑d∈tnet_salesijsd∑d∈tvolumeijsd\np^{net}_{jist}\n=\n\\frac{\\sum_{d \\in t} net\\_sales_{ijsd}}\n     {\\sum_{d \\in t} volume_{ijsd}}\n\n\nThe numerator is total transaction revenue after promotional discounts\nThe denominator is total units or pounds sold\nThe ratio is the average price paid at the register\nUnits follow the product, pounds for random-weight produce and units for packaged lettuce"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#example-construct-cost-and-margin",
+    "href": "lectures/lecture5.5.html#example-construct-cost-and-margin",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Example: construct cost and margin",
+    "text": "Example: construct cost and margin\nAverage wholesale acquisition cost\nwjist=∑d∈ttotal_costijsd∑d∈tvolumeijsd\nw_{jist}\n=\n\\frac{\\sum_{d \\in t} total\\_cost_{ijsd}}\n     {\\sum_{d \\in t} volume_{ijsd}}\n\nRetail–wholesale margin\nMjistnet=pjistnet−wjist\nM^{net}_{jist}=p^{net}_{jist}-w_{jist}\n\nThe shared product, store, week, and physical unit give the spread a direct interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#construct-the-policy-measures",
+    "href": "lectures/lecture5.5.html#construct-the-policy-measures",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Construct the policy measures",
+    "text": "Construct the policy measures\nThe empirical setting determines three periods for each state\n\nPre-SOE weeks before the emergency declaration\nSOE weeks when the declaration and associated APG protections were active\nPost-SOE weeks after the declaration expired\n\nSOEstSOE_{st} links the state-level legal setting to each store–product–week\nDurstDur_{st} counts weeks since activation during the emergency period\nReport the date source and the rule used to assign partial weeks"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#report-missing-data-and-sample-loss",
+    "href": "lectures/lecture5.5.html#report-missing-data-and-sample-loss",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Report missing data and sample loss",
+    "text": "Report missing data and sample loss\nFor every consequential restriction state\n\nWhich field is missing or invalid\nHow many observations are affected\nWhether the loss is concentrated by place, time, product, or group\nHow the analysis treats the affected observations\nHow the restriction changes the interpretation of the sample\n\nThe price-gouging analysis requires positive quantities, prices, and wholesale costs and requires consecutive observations for price-change models"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#document-any-imputation",
+    "href": "lectures/lecture5.5.html#document-any-imputation",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Document any imputation",
+    "text": "Document any imputation\nReport\n\nWhich variables contain imputed values\nThe unit and time window used for imputation\nThe algorithm and predictors\nThe assumptions required by the method\nThe number and share of values imputed\nAn indicator that identifies imputed observations\nA sensitivity analysis using observed values\n\nKeep the original value and the imputed value in separate fields"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#explain-proxies-through-interpretation-and-scope",
+    "href": "lectures/lecture5.5.html#explain-proxies-through-interpretation-and-scope",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Explain proxies through interpretation and scope",
+    "text": "Explain proxies through interpretation and scope\n\n\n\n\n\n\n\n\nConstruct\nAvailable measure\nScope of interpretation\n\n\n\n\nConsumer price\nNet transaction price\nAverage register price for the item within the week\n\n\nRetailer input cost\nWholesale acquisition cost\nProcurement cost recorded in the point-of-sale system\n\n\nRetail margin\nNet price minus acquisition cost\nRetail–wholesale spread\n\n\nPolicy exposure\nActive state emergency declaration\nStatutory APG exposure by state and week\n\n\n\nLabor, logistics, handling, shrink, and spoilage remain outside the observed cost measure"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#state-limitations-where-they-affect-the-claim",
+    "href": "lectures/lecture5.5.html#state-limitations-where-they-affect-the-claim",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "State limitations where they affect the claim",
+    "text": "State limitations where they affect the claim\nThe manuscript identifies three central boundaries\n\nWholesale acquisition cost captures one component of retailer cost\nCategory-level averages can change with the composition of products purchased\nPolicy exposure varies at the state–week level across five states\n\nThese boundaries guide the language used for margins, price indexes, and policy interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#connect-each-claim-to-the-available-data",
+    "href": "lectures/lecture5.5.html#connect-each-claim-to-the-available-data",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Connect each claim to the available data",
+    "text": "Connect each claim to the available data\n\n\n\n\n\n\n\n\nEmpirical claim\nData feature that supports it\nBoundary\n\n\n\n\nPrices changed during the SOE\nWeekly net price for the same products and stores\nOther contemporaneous changes remain part of the reduced-form setting\n\n\nMargins changed during the SOE\nRetail price and acquisition cost use the same unit\nThe spread omits other retailer costs\n\n\nPricing uniformity changed\nMultiple stores within the same chain and week\nStore coverage changes over time\n\n\nPass-through changed\nRetail and wholesale price changes are observed together\nWholesale costs may reflect shared upstream conditions\n\n\n\nThe data section should make this chain visible before the empirical model"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#decide-what-the-descriptive-evidence-must-show",
+    "href": "lectures/lecture5.5.html#decide-what-the-descriptive-evidence-must-show",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Decide what the descriptive evidence must show",
+    "text": "Decide what the descriptive evidence must show\n\nThe scale and composition of the analytic sample\nThe variation required to evaluate the hypotheses\nThe distribution and units of the central measures\nDifferences across periods or comparison groups\nExtreme values, missingness, and panel imbalance\nPatterns that motivate later estimation\n\nDesign the table after deciding which empirical questions it should answer"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#example-establish-the-sample-first",
+    "href": "lectures/lecture5.5.html#example-establish-the-sample-first",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Example: establish the sample first",
+    "text": "Example: establish the sample first\nThe manuscript begins the descriptive section with the analytic scale\n\nThe panel covers 604,121 observations across 549 unique store locations and three retail chains operating in five Southeastern states from January 2018 through July 2023\n\nIt then reports changes in store coverage over time and identifies which retailers account for the decline\nThis information prepares the reader to evaluate panel balance and sample composition"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#organize-the-paragraph-around-patterns",
+    "href": "lectures/lecture5.5.html#organize-the-paragraph-around-patterns",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Organize the paragraph around patterns",
+    "text": "Organize the paragraph around patterns\nThe price-gouging manuscript emphasizes three linked patterns\n\nWeekly volume rose sharply at SOE activation\nNet retail prices remained below their pre-SOE range during enforcement\nWholesale costs changed less while dollar margins narrowed"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#a-descriptive-paragraph-has-four-jobs",
+    "href": "lectures/lecture5.5.html#a-descriptive-paragraph-has-four-jobs",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "A descriptive paragraph has four jobs",
+    "text": "A descriptive paragraph has four jobs\n\nOrient the reader to the sample, unit, period, and comparison\nIdentify the pattern that matters for the research question\nQuantify its magnitude with a small number of interpretable values\nQualify the pattern with sample composition or measurement information"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#assign-each-element-a-job",
+    "href": "lectures/lecture5.5.html#assign-each-element-a-job",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Assign each element a job",
+    "text": "Assign each element a job\n\n\n\n\n\n\n\nElement\nJob\n\n\n\n\nTable body\nComplete values, units, and sample sizes\n\n\nTable notes\nDefinitions, weights, transformations, and sample restrictions\n\n\nFigure\nTime patterns, distributions, or comparisons\n\n\nMain text\nInterpretation tied to the research question\n\n\nRepository\nCode that constructs every reported value\n\n\n\nCheck that statistics compared in the text use the same sample and unit"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-paper-and-repository-answer-connected-questions",
+    "href": "lectures/lecture5.5.html#the-paper-and-repository-answer-connected-questions",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The paper and repository answer connected questions",
+    "text": "The paper and repository answer connected questions\n\n\n\n\n\n\n\nManuscript question\nRepository evidence\n\n\n\n\nWhere do the data come from\nREADME data overview and access documentation\n\n\nHow is the sample constructed\nSQL build and panel-construction scripts\n\n\nHow are variables defined\nREADME variable table and transformation code\n\n\nHow are exclusions applied\nAnalysis-sample filters in code\n\n\nWhere do descriptive values come from\nOrdered scripts that write tables and figures\n\n\nHow can the analysis be rerun\nQuick Start, package list, configuration, and master script"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-readme-is-the-entry-point",
+    "href": "lectures/lecture5.5.html#the-readme-is-the-entry-point",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The README is the entry point",
+    "text": "The README is the entry point\nThe price-gouging repository documents\n\nThe research question and empirical setting\nRequired SQL builds and local configuration\nThe command that runs the analysis\nData coverage and access restrictions\nCore variables and their interpretation\nKnown limitations\nThe mapping from scripts to manuscript sections and outputs\n\nA new collaborator should know where to begin after reading the README"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#scripts-mirror-the-data-argument",
+    "href": "lectures/lecture5.5.html#scripts-mirror-the-data-argument",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Scripts mirror the data argument",
+    "text": "Scripts mirror the data argument\n\n\n\n\n\n\n\nRepository artifact\nData-section role\n\n\n\n\ncode/00_read_in_data.R\nRetrieves source tables and assembles the initial panel\n\n\ncode/02_build_panel.R\nConstructs measures, timing variables, and the estimation sample\n\n\ncode/03_descriptive_tables.R\nProduces coverage and descriptive tables\n\n\ncode/run_all.R\nRuns the scripts in the intended order\n\n\ncode/sql/\nDocuments upstream construction of the source tables\n\n\ntables_latex/ and figures/\nStore manuscript-ready outputs"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#separate-materials-by-access-and-purpose",
+    "href": "lectures/lecture5.5.html#separate-materials-by-access-and-purpose",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Separate materials by access and purpose",
+    "text": "Separate materials by access and purpose\n\n\n\n\n\n\n\nTrack in Git\nKeep outside Git\n\n\n\n\nSource code and SQL\nLicensed transaction records\n\n\nREADME and variable documentation\nCredentials and connection strings\n\n\nPackage and software requirements\nComputer-specific configuration\n\n\nSmall metadata and public inputs\nLarge intermediate data files\n\n\nSelected tables and figures\nRegenerable bulk outputs\n\n\n\nUse .gitignore for restricted, sensitive, computer-specific, and regenerable files\nDocument how an authorized user supplies each required local input"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#make-the-computing-environment-explicit",
+    "href": "lectures/lecture5.5.html#make-the-computing-environment-explicit",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Make the computing environment explicit",
+    "text": "Make the computing environment explicit\nRecord\n\nR and external software requirements\nPackage names and versions when version differences matter\nDatabase or API dependencies\nRequired environment variables or configuration fields\nThe order of scripts\nRandom seeds for stochastic procedures\nThe expected output folders\n\nProvide a safe example configuration with placeholder values when local settings are required"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#link-manuscript-statements-to-artifacts",
+    "href": "lectures/lecture5.5.html#link-manuscript-statements-to-artifacts",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Link manuscript statements to artifacts",
+    "text": "Link manuscript statements to artifacts\n\n\n\n\n\n\n\nManuscript statement\nSupporting artifact\n\n\n\n\nFinal sample contains 604,121 observations\nSummary table produced by 03_descriptive_tables.R\n\n\nThe key is store–product–week\nPanel-construction code and README data structure\n\n\nNet price is transaction revenue divided by volume\nVariable-construction code and README definition\n\n\nFive products pass the selection procedure\nProduct coverage output and selection code\n\n\nDescriptive means differ across SOE periods\nPeriod-means table and figure scripts\n\n\n\nThis mapping helps a coauthor, reviewer, or future researcher verify a statement efficiently"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#audit-the-repository-from-a-new-users-perspective",
+    "href": "lectures/lecture5.5.html#audit-the-repository-from-a-new-users-perspective",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Audit the repository from a new user’s perspective",
+    "text": "Audit the repository from a new user’s perspective\n\nCan I identify the project purpose and empirical setting\nCan I find the analytic unit, key, sample period, and central variables\nCan I distinguish source data, intermediate data, and final outputs\nCan I locate every sample restriction and transformation\nCan I reproduce the descriptive tables from documented inputs\nCan I identify restricted materials and the process for authorized access\nCan I connect each manuscript table and figure to the script that produces it"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#build-a-fit-to-hypothesis-matrix",
+    "href": "lectures/lecture5.5.html#build-a-fit-to-hypothesis-matrix",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Build a fit-to-hypothesis matrix",
+    "text": "Build a fit-to-hypothesis matrix\nChoose one hypothesis from your conceptual framework\n\n\n\nComponent\nYour project\n\n\n\n\nHypothesis\nWhat relationship will be evaluated\n\n\nRequired observations\nWho or what must be observed\n\n\nRequired variation\nAcross whom, where, or when\n\n\nConstructed measures\nHow the concepts become variables\n\n\nSample restrictions\nWhich observations enter the analysis\n\n\nMain limitation\nWhich interpretation requires care\n\n\nRepository evidence\nWhich file documents or implements the step"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#draft-the-data-section-spine",
+    "href": "lectures/lecture5.5.html#draft-the-data-section-spine",
+    "title": "Lecture 5.5: From Repository to Data Section",
+    "section": "Draft the data-section spine",
+    "text": "Draft the data-section spine\nWrite one or two sentences for each heading\n\n\n\nSource and provenance\nCoverage and population\nSample selection\nObservation unit and key\n\n\n\nVariable construction\nMissing data and imputation\nLimitations and scope\nDescriptive evidence"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#group-workshop",
+    "href": "lectures/lecture5.5.html#group-workshop",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Group workshop",
+    "text": "Group workshop\nChoose one volunteer project and work through the evidence chain\n\nState one hypothesis\nIdentify the population and required variation\nDefine the observation unit and sample boundaries\nExplain one central variable construction\nIdentify one proxy or measurement limitation\nName the repository artifact that should support each step\n\n\nInvite a volunteer whose data plan is developed enough to discuss. Keep the questions general so the class can contribute from different fields. Record the completed matrix where everyone can see it."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#summary",
+    "href": "lectures/lecture5.5.html#summary",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Summary",
+    "text": "Summary\nVS Code brings the project files, R or Quarto execution, Git, and GitHub into one workspace\nThe data section establishes provenance, sample construction, variable construction, and interpretive scope\nDescriptive statistics develop the empirical setting and quantify the variation relevant to the hypotheses\nThe repository provides the documentation and code needed to verify and reproduce the data section"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#resources-and-course-navigation",
+    "href": "lectures/lecture5.5.html#resources-and-course-navigation",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Resources and course navigation",
+    "text": "Resources and course navigation\n\nPrice-gouging research repository\nSource control in VS Code\nR in VS Code\nQuarto in VS Code\nAll lectures\nSchedule and preparation\nCourse reading list"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#required-tools-for-the-vs-code-workflow",
+    "href": "lectures/lecture5.5.html#required-tools-for-the-vs-code-workflow",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Required tools for the VS Code workflow",
+    "text": "Required tools for the VS Code workflow\n\n\n\n\n\n\n\n\nTool\nRole in the workflow\nCheck\n\n\n\n\nGit\nLocal version history\ngit --version\n\n\nR\nStatistical computing\nR --version\n\n\nVS Code\nEditor and integrated workspace\nOpen the application\n\n\nR extension\nR terminal, completion, plots, and help\nCreate an R terminal\n\n\nQuarto extension\nEdit, execute, render, and preview .qmd files\nPreview a .qmd file\n\n\n\nInstall the R language server from an R console\ninstall.packages(\"languageserver\")\n\nSources: R in VS Code and Quarto in VS Code"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#opening-the-repository-root",
+    "href": "lectures/lecture5.5.html#opening-the-repository-root",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Opening the repository root",
+    "text": "Opening the repository root\n\nClone the repository or locate its existing local folder\nSelect File &gt; Open Folder and choose the repository root\nReview the active branch in the lower-left status bar\nOpen the integrated terminal and run git status\n\nThe repository root contains .git and the project files"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#workspace-checks-before-editing",
+    "href": "lectures/lecture5.5.html#workspace-checks-before-editing",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Workspace checks before editing",
+    "text": "Workspace checks before editing\n\n\n\nVS Code area\nWhat to verify\n\n\n\n\nExplorer\nProject structure and expected files\n\n\nStatus bar\nActive branch and repository status\n\n\nSource Control\nUncommitted and staged changes\n\n\nTerminal\nWorking directory and available software\n\n\nExtensions\nR and Quarto support enabled for this workspace\n\n\n\nStart the session by pulling accepted commits into the current branch"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#r-execution-within-vs-code",
+    "href": "lectures/lecture5.5.html#r-execution-within-vs-code",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "R execution within VS Code",
+    "text": "R execution within VS Code\nOpen the Command Palette with Ctrl+Shift+P\n\nRun R: Create R terminal\nOpen an .R file\nSelect code and press Ctrl+Enter\n\nRun the master script from the R terminal\nsource(\"code/run_all.R\")"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#paths-and-the-project-root",
+    "href": "lectures/lecture5.5.html#paths-and-the-project-root",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Paths and the project root",
+    "text": "Paths and the project root\n\nUse paths relative to the repository root\nPlace computer-specific settings in an ignored configuration file\nRecord package requirements and external software\nProvide one documented command that rebuilds the analysis\nDirect generated outputs to predictable folders\n\nA collaborator should be able to identify the entry point from the README"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-git-cycle-in-source-control",
+    "href": "lectures/lecture5.5.html#the-git-cycle-in-source-control",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The Git cycle in Source Control",
+    "text": "The Git cycle in Source Control\n\nPull the current branch and switch to a task branch\nEdit and run the project\nInspect each changed file and stage the intended changes\nCommit with a message that describes the research change\nPush the branch to GitHub\n\nThe Source Control view and terminal operate on the same local Git repository\nSource: Source control in VS Code"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#diff-review-before-committing",
+    "href": "lectures/lecture5.5.html#diff-review-before-committing",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Diff review before committing",
+    "text": "Diff review before committing\nAsk four questions\n\nDoes every changed file belong to this task\nDo the additions implement the intended research decision\nDid an output, credential, or large data file enter the change accidentally\nCan the commit message explain the change without opening every file\n\nStage a coherent set of files after reviewing the diff"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#evidence-chain-from-hypotheses-to-empirical-claims",
+    "href": "lectures/lecture5.5.html#evidence-chain-from-hypotheses-to-empirical-claims",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Evidence chain from hypotheses to empirical claims",
+    "text": "Evidence chain from hypotheses to empirical claims\n\n\nUse this diagram to organize the remainder of the lecture. The manuscript states each link. The repository documents and implements the sample, measures, and descriptive outputs."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#hypotheses-determine-data-requirements",
+    "href": "lectures/lecture5.5.html#hypotheses-determine-data-requirements",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Hypotheses determine data requirements",
+    "text": "Hypotheses determine data requirements\n\n\n\n\n\n\n\nPart of a hypothesis\nWhat the data section must establish\n\n\n\n\nOutcome\nThe measure, unit, and reference period\n\n\nExplanatory factor\nThe observed variable that represents the proposed mechanism\n\n\nComparison\nThe groups, places, or periods that generate variation\n\n\nPopulation\nThe units to which the hypothesis applies\n\n\nConditions\nThe controls, restrictions, and assumptions needed for interpretation\n\n\n\nThe hypothesis determines the observations, measures, and variation the data section must establish"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#sample-entry-and-selection-rules",
+    "href": "lectures/lecture5.5.html#sample-entry-and-selection-rules",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Sample entry and selection rules",
+    "text": "Sample entry and selection rules\nThe price-gouging manuscript reports a three-stage product-selection procedure\n\nRestrict the universe to 47 perishable fruit and vegetable categories\nApply a coverage screen around policy activation and expiration\nRank passing products by sales and volume and select five items\n\nCoverage screen: present in 80 percent of both 26-week windows, observed for five weeks on each side, and passing in 75 percent of stores"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#the-analytic-sample-from-source-to-estimation-panel",
+    "href": "lectures/lecture5.5.html#the-analytic-sample-from-source-to-estimation-panel",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "The analytic sample from source to estimation panel",
+    "text": "The analytic sample from source to estimation panel\n\n\n\n\n\n\n\nStage\nResult\n\n\n\n\nItem-level retail transactions\nPackaged and random-weight products across 74 categories\n\n\nPerishable fruit and vegetable restriction\n47 candidate categories\n\n\nCoverage screen\nProducts regularly observed around activation and expiration\n\n\nSales and volume ranking\nFive focal products\n\n\nAnalytic restrictions\nPositive quantity, price, and wholesale cost\n\n\nFinal estimation panel\n604,121 store-product-week observations\n\n\n\nThe manuscript should report the counts available at each consequential stage"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#observation-unit-and-key",
+    "href": "lectures/lecture5.5.html#observation-unit-and-key",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Observation unit and key",
+    "text": "Observation unit and key\nThe analysis aggregates transactions to the store-product-week level\n\n\n\nIndex\nMeaning\n\n\n\n\nii\nStore\n\n\njj\nProduct\n\n\nss\nState\n\n\ntt\nWeek\n\n\n\nThe key is the combination of store, product, and week\nState identifies the policy environment associated with each store"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#net-retail-price-construction",
+    "href": "lectures/lecture5.5.html#net-retail-price-construction",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Net retail price construction",
+    "text": "Net retail price construction\nFor store ii, product jj, state ss, and week tt\npjistnet=∑d∈tnet_salesijsd∑d∈tvolumeijsd\np^{net}_{jist}\n=\n\\frac{\\sum_{d \\in t} net\\_sales_{ijsd}}\n     {\\sum_{d \\in t} volume_{ijsd}}\n\n\nThe numerator is total transaction revenue after promotional discounts\nThe denominator is total units or pounds sold\nThe ratio is the average price paid at the register\nUnits follow the product, pounds for random-weight produce and units for packaged lettuce"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#cost-and-margin-construction",
+    "href": "lectures/lecture5.5.html#cost-and-margin-construction",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Cost and margin construction",
+    "text": "Cost and margin construction\nAverage wholesale acquisition cost\nwjist=∑d∈ttotal_costijsd∑d∈tvolumeijsd\nw_{jist}\n=\n\\frac{\\sum_{d \\in t} total\\_cost_{ijsd}}\n     {\\sum_{d \\in t} volume_{ijsd}}\n\nRetail-wholesale margin\nMjistnet=pjistnet−wjist\nM^{net}_{jist}=p^{net}_{jist}-w_{jist}\n\nThe shared product, store, week, and physical unit give the spread a direct interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#policy-measures",
+    "href": "lectures/lecture5.5.html#policy-measures",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Policy measures",
+    "text": "Policy measures\nThe empirical setting determines three periods for each state\n\nPre-SOE weeks before the emergency declaration\nSOE weeks when the declaration and associated APG protections were active\nPost-SOE weeks after the declaration expired\n\nSOEstSOE_{st} links the state-level legal setting to each store-product-week\nDurstDur_{st} counts weeks since activation during the emergency period\nReport the date source and the rule used to assign partial weeks"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#missing-data-and-sample-loss",
+    "href": "lectures/lecture5.5.html#missing-data-and-sample-loss",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Missing data and sample loss",
+    "text": "Missing data and sample loss\nFor every consequential restriction state\n\nWhich field is missing or invalid\nHow many observations are affected\nWhether the loss is concentrated by place, time, product, or group\nHow the analysis treats the affected observations\nHow the restriction changes the interpretation of the sample"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#imputation-documentation",
+    "href": "lectures/lecture5.5.html#imputation-documentation",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Imputation documentation",
+    "text": "Imputation documentation\nReport\n\nWhich variables contain imputed values\nThe unit and time window used for imputation\nThe algorithm and predictors\nThe assumptions required by the method\nThe number and share of values imputed\nAn indicator that identifies imputed observations\nA sensitivity analysis using observed values\n\nKeep the original value and the imputed value in separate fields"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#proxies-interpretation-and-scope",
+    "href": "lectures/lecture5.5.html#proxies-interpretation-and-scope",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Proxies, interpretation, and scope",
+    "text": "Proxies, interpretation, and scope\n\n\n\n\n\n\n\n\nConstruct\nAvailable measure\nScope of interpretation\n\n\n\n\nConsumer price\nNet transaction price\nAverage register price for the item within the week\n\n\nRetailer input cost\nWholesale acquisition cost\nProcurement cost recorded in the point-of-sale system\n\n\nRetail margin\nNet price minus acquisition cost\nRetail-wholesale spread\n\n\nPolicy exposure\nActive state emergency declaration\nStatutory APG exposure by state and week\n\n\n\nLabor, logistics, handling, shrink, and spoilage remain outside the observed cost measure"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#limitations-and-empirical-claims",
+    "href": "lectures/lecture5.5.html#limitations-and-empirical-claims",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Limitations and empirical claims",
+    "text": "Limitations and empirical claims\nThe manuscript identifies three central boundaries\n\nWholesale acquisition cost captures one component of retailer cost\nCategory-level averages can change with the composition of products purchased\nPolicy exposure varies at the state-week level across five states\n\nThese boundaries guide the language used for margins, price indexes, and policy interpretation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#price-and-margin-claims",
+    "href": "lectures/lecture5.5.html#price-and-margin-claims",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Price and margin claims",
+    "text": "Price and margin claims\n\n\n\n\n\n\n\n\nEmpirical claim\nData feature that supports it\nBoundary\n\n\n\n\nPrices changed during the SOE\nWeekly net price for the same products and stores\nOther contemporaneous changes remain part of the reduced-form setting\n\n\nMargins changed during the SOE\nRetail price and acquisition cost use the same unit\nThe spread omits other retailer costs"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#pricing-uniformity-and-pass-through-claims",
+    "href": "lectures/lecture5.5.html#pricing-uniformity-and-pass-through-claims",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Pricing uniformity and pass-through claims",
+    "text": "Pricing uniformity and pass-through claims\n\n\n\n\n\n\n\n\nEmpirical claim\nData feature that supports it\nBoundary\n\n\n\n\nPricing uniformity changed\nMultiple stores within the same chain and week\nStore coverage changes over time\n\n\nPass-through changed\nRetail and wholesale price changes are observed together\nWholesale costs may reflect shared upstream conditions\n\n\n\nThe data section should make this chain visible before the empirical model"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#descriptive-evidence-required-for-the-hypotheses",
+    "href": "lectures/lecture5.5.html#descriptive-evidence-required-for-the-hypotheses",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Descriptive evidence required for the hypotheses",
+    "text": "Descriptive evidence required for the hypotheses\n\nThe scale and composition of the analytic sample\nThe variation required to evaluate the hypotheses\nThe distribution and units of the central measures\nDifferences across periods or comparison groups\nExtreme values, missingness, and panel imbalance\nPatterns that motivate later estimation\n\nDesign the table after deciding which empirical questions it should answer"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#example-analytic-scale-and-composition",
+    "href": "lectures/lecture5.5.html#example-analytic-scale-and-composition",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Example: analytic scale and composition",
+    "text": "Example: analytic scale and composition\nThe manuscript begins the descriptive section with the analytic scale\n\nThe panel covers 604,121 observations across 549 unique store locations and three retail chains operating in five Southeastern states from January 2018 through July 2023\n\nIt then reports changes in store coverage over time and identifies which retailers account for the decline\nThis information prepares the reader to evaluate panel balance and sample composition"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#patterns-in-the-descriptive-paragraph",
+    "href": "lectures/lecture5.5.html#patterns-in-the-descriptive-paragraph",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Patterns in the descriptive paragraph",
+    "text": "Patterns in the descriptive paragraph\nThe price-gouging manuscript emphasizes three linked patterns\n\nWeekly volume rose sharply at SOE activation\nNet retail prices remained below their pre-SOE range during enforcement\nWholesale costs changed less while dollar margins narrowed"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#roles-of-tables-figures-text-and-the-repository",
+    "href": "lectures/lecture5.5.html#roles-of-tables-figures-text-and-the-repository",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Roles of tables, figures, text, and the repository",
+    "text": "Roles of tables, figures, text, and the repository\n\n\n\n\n\n\n\nElement\nJob\n\n\n\n\nTable body\nComplete values, units, and sample sizes\n\n\nTable notes\nDefinitions, weights, transformations, and sample restrictions\n\n\nFigure\nTime patterns, distributions, or comparisons\n\n\nMain text\nInterpretation tied to the research question\n\n\nRepository\nCode that constructs every reported value\n\n\n\nCheck that statistics compared in the text use the same sample and unit"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#git-tracking-by-access-and-purpose",
+    "href": "lectures/lecture5.5.html#git-tracking-by-access-and-purpose",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Git tracking by access and purpose",
+    "text": "Git tracking by access and purpose\n\n\n\n\n\n\n\nTrack in Git\nKeep outside Git\n\n\n\n\nSource code and SQL\nLicensed transaction records\n\n\nREADME and variable documentation\nCredentials and connection strings\n\n\nPackage and software requirements\nComputer-specific configuration\n\n\nSmall metadata and public inputs\nLarge intermediate data files\n\n\nSelected tables and figures\nRegenerable bulk outputs\n\n\n\nUse .gitignore for restricted, sensitive, computer-specific, and regenerable files\nDocument how an authorized user supplies each required local input"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#computing-environment",
+    "href": "lectures/lecture5.5.html#computing-environment",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Computing environment",
+    "text": "Computing environment\nRecord\n\nR and external software requirements\nPackage names and versions when version differences matter\nDatabase or API dependencies\nRequired environment variables or configuration fields\nThe order of scripts\nRandom seeds for stochastic procedures\nThe expected output folders\n\nProvide a safe example configuration with placeholder values when local settings are required"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#manuscript-statements-and-repository-artifacts",
+    "href": "lectures/lecture5.5.html#manuscript-statements-and-repository-artifacts",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Manuscript statements and repository artifacts",
+    "text": "Manuscript statements and repository artifacts\n\n\n\n\n\n\n\nManuscript statement\nSupporting artifact\n\n\n\n\nFinal sample contains 604,121 observations\nSummary table produced by 03_descriptive_tables.R\n\n\nThe key is store-product-week\nPanel-construction code and README data structure\n\n\nNet price is transaction revenue divided by volume\nVariable-construction code and README definition\n\n\nFive products pass the selection procedure\nProduct coverage output and selection code\n\n\nDescriptive means differ across SOE periods\nPeriod-means table and figure scripts\n\n\n\nThis mapping helps a coauthor, reviewer, or future researcher verify a statement efficiently"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#repository-audit",
+    "href": "lectures/lecture5.5.html#repository-audit",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Repository audit",
+    "text": "Repository audit\n\nCan I identify the project purpose and empirical setting\nCan I find the analytic unit, key, sample period, and central variables\nCan I distinguish source data, intermediate data, and final outputs\nCan I locate every sample restriction and transformation\nCan I reproduce the descriptive tables from documented inputs\nCan I identify restricted materials and the process for authorized access\nCan I connect each manuscript table and figure to the script that produces it"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#fit-to-hypothesis-matrix",
+    "href": "lectures/lecture5.5.html#fit-to-hypothesis-matrix",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Fit-to-hypothesis matrix",
+    "text": "Fit-to-hypothesis matrix\nChoose one hypothesis from your conceptual framework\n\n\n\nComponent\nYour project\n\n\n\n\nHypothesis\nWhat relationship will be evaluated\n\n\nRequired observations\nWho or what must be observed\n\n\nRequired variation\nAcross whom, where, or when\n\n\nConstructed measures\nHow the concepts become variables\n\n\nSample restrictions\nWhich observations enter the analysis\n\n\nMain limitation\nWhich interpretation requires care\n\n\nRepository evidence\nWhich file documents or implements the step"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#data-section-spine",
+    "href": "lectures/lecture5.5.html#data-section-spine",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Data-section spine",
+    "text": "Data-section spine\nWrite one or two sentences for each heading\n\n\n\nSource and provenance\nCoverage and population\nSample selection\nObservation unit and key\n\n\n\nVariable construction\nMissing data and imputation\nLimitations and scope\nDescriptive evidence"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#preparation-for-the-next-project-meeting",
+    "href": "lectures/lecture5.5.html#preparation-for-the-next-project-meeting",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Preparation for the next project meeting",
+    "text": "Preparation for the next project meeting\nPrepare two items for your own project\n\nA five-sentence outline covering source, sample, observation unit, central measures, and main limitation\nA repository checklist naming the README content, build script, variable documentation, and first descriptive output still needed\n\nBring both items to the next project meeting or advising conversation"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#analytic-sample-construction",
+    "href": "lectures/lecture5.5.html#analytic-sample-construction",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Analytic sample construction",
+    "text": "Analytic sample construction\n\n\n\nStage\nResult\n\n\n\n\nItem-level transactions\n74 product categories\n\n\nPerishable produce restriction\n47 candidate categories\n\n\nCoverage screen\nProducts observed near activation and expiration\n\n\nSales and volume ranking\nFive focal products\n\n\nAnalytic restrictions\nPositive quantity, price, and wholesale cost\n\n\nFinal panel\n604,121 store-product-week observations\n\n\n\nThe manuscript should report the counts available at each consequential stage"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#evidence-chain-for-a-data-section",
+    "href": "lectures/lecture5.5.html#evidence-chain-for-a-data-section",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Evidence chain for a data section",
+    "text": "Evidence chain for a data section\n\n\nUse this diagram to organize the remainder of the lecture. The manuscript states each link. The repository documents and implements the sample, measures, and descriptive outputs."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#what-the-opening-sentence-establishes",
+    "href": "lectures/lecture5.5.html#what-the-opening-sentence-establishes",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "What the opening sentence establishes",
+    "text": "What the opening sentence establishes\n\nThe data provider\nThe type and frequency of the records\nThe observation period\nThe number and type of locations\nThe number of chains\nThe geographic coverage\n\nThe remaining source description explains the chains, product records, and access conditions"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#uniformity-and-pass-through-claims",
+    "href": "lectures/lecture5.5.html#uniformity-and-pass-through-claims",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Uniformity and pass-through claims",
+    "text": "Uniformity and pass-through claims\n\n\n\n\n\n\n\n\nEmpirical claim\nData feature that supports it\nBoundary\n\n\n\n\nPricing uniformity changed\nMultiple stores within the same chain and week\nStore coverage changes over time\n\n\nPass-through changed\nRetail and wholesale price changes are observed together\nWholesale costs may reflect shared upstream conditions"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#vs-code-demo",
+    "href": "lectures/lecture5.5.html#vs-code-demo",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "VS Code Demo",
+    "text": "VS Code Demo\n\nOpen the repository and locate the analysis entry point\nIdentify the active branch and remote\nOpen one R script and one LaTeX file\nEdit a demonstration branch, inspect the diff, and commit\nPush the branch and locate it on GitHub\n\n\nUse a disposable demonstration branch. Show the Explorer, integrated terminal, Source Control view, diff editor, and GitHub branch. Keep the demonstration to about ten minutes."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#research-question-and-testable-hypotheses",
+    "href": "lectures/lecture5.5.html#research-question-and-testable-hypotheses",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Research question and testable hypotheses",
+    "text": "Research question and testable hypotheses\n\n\nResearch question\n\nHow did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?\n\n\nFramework-derived hypotheses\n\nRetail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods\nWithin-chain price differences vary with state enforcement status if APG protections affect pricing\nRetail prices respond to wholesale acquisition costs, and pass-through may change during the SOE\nMore frequent promotions can reduce net transaction prices while posted prices remain similar\n\n\n\nThe framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#proxies-and-empirical-scope",
+    "href": "lectures/lecture5.5.html#proxies-and-empirical-scope",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Proxies and empirical scope",
+    "text": "Proxies and empirical scope\nA proxy is an observed measure used to represent an unobserved concept\nFor each proxy\n\nName the concept the hypothesis requires\nDefine the observed measure\nExplain why the measure represents the concept\nIdentify the relevant dimensions the measure omits\nLimit the empirical claim to what the measure can support\n\nMeasurement limits should appear in the data section and in the interpretation of the results"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#data-provenance-and-scope",
+    "href": "lectures/lecture5.5.html#data-provenance-and-scope",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Data provenance and scope",
+    "text": "Data provenance and scope\nThe opening paragraph identifies the source, records, period, locations, firms, and geography\n\nWe use item-level scanner data from DecaData, which report daily retail transactions from January 1, 2018, through July 17, 2023 for 549 grocery stores affiliated with three major retail chains operating across five Southeastern U.S. states\n\n\nSource: manuscript_v13.tex, Data Source subsection. Ask students what they know after one sentence and what questions still remain."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#sample-restrictions-and-missing-observations",
+    "href": "lectures/lecture5.5.html#sample-restrictions-and-missing-observations",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Sample restrictions and missing observations",
+    "text": "Sample restrictions and missing observations\nThe analysis requires positive quantities, retail prices, and wholesale costs\nPrice-change models also require consecutive observations for the same store and product\nThe data section should report\n\nThe number of observations removed by each restriction\nThe concentration of losses by product, store, state, and period\nThe implications for the analytic sample and each hypothesis"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#establish-the-scale-and-composition",
+    "href": "lectures/lecture5.5.html#establish-the-scale-and-composition",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Establish the scale and composition",
+    "text": "Establish the scale and composition\nThe descriptive section begins with the analytic scale\n\nThe panel covers 604,121 observations across 549 unique store locations and three retail chains operating in five Southeastern states from January 2018 through July 2023\n\nIt then reports changes in store coverage over time and identifies which retailers account for the decline\nThis information prepares the reader to evaluate panel balance and sample composition"
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#describe-patterns-relevant-to-the-hypotheses",
+    "href": "lectures/lecture5.5.html#describe-patterns-relevant-to-the-hypotheses",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "Describe patterns relevant to the hypotheses",
+    "text": "Describe patterns relevant to the hypotheses\nThe manuscript connects three pieces of descriptive evidence\n\nUpon the SOE activation in March 2020, total weekly volume rose sharply, increasing 27.4 percent relative to the four preceding weeks\n\n\nBoth nominal and real prices fell immediately at activation and remained below their pre-SOE range for the duration of enforcement\n\n\nWholesale costs were generally unchanged across periods for most products. Dollar margins narrowed during the SOE for all five products\n\n\nSource: manuscript_v13.tex, Descriptive Evidence section. The sentences move from demand conditions to prices, wholesale costs, and margins. Each pattern corresponds to an element of the research question or framework."
+  },
+  {
+    "objectID": "lectures/lecture5.5.html#how-the-descriptive-discussion-is-organized",
+    "href": "lectures/lecture5.5.html#how-the-descriptive-discussion-is-organized",
+    "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
+    "section": "How the descriptive discussion is organized",
+    "text": "How the descriptive discussion is organized\n\n\n\n\n\n\n\nJob\nEvidence used in the example\n\n\n\n\nOrient\nSample size, stores, chains, states, and period\n\n\nIdentify\nVolume, price, cost, and margin patterns during the SOE\n\n\nQuantify\nA 27.4 percent increase in volume and product-level changes\n\n\nQualify\nChanges in store coverage and differences across products\n\n\n\nThe discussion gives the reader context for the regression results that follow"
   }
 ]
