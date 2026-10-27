@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ag Econ Methods Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; map (overflow-scroll diagram) → decision tree → estimation primer → worked example. Families carry color everywhere. */
+:root{
+  --bg:#F5F7F4; --surface:#FFFFFF; --fg:#1B2621; --muted:#5B6862; --line:#D5DDD8; --grid:#E6ECE8; --code:#EEF2EF;
+  --rf:#1F6F5C; --st:#A86B12; --both:#6A4A92; --ts:#3E5C7A;
+  --rf-soft:#E2F0EB; --st-soft:#F6ECDB; --both-soft:#EEE8F6; --ts-soft:#E4EBF2;
+  --display:"Literata",Georgia,serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111814; --surface:#18211C; --fg:#E4ECE7; --muted:#9AA8A1; --line:#2C3832; --grid:#222C27; --code:#1F2a24;
+  --rf:#5CC2A6; --st:#E0A54A; --both:#B597E0; --ts:#86A9CC;
+  --rf-soft:#17302A; --st-soft:#33281A; --both-soft:#2A2238; --ts-soft:#1B2734; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111814; --surface:#18211C; --fg:#E4ECE7; --muted:#9AA8A1; --line:#2C3832; --grid:#222C27; --code:#1F2a24;
+  --rf:#5CC2A6; --st:#E0A54A; --both:#B597E0; --ts:#86A9CC;
+  --rf-soft:#17302A; --st-soft:#33281A; --both-soft:#2A2238; --ts-soft:#1B2734; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;display:grid;gap:48px}
+header{display:grid;gap:8px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:650;font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:650;font-size:24px;margin:0;text-wrap:balance}
+h3{font-family:var(--display);font-weight:500;font-size:19px;margin:0}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted);font-size:17px}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+nav.toc a{color:var(--rf);font-weight:600}
+section{display:grid;gap:16px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:11px;height:11px;border-radius:50%;display:inline-block}
+.sw.open{background:none;border:2px solid var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 13px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip.toggle{border-style:dashed}
+.chip:focus-visible,.opt:focus-visible,.dotbtn:focus-visible,.crumb:focus-visible,.copy:focus-visible{outline:2px solid var(--rf);outline-offset:2px}
+.mapbox{overflow-x:auto;border:1px solid var(--line);background:var(--surface);border-radius:6px}
+.mapbox svg{display:block;min-width:700px;width:100%;height:auto}
+.hint{font-size:13px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:4px;padding:18px 20px;display:grid;gap:12px}
+.card .fam{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--c);display:flex;flex-wrap:wrap;gap:4px 10px}
+.card dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:0}
+.card dt{font-size:13px;font-weight:700;color:var(--muted)}
+.card dd{margin:0;min-width:0}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--fg)}
+.lec{color:var(--muted)}
+.beyond{color:var(--fg);border:1px dashed var(--muted);border-radius:999px;padding:0 6px}
+@media (max-width:560px){.card dl{grid-template-columns:1fr;gap:2px}.card dd{margin-bottom:8px}}
+.tree{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:16px}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.crumb{border:0;background:none;color:var(--rf);font:600 13px var(--body);cursor:pointer;padding:2px 0;text-decoration:underline}
+.crumbs .sep{color:var(--muted)}
+.q{font-family:var(--display);font-size:21px;font-weight:500;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:12px 14px;cursor:pointer;display:grid;gap:2px;font:inherit}
+.opt:hover{border-color:var(--fg)}
+.opt b{font-weight:600}
+.opt small{color:var(--muted);font-size:13px}
+.leafcards{display:grid;gap:14px}
+.restart{justify-self:start;border:1px solid var(--fg);background:var(--fg);color:var(--bg);font:600 14px var(--body);border-radius:6px;padding:8px 14px;cursor:pointer}
+/* primer */
+.stack{display:grid;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.layer{display:grid;grid-template-columns:200px 1fr;gap:4px 20px;padding:16px 20px;border-top:1px solid var(--line)}
+.layer:first-child{border-top:0}
+.layer .nm{font-family:var(--display);font-size:18px;font-weight:650;display:grid;gap:2px;align-content:start}
+.layer .nm small{font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted)}
+.layer .body{display:grid;gap:6px;min-width:0}
+.layer .ex{font-size:15px;border-left:3px solid var(--st);padding-left:10px}
+.layer .warn{font-size:14px;color:var(--muted)}
+@media (max-width:600px){.layer{grid-template-columns:1fr}}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-top:1px solid var(--line)}
+thead th{border-top:0;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+td:first-child{font-weight:600}
+td code,p code,li code{font-family:var(--mono);font-size:13px;background:var(--code);padding:1px 4px;border-radius:3px}
+ol.steps{margin:0;padding-left:22px;display:grid;gap:10px;max-width:72ch}
+ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
+.sub{display:grid;gap:10px}
+.codebox{position:relative;background:var(--code);border:1px solid var(--line);border-radius:6px}
+.codebox pre{margin:0;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55}
+.copy{position:absolute;top:8px;right:8px;font:600 12px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;padding:4px 8px;cursor:pointer}
+.callout{background:var(--st-soft);border-radius:6px;padding:14px 18px;display:grid;gap:6px}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.path{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:4px;padding:16px 18px;display:grid;gap:10px;align-content:start}
+.path p{font-size:15px}
+.path .k{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:no-preference){.dot{transition:opacity .2s}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">AREC 570 / ECON 530 · Unit 6 · Draft 2</div>
+  <h1>Choosing a method for an applied economics question</h1>
+  <p class="lede">Start from what the question needs, then decide how much economic structure you are willing to impose to get it. Then decide how the model will be estimated.</p>
+  <nav class="toc" aria-label="Sections"><a href="#map">The map</a><a href="#tree">Decision tree</a><a href="#primer">Model versus estimation</a><a href="#example">Worked example</a></nav>
+</header>
+
+<section id="map">
+  <h2>The map</h2>
+  <p>Moving right buys counterfactuals, welfare, and mechanisms. The price is assumptions about functional form and behavior. Moving left buys credibility for a narrower estimand.</p>
+  <div class="legend">
+    <span><i class="sw" style="background:var(--rf)"></i>Design-based</span>
+    <span><i class="sw" style="background:var(--both)"></i>Combining approaches</span>
+    <span><i class="sw" style="background:var(--st)"></i>Structural</span>
+    <span><i class="sw" style="background:var(--ts)"></i>Time series</span>
+    <span><i class="sw open"></i>Open point: beyond the Unit 6 readings</span>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Filter by domain"></div>
+  <div class="mapbox"><svg id="svg" viewBox="0 0 720 470" role="img" aria-label="Methods plotted by economic structure imposed and what the question needs"></svg></div>
+  <p class="hint">Select a point to see its assumptions and how it is estimated. Positions are approximate and meant for discussion.</p>
+  <div id="mapcard"></div>
+</section>
+
+<section id="tree">
+  <h2>The decision tree</h2>
+  <p>Answer for your own proposal. Every endpoint lists what you have to believe and how the method is estimated.</p>
+  <div class="tree" id="treebox"></div>
+</section>
+
+<section id="primer">
+  <h2>Model versus estimation</h2>
+  <p>A structural paper makes four separate choices, and students often treat them as one. "We estimate a BLP model" names a model and, loosely, an estimator. It does not say what variation identifies the parameters. Separate the four layers and each one can be evaluated on its own terms.</p>
+
+  <div class="stack">
+    <div class="layer"><div class="nm">1. Model<small>What generates the data?</small></div><div class="body">
+      <p>The economic primitives: preferences, technology, information, and how agents interact (equilibrium). The model defines the parameters and what a counterfactual means.</p>
+      <p class="ex"><b>BLP:</b> consumer <i>i</i>'s utility from product <i>j</i> depends on price and attributes, with tastes that vary across consumers, plus a product-level demand shock ξ the researcher does not observe. Firms may also set prices in a Bertrand-Nash equilibrium.</p>
+      <p class="warn">Common mistake: treating the functional form as a detail. In logit, the functional form alone determines substitution patterns.</p></div></div>
+    <div class="layer"><div class="nm">2. Identification<small>What variation pins down the parameters?</small></div><div class="body">
+      <p>The argument that, with infinite data, only one set of parameter values is consistent with what you observe. This is independent of the estimator, and it is where reduced-form thinking enters structural work.</p>
+      <p class="ex"><b>BLP:</b> price is correlated with ξ, because firms see the demand shock when they set prices. Identification needs instruments: cost shifters, characteristics of rival products, or prices of the same product in other markets. The taste dispersion is identified by how substitution changes as the choice set changes.</p>
+      <p class="warn">Common mistake: answering "how is it identified?" with "by GMM." GMM is an estimator. Identification is about the instruments and the variation.</p></div></div>
+    <div class="layer"><div class="nm">3. Estimation<small>What objective, and how do you find its optimum?</small></div><div class="body">
+      <p>An estimator, which is an objective function built from the data, plus an algorithm to optimize it. Some estimators have a closed form (OLS, 2SLS). Most structural estimators require numerical search.</p>
+      <p class="ex"><b>BLP:</b> generalized method of moments on the moment condition E[ξ·Z] = 0, where Z is the instruments. Because ξ has no closed form, the algorithm nests a fixed-point calculation inside the optimization (see the steps below).</p>
+      <p class="warn">Common mistake: reporting estimates without checking whether the optimizer found the global optimum.</p></div></div>
+    <div class="layer"><div class="nm">4. Inference and output<small>How uncertain, and what do you report?</small></div><div class="body">
+      <p>Standard errors for the parameters, then the objects the paper is actually about: elasticities, markups, welfare, and counterfactuals. These are functions of the parameters, so their uncertainty comes from the delta method, the bootstrap, or simulation.</p>
+      <p class="ex"><b>BLP:</b> clustered GMM standard errors for the parameters; elasticities and merger simulations computed from the estimates, with standard errors for those too.</p>
+      <p class="warn">Common mistake: reporting standard errors on parameters but not on the welfare number in the abstract.</p></div></div>
+  </div>
+
+  <div class="sub">
+    <h3>The main estimators</h3>
+    <p>Most applied methods use one of these. The key difference is what the researcher has to specify.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Estimator</th><th>You specify</th><th>Optimized by</th><th>Examples on the map</th></tr></thead>
+      <tbody>
+        <tr><td>Least squares (OLS, FE, 2SLS)</td><td>A linear conditional mean, or moment conditions that are linear in parameters</td><td>Closed form</td><td>DiD, IV, panel weather, Ricardian, logit and nested logit demand (Berry 1994 inversion)</td></tr>
+        <tr><td>Maximum likelihood</td><td>The full distribution of the data given parameters</td><td>Numerical: gradient methods such as BFGS or Newton</td><td>Stochastic frontier, conditional logit, Rust's bus engine model, count models for trips</td></tr>
+        <tr><td>Generalized method of moments</td><td>Moment conditions only, usually orthogonality between an unobservable and instruments</td><td>Numerical, usually in two steps to get the optimal weighting matrix</td><td>BLP, conduct models, production functions (Olley-Pakes, ACF), spatial models</td></tr>
+        <tr><td>Simulation-based (SMM, indirect inference, simulated MLE)</td><td>A model you can simulate even if you cannot write its likelihood or moments</td><td>Numerical; simulation draws held fixed across iterations</td><td>Mixed logit, dynamic and option value models, matching model moments to reduced-form estimates</td></tr>
+        <tr><td>Nonlinear least squares / systems</td><td>Nonlinear equations, often several at once with cross-equation restrictions</td><td>Iterated numerical estimation</td><td>AIDS and QUAIDS with homogeneity and symmetry imposed; cost functions with share equations</td></tr>
+        <tr><td>Bayesian (MCMC)</td><td>A likelihood plus priors on the parameters</td><td>Sampling from the posterior</td><td>Hierarchical choice models, individual-level willingness to pay</td></tr>
+        <tr><td>Calibration</td><td>Parameter values taken from the literature or set to match a benchmark year</td><td>No estimation; the model is solved at those values</td><td>CGE, equilibrium displacement models, many real options and spatial models</td></tr>
+        <tr><td>Nonparametric / semiparametric</td><td>Smoothness, not a functional form, for some or all of the relationship</td><td>Kernels, local polynomials, sieves, trees</td><td>RD (local linear), matching, DML, causal forests</td></tr>
+      </tbody></table></div>
+    <p><b>Where "nonparametric" fits in structural work.</b> It usually comes up in identification, not estimation. Berry and Haile (2014) show what demand models can be identified without assuming the logit error or a parametric taste distribution. That tells you which conclusions depend on data and which depend on functional form. Applied papers then estimate a parametric version, and the honest ones say which results are driven by the parametric choices.</p>
+  </div>
+
+  <div class="sub">
+    <h3>BLP, step by step</h3>
+    <p>BLP is estimated by GMM, and nobody should hand-code it for a dissertation. The standard tool is PyBLP (Conlon and Gortmaker 2020), which is in Python and can be called from R through <code>reticulate</code>. Teach it as a sequence in which each step adds one complication.</p>
+    <ol class="steps">
+      <li><b>Plain logit is a linear IV regression.</b> With market shares, ln(s<sub>j</sub>/s<sub>0</sub>) = xβ − αp + ξ (Berry 1994). Estimate by 2SLS with instruments for price. Students can run this today with <code>fixest</code>. The problem is the substitution pattern: every product loses share in proportion to its size.</li>
+      <li><b>Nested logit is still linear IV.</b> Add ln(share within nest) as a regressor, which also needs an instrument. Substitution is now stronger within nests.</li>
+      <li><b>Random coefficients break linearity.</b> Tastes for price and attributes now vary with dispersion σ. Shares no longer invert analytically, so for any guess of σ the mean utilities δ have to be solved for.</li>
+      <li><b>Inner loop.</b> For a given σ, simulate a set of consumers and solve for the δ that makes predicted shares equal observed shares. This uses a contraction mapping, a fixed-point iteration that is guaranteed to converge. Use a tight tolerance, or the outer loop optimizes noise.</li>
+      <li><b>Linear parameters by IV.</b> Regress δ on x and p with instruments to recover β and α. The residual is ξ(σ).</li>
+      <li><b>Outer loop.</b> Search over σ to minimize the GMM objective ξ(σ)′Z W Z′ξ(σ). This is the nested fixed point. An alternative formulation, MPEC, solves the same problem as one constrained optimization (Dubé, Fox and Su 2012).</li>
+      <li><b>Check and report.</b> Use several starting values, check that the gradient is near zero at the optimum, and report elasticities and diversion ratios. Results can be sensitive to optimizer choices (Knittel and Metaxoglou 2014). Add supply-side moments or micro moments from household data when the aggregate shares alone identify σ poorly.</li>
+    </ol>
+  </div>
+
+  <div class="sub">
+    <h3>Grid search, optimizers, and nested loops</h3>
+    <p><b>Grid search</b> evaluates the objective at every point on a grid of parameter values and keeps the best. It is transparent and cannot get stuck at a local optimum within the grid, but the cost grows exponentially: 100 points per parameter means 10,000 evaluations for two parameters and 10<sup>10</sup> for five. Use it for one or two nonlinear parameters (a temperature threshold, a discount factor, a kink location), for starting values, and for plotting the objective to see whether it is well behaved.</p>
+    <p><b>Gradient-based optimizers</b> (BFGS, Newton, Nelder-Mead without gradients) move uphill from a starting point. They are fast and scale to many parameters, but find a local optimum. Multiple starting values are the basic safeguard.</p>
+    <p><b>Concentrating out</b> parameters that enter linearly, as in step 5 above, means the numerical search covers only the nonlinear parameters. This is what makes many structural models feasible.</p>
+    <p><b>Nested fixed point</b> refers to any estimation where evaluating the objective requires solving the model: inverting shares in BLP, solving the value function in dynamic discrete choice or option value models, or solving for prices in a spatial equilibrium. The inner solution must be accurate, and the outer search is only as good as the inner one.</p>
+    <p><b>Recovery tests</b> are the most useful habit to teach. Simulate data from the model with parameters you choose, run your estimator, and check that it returns them. If it cannot recover planted parameters, it will not recover real ones.</p>
+  </div>
+
+  <div class="sub">
+    <h3>How each structural method is usually estimated</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Method</th><th>Estimator</th><th>What makes it hard</th><th>Software</th></tr></thead>
+      <tbody>
+        <tr><td>AIDS / QUAIDS</td><td>Iterated nonlinear SUR with homogeneity and symmetry imposed; LA-AIDS is linear</td><td>Price endogeneity, zero purchases, choosing the group</td><td><code>micEconAids</code> (R); <code>quaids</code> (Stata)</td></tr>
+        <tr><td>Discrete choice / BLP</td><td>Logit: 2SLS. Random coefficients: GMM by nested fixed point or MPEC. Individual data: simulated MLE</td><td>Instruments, inner-loop tolerance, starting values</td><td>PyBLP; <code>mlogit</code>, <code>apollo</code> (R)</td></tr>
+        <tr><td>Conduct and markups</td><td>GMM on demand plus pricing first-order conditions; or the production approach (ACF control function)</td><td>Distinguishing conduct from cost; output elasticity estimation</td><td>PyBLP for the demand side; custom code</td></tr>
+        <tr><td>Real options</td><td>Calibrated thresholds; or MLE or SMM on the timing of decisions</td><td>Solving the value function at each parameter guess</td><td>Custom code (value function iteration, finite differences, lattices)</td></tr>
+        <tr><td>Dynamic discrete choice</td><td>Nested fixed point MLE (Rust); two-step conditional choice probabilities (Hotz-Miller)</td><td>Large state spaces; the discount factor is poorly identified</td><td>Custom code</td></tr>
+        <tr><td>Hedonic / Ricardian</td><td>OLS or FE first stage; sorting models by MLE or GMM for welfare beyond marginal changes</td><td>Omitted variables correlated with the amenity</td><td><code>fixest</code></td></tr>
+        <tr><td>Travel cost</td><td>Count models (Poisson, negative binomial) or conditional logit over sites by MLE</td><td>Value of travel time; defining the choice set</td><td><code>MASS</code>, <code>mlogit</code></td></tr>
+        <tr><td>Choice experiments</td><td>Conditional or mixed logit by simulated MLE, or Bayesian</td><td>WTP is a ratio of coefficients, so use the delta method or Krinsky-Robb simulation</td><td><code>apollo</code>, <code>logitr</code> (R)</td></tr>
+        <tr><td>Production, cost, profit</td><td>SUR on the cost function with share equations; control-function GMM for production functions</td><td>Inputs chosen with knowledge of productivity</td><td><code>systemfit</code>, <code>prodest</code></td></tr>
+        <tr><td>Stochastic frontier</td><td>MLE with a composed error</td><td>The inefficiency distribution drives the results</td><td><code>frontier</code>, <code>sfaR</code></td></tr>
+        <tr><td>Equilibrium displacement</td><td>Calibration; solve the linear system</td><td>Borrowed elasticities; report Monte Carlo ranges</td><td>Matrix algebra in R</td></tr>
+        <tr><td>CGE</td><td>Calibration to a social accounting matrix</td><td>Closure rules and elasticities; sensitivity analysis</td><td>GEMPACK (GTAP), GAMS</td></tr>
+        <tr><td>Structural gravity</td><td>Poisson pseudo-maximum likelihood with high-dimensional fixed effects</td><td>Zeros in trade flows; multilateral resistance</td><td><code>fixest::fepois</code></td></tr>
+        <tr><td>Spatial equilibrium</td><td>Estimate the trade elasticity, calibrate the rest, solve for equilibrium as a fixed point</td><td>Trade costs across the network</td><td>Custom code</td></tr>
+        <tr><td>Risk preferences</td><td>MLE or simulated MLE on choices</td><td>Separating risk preferences from beliefs</td><td>Custom code</td></tr>
+      </tbody></table></div>
+  </div>
+
+  <div class="sub">
+    <h3>Class exercise: recover a parameter you planted</h3>
+    <p>Fifteen minutes in R. Students simulate purchase decisions with a known price coefficient, then recover it three ways: grid search, a numerical optimizer, and the canned function. The point is to see that <code>glm</code> runs the second method for them.</p>
+    <div class="codebox"><button class="copy" type="button" id="copybtn">Copy</button><pre id="code">set.seed(570)
+n     &lt;- 2000
+price &lt;- runif(n, 1, 5)
+beta  &lt;- c(2, -0.8)                      # planted intercept and price coefficient
+buy   &lt;- rbinom(n, 1, plogis(beta[1] + beta[2] * price))
+
+loglik &lt;- function(b) {
+  p &lt;- plogis(b[1] + b[2] * price)
+  sum(buy * log(p) + (1 - buy) * log(1 - p))
+}
+
+# 1. Grid search over the price coefficient, intercept held at its true value
+grid &lt;- seq(-2, 0, by = 0.01)
+ll   &lt;- sapply(grid, function(b2) loglik(c(2, b2)))
+grid[which.max(ll)]
+plot(grid, ll, type = "l")               # look at the shape of the objective
+
+# 2. Numerical optimizer over both parameters, from a poor starting value
+fit &lt;- optim(c(0, 0), function(b) -loglik(b), method = "BFGS", hessian = TRUE)
+fit$par
+sqrt(diag(solve(fit$hessian)))           # standard errors from the Hessian
+
+# 3. The canned estimator does step 2 for you
+coef(glm(buy ~ price, family = binomial))
+
+# 4. A quantity of interest: price elasticity at mean price, by delta method or bootstrap</pre></div>
+    <p><b>Discussion:</b> Why hold the intercept fixed in the grid search? What would a grid over both parameters cost, and over ten? What does the plotted log-likelihood suggest about whether the optimizer can get lost here, and why might BLP be different?</p>
+  </div>
+
+  <div class="callout">
+    <b>Readings for this primer</b>
+    <p>Nevo (2000), "A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand," <i>Journal of Economics &amp; Management Strategy</i>. The best single reading on BLP estimation. Optional: Train, <i>Discrete Choice Methods with Simulation</i> (free online), chapters on simulated MLE; Reiss and Wolak (2007), "Structural Econometric Modeling," <i>Handbook of Econometrics</i>, vol. 6A.</p>
+  </div>
+</section>
+
+<section id="example">
+  <h2>One question, three paths</h2>
+  <p><strong>How does a warmer climate affect U.S. agriculture?</strong> Each path answers a slightly different question.</p>
+  <div class="paths">
+    <div class="path" style="--c:var(--st)">
+      <h3>Ricardian cross-section</h3>
+      <div class="k">Estimate</div><p>Farmland values regressed on long-run climate normals across counties (Mendelsohn, Nordhaus &amp; Shaw 1994).</p>
+      <div class="k">Gets</div><p>The long-run effect, including whatever adaptation farmers have already made.</p>
+      <div class="k">Must believe</div><p>Nothing correlated with climate across space is omitted. Irrigation turned out to be a problem (Schlenker, Hanemann &amp; Fisher 2005).</p>
+    </div>
+    <div class="path" style="--c:var(--rf)">
+      <h3>Panel weather</h3>
+      <div class="k">Estimate</div><p>Within-county yields regressed on year-to-year weather (Deschênes &amp; Greenstone 2007; Schlenker &amp; Roberts 2009).</p>
+      <div class="k">Gets</div><p>A credible short-run response, including sharp yield losses above crop-specific heat thresholds.</p>
+      <div class="k">Must believe</div><p>Weather shocks are as good as random. A one-year shock leaves no time to adapt, so it may overstate long-run damage.</p>
+    </div>
+    <div class="path" style="--c:var(--both)">
+      <h3>Long differences or modeled adaptation</h3>
+      <div class="k">Estimate</div><p>Changes in outcomes over decades on changes in climate (Burke &amp; Emerick 2016), or a model of farmers' adaptation choices.</p>
+      <div class="k">Gets</div><p>How much adaptation offsets the short-run damage.</p>
+      <div class="k">Must believe</div><p>Slow climate trends are unrelated to other slow changes, or the model of farmer choice is right.</p>
+    </div>
+  </div>
+  <p>The three answers differ because they estimate different things. That is the reduced-form versus structural tradeoff inside a single question.</p>
+</section>
+
+<p class="note">Lecture tags follow the proposed Unit 6 order: 6.1 map and design-based identification, 6.2 structural models and combining approaches, 6.3 frontier methods, 6.4 experiments and mixed methods, 6.5 evaluating evidence. "Beyond the readings" marks methods not covered in the Unit 6 readings as currently assigned. Anchor papers are a draft list to be verified before posting.</p>
+</div>
+
+<script>
+const FAM={rf:{label:"Design-based",c:"--rf",s:"--rf-soft"},st:{label:"Structural",c:"--st",s:"--st-soft"},both:{label:"Combining approaches",c:"--both",s:"--both-soft"},ts:{label:"Time series",c:"--ts",s:"--ts-soft"}};
+const DOM={consumer:"Consumer & food demand",prod:"Production & climate",env:"Environment & resources",trade:"Trade & policy",markets:"Markets & IO",dev:"Development",risk:"Risk & insurance"};
+const COVERED=new Set(["rct","did","rd","iv","sc","dml","pw","lab","ric","hed","tgt"]);
+const M=[
+ {id:"rct",f:"rf",n:"Randomized field experiment",short:"RCT / field exp.",x:5,y:8,lec:"6.1, 6.4",a:"Assignment is random, compliance is tracked, and treated units do not affect untreated ones.",g:"The average effect of the intervention as implemented, for the population studied.",d:"Primary data you collect at baseline and follow-up.",e:"Difference in means or OLS with baseline covariates; randomization inference.",dom:["dev","consumer","prod"],fr:"Adaptive and multi-arm designs; experiments built to test a structural mechanism.",an:"Duflo, Glennerster & Kremer (2007); Angrist & Pischke ch. 2"},
+ {id:"did",f:"rf",n:"Difference-in-differences / event study",short:"DiD / event study",x:14,y:14,lec:"6.1",a:"Treated and comparison units would have followed parallel trends without treatment, and units did not act in anticipation.",g:"The effect on the treated of a policy that rolled out across places or time.",d:"A panel or repeated cross-section covering periods before and after.",e:"Two-way fixed effects OLS for a single adoption date; group-time estimators for staggered adoption; standard errors clustered at the level of treatment.",dom:["consumer","trade","env","markets","prod"],fr:"Estimators robust to staggered timing and heterogeneous effects; sensitivity analysis for violations of parallel trends.",an:"Callaway & Sant'Anna (2021); Sun & Abraham (2021); Roth et al. (2023)"},
+ {id:"rd",f:"rf",n:"Regression discontinuity",short:"RD",x:6,y:22,lec:"6.1",a:"Units cannot precisely manipulate the running variable, and other determinants of the outcome are smooth at the cutoff.",g:"A local effect for units near the threshold.",d:"A precisely measured running variable with enough observations near the cutoff.",e:"Local linear regression on each side of the cutoff with a data-driven bandwidth and bias-corrected inference (rdrobust).",dom:["consumer","env","dev"],fr:"Geographic and multi-cutoff designs.",an:"Imbens & Lemieux (2008); Cattaneo, Idrobo & Titiunik (2020)"},
+ {id:"iv",f:"rf",n:"Instrumental variables / shift-share",short:"IV / shift-share",x:20,y:24,lec:"6.1",a:"The instrument moves treatment and affects the outcome only through treatment.",g:"A local average effect for units whose treatment responds to the instrument.",d:"A credible instrument; for shift-share, exposure shares and aggregate shocks.",e:"Two-stage least squares; LIML or weak-instrument-robust tests when the first stage is weak; exposure-robust standard errors for shift-share.",dom:["trade","markets","consumer","prod"],fr:"Shift-share designs identified from shocks or from shares.",an:"Goldsmith-Pinkham, Sorkin & Swift (2020); Borusyak, Hull & Jaravel (2022)"},
+ {id:"sc",f:"rf",n:"Synthetic control",short:"Synthetic control",x:12,y:32,lec:"6.3",a:"A weighted combination of untreated units reproduces the treated unit's path before treatment.",g:"The effect for one or a few treated units, such as a single state's law.",d:"A long pre-period and a pool of comparable untreated units.",e:"Constrained optimization for donor weights; placebo or permutation inference.",dom:["trade","consumer","env"],fr:"Synthetic difference-in-differences; conformal inference.",an:"Abadie, Diamond & Hainmueller (2010); Arkhangelsky et al. (2021)"},
+ {id:"dml",f:"rf",n:"Matching and double machine learning",short:"Matching / DML",x:26,y:10,lec:"6.3",a:"After conditioning on observed covariates, no unobserved confounders remain.",g:"An average effect and, with causal forests, how the effect varies with covariates.",d:"Rich covariates measured before treatment.",e:"Propensity-score or covariate matching; DML with cross-fitting and machine learning for nuisance functions; honest causal forests (grf).",dom:["dev","consumer","prod"],fr:"Causal forests for targeting; sensitivity bounds for omitted confounders.",an:"Chernozhukov et al. (2018); Wager & Athey (2018); Athey & Imbens (2019)"},
+ {id:"qr",f:"rf",n:"Quantile and distributional effects",short:"Quantile / distributional",x:24,y:2,lec:"6.3",a:"The underlying design holds, and the estimand (conditional or unconditional quantile) matches the question.",g:"Effects across the outcome distribution, such as in low-yield years or for low-income households.",d:"Enough observations in the tails of interest.",e:"Linear programming for quantile regression; recentered influence function regression for unconditional effects; changes-in-changes.",dom:["prod","risk","consumer","dev"],fr:"Distributional difference-in-differences; quantile effects with machine learning.",an:"Koenker & Bassett (1978); Athey & Imbens (2006); Firpo, Fortin & Lemieux (2009)"},
+ {id:"pw",f:"rf",n:"Panel weather regressions",short:"Panel weather",x:30,y:20,lec:"6.1",a:"Year-to-year weather deviations within a location are as good as random.",g:"The short-run response of yields, revenue, or labor to weather shocks.",d:"A panel of outcomes matched to gridded weather.",e:"OLS with location and year fixed effects; degree-day bins with thresholds chosen by grid search over fit; spatially correlated standard errors.",dom:["prod","env"],fr:"Long differences to capture adaptation; satellite measures of outcomes.",an:"Deschênes & Greenstone (2007); Schlenker & Roberts (2009); Burke & Emerick (2016)"},
+ {id:"pid",f:"rf",n:"Partial identification and bounds",short:"Partial identification",x:8,y:40,lec:"6.5",a:"Only assumptions you can defend, such as monotone selection or bounded outcomes.",g:"Bounds on the effect rather than a point estimate, and how much an assumption narrows them.",d:"The same data as a point-identified design; common with missing data and selection.",e:"Identified sets computed analytically or by optimization; inference methods for moment inequalities.",dom:["consumer","dev","prod"],fr:"Sensitivity analysis reporting how far an assumption must fail to overturn a result.",an:"Manski (2003); Lee (2009); Tamer (2010)"},
+ {id:"lab",f:"rf",n:"Lab and lab-in-field experiments",short:"Lab experiments",x:28,y:38,lec:"6.4",a:"Behavior in the controlled setting carries over to the decision you care about.",g:"Tests of theory and estimates of risk, time, and social preferences.",d:"Incentivized choices from experimental sessions.",e:"Comparisons across treatments; preference parameters by maximum likelihood.",dom:["risk","consumer","dev"],fr:"Lab-in-field designs with farmers and shoppers.",an:"Falk & Heckman (2009)"},
+ {id:"sp",f:"rf",n:"Spatial econometrics",short:"Spatial econometrics",x:38,y:30,lec:"6.3",a:"The spatial weights matrix correctly describes who affects whom, and the form of dependence (spatial lag, error, or Durbin) is right.",g:"Spillovers across neighboring units, and standard errors that account for spatial correlation.",d:"Georeferenced units and a defined neighbor structure: contiguity, distance, or travel time.",e:"MLE or GMM/IV (Kelejian-Prucha) for spatial lag and error models; Conley standard errors for spatial correlation in ordinary regressions.",dom:["prod","env","markets","consumer"],fr:"Spillovers built into DiD designs; weights matrices estimated rather than assumed. Gibbons & Overman (2012) is the standard critique.",an:"Anselin (1988); Conley (1999); LeSage & Pace (2009); Gibbons & Overman (2012)"},
+ {id:"bun",f:"both",n:"Bunching",short:"Bunching",x:40,y:48,lec:"6.3",a:"Without the kink or notch, the distribution would be smooth near it, and agents can adjust the choice.",g:"A behavioral elasticity from excess mass at a policy threshold, such as a payment limit or eligibility cutoff.",d:"Large microdata on the choice variable around the threshold.",e:"Fit a flexible polynomial to the distribution outside an excluded window, compute excess mass, and bootstrap for inference.",dom:["trade","consumer","prod"],fr:"Notch designs; bunching combined with structural models of adjustment frictions.",an:"Saez (2010); Kleven (2016)"},
+ {id:"ric",f:"st",n:"Ricardian (farmland hedonic)",short:"Ricardian",x:46,y:40,lec:"6.1",a:"Land markets capitalize climate, and nothing correlated with climate across space is omitted.",g:"A long-run climate effect, including adaptation, expressed as a change in land value.",d:"A cross-section of farmland values with climate normals and soils.",e:"OLS or weighted least squares across counties; spatially correlated standard errors.",dom:["prod","env"],fr:"Panel Ricardian models; combining with weather panels.",an:"Mendelsohn, Nordhaus & Shaw (1994); Schlenker, Hanemann & Fisher (2005)"},
+ {id:"ss",f:"both",n:"Sufficient statistics",short:"Sufficient statistics",x:48,y:58,lec:"6.2",a:"The welfare effect depends only on a few elasticities, each estimable with a credible design.",g:"Welfare effects without specifying the full model.",d:"Whatever identifies the needed elasticities.",e:"Reduced-form estimators for each elasticity, plugged into a welfare formula; delta method or bootstrap for the welfare number.",dom:["consumer","trade","env"],fr:"Applications to food taxes and transfers such as SNAP.",an:"Chetty (2009)"},
+ {id:"tgt",f:"both",n:"Reduced-form estimates as model targets",short:"RF estimates as targets",x:58,y:66,lec:"6.2",a:"The structural model is right, and the reduced-form moments are informative about its parameters.",g:"A model disciplined by credible variation that can then simulate policies not yet tried.",d:"Quasi-experimental variation plus the model's other inputs.",e:"Simulated method of moments or indirect inference, matching model-generated moments to reduced-form estimates.",dom:["consumer","prod","env","trade","markets","dev","risk"],fr:"Reporting which moments drive which parameters.",an:"Nevo & Whinston (2010); Andrews, Gentzkow & Shapiro (2017)"},
+ {id:"val",f:"both",n:"Out-of-sample validation",short:"Holdout validation",x:48,y:78,lec:"6.2",a:"Variation held out from estimation, ideally an experiment, is a fair test of the model.",g:"Evidence that a structural model predicts responses to a policy it was not fit to.",d:"An experiment or policy change kept out of estimation.",e:"Estimate on one sample, predict the held-out response, and compare it to the observed one.",dom:["dev","consumer"],fr:"Model predictions registered before a policy takes effect.",an:"Todd & Wolpin (2006)"},
+ {id:"aids",f:"st",n:"Demand systems (AIDS, QUAIDS)",short:"AIDS / QUAIDS",x:64,y:46,lec:"6.2",a:"Households maximize utility with the chosen functional form, the product group is separable, and prices are exogenous.",g:"Own-price, cross-price, and expenditure elasticities, and welfare effects of price changes.",d:"Household or aggregate expenditures and prices, often scanner data.",e:"Iterated nonlinear SUR with homogeneity and symmetry imposed; LA-AIDS is linear.",dom:["consumer"],fr:"Instruments for prices; estimation on loyalty-card panels.",an:"Deaton & Muellbauer (1980); Banks, Blundell & Lewbel (1997)"},
+ {id:"hed",f:"st",n:"Hedonic property value",short:"Hedonic",x:68,y:58,lec:"6.2",a:"Prices reflect amenities in equilibrium, and the amenity is not correlated with unobserved property attributes.",g:"Marginal willingness to pay for an amenity such as water quality or open space.",d:"Property transactions with location and amenity measures.",e:"OLS or fixed-effects first stage; sorting models estimated by MLE or GMM for welfare beyond marginal changes.",dom:["env"],fr:"Quasi-experimental hedonics; sorting models.",an:"Rosen (1974); Kuminoff, Smith & Timmins (2013)"},
+ {id:"tc",f:"st",n:"Travel cost / recreation demand",short:"Travel cost",x:74,y:50,lec:"6.2",a:"Travel cost is the price of a trip, and site choices reveal site value.",g:"The use value of a site and of changes in its quality.",d:"Trip counts or site choices with trip origins.",e:"Count models (Poisson, negative binomial) or conditional logit over sites by MLE.",dom:["env"],fr:"Mobile-device location data in place of surveys.",an:"Phaneuf & Requate (2017)"},
+ {id:"ce",f:"st",n:"Stated preference / choice experiments",short:"Choice experiments",x:60,y:86,lec:"6.2",a:"Hypothetical choices reflect real ones, and the design separates attributes.",g:"Willingness to pay for attributes not yet on the market.",d:"A survey you design (Lecture 5.1).",e:"Conditional or mixed logit by simulated MLE, or Bayesian; WTP standard errors by delta method or Krinsky-Robb simulation.",dom:["consumer","env"],fr:"Consequential designs; validation against revealed preference.",an:"Johnston et al. (2017); Champ (2017)"},
+ {id:"blp",f:"st",n:"Discrete choice demand (logit to BLP)",short:"Discrete choice / BLP",x:80,y:72,lec:"6.2",a:"Consumers choose the product with the highest utility, the error distribution is correctly specified, and instruments for price are valid.",g:"Substitution patterns, willingness to pay for attributes, and welfare from new products or mergers.",d:"Market shares or individual choices, prices, attributes, and instruments.",e:"Logit and nested logit: 2SLS after inverting shares. Random coefficients: GMM by nested fixed point (PyBLP). Individual choices: simulated MLE.",dom:["consumer","markets"],fr:"Micro moments from loyalty-card data; machine-learning first stages.",an:"Berry, Levinsohn & Pakes (1995); Nevo (2001); Conlon & Gortmaker (2020)"},
+ {id:"io",f:"st",n:"Market conduct and markups",short:"Conduct & markups",x:82,y:84,lec:"6.2",a:"The assumed model of firm behavior and demand is correct.",g:"Markups, market power, pass-through, and counterfactuals for mergers or regulation.",d:"Prices, quantities, cost shifters, and wholesale costs where available.",e:"GMM on demand plus pricing first-order conditions; or the production approach, with output elasticities from control-function GMM.",dom:["markets","consumer"],fr:"Formal tests between conduct models.",an:"Appelbaum (1982); Bresnahan (1989); De Loecker, Eeckhout & Unger (2020)"},
+ {id:"opt",f:"st",n:"Real options / option value",short:"Real options",x:72,y:92,lec:"6.2",a:"The decision is costly to reverse, payoffs are uncertain, and the decision maker can wait.",g:"Investment and conversion thresholds, the value of waiting, and why adoption lags a positive NPV. Used for land conversion, irrigation and perennial investments, and organic transition.",d:"The process for returns (prices, yields), sunk costs, and the timing of decisions.",e:"Often calibrated; when estimated, MLE or SMM on the timing of decisions, solving the value function at each parameter guess.",dom:["env","prod","risk"],fr:"Estimation on micro data on decision timing; links to dynamic discrete choice.",an:"Dixit & Pindyck (1994)"},
+ {id:"ddc",f:"st",n:"Dynamic discrete choice",short:"Dynamic discrete choice",x:92,y:96,lec:"6.2",a:"Agents are forward-looking, with specified state transitions, a discount factor, and an error structure.",g:"Counterfactuals for policies that change future payoffs, such as subsidies or replacement rules.",d:"A panel of choices and states over time.",e:"Nested fixed point MLE (Rust) or two-step conditional choice probability estimators (Hotz-Miller).",dom:["prod","env","dev"],fr:"Machine learning for large state spaces.",an:"Rust (1987); Hotz & Miller (1993)"},
+ {id:"prod",f:"st",n:"Production, cost, and profit functions",short:"Cost & profit functions",x:66,y:30,lec:"6.2",a:"Producers optimize, the functional form is right, and input prices are exogenous.",g:"Substitution elasticities, returns to scale, and input demand and supply response.",d:"Farm or firm inputs, outputs, and prices, such as ARMS.",e:"SUR on the cost function with share equations; control-function GMM (Olley-Pakes, ACF) for production functions.",dom:["prod"],fr:"Heterogeneity in technology across farms.",an:"Chambers (1988); Olley & Pakes (1996)"},
+ {id:"sfa",f:"st",n:"Stochastic frontier / efficiency",short:"Stochastic frontier",x:82,y:20,lec:"6.2",a:"The composed error separates noise from inefficiency, and the distribution of inefficiency is right.",g:"Technical efficiency by farm or firm.",d:"A panel of inputs and outputs.",e:"MLE with a composed error.",dom:["prod","dev"],fr:"Panel models separating persistent from transient inefficiency.",an:"Aigner, Lovell & Schmidt (1977)"},
+ {id:"edm",f:"st",n:"Equilibrium displacement models",short:"Equilibrium displacement",x:56,y:22,lec:"6.2",a:"A linearized market equilibrium holds near the observed point, and borrowed elasticities are right.",g:"Incidence across farm, wholesale, and retail; returns to research or checkoff programs.",d:"Prices and quantities at one point, plus elasticities from the literature.",e:"Calibration; solve the linear system; Monte Carlo over the elasticities.",dom:["markets","trade","consumer"],fr:"Elasticities taken from quasi-experimental estimates.",an:"Gardner (1975); Wohlgenant (1993)"},
+ {id:"grav",f:"st",n:"Structural gravity",short:"Gravity",x:82,y:42,lec:"6.2",a:"Trade flows follow a model with multilateral resistance.",g:"Effects of tariffs, agreements, and sanitary rules on bilateral trade.",d:"Bilateral trade flows and trade-cost measures.",e:"Poisson pseudo-maximum likelihood with high-dimensional fixed effects.",dom:["trade"],fr:"Gravity inside general equilibrium counterfactuals.",an:"Anderson & van Wincoop (2003); Santos Silva & Tenreyro (2006)"},
+ {id:"speq",f:"st",n:"Market access / spatial equilibrium",short:"Spatial equilibrium",x:90,y:10,lec:"6.2",a:"A model of trade across locations with iceberg trade costs is right, and its key elasticity is credibly estimated.",g:"Effects of infrastructure, transport costs, and local shocks that spread through trade networks.",d:"Locations, the transport network, outcomes, and an estimated trade elasticity.",e:"Estimate the trade elasticity, calibrate the rest, and solve for equilibrium as a fixed point.",dom:["trade","prod","dev","markets"],fr:"Quantitative spatial models of climate and agriculture.",an:"Donaldson & Hornbeck (2016); Costinot, Donaldson & Smith (2016); Redding & Rossi-Hansberg (2017)"},
+ {id:"cge",f:"st",n:"Computable general equilibrium",short:"CGE",x:90,y:66,lec:"6.2",a:"The economy closes as specified, elasticities are calibrated correctly, and markets clear.",g:"Economy-wide effects of trade, biofuel, or climate policy.",d:"A social accounting matrix, such as the GTAP database.",e:"Calibration to a benchmark year; solved in GEMPACK or GAMS; sensitivity analysis over elasticities.",dom:["trade","env"],fr:"Links to gridded biophysical models.",an:"Hertel (1997)"},
+ {id:"risk",f:"st",n:"Risk preferences and insurance demand",short:"Risk & insurance",x:94,y:56,lec:"6.2",a:"The preference model (expected utility or an alternative) and the yield and price distributions are right.",g:"Risk aversion, the value of insurance, and effects of subsidy design.",d:"Coverage choices, yield histories, or elicited preferences.",e:"MLE or simulated MLE on observed choices.",dom:["risk","prod"],fr:"Behavioral models of insurance demand.",an:"Just & Pope (1978)"},
+ {id:"fc",f:"ts",n:"Forecasting",short:"Forecasting",x:10,y:52,lec:"6.3",a:"Relationships stay stable over the forecast horizon.",g:"Forecasts of prices, yields, or demand with error bands.",d:"Long time series.",e:"ARIMA, exponential smoothing, or machine-learning models, evaluated on rolling out-of-sample windows.",dom:["markets","trade"],fr:"Nowcasting with high-frequency data.",an:"Hyndman & Athanasopoulos (2021)"},
+ {id:"var",f:"ts",n:"VAR / structural VAR",short:"VAR / SVAR",x:22,y:64,lec:"6.2",a:"The identifying restrictions on contemporaneous shocks are right.",g:"Impulse responses showing how markets respond to supply, demand, or policy shocks over time.",d:"Multivariate time series.",e:"OLS equation by equation, with identification from restrictions on the shocks; local projections by OLS at each horizon.",dom:["markets","trade","env"],fr:"Local projections; sign restrictions.",an:"Sims (1980); Jordà (2005)"},
+ {id:"pt",f:"ts",n:"Price transmission / cointegration",short:"Price transmission",x:32,y:58,lec:"6.2",a:"Linked prices share a long-run equilibrium, and the adjustment dynamics are specified correctly.",g:"Speed and asymmetry of pass-through along the supply chain or across space.",d:"Price series at farm, wholesale, and retail levels, or across markets.",e:"Engle-Granger or Johansen tests, then error-correction models with asymmetric or threshold adjustment.",dom:["markets","trade"],fr:"Pass-through measured in scanner data.",an:"Meyer & von Cramon-Taubadel (2004)"}
+];
+const byId=Object.fromEntries(M.map(m=>[m.id,m]));
+
+const TREE={
+ root:{q:"What does your question need to deliver?",o:[
+  {t:"The effect of a change that happened",h:"The policy or shock is in your data, at the scale you care about.",to:"rf"},
+  {t:"A counterfactual that is not in the data",h:"A new policy, a different magnitude, welfare, or a mechanism.",to:"st"},
+  {t:"Both",h:"A credible effect you need to extend to a policy not yet tried.",leaf:["ss","bun","tgt","val"]},
+  {t:"A forecast, or how prices move together",h:"Dynamics over time rather than a single treatment effect.",leaf:["fc","var","pt"]}]},
+ rf:{q:"Where does the variation in treatment come from?",o:[
+  {t:"I assign it at random",h:"Field or lab experiment.",leaf:["rct","lab"]},
+  {t:"Timing differs across units",h:"A policy adopted by some places or groups before others.",leaf:["did"]},
+  {t:"A cutoff determines treatment",h:"An eligibility threshold, a boundary, a score.",leaf:["rd"]},
+  {t:"A kink or notch in an incentive",h:"Payment limits, benefit phase-outs, size thresholds in regulation.",leaf:["bun","rd"]},
+  {t:"Something shifts treatment but not the outcome directly",h:"An instrument, or exposure shares interacted with aggregate shocks.",leaf:["iv"]},
+  {t:"Only one or a few units are treated",h:"A single state, country, or chain.",leaf:["sc"]},
+  {t:"Weather or another naturally random shock",h:"Year-to-year deviations within a location.",leaf:["pw"]},
+  {t:"Treatment spills over to neighbors",h:"Effects that cross county, market, or field boundaries.",leaf:["sp","did"]},
+  {t:"No design, but I observe the confounders",h:"Selection on observables.",leaf:["dml"]},
+  {t:"My defensible assumptions don't pin down one number",h:"Missing data, selection, or weak design.",leaf:["pid"]},
+  {t:"I care about the distribution, not only the mean",h:"Tails, downside risk, inequality.",leaf:["qr"]}]},
+ st:{q:"What decision or system generates the outcome?",o:[
+  {t:"Consumers choosing among products",h:"Demand, substitution, welfare from price changes.",leaf:["aids","blp"]},
+  {t:"Firms setting prices or quantities strategically",h:"Market power, markups, pass-through.",leaf:["io","edm"]},
+  {t:"A costly-to-reverse decision under uncertainty",h:"Land conversion, adoption, investment, exit.",leaf:["opt","ddc"]},
+  {t:"Valuing something with no market price",h:"Environmental quality, climate, new attributes.",leaf:["hed","ric","tc","ce"]},
+  {t:"Producers turning inputs into outputs",h:"Technology, efficiency, supply response.",leaf:["prod","sfa"]},
+  {t:"Effects that spread through markets or the economy",h:"Incidence along the supply chain, trade, economy-wide policy.",leaf:["edm","grav","cge"]},
+  {t:"Trade and location across space",h:"Transport costs, infrastructure, local shocks transmitted through trade.",leaf:["speq","grav"]},
+  {t:"Choices under risk",h:"Insurance, diversification, risk preferences.",leaf:["risk"]}]}
+};
+
+const NS="http://www.w3.org/2000/svg";
+const svg=document.getElementById("svg");
+const L=72,R=700,T=24,B=412;
+const px=x=>L+x/100*(R-L), py=y=>B-y/100*(B-T);
+let domain=null, beyondOnly=false, highlight=null, selected=null;
+function el(n,a,p){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+function txt(s,a,p){const e=el("text",a,p);e.textContent=s;return e}
+
+function drawMap(){
+  svg.textContent="";
+  el("rect",{x:L,y:T,width:R-L,height:B-T,fill:"var(--surface)"});
+  for(let i=1;i<4;i++){el("line",{x1:px(i*25),y1:T,x2:px(i*25),y2:B,stroke:"var(--grid)"});el("line",{x1:L,y1:py(i*25),x2:R,y2:py(i*25),stroke:"var(--grid)"})}
+  el("line",{x1:L,y1:B,x2:R,y2:B,stroke:"var(--muted)"});el("line",{x1:L,y1:T,x2:L,y2:B,stroke:"var(--muted)"});
+  const ax={fill:"var(--muted)","font-family":"IBM Plex Mono, monospace","font-size":11};
+  txt("Design-based",{...ax,x:px(0)+2,y:B+18});
+  txt("Semi-structural",{...ax,x:px(50),y:B+18,"text-anchor":"middle"});
+  txt("Fully structural",{...ax,x:R,y:B+18,"text-anchor":"end"});
+  txt("Economic structure imposed →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,x:px(50),y:B+40,"text-anchor":"middle"});
+  txt("What the question needs →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,transform:`translate(22 ${(T+B)/2}) rotate(-90)`,"text-anchor":"middle"});
+  txt("Counterfactual,",{...ax,transform:`translate(46 ${T+4}) rotate(-90)`,"text-anchor":"end"});
+  txt("welfare, mechanism",{...ax,transform:`translate(60 ${T+4}) rotate(-90)`,"text-anchor":"end"});
+  txt("Effect of a change",{...ax,transform:`translate(46 ${B}) rotate(-90)`,"text-anchor":"start"});
+  txt("in the data",{...ax,transform:`translate(60 ${B}) rotate(-90)`,"text-anchor":"start"});
+  M.forEach(m=>{
+    const cov=COVERED.has(m.id);
+    const on=(!domain||m.dom.includes(domain))&&(!beyondOnly||!cov)&&(!highlight||highlight.includes(m.id));
+    const g=el("g",{class:"dot dotbtn",tabindex:0,role:"button","aria-label":m.n,style:`cursor:pointer;opacity:${on?1:.16}`});
+    const cx=px(m.x),cy=py(m.y),left=m.x>86,col=`var(${FAM[m.f].c})`;
+    if(selected===m.id)el("circle",{cx,cy,r:10,fill:"none",stroke:col,"stroke-width":2},g);
+    el("circle",cov?{cx,cy,r:5.5,fill:col}:{cx,cy,r:4.5,fill:"var(--surface)",stroke:col,"stroke-width":2.2},g);
+    txt(m.short,{x:left?cx-9:cx+9,y:cy+4,"text-anchor":left?"end":"start",fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":12},g);
+    const go=()=>{selected=m.id;drawMap();document.getElementById("mapcard").innerHTML=card(m)};
+    g.addEventListener("click",go);g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}});
+  });
+}
+
+function card(m){
+  const f=FAM[m.f],cov=COVERED.has(m.id);
+  return `<article class="card" style="--c:var(${f.c});--soft:var(${f.s})">
+   <div class="fam"><span>${f.label}</span><span class="lec">Lecture ${m.lec}</span>${cov?"":`<span class="beyond">Beyond the readings</span>`}</div>
+   <h3>${m.n}</h3>
+   <dl><dt>What you have to believe</dt><dd>${m.a}</dd>
+   <dt>What it gives you</dt><dd>${m.g}</dd>
+   <dt>Data needed</dt><dd>${m.d}</dd>
+   <dt>Estimated by</dt><dd>${m.e}</dd>
+   <dt>Frontier</dt><dd>${m.fr}</dd>
+   <dt>Anchor papers</dt><dd>${m.an}</dd>
+   <dt>Common in</dt><dd class="tags">${m.dom.map(k=>`<span class="tag">${DOM[k]}</span>`).join("")}</dd></dl></article>`;
+}
+
+const chips=document.getElementById("chips");
+[["",'All domains'],...Object.entries(DOM)].forEach(([k,v])=>{
+  const b=document.createElement("button");b.className="chip dom";b.type="button";b.textContent=v;b.id="chip-"+(k||"all");
+  b.setAttribute("aria-pressed",k===""?"true":"false");
+  b.onclick=()=>{domain=k||null;chips.querySelectorAll(".dom").forEach(c=>c.setAttribute("aria-pressed",c===b?"true":"false"));drawMap()};
+  chips.appendChild(b);
+});
+const tb=document.createElement("button");tb.className="chip toggle";tb.type="button";tb.id="chip-beyond";tb.textContent="Beyond the readings only";tb.setAttribute("aria-pressed","false");
+tb.onclick=()=>{beyondOnly=!beyondOnly;tb.setAttribute("aria-pressed",String(beyondOnly));drawMap()};
+chips.appendChild(tb);
+
+const box=document.getElementById("treebox");
+let path=[];
+function renderTree(){
+  const crumbs=path.length?`<div class="crumbs"><button class="crumb" data-i="0">Start</button>${path.map((p,i)=>`<span class="sep">›</span><button class="crumb" data-i="${i+1}">${p.t}</button>`).join("")}</div>`:"";
+  const last=path[path.length-1];
+  if(last&&last.leaf){
+    highlight=last.leaf;drawMap();
+    box.innerHTML=`${crumbs}<div class="q">Candidate methods</div><p class="hint">These are also highlighted on the map above.</p><div class="leafcards">${last.leaf.map(id=>card(byId[id])).join("")}</div><button class="restart" id="restart">Start over</button>`;
+    document.getElementById("restart").onclick=()=>{path=[];renderTree()};
+  }else{
+    highlight=null;drawMap();
+    const node=TREE[last?last.to:"root"];
+    box.innerHTML=`${crumbs}<div class="q">${node.q}</div><div class="opts">${node.o.map((o,i)=>`<button class="opt" data-o="${i}"><b>${o.t}</b><small>${o.h}</small></button>`).join("")}</div>`;
+    box.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{path.push(node.o[+b.dataset.o]);renderTree()});
+  }
+  box.querySelectorAll(".crumb").forEach(b=>b.onclick=()=>{path=path.slice(0,+b.dataset.i);renderTree()});
+}
+
+document.getElementById("copybtn").addEventListener("click",e=>{
+  const t=document.getElementById("code").textContent,b=e.currentTarget;
+  const done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1500)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("code"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected"};
+  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(_){fallback()}
+});
+
+selected="did";renderTree();document.getElementById("mapcard").innerHTML=card(byId.did);
+</script>

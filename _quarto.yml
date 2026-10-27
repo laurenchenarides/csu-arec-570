@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - files/includes/ag-econ-methods-map.html
 
 # Meta
 description-meta: "Course on Methodology of Economic Research"

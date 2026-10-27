@@ -217,13 +217,13 @@ Lauren Chenarides
 </section>
 <section id="todays-sequence" class="slide level2">
 <h2>Today’s sequence</h2>
-<p><strong>First third: VS Code as the research workspace</strong></p>
+<p><strong>VS Code as the research workspace</strong></p>
 <ul>
 <li>Open and run a research repository</li>
 <li>Review changes and use Git</li>
 <li>Connect local commits to GitHub</li>
 </ul>
-<p><strong>Remaining two thirds: the data section and its repository evidence</strong></p>
+<p><strong>The data section and connecting it with your repository evidence</strong></p>
 <ul>
 <li>Establish data fit for the hypotheses</li>
 <li>Document the sample and variable construction</li>
@@ -312,18 +312,8 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="opening-the-repository-root" class="slide level2 scrollable">
-<h2>Opening the repository root</h2>
-<ol type="1">
-<li>Clone the repository or locate its existing local folder</li>
-<li>Select <strong>File &gt; Open Folder</strong> and choose the repository root</li>
-<li>Review the active branch in the lower-left status bar</li>
-<li>Open the integrated terminal and run <code>git status</code></li>
-</ol>
-<p>The repository root contains <code>.git</code> and the project files</p>
-</section>
-<section id="workspace-checks-before-editing" class="slide level2">
-<h2>Workspace checks before editing</h2>
+<section id="windows-in-the-workspace" class="slide level2">
+<h2>Windows in the workspace</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -356,27 +346,26 @@ Lauren Chenarides
 </table>
 <p>Start the session by pulling accepted commits into the current branch</p>
 </section>
-<section id="r-execution-within-vs-code" class="slide level2 scrollable">
-<h2>R execution within VS Code</h2>
-<p>Open the Command Palette with <code>Ctrl+Shift+P</code></p>
+<section id="starting-from-a-local-folder" class="slide level2 scrollable">
+<h2>Starting from a local folder</h2>
 <ol type="1">
-<li>Run <strong>R: Create R terminal</strong></li>
-<li>Open an <code>.R</code> file</li>
-<li>Select code and press <code>Ctrl+Enter</code></li>
+<li>Locate your existing local folder</li>
+<li>Select <strong>File &gt; Open Folder</strong> and choose the repository root</li>
+<li>Select <strong>Manage</strong> folder, and then <strong>Trust</strong></li>
 </ol>
-<p>Run the master script from the R terminal</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">source</span>(<span class="st">"code/run_all.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="paths-and-the-project-root" class="slide level2">
-<h2>Paths and the project root</h2>
-<ul>
-<li>Use paths relative to the repository root</li>
-<li>Place computer-specific settings in an ignored configuration file</li>
-<li>Record package requirements and external software</li>
-<li>Provide one documented command that rebuilds the analysis</li>
-<li>Direct generated outputs to predictable folders</li>
-</ul>
-<p>A collaborator should be able to identify the entry point from the README</p>
+<section id="connecting-to-github" class="slide level2 scrollable">
+<h2>Connecting to GitHub</h2>
+<p>Starting from the folder open in VS Code</p>
+<ol type="1">
+<li>Open <strong>Source Control</strong> and select <strong>Initialize Repository</strong></li>
+<li>Add a <code>.gitignore</code> before the first commit</li>
+<li>Review the files, stage them, and create the first commit</li>
+<li>Select <strong>Publish Branch</strong> and sign in to GitHub if prompted</li>
+<li>Choose whether the GitHub repository will be public or private</li>
+<li>Open the repository on GitHub and confirm that the commit appears</li>
+</ol>
+<p>Initializing creates the local Git history and publishing creates the GitHub copy</p>
 </section>
 <section id="the-git-cycle-in-source-control" class="slide level2 scrollable">
 <h2>The Git cycle in Source Control</h2>
@@ -401,81 +390,32 @@ Lauren Chenarides
 </ul>
 <p>Stage a coherent set of files after reviewing the diff</p>
 </section>
-<section id="github-features-in-vs-code" class="slide level2">
-<h2>GitHub features in VS Code</h2>
-<p>Built-in Git support handles cloning, pulling, committing, and pushing</p>
-<p>The <strong>GitHub Pull Requests and Issues</strong> extension adds</p>
-<ul>
-<li>Pull-request creation</li>
-<li>File-by-file review</li>
-<li>Inline comments</li>
-<li>Local checkout of a proposed change</li>
-</ul>
-<p>Repository permissions still determine where a branch can be pushed</p>
-<p>Source: <a href="https://code.visualstudio.com/docs/sourcecontrol/github">Work with GitHub in VS Code</a></p>
-</section>
-<section id="vs-code-demo" class="slide level2 scrollable">
-<h2>VS Code Demo</h2>
+<section id="cloning-a-repo" class="slide level2 scrollable">
+<h2>Cloning a repo</h2>
+<p>Starting from a repository that already exists on GitHub</p>
 <ol type="1">
-<li>Open the repository and locate the analysis entry point</li>
-<li>Identify the active branch and remote</li>
-<li>Open one R script and one LaTeX file</li>
-<li>Edit a demonstration branch, inspect the diff, and commit</li>
-<li>Push the branch and locate it on GitHub</li>
+<li>Copy the repository URL from GitHub</li>
+<li>Open the Command Palette in VS Code and select <strong>Git: Clone</strong></li>
+<li>Paste the URL and choose the parent folder for the local copy</li>
+<li>Open the cloned repository and select <strong>Trust</strong></li>
+<li>Check the active branch and run <code>git status</code></li>
 </ol>
-<aside class="notes">
-<p>Use a disposable demonstration branch. Show the Explorer, integrated terminal, Source Control view, diff editor, and GitHub branch. Keep the demonstration to about ten minutes.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<p>The clone includes the project files and Git history</p>
 </section></section>
+<section id="vs-code-demo" class="title-slide slide level1 center">
+<h1>VS Code Demo</h1>
+
+</section>
+
 <section>
 <section id="writing-the-data-section" class="title-slide slide level1 center">
 <h1>Writing the data section</h1>
 
 </section>
-<section id="research-question-and-testable-hypotheses" class="slide level2 scrollable">
-<h2>Research question and testable hypotheses</h2>
-<div class="columns">
-<div class="column" style="width:42%;">
-<p><strong>Research question</strong></p>
-<blockquote>
-<p>How did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?</p>
-</blockquote>
-</div><div class="column" style="width:58%;">
-<p><strong>Framework-derived hypotheses</strong></p>
-<ol type="1">
-<li>Retail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods</li>
-<li>Within-chain price differences vary with state enforcement status if APG protections affect pricing</li>
-<li>Retail prices respond to wholesale acquisition costs, and pass-through may change during the SOE</li>
-<li>More frequent promotions can reduce net transaction prices while posted prices remain similar</li>
-</ol>
-</div></div>
-<aside class="notes">
-<p>The framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="the-data-section-makes-an-empirical-argument" class="slide level2">
 <h2>The data section makes an empirical argument</h2>
-<p>The section should establish that the observed data can evaluate the hypotheses under stated conditions</p>
+<p>The section should establish that the observed data can evaluate the hypotheses from your conceptual framework</p>
+<p>What needs to be communicated:</p>
 <ul>
 <li>The population and setting correspond to the research question</li>
 <li>The sample contains the observations and variation required by the hypotheses</li>
@@ -539,8 +479,18 @@ Lauren Chenarides
 </table>
 <p>The hypothesis determines the observations, measures, and variation the data section must establish</p>
 </section>
-<section id="a-complete-source-description" class="slide level2">
-<h2>A complete source description</h2>
+<section id="data-section-components" class="slide level2 scrollable">
+<h2>Data section components</h2>
+<ol type="1">
+<li><strong>Data source</strong> explains where the records came from and what they cover</li>
+<li><strong>Sample selection</strong> explains which observations enter the analysis</li>
+<li><strong>Variable construction</strong> explains how the analysis measures were created</li>
+<li><strong>Desriptive evidence</strong></li>
+</ol>
+<p>Together, these components let the reader understand and reproduce the analytic data</p>
+</section>
+<section id="data-source" class="slide level2">
+<h2>1. Data source</h2>
 <p>Address the questions that determine provenance and coverage</p>
 <ul>
 <li>Who collected or assembled the data</li>
@@ -553,8 +503,8 @@ Lauren Chenarides
 </ul>
 <p>Add information that affects interpretation or replication</p>
 </section>
-<section id="selection-rules-define-the-target-of-inference" class="slide level2">
-<h2>Selection rules define the target of inference</h2>
+<section id="sample-selection" class="slide level2">
+<h2>2. Sample selection</h2>
 <p>Report</p>
 <ul>
 <li>The population from which the sample is drawn</li>
@@ -566,19 +516,9 @@ Lauren Chenarides
 </ul>
 <p>Explain how each rule affects the claims the sample can support</p>
 </section>
-<section id="define-the-observation-unit-and-key" class="slide level2">
-<h2>Define the observation unit and key</h2>
-<p>The observation unit states what one row represents</p>
-<p>The key is the field or combination of fields that uniquely identifies each row</p>
-<ul>
-<li>Connect the observation unit to the actors, outcomes, and timing in the hypotheses</li>
-<li>Explain any aggregation from the source records to the analytic unit</li>
-<li>State how records from different sources are matched</li>
-<li>Verify that the key is unique and nonmissing</li>
-</ul>
-</section>
-<section id="variable-construction-connects-concepts-to-fields" class="slide level2">
-<h2>Variable construction connects concepts to fields</h2>
+<section id="variable-construction" class="slide level2">
+<h2>3. Variable construction</h2>
+<p>A reader needs to visualize the unit of observation (what one row represents)</p>
 <p>For each central variable report</p>
 <ul>
 <li>The concept from the framework</li>
@@ -628,11 +568,314 @@ Lauren Chenarides
 <li>Limit the empirical claim to what the measure can support</li>
 </ul>
 <p>Measurement limits should appear in the data section and in the interpretation of the results</p>
+</section>
+<section id="descriptive-statistics-as-evidence" class="slide level2">
+<h2>4. Descriptive statistics as evidence</h2>
+<p>Descriptive evidence helps the reader trust that the data is fit to test the hypotheses</p>
+<p>These should show</p>
+<ul>
+<li>The scale and composition of the analytic sample</li>
+<li>The variation required to evaluate the hypotheses</li>
+<li>The distribution and units of the central measures</li>
+<li>Differences across periods or comparison groups</li>
+<li>Extreme values, missingness, and panel imbalance</li>
+<li>Patterns that motivate later estimation</li>
+</ul>
+<p>Design the table after deciding which empirical questions it should answer</p>
+</section>
+<section id="a-descriptive-paragraph-has-four-jobs" class="slide level2 scrollable">
+<h2>A descriptive paragraph has four jobs</h2>
+<ol type="1">
+<li><strong>Orient</strong> the reader to the sample, unit, period, and comparison</li>
+<li><strong>Identify</strong> the pattern that matters for the research question</li>
+<li><strong>Quantify</strong> its magnitude with a small number of interpretable values</li>
+<li><strong>Qualify</strong> the pattern with sample composition or measurement information</li>
+</ol>
+</section>
+<section id="roles-of-tables-figures-text-and-the-repository" class="slide level2">
+<h2>Roles of tables, figures, text, and the repository</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Table body</td>
+<td>Complete values, units, and sample sizes</td>
+</tr>
+<tr class="even">
+<td>Table notes</td>
+<td>Definitions, weights, transformations, and sample restrictions</td>
+</tr>
+<tr class="odd">
+<td>Figure</td>
+<td>Time patterns, distributions, or comparisons</td>
+</tr>
+<tr class="even">
+<td>Main text</td>
+<td>Interpretation tied to the research question</td>
+</tr>
+<tr class="odd">
+<td>Repository</td>
+<td>Code that constructs every reported value</td>
+</tr>
+</tbody>
+</table>
+<p>Check that statistics compared in the text use the same sample and unit</p>
 </section></section>
 <section>
-<section id="example-price-gouging-study" class="title-slide slide level1 center">
-<h1>Example: price-gouging study</h1>
+<section id="the-repository-supports-the-data-section" class="title-slide slide level1 center">
+<h1>The repository supports the data section</h1>
 
+</section>
+<section id="the-paper-and-repository-answer-connected-questions" class="slide level2">
+<h2>The paper and repository answer connected questions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Manuscript question</th>
+<th>Repository evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where do the data come from</td>
+<td>README data overview and access documentation</td>
+</tr>
+<tr class="even">
+<td>How is the sample constructed</td>
+<td>SQL build and panel-construction scripts</td>
+</tr>
+<tr class="odd">
+<td>How are variables defined</td>
+<td>README variable table and transformation code</td>
+</tr>
+<tr class="even">
+<td>How are exclusions applied</td>
+<td>Analysis-sample filters in code</td>
+</tr>
+<tr class="odd">
+<td>Where do descriptive values come from</td>
+<td>Ordered scripts that write tables and figures</td>
+</tr>
+<tr class="even">
+<td>How can the analysis be rerun</td>
+<td>Quick Start, package list, configuration, and master script</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-readme-is-the-entry-point" class="slide level2">
+<h2>The README is the entry point</h2>
+<p>A project README should document</p>
+<ul>
+<li>The research question and empirical setting</li>
+<li>Required SQL builds and local configuration</li>
+<li>The command that runs the analysis</li>
+<li>Data coverage and access restrictions</li>
+<li>Core variables and their interpretation</li>
+<li>Known limitations</li>
+<li>The mapping from scripts to manuscript sections and outputs</li>
+</ul>
+<p>A new collaborator should know where to begin after reading the README</p>
+</section>
+<section id="git-tracking-by-access-and-purpose" class="slide level2">
+<h2>Git tracking by access and purpose</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Track in Git</th>
+<th>Keep outside Git</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source code and SQL</td>
+<td>Licensed transaction records</td>
+</tr>
+<tr class="even">
+<td>README and variable documentation</td>
+<td>Credentials and connection strings</td>
+</tr>
+<tr class="odd">
+<td>Package and software requirements</td>
+<td>Computer-specific configuration</td>
+</tr>
+<tr class="even">
+<td>Small metadata and public inputs</td>
+<td>Large intermediate data files</td>
+</tr>
+<tr class="odd">
+<td>Selected tables and figures</td>
+<td>Regenerable bulk outputs</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>.gitignore</code> for restricted, sensitive, computer-specific, and regenerable files</p>
+<p>Document how an authorized user supplies each required local input</p>
+</section>
+<section id="computing-environment" class="slide level2">
+<h2>Computing environment</h2>
+<p>Record</p>
+<ul>
+<li>R and external software requirements</li>
+<li>Package names and versions when version differences matter</li>
+<li>Database or API dependencies</li>
+<li>Required environment variables or configuration fields</li>
+<li>The order of scripts</li>
+<li>Random seeds for stochastic procedures</li>
+<li>The expected output folders</li>
+</ul>
+<p>Provide a safe example configuration with placeholder values when local settings are required</p>
+</section>
+<section id="repository-audit" class="slide level2">
+<h2>Repository audit</h2>
+<ul>
+<li>Can I identify the project purpose and empirical setting</li>
+<li>Can I find the analytic unit, key, sample period, and central variables</li>
+<li>Can I distinguish source data, intermediate data, and final outputs</li>
+<li>Can I locate every sample restriction and transformation</li>
+<li>Can I reproduce the descriptive tables from documented inputs</li>
+<li>Can I identify restricted materials and the process for authorized access</li>
+<li>Can I connect each manuscript table and figure to the script that produces it</li>
+</ul>
+</section></section>
+<section>
+<section id="apply-the-workflow-to-your-project" class="title-slide slide level1 center">
+<h1>Apply the workflow to your project</h1>
+
+</section>
+<section id="fit-to-hypothesis-matrix" class="slide level2">
+<h2>Fit-to-hypothesis matrix</h2>
+<p>Choose one hypothesis from your conceptual framework</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Your project</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hypothesis</td>
+<td>What relationship will be evaluated</td>
+</tr>
+<tr class="even">
+<td>Required observations</td>
+<td>Who or what must be observed</td>
+</tr>
+<tr class="odd">
+<td>Required variation</td>
+<td>Across whom, where, or when</td>
+</tr>
+<tr class="even">
+<td>Constructed measures</td>
+<td>How the concepts become variables</td>
+</tr>
+<tr class="odd">
+<td>Sample restrictions</td>
+<td>Which observations enter the analysis</td>
+</tr>
+<tr class="even">
+<td>Main limitation</td>
+<td>Which interpretation requires care</td>
+</tr>
+<tr class="odd">
+<td>Repository evidence</td>
+<td>Which file documents or implements the step</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-section-spine" class="slide level2 scrollable">
+<h2>Data-section spine</h2>
+<p>Write one or two sentences for each heading</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><strong>Source and provenance</strong></li>
+<li><strong>Coverage and population</strong></li>
+<li><strong>Sample selection</strong></li>
+<li><strong>Observation unit and key</strong></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="5" type="1">
+<li><strong>Variable construction</strong></li>
+<li><strong>Missing data and imputation</strong></li>
+<li><strong>Limitations and scope</strong></li>
+<li><strong>Descriptive evidence</strong></li>
+</ol>
+</div></div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>VS Code</strong> brings the project files, R or Quarto execution, Git, and GitHub into one workspace</p>
+<p><strong>The data section</strong> establishes provenance, sample construction, variable construction, and interpretive scope</p>
+<p><strong>Descriptive statistics</strong> develop the empirical setting and quantify the variation relevant to the hypotheses</p>
+<p><strong>The repository</strong> provides the documentation and code needed to verify and reproduce the data section</p>
+</section>
+<section id="resources-and-course-navigation" class="slide level2">
+<h2>Resources and course navigation</h2>
+<ul>
+<li><a href="https://github.com/laurenchenarides/price_gouging">Price-gouging research repository</a></li>
+<li><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source control in VS Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/r">R in VS Code</a></li>
+<li><a href="https://quarto.org/docs/tools/vscode/">Quarto in VS Code</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+</ul>
+</section></section>
+<section>
+<section id="appendix-price-gouging-example" class="title-slide slide level1 center">
+<h1>Appendix: price-gouging example</h1>
+<p>These slides show how the reporting principles appear in one applied project</p>
+</section>
+<section id="research-question-and-testable-hypotheses" class="slide level2 scrollable">
+<h2>Research question and testable hypotheses</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<p><strong>Research question</strong></p>
+<blockquote>
+<p>How did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?</p>
+</blockquote>
+</div><div class="column" style="width:58%;">
+<p><strong>Framework-derived hypotheses</strong></p>
+<ol type="1">
+<li>Retail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods</li>
+<li>Within-chain price differences vary with state enforcement status if APG protections affect pricing</li>
+<li>Retail prices respond to wholesale acquisition costs, and pass-through may change during the SOE</li>
+<li>More frequent promotions can reduce net transaction prices while posted prices remain similar</li>
+</ol>
+</div></div>
+<aside class="notes">
+<p>The framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-provenance-and-scope" class="slide level2">
 <h2>Data provenance and scope</h2>
@@ -907,75 +1150,6 @@ M^{net}_{jist}=p^{net}_{jist}-w_{jist}
 </tr>
 </tbody>
 </table>
-</section></section>
-<section>
-<section id="descriptive-statistics-as-evidence" class="title-slide slide level1 center">
-<h1>Descriptive statistics as evidence</h1>
-
-</section>
-<section id="descriptive-evidence-required-for-the-hypotheses" class="slide level2">
-<h2>Descriptive evidence required for the hypotheses</h2>
-<ul>
-<li>The scale and composition of the analytic sample</li>
-<li>The variation required to evaluate the hypotheses</li>
-<li>The distribution and units of the central measures</li>
-<li>Differences across periods or comparison groups</li>
-<li>Extreme values, missingness, and panel imbalance</li>
-<li>Patterns that motivate later estimation</li>
-</ul>
-<p>Design the table after deciding which empirical questions it should answer</p>
-</section>
-<section id="a-descriptive-paragraph-has-four-jobs" class="slide level2 scrollable">
-<h2>A descriptive paragraph has four jobs</h2>
-<ol type="1">
-<li><strong>Orient</strong> the reader to the sample, unit, period, and comparison</li>
-<li><strong>Identify</strong> the pattern that matters for the research question</li>
-<li><strong>Quantify</strong> its magnitude with a small number of interpretable values</li>
-<li><strong>Qualify</strong> the pattern with sample composition or measurement information</li>
-</ol>
-</section>
-<section id="roles-of-tables-figures-text-and-the-repository" class="slide level2">
-<h2>Roles of tables, figures, text, and the repository</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Element</th>
-<th>Job</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Table body</td>
-<td>Complete values, units, and sample sizes</td>
-</tr>
-<tr class="even">
-<td>Table notes</td>
-<td>Definitions, weights, transformations, and sample restrictions</td>
-</tr>
-<tr class="odd">
-<td>Figure</td>
-<td>Time patterns, distributions, or comparisons</td>
-</tr>
-<tr class="even">
-<td>Main text</td>
-<td>Interpretation tied to the research question</td>
-</tr>
-<tr class="odd">
-<td>Repository</td>
-<td>Code that constructs every reported value</td>
-</tr>
-</tbody>
-</table>
-<p>Check that statistics compared in the text use the same sample and unit</p>
-</section></section>
-<section>
-<section id="example-descriptive-evidence-in-the-price-gouging-study" class="title-slide slide level1 center">
-<h1>Example: descriptive evidence in the price-gouging study</h1>
-
 </section>
 <section id="establish-the-scale-and-composition" class="slide level2">
 <h2>Establish the scale and composition</h2>
@@ -1045,69 +1219,10 @@ M^{net}_{jist}=p^{net}_{jist}-w_{jist}
 </tbody>
 </table>
 <p>The discussion gives the reader context for the regression results that follow</p>
-</section></section>
-<section>
-<section id="the-repository-supports-the-data-section" class="title-slide slide level1 center">
-<h1>The repository supports the data section</h1>
-
-</section>
-<section id="the-paper-and-repository-answer-connected-questions" class="slide level2">
-<h2>The paper and repository answer connected questions</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Manuscript question</th>
-<th>Repository evidence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Where do the data come from</td>
-<td>README data overview and access documentation</td>
-</tr>
-<tr class="even">
-<td>How is the sample constructed</td>
-<td>SQL build and panel-construction scripts</td>
-</tr>
-<tr class="odd">
-<td>How are variables defined</td>
-<td>README variable table and transformation code</td>
-</tr>
-<tr class="even">
-<td>How are exclusions applied</td>
-<td>Analysis-sample filters in code</td>
-</tr>
-<tr class="odd">
-<td>Where do descriptive values come from</td>
-<td>Ordered scripts that write tables and figures</td>
-</tr>
-<tr class="even">
-<td>How can the analysis be rerun</td>
-<td>Quick Start, package list, configuration, and master script</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="the-readme-is-the-entry-point" class="slide level2">
-<h2>The README is the entry point</h2>
-<p>The <a href="https://github.com/laurenchenarides/price_gouging">price-gouging repository</a> documents</p>
-<ul>
-<li>The research question and empirical setting</li>
-<li>Required SQL builds and local configuration</li>
-<li>The command that runs the analysis</li>
-<li>Data coverage and access restrictions</li>
-<li>Core variables and their interpretation</li>
-<li>Known limitations</li>
-<li>The mapping from scripts to manuscript sections and outputs</li>
-</ul>
-<p>A new collaborator should know where to begin after reading the README</p>
 </section>
 <section id="scripts-mirror-the-data-argument" class="slide level2">
 <h2>Scripts mirror the data argument</h2>
+<p>The <a href="https://github.com/laurenchenarides/price_gouging">price-gouging repository</a> connects manuscript statements to the code and outputs that support them</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 50%">
@@ -1147,59 +1262,6 @@ M^{net}_{jist}=p^{net}_{jist}-w_{jist}
 </tbody>
 </table>
 </section>
-<section id="git-tracking-by-access-and-purpose" class="slide level2">
-<h2>Git tracking by access and purpose</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Track in Git</th>
-<th>Keep outside Git</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Source code and SQL</td>
-<td>Licensed transaction records</td>
-</tr>
-<tr class="even">
-<td>README and variable documentation</td>
-<td>Credentials and connection strings</td>
-</tr>
-<tr class="odd">
-<td>Package and software requirements</td>
-<td>Computer-specific configuration</td>
-</tr>
-<tr class="even">
-<td>Small metadata and public inputs</td>
-<td>Large intermediate data files</td>
-</tr>
-<tr class="odd">
-<td>Selected tables and figures</td>
-<td>Regenerable bulk outputs</td>
-</tr>
-</tbody>
-</table>
-<p>Use <code>.gitignore</code> for restricted, sensitive, computer-specific, and regenerable files</p>
-<p>Document how an authorized user supplies each required local input</p>
-</section>
-<section id="computing-environment" class="slide level2">
-<h2>Computing environment</h2>
-<p>Record</p>
-<ul>
-<li>R and external software requirements</li>
-<li>Package names and versions when version differences matter</li>
-<li>Database or API dependencies</li>
-<li>Required environment variables or configuration fields</li>
-<li>The order of scripts</li>
-<li>Random seeds for stochastic procedures</li>
-<li>The expected output folders</li>
-</ul>
-<p>Provide a safe example configuration with placeholder values when local settings are required</p>
-</section>
 <section id="manuscript-statements-and-repository-artifacts" class="slide level2">
 <h2>Manuscript statements and repository artifacts</h2>
 <table class="caption-top">
@@ -1237,138 +1299,6 @@ M^{net}_{jist}=p^{net}_{jist}-w_{jist}
 </tbody>
 </table>
 <p>This mapping helps a coauthor, reviewer, or future researcher verify a statement efficiently</p>
-</section>
-<section id="repository-audit" class="slide level2">
-<h2>Repository audit</h2>
-<ul>
-<li>Can I identify the project purpose and empirical setting</li>
-<li>Can I find the analytic unit, key, sample period, and central variables</li>
-<li>Can I distinguish source data, intermediate data, and final outputs</li>
-<li>Can I locate every sample restriction and transformation</li>
-<li>Can I reproduce the descriptive tables from documented inputs</li>
-<li>Can I identify restricted materials and the process for authorized access</li>
-<li>Can I connect each manuscript table and figure to the script that produces it</li>
-</ul>
-</section></section>
-<section>
-<section id="apply-the-workflow-to-your-project" class="title-slide slide level1 center">
-<h1>Apply the workflow to your project</h1>
-
-</section>
-<section id="fit-to-hypothesis-matrix" class="slide level2">
-<h2>Fit-to-hypothesis matrix</h2>
-<p>Choose one hypothesis from your conceptual framework</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Component</th>
-<th>Your project</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Hypothesis</td>
-<td>What relationship will be evaluated</td>
-</tr>
-<tr class="even">
-<td>Required observations</td>
-<td>Who or what must be observed</td>
-</tr>
-<tr class="odd">
-<td>Required variation</td>
-<td>Across whom, where, or when</td>
-</tr>
-<tr class="even">
-<td>Constructed measures</td>
-<td>How the concepts become variables</td>
-</tr>
-<tr class="odd">
-<td>Sample restrictions</td>
-<td>Which observations enter the analysis</td>
-</tr>
-<tr class="even">
-<td>Main limitation</td>
-<td>Which interpretation requires care</td>
-</tr>
-<tr class="odd">
-<td>Repository evidence</td>
-<td>Which file documents or implements the step</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data-section-spine" class="slide level2 scrollable">
-<h2>Data-section spine</h2>
-<p>Write one or two sentences for each heading</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ol type="1">
-<li><strong>Source and provenance</strong></li>
-<li><strong>Coverage and population</strong></li>
-<li><strong>Sample selection</strong></li>
-<li><strong>Observation unit and key</strong></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<ol start="5" type="1">
-<li><strong>Variable construction</strong></li>
-<li><strong>Missing data and imputation</strong></li>
-<li><strong>Limitations and scope</strong></li>
-<li><strong>Descriptive evidence</strong></li>
-</ol>
-</div></div>
-</section>
-<section id="group-workshop" class="slide level2 scrollable">
-<h2>Group workshop</h2>
-<p>Choose one volunteer project and work through the evidence chain</p>
-<ol type="1">
-<li>State one hypothesis</li>
-<li>Identify the population and required variation</li>
-<li>Define the observation unit and sample boundaries</li>
-<li>Explain one central variable construction</li>
-<li>Identify one proxy or measurement limitation</li>
-<li>Name the repository artifact that should support each step</li>
-</ol>
-<aside class="notes">
-<p>Invite a volunteer whose data plan is developed enough to discuss. Keep the questions general so the class can contribute from different fields. Record the completed matrix where everyone can see it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="preparation-for-the-next-project-meeting" class="slide level2">
-<h2>Preparation for the next project meeting</h2>
-<p>Prepare two items for your own project</p>
-<ul>
-<li>A five-sentence outline covering source, sample, observation unit, central measures, and main limitation</li>
-<li>A repository checklist naming the README content, build script, variable documentation, and first descriptive output still needed</li>
-</ul>
-<p>Bring both items to the next project meeting or advising conversation</p>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<p><strong>VS Code</strong> brings the project files, R or Quarto execution, Git, and GitHub into one workspace</p>
-<p><strong>The data section</strong> establishes provenance, sample construction, variable construction, and interpretive scope</p>
-<p><strong>Descriptive statistics</strong> develop the empirical setting and quantify the variation relevant to the hypotheses</p>
-<p><strong>The repository</strong> provides the documentation and code needed to verify and reproduce the data section</p>
-</section>
-<section id="resources-and-course-navigation" class="slide level2">
-<h2>Resources and course navigation</h2>
-<ul>
-<li><a href="https://github.com/laurenchenarides/price_gouging">Price-gouging research repository</a></li>
-<li><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source control in VS Code</a></li>
-<li><a href="https://code.visualstudio.com/docs/languages/r">R in VS Code</a></li>
-<li><a href="https://quarto.org/docs/tools/vscode/">Quarto in VS Code</a></li>
-<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
-<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
-</ul>
 
 
 </section></section>
