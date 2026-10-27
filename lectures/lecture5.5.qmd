@@ -30,13 +30,13 @@ description: "Use VS Code with Git and GitHub, then write a data section whose s
 
 ## Today's sequence
 
-**First third: VS Code as the research workspace**
+**VS Code as the research workspace**
 
 - Open and run a research repository
 - Review changes and use Git
 - Connect local commits to GitHub
 
-**Remaining two thirds: the data section and its repository evidence**
+**The data section and connecting it with your repository evidence**
 
 - Establish data fit for the hypotheses
 - Document the sample and variable construction
@@ -73,16 +73,7 @@ install.packages("languageserver")
 Sources: [R in VS Code](https://code.visualstudio.com/docs/languages/r) and [Quarto in VS Code](https://quarto.org/docs/tools/vscode/)
 :::
 
-## Opening the repository root
-
-1. Clone the repository or locate its existing local folder
-2. Select **File > Open Folder** and choose the repository root
-3. Review the active branch in the lower-left status bar
-4. Open the integrated terminal and run `git status`
-
-The repository root contains `.git` and the project files
-
-## Workspace checks before editing
+## Windows in the workspace
 
 | VS Code area | What to verify |
 |---|---|
@@ -94,29 +85,26 @@ The repository root contains `.git` and the project files
 
 Start the session by pulling accepted commits into the current branch
 
-## R execution within VS Code
+## Starting from a local folder
 
-Open the Command Palette with `Ctrl+Shift+P`
+1. Locate your existing local folder
+2. Select **File > Open Folder** and choose the repository root
+3. Select **Manage** folder, and then **Trust**
 
-1. Run **R: Create R terminal**
-2. Open an `.R` file
-3. Select code and press `Ctrl+Enter`
 
-Run the master script from the R terminal
+## Connecting to GitHub
 
-```r
-source("code/run_all.R")
-```
+Starting from the folder open in VS Code
 
-## Paths and the project root
+1. Open **Source Control** and select **Initialize Repository**
+2. Add a `.gitignore` before the first commit
+3. Review the files, stage them, and create the first commit
+4. Select **Publish Branch** and sign in to GitHub if prompted
+5. Choose whether the GitHub repository will be public or private
+6. Open the repository on GitHub and confirm that the commit appears
 
-- Use paths relative to the repository root
-- Place computer-specific settings in an ignored configuration file
-- Record package requirements and external software
-- Provide one documented command that rebuilds the analysis
-- Direct generated outputs to predictable folders
+Initializing creates the local Git history and publishing creates the GitHub copy
 
-A collaborator should be able to identify the entry point from the README
 
 ## The Git cycle in Source Control
 
@@ -141,69 +129,36 @@ Ask four questions
 
 Stage a coherent set of files after reviewing the diff
 
-## GitHub features in VS Code
+## Cloning a repo 
 
-Built-in Git support handles cloning, pulling, committing, and pushing
+Starting from a repository that already exists on GitHub
 
-The **GitHub Pull Requests and Issues** extension adds
+1. Copy the repository URL from GitHub
+2. Open the Command Palette in VS Code and select **Git: Clone**
+3. Paste the URL and choose the parent folder for the local copy
+4. Open the cloned repository and select **Trust**
+5. Check the active branch and run `git status`
 
-- Pull-request creation
-- File-by-file review
-- Inline comments
-- Local checkout of a proposed change
+The clone includes the project files and Git history
 
-Repository permissions still determine where a branch can be pushed
 
-Source: [Work with GitHub in VS Code](https://code.visualstudio.com/docs/sourcecontrol/github)
+# VS Code Demo
 
-## VS Code Demo
-
-1. Open the repository and locate the analysis entry point
-2. Identify the active branch and remote
-3. Open one R script and one LaTeX file
-4. Edit a demonstration branch, inspect the diff, and commit
-5. Push the branch and locate it on GitHub
-
-::: notes
-Use a disposable demonstration branch. Show the Explorer, integrated terminal, Source Control view, diff editor, and GitHub branch. Keep the demonstration to about ten minutes.
-:::
 
 # Writing the data section
 
-## Research question and testable hypotheses
-
-:::: {.columns}
-
-::: {.column width="42%"}
-**Research question**
-
-> How did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?
-:::
-
-::: {.column width="58%"}
-**Framework-derived hypotheses**
-
-1. Retail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods
-2. Within-chain price differences vary with state enforcement status if APG protections affect pricing
-3. Retail prices respond to wholesale acquisition costs, and pass-through may change during the SOE
-4. More frequent promotions can reduce net transaction prices while posted prices remain similar
-:::
-
-::::
-
-::: notes
-The framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses.
-:::
-
 ## The data section makes an empirical argument
 
-The section should establish that the observed data can evaluate the hypotheses under stated conditions
+The section should establish that the observed data can evaluate the hypotheses from your conceptual framework
+
+What needs to be communicated:
 
 - The population and setting correspond to the research question
 - The sample contains the observations and variation required by the hypotheses
 - The measures represent the concepts in the framework
 - The construction rules can be reproduced
 - The limitations define the scope of interpretation
+
 
 ## Evidence chain for a data section
 
@@ -225,7 +180,16 @@ Use this diagram to organize the remainder of the lecture. The manuscript states
 
 The hypothesis determines the observations, measures, and variation the data section must establish
 
-## A complete source description
+## Data section components
+
+1. **Data source** explains where the records came from and what they cover
+2. **Sample selection** explains which observations enter the analysis
+3. **Variable construction** explains how the analysis measures were created
+4. **Desriptive evidence**
+
+Together, these components let the reader understand and reproduce the analytic data
+
+## 1. Data source
 
 Address the questions that determine provenance and coverage
 
@@ -239,7 +203,7 @@ Address the questions that determine provenance and coverage
 
 Add information that affects interpretation or replication
 
-## Selection rules define the target of inference
+## 2. Sample selection
 
 Report
 
@@ -252,18 +216,9 @@ Report
 
 Explain how each rule affects the claims the sample can support
 
-## Define the observation unit and key
+## 3. Variable construction
 
-The observation unit states what one row represents
-
-The key is the field or combination of fields that uniquely identifies each row
-
-- Connect the observation unit to the actors, outcomes, and timing in the hypotheses
-- Explain any aggregation from the source records to the analytic unit
-- State how records from different sources are matched
-- Verify that the key is unique and nonmissing
-
-## Variable construction connects concepts to fields
+A reader needs to visualize the unit of observation (what one row represents)
 
 For each central variable report
 
@@ -315,7 +270,192 @@ For each proxy
 
 Measurement limits should appear in the data section and in the interpretation of the results
 
-# Example: price-gouging study
+## 4. Descriptive statistics as evidence
+
+Descriptive evidence helps the reader trust that the data is fit to test the hypotheses
+
+These should show
+
+- The scale and composition of the analytic sample
+- The variation required to evaluate the hypotheses
+- The distribution and units of the central measures
+- Differences across periods or comparison groups
+- Extreme values, missingness, and panel imbalance
+- Patterns that motivate later estimation
+
+Design the table after deciding which empirical questions it should answer
+
+## A descriptive paragraph has four jobs
+
+1. **Orient** the reader to the sample, unit, period, and comparison
+2. **Identify** the pattern that matters for the research question
+3. **Quantify** its magnitude with a small number of interpretable values
+4. **Qualify** the pattern with sample composition or measurement information
+
+## Roles of tables, figures, text, and the repository
+
+| Element | Job |
+|---|---|
+| Table body | Complete values, units, and sample sizes |
+| Table notes | Definitions, weights, transformations, and sample restrictions |
+| Figure | Time patterns, distributions, or comparisons |
+| Main text | Interpretation tied to the research question |
+| Repository | Code that constructs every reported value |
+
+Check that statistics compared in the text use the same sample and unit
+
+# The repository supports the data section
+
+## The paper and repository answer connected questions
+
+| Manuscript question | Repository evidence |
+|---|---|
+| Where do the data come from | README data overview and access documentation |
+| How is the sample constructed | SQL build and panel-construction scripts |
+| How are variables defined | README variable table and transformation code |
+| How are exclusions applied | Analysis-sample filters in code |
+| Where do descriptive values come from | Ordered scripts that write tables and figures |
+| How can the analysis be rerun | Quick Start, package list, configuration, and master script |
+
+## The README is the entry point
+
+A project README should document
+
+- The research question and empirical setting
+- Required SQL builds and local configuration
+- The command that runs the analysis
+- Data coverage and access restrictions
+- Core variables and their interpretation
+- Known limitations
+- The mapping from scripts to manuscript sections and outputs
+
+A new collaborator should know where to begin after reading the README
+
+## Git tracking by access and purpose
+
+| Track in Git | Keep outside Git |
+|---|---|
+| Source code and SQL | Licensed transaction records |
+| README and variable documentation | Credentials and connection strings |
+| Package and software requirements | Computer-specific configuration |
+| Small metadata and public inputs | Large intermediate data files |
+| Selected tables and figures | Regenerable bulk outputs |
+
+Use `.gitignore` for restricted, sensitive, computer-specific, and regenerable files
+
+Document how an authorized user supplies each required local input
+
+## Computing environment
+
+Record
+
+- R and external software requirements
+- Package names and versions when version differences matter
+- Database or API dependencies
+- Required environment variables or configuration fields
+- The order of scripts
+- Random seeds for stochastic procedures
+- The expected output folders
+
+Provide a safe example configuration with placeholder values when local settings are required
+
+## Repository audit
+
+- Can I identify the project purpose and empirical setting
+- Can I find the analytic unit, key, sample period, and central variables
+- Can I distinguish source data, intermediate data, and final outputs
+- Can I locate every sample restriction and transformation
+- Can I reproduce the descriptive tables from documented inputs
+- Can I identify restricted materials and the process for authorized access
+- Can I connect each manuscript table and figure to the script that produces it
+
+# Apply the workflow to your project
+
+## Fit-to-hypothesis matrix
+
+Choose one hypothesis from your conceptual framework
+
+| Component | Your project |
+|---|---|
+| Hypothesis | What relationship will be evaluated |
+| Required observations | Who or what must be observed |
+| Required variation | Across whom, where, or when |
+| Constructed measures | How the concepts become variables |
+| Sample restrictions | Which observations enter the analysis |
+| Main limitation | Which interpretation requires care |
+| Repository evidence | Which file documents or implements the step |
+
+## Data-section spine
+
+Write one or two sentences for each heading
+
+:::: {.columns}
+
+::: {.column width="50%"}
+1. **Source and provenance**
+2. **Coverage and population**
+3. **Sample selection**
+4. **Observation unit and key**
+:::
+
+::: {.column width="50%"}
+5. **Variable construction**
+6. **Missing data and imputation**
+7. **Limitations and scope**
+8. **Descriptive evidence**
+:::
+
+::::
+
+
+## Summary
+
+**VS Code** brings the project files, R or Quarto execution, Git, and GitHub into one workspace
+
+**The data section** establishes provenance, sample construction, variable construction, and interpretive scope
+
+**Descriptive statistics** develop the empirical setting and quantify the variation relevant to the hypotheses
+
+**The repository** provides the documentation and code needed to verify and reproduce the data section
+
+## Resources and course navigation
+
+- [Price-gouging research repository](https://github.com/laurenchenarides/price_gouging)
+- [Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
+- [R in VS Code](https://code.visualstudio.com/docs/languages/r)
+- [Quarto in VS Code](https://quarto.org/docs/tools/vscode/)
+- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
+- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
+- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
+
+# Appendix: price-gouging example
+
+These slides show how the reporting principles appear in one applied project
+
+## Research question and testable hypotheses
+
+:::: {.columns}
+
+::: {.column width="42%"}
+**Research question**
+
+> How did grocery retailers adjust prices and dollar margins during COVID-19 states of emergency, when anti-price-gouging laws, demand, and wholesale costs changed at the same time?
+:::
+
+::: {.column width="58%"}
+**Framework-derived hypotheses**
+
+1. Retail prices and dollar margins differ across the pre-SOE, SOE, and post-SOE periods
+2. Within-chain price differences vary with state enforcement status if APG protections affect pricing
+3. Retail prices respond to wholesale acquisition costs, and pass-through may change during the SOE
+4. More frequent promotions can reduce net transaction prices while posted prices remain similar
+:::
+
+::::
+
+::: notes
+The framework allows several mechanisms to operate at the same time. Higher demand and wholesale costs can create upward price pressure. APG protections can constrain price increases. Chain-level pricing can limit cross-state price differences. Promotions can lower the price paid at the register. The data section must establish whether the data contain the outcomes, mechanisms, comparisons, and timing required to evaluate these hypotheses.
+:::
 
 ## Data provenance and scope
 
@@ -472,40 +612,6 @@ These boundaries guide the language used for margins, price indexes, and policy 
 | Pricing uniformity changed | Multiple stores within the same chain and week | Store coverage changes over time |
 | Pass-through changed | Retail and wholesale price changes are observed together | Wholesale costs may reflect shared upstream conditions |
 
-# Descriptive statistics as evidence
-
-## Descriptive evidence required for the hypotheses
-
-- The scale and composition of the analytic sample
-- The variation required to evaluate the hypotheses
-- The distribution and units of the central measures
-- Differences across periods or comparison groups
-- Extreme values, missingness, and panel imbalance
-- Patterns that motivate later estimation
-
-Design the table after deciding which empirical questions it should answer
-
-## A descriptive paragraph has four jobs
-
-1. **Orient** the reader to the sample, unit, period, and comparison
-2. **Identify** the pattern that matters for the research question
-3. **Quantify** its magnitude with a small number of interpretable values
-4. **Qualify** the pattern with sample composition or measurement information
-
-## Roles of tables, figures, text, and the repository
-
-| Element | Job |
-|---|---|
-| Table body | Complete values, units, and sample sizes |
-| Table notes | Definitions, weights, transformations, and sample restrictions |
-| Figure | Time patterns, distributions, or comparisons |
-| Main text | Interpretation tied to the research question |
-| Repository | Code that constructs every reported value |
-
-Check that statistics compared in the text use the same sample and unit
-
-# Example: descriptive evidence in the price-gouging study
-
 ## Establish the scale and composition
 
 The descriptive section begins with the analytic scale
@@ -541,35 +647,9 @@ Source: `manuscript_v13.tex`, Descriptive Evidence section. The sentences move f
 
 The discussion gives the reader context for the regression results that follow
 
-
-# The repository supports the data section
-
-## The paper and repository answer connected questions
-
-| Manuscript question | Repository evidence |
-|---|---|
-| Where do the data come from | README data overview and access documentation |
-| How is the sample constructed | SQL build and panel-construction scripts |
-| How are variables defined | README variable table and transformation code |
-| How are exclusions applied | Analysis-sample filters in code |
-| Where do descriptive values come from | Ordered scripts that write tables and figures |
-| How can the analysis be rerun | Quick Start, package list, configuration, and master script |
-
-## The README is the entry point
-
-The [price-gouging repository](https://github.com/laurenchenarides/price_gouging) documents
-
-- The research question and empirical setting
-- Required SQL builds and local configuration
-- The command that runs the analysis
-- Data coverage and access restrictions
-- Core variables and their interpretation
-- Known limitations
-- The mapping from scripts to manuscript sections and outputs
-
-A new collaborator should know where to begin after reading the README
-
 ## Scripts mirror the data argument
+
+The [price-gouging repository](https://github.com/laurenchenarides/price_gouging) connects manuscript statements to the code and outputs that support them
 
 | Repository artifact | Data-section role |
 |---|---|
@@ -579,34 +659,6 @@ A new collaborator should know where to begin after reading the README
 | `code/run_all.R` | Runs the scripts in the intended order |
 | `code/sql/` | Documents upstream construction of the source tables |
 | `tables_latex/` and `figures/` | Store manuscript-ready outputs |
-
-## Git tracking by access and purpose
-
-| Track in Git | Keep outside Git |
-|---|---|
-| Source code and SQL | Licensed transaction records |
-| README and variable documentation | Credentials and connection strings |
-| Package and software requirements | Computer-specific configuration |
-| Small metadata and public inputs | Large intermediate data files |
-| Selected tables and figures | Regenerable bulk outputs |
-
-Use `.gitignore` for restricted, sensitive, computer-specific, and regenerable files
-
-Document how an authorized user supplies each required local input
-
-## Computing environment
-
-Record
-
-- R and external software requirements
-- Package names and versions when version differences matter
-- Database or API dependencies
-- Required environment variables or configuration fields
-- The order of scripts
-- Random seeds for stochastic procedures
-- The expected output folders
-
-Provide a safe example configuration with placeholder values when local settings are required
 
 ## Manuscript statements and repository artifacts
 
@@ -619,95 +671,3 @@ Provide a safe example configuration with placeholder values when local settings
 | Descriptive means differ across SOE periods | Period-means table and figure scripts |
 
 This mapping helps a coauthor, reviewer, or future researcher verify a statement efficiently
-
-## Repository audit
-
-- Can I identify the project purpose and empirical setting
-- Can I find the analytic unit, key, sample period, and central variables
-- Can I distinguish source data, intermediate data, and final outputs
-- Can I locate every sample restriction and transformation
-- Can I reproduce the descriptive tables from documented inputs
-- Can I identify restricted materials and the process for authorized access
-- Can I connect each manuscript table and figure to the script that produces it
-
-# Apply the workflow to your project
-
-## Fit-to-hypothesis matrix
-
-Choose one hypothesis from your conceptual framework
-
-| Component | Your project |
-|---|---|
-| Hypothesis | What relationship will be evaluated |
-| Required observations | Who or what must be observed |
-| Required variation | Across whom, where, or when |
-| Constructed measures | How the concepts become variables |
-| Sample restrictions | Which observations enter the analysis |
-| Main limitation | Which interpretation requires care |
-| Repository evidence | Which file documents or implements the step |
-
-## Data-section spine
-
-Write one or two sentences for each heading
-
-:::: {.columns}
-
-::: {.column width="50%"}
-1. **Source and provenance**
-2. **Coverage and population**
-3. **Sample selection**
-4. **Observation unit and key**
-:::
-
-::: {.column width="50%"}
-5. **Variable construction**
-6. **Missing data and imputation**
-7. **Limitations and scope**
-8. **Descriptive evidence**
-:::
-
-::::
-
-## Group workshop
-
-Choose one volunteer project and work through the evidence chain
-
-1. State one hypothesis
-2. Identify the population and required variation
-3. Define the observation unit and sample boundaries
-4. Explain one central variable construction
-5. Identify one proxy or measurement limitation
-6. Name the repository artifact that should support each step
-
-::: notes
-Invite a volunteer whose data plan is developed enough to discuss. Keep the questions general so the class can contribute from different fields. Record the completed matrix where everyone can see it.
-:::
-
-## Preparation for the next project meeting
-
-Prepare two items for your own project
-
-- A five-sentence outline covering source, sample, observation unit, central measures, and main limitation
-- A repository checklist naming the README content, build script, variable documentation, and first descriptive output still needed
-
-Bring both items to the next project meeting or advising conversation
-
-## Summary
-
-**VS Code** brings the project files, R or Quarto execution, Git, and GitHub into one workspace
-
-**The data section** establishes provenance, sample construction, variable construction, and interpretive scope
-
-**Descriptive statistics** develop the empirical setting and quantify the variation relevant to the hypotheses
-
-**The repository** provides the documentation and code needed to verify and reproduce the data section
-
-## Resources and course navigation
-
-- [Price-gouging research repository](https://github.com/laurenchenarides/price_gouging)
-- [Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
-- [R in VS Code](https://code.visualstudio.com/docs/languages/r)
-- [Quarto in VS Code](https://quarto.org/docs/tools/vscode/)
-- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
-- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
-- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
