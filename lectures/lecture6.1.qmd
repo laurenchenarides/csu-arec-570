@@ -76,7 +76,7 @@ Each row is tagged with its source. Rows tagged B come from Bellemare's descript
 
 <iframe src="../files/includes/ag-econ-methods-map.html#example" width="100%" height="320" style="border:1px solid #ccc;" title="Ag econ methods map"></iframe>
 
-A map of methods, a decision tree, an estimation primer, and the climate example we use today. Use it as a reference while writing.
+A map of methods, a decision tree, the four choices every empirical strategy states, structural estimation details for 6.2, and the climate example we use today. Use it as a reference while writing.
 
 [Open the methods map in a new tab](../files/includes/ag-econ-methods-map.html)
 
