@@ -171,9 +171,72 @@ Lauren Chenarides
 <section id="before-class" class="slide level2">
 <h2>Before class</h2>
 <ul>
-<li>Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span>.</li>
+<li>Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference” <span class="citation" data-cites="nevo2010dogma">(<a href="#/references" role="doc-biblioref" onclick="">Nevo and Whinston 2010</a>)</span></li>
+<li>Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) <span class="citation" data-cites="nevo2000practitioner">(<a href="#/references" role="doc-biblioref" onclick="">Nevo 2000</a>)</span></li>
 </ul>
 <p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
+</section>
+<section id="latin-letters-mark-what-you-observe-greek-letters-mark-what-you-estimate" class="slide level2">
+<h2>Latin letters mark what you observe; Greek letters mark what you estimate</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Latin letters</th>
+<th>Greek letters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Examples</strong></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> alpha, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> beta, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math> gamma, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math> delta, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> epsilon</td>
+</tr>
+<tr class="even">
+<td><strong>Used for</strong></td>
+<td>Variables you observe in the data</td>
+<td>Parameters you estimate, and the error term you never observe</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Latin letters are the letters of the English alphabet</li>
+<li>Fixed effects are parameters, so they get Greek letters: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\gamma_c</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\delta_t</annotation></semantics></math></li>
+<li>A reader who sees a Greek letter knows it is estimated, not measured</li>
+</ul>
+<p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
+</section>
+<section id="subscripts-tell-the-reader-the-level-at-which-each-term-varies" class="slide level2">
+<h2>Subscripts tell the reader the level at which each term varies</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>c</mi><mi>s</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>β</mi><msub><mi>P</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>γ</mi><mi>c</mi></msub><mo>+</mo><msub><mi>δ</mi><mi>t</mi></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>c</mi><mi>s</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
+</annotation></semantics></math></p>
+<ul>
+<li>One letter per dimension, used the same way throughout the paper: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math> county, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math> state, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> year</li>
+<li>Order from the smallest unit to the largest, with time last</li>
+<li>A term carries only the subscripts it varies over: a state policy is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">P_{st}</annotation></semantics></math>, not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mrow><mi>c</mi><mi>s</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">P_{cst}</annotation></semantics></math></li>
+<li>A fixed effect’s subscript says what it holds constant: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\gamma_c</annotation></semantics></math> county, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\delta_t</annotation></semantics></math> year</li>
+<li>The outcome’s subscripts state the unit of observation: a county in a year</li>
+</ul>
+<aside class="notes">
+<p>Smallest to largest is Bellemare’s rule. Time last is a common convention rather than a rule from the reading.</p>
+<p>The subscript on the treatment also tells the reader where the identifying variation is. In this example the policy varies by state and year, which is also a natural starting point for the clustering level.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="separate-the-target-from-the-tool" class="slide level2">
 <h2>Separate the target from the tool</h2>
@@ -332,6 +395,15 @@ Lauren Chenarides
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-athey2017state" class="csl-entry" role="listitem">
 Athey, Susan, and Guido W. Imbens. 2017. <span>“The State of Applied Econometrics: Causality and Policy Evaluation.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 3–32. <a href="https://doi.org/10.1257/jep.31.2.3">https://doi.org/10.1257/jep.31.2.3</a>.
+</div>
+<div id="ref-bellemare2020applied" class="csl-entry" role="listitem">
+Bellemare, Marc F. 2020. <em>How to Write Applied Papers in Economics</em>. Working paper, University of Minnesota.
+</div>
+<div id="ref-nevo2000practitioner" class="csl-entry" role="listitem">
+Nevo, Aviv. 2000. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
+</div>
+<div id="ref-nevo2010dogma" class="csl-entry" role="listitem">
+Nevo, Aviv, and Michael D. Whinston. 2010. <span>“Taking the Dogma Out of Econometrics: Structural Modeling and Credible Inference.”</span> <em>Journal of Economic Perspectives</em> 24 (2): 69–82. <a href="https://doi.org/10.1257/jep.24.2.69">https://doi.org/10.1257/jep.24.2.69</a>.
 </div>
 </div>
 </section>

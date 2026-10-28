@@ -29,7 +29,8 @@ description: "Distinguish prediction from causal inference and evaluate model se
 
 ## Before class
 
-- Athey and Imbens, “Machine Learning Methods That Economists Should Know About” [@athey2019machine].
+- Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” [@athey2017state]
+- Athey and Imbens, “Machine Learning Methods That Economists Should Know About” [@athey2019machine]
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 

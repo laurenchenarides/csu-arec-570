@@ -189,6 +189,19 @@ The hypothesis determines the observations, measures, and variation the data sec
 
 Together, these components let the reader understand and reproduce the analytic data
 
+## The data checklist lists what your data section must report
+
+- One page, with one row for each item the data section must state
+- Rows follow the components on the previous slide, plus the fit to your hypotheses and the repository
+- Write each answer as the sentence you would put in the paper
+- Unit 6 adds a parallel checklist for the empirical strategy section
+
+[Open the data checklist](../files/data-checklist.qmd)
+
+::: notes
+The checklist consolidates the slides in this lecture: the fit-to-hypothesis table, the four data-section components, missing data and proxies, and the repository audit. Rows tagged GS come from Gentzkow and Shapiro; rows tagged AJAE come from the journal's author guidelines, which ask that data sources be stated clearly and that data, code, and a readme be provided on acceptance.
+:::
+
 ## 1. Data source
 
 Address the questions that determine provenance and coverage
@@ -424,6 +437,7 @@ Write one or two sentences for each heading
 - [Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
 - [R in VS Code](https://code.visualstudio.com/docs/languages/r)
 - [Quarto in VS Code](https://quarto.org/docs/tools/vscode/)
+- [Data checklist](https://laurenchenarides.github.io/csu-arec-570/files/data-checklist.html)
 - [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
 - [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
 - [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)

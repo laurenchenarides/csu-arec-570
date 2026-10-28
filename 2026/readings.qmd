@@ -100,6 +100,10 @@ All other readings, including articles, handouts, course notes, and reviewer gui
 
 - Kim, Jae H. “Tackling False Positives in Business Research: A Statistical Toolbox with Applications.” *Journal of Economic Surveys*, vol. 33, no. 3, 2019, pp. 862–95. <https://doi.org/10.1111/joes.12303>.
 
+- Nevo, Aviv. “A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand.” *Journal of Economics & Management Strategy*, vol. 9, no. 4, 2000, pp. 513–48. <https://doi.org/10.1162/105864000567954>. Optional.
+
+- Nevo, Aviv, and Michael D. Whinston. “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference.” *Journal of Economic Perspectives*, vol. 24, no. 2, 2010, pp. 69–82. <https://doi.org/10.1257/jep.24.2.69>.
+
 - Starr, Martha A. “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future.” *Journal of Economic Surveys*, vol. 28, no. 2, 2014, pp. 238–64. <https://doi.org/10.1111/joes.12004>.
 
 - Timmins, Christopher, and Wolfram Schlenker. “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics.” *Annual Review of Resource Economics*, vol. 1, 2009, pp. 351–80. <https://doi.org/10.1146/annurev.resource.050708.144119>.

@@ -10,7 +10,7 @@ format:
 toc: false
 ---
 
-Complete one row at a time for your proposal. Write each answer as the sentence you would put in the paper. Rows marked **[6.x]** are introduced in that lecture. Sources: **B** = Bellemare, "How to Write Applied Papers in Economics," Section 5; **AJAE** = AJAE Author Guidelines and Author's Final Checklist. Unmarked rows are course standards.
+Complete one row at a time for your proposal. Write each answer as the sentence you would put in the paper. This checklist follows the [data checklist](data-checklist.qmd) from Lecture 5.5. Rows marked **[6.x]** are covered in that lecture. Sources: **B** = Bellemare, "How to Write Applied Papers in Economics," Section 5; **AJAE** = AJAE Author Guidelines and Author's Final Checklist. Unmarked rows are course standards.
 
 ## Estimation strategy
 
@@ -19,7 +19,7 @@ Complete one row at a time for your proposal. Write each answer as the sentence 
 | 1 | **Prediction to equation [6.1].** Which testable prediction from your conceptual framework (Unit 4) each equation tests. | |
 | 2 | **Estimating equation [6.1, B].** The equation, with every variable and coefficient defined, subscripts ordered from smallest to largest unit, and a separate coefficient label for each specification. | |
 | 3 | **Unit of observation [6.1].** What one row is. It matches the observation unit and key in your data section (Unit 5). | |
-| 4 | **Parameter of interest [6.1].** Which coefficient answers the question, its units, and how to read a one-unit change. | |
+| 4 | **Parameter of interest [6.1].** Which coefficient answers the question, its units, how to read a one-unit change, and whether it has a causal interpretation (if not, what it describes). | |
 | 5 | **Estimator [6.1, B].** The estimation method (for example, OLS, linear probability model, probit, maximum likelihood, GMM) and why. | |
 | 6 | **Inference [6.1, B].** The null hypothesis; what the standard errors are robust to; the clustering level and why; how few clusters are handled; whether sampling weights are used. | |
 
@@ -45,6 +45,6 @@ Complete one row at a time for your proposal. Write each answer as the sentence 
 | # | The section states | Your answer |
 |---|---|---|
 | 14 | **What the design does not identify [6.5].** Parameters, mechanisms, or populations outside the estimand; limits on external validity. | |
-| 15 | **Robustness [6.5, B].** Three checks a referee would request, each tied to a threat in row 9. | |
+| 15 | **Robustness and sensitivity [6.5, B].** Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6. | |
 | 16 | **Appendix [AJAE].** Which implementation details move to the appendix, cited in the text as an online appendix, not "available on request." | |
 | 17 | **Replication [AJAE].** The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission. | |
