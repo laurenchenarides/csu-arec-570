@@ -10,41 +10,26 @@ format:
 toc: false
 ---
 
-Complete one row at a time for your proposal. Write each answer as the sentence you would put in the paper. This checklist follows the [data checklist](data-checklist.qmd) from Lecture 5.5. Rows marked **[6.x]** are covered in that lecture. Sources: **B** = Bellemare, "How to Write Applied Papers in Economics," Section 5; **AJAE** = AJAE Author Guidelines and Author's Final Checklist. Unmarked rows are course standards.
+Use this checklist as you are preparing to write your empirical section. This checklist follows the [data checklist](data-checklist.qmd){target="_blank" rel="noopener"} from Lecture 5.5. Rows marked **[6.x]** are covered in that lecture. Sources: **B** = Bellemare, "How to Write Applied Papers in Economics," Section 5; **AJAE** = AJAE Author Guidelines and Author's Final Checklist.
 
-## Estimation strategy
-
-| # | The section states | Your answer |
+| # | Relevant section | Purpose |
 |---|---|---|
-| 1 | **Prediction to equation [6.1].** Which testable prediction from your conceptual framework (Unit 4) each equation tests. | |
-| 2 | **Estimating equation [6.1, B].** The equation, with every variable and coefficient defined, subscripts ordered from smallest to largest unit, and a separate coefficient label for each specification. | |
-| 3 | **Unit of observation [6.1].** What one row is. It matches the observation unit and key in your data section (Unit 5). | |
-| 4 | **Parameter of interest [6.1].** Which coefficient answers the question, its units, how to read a one-unit change, and whether it has a causal interpretation (if not, what it describes). | |
-| 5 | **Estimator [6.1, B].** The estimation method (for example, OLS, linear probability model, probit, maximum likelihood, GMM) and why. | |
-| 6 | **Inference [6.1, B].** The null hypothesis; what the standard errors are robust to; the clustering level and why; how few clusters are handled; whether sampling weights are used. | |
+| 1 | Estimation strategy | **Prediction to equation [6.1].** Which testable prediction from your conceptual framework (Unit 4) each equation tests. |
+| 2 | Estimation strategy | **Estimating equation [6.1, B].** The equation, with every variable and coefficient defined, subscripts ordered from smallest to largest unit, and a separate coefficient label for each specification. |
+| 3 | Estimation strategy | **Unit of observation [6.1].** What one row is. It matches the observation unit and key in your data section (Unit 5). |
+| 4 | Estimation strategy | **Parameter of interest [6.1].** Which coefficient answers the question, its units, how to read a one-unit change, and whether it has a causal interpretation (if not, what it describes). |
+| 5 | Estimation strategy | **Estimator [6.1, B].** The estimation method (for example, OLS, linear probability model, probit, maximum likelihood, GMM) and why. |
+| 6 | Estimation strategy | **Inference [6.1, B].** The null hypothesis; what the standard errors are robust to; the clustering level and why; how few clusters are handled; whether sampling weights are used. |
+| 7 | Identification strategy | **Identifying assumption [6.1].** The assumption in one plain sentence, with no notation. |
+| 8 | Identification strategy | **Identifying variation [6.1].** Which comparison (across units, over time, at a threshold, from assignment) moves the treatment and not the outcome directly. |
+| 9 | Identification strategy | **Threats [6.1, B].** Whether each applies, and how the paper handles it in the design or a robustness check: reverse causality; unobserved heterogeneity; measurement error; spillovers across units or periods. |
+| 10 | Depends on the design | **If the paper estimates a structural model [6.2].** The primitives; which variation identifies which parameter; the estimator in one paragraph, details in an appendix; fit or validation; the counterfactuals the model is used for. |
+| 11 | Depends on the design | **If the paper uses a prediction step [6.3].** Which step is prediction and which is a causal parameter; how the predictor is tuned and evaluated; how the prediction error affects the parameter of interest. |
+| 12 | Depends on the design | **If the paper collects primary data or runs an experiment [6.4, AJAE].** Assignment or sampling; sample size and why it is enough; IRB approval; the instrument or instructions in an appendix that does not identify the authors. |
+| 13 | Depends on the design | **If the paper uses qualitative or mixed methods [6.4].** How cases or participants are selected; how evidence is coded; what question the qualitative evidence answers that the quantitative evidence cannot. |
+| 14 | Scope and placement | **What the design does not identify [6.5].** Parameters, mechanisms, or populations outside the estimand; limits on external validity. |
+| 15 | Scope and placement | **Robustness and sensitivity [6.5, B].** Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6. |
+| 16 | Scope and placement | **Appendix [AJAE].** Which implementation details move to the appendix, cited in the text as an online appendix, not "available on request." |
+| 17 | Scope and placement | **Replication [AJAE].** The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission. |
 
-## Identification strategy
-
-| # | The section states | Your answer |
-|---|---|---|
-| 7 | **Identifying assumption [6.1].** The assumption in one plain sentence, with no notation. | |
-| 8 | **Identifying variation [6.1].** Which comparison (across units, over time, at a threshold, from assignment) moves the treatment and not the outcome directly. | |
-| 9 | **Threats [6.1, B].** Whether each applies, and how the paper handles it in the design or a robustness check: reverse causality; unobserved heterogeneity; measurement error; spillovers across units or periods. | |
-
-## Additional rows by design
-
-| # | If the paper... | The section states | Your answer |
-|---|---|---|---|
-| 10 | Estimates a structural model **[6.2]** | The primitives; which variation identifies which parameter; the estimator in one paragraph, details in an appendix; fit or validation; the counterfactuals the model is used for. | |
-| 11 | Uses a prediction step **[6.3]** | Which step is prediction and which is a causal parameter; how the predictor is tuned and evaluated; how the prediction error affects the parameter of interest. | |
-| 12 | Collects primary data or runs an experiment **[6.4, AJAE]** | Assignment or sampling; sample size and why it is enough; IRB approval; the instrument or instructions in an appendix that does not identify the authors. | |
-| 13 | Uses qualitative or mixed methods **[6.4]** | How cases or participants are selected; how evidence is coded; what question the qualitative evidence answers that the quantitative evidence cannot. | |
-
-## Scope and placement
-
-| # | The section states | Your answer |
-|---|---|---|
-| 14 | **What the design does not identify [6.5].** Parameters, mechanisms, or populations outside the estimand; limits on external validity. | |
-| 15 | **Robustness and sensitivity [6.5, B].** Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6. | |
-| 16 | **Appendix [AJAE].** Which implementation details move to the appendix, cited in the text as an online appendix, not "available on request." | |
-| 17 | **Replication [AJAE].** The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission. | |
+: {tbl-colwidths="[5,22,73]"}
