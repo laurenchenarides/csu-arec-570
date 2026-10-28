@@ -61,12 +61,12 @@ Timing for 75 minutes: 5 minutes on readings and resources, about 55 minutes on 
 
 ## The empirical strategy checklist lists what your section must report
 
-- One page, parallel to the [data checklist](../files/data-checklist.qmd) from Lecture 5.5
+- One page, parallel to the [data checklist](../files/data-checklist.qmd){target="_blank" rel="noopener"} from Lecture 5.5
 - Rows 1 to 9 cover what every paper reports; rows 10 to 17 depend on the design
 - Each row is tagged with the lecture that covers it; today covers rows 1 to 9
 - Built from Bellemare's Section 5, Angrist and Pischke's Chapter 1, and the AJAE Author Guidelines
 
-[Open the empirical strategy checklist](../files/empirical-strategy-checklist.qmd)
+[Open the empirical strategy checklist](../files/empirical-strategy-checklist.qmd){target="_blank" rel="noopener"}
 
 ::: notes
 Each row is tagged with its source. Rows tagged B come from Bellemare's description of the estimation and identification strategy. Rows tagged AJAE come from the journal's author guidelines and final checklist, which require appendices to be cited as online supplementary material and require data, code, and a readme on acceptance. Unmarked rows are course standards; the AJAE refereeing criteria (Lecture 7.1) do not list requirements for the empirical section.
@@ -78,7 +78,7 @@ Each row is tagged with its source. Rows tagged B come from Bellemare's descript
 
 A map of methods, a decision tree, the four choices every empirical strategy states, structural estimation details for 6.2, and the climate example we use today. Use it as a reference while writing.
 
-[Open the methods map in a new tab](../files/includes/ag-econ-methods-map.html)
+[Open the methods map in a new tab](../files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
 
 ::: notes
 How the map was created: [LC to confirm before class].
@@ -165,57 +165,16 @@ Two small inconsistencies are worth noticing: the text defines $p_{it}$ for "cou
 Footnote 5 in the paper explains why the authors do not cluster standard errors after first-differencing. That is an inference decision stated with a reason.
 :::
 
-## Its identification strategy names the threats before the design
+## The identification strategy explains what in the data supports a causal interpretation
 
-![](assets/unit6/dalheimer-bellemare-identification.png){height=480px fig-alt="Section 2.2, Identification Strategy, from Dalheimer and Bellemare. The text discusses reverse causation, omitted variables, and measurement error in turn as threats to estimating the effect of trade on food prices."}
+![](assets/unit6/dalheimer-bellemare-identification.png){height=440px fig-alt="Section 2.2, Identification Strategy, from Dalheimer and Bellemare. The text discusses reverse causation, omitted variables, and measurement error in turn as threats to estimating the effect of trade on food prices."}
 
 ::: aside
 Source: @dalheimer2026gavc, Section 2.2 (accepted version posted on Bellemare's website).
 :::
 
 ::: notes
-The section walks through Bellemare's threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section. First, what does identification mean?
-:::
-
-## A parameter is identified when only one value of it fits the data you could observe
-
-- Imagine an unlimited sample: could you recover the number you want?
-- If not, the parameter is not identified, and more data or a better estimator will not fix it
-- Identification depends on assumptions about how the data were generated, not on the sample size
-- A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption
-
-::: notes
-Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship rather than a partial correlation. He refers to Pearl's notation for this, the effect of setting a variable rather than observing it.
-
-The next two slides use one question from the readings, the effect of military service on earnings, to show a parameter that is not identified and two ways to identify it.
-:::
-
-## When an unobserved factor drives both treatment and outcome, the effect is not identified
-
-![](assets/unit6/dag-not-identified.svg){height=300px fig-alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings."}
-
-A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them [@jurajda2007identification, Example 1.1].
-
-::: notes
-Jurajda asks: "Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?" The dashed path through earnings potential is selection bias, the term defined in the identification strategy section later today.
-
-The four threats map onto this picture. Unobserved heterogeneity is the dashed node. Reverse causality would be an arrow from earnings back to service. Measurement error means the service box is recorded with error. Spillovers would be an arrow from one person's service to another person's earnings.
-:::
-
-## The effect is identified if you measure the common causes or use variation they do not drive
-
-![](assets/unit6/dag-identified.svg){height=360px fig-alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery."}
-
-::: aside
-A: Angrist (1998), discussed in @angrist2009mostly, Chapter 3. B: the Vietnam-era draft lottery, Angrist (1990), in @jurajda2007identification, Example 3.11.
-:::
-
-::: notes
-Panel A is selection on observed characteristics. The military screens applicants on age, schooling, and test scores, so comparing veterans and nonveterans with the same values identifies the effect, if nothing else drives both. Angrist and Pischke note that this is "clearly not guaranteed": applicants who drop out at the last minute may differ in earnings potential.
-
-Panel B is an instrument. The lottery number changes who serves but is assigned at random, so earnings potential cannot affect it, and it should affect earnings only through service. It identifies the effect for men whose service depended on their lottery number.
-
-The identifying assumption in each panel is the "Requires" line. That is the sentence a paper states in words.
+The section walks through Bellemare's threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section.
 :::
 
 ## Six questions organize the section, in the order they appear in a paper {.dense}
@@ -234,7 +193,7 @@ The identifying assumption in each panel is the "Requires" line. That is the sen
 Adapted from @angrist2009mostly, Chapter 1, and @bellemare2020applied, Section 5.
 
 ::: notes
-Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why question 3 is separate here.
+Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why the causal question is separate here.
 
 The order follows Bellemare: the estimation strategy (equation, estimator, inference) comes first, then the identification strategy (assumption, threats, robustness). The rest of the lecture follows the same order.
 :::
@@ -254,7 +213,7 @@ Source: @bellemare2020applied, Section 5.1.
 ::: notes
 Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. "Robust standard errors" is not enough; "robust to heteroskedasticity" is.
 
-The next slide explains the last rule. Lecture 6.2 opens with the first two. This slide answers question 1.
+The next slide explains the last rule. Lecture 6.2 opens with the first two.
 :::
 
 ## The unit of observation describes a row; the key identifies it in the file {.dense}
@@ -280,7 +239,7 @@ The two are the same idea at different levels: the unit is the description for t
 - Whether and how standard errors are clustered, at what level, and why
 - Whether sampling weights are used, and how they were constructed
 
-Source: @bellemare2020applied, Section 5.1. This answers question 2.
+Source: @bellemare2020applied, Section 5.1.
 
 ::: notes
 The clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.
@@ -289,6 +248,49 @@ We return to inference later in the unit, including how to handle a small number
 :::
 
 # What's included in the identification strategy subsection
+
+
+## Identification asks whether your data and assumptions determine the parameter you want to estimate
+
+- Suppose you had data on the entire population. The parameter is identified if only one value of it is consistent with those data
+- If more than one value fits, the parameter is not identified, and a larger sample or a different estimator will not fix it
+- Whether a parameter is identified depends on assumptions about how the data were generated
+- A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption
+- **Example:** a paper wants to estimate the effect of military service on later earnings [@jurajda2007identification, Example 1.1]
+
+::: notes
+Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship rather than a partial correlation. He refers to Pearl's notation for this, the effect of setting a variable rather than observing it.
+
+The next two slides use this question to show a parameter that is not identified and two ways to identify it.
+:::
+
+## When an unobserved factor drives both treatment and outcome, the effect is not identified
+
+![](assets/unit6/dag-not-identified.svg){height=300px fig-alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings."}
+
+A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them [@jurajda2007identification, Example 1.1].
+
+::: notes
+Jurajda asks: "Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?" The dashed path through earnings potential is selection bias, the term defined two slides from now.
+
+The four threats map onto this picture. Unobserved heterogeneity is the dashed node. Reverse causality would be an arrow from earnings back to service. Measurement error means the service box is recorded with error. Spillovers would be an arrow from one person's service to another person's earnings.
+:::
+
+## The effect is identified if you measure the common causes or use variation they do not drive
+
+![](assets/unit6/dag-identified.svg){height=360px fig-alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery."}
+
+::: aside
+A: Angrist (1998), discussed in @angrist2009mostly, Chapter 3. B: the Vietnam-era draft lottery, Angrist (1990), in @jurajda2007identification, Example 3.11.
+:::
+
+::: notes
+Panel A is selection on observed characteristics. The military screens applicants on age, schooling, and test scores, so comparing veterans and nonveterans with the same values identifies the effect, if nothing else drives both. Angrist and Pischke note that this is "clearly not guaranteed": applicants who drop out at the last minute may differ in earnings potential.
+
+Panel B is an instrument. The lottery number changes who serves but is assigned at random, so earnings potential cannot affect it, and it should affect earnings only through service. It identifies the effect for men whose service depended on their lottery number.
+
+The identifying assumption in each panel is the "Requires" line. That is the sentence a paper states in words.
+:::
 
 ## The identifying assumption says why the groups you compare are comparable
 
@@ -313,7 +315,7 @@ Jurajda's notes describe identification as a search for variation that is unrela
 | Measurement error | The treatment is recorded with error; classical error biases the estimate toward zero | A second measure; an instrument |
 | Spillovers | One unit's treatment affects another unit's outcome, now or later | Define units so spillovers stay within them; test for them |
 
-Source: @bellemare2020applied, Section 5.2. This answers question 6.
+Source: @bellemare2020applied, Section 5.2.
 
 ::: notes
 Bellemare asks authors to discuss each threat in turn, say whether it applies, and explain how the paper handles it. The response column lists common approaches; it is not from Bellemare.
@@ -325,8 +327,8 @@ The DAG from earlier shows each threat as a feature of the graph. The climate ex
 
 ## A threat to identification biases the estimate; a problem with inference misstates its precision
 
-- **Threat to identification (question 6):** the estimate is centered on the wrong value, and a larger sample does not fix it
-- **Problem with inference (question 2):** the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often
+- **Threat to identification:** the estimate is centered on the wrong value, and a larger sample does not fix it
+- **Problem with inference:** the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often
 - **Panel weather example:** neighboring counties share weather shocks, so treating their errors as independent overstates precision; cluster at a level that contains that correlation and say why
 - Either problem leads a referee to doubt the result, so the section addresses both
 
@@ -392,7 +394,7 @@ Ask: in your proposal, what would you randomize, and how long would you wait to 
 We fill in one column at a time. Each design responds to a weakness in the one before it.
 
 ::: notes
-This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation, which answers question 1, and a slide that answers questions 2 to 6 in the same order as the table.
+This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation and the relationship of interest, then a slide that answers the remaining questions in the same order as the table.
 :::
 
 ## The Ricardian model compares farmland values across counties with different climates
@@ -415,7 +417,7 @@ The logic: land markets capitalize the expected profit from farming in a given c
 ## The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does
 
 - **2. Uncertainty:** neighboring counties share soils, markets, and climate, so their errors are correlated
-- **3. Causal?** Yes, if the assumption in question 5 holds
+- **3. Causal?** Yes, if the identifying assumption holds
 - **4. Experiment it approximates:** counties assigned different climates long ago
 - **5. Variation and assumption:** differences in climate across counties; no omitted factor varies with climate and affects land values
 - **6. What could make it fail:** irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties [@schlenker2005irrigation]
@@ -448,7 +450,7 @@ Deschênes and Greenstone use farm profits; Schlenker and Roberts use yields and
 ## Fixed effects solve the irrigation problem and change the relationship estimated
 
 - **2. Uncertainty:** weather shocks hit neighboring counties together, so their errors are correlated
-- **3. Causal?** Yes, for the effect of weather, if the assumption in question 5 holds
+- **3. Causal?** Yes, for the effect of weather, if the identifying assumption holds
 - **4. Experiment it approximates:** a randomly assigned hot or cool year
 - **5. Variation and assumption:** year-to-year deviations in weather within a county; those deviations are as good as random
 - **6. What could make it fail:** measurement error in gridded weather, and price changes that spill over across counties (a later slide covers all four)
@@ -484,7 +486,7 @@ Burke and Emerick use recent temperature and precipitation trends.
 ## Long differences recover the adaptation that the panel model misses
 
 - **2. Uncertainty:** one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties
-- **3. Causal?** Yes, for the effect of gradual change, if the assumption in question 5 holds
+- **3. Causal?** Yes, for the effect of gradual change, if the identifying assumption holds
 - **4. Experiment it approximates:** a climate that warms slowly over decades
 - **5. Variation and assumption:** differences in climate trends across counties within a state; those trends are unrelated to other trends in outcomes
 - **6. What could make it fail:** other trends, such as technology adoption, that move with climate trends
@@ -499,7 +501,7 @@ Comparing the long-differences estimate with the panel estimate for the same wea
 |---|---|---|---|
 | 1. What is the relationship of interest? | Long-run effect on land values | Short-run response to weather | Response to gradual change |
 | 2. How will you measure uncertainty? | Errors correlated across space | Errors correlated across space | Fewer observations; errors correlated across space |
-| 3. Is that relationship causal? | Yes, if 5 holds | Yes, if 5 holds | Yes, if 5 holds |
+| 3. Is that relationship causal? | Yes, if the identifying assumption holds | Yes, if the identifying assumption holds | Yes, if the identifying assumption holds |
 | 4. What experiment would ideally measure it? | Different climates long ago | A random hot or cool year | A slowly warming climate |
 | 5. What variation identifies it, and what must be true of that variation? | Across counties; no omitted factor varies with climate | Within a county across years; weather deviations as good as random | Trends within a state; unrelated to other outcome trends |
 | 6. What could make the identifying assumption fail? | Omitted factors such as irrigation | Measurement error; price spillovers | Other trends that move with climate |
@@ -519,7 +521,7 @@ Your empirical strategy section answers these six questions for your design, in 
 | Measurement error | Gridded weather misses farm conditions; check a second weather data set |
 | Spillovers | Year effects absorb national price changes, so the estimate excludes them |
 
-This applies question 6 to one design. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.
+This applies the four threats to one design. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.
 
 ::: notes
 The four threats are Bellemare's list (Section 5.2): reverse causality, unobserved heterogeneity, measurement error, and spillovers. Dalheimer and Bellemare's Section 2.2 (shown earlier) walks through the first three in this order, and the generic version is in the identification strategy section.
@@ -579,6 +581,6 @@ For your own proposal:
 - [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
 - [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
 - [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
-- [Empirical strategy checklist](https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html)
-- [Methods map](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html)
+- [Empirical strategy checklist](https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html){target="_blank" rel="noopener"}
+- [Methods map](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
 - [Download this lecture as a PDF](https://laurenchenarides.github.io/csu-arec-570/lectures/lecture6.1.pdf)

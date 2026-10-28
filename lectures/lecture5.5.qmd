@@ -196,7 +196,7 @@ Together, these components let the reader understand and reproduce the analytic 
 - Write each answer as the sentence you would put in the paper
 - Unit 6 adds a parallel checklist for the empirical strategy section
 
-[Open the data checklist](../files/data-checklist.qmd)
+[Open the data checklist](../files/data-checklist.qmd){target="_blank" rel="noopener"}
 
 ::: notes
 The checklist consolidates the slides in this lecture: the fit-to-hypothesis table, the four data-section components, missing data and proxies, and the repository audit. Rows tagged GS come from Gentzkow and Shapiro; rows tagged AJAE come from the journal's author guidelines, which ask that data sources be stated clearly and that data, code, and a readme be provided on acceptance.
@@ -437,7 +437,7 @@ Write one or two sentences for each heading
 - [Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
 - [R in VS Code](https://code.visualstudio.com/docs/languages/r)
 - [Quarto in VS Code](https://quarto.org/docs/tools/vscode/)
-- [Data checklist](https://laurenchenarides.github.io/csu-arec-570/files/data-checklist.html)
+- [Data checklist](https://laurenchenarides.github.io/csu-arec-570/files/data-checklist.html){target="_blank" rel="noopener"}
 - [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
 - [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
 - [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
