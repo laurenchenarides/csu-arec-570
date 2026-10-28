@@ -1,0 +1,44 @@
+---
+title: "AREC 570 Data Checklist"
+subtitle: "Unit 5 · Data"
+author: "Lauren Chenarides"
+format:
+  html: default
+  pdf:
+    geometry: margin=0.6in
+    fontsize: 9pt
+toc: false
+---
+
+Complete one row at a time for your proposal. Write each answer as the sentence you would put in the paper. The rows follow the data-section components in Lecture 5.5; the [empirical strategy checklist](empirical-strategy-checklist.qmd) in Unit 6 picks up where this one ends. Sources: **GS** = Gentzkow and Shapiro, *Code and Data for the Social Sciences* (Lectures 5.3 and 5.4); **AJAE** = AJAE Author Guidelines and Author's Final Checklist. Unmarked rows are course standards.
+
+## Fit to the hypotheses
+
+| # | The section states | Your answer |
+|---|---|---|
+| 1 | **Data requirements.** For one hypothesis from your conceptual framework: the outcome, the explanatory factor, the comparison that generates variation, the population, and the conditions needed for interpretation. | |
+
+## Source and sample
+
+| # | The section states | Your answer |
+|---|---|---|
+| 2 | **Source and provenance [AJAE].** Who collected the data, why, when and where, and how observations were recorded. | |
+| 3 | **Coverage and access.** The population the source covers, and any access, licensing, or confidentiality conditions. | |
+| 4 | **Sample selection.** Every inclusion and exclusion rule, the order in which the rules are applied, and the observations lost at each step. | |
+| 5 | **Comparison with the population.** How the analytic sample compares with the population of interest, and whether attrition or missingness differs across groups or time. | |
+
+## Unit and measures
+
+| # | The section states | Your answer |
+|---|---|---|
+| 6 | **Observation unit and key [GS].** What one row represents (for example, a county in a year), and the fields that uniquely identify each row (for example, county code and year). | |
+| 7 | **Variable construction.** For each central variable: the concept from the framework, the source fields, the unit and reference period, the transformation, and how to read the resulting value. | |
+| 8 | **Missing data and imputation.** Which fields are missing, how many observations are affected, where the loss is concentrated, and, if imputed, the method and an indicator for imputed values. | |
+| 9 | **Proxies and scope.** For each proxy: the concept it stands in for, why it represents that concept, what it omits, and the limit this places on your claims. | |
+
+## Evidence and repository
+
+| # | The section states | Your answer |
+|---|---|---|
+| 10 | **Descriptive evidence.** The scale and composition of the sample, the variation the hypotheses require, and differences across periods or comparison groups. | |
+| 11 | **Repository [GS, AJAE].** The README, the scripts that construct each reported value, and which files are shared or restricted. | |

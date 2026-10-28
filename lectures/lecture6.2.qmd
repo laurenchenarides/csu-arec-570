@@ -29,9 +29,41 @@ description: "Assess RD, difference-in-differences, synthetic controls, and cred
 
 ## Before class
 
-- Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” [@athey2017state].
+- Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference” [@nevo2010dogma]
+- Nevo, “A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) [@nevo2000practitioner]
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+
+## Latin letters mark what you observe; Greek letters mark what you estimate
+
+| | Latin letters | Greek letters |
+|---|---|---|
+| **Examples** | $y$, $x$, $W$, $P$, $V$ | $\alpha$ alpha, $\beta$ beta, $\gamma$ gamma, $\delta$ delta, $\varepsilon$ epsilon |
+| **Used for** | Variables you observe in the data | Parameters you estimate, and the error term you never observe |
+
+- Latin letters are the letters of the English alphabet
+- Fixed effects are parameters, so they get Greek letters: $\gamma_c$, $\delta_t$
+- A reader who sees a Greek letter knows it is estimated, not measured
+
+Source: @bellemare2020applied, Section 5.1.
+
+## Subscripts tell the reader the level at which each term varies
+
+$$
+y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
+$$
+
+- One letter per dimension, used the same way throughout the paper: $c$ county, $s$ state, $t$ year
+- Order from the smallest unit to the largest, with time last
+- A term carries only the subscripts it varies over: a state policy is $P_{st}$, not $P_{cst}$
+- A fixed effect's subscript says what it holds constant: $\gamma_c$ county, $\delta_t$ year
+- The outcome's subscripts state the unit of observation: a county in a year
+
+::: notes
+Smallest to largest is Bellemare's rule. Time last is a common convention rather than a rule from the reading.
+
+The subscript on the treatment also tells the reader where the identifying variation is. In this example the policy varies by state and year, which is also a natural starting point for the clustering level.
+:::
 
 ## Separate the target from the tool
 

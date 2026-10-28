@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Lauren Chenarides">
-  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 6.1: Econometric Models and Identification</title>
+  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 6.1: From Question to Estimating Equation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -70,7 +136,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -147,8 +212,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Lecture 6.1: Econometric Models and Identification – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Distinguish structural and reduced-form questions, selection, and the experimental ideal.">
+<meta property="og:title" content="Lecture 6.1: From Question to Estimating Equation – AREC 570/ECON 530 Methodology of Economic Research">
+<meta property="og:description" content="Turn a prediction from the conceptual framework into an estimating equation, an identifying assumption, and a parameter a referee can evaluate">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -156,7 +221,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 6.1: Econometric Models and Identification</h1>
+  <h1 class="title">Lecture 6.1: From Question to Estimating Equation</h1>
   <p class="subtitle">AREC 570 / ECON 530 · Unit 6</p>
 
 <div class="quarto-title-authors">
@@ -168,27 +233,229 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
+<section id="before-class" class="slide level2 dense">
 <h2>Before class</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Assigned</strong></p>
 <ul>
-<li>Angrist and Pischke, <em>Mostly Harmless Econometrics</em>, Chapters 1–3 <span class="citation" data-cites="angrist2009mostly">(<a href="#/references" role="doc-biblioref" onclick="">Angrist and Pischke 2009</a>)</span>.</li>
-<li>Jurajda, <em>Lecture Notes on Identification Strategies</em> <span class="citation" data-cites="jurajda2007identification">(<a href="#/references" role="doc-biblioref" onclick="">Jurajda 2007</a>)</span>.</li>
-<li>Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics” <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span>.</li>
+<li>Angrist and Pischke, <em>Mostly Harmless Econometrics</em>, Chapters 1 to 3 <span class="citation" data-cites="angrist2009mostly">(<a href="#/references" role="doc-biblioref" onclick="">Angrist and Pischke 2009</a>)</span></li>
+<li>Jurajda, “Lecture Notes on Identification Strategies” <span class="citation" data-cites="jurajda2007identification">(<a href="#/references" role="doc-biblioref" onclick="">Jurajda 2007</a>)</span></li>
+<li>Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics” <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Also used in these slides</strong></p>
+<ul>
+<li>Bellemare, “How to Write Applied Papers in Economics,” from Lecture 2.3 <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span></li>
+<li>AJAE Author Guidelines <span class="citation" data-cites="ajae2026guidelines">(<a href="#/references" role="doc-biblioref" onclick="">Agricultural and Applied Economics Association, n.d.</a>)</span></li>
+<li>Athey and Imbens, “The State of Applied Econometrics,” on robustness and sensitivity (assigned for 6.3) <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
+<li>Gentzkow and Shapiro on keys, from Lecture 5.4 <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span></li>
+<li>Published example: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span></li>
+<li>Climate example: <span class="citation" data-cites="mendelsohn1994ricardian">Mendelsohn et al. (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="schlenker2005irrigation">Schlenker et al. (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>; <span class="citation" data-cites="deschenes2007climate">Deschênes and Greenstone (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span>; <span class="citation" data-cites="schlenker2009nonlinear">Schlenker and Roberts (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>; <span class="citation" data-cites="burke2016adaptation">Burke and Emerick (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></li>
+</ul>
+</div></div>
 <p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
+<aside class="notes">
+<p>Timing for 75 minutes: 5 minutes on readings and resources, about 55 minutes on content, and 10 minutes on the writing task at the end.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="start-with-four-questions" class="slide level2 scrollable">
-<h2>Start with four questions</h2>
+<section id="the-empirical-strategy-checklist-lists-what-your-section-must-report" class="slide level2">
+<h2>The empirical strategy checklist lists what your section must report</h2>
+<ul>
+<li>One page, parallel to the <a href="../files/data-checklist.html">data checklist</a> from Lecture 5.5</li>
+<li>Rows 1 to 9 cover what every paper reports; rows 10 to 17 depend on the design</li>
+<li>Each row is tagged with the lecture that covers it; today covers rows 1 to 9</li>
+<li>Built from Bellemare’s Section 5, Angrist and Pischke’s Chapter 1, and the AJAE Author Guidelines</li>
+</ul>
+<p><a href="../files/empirical-strategy-checklist.html">Open the empirical strategy checklist</a></p>
+<aside class="notes">
+<p>Each row is tagged with its source. Rows tagged B come from Bellemare’s description of the estimation and identification strategy. Rows tagged AJAE come from the journal’s author guidelines and final checklist, which require appendices to be cited as online supplementary material and require data, code, and a readme on acceptance. Unmarked rows are course standards; the AJAE refereeing criteria (Lecture 7.1) do not list requirements for the empirical section.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-methods-map-helps-you-match-a-method-to-your-question" class="slide level2">
+<h2>The methods map helps you match a method to your question</h2>
+<iframe src="../files/includes/ag-econ-methods-map.html#example" width="100%" height="320" style="border:1px solid #ccc;" title="Ag econ methods map">
+</iframe>
+<p>A map of methods, a decision tree, an estimation primer, and the climate example we use today. Use it as a reference while writing.</p>
+<p><a href="../files/includes/ag-econ-methods-map.html">Open the methods map in a new tab</a></p>
+<aside class="notes">
+<p>How the map was created: [LC to confirm before class].</p>
+<p>The map lists anchor papers for each method. The climate papers used today have been checked against Crossref; the remaining anchor papers are being checked before later lectures use them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="what-must-the-empirical-strategy-section-accomplish" class="title-slide slide level1 center">
+<h1>What must the empirical strategy section accomplish?</h1>
+
+</section>
+<section id="where-the-empirical-strategy-section-lives-in-your-paper" class="slide level2">
+<h2>Where the Empirical Strategy section lives in your paper</h2>
 <ol type="1">
-<li>What relationship are you trying to learn about?</li>
-<li>What would the ideal experiment look like?</li>
-<li>What identification strategy is feasible?</li>
-<li>How will you quantify uncertainty?</li>
+<li>Introduction</li>
+<li>Background or Literature Review</li>
+<li>Conceptual framework</li>
+<li>Data and Summary Evidence</li>
+<li><strong>Empirical Strategy</strong></li>
+<li>Results</li>
+<li>Discussion (or Policy Implications, or Managerial Implications)</li>
+<li>Conclusion</li>
 </ol>
-<p>Source: <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>.</p>
+<p>Bellemare calls this section the Empirical Framework, and some papers place it before the data section <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span>.</p>
+<aside class="notes">
+<p>Bellemare’s outline for an applied paper: Introduction, Theoretical Framework, Data and Descriptive Statistics, Empirical Framework, Results and Discussion, Summary and Concluding Remarks. He notes that the data and empirical sections are often swapped; the Dalheimer and Bellemare paper on the next slides puts the empirical framework first.</p>
+<p>Two differences from his outline. He argues that a separate literature review is “almost always entirely unwarranted” in a journal article and recommends a short review of the five to ten closest studies in the introduction; a separate review fits a thesis or dissertation chapter. He recommends a background section when the reader needs institutional detail, such as the provisions of a law.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="structural-and-reduced-form-approaches" class="slide level2 dense">
-<h2>Structural and reduced-form approaches</h2>
+<section id="the-empirical-strategy-section-turns-a-prediction-from-your-framework-into-an-estimating-equation" class="slide level2">
+<h2>The empirical strategy section turns a prediction from your framework into an estimating equation</h2>
+<ul>
+<li>Conceptual framework (Unit 4) gives you guidance on developing testable predictions</li>
+<li>Data (Unit 5) gives you guidance on describing your data, the unit of observation, and the measures that make your data fit for use</li>
+<li>Methods (this unit) explains how to turn the conceptual model into an equation with estimable parameters, and why the data identify them</li>
+<li>A referee should be able to judge the design before seeing a result</li>
+</ul>
+<aside class="notes">
+<p>This slide places the section in the paper. The rest of the lecture follows one order: define the terms, organize the section around five questions, then answer those questions for one research question three different ways.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="four-terms-come-up-in-every-empirical-strategy-section" class="slide level2">
+<h2>Four terms come up in every empirical strategy section</h2>
+<ul>
+<li><strong>Parameter of interest:</strong> the coefficient that answers your research question</li>
+<li><strong>Estimator:</strong> the rule that turns data into an estimate of that parameter, such as OLS, maximum likelihood, or a difference in means</li>
+<li><strong>Identifying assumption:</strong> the condition under which the parameter you estimate equals the relationship you want to learn about</li>
+<li><strong>Inference:</strong> how you measure the uncertainty in the estimate, through standard errors, clustering, and hypothesis tests</li>
+</ul>
+<aside class="notes">
+<p>Students often use “estimator” and “identification” interchangeably. They are separate choices. The same identifying assumption can be paired with different estimators, and a correct estimator cannot fix a comparison that is not identified.</p>
+<p>Ask: which of the four is hardest to write down for your proposal right now?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bellemare-splits-the-section-into-what-you-estimate-and-why-it-identifies-a-causal-effect" class="slide level2">
+<h2>Bellemare splits the section into what you estimate and why it identifies a causal effect</h2>
+<p><strong>Estimation strategy</strong></p>
+<p>The equations, the estimator, and how inference is done</p>
+<p><strong>Identification strategy</strong></p>
+<p>The feature of the data that supports a causal interpretation, and what threatens it</p>
+<p>Use these as the two parts of your section <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span>.</p>
+<aside class="notes">
+<p>This is the structure from the Bellemare reading in Lecture 2.3, Section 5. His Section 5.1 covers the equation, the estimator, hypothesis tests, and standard errors. Section 5.2 covers identification and the threats to it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-published-paper-states-the-equation-then-defines-every-term" class="slide level2">
+<h2>A published paper states the equation, then defines every term</h2>
+<p><img data-src="assets/unit6/dalheimer-bellemare-estimation.png" alt="Section 2.1, Estimation Strategy, from Dalheimer and Bellemare. The text states the relationship estimated, displays Equation 1, defines each variable, the year fixed effects, and the error term, and names beta 1 as the parameter of interest." height="480"></p>
+
+<aside class="notes">
+<p>Point out the sequence: the relationship in words, the equation, a definition of every term, then one sentence naming the parameter of interest. The next paragraph explains why they first-difference the equation, which is the estimator choice.</p>
+<p>Two small inconsistencies are worth noticing: the text defines <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{it}</annotation></semantics></math> for “county <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>” in a country-level paper, and the equation uses <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mn>1</mn><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">e_{1it}</annotation></semantics></math> while the text defines <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">e_{it}</annotation></semantics></math>. Referees catch these, and they are why every term should be defined with the same notation used in the equation.</p>
+<p>Footnote 5 in the paper explains why the authors do not cluster standard errors after first-differencing. That is an inference decision stated with a reason.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.1 (accepted version posted on Bellemare’s website).</p>
+</div></aside></section>
+<section id="its-identification-strategy-names-the-threats-before-the-design" class="slide level2">
+<h2>Its identification strategy names the threats before the design</h2>
+<p><img data-src="assets/unit6/dalheimer-bellemare-identification.png" alt="Section 2.2, Identification Strategy, from Dalheimer and Bellemare. The text discusses reverse causation, omitted variables, and measurement error in turn as threats to estimating the effect of trade on food prices." height="480"></p>
+
+<aside class="notes">
+<p>The section walks through Bellemare’s threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure when we reach threats later today.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.2 (accepted version posted on Bellemare’s website).</p>
+</div></aside></section>
+<section id="six-questions-organize-the-section" class="slide level2 dense">
+<h2>Six questions organize the section</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 50%">
@@ -196,51 +463,42 @@ Lauren Chenarides
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Structural</th>
-<th style="text-align: left;">Reduced-form / design-based</th>
+<th>Question</th>
+<th>Where the answer appears in your section</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Specifies behavioral relationships</td>
-<td style="text-align: left;">Focuses on variation identifying an effect</td>
+<td>1. What is the relationship of interest?</td>
+<td>The estimating equation and the parameter of interest</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Recovers parameters within a model</td>
-<td style="text-align: left;">Often targets a treatment or policy effect</td>
+<td>2. Is that relationship causal?</td>
+<td>Whether the parameter is causal, and if not, what it describes</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Can support model-based counterfactuals</td>
-<td style="text-align: left;">Often speaks most directly to the studied setting</td>
+<td>3. What experiment would ideally measure it?</td>
+<td>The effect you are trying to estimate</td>
+</tr>
+<tr class="even">
+<td>4. What variation identifies it, and what must be true of that variation?</td>
+<td>The identifying assumption</td>
+</tr>
+<tr class="odd">
+<td>5. What could make the identifying assumption fail?</td>
+<td>The threats to identification and how the design or a robustness check addresses each</td>
+</tr>
+<tr class="even">
+<td>6. How will you measure uncertainty?</td>
+<td>The standard errors, the clustering level, and why</td>
 </tr>
 </tbody>
 </table>
-<p>Both require assumptions. Their usefulness depends on the question.</p>
-<p>Source: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>.</p>
-</section>
-<section id="what-a-structural-model-adds" class="slide level2">
-<h2>What a structural model adds</h2>
-<ul>
-<li>Agents, objectives, constraints, and interactions.</li>
-<li>Parameters with a behavioral interpretation.</li>
-<li>A way to trace feedback and equilibrium responses.</li>
-<li>A framework for welfare or unobserved policy counterfactuals.</li>
-</ul>
-<p>Identification still requires informative data and defensible restrictions.</p>
-</section>
-<section id="example-vehicle-policy" class="slide level2">
-<h2>Example: vehicle policy</h2>
-<p>The source slides use fuel-economy regulation versus fuel taxation.</p>
-<p>A model may need:</p>
-<ul>
-<li>Firms’ new-vehicle decisions.</li>
-<li>Household vehicle choice and driving.</li>
-<li>Used-vehicle markets and scrappage.</li>
-<li>Interactions across these decisions.</li>
-</ul>
-<p>Which effects would a simple comparison of new-car fuel economy miss?</p>
+<p>Adapted from <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Chapter 1, and <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.</p>
 <aside class="notes">
-<p>Adapted from Unit 6, slides 6–8 and the discussion of Jacobsen in Timmins and Schlenker. Focus on the mechanism rather than presenting uncited numerical results.</p>
+<p>Angrist and Pischke ask four questions, starting with “What is the causal relationship of interest?” Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why question 2 is separate here.</p>
+<p>Question 5 comes from Bellemare’s Section 5.2, which asks authors to discuss each threat to identification and how the paper deals with it.</p>
+<p>The rest of the lecture uses these six questions as its outline.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -253,72 +511,47 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="structural-tradeoffs" class="slide level2">
-<h2>Structural tradeoffs</h2>
-<p><strong>Potential gains:</strong> explicit mechanisms, feedbacks, welfare analysis, counterfactual simulation.</p>
-<p><strong>Challenges:</strong> specification, computational demands, identification, and sensitivity to behavioral assumptions.</p>
-<p>A counterfactual prediction is conditional on the model remaining appropriate.</p>
-</section>
-<section id="what-reduced-form-designs-emphasize" class="slide level2">
-<h2>What reduced-form designs emphasize</h2>
+<section id="the-identifying-assumption-says-why-the-groups-you-compare-are-comparable" class="slide level2">
+<h2>The identifying assumption says why the groups you compare are comparable</h2>
 <ul>
-<li>A clearly defined outcome and treatment.</li>
-<li>A credible comparison.</li>
-<li>Institutional knowledge about assignment.</li>
-<li>Variation that isolates the relationship of interest.</li>
+<li>Comparing treated and untreated units measures the treatment effect plus any difference that existed between the groups before treatment</li>
+<li>Jurajda’s example: veterans may earn more because of military service, or because people with higher earnings potential were more likely to enlist</li>
+<li>That pre-existing difference is selection bias</li>
+<li>The identifying assumption states why selection bias is zero for your comparison</li>
+<li>Write it in one sentence, without notation</li>
 </ul>
-<p>Fixed effects, thresholds, instruments, and random assignment are possible tools, not automatic guarantees.</p>
-</section>
-<section id="discussion-timmins-and-schlenker" class="slide level2">
-<h2>Discussion: Timmins and Schlenker</h2>
-<p>For your proposed question:</p>
-<ul>
-<li>Is the goal an effect in an observed setting or a new policy counterfactual?</li>
-<li>Which behavioral responses must be represented?</li>
-<li>Which assumptions would each approach require?</li>
-<li>Could the approaches provide complementary evidence?</li>
-</ul>
-</section>
-<section id="outcomes-we-cannot-observe-together" class="slide level2">
-<h2>Outcomes we cannot observe together</h2>
-<p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Y_i(1)</annotation></semantics></math> be an individual’s outcome under treatment and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Y_i(0)</annotation></semantics></math> under no treatment.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><msub><mi>D</mi><mi>i</mi></msub><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>D</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
-Y_i=D_iY_i(1)+(1-D_i)Y_i(0)
-</annotation></semantics></math></p>
-<p>We observe only one potential outcome for each individual.</p>
-<p>The missing counterfactual is the central problem.</p>
-</section>
-<section id="selection-contaminates-a-raw-comparison" class="slide level2">
-<h2>Selection contaminates a raw comparison</h2>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>D</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo>∣</mo><mi>D</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">]</mo></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>D</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mspace width="1.0em"></mspace><mo>+</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>D</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>D</mi><mo>=</mo><mn>0</mn><mo stretchy="false" form="postfix">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
-\begin{aligned}
-E[Y\mid D=1]-E[Y\mid D=0]
-&amp;=E[Y(1)-Y(0)\mid D=1]\\
-&amp;\quad+E[Y(0)\mid D=1]-E[Y(0)\mid D=0].
-\end{aligned}
-</annotation></semantics></math></p>
-<p>The first term is the average treatment effect on the treated. The remaining difference is selection bias.</p>
-</section>
-<section id="example-hospitals-and-health" class="slide level2">
-<h2>Example: hospitals and health</h2>
-<p>People who visit hospitals may have worse health than those who do not.</p>
-<ul>
-<li>Does that establish that hospitals worsen health?</li>
-<li>What would their health have been without treatment?</li>
-<li>Which selection process makes the raw comparison misleading?</li>
-</ul>
-<p>Source: <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>.</p>
-</section>
-<section id="what-random-assignment-gives-us" class="slide level2">
-<h2>What random assignment gives us</h2>
-<p>Under random assignment:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mspace width="0.278em"></mspace><mo>⟂</mo><mspace width="0.278em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
-D\;\perp\;(Y(0),Y(1)).
-</annotation></semantics></math></p>
-<p>With consistency and no interference, the population difference in means identifies the average treatment effect.</p>
-<p>Randomization makes groups comparable <strong>in expectation</strong>; a realized sample can still be imbalanced.</p>
 <aside class="notes">
-<p>Corrects Unit 6, slide 24: assignment is independent of potential outcomes, not necessarily of the observed outcome. Imperfect compliance and attrition require additional analysis.</p>
+<p>Angrist and Pischke, Chapter 2, write this as a decomposition: the observed difference in means equals the average effect on the treated plus selection bias, the difference in untreated outcomes between the two groups. Students do not need the decomposition in their paper. They need the sentence that explains why the untreated outcomes of the two groups would have been the same.</p>
+<p>Jurajda’s notes describe identification as a search for variation that is unrelated to these pre-existing differences.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="example-climate-and-u.s.-agriculture" class="title-slide slide level1 center">
+<h1>Example: climate and U.S. agriculture</h1>
+
+</section>
+<section id="the-ideal-experiment-tells-you-which-effect-you-are-after" class="slide level2">
+<h2>The ideal experiment tells you which effect you are after</h2>
+<p><strong>Question:</strong> How will a warmer climate affect U.S. agriculture?</p>
+<ul>
+<li>Ideal experiment: give some counties a permanently warmer climate, then wait decades</li>
+<li>Farmers would change crops, irrigation, and planting dates</li>
+<li>The target is a long-run effect that includes this adaptation</li>
+<li>A single hot year is a different experiment with a different answer</li>
+</ul>
+<aside class="notes">
+<p>Angrist and Pischke argue that describing the ideal experiment “helps you formulate causal questions precisely.” Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather.</p>
+<p>Ask: in your proposal, what would you randomize, and how long would you wait to measure the outcome?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -331,60 +564,65 @@ D\;\perp\;(Y(0),Y(1)).
           display:block!important;
       }</style></aside>
 </section>
-<section id="regression-does-not-remove-selection-by-itself" class="slide level2">
-<h2>Regression does not remove selection by itself</h2>
-<p>In a model such as</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mi>α</mi><mo>+</mo><mi>τ</mi><msub><mi>D</mi><mi>i</mi></msub><mo>+</mo><msubsup><mi>X</mi><mi>i</mi><mo>′</mo></msubsup><mi>β</mi><mo>+</mo><msub><mi>ε</mi><mi>i</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">Y_i=\alpha+\tau D_i+X_i'\beta+\varepsilon_i,</annotation></semantics></math></p>
-<p>a causal interpretation of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math> needs assumptions about treatment assignment and the error term.</p>
-<p>Controls can help with comparability or precision. They can also introduce problems if chosen without a causal argument.</p>
-</section>
-<section id="read-the-experimental-table" class="slide level2 dense">
-<h2>Read the experimental table</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/unit6/image5.png" height="440"></p>
-<figcaption>Table from Mostly Harmless Econometrics comparing estimated small-class effects across specifications with additional controls.</figcaption>
-</figure>
-</div>
-<p>Source: Angrist and Pischke; retained from Unit 6, slide 26.</p>
-</section>
-<section id="discussion-what-changes-across-columns" class="slide level2">
-<h2>Discussion: what changes across columns?</h2>
-<ul>
-<li>Which coefficients are stable?</li>
-<li>What happens to standard errors?</li>
-<li>How can controls improve precision in an experiment?</li>
-<li>What would a large change in the treatment coefficient prompt you to investigate?</li>
-</ul>
-<p>Start with the table’s sample, units, and assignment process.</p>
-</section>
-<section id="omitted-variable-bias" class="slide level2">
-<h2>Omitted-variable bias</h2>
-<p>Suppose the population model is</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mi>α</mi><mo>+</mo><mi>β</mi><mi>X</mi><mo>+</mo><mi>γ</mi><mi>Z</mi><mo>+</mo><mi>u</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">Y=\alpha+\beta X+\gamma Z+u,</annotation></semantics></math></p>
-<p>but we omit <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>. Under the usual exogeneity conditions,</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">plim</mi><mo>⁡</mo></mrow><msub><mover><mi>β</mi><mo accent="true">̂</mo></mover><mtext mathvariant="normal">short</mtext></msub><mo>=</mo><mi>β</mi><mo>+</mo><mi>γ</mi><mfrac><mrow><mrow><mi mathvariant="normal">Cov</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mrow><mi mathvariant="normal">Var</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\operatorname{plim}\hat\beta_{\text{short}}
-=\beta+\gamma\frac{\operatorname{Cov}(X,Z)}{\operatorname{Var}(X)}.
-</annotation></semantics></math></p>
-<p>Both the outcome relevance of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math> and its association with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> matter.</p>
-</section>
-<section id="discussion-jurajda" class="slide level2">
-<h2>Discussion: Jurajda</h2>
-<p>Choose one identification example from the notes.</p>
-<ul>
-<li>Where does the relevant variation come from?</li>
-<li>Why is a simple group comparison insufficient?</li>
-<li>What institutional detail supports the design?</li>
-<li>What alternative explanation remains?</li>
-</ul>
-</section>
-<section id="can-you-describe-the-ideal-experiment" class="slide level2">
-<h2>Can you describe the ideal experiment?</h2>
-<p>Specify treatment, population, assignment, outcome, and follow-up period.</p>
-<p>If the treatment itself is ambiguous, refine the question first.</p>
+<section id="three-designs-approximate-this-experiment-and-each-answers-the-six-questions-differently" class="slide level2 dense">
+<h2>Three designs approximate this experiment, and each answers the six questions differently</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Ricardian</th>
+<th>Panel weather</th>
+<th>Long differences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. What is the relationship of interest?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2. Is that relationship causal?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3. What experiment would ideally measure it?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4. What variation identifies it, and what must be true of that variation?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>5. What could make the identifying assumption fail?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>6. How will you measure uncertainty?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>We fill in one column at a time. Each design responds to a weakness in the one before it.</p>
 <aside class="notes">
-<p>Preserves the source speaker-note example: changing school-start age may also change schooling duration or age at testing. Ask students which effect their hypothetical experiment would isolate.</p>
+<p>This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation, which answers question 1, and a slide that answers questions 2 to 6 in the same order.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -397,29 +635,514 @@ D\;\perp\;(Y(0),Y(1)).
           display:block!important;
       }</style></aside>
 </section>
-<section id="workshop-your-identification-statement" class="slide level2">
-<h2>Workshop: your identification statement</h2>
-<p>Complete:</p>
+<section id="the-ricardian-model-compares-farmland-values-across-counties-with-different-climates" class="slide level2">
+<h2>The Ricardian model compares farmland values across counties with different climates</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>c</mi></msub><mo>=</mo><mi>α</mi><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>T</mi><mi>c</mi></msub><mo>,</mo><msub><mi>P</mi><mi>c</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msubsup><mi>X</mi><mi>c</mi><mo>′</mo></msubsup><mi>γ</mi><mo>+</mo><msub><mi>ε</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">
+V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
+</annotation></semantics></math></p>
 <ul>
-<li>“The relationship of interest is …”</li>
-<li>“The ideal experiment would …”</li>
-<li>“The feasible comparison is …”</li>
-<li>“Its causal interpretation requires …”</li>
-<li>“The largest remaining threat is …”</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>c</mi></msub><annotation encoding="application/x-tex">V_c</annotation></semantics></math>: farmland value per acre in county <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>c</mi></msub><mo>,</mo><msub><mi>P</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">T_c, P_c</annotation></semantics></math>: long-run average temperature and precipitation</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>⋅</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(\cdot)</annotation></semantics></math>: a quadratic in temperature and precipitation; its slope in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>c</mi></msub><annotation encoding="application/x-tex">T_c</annotation></semantics></math> is the parameter of interest</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>c</mi></msub><annotation encoding="application/x-tex">X_c</annotation></semantics></math>: soil quality and other county characteristics</li>
 </ul>
+<p><strong>1. Relationship of interest:</strong> the long-run effect of climate on land values, including adaptation <span class="citation" data-cites="mendelsohn1994ricardian">(<a href="#/references" role="doc-biblioref" onclick="">Mendelsohn et al. 1994</a>)</span></p>
+<aside class="notes">
+<p>The logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Explain why a precisely estimated coefficient can still answer the wrong causal question.</p>
+<section id="the-ricardian-assumption-fails-if-anything-that-varies-with-climate-is-omitted-and-irrigation-does" class="slide level2">
+<h2>The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does</h2>
+<ul>
+<li><strong>2. Causal?</strong> Yes, if the assumption in question 4 holds</li>
+<li><strong>3. Experiment it approximates:</strong> counties assigned different climates long ago</li>
+<li><strong>4. Variation and assumption:</strong> differences in climate across counties; no omitted factor varies with climate and affects land values</li>
+<li><strong>5. What could make it fail:</strong> irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties <span class="citation" data-cites="schlenker2005irrigation">(<a href="#/references" role="doc-biblioref" onclick="">Schlenker et al. 2005</a>)</span></li>
+<li><strong>6. Uncertainty:</strong> neighboring counties share soils, markets, and climate, so their errors are correlated</li>
+</ul>
+<aside class="notes">
+<p>Irrigation is Bellemare’s “unobserved heterogeneity” threat, and the response is a design choice: change the sample so the omitted factor no longer varies.</p>
+<p>Discussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.</p>
+<p>Transition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-panel-model-removes-fixed-county-differences-by-comparing-each-county-with-itself-across-years" class="slide level2">
+<h2>The panel model removes fixed county differences by comparing each county with itself across years</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>c</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>W</mi><mrow><mi>c</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>γ</mi><mi>c</mi></msub><mo>+</mo><msub><mi>δ</mi><mi>t</mi></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>c</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>c</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">y_{ct}</annotation></semantics></math>: log crop yield or farm profit in county <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>, year <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>W</mi><mrow><mi>c</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">W_{ct}</annotation></semantics></math>: growing-season weather, such as degree days and precipitation</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>⋅</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(\cdot)</annotation></semantics></math>: the relationship between weather and the outcome; its slope is the parameter of interest</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\gamma_c</annotation></semantics></math>: county fixed effects; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\delta_t</annotation></semantics></math>: year fixed effects</li>
+</ul>
+<p><strong>1. Relationship of interest:</strong> the short-run response of yields or profits to weather <span class="citation" data-cites="deschenes2007climate schlenker2009nonlinear">(<a href="#/references" role="doc-biblioref" onclick="">Deschênes and Greenstone 2007</a>; <a href="#/references" role="doc-biblioref" onclick="">Schlenker and Roberts 2009</a>)</span></p>
+<aside class="notes">
+<p>Deschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="fixed-effects-solve-the-irrigation-problem-and-change-the-relationship-estimated" class="slide level2">
+<h2>Fixed effects solve the irrigation problem and change the relationship estimated</h2>
+<ul>
+<li><strong>2. Causal?</strong> Yes, for the effect of weather, if the assumption in question 4 holds</li>
+<li><strong>3. Experiment it approximates:</strong> a randomly assigned hot or cool year</li>
+<li><strong>4. Variation and assumption:</strong> year-to-year deviations in weather within a county; those deviations are as good as random</li>
+<li><strong>5. What could make it fail:</strong> measurement error in gridded weather, and price changes that spill over across counties (the threats slide covers all four)</li>
+<li><strong>6. Uncertainty:</strong> weather shocks hit neighboring counties together, so their errors are correlated</li>
+</ul>
+<p>Farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller than this estimate <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span>.</p>
+<aside class="notes">
+<p>County fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.</p>
+<p>Timmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.</p>
+<p>The point for the paper: gaining credibility also changed the relationship estimated, and the section has to say which one it estimates.</p>
+<p>Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes instead of yearly shocks.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="long-differences-compare-slow-changes-in-climate-over-decades" class="slide level2">
+<h2>Long differences compare slow changes in climate over decades</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mi>c</mi></msub><mo>=</mo><msub><mi>α</mi><mi>s</mi></msub><mo>+</mo><mi>β</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">Δ</mi><msub><mover><mi>W</mi><mo accent="true">‾</mo></mover><mi>c</mi></msub><mo>+</mo><mi mathvariant="normal">Δ</mi><msub><mover><mi>ε</mi><mo accent="true">‾</mo></mover><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">
+\Delta \bar{y}_c = \alpha_s + \beta\, \Delta \bar{W}_c + \Delta \bar{\varepsilon}_c
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mover><mi>y</mi><mo accent="true">‾</mo></mover><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\Delta \bar{y}_c</annotation></semantics></math>: change in county <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>’s multi-year average outcome between two periods</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mover><mi>W</mi><mo accent="true">‾</mo></mover><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\Delta \bar{W}_c</annotation></semantics></math>: change in its multi-year average weather over the same periods</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>s</mi></msub><annotation encoding="application/x-tex">\alpha_s</annotation></semantics></math>: state fixed effects; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>: the parameter of interest</li>
+</ul>
+<p><strong>1. Relationship of interest:</strong> the response to gradual climate change, including adaptation <span class="citation" data-cites="burke2016adaptation">(<a href="#/references" role="doc-biblioref" onclick="">Burke and Emerick 2016</a>)</span></p>
+<aside class="notes">
+<p>Burke and Emerick use recent temperature and precipitation trends.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="long-differences-recover-the-adaptation-that-the-panel-model-misses" class="slide level2">
+<h2>Long differences recover the adaptation that the panel model misses</h2>
+<ul>
+<li><strong>2. Causal?</strong> Yes, for the effect of gradual change, if the assumption in question 4 holds</li>
+<li><strong>3. Experiment it approximates:</strong> a climate that warms slowly over decades</li>
+<li><strong>4. Variation and assumption:</strong> differences in climate trends across counties within a state; those trends are unrelated to other trends in outcomes</li>
+<li><strong>5. What could make it fail:</strong> other trends, such as technology adoption, that move with climate trends</li>
+<li><strong>6. Uncertainty:</strong> one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties</li>
+</ul>
+<aside class="notes">
+<p>Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="each-design-answers-the-six-questions-differently" class="slide level2 dense">
+<h2>Each design answers the six questions differently</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Ricardian</th>
+<th>Panel weather</th>
+<th>Long differences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. What is the relationship of interest?</td>
+<td>Long-run effect on land values</td>
+<td>Short-run response to weather</td>
+<td>Response to gradual change</td>
+</tr>
+<tr class="even">
+<td>2. Is that relationship causal?</td>
+<td>Yes, if 4 holds</td>
+<td>Yes, if 4 holds</td>
+<td>Yes, if 4 holds</td>
+</tr>
+<tr class="odd">
+<td>3. What experiment would ideally measure it?</td>
+<td>Different climates long ago</td>
+<td>A random hot or cool year</td>
+<td>A slowly warming climate</td>
+</tr>
+<tr class="even">
+<td>4. What variation identifies it, and what must be true of that variation?</td>
+<td>Across counties; no omitted factor varies with climate</td>
+<td>Within a county across years; weather deviations as good as random</td>
+<td>Trends within a state; unrelated to other outcome trends</td>
+</tr>
+<tr class="odd">
+<td>5. What could make the identifying assumption fail?</td>
+<td>Omitted factors such as irrigation</td>
+<td>Measurement error; price spillovers</td>
+<td>Other trends that move with climate</td>
+</tr>
+<tr class="even">
+<td>6. How will you measure uncertainty?</td>
+<td>Errors correlated across space</td>
+<td>Errors correlated across space</td>
+<td>Fewer observations; errors correlated across space</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>Your empirical strategy section answers these six questions for your design, in prose. It does not need a table like this one; the slide on writing with comments shows how to keep the questions in front of you while drafting.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="threats-inference-and-robustness" class="title-slide slide level1 center">
+<h1>Threats, inference, and robustness</h1>
+
+</section>
+<section id="name-each-threat-and-say-how-the-design-or-a-robustness-check-handles-it" class="slide level2 dense">
+<h2>Name each threat and say how the design or a robustness check handles it</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Threat</th>
+<th>In the panel weather model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reverse causality</td>
+<td>Farm output does not change the weather</td>
+</tr>
+<tr class="even">
+<td>Unobserved heterogeneity</td>
+<td>County effects absorb fixed differences; year effects absorb national shocks</td>
+</tr>
+<tr class="odd">
+<td>Measurement error</td>
+<td>Gridded weather misses farm conditions; check a second weather data set</td>
+</tr>
+<tr class="even">
+<td>Spillovers</td>
+<td>Year effects absorb national price changes, so the estimate excludes them</td>
+</tr>
+</tbody>
+</table>
+<p>This is question 5 in detail. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.</p>
+<aside class="notes">
+<p>The four threats are Bellemare’s list (Section 5.2): reverse causality, unobserved heterogeneity, measurement error, and spillovers. Dalheimer and Bellemare’s Section 2.2 (shown earlier) walks through the first three in this order.</p>
+<p>Classical measurement error in weather attenuates the estimate toward zero.</p>
+<p>The record on this design shows why data checks matter: Fisher, Hanemann, Roberts, and Schlenker <span class="citation" data-cites="fisher2012comment">(<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> identified errors in the weather and climate data used by Deschênes and Greenstone, and Deschênes and Greenstone <span class="citation" data-cites="deschenes2012reply">(<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> replied with corrected estimates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-threat-to-identification-biases-the-estimate-a-problem-with-inference-misstates-its-precision" class="slide level2">
+<h2>A threat to identification biases the estimate; a problem with inference misstates its precision</h2>
+<ul>
+<li><strong>Threat to identification (question 5):</strong> the estimate is centered on the wrong value, and a larger sample does not fix it</li>
+<li><strong>Problem with inference (question 6):</strong> the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often</li>
+<li><strong>Panel weather example:</strong> neighboring counties share weather shocks, so treating their errors as independent overstates precision; cluster at a level that contains that correlation and say why</li>
+<li>Either problem leads a referee to doubt the result, so the section addresses both</li>
+</ul>
+<p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Sections 5.1 and 5.2.</p>
+<aside class="notes">
+<p>Students often list clustering as a threat. It is not a threat to identification: clustering does not change the point estimate. It changes how confident we are in it.</p>
+<p>Robustness checks can address either problem: alternative samples or controls test the identifying assumption; alternative clustering levels test the inference choice.</p>
+<p>We return to inference later in the unit, including how to handle a small number of clusters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="robustness-checks-vary-your-choices-sensitivity-analyses-relax-your-assumptions" class="slide level2 dense">
+<h2>Robustness checks vary your choices; sensitivity analyses relax your assumptions</h2>
+<ul>
+<li><strong>Robustness check:</strong> re-estimate with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020, sec. 6.2</a>)</span></li>
+<li><strong>Sensitivity analysis:</strong> ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
+<li><strong>Placebo test:</strong> estimate an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately</li>
+<li><strong>Why papers include them:</strong> researchers try many specifications before choosing one, so readers need evidence that the result was not selected for <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
+</ul>
+<p>A robustness check asks whether your choices matter. A sensitivity analysis asks how wrong your assumption could be.</p>
+<aside class="notes">
+<p>Athey and Imbens call these “supplementary analyses”: their purpose is not a better estimate of the main effect but evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.</p>
+<p>Bellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors “have to work hard to convince readers that their results were not cherrypicked.”</p>
+<p>This is why papers have a robustness section. Each check should name the threat or the choice it tests. Lecture 6.5 returns to this.</p>
+<p>Note that “robust” in “robust standard errors” is a different use of the word: those standard errors are robust to a specific feature of the errors, such as heteroskedasticity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="writing-the-equation" class="title-slide slide level1 center">
+<h1>Writing the equation</h1>
+
+</section>
+<section id="write-the-equation-so-a-referee-never-has-to-ask-what-a-symbol-means" class="slide level2">
+<h2>Write the equation so a referee never has to ask what a symbol means</h2>
+<ul>
+<li>Latin letters for variables, Greek letters for parameters</li>
+<li>Subscripts run from the smallest unit to the largest</li>
+<li>Define every term directly below the equation</li>
+<li>Give each specification its own coefficient label</li>
+<li>The unit of observation matches the key in your data section</li>
+</ul>
+<p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
+<aside class="notes">
+<p>Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. “Robust standard errors” is not enough; “robust to heteroskedasticity” is.</p>
+<p>The next slide explains the last rule. Lecture 6.2 opens with the first two.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-unit-of-observation-describes-a-row-the-key-identifies-it-in-the-file" class="slide level2 dense">
+<h2>The unit of observation describes a row; the key identifies it in the file</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Unit of observation</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>What it is</strong></td>
+<td>What one row represents, in words</td>
+<td>The field or fields whose values are unique for every row</td>
+</tr>
+<tr class="even">
+<td><strong>Panel weather model</strong></td>
+<td>A county in a year</td>
+<td>County FIPS code and year</td>
+</tr>
+<tr class="odd">
+<td><strong>Price-gouging data (Lecture 5.5)</strong></td>
+<td>One product at one store in one week</td>
+<td>Store, product, and week identifiers</td>
+</tr>
+<tr class="even">
+<td><strong>Where it appears</strong></td>
+<td>The data section and the equation’s subscripts</td>
+<td>The code that builds and merges the data</td>
+</tr>
+</tbody>
+</table>
+<p>The unit tells the reader what each row means. The key lets you check that there is exactly one row per unit before you estimate <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span>.</p>
+<aside class="notes">
+<p>The two are the same idea at different levels: the unit is the description for the reader, and the key is how the computer enforces it. If two rows share the same key, either the key is incomplete or the data contain duplicates, and the estimate will weight some units twice. Gentzkow and Shapiro’s chapter on keys (Lecture 5.4) covers how to check this.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="put-the-six-questions-in-your-draft-as-comments-then-answer-each-in-prose" class="slide level2">
+<h2>Put the six questions in your draft as comments, then answer each in prose</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource latex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a aria-label="1"></a><span class="kw">\section</span>{Empirical Strategy}</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="kw">\subsection</span>{Estimation Strategy}</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co">% What is the relationship of interest?</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co">%   equation, every term defined, parameter of interest</span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="co">% How will you measure uncertainty?</span></span>
+<span id="cb1-7"><a aria-label="7"></a><span class="co">%   standard errors, clustering level, and why</span></span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="kw">\subsection</span>{Identification Strategy}</span>
+<span id="cb1-10"><a aria-label="10"></a><span class="co">% Is that relationship causal?</span></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="co">% What experiment would ideally measure it?</span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="co">% What variation identifies it, and what must be true of that variation?</span></span>
+<span id="cb1-13"><a aria-label="13"></a><span class="co">% What could make the identifying assumption fail?</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="co">%   each threat, and the design choice or robustness check that handles it</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Lines that start with <code>%</code> do not appear in the compiled PDF. In Word, use comments; in Quarto or Markdown, use <code>&lt;!-- --&gt;</code>.</p>
+<aside class="notes">
+<p>The comments keep the six questions in front of you while you draft, and a coauthor can check that each one has an answer. Delete them before submission or leave them; they do not print. This follows Bellemare’s split: inference belongs in the estimation strategy, and the threats belong in the identification strategy.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="writing-task-your-estimating-equation-and-identifying-assumption" class="slide level2">
+<h2>Writing task: your estimating equation and identifying assumption</h2>
+<p>For your own proposal:</p>
+<ol type="1">
+<li>Write the estimating equation</li>
+<li>Define every term, including subscripts and the unit of observation</li>
+<li>Name the parameter of interest and say whether it is causal</li>
+<li>State the identifying assumption in one sentence</li>
+</ol>
+<aside class="notes">
+<p>10 minutes. This covers checklist rows 1 to 4 and 7. Students whose proposal is descriptive should still write the equation and state what the parameter describes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ajae2026guidelines" class="csl-entry" role="listitem">
+Agricultural and Applied Economics Association. n.d. <em>American Journal of Agricultural Economics: Author Guidelines</em>. Oxford University Press. Accessed October 27, 2026. <a href="https://academic.oup.com/ajae/pages/Author_Guidelines">https://academic.oup.com/ajae/pages/Author_Guidelines</a>.
+</div>
 <div id="ref-angrist2009mostly" class="csl-entry" role="listitem">
-Angrist, Joshua D., and J"orn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton University Press.
+Angrist, Joshua D., and Jörn-Steffen Pischke. 2009. <em>Mostly Harmless Econometrics: An Empiricist’s Companion</em>. Princeton University Press.
+</div>
+<div id="ref-athey2017state" class="csl-entry" role="listitem">
+Athey, Susan, and Guido W. Imbens. 2017. <span>“The State of Applied Econometrics: Causality and Policy Evaluation.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 3–32. <a href="https://doi.org/10.1257/jep.31.2.3">https://doi.org/10.1257/jep.31.2.3</a>.
+</div>
+<div id="ref-bellemare2020applied" class="csl-entry" role="listitem">
+Bellemare, Marc F. 2020. <em>How to Write Applied Papers in Economics</em>. Working paper, University of Minnesota.
+</div>
+<div id="ref-burke2016adaptation" class="csl-entry" role="listitem">
+Burke, Marshall, and Kyle Emerick. 2016. <span>“Adaptation to Climate Change: Evidence from <span>US</span> Agriculture.”</span> <em>American Economic Journal: Economic Policy</em> 8 (3): 106–40. <a href="https://doi.org/10.1257/pol.20130025">https://doi.org/10.1257/pol.20130025</a>.
+</div>
+<div id="ref-dalheimer2026gavc" class="csl-entry" role="listitem">
+Dalheimer, Bernhard, and Marc F. Bellemare. 2026. <span>“Global Agricultural Value Chains and Food Prices.”</span> <em>American Journal of Agricultural Economics</em> 108 (5): 1282–99. <a href="https://doi.org/10.1111/ajae.70030">https://doi.org/10.1111/ajae.70030</a>.
+</div>
+<div id="ref-deschenes2007climate" class="csl-entry" role="listitem">
+Deschênes, Olivier, and Michael Greenstone. 2007. <span>“The Economic Impacts of Climate Change: Evidence from Agricultural Output and Random Fluctuations in Weather.”</span> <em>American Economic Review</em> 97 (1): 354–85. <a href="https://doi.org/10.1257/aer.97.1.354">https://doi.org/10.1257/aer.97.1.354</a>.
+</div>
+<div id="ref-deschenes2012reply" class="csl-entry" role="listitem">
+Deschênes, Olivier, and Michael Greenstone. 2012. <span>“The Economic Impacts of Climate Change: Evidence from Agricultural Output and Random Fluctuations in Weather: Reply.”</span> <em>American Economic Review</em> 102 (7): 3761–73. <a href="https://doi.org/10.1257/aer.102.7.3761">https://doi.org/10.1257/aer.102.7.3761</a>.
+</div>
+<div id="ref-fisher2012comment" class="csl-entry" role="listitem">
+Fisher, Anthony C., W. Michael Hanemann, Michael J. Roberts, and Wolfram Schlenker. 2012. <span>“The Economic Impacts of Climate Change: Evidence from Agricultural Output and Random Fluctuations in Weather: Comment.”</span> <em>American Economic Review</em> 102 (7): 3749–60. <a href="https://doi.org/10.1257/aer.102.7.3749">https://doi.org/10.1257/aer.102.7.3749</a>.
+</div>
+<div id="ref-gentzkow2014code" class="csl-entry" role="listitem">
+Gentzkow, Matthew, and Jesse M. Shapiro. 2014. <em>Code and Data for the Social Sciences: A Practitioner’s Guide</em>. University of Chicago mimeo. <a href="https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf">https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf</a>.
 </div>
 <div id="ref-jurajda2007identification" class="csl-entry" role="listitem">
-Jurajda, Step’an. 2007. <em>Lecture Notes on Identification Strategies</em>. Lecture notes.
+Jurajda, Štěpán. 2007. <em>Lecture Notes on Identification Strategies</em>. Lecture notes.
+</div>
+<div id="ref-mendelsohn1994ricardian" class="csl-entry" role="listitem">
+Mendelsohn, Robert, William D. Nordhaus, and Daigee Shaw. 1994. <span>“The Impact of Global Warming on Agriculture: A Ricardian Analysis.”</span> <em>American Economic Review</em> 84 (4): 753–71.
+</div>
+<div id="ref-schlenker2005irrigation" class="csl-entry" role="listitem">
+Schlenker, Wolfram, W. Michael Hanemann, and Anthony C. Fisher. 2005. <span>“Will <span>U.S.</span> Agriculture Really Benefit from Global Warming? Accounting for Irrigation in the Hedonic Approach.”</span> <em>American Economic Review</em> 95 (1): 395–406. <a href="https://doi.org/10.1257/0002828053828455">https://doi.org/10.1257/0002828053828455</a>.
+</div>
+<div id="ref-schlenker2009nonlinear" class="csl-entry" role="listitem">
+Schlenker, Wolfram, and Michael J. Roberts. 2009. <span>“Nonlinear Temperature Effects Indicate Severe Damages to <span>U.S.</span> Crop Yields Under Climate Change.”</span> <em>Proceedings of the National Academy of Sciences</em> 106 (37): 15594–98. <a href="https://doi.org/10.1073/pnas.0906865106">https://doi.org/10.1073/pnas.0906865106</a>.
 </div>
 <div id="ref-timmins2009reduced" class="csl-entry" role="listitem">
 Timmins, Christopher, and Wolfram Schlenker. 2009. <span>“Reduced-Form Versus Structural Modeling in Environmental and Resource Economics.”</span> <em>Annual Review of Resource Economics</em> 1: 351–80. <a href="https://doi.org/10.1146/annurev.resource.050708.144119">https://doi.org/10.1146/annurev.resource.050708.144119</a>.
@@ -429,13 +1152,16 @@ Timmins, Christopher, and Wolfram Schlenker. 2009. <span>“Reduced-Form Versus 
 <section id="course-navigation" class="slide level2">
 <h2>Course navigation</h2>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html">Empirical strategy checklist</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html">Methods map</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture6.1.pdf">Download this lecture as a PDF</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

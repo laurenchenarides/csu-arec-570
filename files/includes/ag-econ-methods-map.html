@@ -254,29 +254,29 @@ coef(glm(buy ~ price, family = binomial))
 </section>
 
 <section id="example">
-  <h2>One question, three paths</h2>
-  <p><strong>How does a warmer climate affect U.S. agriculture?</strong> Each path answers a slightly different question.</p>
+  <h2>Example: climate and U.S. agriculture</h2>
+  <p><strong>How will a warmer climate affect U.S. agriculture?</strong> Three designs answer this question using different comparisons, so each one estimates a different relationship.</p>
   <div class="paths">
     <div class="path" style="--c:var(--st)">
-      <h3>Ricardian cross-section</h3>
-      <div class="k">Estimate</div><p>Farmland values regressed on long-run climate normals across counties (Mendelsohn, Nordhaus &amp; Shaw 1994).</p>
-      <div class="k">Gets</div><p>The long-run effect, including whatever adaptation farmers have already made.</p>
-      <div class="k">Must believe</div><p>Nothing correlated with climate across space is omitted. Irrigation turned out to be a problem (Schlenker, Hanemann &amp; Fisher 2005).</p>
+      <h3>Ricardian model</h3>
+      <div class="k">Regression</div><p>Farmland value per acre on long-run average temperature and precipitation, across counties (Mendelsohn, Nordhaus, and Shaw 1994).</p>
+      <div class="k">What it estimates</div><p>The long-run effect of climate on land values, including the adaptation farmers have already made.</p>
+      <div class="k">Identifying assumption</div><p>No omitted factor varies with climate across counties and affects land values. Irrigation violates this assumption (Schlenker, Hanemann, and Fisher 2005).</p>
     </div>
     <div class="path" style="--c:var(--rf)">
-      <h3>Panel weather</h3>
-      <div class="k">Estimate</div><p>Within-county yields regressed on year-to-year weather (Deschênes &amp; Greenstone 2007; Schlenker &amp; Roberts 2009).</p>
-      <div class="k">Gets</div><p>A credible short-run response, including sharp yield losses above crop-specific heat thresholds.</p>
-      <div class="k">Must believe</div><p>Weather shocks are as good as random. A one-year shock leaves no time to adapt, so it may overstate long-run damage.</p>
+      <h3>Panel weather model</h3>
+      <div class="k">Regression</div><p>County crop yields or farm profits on year-to-year weather, with county and year fixed effects (Deschênes and Greenstone 2007; Schlenker and Roberts 2009).</p>
+      <div class="k">What it estimates</div><p>The short-run response to weather, including yield losses above crop-specific temperature thresholds.</p>
+      <div class="k">Identifying assumption</div><p>Within a county, year-to-year deviations in weather are as good as random. Farmers cannot fully adapt to a single hot year, so the estimate may overstate long-run damage.</p>
     </div>
     <div class="path" style="--c:var(--both)">
-      <h3>Long differences or modeled adaptation</h3>
-      <div class="k">Estimate</div><p>Changes in outcomes over decades on changes in climate (Burke &amp; Emerick 2016), or a model of farmers' adaptation choices.</p>
-      <div class="k">Gets</div><p>How much adaptation offsets the short-run damage.</p>
-      <div class="k">Must believe</div><p>Slow climate trends are unrelated to other slow changes, or the model of farmer choice is right.</p>
+      <h3>Long differences</h3>
+      <div class="k">Regression</div><p>Changes in county outcomes over several decades on changes in climate over the same period (Burke and Emerick 2016).</p>
+      <div class="k">What it estimates</div><p>The response to gradual climate change. Compared with the panel estimate, it shows how much adaptation offsets short-run damage.</p>
+      <div class="k">Identifying assumption</div><p>Within a state, counties' climate trends are unrelated to other trends in their outcomes.</p>
     </div>
   </div>
-  <p>The three answers differ because they estimate different things. That is the reduced-form versus structural tradeoff inside a single question.</p>
+  <p>The three answers differ because the designs estimate different relationships, not only because one design is more credible than another. Timmins and Schlenker (2009) discuss this tradeoff between cross-sectional and panel variation.</p>
 </section>
 
 <p class="note">Lecture tags follow the proposed Unit 6 order: 6.1 map and design-based identification, 6.2 structural models and combining approaches, 6.3 frontier methods, 6.4 experiments and mixed methods, 6.5 evaluating evidence. "Beyond the readings" marks methods not covered in the Unit 6 readings as currently assigned. Anchor papers are a draft list to be verified before posting.</p>
