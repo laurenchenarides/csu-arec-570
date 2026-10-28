@@ -88,13 +88,13 @@ The map lists anchor papers for each method. The climate papers used today have 
 
 # What must the empirical strategy section accomplish?
 
-## Where the Empirical Strategy section lives in your paper
+## But first, where the empirical strategy section lives in your paper
 
 1. Introduction
 2. Background or Literature Review
-3. Conceptual framework
+3. Conceptual Framework
 4. Data and Summary Evidence
-5. **Empirical Strategy**
+5. **Empirical Strategy** & **Identification Strategy**
 6. Results
 7. Discussion (or Policy Implications, or Managerial Implications)
 8. Conclusion
@@ -115,7 +115,7 @@ Two differences from his outline. He argues that a separate literature review is
 - A referee should be able to judge the design before seeing a result
 
 ::: notes
-This slide places the section in the paper. The rest of the lecture follows one order: define the terms, organize the section around five questions, then answer those questions for one research question three different ways.
+This slide places the section in the paper. The rest of the lecture follows the order of the section itself: the estimation strategy (equation, estimator, inference), then the identification strategy (assumption, threats, robustness), then one research question answered three ways.
 :::
 
 ## Four terms come up in every empirical strategy section
@@ -174,29 +174,121 @@ Source: @dalheimer2026gavc, Section 2.2 (accepted version posted on Bellemare's 
 :::
 
 ::: notes
-The section walks through Bellemare's threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure when we reach threats later today.
+The section walks through Bellemare's threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section. First, what does identification mean?
 :::
 
-## Six questions organize the section {.dense}
+## A parameter is identified when only one value of it fits the data you could observe
 
-| Question | Where the answer appears in your section |
-|---|---|
-| 1. What is the relationship of interest? | The estimating equation and the parameter of interest |
-| 2. Is that relationship causal? | Whether the parameter is causal, and if not, what it describes |
-| 3. What experiment would ideally measure it? | The effect you are trying to estimate |
-| 4. What variation identifies it, and what must be true of that variation? | The identifying assumption |
-| 5. What could make the identifying assumption fail? | The threats to identification and how the design or a robustness check addresses each |
-| 6. How will you measure uncertainty? | The standard errors, the clustering level, and why |
+- Imagine an unlimited sample: could you recover the number you want?
+- If not, the parameter is not identified, and more data or a better estimator will not fix it
+- Identification depends on assumptions about how the data were generated, not on the sample size
+- A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption
+
+::: notes
+Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship rather than a partial correlation. He refers to Pearl's notation for this, the effect of setting a variable rather than observing it.
+
+The next two slides use one question from the readings, the effect of military service on earnings, to show a parameter that is not identified and two ways to identify it.
+:::
+
+## When an unobserved factor drives both treatment and outcome, the effect is not identified
+
+![](assets/unit6/dag-not-identified.svg){height=300px fig-alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings."}
+
+A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them [@jurajda2007identification, Example 1.1].
+
+::: notes
+Jurajda asks: "Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?" The dashed path through earnings potential is selection bias, the term defined in the identification strategy section later today.
+
+The four threats map onto this picture. Unobserved heterogeneity is the dashed node. Reverse causality would be an arrow from earnings back to service. Measurement error means the service box is recorded with error. Spillovers would be an arrow from one person's service to another person's earnings.
+:::
+
+## The effect is identified if you measure the common causes or use variation they do not drive
+
+![](assets/unit6/dag-identified.svg){height=360px fig-alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery."}
+
+::: aside
+A: Angrist (1998), discussed in @angrist2009mostly, Chapter 3. B: the Vietnam-era draft lottery, Angrist (1990), in @jurajda2007identification, Example 3.11.
+:::
+
+::: notes
+Panel A is selection on observed characteristics. The military screens applicants on age, schooling, and test scores, so comparing veterans and nonveterans with the same values identifies the effect, if nothing else drives both. Angrist and Pischke note that this is "clearly not guaranteed": applicants who drop out at the last minute may differ in earnings potential.
+
+Panel B is an instrument. The lottery number changes who serves but is assigned at random, so earnings potential cannot affect it, and it should affect earnings only through service. It identifies the effect for men whose service depended on their lottery number.
+
+The identifying assumption in each panel is the "Requires" line. That is the sentence a paper states in words.
+:::
+
+## Six questions organize the section, in the order they appear in a paper {.dense}
+
+| Subsection | Question | Where the answer appears |
+|---|---|---|
+| Estimation strategy | 1. What is the relationship of interest? | The estimating equation and the parameter of interest |
+| | 2. How will you measure uncertainty? | The estimator, the standard errors, the clustering level, and why |
+| Identification strategy | 3. Is that relationship causal? | Whether the parameter is causal, and if not, what it describes |
+| | 4. What experiment would ideally measure it? | The effect you are trying to estimate |
+| | 5. What variation identifies it, and what must be true of that variation? | The identifying assumption |
+| | 6. What could make the identifying assumption fail? | The threats, and the design choice or robustness check that handles each |
+
+: {tbl-colwidths="[20,42,38]"}
 
 Adapted from @angrist2009mostly, Chapter 1, and @bellemare2020applied, Section 5.
 
 ::: notes
-Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why question 2 is separate here.
+Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why question 3 is separate here.
 
-Question 5 comes from Bellemare's Section 5.2, which asks authors to discuss each threat to identification and how the paper deals with it.
-
-The rest of the lecture uses these six questions as its outline.
+The order follows Bellemare: the estimation strategy (equation, estimator, inference) comes first, then the identification strategy (assumption, threats, robustness). The rest of the lecture follows the same order.
 :::
+
+# What's included in the estimation strategy subsection
+
+## Write the equation so a referee never has to ask what a symbol means
+
+- Latin letters for variables, Greek letters for parameters
+- Subscripts run from the smallest unit to the largest
+- Define every term directly below the equation
+- Give each specification its own coefficient label
+- The unit of observation matches the key in your data section
+
+Source: @bellemare2020applied, Section 5.1.
+
+::: notes
+Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. "Robust standard errors" is not enough; "robust to heteroskedasticity" is.
+
+The next slide explains the last rule. Lecture 6.2 opens with the first two. This slide answers question 1.
+:::
+
+## The unit of observation describes a row; the key identifies it in the file {.dense}
+
+| | Unit of observation | Key |
+|---|---|---|
+| **What it is** | What one row represents, in words | The field or fields whose values are unique for every row |
+| **Panel weather model** | A county in a year | County FIPS code and year |
+| **Price-gouging data (Lecture 5.5)** | One product at one store in one week | Store, product, and week identifiers |
+| **Where it appears** | The data section and the equation's subscripts | The code that builds and merges the data |
+
+The unit tells the reader what each row means. The key lets you check that there is exactly one row per unit before you estimate [@gentzkow2014code].
+
+::: notes
+The two are the same idea at different levels: the unit is the description for the reader, and the key is how the computer enforces it. If two rows share the same key, either the key is incomplete or the data contain duplicates, and the estimate will weight some units twice. Gentzkow and Shapiro's chapter on keys (Lecture 5.4) covers how to check this.
+:::
+
+## The estimation strategy also names the estimator and says how inference is done
+
+- The estimator by name, such as OLS, a linear probability model, probit, or maximum likelihood, and why
+- The hypothesis being tested
+- What the standard errors are robust to, such as heteroskedasticity; "robust standard errors" alone is not enough
+- Whether and how standard errors are clustered, at what level, and why
+- Whether sampling weights are used, and how they were constructed
+
+Source: @bellemare2020applied, Section 5.1. This answers question 2.
+
+::: notes
+The clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.
+
+We return to inference later in the unit, including how to handle a small number of clusters.
+:::
+
+# What's included in the identification strategy subsection
 
 ## The identifying assumption says why the groups you compare are comparable
 
@@ -212,182 +304,29 @@ Angrist and Pischke, Chapter 2, write this as a decomposition: the observed diff
 Jurajda's notes describe identification as a search for variation that is unrelated to these pre-existing differences.
 :::
 
-# Example: climate and U.S. agriculture
+## Bellemare asks every paper to address four threats to identification {.dense}
 
-## The ideal experiment tells you which effect you are after
+| Threat | What it means | Common responses |
+|---|---|---|
+| Reverse causality | The outcome affects the treatment | Measure treatment before the outcome; use an instrument |
+| Unobserved heterogeneity | An omitted factor affects both treatment and outcome | Fixed effects, controls, or a design that holds the factor constant |
+| Measurement error | The treatment is recorded with error; classical error biases the estimate toward zero | A second measure; an instrument |
+| Spillovers | One unit's treatment affects another unit's outcome, now or later | Define units so spillovers stay within them; test for them |
 
-**Question:** How will a warmer climate affect U.S. agriculture?
-
-- Ideal experiment: give some counties a permanently warmer climate, then wait decades
-- Farmers would change crops, irrigation, and planting dates
-- The target is a long-run effect that includes this adaptation
-- A single hot year is a different experiment with a different answer
-
-::: notes
-Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather.
-
-Ask: in your proposal, what would you randomize, and how long would you wait to measure the outcome?
-:::
-
-## Three designs approximate this experiment, and each answers the six questions differently {.dense}
-
-| Question | Ricardian | Panel weather | Long differences |
-|---|---|---|---|
-| 1. What is the relationship of interest? | | | |
-| 2. Is that relationship causal? | | | |
-| 3. What experiment would ideally measure it? | | | |
-| 4. What variation identifies it, and what must be true of that variation? | | | |
-| 5. What could make the identifying assumption fail? | | | |
-| 6. How will you measure uncertainty? | | | |
-
-: {tbl-colwidths="[37,21,21,21]"}
-
-We fill in one column at a time. Each design responds to a weakness in the one before it.
+Source: @bellemare2020applied, Section 5.2. This answers question 6.
 
 ::: notes
-This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation, which answers question 1, and a slide that answers questions 2 to 6 in the same order.
-:::
+Bellemare asks authors to discuss each threat in turn, say whether it applies, and explain how the paper handles it. The response column lists common approaches; it is not from Bellemare.
 
-## The Ricardian model compares farmland values across counties with different climates
+He adds: "If your results are not causally identified, do not lie about what they can and cannot do."
 
-$$
-V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
-$$
-
-- $V_c$: farmland value per acre in county $c$
-- $T_c, P_c$: long-run average temperature and precipitation
-- $f(\cdot)$: a quadratic in temperature and precipitation; its slope in $T_c$ is the parameter of interest
-- $X_c$: soil quality and other county characteristics
-
-**1. Relationship of interest:** the long-run effect of climate on land values, including adaptation [@mendelsohn1994ricardian]
-
-::: notes
-The logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.
-:::
-
-## The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does
-
-- **2. Causal?** Yes, if the assumption in question 4 holds
-- **3. Experiment it approximates:** counties assigned different climates long ago
-- **4. Variation and assumption:** differences in climate across counties; no omitted factor varies with climate and affects land values
-- **5. What could make it fail:** irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties [@schlenker2005irrigation]
-- **6. Uncertainty:** neighboring counties share soils, markets, and climate, so their errors are correlated
-
-::: notes
-Irrigation is Bellemare's "unobserved heterogeneity" threat, and the response is a design choice: change the sample so the omitted factor no longer varies.
-
-Discussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.
-
-Transition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.
-:::
-
-## The panel model removes fixed county differences by comparing each county with itself across years
-
-$$
-y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
-$$
-
-- $y_{ct}$: log crop yield or farm profit in county $c$, year $t$
-- $W_{ct}$: growing-season weather, such as degree days and precipitation
-- $g(\cdot)$: the relationship between weather and the outcome; its slope is the parameter of interest
-- $\gamma_c$: county fixed effects; $\delta_t$: year fixed effects
-
-**1. Relationship of interest:** the short-run response of yields or profits to weather [@deschenes2007climate; @schlenker2009nonlinear]
-
-::: notes
-Deschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.
-:::
-
-## Fixed effects solve the irrigation problem and change the relationship estimated
-
-- **2. Causal?** Yes, for the effect of weather, if the assumption in question 4 holds
-- **3. Experiment it approximates:** a randomly assigned hot or cool year
-- **4. Variation and assumption:** year-to-year deviations in weather within a county; those deviations are as good as random
-- **5. What could make it fail:** measurement error in gridded weather, and price changes that spill over across counties (the threats slide covers all four)
-- **6. Uncertainty:** weather shocks hit neighboring counties together, so their errors are correlated
-
-Farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller than this estimate [@timmins2009reduced].
-
-::: notes
-County fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.
-
-Timmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.
-
-The point for the paper: gaining credibility also changed the relationship estimated, and the section has to say which one it estimates.
-
-Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes instead of yearly shocks.
-:::
-
-## Long differences compare slow changes in climate over decades
-
-$$
-\Delta \bar{y}_c = \alpha_s + \beta\, \Delta \bar{W}_c + \Delta \bar{\varepsilon}_c
-$$
-
-- $\Delta \bar{y}_c$: change in county $c$'s multi-year average outcome between two periods
-- $\Delta \bar{W}_c$: change in its multi-year average weather over the same periods
-- $\alpha_s$: state fixed effects; $\beta$: the parameter of interest
-
-**1. Relationship of interest:** the response to gradual climate change, including adaptation [@burke2016adaptation]
-
-::: notes
-Burke and Emerick use recent temperature and precipitation trends.
-:::
-
-## Long differences recover the adaptation that the panel model misses
-
-- **2. Causal?** Yes, for the effect of gradual change, if the assumption in question 4 holds
-- **3. Experiment it approximates:** a climate that warms slowly over decades
-- **4. Variation and assumption:** differences in climate trends across counties within a state; those trends are unrelated to other trends in outcomes
-- **5. What could make it fail:** other trends, such as technology adoption, that move with climate trends
-- **6. Uncertainty:** one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties
-
-::: notes
-Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.
-:::
-
-## Each design answers the six questions differently {.dense}
-
-| Question | Ricardian | Panel weather | Long differences |
-|---|---|---|---|
-| 1. What is the relationship of interest? | Long-run effect on land values | Short-run response to weather | Response to gradual change |
-| 2. Is that relationship causal? | Yes, if 4 holds | Yes, if 4 holds | Yes, if 4 holds |
-| 3. What experiment would ideally measure it? | Different climates long ago | A random hot or cool year | A slowly warming climate |
-| 4. What variation identifies it, and what must be true of that variation? | Across counties; no omitted factor varies with climate | Within a county across years; weather deviations as good as random | Trends within a state; unrelated to other outcome trends |
-| 5. What could make the identifying assumption fail? | Omitted factors such as irrigation | Measurement error; price spillovers | Other trends that move with climate |
-| 6. How will you measure uncertainty? | Errors correlated across space | Errors correlated across space | Fewer observations; errors correlated across space |
-
-: {tbl-colwidths="[37,21,21,21]"}
-
-::: notes
-Your empirical strategy section answers these six questions for your design, in prose. It does not need a table like this one; the slide on writing with comments shows how to keep the questions in front of you while drafting.
-:::
-
-# Threats, inference, and robustness
-
-## Name each threat and say how the design or a robustness check handles it {.dense}
-
-| Threat | In the panel weather model |
-|---|---|
-| Reverse causality | Farm output does not change the weather |
-| Unobserved heterogeneity | County effects absorb fixed differences; year effects absorb national shocks |
-| Measurement error | Gridded weather misses farm conditions; check a second weather data set |
-| Spillovers | Year effects absorb national price changes, so the estimate excludes them |
-
-This is question 5 in detail. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.
-
-::: notes
-The four threats are Bellemare's list (Section 5.2): reverse causality, unobserved heterogeneity, measurement error, and spillovers. Dalheimer and Bellemare's Section 2.2 (shown earlier) walks through the first three in this order.
-
-Classical measurement error in weather attenuates the estimate toward zero.
-
-The record on this design shows why data checks matter: Fisher, Hanemann, Roberts, and Schlenker [-@fisher2012comment] identified errors in the weather and climate data used by Deschênes and Greenstone, and Deschênes and Greenstone [-@deschenes2012reply] replied with corrected estimates.
+The DAG from earlier shows each threat as a feature of the graph. The climate example later applies this table to one design.
 :::
 
 ## A threat to identification biases the estimate; a problem with inference misstates its precision
 
-- **Threat to identification (question 5):** the estimate is centered on the wrong value, and a larger sample does not fix it
-- **Problem with inference (question 6):** the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often
+- **Threat to identification (question 6):** the estimate is centered on the wrong value, and a larger sample does not fix it
+- **Problem with inference (question 2):** the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often
 - **Panel weather example:** neighboring counties share weather shocks, so treating their errors as independent overstates precision; cluster at a level that contains that correlation and say why
 - Either problem leads a referee to doubt the result, so the section addresses both
 
@@ -420,38 +359,177 @@ This is why papers have a robustness section. Each check should name the threat 
 Note that "robust" in "robust standard errors" is a different use of the word: those standard errors are robust to a specific feature of the errors, such as heteroskedasticity.
 :::
 
-# Writing the equation
+# Example: climate and U.S. agriculture
 
-## Write the equation so a referee never has to ask what a symbol means
+## The ideal experiment tells you which effect you are after
 
-- Latin letters for variables, Greek letters for parameters
-- Subscripts run from the smallest unit to the largest
-- Define every term directly below the equation
-- Give each specification its own coefficient label
-- The unit of observation matches the key in your data section
+**Question:** How will a warmer climate affect U.S. agriculture?
 
-Source: @bellemare2020applied, Section 5.1.
-
-::: notes
-Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. "Robust standard errors" is not enough; "robust to heteroskedasticity" is.
-
-The next slide explains the last rule. Lecture 6.2 opens with the first two.
-:::
-
-## The unit of observation describes a row; the key identifies it in the file {.dense}
-
-| | Unit of observation | Key |
-|---|---|---|
-| **What it is** | What one row represents, in words | The field or fields whose values are unique for every row |
-| **Panel weather model** | A county in a year | County FIPS code and year |
-| **Price-gouging data (Lecture 5.5)** | One product at one store in one week | Store, product, and week identifiers |
-| **Where it appears** | The data section and the equation's subscripts | The code that builds and merges the data |
-
-The unit tells the reader what each row means. The key lets you check that there is exactly one row per unit before you estimate [@gentzkow2014code].
+- Ideal experiment: give some counties a permanently warmer climate, then wait decades
+- Farmers would change crops, irrigation, and planting dates
+- The target is a long-run effect that includes this adaptation
+- A single hot year is a different experiment with a different answer
 
 ::: notes
-The two are the same idea at different levels: the unit is the description for the reader, and the key is how the computer enforces it. If two rows share the same key, either the key is incomplete or the data contain duplicates, and the estimate will weight some units twice. Gentzkow and Shapiro's chapter on keys (Lecture 5.4) covers how to check this.
+Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather.
+
+Ask: in your proposal, what would you randomize, and how long would you wait to measure the outcome?
 :::
+
+## Three designs approximate this experiment, and each answers the six questions differently {.dense}
+
+| Question | Ricardian | Panel weather | Long differences |
+|---|---|---|---|
+| 1. What is the relationship of interest? | | | |
+| 2. How will you measure uncertainty? | | | |
+| 3. Is that relationship causal? | | | |
+| 4. What experiment would ideally measure it? | | | |
+| 5. What variation identifies it, and what must be true of that variation? | | | |
+| 6. What could make the identifying assumption fail? | | | |
+
+: {tbl-colwidths="[37,21,21,21]"}
+
+We fill in one column at a time. Each design responds to a weakness in the one before it.
+
+::: notes
+This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation, which answers question 1, and a slide that answers questions 2 to 6 in the same order as the table.
+:::
+
+## The Ricardian model compares farmland values across counties with different climates
+
+$$
+V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
+$$
+
+- $V_c$: farmland value per acre in county $c$
+- $T_c, P_c$: long-run average temperature and precipitation
+- $f(\cdot)$: a quadratic in temperature and precipitation; its slope in $T_c$ is the parameter of interest
+- $X_c$: soil quality and other county characteristics
+
+**1. Relationship of interest:** the long-run effect of climate on land values, including adaptation [@mendelsohn1994ricardian]
+
+::: notes
+The logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.
+:::
+
+## The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does
+
+- **2. Uncertainty:** neighboring counties share soils, markets, and climate, so their errors are correlated
+- **3. Causal?** Yes, if the assumption in question 5 holds
+- **4. Experiment it approximates:** counties assigned different climates long ago
+- **5. Variation and assumption:** differences in climate across counties; no omitted factor varies with climate and affects land values
+- **6. What could make it fail:** irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties [@schlenker2005irrigation]
+
+::: notes
+Irrigation is Bellemare's "unobserved heterogeneity" threat, and the response is a design choice: change the sample so the omitted factor no longer varies.
+
+Discussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.
+
+Transition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.
+:::
+
+## The panel model removes fixed county differences by comparing each county with itself across years
+
+$$
+y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
+$$
+
+- $y_{ct}$: log crop yield or farm profit in county $c$, year $t$
+- $W_{ct}$: growing-season weather, such as degree days and precipitation
+- $g(\cdot)$: the relationship between weather and the outcome; its slope is the parameter of interest
+- $\gamma_c$: county fixed effects; $\delta_t$: year fixed effects
+
+**1. Relationship of interest:** the short-run response of yields or profits to weather [@deschenes2007climate; @schlenker2009nonlinear]
+
+::: notes
+Deschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.
+:::
+
+## Fixed effects solve the irrigation problem and change the relationship estimated
+
+- **2. Uncertainty:** weather shocks hit neighboring counties together, so their errors are correlated
+- **3. Causal?** Yes, for the effect of weather, if the assumption in question 5 holds
+- **4. Experiment it approximates:** a randomly assigned hot or cool year
+- **5. Variation and assumption:** year-to-year deviations in weather within a county; those deviations are as good as random
+- **6. What could make it fail:** measurement error in gridded weather, and price changes that spill over across counties (a later slide covers all four)
+
+Farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller than this estimate [@timmins2009reduced].
+
+::: notes
+County fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.
+
+Timmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.
+
+The point for the paper: gaining credibility also changed the relationship estimated, and the section has to say which one it estimates.
+
+Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes instead of yearly shocks.
+:::
+
+## Long differences compare slow changes in climate over decades
+
+$$
+\Delta \bar{y}_c = \alpha_s + \beta\, \Delta \bar{W}_c + \Delta \bar{\varepsilon}_c
+$$
+
+- $\Delta \bar{y}_c$: change in county $c$'s multi-year average outcome between two periods
+- $\Delta \bar{W}_c$: change in its multi-year average weather over the same periods
+- $\alpha_s$: state fixed effects; $\beta$: the parameter of interest
+
+**1. Relationship of interest:** the response to gradual climate change, including adaptation [@burke2016adaptation]
+
+::: notes
+Burke and Emerick use recent temperature and precipitation trends.
+:::
+
+## Long differences recover the adaptation that the panel model misses
+
+- **2. Uncertainty:** one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties
+- **3. Causal?** Yes, for the effect of gradual change, if the assumption in question 5 holds
+- **4. Experiment it approximates:** a climate that warms slowly over decades
+- **5. Variation and assumption:** differences in climate trends across counties within a state; those trends are unrelated to other trends in outcomes
+- **6. What could make it fail:** other trends, such as technology adoption, that move with climate trends
+
+::: notes
+Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.
+:::
+
+## Each design answers the six questions differently {.dense}
+
+| Question | Ricardian | Panel weather | Long differences |
+|---|---|---|---|
+| 1. What is the relationship of interest? | Long-run effect on land values | Short-run response to weather | Response to gradual change |
+| 2. How will you measure uncertainty? | Errors correlated across space | Errors correlated across space | Fewer observations; errors correlated across space |
+| 3. Is that relationship causal? | Yes, if 5 holds | Yes, if 5 holds | Yes, if 5 holds |
+| 4. What experiment would ideally measure it? | Different climates long ago | A random hot or cool year | A slowly warming climate |
+| 5. What variation identifies it, and what must be true of that variation? | Across counties; no omitted factor varies with climate | Within a county across years; weather deviations as good as random | Trends within a state; unrelated to other outcome trends |
+| 6. What could make the identifying assumption fail? | Omitted factors such as irrigation | Measurement error; price spillovers | Other trends that move with climate |
+
+: {tbl-colwidths="[37,21,21,21]"}
+
+::: notes
+Your empirical strategy section answers these six questions for your design, in prose. It does not need a table like this one; the slide on writing with comments shows how to keep the questions in front of you while drafting.
+:::
+
+## In the panel weather model, each threat has an answer {.dense}
+
+| Threat | In the panel weather model |
+|---|---|
+| Reverse causality | Farm output does not change the weather |
+| Unobserved heterogeneity | County effects absorb fixed differences; year effects absorb national shocks |
+| Measurement error | Gridded weather misses farm conditions; check a second weather data set |
+| Spillovers | Year effects absorb national price changes, so the estimate excludes them |
+
+This applies question 6 to one design. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.
+
+::: notes
+The four threats are Bellemare's list (Section 5.2): reverse causality, unobserved heterogeneity, measurement error, and spillovers. Dalheimer and Bellemare's Section 2.2 (shown earlier) walks through the first three in this order, and the generic version is in the identification strategy section.
+
+Classical measurement error in weather attenuates the estimate toward zero.
+
+The record on this design shows why data checks matter: Fisher, Hanemann, Roberts, and Schlenker [-@fisher2012comment] identified errors in the weather and climate data used by Deschênes and Greenstone, and Deschênes and Greenstone [-@deschenes2012reply] replied with corrected estimates.
+:::
+
+# Writing the section
 
 ## Put the six questions in your draft as comments, then answer each in prose
 

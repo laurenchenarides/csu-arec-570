@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="380" viewBox="0 0 1100 380" role="img" aria-labelledby="title desc">
+  <title id="title">The effect of military service on earnings is not identified</title>
+  <desc id="desc">A directed acyclic graph. Military service points to earnings, which is the effect of interest. Earnings potential, which is not observed, points to both military service and earnings, so a comparison of veterans and nonveterans mixes the two paths.</desc>
+  <defs>
+    <marker id="arrowG" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1E4D2B"/>
+    </marker>
+    <marker id="arrowR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#9A3324"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #222; }
+      .node { font-size: 22px; font-weight: 700; }
+      .note { font-size: 17px; font-style: italic; fill: #555; }
+      .lab { font-size: 18px; fill: #1E4D2B; font-weight: 700; }
+      .labr { font-size: 18px; fill: #9A3324; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect x="400" y="30" width="300" height="90" rx="14" fill="#FFFFFF" stroke="#9A3324" stroke-width="3" stroke-dasharray="9 7"/>
+  <text x="550" y="70" text-anchor="middle" class="node">Earnings potential (U)</text>
+  <text x="550" y="100" text-anchor="middle" class="note">not observed</text>
+
+  <rect x="70" y="250" width="270" height="80" rx="14" fill="#E7EFEA" stroke="#1E4D2B" stroke-width="3"/>
+  <text x="205" y="298" text-anchor="middle" class="node">Military service (D)</text>
+
+  <rect x="760" y="250" width="270" height="80" rx="14" fill="#E7EFEA" stroke="#1E4D2B" stroke-width="3"/>
+  <text x="895" y="298" text-anchor="middle" class="node">Earnings (Y)</text>
+
+  <line x1="340" y1="290" x2="750" y2="290" stroke="#1E4D2B" stroke-width="4" marker-end="url(#arrowG)"/>
+  <text x="545" y="275" text-anchor="middle" class="lab">effect we want</text>
+
+  <line x1="460" y1="120" x2="270" y2="243" stroke="#9A3324" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrowR)"/>
+  <line x1="640" y1="120" x2="830" y2="243" stroke="#9A3324" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrowR)"/>
+  <text x="300" y="170" text-anchor="middle" class="labr">who enlists</text>
+  <text x="800" y="170" text-anchor="middle" class="labr">what they earn</text>
+</svg>
