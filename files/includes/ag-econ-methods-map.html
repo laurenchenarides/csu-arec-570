@@ -95,20 +95,40 @@ ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
 .path p{font-size:15px}
 .path .k{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+details.sec{border-top:1px solid var(--line);padding-top:14px}
+details.sec>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:22px 1fr;gap:2px 8px;align-items:baseline}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::before{content:"▸";color:var(--rf);font-size:16px;grid-row:1}
+details.sec[open]>summary::before{content:"▾"}
+details.sec>summary h2{grid-column:2}
+details.sec>summary .what{grid-column:2;color:var(--muted);font-size:15px;max-width:70ch}
+details.sec>summary:focus-visible{outline:2px solid var(--rf);outline-offset:4px}
+.secbody{display:grid;gap:16px;margin-top:16px}
+ol.howto{margin:0;padding-left:22px;display:grid;gap:6px;max-width:72ch}
 @media (prefers-reduced-motion:no-preference){.dot{transition:opacity .2s}}
 </style>
 
 <div class="wrap">
 <header>
-  <div class="eyebrow">AREC 570 / ECON 530 · Unit 6 · Draft 2</div>
+  <div class="eyebrow">AREC 570 / ECON 530 · Unit 6 · Draft 3</div>
   <h1>Choosing a method for an applied economics question</h1>
-  <p class="lede">Start from what the question needs, then decide how much economic structure you are willing to impose to get it. Then decide how the model will be estimated.</p>
-  <nav class="toc" aria-label="Sections"><a href="#map">The map</a><a href="#tree">Decision tree</a><a href="#primer">Model versus estimation</a><a href="#example">Worked example</a></nav>
+  <p class="lede">This page is a reference for choosing an empirical method and writing the empirical strategy section of your paper. Each section below opens and closes; select a heading to expand it.</p>
+  <ol class="howto">
+    <li><b>The map</b> places each method by how much economic structure it assumes and by what it estimates. Use it to see which methods sit near yours.</li>
+    <li><b>The decision tree</b> asks about your research question and returns the methods that fit it.</li>
+    <li><b>Four choices in every empirical strategy</b> separates the model, identification, estimation, and inference, so you can check that your section states each one.</li>
+    <li><b>Structural estimation in detail</b> covers how BLP demand models and other structural models are estimated (Lecture 6.2).</li>
+    <li><b>Example: climate and U.S. agriculture</b> shows one question answered with three designs (Lecture 6.1).</li>
+  </ol>
+  <nav class="toc" aria-label="Sections"><a href="#map">The map</a><a href="#tree">Decision tree</a><a href="#primer">Four choices</a><a href="#structural">Structural estimation</a><a href="#example">Climate example</a></nav>
 </header>
 
-<section id="map">
-  <h2>The map</h2>
-  <p>Moving right buys counterfactuals, welfare, and mechanisms. The price is assumptions about functional form and behavior. Moving left buys credibility for a narrower estimand.</p>
+<section id="map"><details class="sec" open>
+  <summary><h2>The map</h2><span class="what">Where each method sits, and what it assumes.</span></summary>
+  <div class="secbody">
+  <p>Each point is a method. The <b>horizontal axis</b> shows how much economic structure the method assumes. Design-based methods on the left rely on how treatment was assigned. Structural methods on the right specify preferences, technology, or market behavior and estimate their parameters. Methods in the middle combine the two.</p>
+  <p>The <b>vertical axis</b> shows what the method estimates. Methods near the bottom estimate the effect of a change that occurred in the data. Methods near the top estimate outcomes the data do not contain: a policy not yet tried, a welfare measure, or the mechanism behind a response.</p>
+  <p>Color marks the family of methods. A filled point is covered in the Unit 6 readings; an open point is not. The buttons below the legend show only the methods common in one field.</p>
   <div class="legend">
     <span><i class="sw" style="background:var(--rf)"></i>Design-based</span>
     <span><i class="sw" style="background:var(--both)"></i>Combining approaches</span>
@@ -117,43 +137,53 @@ ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
     <span><i class="sw open"></i>Open point: beyond the Unit 6 readings</span>
   </div>
   <div class="chips" id="chips" role="group" aria-label="Filter by domain"></div>
-  <div class="mapbox"><svg id="svg" viewBox="0 0 720 470" role="img" aria-label="Methods plotted by economic structure imposed and what the question needs"></svg></div>
-  <p class="hint">Select a point to see its assumptions and how it is estimated. Positions are approximate and meant for discussion.</p>
+  <div class="mapbox"><svg id="svg" viewBox="0 0 720 470" role="img" aria-label="Methods plotted by economic structure assumed and by what the method estimates"></svg></div>
+  <p class="hint">Select a point to see its assumptions, the data it needs, and how it is estimated. Positions are approximate.</p>
   <div id="mapcard"></div>
-</section>
+  <p>To narrow the map to the methods that fit your question, use the decision tree.</p>
+  </div>
+</details></section>
 
-<section id="tree">
-  <h2>The decision tree</h2>
-  <p>Answer for your own proposal. Every endpoint lists what you have to believe and how the method is estimated.</p>
+<section id="tree"><details class="sec">
+  <summary><h2>The decision tree</h2><span class="what">Methods that fit your research question.</span></summary>
+  <div class="secbody">
+  <p>Answer two or three questions about your research question. The last step lists candidate methods, with each method's key assumptions, the data it needs, and how it is estimated. The same methods are highlighted on the map.</p>
   <div class="tree" id="treebox"></div>
-</section>
+  <p>Once you have chosen a method, the next section lists the four choices your empirical strategy section has to state.</p>
+  </div>
+</details></section>
 
-<section id="primer">
-  <h2>Model versus estimation</h2>
-  <p>A structural paper makes four separate choices, and students often treat them as one. "We estimate a BLP model" names a model and, loosely, an estimator. It does not say what variation identifies the parameters. Separate the four layers and each one can be evaluated on its own terms.</p>
+<section id="primer"><details class="sec">
+  <summary><h2>Four choices in every empirical strategy</h2><span class="what">Model, identification, estimation, and inference, stated separately.</span></summary>
+  <div class="secbody">
+  <p>Every empirical strategy section makes four separate choices. Papers often state the model and the estimator clearly and say less about identification and inference. Writing "we estimate a BLP model" or "we estimate a fixed-effects regression" names a model and an estimator; it does not say what variation identifies the parameters. Each row below gives a design-based example (the panel weather model from Lecture 6.1) and a structural example (BLP demand from Lecture 6.2).</p>
 
   <div class="stack">
-    <div class="layer"><div class="nm">1. Model<small>What generates the data?</small></div><div class="body">
-      <p>The economic primitives: preferences, technology, information, and how agents interact (equilibrium). The model defines the parameters and what a counterfactual means.</p>
-      <p class="ex"><b>BLP:</b> consumer <i>i</i>'s utility from product <i>j</i> depends on price and attributes, with tastes that vary across consumers, plus a product-level demand shock ξ the researcher does not observe. Firms may also set prices in a Bertrand-Nash equilibrium.</p>
-      <p class="warn">Common mistake: treating the functional form as a detail. In logit, the functional form alone determines substitution patterns.</p></div></div>
-    <div class="layer"><div class="nm">2. Identification<small>What variation pins down the parameters?</small></div><div class="body">
-      <p>The argument that, with infinite data, only one set of parameter values is consistent with what you observe. This is independent of the estimator, and it is where reduced-form thinking enters structural work.</p>
-      <p class="ex"><b>BLP:</b> price is correlated with ξ, because firms see the demand shock when they set prices. Identification needs instruments: cost shifters, characteristics of rival products, or prices of the same product in other markets. The taste dispersion is identified by how substitution changes as the choice set changes.</p>
-      <p class="warn">Common mistake: answering "how is it identified?" with "by GMM." GMM is an estimator. Identification is about the instruments and the variation.</p></div></div>
-    <div class="layer"><div class="nm">3. Estimation<small>What objective, and how do you find its optimum?</small></div><div class="body">
-      <p>An estimator, which is an objective function built from the data, plus an algorithm to optimize it. Some estimators have a closed form (OLS, 2SLS). Most structural estimators require numerical search.</p>
-      <p class="ex"><b>BLP:</b> generalized method of moments on the moment condition E[ξ·Z] = 0, where Z is the instruments. Because ξ has no closed form, the algorithm nests a fixed-point calculation inside the optimization (see the steps below).</p>
-      <p class="warn">Common mistake: reporting estimates without checking whether the optimizer found the global optimum.</p></div></div>
-    <div class="layer"><div class="nm">4. Inference and output<small>How uncertain, and what do you report?</small></div><div class="body">
-      <p>Standard errors for the parameters, then the objects the paper is actually about: elasticities, markups, welfare, and counterfactuals. These are functions of the parameters, so their uncertainty comes from the delta method, the bootstrap, or simulation.</p>
-      <p class="ex"><b>BLP:</b> clustered GMM standard errors for the parameters; elasticities and merger simulations computed from the estimates, with standard errors for those too.</p>
-      <p class="warn">Common mistake: reporting standard errors on parameters but not on the welfare number in the abstract.</p></div></div>
+    <div class="layer"><div class="nm">1. Model<small>What relationship or behavior generates the data?</small></div><div class="body">
+      <p>In a design-based paper, the model is the estimating equation and the meaning of its parameter. In a structural paper, it is the economic primitives: preferences, technology, information, and how agents interact. The model defines the parameters and what a counterfactual means.</p>
+      <p class="ex"><b>Panel weather:</b> log crop yield in a county and year depends on growing-season weather, county fixed effects, and year fixed effects.</p>
+      <p class="ex"><b>BLP:</b> consumer <i>i</i>'s utility from product <i>j</i> depends on price and product characteristics, with tastes that vary across consumers, plus a demand shock ξ that the researcher does not observe. Firms may also set prices in a Bertrand-Nash equilibrium.</p>
+      <p class="warn">Common mistake: treating the functional form as a detail. In the logit model, the functional form alone determines how consumers substitute between products.</p></div></div>
+    <div class="layer"><div class="nm">2. Identification<small>What variation determines the parameters?</small></div><div class="body">
+      <p>The argument that, with unlimited data, only one set of parameter values is consistent with what you observe. It does not depend on the estimator.</p>
+      <p class="ex"><b>Panel weather:</b> year-to-year deviations in weather within a county, assumed to be as good as random.</p>
+      <p class="ex"><b>BLP:</b> firms see the demand shock ξ when they set prices, so price is correlated with ξ and needs an instrument: cost shifters, characteristics of rival products, or prices of the same product in other markets. Differences in tastes are identified by how market shares shift across products when prices or the set of products change.</p>
+      <p class="warn">Common mistake: answering "how is it identified?" with "by GMM." GMM is an estimator. Identification is about the variation and the instruments.</p></div></div>
+    <div class="layer"><div class="nm">3. Estimation<small>What objective function, and how is it solved?</small></div><div class="body">
+      <p>An estimator is an objective function built from the data, plus a method for finding its minimum or maximum. Some estimators have a closed-form solution (OLS, 2SLS). Most structural estimators require a numerical search.</p>
+      <p class="ex"><b>Panel weather:</b> OLS with county and year fixed effects, which has a closed-form solution.</p>
+      <p class="ex"><b>BLP:</b> generalized method of moments on the condition E[ξ·Z] = 0, where Z is the set of instruments. Because ξ has no closed form, the algorithm solves for it inside each step of the search (see the structural estimation section).</p>
+      <p class="warn">Common mistake: reporting estimates from a numerical search without checking that the search reached the minimum.</p></div></div>
+    <div class="layer"><div class="nm">4. Inference and reported results<small>How uncertain are the estimates, and what does the paper report?</small></div><div class="body">
+      <p>Standard errors for the parameters, then for the quantities the paper is about, such as elasticities, welfare, or counterfactual outcomes. Those quantities are functions of the parameters, so their standard errors come from the delta method, the bootstrap, or simulation.</p>
+      <p class="ex"><b>Panel weather:</b> standard errors that allow the errors of neighboring counties to be correlated.</p>
+      <p class="ex"><b>BLP:</b> GMM standard errors for the parameters; elasticities and merger simulations computed from the estimates, with standard errors for those as well.</p>
+      <p class="warn">Common mistake: reporting standard errors for the parameters but not for the welfare number reported in the abstract.</p></div></div>
   </div>
 
   <div class="sub">
-    <h3>The main estimators</h3>
-    <p>Most applied methods use one of these. The key difference is what the researcher has to specify.</p>
+    <h3>Common estimators and what you specify</h3>
+    <p>Most applied methods use one of these estimators. They differ in what the researcher has to specify.</p>
     <div class="tbl"><table>
       <thead><tr><th>Estimator</th><th>You specify</th><th>Optimized by</th><th>Examples on the map</th></tr></thead>
       <tbody>
@@ -166,20 +196,28 @@ ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
         <tr><td>Calibration</td><td>Parameter values taken from the literature or set to match a benchmark year</td><td>No estimation; the model is solved at those values</td><td>CGE, equilibrium displacement models, many real options and spatial models</td></tr>
         <tr><td>Nonparametric / semiparametric</td><td>Smoothness, not a functional form, for some or all of the relationship</td><td>Kernels, local polynomials, sieves, trees</td><td>RD (local linear), matching, DML, causal forests</td></tr>
       </tbody></table></div>
-    <p><b>Where "nonparametric" fits in structural work.</b> It usually comes up in identification, not estimation. Berry and Haile (2014) show what demand models can be identified without assuming the logit error or a parametric taste distribution. That tells you which conclusions depend on data and which depend on functional form. Applied papers then estimate a parametric version, and the honest ones say which results are driven by the parametric choices.</p>
+    <p><b>Where "nonparametric" fits in structural work.</b> It usually comes up in identification, not estimation. Berry and Haile (2014) show what demand models can be identified without assuming the logit error or a parametric taste distribution. That tells you which conclusions depend on data and which depend on functional form. Applied papers then estimate a parametric version and should state which results depend on the parametric choices.</p>
   </div>
+  <p>Structural estimators usually require a numerical search, which raises questions that design-based estimators do not. The next section covers them.</p>
+  </div>
+</details></section>
+
+<section id="structural"><details class="sec">
+  <summary><h2>Structural estimation in detail</h2><span class="what">How BLP and other structural models are estimated (Lecture 6.2).</span></summary>
+  <div class="secbody">
+  <p>This section is for papers that estimate a structural model. It walks through BLP demand estimation one step at a time, explains numerical search, lists how other structural methods are usually estimated, and ends with a short exercise in R.</p>
 
   <div class="sub">
     <h3>BLP, step by step</h3>
-    <p>BLP is estimated by GMM, and nobody should hand-code it for a dissertation. The standard tool is PyBLP (Conlon and Gortmaker 2020), which is in Python and can be called from R through <code>reticulate</code>. Teach it as a sequence in which each step adds one complication.</p>
+    <p>BLP is estimated by GMM. Conlon and Gortmaker (2020) implement current recommended practice in PyBLP, a Python package that can be called from R through <code>reticulate</code>. The steps below build the estimator one complication at a time.</p>
     <ol class="steps">
-      <li><b>Plain logit is a linear IV regression.</b> With market shares, ln(s<sub>j</sub>/s<sub>0</sub>) = xβ − αp + ξ (Berry 1994). Estimate by 2SLS with instruments for price. Students can run this today with <code>fixest</code>. The problem is the substitution pattern: every product loses share in proportion to its size.</li>
+      <li><b>Plain logit is a linear IV regression.</b> With market shares, ln(s<sub>j</sub>/s<sub>0</sub>) = xβ − αp + ξ (Berry 1994). Estimate it by 2SLS with instruments for price, for example with <code>fixest</code>. The limitation is the substitution pattern: when one price rises, every other product gains share in proportion to its size.</li>
       <li><b>Nested logit is still linear IV.</b> Add ln(share within nest) as a regressor, which also needs an instrument. Substitution is now stronger within nests.</li>
       <li><b>Random coefficients break linearity.</b> Tastes for price and attributes now vary with dispersion σ. Shares no longer invert analytically, so for any guess of σ the mean utilities δ have to be solved for.</li>
-      <li><b>Inner loop.</b> For a given σ, simulate a set of consumers and solve for the δ that makes predicted shares equal observed shares. This uses a contraction mapping, a fixed-point iteration that is guaranteed to converge. Use a tight tolerance, or the outer loop optimizes noise.</li>
+      <li><b>Inner loop.</b> For a given σ, simulate a set of consumers and solve for the δ that makes predicted shares equal observed shares. This uses a contraction mapping, a fixed-point iteration that is guaranteed to converge. Use a tight tolerance; a loose one makes the outer objective inaccurate.</li>
       <li><b>Linear parameters by IV.</b> Regress δ on x and p with instruments to recover β and α. The residual is ξ(σ).</li>
       <li><b>Outer loop.</b> Search over σ to minimize the GMM objective ξ(σ)′Z W Z′ξ(σ). This is the nested fixed point. An alternative formulation, MPEC, solves the same problem as one constrained optimization (Dubé, Fox and Su 2012).</li>
-      <li><b>Check and report.</b> Use several starting values, check that the gradient is near zero at the optimum, and report elasticities and diversion ratios. Results can be sensitive to optimizer choices (Knittel and Metaxoglou 2014). Add supply-side moments or micro moments from household data when the aggregate shares alone identify σ poorly.</li>
+      <li><b>Check and report.</b> Use several starting values, check that the gradient is near zero at the optimum, and report elasticities and diversion ratios. Knittel and Metaxoglou (2014) found that results can be sensitive to optimizer choices; Conlon and Gortmaker (2020) show that tight tolerances and accurate integration remove most of that sensitivity. Add supply-side moments or micro moments from household data when the aggregate shares alone identify σ poorly.</li>
     </ol>
   </div>
 
@@ -189,7 +227,7 @@ ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
     <p><b>Gradient-based optimizers</b> (BFGS, Newton, Nelder-Mead without gradients) move uphill from a starting point. They are fast and scale to many parameters, but find a local optimum. Multiple starting values are the basic safeguard.</p>
     <p><b>Concentrating out</b> parameters that enter linearly, as in step 5 above, means the numerical search covers only the nonlinear parameters. This is what makes many structural models feasible.</p>
     <p><b>Nested fixed point</b> refers to any estimation where evaluating the objective requires solving the model: inverting shares in BLP, solving the value function in dynamic discrete choice or option value models, or solving for prices in a spatial equilibrium. The inner solution must be accurate, and the outer search is only as good as the inner one.</p>
-    <p><b>Recovery tests</b> are the most useful habit to teach. Simulate data from the model with parameters you choose, run your estimator, and check that it returns them. If it cannot recover planted parameters, it will not recover real ones.</p>
+    <p><b>Recovery tests</b> check the estimator directly. Simulate data from the model with parameters you choose, run your estimator, and check that it returns them. An estimator that cannot recover parameters you set will not recover the true ones.</p>
   </div>
 
   <div class="sub">
@@ -216,12 +254,12 @@ ol.steps li::marker{font-family:var(--mono);color:var(--st);font-weight:500}
   </div>
 
   <div class="sub">
-    <h3>Class exercise: recover a parameter you planted</h3>
-    <p>Fifteen minutes in R. Students simulate purchase decisions with a known price coefficient, then recover it three ways: grid search, a numerical optimizer, and the canned function. The point is to see that <code>glm</code> runs the second method for them.</p>
+    <h3>Try it: recover a parameter you set</h3>
+    <p>About fifteen minutes in R. Simulate purchase decisions with a price coefficient you choose, then recover it three ways: grid search, a numerical optimizer, and <code>glm</code>. The exercise shows that <code>glm</code> runs the second method for you.</p>
     <div class="codebox"><button class="copy" type="button" id="copybtn">Copy</button><pre id="code">set.seed(570)
 n     &lt;- 2000
 price &lt;- runif(n, 1, 5)
-beta  &lt;- c(2, -0.8)                      # planted intercept and price coefficient
+beta  &lt;- c(2, -0.8)                      # intercept and price coefficient you set
 buy   &lt;- rbinom(n, 1, plogis(beta[1] + beta[2] * price))
 
 loglik &lt;- function(b) {
@@ -240,22 +278,24 @@ fit &lt;- optim(c(0, 0), function(b) -loglik(b), method = "BFGS", hessian = TRUE
 fit$par
 sqrt(diag(solve(fit$hessian)))           # standard errors from the Hessian
 
-# 3. The canned estimator does step 2 for you
+# 3. The built-in estimator does step 2 for you
 coef(glm(buy ~ price, family = binomial))
 
 # 4. A quantity of interest: price elasticity at mean price, by delta method or bootstrap</pre></div>
-    <p><b>Discussion:</b> Why hold the intercept fixed in the grid search? What would a grid over both parameters cost, and over ten? What does the plotted log-likelihood suggest about whether the optimizer can get lost here, and why might BLP be different?</p>
+    <p><b>Questions to consider:</b> Why hold the intercept fixed in the grid search? What would a grid over both parameters cost, and over ten? What does the plotted log-likelihood suggest about whether the optimizer can get lost here, and why might BLP be different?</p>
   </div>
 
   <div class="callout">
-    <b>Readings for this primer</b>
-    <p>Nevo (2000), "A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand," <i>Journal of Economics &amp; Management Strategy</i>. The best single reading on BLP estimation. Optional: Train, <i>Discrete Choice Methods with Simulation</i> (free online), chapters on simulated MLE; Reiss and Wolak (2007), "Structural Econometric Modeling," <i>Handbook of Econometrics</i>, vol. 6A.</p>
+    <b>Readings for this section</b>
+    <p>Nevo (2000), "A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand," <i>Journal of Economics &amp; Management Strategy</i>, the optional reading for Lecture 6.2, walks through BLP estimation step by step. Conlon and Gortmaker (2020), "Best Practices for Differentiated Products Demand Estimation with PyBLP," <i>RAND Journal of Economics</i>, documents current practice and the PyBLP software. Further reading: Train, <i>Discrete Choice Methods with Simulation</i> (free online), chapters on simulated MLE; Reiss and Wolak (2007), "Structural Econometric Modeling," <i>Handbook of Econometrics</i>, vol. 6A.</p>
   </div>
-</section>
+  </div>
+</details></section>
 
-<section id="example">
-  <h2>Example: climate and U.S. agriculture</h2>
-  <p><strong>How will a warmer climate affect U.S. agriculture?</strong> Three designs answer this question using different comparisons, so each one estimates a different relationship.</p>
+<section id="example"><details class="sec">
+  <summary><h2>Example: climate and U.S. agriculture</h2><span class="what">One question answered with three designs (Lecture 6.1).</span></summary>
+  <div class="secbody">
+  <p><strong>How will a warmer climate affect U.S. agriculture?</strong> Three designs answer this question using different comparisons, so each one estimates a different relationship. Each design is also a point on the map.</p>
   <div class="paths">
     <div class="path" style="--c:var(--st)">
       <h3>Ricardian model</h3>
@@ -277,9 +317,10 @@ coef(glm(buy ~ price, family = binomial))
     </div>
   </div>
   <p>The three answers differ because the designs estimate different relationships, not only because one design is more credible than another. Timmins and Schlenker (2009) discuss this tradeoff between cross-sectional and panel variation.</p>
-</section>
+  </div>
+</details></section>
 
-<p class="note">Lecture tags follow the proposed Unit 6 order: 6.1 map and design-based identification, 6.2 structural models and combining approaches, 6.3 frontier methods, 6.4 experiments and mixed methods, 6.5 evaluating evidence. "Beyond the readings" marks methods not covered in the Unit 6 readings as currently assigned. Anchor papers are a draft list to be verified before posting.</p>
+<p class="note">Lecture tags follow the Unit 6 schedule: 6.1 design-based identification, 6.2 structural models and combining approaches, 6.3 machine learning and newer estimators, 6.4 experiments and mixed methods, 6.5 evaluating evidence. "Beyond the readings" marks methods that the Unit 6 readings do not cover. Key references are being checked before each lecture uses them; those for the climate example and the discrete choice (BLP) entry have been checked.</p>
 </div>
 
 <script>
@@ -325,11 +366,11 @@ const M=[
 const byId=Object.fromEntries(M.map(m=>[m.id,m]));
 
 const TREE={
- root:{q:"What does your question need to deliver?",o:[
-  {t:"The effect of a change that happened",h:"The policy or shock is in your data, at the scale you care about.",to:"rf"},
-  {t:"A counterfactual that is not in the data",h:"A new policy, a different magnitude, welfare, or a mechanism.",to:"st"},
-  {t:"Both",h:"A credible effect you need to extend to a policy not yet tried.",leaf:["ss","bun","tgt","val"]},
-  {t:"A forecast, or how prices move together",h:"Dynamics over time rather than a single treatment effect.",leaf:["fc","var","pt"]}]},
+ root:{q:"What does your research question ask?",o:[
+  {t:"What was the effect of a policy or event that is in my data?",h:"The change occurred during your sample period, at the scale you study.",to:"rf"},
+  {t:"What would happen under a policy or condition my data do not contain?",h:"A new policy, a change larger than any observed, a welfare measure, or the mechanism behind a response.",to:"st"},
+  {t:"Both: I have an estimate of an observed effect and need to extend it to a policy not yet tried",h:"Combine a design-based estimate with an economic model.",leaf:["ss","bun","tgt","val"]},
+  {t:"How will a series move in the future, or how do prices move together over time?",h:"Forecasts and price dynamics rather than the effect of a single change.",leaf:["fc","var","pt"]}]},
  rf:{q:"Where does the variation in treatment come from?",o:[
   {t:"I assign it at random",h:"Field or lab experiment.",leaf:["rct","lab"]},
   {t:"Timing differs across units",h:"A policy adopted by some places or groups before others.",leaf:["did"]},
@@ -339,13 +380,13 @@ const TREE={
   {t:"Only one or a few units are treated",h:"A single state, country, or chain.",leaf:["sc"]},
   {t:"Weather or another naturally random shock",h:"Year-to-year deviations within a location.",leaf:["pw"]},
   {t:"Treatment spills over to neighbors",h:"Effects that cross county, market, or field boundaries.",leaf:["sp","did"]},
-  {t:"No design, but I observe the confounders",h:"Selection on observables.",leaf:["dml"]},
-  {t:"My defensible assumptions don't pin down one number",h:"Missing data, selection, or weak design.",leaf:["pid"]},
-  {t:"I care about the distribution, not only the mean",h:"Tails, downside risk, inequality.",leaf:["qr"]}]},
- st:{q:"What decision or system generates the outcome?",o:[
+  {t:"Treatment is not assigned by a design, but I observe the factors that determine it",h:"Selection on observed characteristics.",leaf:["dml"]},
+  {t:"The assumptions I can defend do not identify a single value",h:"Missing data, selection, or a weak design.",leaf:["pid"]},
+  {t:"I need effects at different points of the outcome distribution",h:"Low-yield years, downside risk, or inequality, not only the average.",leaf:["qr"]}]},
+ st:{q:"Whose decisions produce the outcome you study?",o:[
   {t:"Consumers choosing among products",h:"Demand, substitution, welfare from price changes.",leaf:["aids","blp"]},
   {t:"Firms setting prices or quantities strategically",h:"Market power, markups, pass-through.",leaf:["io","edm"]},
-  {t:"A costly-to-reverse decision under uncertainty",h:"Land conversion, adoption, investment, exit.",leaf:["opt","ddc"]},
+  {t:"A decision that is costly to reverse, made under uncertainty",h:"Land conversion, adoption, investment, exit.",leaf:["opt","ddc"]},
   {t:"Valuing something with no market price",h:"Environmental quality, climate, new attributes.",leaf:["hed","ric","tc","ce"]},
   {t:"Producers turning inputs into outputs",h:"Technology, efficiency, supply response.",leaf:["prod","sfa"]},
   {t:"Effects that spread through markets or the economy",h:"Incidence along the supply chain, trade, economy-wide policy.",leaf:["edm","grav","cge"]},
@@ -370,10 +411,10 @@ function drawMap(){
   txt("Design-based",{...ax,x:px(0)+2,y:B+18});
   txt("Semi-structural",{...ax,x:px(50),y:B+18,"text-anchor":"middle"});
   txt("Fully structural",{...ax,x:R,y:B+18,"text-anchor":"end"});
-  txt("Economic structure imposed →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,x:px(50),y:B+40,"text-anchor":"middle"});
-  txt("What the question needs →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,transform:`translate(22 ${(T+B)/2}) rotate(-90)`,"text-anchor":"middle"});
-  txt("Counterfactual,",{...ax,transform:`translate(46 ${T+4}) rotate(-90)`,"text-anchor":"end"});
-  txt("welfare, mechanism",{...ax,transform:`translate(60 ${T+4}) rotate(-90)`,"text-anchor":"end"});
+  txt("Economic structure assumed →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,x:px(50),y:B+40,"text-anchor":"middle"});
+  txt("What the method estimates →",{fill:"var(--fg)","font-family":"Source Sans 3, sans-serif","font-size":13,"font-weight":600,transform:`translate(22 ${(T+B)/2}) rotate(-90)`,"text-anchor":"middle"});
+  txt("Outcomes not",{...ax,transform:`translate(46 ${T+4}) rotate(-90)`,"text-anchor":"end"});
+  txt("in the data",{...ax,transform:`translate(60 ${T+4}) rotate(-90)`,"text-anchor":"end"});
   txt("Effect of a change",{...ax,transform:`translate(46 ${B}) rotate(-90)`,"text-anchor":"start"});
   txt("in the data",{...ax,transform:`translate(60 ${B}) rotate(-90)`,"text-anchor":"start"});
   M.forEach(m=>{
@@ -394,12 +435,12 @@ function card(m){
   return `<article class="card" style="--c:var(${f.c});--soft:var(${f.s})">
    <div class="fam"><span>${f.label}</span><span class="lec">Lecture ${m.lec}</span>${cov?"":`<span class="beyond">Beyond the readings</span>`}</div>
    <h3>${m.n}</h3>
-   <dl><dt>What you have to believe</dt><dd>${m.a}</dd>
-   <dt>What it gives you</dt><dd>${m.g}</dd>
+   <dl><dt>Key assumptions</dt><dd>${m.a}</dd>
+   <dt>What it estimates</dt><dd>${m.g}</dd>
    <dt>Data needed</dt><dd>${m.d}</dd>
    <dt>Estimated by</dt><dd>${m.e}</dd>
-   <dt>Frontier</dt><dd>${m.fr}</dd>
-   <dt>Anchor papers</dt><dd>${m.an}</dd>
+   <dt>Recent extensions</dt><dd>${m.fr}</dd>
+   <dt>Key references</dt><dd>${m.an}</dd>
    <dt>Common in</dt><dd class="tags">${m.dom.map(k=>`<span class="tag">${DOM[k]}</span>`).join("")}</dd></dl></article>`;
 }
 
@@ -421,7 +462,7 @@ function renderTree(){
   const last=path[path.length-1];
   if(last&&last.leaf){
     highlight=last.leaf;drawMap();
-    box.innerHTML=`${crumbs}<div class="q">Candidate methods</div><p class="hint">These are also highlighted on the map above.</p><div class="leafcards">${last.leaf.map(id=>card(byId[id])).join("")}</div><button class="restart" id="restart">Start over</button>`;
+    box.innerHTML=`${crumbs}<div class="q">Candidate methods</div><p class="hint">These methods are also highlighted on the map.</p><div class="leafcards">${last.leaf.map(id=>card(byId[id])).join("")}</div><button class="restart" id="restart">Start over</button>`;
     document.getElementById("restart").onclick=()=>{path=[];renderTree()};
   }else{
     highlight=null;drawMap();
@@ -440,4 +481,14 @@ document.getElementById("copybtn").addEventListener("click",e=>{
 });
 
 selected="did";renderTree();document.getElementById("mapcard").innerHTML=card(byId.did);
+
+function openFromHash(){
+  const id=location.hash.slice(1),s=id&&document.getElementById(id);
+  if(!s)return;
+  const d=s.querySelector("details.sec");
+  if(d&&!d.open)d.open=true;
+  s.scrollIntoView();
+}
+window.addEventListener("hashchange",openFromHash);
+openFromHash();
 </script>
