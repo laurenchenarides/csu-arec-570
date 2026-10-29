@@ -247,6 +247,26 @@ The clustering level usually follows the level at which the treatment varies or 
 We return to inference later in the unit, including how to handle a small number of clusters.
 :::
 
+## A hypothesis test asks whether $\beta$ differs from zero; identification asks what $\beta$ measures {.dense}
+
+- **Hypothesis test:** given sampling variation, can the data reject $H_0: \beta = 0$? The answer depends on the estimator and the standard errors
+- **Identification:** does $\beta$ measure the causal effect, or the effect plus selection bias? The answer depends on the identifying assumption
+- Rejecting $H_0$ is evidence of a causal effect only if $\beta$ is identified; otherwise it shows only that the comparison picks up something
+- A larger sample makes the test more precise but does not change what $\beta$ measures
+- Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing them adds credibility but does not prove the assumption
+
+The identification strategy subsection makes the case that $\beta$ measures the effect you want.
+
+::: notes
+Bellemare (Section 5.1) notes that "a hypothesis test always tests for an equality sign." The paper's theoretical hypothesis may be that a treatment causes an increase in the outcome, but the statistical null is that the association between the two is not significantly different from zero. Identification is what connects the two.
+
+The chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.
+
+Athey and Imbens call placebo and related checks "supplementary analyses": they test implications of the identifying assumption, not the assumption itself. Core assumptions such as an exclusion restriction usually cannot be tested directly.
+
+If the assumptions a paper can defend only bound the effect rather than pin down one value, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.
+:::
+
 # What's included in the identification strategy subsection
 
 

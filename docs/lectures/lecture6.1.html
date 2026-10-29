@@ -625,6 +625,33 @@ Lauren Chenarides
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="a-hypothesis-test-asks-whether-beta-differs-from-zero-identification-asks-what-beta-measures" class="slide level2 dense">
+<h2>A hypothesis test asks whether <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> differs from zero; identification asks what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</h2>
+<ul>
+<li><strong>Hypothesis test:</strong> given sampling variation, can the data reject <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>β</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_0: \beta = 0</annotation></semantics></math>? The answer depends on the estimator and the standard errors</li>
+<li><strong>Identification:</strong> does <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measure the causal effect, or the effect plus selection bias? The answer depends on the identifying assumption</li>
+<li>Rejecting <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math> is evidence of a causal effect only if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is identified; otherwise it shows only that the comparison picks up something</li>
+<li>A larger sample makes the test more precise but does not change what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</li>
+<li>Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing them adds credibility but does not prove the assumption</li>
+</ul>
+<p>The identification strategy subsection makes the case that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures the effect you want.</p>
+<aside class="notes">
+<p>Bellemare (Section 5.1) notes that “a hypothesis test always tests for an equality sign.” The paper’s theoretical hypothesis may be that a treatment causes an increase in the outcome, but the statistical null is that the association between the two is not significantly different from zero. Identification is what connects the two.</p>
+<p>The chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.</p>
+<p>Athey and Imbens call placebo and related checks “supplementary analyses”: they test implications of the identifying assumption, not the assumption itself. Core assumptions such as an exclusion restriction usually cannot be tested directly.</p>
+<p>If the assumptions a paper can defend only bound the effect rather than pin down one value, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="whats-included-in-the-identification-strategy-subsection" class="title-slide slide level1 center">
