@@ -373,8 +373,8 @@ Lauren Chenarides
 <ul>
 <li><strong>Parameter of interest:</strong> the coefficient that answers your research question</li>
 <li><strong>Estimator:</strong> the rule that turns data into an estimate of that parameter, such as OLS, maximum likelihood, or a difference in means</li>
-<li><strong>Identifying assumption:</strong> the condition under which the parameter you estimate equals the relationship you want to learn about</li>
 <li><strong>Inference:</strong> how you measure the uncertainty in the estimate, through standard errors, clustering, and hypothesis tests</li>
+<li><strong>Identifying assumption:</strong> the condition under which the parameter you estimate equals the relationship you want to learn about</li>
 </ul>
 <aside class="notes">
 <p>Students often use “estimator” and “identification” interchangeably. They are separate choices. The same identifying assumption can be paired with different estimators, and a correct estimator cannot fix a comparison that is not identified.</p>
@@ -626,20 +626,19 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-hypothesis-test-asks-whether-beta-differs-from-zero-identification-asks-what-beta-measures" class="slide level2 dense">
-<h2>A hypothesis test asks whether <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> differs from zero; identification asks what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</h2>
+<section id="hypothesis-testing-and-identification-answer-different-questions" class="slide level2">
+<h2>Hypothesis testing and identification answer different questions</h2>
 <ul>
-<li><strong>Hypothesis test:</strong> given sampling variation, can the data reject <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>β</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_0: \beta = 0</annotation></semantics></math>? The answer depends on the estimator and the standard errors</li>
-<li><strong>Identification:</strong> does <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measure the causal effect, or the effect plus selection bias? The answer depends on the identifying assumption</li>
-<li>Rejecting <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math> is evidence of a causal effect only if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is identified; otherwise it shows only that the comparison picks up something</li>
-<li>A larger sample makes the test more precise but does not change what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</li>
-<li>Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing them adds credibility but does not prove the assumption</li>
+<li><strong>Hypothesis test:</strong> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> different from zero? This depends on the estimator and the standard errors</li>
+<li><strong>Identification:</strong> does <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measure the causal effect? This depends on the identifying assumption</li>
+<li>A significant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is evidence of a causal effect only if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is identified</li>
+<li>More data makes the test more precise, but it does not change what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</li>
 </ul>
-<p>The identification strategy subsection makes the case that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures the effect you want.</p>
+<p>The identification strategy subsection explains why <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures the effect you want.</p>
 <aside class="notes">
 <p>Bellemare (Section 5.1) notes that “a hypothesis test always tests for an equality sign.” The paper’s theoretical hypothesis may be that a treatment causes an increase in the outcome, but the statistical null is that the association between the two is not significantly different from zero. Identification is what connects the two.</p>
 <p>The chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.</p>
-<p>Athey and Imbens call placebo and related checks “supplementary analyses”: they test implications of the identifying assumption, not the assumption itself. Core assumptions such as an exclusion restriction usually cannot be tested directly.</p>
+<p>Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing them adds credibility but does not prove the assumption. Athey and Imbens call placebo and related checks “supplementary analyses”: they test implications of the identifying assumption, not the assumption itself. Core assumptions such as an exclusion restriction usually cannot be tested directly.</p>
 <p>If the assumptions a paper can defend only bound the effect rather than pin down one value, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -802,16 +801,16 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-threat-to-identification-biases-the-estimate-a-problem-with-inference-misstates-its-precision" class="slide level2">
-<h2>A threat to identification biases the estimate; a problem with inference misstates its precision</h2>
+<section id="threats-to-identification-and-problems-with-inference-are-different" class="slide level2">
+<h2>Threats to identification and problems with inference are different</h2>
 <ul>
-<li><strong>Threat to identification:</strong> the estimate is centered on the wrong value, and a larger sample does not fix it</li>
-<li><strong>Problem with inference:</strong> the estimate may be centered correctly, but the standard errors are too small, so confidence intervals are too narrow and tests reject too often</li>
-<li><strong>Panel weather example:</strong> neighboring counties share weather shocks, so treating their errors as independent overstates precision; cluster at a level that contains that correlation and say why</li>
-<li>Either problem leads a referee to doubt the result, so the section addresses both</li>
+<li><strong>Threat to identification:</strong> the estimate measures the wrong thing, and more data will not fix it</li>
+<li><strong>Problem with inference:</strong> the estimate may measure the right thing, but its standard errors are too small, so the result looks more certain than it is</li>
+<li>Clustering standard errors is an inference choice: it changes the standard errors, not the estimate</li>
 </ul>
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Sections 5.1 and 5.2.</p>
 <aside class="notes">
+<p>Example for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.</p>
 <p>Students often list clustering as a threat. It is not a threat to identification: clustering does not change the point estimate. It changes how confident we are in it.</p>
 <p>Robustness checks can address either problem: alternative samples or controls test the identifying assumption; alternative clustering levels test the inference choice.</p>
 <p>We return to inference later in the unit, including how to handle a small number of clusters.</p>
@@ -983,10 +982,10 @@ V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
 <h2>The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does</h2>
 <ul>
 <li><strong>2. Uncertainty:</strong> neighboring counties share soils, markets, and climate, so their errors are correlated</li>
-<li><strong>3. Causal?</strong> Yes, if the identifying assumption holds</li>
+<li><strong>3. Causal?</strong> Yes, if the identifying assumption in 5 holds</li>
 <li><strong>4. Experiment it approximates:</strong> counties assigned different climates long ago</li>
-<li><strong>5. Variation and assumption:</strong> differences in climate across counties; no omitted factor varies with climate and affects land values</li>
-<li><strong>6. What could make it fail:</strong> irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties <span class="citation" data-cites="schlenker2005irrigation">(<a href="#/references" role="doc-biblioref" onclick="">Schlenker et al. 2005</a>)</span></li>
+<li><strong>5. Identifying assumption:</strong> counties with different climates do not differ in other ways that affect land values</li>
+<li><strong>6. Threat to identification:</strong> irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties <span class="citation" data-cites="schlenker2005irrigation">(<a href="#/references" role="doc-biblioref" onclick="">Schlenker et al. 2005</a>)</span></li>
 </ul>
 <aside class="notes">
 <p>Irrigation is Bellemare’s “unobserved heterogeneity” threat, and the response is a design choice: change the sample so the omitted factor no longer varies.</p>
@@ -1034,10 +1033,10 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
 <h2>Fixed effects solve the irrigation problem and change the relationship estimated</h2>
 <ul>
 <li><strong>2. Uncertainty:</strong> weather shocks hit neighboring counties together, so their errors are correlated</li>
-<li><strong>3. Causal?</strong> Yes, for the effect of weather, if the identifying assumption holds</li>
+<li><strong>3. Causal?</strong> Yes, for the effect of weather, if the identifying assumption in 5 holds</li>
 <li><strong>4. Experiment it approximates:</strong> a randomly assigned hot or cool year</li>
-<li><strong>5. Variation and assumption:</strong> year-to-year deviations in weather within a county; those deviations are as good as random</li>
-<li><strong>6. What could make it fail:</strong> measurement error in gridded weather, and price changes that spill over across counties (a later slide covers all four)</li>
+<li><strong>5. Identifying assumption:</strong> within a county, hotter and cooler years do not differ in other ways that affect yields</li>
+<li><strong>6. Threat to identification:</strong> measurement error in gridded weather, and price changes that spill over across counties</li>
 </ul>
 <p>Farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller than this estimate <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span>.</p>
 <aside class="notes">
@@ -1086,10 +1085,10 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
 <h2>Long differences recover the adaptation that the panel model misses</h2>
 <ul>
 <li><strong>2. Uncertainty:</strong> one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties</li>
-<li><strong>3. Causal?</strong> Yes, for the effect of gradual change, if the identifying assumption holds</li>
+<li><strong>3. Causal?</strong> Yes, for the effect of gradual change, if the identifying assumption in 5 holds</li>
 <li><strong>4. Experiment it approximates:</strong> a climate that warms slowly over decades</li>
-<li><strong>5. Variation and assumption:</strong> differences in climate trends across counties within a state; those trends are unrelated to other trends in outcomes</li>
-<li><strong>6. What could make it fail:</strong> other trends, such as technology adoption, that move with climate trends</li>
+<li><strong>5. Identifying assumption:</strong> within a state, counties that warmed more did not change in other ways that affect yields</li>
+<li><strong>6. Threat to identification:</strong> other trends, such as technology adoption, that move with climate trends</li>
 </ul>
 <aside class="notes">
 <p>Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.</p>
@@ -1137,9 +1136,9 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
 </tr>
 <tr class="odd">
 <td>3. Is that relationship causal?</td>
-<td>Yes, if the identifying assumption holds</td>
-<td>Yes, if the identifying assumption holds</td>
-<td>Yes, if the identifying assumption holds</td>
+<td>Yes, if 5 holds</td>
+<td>Yes, if 5 holds</td>
+<td>Yes, if 5 holds</td>
 </tr>
 <tr class="even">
 <td>4. What experiment would ideally measure it?</td>
@@ -1149,15 +1148,15 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
 </tr>
 <tr class="odd">
 <td>5. What variation identifies it, and what must be true of that variation?</td>
-<td>Across counties; no omitted factor varies with climate</td>
-<td>Within a county across years; weather deviations as good as random</td>
-<td>Trends within a state; unrelated to other outcome trends</td>
+<td>Counties with different climates do not differ in other ways</td>
+<td>Hotter and cooler years in a county do not differ in other ways</td>
+<td>Counties that warmed more did not change in other ways</td>
 </tr>
 <tr class="even">
 <td>6. What could make the identifying assumption fail?</td>
-<td>Omitted factors such as irrigation</td>
+<td>Irrigation and other factors that vary with climate</td>
 <td>Measurement error; price spillovers</td>
-<td>Other trends that move with climate</td>
+<td>Other trends, such as technology, that move with climate</td>
 </tr>
 </tbody>
 </table>
@@ -1175,42 +1174,54 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
           display:block!important;
       }</style></aside>
 </section>
-<section id="in-the-panel-weather-model-each-threat-has-an-answer" class="slide level2 dense">
-<h2>In the panel weather model, each threat has an answer</h2>
+<section id="each-design-has-to-answer-all-four-threats" class="slide level2 dense">
+<h2>Each design has to answer all four threats</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Threat</th>
-<th>In the panel weather model</th>
+<th>Ricardian</th>
+<th>Panel weather</th>
+<th>Long differences</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Reverse causality</td>
+<td>Land values do not change the climate</td>
 <td>Farm output does not change the weather</td>
+<td>Farm output does not change climate trends</td>
 </tr>
 <tr class="even">
 <td>Unobserved heterogeneity</td>
-<td>County effects absorb fixed differences; year effects absorb national shocks</td>
+<td>The main threat: irrigation and other factors that vary with climate</td>
+<td>County and year fixed effects absorb fixed differences and national shocks</td>
+<td>The main threat: other trends that move with climate trends</td>
 </tr>
 <tr class="odd">
 <td>Measurement error</td>
-<td>Gridded weather misses farm conditions; check a second weather data set</td>
+<td>Reported land values may differ from sale prices</td>
+<td>Gridded weather misses conditions on the farm</td>
+<td>Averaging over several years reduces noise in weather</td>
 </tr>
 <tr class="even">
 <td>Spillovers</td>
-<td>Year effects absorb national price changes, so the estimate excludes them</td>
+<td>Land values reflect current crop prices, which warming everywhere would change</td>
+<td>Year effects absorb national price changes</td>
+<td>State effects absorb price changes common within a state</td>
 </tr>
 </tbody>
 </table>
-<p>This applies the four threats to one design. Each row needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.</p>
+<p>Each cell needs an answer: the threat does not apply, the design handles it, or a robustness check tests it.</p>
 <aside class="notes">
-<p>The four threats are Bellemare’s list (Section 5.2): reverse causality, unobserved heterogeneity, measurement error, and spillovers. Dalheimer and Bellemare’s Section 2.2 (shown earlier) walks through the first three in this order, and the generic version is in the identification strategy section.</p>
-<p>Classical measurement error in weather attenuates the estimate toward zero.</p>
+<p>The four threats are Bellemare’s list (Section 5.2). This table applies the general table from the identification strategy section to each design. Unobserved heterogeneity is the main threat for the Ricardian and long-differences designs; the panel design’s fixed effects handle it, which leaves measurement error and spillovers as its main concerns.</p>
+<p>Classical measurement error in weather attenuates the panel estimate toward zero. The Ricardian spillover row is a common critique: land values reflect current crop prices, and a warmer climate everywhere would change those prices.</p>
 <p>The record on this design shows why data checks matter: Fisher, Hanemann, Roberts, and Schlenker <span class="citation" data-cites="fisher2012comment">(<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> identified errors in the weather and climate data used by Deschênes and Greenstone, and Deschênes and Greenstone <span class="citation" data-cites="deschenes2012reply">(<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> replied with corrected estimates.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
