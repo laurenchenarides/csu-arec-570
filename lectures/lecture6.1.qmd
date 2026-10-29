@@ -38,6 +38,8 @@ format:
 - Angrist and Pischke, *Mostly Harmless Econometrics*, Chapters 1 to 3 [@angrist2009mostly]
 - Jurajda, “Lecture Notes on Identification Strategies” [@jurajda2007identification]
 - Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics” [@timmins2009reduced]
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 :::
 
 ::: {.column width="50%"}
@@ -48,12 +50,11 @@ format:
 - Athey and Imbens, “The State of Applied Econometrics,” on robustness and sensitivity (assigned for 6.3) [@athey2017state]
 - Gentzkow and Shapiro on keys, from Lecture 5.4 [@gentzkow2014code]
 - Published example: @dalheimer2026gavc
+- Veterans example: @angrist1990lifetime; @angrist1998voluntary
 - Climate example: @mendelsohn1994ricardian; @schlenker2005irrigation; @deschenes2007climate; @schlenker2009nonlinear; @burke2016adaptation
 :::
 
 ::::
-
-Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
 
 ::: notes
 Timing for 75 minutes: 5 minutes on readings and resources, about 55 minutes on content, and 10 minutes on the writing task at the end.
@@ -61,12 +62,12 @@ Timing for 75 minutes: 5 minutes on readings and resources, about 55 minutes on 
 
 ## Use the empirical strategy checklist to guide what this section should report
 
-- One page checklist, parallel to the [data checklist](../files/data-checklist.qmd){target="_blank" rel="noopener"} from Lecture 5.5
+- One page checklist, parallel to the [data checklist](https://laurenchenarides.github.io/csu-arec-570/files/data-checklist.html){target="_blank" rel="noopener"} from Lecture 5.5
 - Rows 1 to 9 include what every paper should report; rows 10 to 17 depend on the design
 - Each row is tagged with the lecture that covers it; today covers rows 1 to 9
 - Built from Bellemare's Section 5, Angrist and Pischke's Chapter 1, and the AJAE Author Guidelines
 
-[Open the empirical strategy checklist](../files/empirical-strategy-checklist.qmd){target="_blank" rel="noopener"}
+[Open the empirical strategy checklist](https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html){target="_blank" rel="noopener"}
 
 ::: notes
 Each row is tagged with its source. Rows tagged B come from Bellemare's description of the estimation and identification strategy. Rows tagged AJAE come from the journal's author guidelines and final checklist, which require appendices to be cited as online supplementary material and require data, code, and a readme on acceptance. Unmarked rows are course standards; the AJAE refereeing criteria (Lecture 7.1) do not list requirements for the empirical section.
@@ -78,7 +79,7 @@ Each row is tagged with its source. Rows tagged B come from Bellemare's descript
 
 A map of methods, a decision tree, the four choices every empirical strategy states, structural estimation details for 6.2, and the climate example we use today. Use it as a reference while writing.
 
-[Open the methods map in a new tab](../files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
+[Open the methods map in a new tab](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
 
 ::: notes
 How the map was created: [LC to confirm before class].
@@ -204,16 +205,15 @@ The section walks through Bellemare's threats in order: reverse causation, omitt
 | Estimation strategy | 1. What is the relationship of interest? | The estimating equation and the parameter of interest |
 | | 2. How will you measure uncertainty? | The estimator, the standard errors, the clustering level, and why |
 | Identification strategy | 3. Is that relationship causal? | Whether the parameter is causal, and if not, what it describes |
-| | 4. What experiment would ideally measure it? | The effect you are trying to estimate |
-| | 5. What variation identifies it, and what must be true of that variation? | The identifying assumption |
-| | 6. What could make the identifying assumption fail? | The threats, and the design choice or robustness check that handles each |
+| | 4. What variation identifies it, and what must be true of that variation? | The identifying assumption |
+| | 5. What could make the identifying assumption fail? | The threats, and the design choice or robustness check that handles each |
 
 : {tbl-colwidths="[20,42,38]"}
 
 Adapted from @angrist2009mostly, Chapter 1, and @bellemare2020applied, Section 5.
 
 ::: notes
-Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why the causal question is separate here.
+Angrist and Pischke ask four questions, starting with "What is the causal relationship of interest?" Not every paper estimates a causal relationship. A descriptive paper or a forecasting paper still needs an estimating equation; it states what the parameter describes and does not claim more. That is why the causal question is separate here. Their question about the ideal experiment is a planning question (the Research FAQs slide), so it is not one of the questions the written section answers.
 
 The order follows Bellemare: the estimation strategy (equation, estimator, inference) comes first, then the identification strategy (assumption, threats, robustness). The rest of the lecture follows the same order.
 :::
@@ -222,7 +222,7 @@ The order follows Bellemare: the estimation strategy (equation, estimator, infer
 
 ## Write the equation so a referee never has to ask what a symbol means
 
-- Latin letters for variables (a, b, c, ...), Greek ($\alpha, \beta, \gamma, $...) letters for parameters
+- Latin letters for variables ($a$, $b$, $c$, ...), Greek letters ($\alpha$, $\beta$, $\gamma$, ...) for parameters
 - Subscripts run from the smallest unit to the largest
 - Define every term directly below the equation
 - Give each specification its own coefficient labels
@@ -298,7 +298,7 @@ If the assumptions a paper can defend only bound the effect rather than pin down
 
 A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption
 
-- **Example:** a paper wants to estimate the effect of military service on later earnings [@jurajda2007identification, Example 1.1]
+- **Example:** a paper wants to estimate the effect of military service on later earnings [@angrist1990lifetime; posed in @jurajda2007identification, Example 1.1]
 
 ::: notes
 Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship rather than a partial correlation. He refers to Pearl's notation for this, the effect of setting a variable rather than observing it.
@@ -310,12 +310,12 @@ The next two slides use this question to show a parameter that is not identified
 
 ![](assets/unit6/dag-not-identified.svg){height=250px fig-alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings."}
 
-A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them [@jurajda2007identification, Example 1.1].
+A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them [@angrist1990lifetime].
 
 In regression terms, military service is **endogenous**: earnings potential is part of the error term and also affects who serves, so service is correlated with the error term.
 
 ::: notes
-Jurajda asks: "Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?" The dashed path through earnings potential is selection bias, the term defined two slides from now.
+Angrist (1990) studies this question; Jurajda poses it as his Example 1.1: "Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?" The dashed path through earnings potential is selection bias, the term defined two slides from now.
 
 Endogeneity is the regression name for the same problem. In $Y_i = \alpha + \beta D_i + \varepsilon_i$, the treatment $D$ is endogenous when it is correlated with the error term. Here earnings potential is not in the regression, so it sits in $\varepsilon$; because it also drives who serves, service and the error term move together, and the OLS coefficient mixes the effect of service with the effect of earnings potential. Selection bias, endogeneity, and the dashed path are three descriptions of one problem.
 
@@ -329,7 +329,7 @@ The four threats map onto this picture. Unobserved heterogeneity is the dashed n
 Both remove the endogeneity. A takes the shared causes out of the error term by controlling for them. B uses only the variation in service that the lottery creates, which is **exogenous**: unrelated to the error term.
 
 ::: aside
-A: Angrist (1998), discussed in @angrist2009mostly, Chapter 3. B: the Vietnam-era draft lottery, Angrist (1990), in @jurajda2007identification, Example 3.11.
+A: @angrist1998voluntary, discussed in @angrist2009mostly, Chapter 3. B: the Vietnam-era draft lottery, @angrist1990lifetime, discussed in @jurajda2007identification, Example 3.11.
 :::
 
 ::: notes
@@ -343,7 +343,7 @@ The identifying assumption in each panel is the "Requires" line. That is the sen
 ## The identifying assumption says why the groups you compare are comparable
 
 - Comparing treated and untreated units measures the treatment effect plus any difference that existed between the groups before treatment
-- Jurajda's example: veterans may earn more because of military service, or because people with higher earnings potential were more likely to enlist
+- Example: veterans may earn more because of military service, or because people with higher earnings potential were more likely to enlist [@angrist1990lifetime]
 - That pre-existing difference is selection bias
 - The identifying assumption states why selection bias is zero for your comparison
 - The coefficient receives a causal interpretation because we successfully control for all mutually determining factors, or exploit variation orthogonal to the error term, ensuring the groups are identical on average except for the treatment itself
@@ -377,13 +377,13 @@ Endogeneity is one way identification fails, not the only one. A parameter can a
 
 He adds: "If your results are not causally identified, do not lie about what they can and cannot do."
 
-The DAG from earlier shows each threat as a feature of the graph. The climate example later applies this table to one design.
+The DAG from earlier shows each threat as a feature of the graph. The climate example later applies this table to three designs.
 :::
 
 ## Threats to identification and problems with inference are different
 
-- **Threat to identification:** the estimate measures the wrong thing, and more data will not fix it
 - **Problem with inference:** the estimate may measure the right thing, but its standard errors are too small, so the result looks more certain than it is
+- **Threat to identification:** the estimate measures the wrong thing, and more data will not fix it
 - Clustering standard errors is an inference choice: it changes the standard errors, not the estimate
 
 Source: @bellemare2020applied, Sections 5.1 and 5.2.
@@ -401,10 +401,12 @@ We return to inference later in the unit, including how to handle a small number
 ## Robustness check or sensitivity analysis? {.dense}
 
 Robustness checks vary your choices
+
 - Re-estimate your model with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds [@bellemare2020applied, Section 6.2]
 - A placebo test estimates an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately
 
 Sensitivity analyses relax your assumptions 
+
 - Purpose is to ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be [@athey2017state]
 
 **Why papers include them:** researchers try many specifications before choosing one, so readers need evidence that the result was not selected for [@athey2017state]
@@ -421,41 +423,29 @@ Note that "robust" in "robust standard errors" is a different use of the word: t
 
 # Example: climate and U.S. agriculture
 
-## The ideal experiment tells you which effect you are after
+## Three published papers answer the same climate question with different empirical strategy sections
 
 **Question:** How will a warmer climate affect U.S. agriculture?
 
-- Ideal experiment: give some counties a permanently warmer climate, then wait decades
-- Farmers would change crops, irrigation, and planting dates
-- The target is a long-run effect that includes this adaptation
-- A single hot year is a different experiment with a different answer
+- The ideal experiment: give some counties a permanently warmer climate, then wait decades while farmers adapt
+- No paper can run that experiment, so each one approximates it with a different comparison
+- The comparison determines what the coefficient measures
+- Read each design as the empirical strategy section its paper would write: estimation strategy, then identification strategy
 
 ::: notes
-Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather.
+Purpose of the example: one research question, three empirical strategy sections, three different parameters. Each design responds to a weakness in the one before it. Students should leave with the point that choosing the identifying variation also chooses what the coefficient means, and that the section has to say which one it estimates.
+
+Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather. The ideal experiment is a planning question (the Research FAQs slide); it is not a separate part of the written section.
 
 Ask: in your proposal, what would you randomize, and how long would you wait to measure the outcome?
 :::
 
-## Three designs approximate this experiment, and each answers the six questions differently {.dense}
+## The Ricardian model compares farmland values across counties with different climates {.dense}
 
-| Question | Ricardian | Panel weather | Long differences |
-|---|---|---|---|
-| 1. What is the relationship of interest? | | | |
-| 2. How will you measure uncertainty? | | | |
-| 3. Is that relationship causal? | | | |
-| 4. What experiment would ideally measure it? | | | |
-| 5. What variation identifies it, and what must be true of that variation? | | | |
-| 6. What could make the identifying assumption fail? | | | |
+:::: {.columns}
 
-: {tbl-colwidths="[37,21,21,21]"}
-
-We fill in one column at a time. Each design responds to a weakness in the one before it.
-
-::: notes
-This table is the throughline for the example. The Ricardian model has an omitted-variable problem; the panel model removes it but changes the relationship estimated; long differences recover part of what the panel model loses. Each design gets two slides: the equation and the relationship of interest, then a slide that answers the remaining questions in the same order as the table.
-:::
-
-## The Ricardian model compares farmland values across counties with different climates
+::: {.column width="50%"}
+**Estimation strategy**
 
 $$
 V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
@@ -463,24 +453,28 @@ $$
 
 - $V_c$: farmland value per acre in county $c$
 - $T_c, P_c$: long-run average temperature and precipitation
-- $f(\cdot)$: a quadratic in temperature and precipitation; its slope in $T_c$ is the parameter of interest
+- $f(\cdot)$: a quadratic; its slope in $T_c$ is the parameter of interest
 - $X_c$: soil quality and other county characteristics
+- Standard errors allow neighboring counties' errors to be correlated
+:::
 
-**1. Relationship of interest:** the long-run effect of climate on land values, including adaptation [@mendelsohn1994ricardian]
+::: {.column width="50%"}
+**Identification strategy**
+
+- **Identifying assumption:** counties with different climates do not differ in other ways that affect land values
+- **Main threat:** irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties [@schlenker2005irrigation]
+- **What the coefficient measures:** the long-run effect of climate on land values, including adaptation
+:::
+
+::::
+
+::: aside
+Source: @mendelsohn1994ricardian.
+:::
 
 ::: notes
 The logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.
-:::
 
-## The Ricardian assumption fails if anything that varies with climate is omitted, and irrigation does
-
-- **2. Uncertainty:** neighboring counties share soils, markets, and climate, so their errors are correlated
-- **3. Causal?** Yes, if the identifying assumption in 5 holds
-- **4. Experiment it approximates:** counties assigned different climates long ago
-- **5. Identifying assumption:** counties with different climates do not differ in other ways that affect land values
-- **6. Threat to identification:** irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties [@schlenker2005irrigation]
-
-::: notes
 Irrigation is Bellemare's "unobserved heterogeneity" threat, and the response is a design choice: change the sample so the omitted factor no longer varies.
 
 Discussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.
@@ -488,7 +482,12 @@ Discussion: which variable in your proposal could play the role of irrigation? E
 Transition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.
 :::
 
-## The panel model removes fixed county differences by comparing each county with itself across years
+## The panel model compares each county with itself across years, which removes irrigation but changes what is estimated {.dense}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Estimation strategy**
 
 $$
 y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
@@ -496,36 +495,43 @@ $$
 
 - $y_{ct}$: log crop yield or farm profit in county $c$, year $t$
 - $W_{ct}$: growing-season weather, such as degree days and precipitation
-- $g(\cdot)$: the relationship between weather and the outcome; its slope is the parameter of interest
-- $\gamma_c$: county fixed effects; $\delta_t$: year fixed effects
+- $g(\cdot)$: its slope is the parameter of interest
+- $\gamma_c$, $\delta_t$: county and year fixed effects
+- Standard errors allow neighboring counties' errors to be correlated, because they share weather shocks
+:::
 
-**1. Relationship of interest:** the short-run response of yields or profits to weather [@deschenes2007climate; @schlenker2009nonlinear]
+::: {.column width="50%"}
+**Identification strategy**
+
+- **Identifying assumption:** within a county, hotter and cooler years do not differ in other ways that affect yields
+- **Main threats:** measurement error in gridded weather, and price changes that spill over across counties
+- **What the coefficient measures:** the short-run response to weather; farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller [@timmins2009reduced]
+:::
+
+::::
+
+::: aside
+Sources: @deschenes2007climate; @schlenker2009nonlinear.
+:::
 
 ::: notes
 Deschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.
-:::
 
-## Fixed effects solve the irrigation problem and change the relationship estimated
-
-- **2. Uncertainty:** weather shocks hit neighboring counties together, so their errors are correlated
-- **3. Causal?** Yes, for the effect of weather, if the identifying assumption in 5 holds
-- **4. Experiment it approximates:** a randomly assigned hot or cool year
-- **5. Identifying assumption:** within a county, hotter and cooler years do not differ in other ways that affect yields
-- **6. Threat to identification:** measurement error in gridded weather, and price changes that spill over across counties
-
-Farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller than this estimate [@timmins2009reduced].
-
-::: notes
 County fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.
 
 Timmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.
 
-The point for the paper: gaining credibility also changed the relationship estimated, and the section has to say which one it estimates.
+The point for the paper: gaining credibility also changed what the coefficient measures, and the section has to say which effect it estimates.
 
 Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes instead of yearly shocks.
 :::
 
-## Long differences compare slow changes in climate over decades
+## Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses {.dense}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Estimation strategy**
 
 $$
 \Delta \bar{y}_c = \alpha_s + \beta\, \Delta \bar{W}_c + \Delta \bar{\varepsilon}_c
@@ -534,40 +540,43 @@ $$
 - $\Delta \bar{y}_c$: change in county $c$'s multi-year average outcome between two periods
 - $\Delta \bar{W}_c$: change in its multi-year average weather over the same periods
 - $\alpha_s$: state fixed effects; $\beta$: the parameter of interest
-
-**1. Relationship of interest:** the response to gradual climate change, including adaptation [@burke2016adaptation]
-
-::: notes
-Burke and Emerick use recent temperature and precipitation trends.
+- Standard errors allow neighboring counties' errors to be correlated; one observation per county leaves far fewer observations than the panel
 :::
 
-## Long differences recover the adaptation that the panel model misses
+::: {.column width="50%"}
+**Identification strategy**
 
-- **2. Uncertainty:** one observation per county leaves far fewer observations than the panel, and errors are still correlated across neighboring counties
-- **3. Causal?** Yes, for the effect of gradual change, if the identifying assumption in 5 holds
-- **4. Experiment it approximates:** a climate that warms slowly over decades
-- **5. Identifying assumption:** within a state, counties that warmed more did not change in other ways that affect yields
-- **6. Threat to identification:** other trends, such as technology adoption, that move with climate trends
-
-::: notes
-Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.
+- **Identifying assumption:** within a state, counties that warmed more did not change in other ways that affect yields
+- **Main threat:** other trends, such as technology adoption, that move with climate trends
+- **What the coefficient measures:** the response to gradual climate change, including the adaptation farmers made over the period
 :::
 
-## Each design answers the six questions differently {.dense}
+::::
 
-| Question | Ricardian | Panel weather | Long differences |
+::: aside
+Source: @burke2016adaptation.
+:::
+
+::: notes
+Burke and Emerick use recent temperature and precipitation trends. Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.
+
+State fixed effects mean the comparison is between counties in the same state, so anything that changed for the whole state is removed.
+:::
+
+## The three sections estimate different things, and each states it {.dense}
+
+| | Ricardian | Panel weather | Long differences |
 |---|---|---|---|
-| 1. What is the relationship of interest? | Long-run effect on land values | Short-run response to weather | Response to gradual change |
-| 2. How will you measure uncertainty? | Errors correlated across space | Errors correlated across space | Fewer observations; errors correlated across space |
-| 3. Is that relationship causal? | Yes, if 5 holds | Yes, if 5 holds | Yes, if 5 holds |
-| 4. What experiment would ideally measure it? | Different climates long ago | A random hot or cool year | A slowly warming climate |
-| 5. What variation identifies it, and what must be true of that variation? | Counties with different climates do not differ in other ways | Hotter and cooler years in a county do not differ in other ways | Counties that warmed more did not change in other ways |
-| 6. What could make the identifying assumption fail? | Irrigation and other factors that vary with climate | Measurement error; price spillovers | Other trends, such as technology, that move with climate |
+| **Estimation:** comparison | Across counties | Within a county, across years | Across counties in a state, by how much each warmed |
+| **Estimation:** standard errors | Correlated across neighboring counties | Correlated across neighboring counties | Correlated across neighboring counties; fewer observations |
+| **Identification:** assumption | Counties do not differ in other ways | Hotter and cooler years do not differ in other ways | Counties that warmed more did not change in other ways |
+| **Identification:** main threat | Irrigation | Measurement error; price spillovers | Other trends, such as technology |
+| **What the coefficient measures** | Long-run effect, including adaptation | Short-run response to weather | Response to gradual change, including adaptation |
 
-: {tbl-colwidths="[37,21,21,21]"}
+: {tbl-colwidths="[24,25,25,26]"}
 
 ::: notes
-Your empirical strategy section answers these six questions for your design, in prose. It does not need a table like this one; the slide on writing with comments shows how to keep the questions in front of you while drafting.
+Your empirical strategy section makes the same statements for your design, in prose. It does not need a table like this one; the slide on writing with comments shows how to keep the questions in front of you while drafting.
 :::
 
 ## Each design has to answer all four threats {.dense}
@@ -593,7 +602,7 @@ The record on this design shows why data checks matter: Fisher, Hanemann, Robert
 
 # Writing the section
 
-## Put the six questions in your draft as comments, then answer each in prose
+## Put the five questions in your draft as comments, then answer each in prose
 
 ```latex
 \section{Empirical Strategy}
@@ -606,7 +615,6 @@ The record on this design shows why data checks matter: Fisher, Hanemann, Robert
 
 \subsection{Identification Strategy}
 % Is that relationship causal?
-% What experiment would ideally measure it?
 % What variation identifies it, and what must be true of that variation?
 % What could make the identifying assumption fail?
 %   each threat, and the design choice or robustness check that handles it
@@ -615,7 +623,7 @@ The record on this design shows why data checks matter: Fisher, Hanemann, Robert
 Lines that start with `%` do not appear in the compiled PDF. In Word, use comments; in Quarto or Markdown, use `<!-- -->`.
 
 ::: notes
-The comments keep the six questions in front of you while you draft, and a coauthor can check that each one has an answer. Delete them before submission or leave them; they do not print. This follows Bellemare's split: inference belongs in the estimation strategy, and the threats belong in the identification strategy.
+The comments keep the five questions in front of you while you draft, and a coauthor can check that each one has an answer. Delete them before submission or leave them; they do not print. This follows Bellemare's split: inference belongs in the estimation strategy, and the threats belong in the identification strategy.
 :::
 
 ## Writing task: your estimating equation and identifying assumption
