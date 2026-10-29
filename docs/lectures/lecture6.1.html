@@ -269,11 +269,11 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-empirical-strategy-checklist-lists-what-your-section-must-report" class="slide level2">
-<h2>The empirical strategy checklist lists what your section must report</h2>
+<section id="use-the-empirical-strategy-checklist-to-guide-what-this-section-should-report" class="slide level2">
+<h2>Use the empirical strategy checklist to guide what this section should report</h2>
 <ul>
-<li>One page, parallel to the <a href="../files/data-checklist.html" target="_blank" rel="noopener">data checklist</a> from Lecture 5.5</li>
-<li>Rows 1 to 9 cover what every paper reports; rows 10 to 17 depend on the design</li>
+<li>One page checklist, parallel to the <a href="../files/data-checklist.html" target="_blank" rel="noopener">data checklist</a> from Lecture 5.5</li>
+<li>Rows 1 to 9 include what every paper should report; rows 10 to 17 depend on the design</li>
 <li>Each row is tagged with the lecture that covers it; today covers rows 1 to 9</li>
 <li>Built from Bellemare’s Section 5, Angrist and Pischke’s Chapter 1, and the AJAE Author Guidelines</li>
 </ul>
@@ -318,8 +318,23 @@ Lauren Chenarides
 <h1>What must the empirical strategy section accomplish?</h1>
 
 </section>
-<section id="but-first-where-the-empirical-strategy-section-lives-in-your-paper" class="slide level2">
-<h2>But first, where the empirical strategy section lives in your paper</h2>
+<section id="research-faqs" class="slide level2">
+<h2>Research FAQs</h2>
+<p>Social science is interested in cause-and-effect relationships</p>
+<p>Before starting your research, ask:</p>
+<ul>
+<li>What is the causal relationship of interest?</li>
+<li>What experiment could ideally be used to capture the causal effect of interest?</li>
+<li>What is your identification strategy?</li>
+<li>What is your mode of statistical inference?</li>
+</ul>
+<p>These questions are answered throughout the paper, but formally written up in the methods (or empirical strategy) section</p>
+
+<aside><div>
+<p>Source: <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Chapter 1.</p>
+</div></aside></section>
+<section id="where-the-empirical-strategy-section-lives-in-your-paper" class="slide level2">
+<h2>Where the empirical strategy section lives in your paper</h2>
 <ol type="1">
 <li>Introduction</li>
 <li>Background or Literature Review</li>
@@ -352,7 +367,6 @@ Lauren Chenarides
 <li>Conceptual framework (Unit 4) gives you guidance on developing testable predictions</li>
 <li>Data (Unit 5) gives you guidance on describing your data, the unit of observation, and the measures that make your data fit for use</li>
 <li>Methods (this unit) explains how to turn the conceptual model into an equation with estimable parameters, and why the data identify them</li>
-<li>A referee should be able to judge the design before seeing a result</li>
 </ul>
 <aside class="notes">
 <p>This slide places the section in the paper. The rest of the lecture follows the order of the section itself: the estimation strategy (equation, estimator, inference), then the identification strategy (assumption, threats, robustness), then one research question answered three ways.</p>
@@ -372,7 +386,7 @@ Lauren Chenarides
 <h2>Four terms come up in every empirical strategy section</h2>
 <ul>
 <li><strong>Parameter of interest:</strong> the coefficient that answers your research question</li>
-<li><strong>Estimator:</strong> the rule that turns data into an estimate of that parameter, such as OLS, maximum likelihood, or a difference in means</li>
+<li><strong>Estimator:</strong> the method that turns data into an estimate of that parameter, such as OLS, maximum likelihood, or a difference in means</li>
 <li><strong>Inference:</strong> how you measure the uncertainty in the estimate, through standard errors, clustering, and hypothesis tests</li>
 <li><strong>Identifying assumption:</strong> the condition under which the parameter you estimate equals the relationship you want to learn about</li>
 </ul>
@@ -396,7 +410,7 @@ Lauren Chenarides
 <p><strong>Estimation strategy</strong></p>
 <p>The equations, the estimator, and how inference is done</p>
 <p><strong>Identification strategy</strong></p>
-<p>The feature of the data that supports a causal interpretation, and what threatens it</p>
+<p>The feature of the data that supports a causal interpretation, or, the manner in which a researcher uses observational data to approximate a real experiment</p>
 <p>Use these as the two parts of your section <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span>.</p>
 <aside class="notes">
 <p>This is the structure from the Bellemare reading in Lecture 2.3, Section 5. His Section 5.1 covers the equation, the estimator, hypothesis tests, and standard errors. Section 5.2 covers identification and the threats to it.</p>
@@ -412,11 +426,12 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-published-paper-states-the-equation-then-defines-every-term" class="slide level2">
-<h2>A published paper states the equation, then defines every term</h2>
+<section id="example-estimation-strategy" class="slide level2">
+<h2>Example: Estimation strategy</h2>
 <p><img data-src="assets/unit6/dalheimer-bellemare-estimation.png" alt="Section 2.1, Estimation Strategy, from Dalheimer and Bellemare. The text states the relationship estimated, displays Equation 1, defines each variable, the year fixed effects, and the error term, and names beta 1 as the parameter of interest." height="480"></p>
 
 <aside class="notes">
+<p>A published paper states the equation, then defines every term</p>
 <p>Point out the sequence: the relationship in words, the equation, a definition of every term, then one sentence naming the parameter of interest. The next paragraph explains why they first-difference the equation, which is the estimator choice.</p>
 <p>Two small inconsistencies are worth noticing: the text defines <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{it}</annotation></semantics></math> for “county <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>” in a country-level paper, and the equation uses <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mn>1</mn><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">e_{1it}</annotation></semantics></math> while the text defines <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>e</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">e_{it}</annotation></semantics></math>. Referees catch these, and they are why every term should be defined with the same notation used in the equation.</p>
 <p>Footnote 5 in the paper explains why the authors do not cluster standard errors after first-differencing. That is an inference decision stated with a reason.</p>
@@ -434,11 +449,12 @@ Lauren Chenarides
 <aside><div>
 <p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.1 (accepted version posted on Bellemare’s website).</p>
 </div></aside></section>
-<section id="the-identification-strategy-explains-what-in-the-data-supports-a-causal-interpretation" class="slide level2">
-<h2>The identification strategy explains what in the data supports a causal interpretation</h2>
+<section id="example-identification-strategy" class="slide level2">
+<h2>Example: Identification strategy</h2>
 <p><img data-src="assets/unit6/dalheimer-bellemare-identification.png" alt="Section 2.2, Identification Strategy, from Dalheimer and Bellemare. The text discusses reverse causation, omitted variables, and measurement error in turn as threats to estimating the effect of trade on food prices." height="440"></p>
 
 <aside class="notes">
+<p>Identification strategy explains what in the data supports a causal interpretation</p>
 <p>The section walks through Bellemare’s threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -454,8 +470,8 @@ Lauren Chenarides
 <aside><div>
 <p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.2 (accepted version posted on Bellemare’s website).</p>
 </div></aside></section>
-<section id="six-questions-organize-the-section-in-the-order-they-appear-in-a-paper" class="slide level2 dense">
-<h2>Six questions organize the section, in the order they appear in a paper</h2>
+<section id="the-following-questions-help-organize-the-section-typically-answered-in-the-order-they-appear-in-a-paper" class="slide level2 dense">
+<h2>The following questions help organize the section, typically answered in the order they appear in a paper</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 20%">
@@ -526,10 +542,10 @@ Lauren Chenarides
 <section id="write-the-equation-so-a-referee-never-has-to-ask-what-a-symbol-means" class="slide level2">
 <h2>Write the equation so a referee never has to ask what a symbol means</h2>
 <ul>
-<li>Latin letters for variables, Greek letters for parameters</li>
+<li>Latin letters for variables (a, b, c, …), Greek ($, , , $…) letters for parameters</li>
 <li>Subscripts run from the smallest unit to the largest</li>
 <li>Define every term directly below the equation</li>
-<li>Give each specification its own coefficient label</li>
+<li>Give each specification its own coefficient labels</li>
 <li>The unit of observation matches the key in your data section</li>
 </ul>
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
@@ -550,6 +566,7 @@ Lauren Chenarides
 </section>
 <section id="the-unit-of-observation-describes-a-row-the-key-identifies-it-in-the-file" class="slide level2 dense">
 <h2>The unit of observation describes a row; the key identifies it in the file</h2>
+<p>The unit tells the reader what each row means. The key lets you check that there is exactly one row per unit before you estimate <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span>.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -586,7 +603,6 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
-<p>The unit tells the reader what each row means. The key lets you check that there is exactly one row per unit before you estimate <span class="citation" data-cites="gentzkow2014code">(<a href="#/references" role="doc-biblioref" onclick="">Gentzkow and Shapiro 2014</a>)</span>.</p>
 <aside class="notes">
 <p>The two are the same idea at different levels: the unit is the description for the reader, and the key is how the computer enforces it. If two rows share the same key, either the key is incomplete or the data contain duplicates, and the estimate will weight some units twice. Gentzkow and Shapiro’s chapter on keys (Lecture 5.4) covers how to check this.</p>
 <style type="text/css">
@@ -606,12 +622,13 @@ Lauren Chenarides
 <ul>
 <li>The estimator by name, such as OLS, a linear probability model, probit, or maximum likelihood, and why</li>
 <li>The hypothesis being tested</li>
-<li>What the standard errors are robust to, such as heteroskedasticity; “robust standard errors” alone is not enough</li>
+<li>What the standard errors are robust to, such as heteroskedasticity</li>
 <li>Whether and how standard errors are clustered, at what level, and why</li>
 <li>Whether sampling weights are used, and how they were constructed</li>
 </ul>
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
 <aside class="notes">
+<p>“Robust standard errors” alone is not enough, instead say “We used cluster-robust standard errors, clustering at the state level, to account for within-state correlation over time.”</p>
 <p>The clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.</p>
 <p>We return to inference later in the unit, including how to handle a small number of clusters.</p>
 <style type="text/css">
@@ -626,13 +643,13 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="hypothesis-testing-and-identification-answer-different-questions" class="slide level2">
-<h2>Hypothesis testing and identification answer different questions</h2>
+<section id="note-hypothesis-testing-and-identification-answer-different-questions" class="slide level2">
+<h2>Note: Hypothesis testing and identification answer different questions</h2>
 <ul>
 <li><strong>Hypothesis test:</strong> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> different from zero? This depends on the estimator and the standard errors</li>
 <li><strong>Identification:</strong> does <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measure the causal effect? This depends on the identifying assumption</li>
 <li>A significant <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is evidence of a causal effect only if <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is identified</li>
-<li>More data makes the test more precise, but it does not change what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures</li>
+<li>More data makes the test more precise, but it does not change what <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures; more data -&gt; smaller standard error -&gt; more precise</li>
 </ul>
 <p>The identification strategy subsection explains why <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> measures the effect you want.</p>
 <aside class="notes">
@@ -657,13 +674,15 @@ Lauren Chenarides
 <h1>What’s included in the identification strategy subsection</h1>
 
 </section>
-<section id="identification-asks-whether-your-data-and-assumptions-determine-the-parameter-you-want-to-estimate" class="slide level2">
+<section id="identification-asks-whether-your-data-and-assumptions-determine-the-parameter-you-want-to-estimate" class="slide level2 dense">
 <h2>Identification asks whether your data and assumptions determine the parameter you want to estimate</h2>
 <ul>
 <li>Suppose you had data on the entire population. The parameter is identified if only one value of it is consistent with those data</li>
 <li>If more than one value fits, the parameter is not identified, and a larger sample or a different estimator will not fix it</li>
 <li>Whether a parameter is identified depends on assumptions about how the data were generated</li>
-<li>A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption</li>
+</ul>
+<p>A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal effect, and each missing arrow is an assumption</p>
+<ul>
 <li><strong>Example:</strong> a paper wants to estimate the effect of military service on later earnings <span class="citation" data-cites="jurajda2007identification">(<a href="#/references" role="doc-biblioref" onclick="">Jurajda 2007</a>, Example 1.1)</span></li>
 </ul>
 <aside class="notes">
@@ -681,12 +700,14 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="when-an-unobserved-factor-drives-both-treatment-and-outcome-the-effect-is-not-identified" class="slide level2">
+<section id="when-an-unobserved-factor-drives-both-treatment-and-outcome-the-effect-is-not-identified" class="slide level2 dense">
 <h2>When an unobserved factor drives both treatment and outcome, the effect is not identified</h2>
-<p><img data-src="assets/unit6/dag-not-identified.svg" alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings." height="300"></p>
+<p><img data-src="assets/unit6/dag-not-identified.svg" alt="A directed acyclic graph. Military service points to earnings, the effect we want. Earnings potential, which is not observed, points to both military service and earnings." height="250"></p>
 <p>A comparison of veterans and nonveterans picks up both the effect and the path through earnings potential. With unlimited data it still cannot separate them <span class="citation" data-cites="jurajda2007identification">(<a href="#/references" role="doc-biblioref" onclick="">Jurajda 2007</a>, Example 1.1)</span>.</p>
+<p>In regression terms, military service is <strong>endogenous</strong>: earnings potential is part of the error term and also affects who serves, so service is correlated with the error term.</p>
 <aside class="notes">
 <p>Jurajda asks: “Are the (minority) vets earning more because of the military service or are the high-earners more likely to enroll in the army?” The dashed path through earnings potential is selection bias, the term defined two slides from now.</p>
+<p>Endogeneity is the regression name for the same problem. In <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mi>α</mi><mo>+</mo><mi>β</mi><msub><mi>D</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ε</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Y_i = \alpha + \beta D_i + \varepsilon_i</annotation></semantics></math>, the treatment <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math> is endogenous when it is correlated with the error term. Here earnings potential is not in the regression, so it sits in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math>; because it also drives who serves, service and the error term move together, and the OLS coefficient mixes the effect of service with the effect of earnings potential. Selection bias, endogeneity, and the dashed path are three descriptions of one problem.</p>
 <p>The four threats map onto this picture. Unobserved heterogeneity is the dashed node. Reverse causality would be an arrow from earnings back to service. Measurement error means the service box is recorded with error. Spillovers would be an arrow from one person’s service to another person’s earnings.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -700,14 +721,15 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-effect-is-identified-if-you-measure-the-common-causes-or-use-variation-they-do-not-drive" class="slide level2">
-<h2>The effect is identified if you measure the common causes or use variation they do not drive</h2>
-<p><img data-src="assets/unit6/dag-identified.svg" alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery." height="360"></p>
+<section id="to-show-one-thing-causes-another-the-effect-is-identified-you-must-either-control-for-shared-causes-or-isolate-an-exogenous-source-of-variation" class="slide level2 dense">
+<h2>To show one thing causes another (the effect is identified) you must either control for shared causes, or isolate an exogenous source of variation</h2>
+<p><img data-src="assets/unit6/dag-identified.svg" alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery." height="270"></p>
+<p>Both remove the endogeneity. A takes the shared causes out of the error term by controlling for them. B uses only the variation in service that the lottery creates, which is <strong>exogenous</strong>: unrelated to the error term.</p>
 
 <aside class="notes">
 <p>Panel A is selection on observed characteristics. The military screens applicants on age, schooling, and test scores, so comparing veterans and nonveterans with the same values identifies the effect, if nothing else drives both. Angrist and Pischke note that this is “clearly not guaranteed”: applicants who drop out at the last minute may differ in earnings potential.</p>
 <p>Panel B is an instrument. The lottery number changes who serves but is assigned at random, so earnings potential cannot affect it, and it should affect earnings only through service. It identifies the effect for men whose service depended on their lottery number.</p>
-<p>The identifying assumption in each panel is the “Requires” line. That is the sentence a paper states in words.</p>
+<p>The identifying assumption in each panel is the “Requires” line. That is the sentence a paper states in words. In regression terms, A assumes that after controlling for X, service is uncorrelated with the error term; B assumes the lottery is uncorrelated with the error term (Cov(Z, ε) = 0) and affects earnings only through service.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -729,9 +751,10 @@ Lauren Chenarides
 <li>Jurajda’s example: veterans may earn more because of military service, or because people with higher earnings potential were more likely to enlist</li>
 <li>That pre-existing difference is selection bias</li>
 <li>The identifying assumption states why selection bias is zero for your comparison</li>
-<li>Write it in one sentence, without notation</li>
+<li>The coefficient receives a causal interpretation because we successfully control for all mutually determining factors, or exploit variation orthogonal to the error term, ensuring the groups are identical on average except for the treatment itself</li>
 </ul>
 <aside class="notes">
+<p>The identifying assumption is the explicit claim that your statistical strategy has successfully killed off selection bias.</p>
 <p>Angrist and Pischke, Chapter 2, write this as a decomposition: the observed difference in means equals the average effect on the treated plus selection bias, the difference in untreated outcomes between the two groups. Students do not need the decomposition in their paper. They need the sentence that explains why the untreated outcomes of the two groups would have been the same.</p>
 <p>Jurajda’s notes describe identification as a search for variation that is unrelated to these pre-existing differences.</p>
 <style type="text/css">
@@ -784,9 +807,11 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
-<p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.2.</p>
+<p>Bellemare calls the first three sources of <strong>endogeneity</strong>: each makes the treatment correlated with the error term <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020, sec. 5.2</a>)</span>.</p>
 <aside class="notes">
 <p>Bellemare asks authors to discuss each threat in turn, say whether it applies, and explain how the paper handles it. The response column lists common approaches; it is not from Bellemare.</p>
+<p>His wording is “the three following sources of statistical endogeneity: (i) reverse causality, (ii) unobserved heterogeneity, and (iii) measurement error.” Each puts something into the error term that moves with the treatment: the outcome feeding back into the treatment, an omitted factor that drives both, or the part of the treatment that was mismeasured. He treats spillovers separately because they are not endogeneity; they mean the effect on one unit depends on others’ treatment, so the effect itself is not well defined.</p>
+<p>Endogeneity is one way identification fails, not the only one. A parameter can also fail to be identified because of spillovers, or because a model has more parameters than the variation can determine. In Lecture 6.2, “endogenous variable” also has a structural meaning: a variable determined inside the model, such as price. It becomes an estimation problem when it is correlated with the error term, as with price and unobserved product quality in BLP.</p>
 <p>He adds: “If your results are not causally identified, do not lie about what they can and cannot do.”</p>
 <p>The DAG from earlier shows each threat as a feature of the graph. The climate example later applies this table to one design.</p>
 <style type="text/css">
@@ -826,15 +851,11 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="robustness-checks-vary-your-choices-sensitivity-analyses-relax-your-assumptions" class="slide level2 dense">
-<h2>Robustness checks vary your choices; sensitivity analyses relax your assumptions</h2>
-<ul>
-<li><strong>Robustness check:</strong> re-estimate with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020, sec. 6.2</a>)</span></li>
-<li><strong>Sensitivity analysis:</strong> ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
-<li><strong>Placebo test:</strong> estimate an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately</li>
-<li><strong>Why papers include them:</strong> researchers try many specifications before choosing one, so readers need evidence that the result was not selected for <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
-</ul>
-<p>A robustness check asks whether your choices matter. A sensitivity analysis asks how wrong your assumption could be.</p>
+<section id="robustness-check-or-sensitivity-analysis" class="slide level2 dense">
+<h2>Robustness check or sensitivity analysis?</h2>
+<p>Robustness checks vary your choices - Re-estimate your model with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020, sec. 6.2</a>)</span> - A placebo test estimates an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately</p>
+<p>Sensitivity analyses relax your assumptions - Purpose is to ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></p>
+<p><strong>Why papers include them:</strong> researchers try many specifications before choosing one, so readers need evidence that the result was not selected for <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></p>
 <aside class="notes">
 <p>Athey and Imbens call these “supplementary analyses”: their purpose is not a better estimate of the main effect but evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.</p>
 <p>Bellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors “have to work hard to convince readers that their results were not cherrypicked.”</p>
