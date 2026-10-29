@@ -39,9 +39,9 @@
 
   <!-- Panel B -->
   <text x="900" y="32" text-anchor="middle" class="title">B. Use variation U does not drive</text>
-  <rect x="890" y="60" width="270" height="80" rx="14" fill="#FFFFFF" stroke="#9A3324" stroke-width="3" stroke-dasharray="9 7"/>
+  <rect x="870" y="60" width="310" height="80" rx="14" fill="#FFFFFF" stroke="#9A3324" stroke-width="3" stroke-dasharray="9 7"/>
   <text x="1025" y="97" text-anchor="middle" class="node">Earnings potential (U)</text>
-  <text x="1025" y="124" text-anchor="middle" class="note">not observed</text>
+  <text x="1025" y="124" text-anchor="middle" class="note">not observed: part of the error term</text>
   <rect x="615" y="270" width="150" height="80" rx="14" fill="#EEF4F8" stroke="#245A81" stroke-width="3"/>
   <text x="690" y="304" text-anchor="middle" class="node">Draft lottery</text>
   <text x="690" y="330" text-anchor="middle" class="node">number (Z)</text>

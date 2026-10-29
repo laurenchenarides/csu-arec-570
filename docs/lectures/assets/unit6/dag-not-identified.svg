@@ -17,9 +17,9 @@
     </style>
   </defs>
 
-  <rect x="400" y="30" width="300" height="90" rx="14" fill="#FFFFFF" stroke="#9A3324" stroke-width="3" stroke-dasharray="9 7"/>
+  <rect x="375" y="30" width="350" height="90" rx="14" fill="#FFFFFF" stroke="#9A3324" stroke-width="3" stroke-dasharray="9 7"/>
   <text x="550" y="70" text-anchor="middle" class="node">Earnings potential (U)</text>
-  <text x="550" y="100" text-anchor="middle" class="note">not observed</text>
+  <text x="550" y="100" text-anchor="middle" class="note">not observed: part of the error term</text>
 
   <rect x="70" y="250" width="270" height="80" rx="14" fill="#E7EFEA" stroke="#1E4D2B" stroke-width="3"/>
   <text x="205" y="298" text-anchor="middle" class="node">Military service (D)</text>
