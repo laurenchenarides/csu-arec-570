@@ -82,8 +82,6 @@ A map of methods, a decision tree, the four choices every empirical strategy sta
 [Open the methods map in a new tab](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
 
 ::: notes
-How the map was created: [LC to confirm before class].
-
 The map lists anchor papers for each method. The climate papers used today have been checked against Crossref; the remaining anchor papers are being checked before later lectures use them.
 :::
 
@@ -283,9 +281,9 @@ Bellemare (Section 5.1) notes that "a hypothesis test always tests for an equali
 
 The chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.
 
-Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing them adds credibility but does not prove the assumption. Athey and Imbens call placebo and related checks "supplementary analyses": they test implications of the identifying assumption, not the assumption itself. Core assumptions such as an exclusion restriction usually cannot be tested directly.
+Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing such a test adds credibility, and the assumption itself remains unproven. Athey and Imbens call placebo and related checks "supplementary analyses": they test implications of the identifying assumption. Core assumptions such as an exclusion restriction usually cannot be tested directly.
 
-If the assumptions a paper can defend only bound the effect rather than pin down one value, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.
+If the assumptions a paper can defend yield only bounds on the effect, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.
 :::
 
 # What's included in the identification strategy subsection
@@ -301,7 +299,7 @@ A directed acyclic graph (DAG) draws those assumptions: each arrow is a causal e
 - **Example:** a paper wants to estimate the effect of military service on later earnings [@angrist1990lifetime; posed in @jurajda2007identification, Example 1.1]
 
 ::: notes
-Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship rather than a partial correlation. He refers to Pearl's notation for this, the effect of setting a variable rather than observing it.
+Bellemare (Section 5.2) uses "identification" in the sense most applied papers now use: causal identification, when a coefficient reflects a causal relationship. He refers to Pearl's notation for this, which denotes the effect of setting a variable to a value.
 
 The next two slides use this question to show a parameter that is not identified and two ways to identify it.
 :::
@@ -324,7 +322,7 @@ The four threats map onto this picture. Unobserved heterogeneity is the dashed n
 
 ## To show one thing causes another (the effect is identified) you must either control for shared causes, or isolate an exogenous source of variation {.dense}
 
-![](assets/unit6/dag-identified.svg){height=270px fig-alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings but not to the lottery."}
+![](assets/unit6/dag-identified.svg){height=270px fig-alt="Two directed acyclic graphs. Panel A: observed age, schooling, and test scores point to both service and earnings; comparing people with the same values identifies the effect if these are the only common causes. Panel B: the draft lottery number points only to service; earnings potential points to service and earnings and has no arrow to the lottery."}
 
 Both remove the endogeneity. A takes the shared causes out of the error term by controlling for them. B uses only the variation in service that the lottery creates, which is **exogenous**: unrelated to the error term.
 
@@ -373,7 +371,7 @@ Bellemare asks authors to discuss each threat in turn, say whether it applies, a
 
 His wording is "the three following sources of statistical endogeneity: (i) reverse causality, (ii) unobserved heterogeneity, and (iii) measurement error." Each puts something into the error term that moves with the treatment: the outcome feeding back into the treatment, an omitted factor that drives both, or the part of the treatment that was mismeasured. He treats spillovers separately because they are not endogeneity; they mean the effect on one unit depends on others' treatment, so the effect itself is not well defined.
 
-Endogeneity is one way identification fails, not the only one. A parameter can also fail to be identified because of spillovers, or because a model has more parameters than the variation can determine. In Lecture 6.2, "endogenous variable" also has a structural meaning: a variable determined inside the model, such as price. It becomes an estimation problem when it is correlated with the error term, as with price and unobserved product quality in BLP.
+Endogeneity is one way identification fails. A parameter can also fail to be identified because of spillovers, or because a model has more parameters than the variation can determine. In Lecture 6.2, "endogenous variable" also has a structural meaning: a variable determined inside the model, such as price. It becomes an estimation problem when it is correlated with the error term, as with price and unobserved product quality in BLP.
 
 He adds: "If your results are not causally identified, do not lie about what they can and cannot do."
 
@@ -384,14 +382,14 @@ The DAG from earlier shows each threat as a feature of the graph. The climate ex
 
 - **Problem with inference:** the estimate may measure the right thing, but its standard errors are too small, so the result looks more certain than it is
 - **Threat to identification:** the estimate measures the wrong thing, and more data will not fix it
-- Clustering standard errors is an inference choice: it changes the standard errors, not the estimate
+- Clustering standard errors is an inference choice: it changes the standard errors and leaves the estimate unchanged
 
 Source: @bellemare2020applied, Sections 5.1 and 5.2.
 
 ::: notes
 Example for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.
 
-Students often list clustering as a threat. It is not a threat to identification: clustering does not change the point estimate. It changes how confident we are in it.
+Students often list clustering as a threat. Clustering is an inference choice: it leaves the point estimate unchanged and changes how confident we are in it.
 
 Robustness checks can address either problem: alternative samples or controls test the identifying assumption; alternative clustering levels test the inference choice.
 
@@ -412,7 +410,7 @@ Sensitivity analyses relax your assumptions
 **Why papers include them:** researchers try many specifications before choosing one, so readers need evidence that the result was not selected for [@athey2017state]
 
 ::: notes
-Athey and Imbens call these "supplementary analyses": their purpose is not a better estimate of the main effect but evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.
+Athey and Imbens call these "supplementary analyses": their purpose is to provide evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.
 
 Bellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors "have to work hard to convince readers that their results were not cherrypicked."
 
@@ -435,7 +433,7 @@ Note that "robust" in "robust standard errors" is a different use of the word: t
 ::: notes
 Purpose of the example: one research question, three empirical strategy sections, three different parameters. Each design responds to a weakness in the one before it. Students should leave with the point that choosing the identifying variation also chooses what the coefficient means, and that the section has to say which one it estimates.
 
-Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather. The ideal experiment is a planning question (the Research FAQs slide); it is not a separate part of the written section.
+Angrist and Pischke argue that describing the ideal experiment "helps you formulate causal questions precisely." Here it separates two effects that are easy to confuse: the effect of climate and the effect of weather. The ideal experiment is a planning question (the Research FAQs slide).
 
 Ask: in your proposal, what would you randomize, and how long would you wait to measure the outcome?
 :::
@@ -523,7 +521,7 @@ Timmins and Schlenker give both directions. Long-run responses face fewer constr
 
 The point for the paper: gaining credibility also changed what the coefficient measures, and the section has to say which effect it estimates.
 
-Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes instead of yearly shocks.
+Transition: to recover adaptation without going back to a cross-section of levels, compare slow changes over long periods.
 :::
 
 ## Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses {.dense}

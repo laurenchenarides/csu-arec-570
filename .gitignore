@@ -45,3 +45,6 @@ Backup of *.doc*
 .Rproj.user
 
 **/*.quarto_ipynb
+
+# Course readings (copyrighted; distributed through Canvas)
+/readings/

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Lauren Chenarides">
-  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 6.2: Causality and Policy Evaluation</title>
+  <title>AREC 570/ECON 530 Methodology of Economic Research – Lecture 6.2: Structural Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -70,7 +70,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -147,8 +146,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Lecture 6.2: Causality and Policy Evaluation – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Assess RD, difference-in-differences, synthetic controls, and credibility checks.">
+<meta property="og:title" content="Lecture 6.2: Structural Models – AREC 570/ECON 530 Methodology of Economic Research">
+<meta property="og:description" content="Distinguish reduced-form from structural approaches, decide when a paper needs an economic model, and report what a structural section must state, using BLP demand as the example">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -156,7 +155,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture 6.2: Causality and Policy Evaluation</h1>
+  <h1 class="title">Lecture 6.2: Structural Models</h1>
   <p class="subtitle">AREC 570 / ECON 530 · Unit 6</p>
 
 <div class="quarto-title-authors">
@@ -168,13 +167,38 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
+<section id="before-class" class="slide level2 dense">
 <h2>Before class</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Assigned</strong></p>
 <ul>
 <li>Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference” <span class="citation" data-cites="nevo2010dogma">(<a href="#/references" role="doc-biblioref" onclick="">Nevo and Whinston 2010</a>)</span></li>
 <li>Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) <span class="citation" data-cites="nevo2000practitioner">(<a href="#/references" role="doc-biblioref" onclick="">Nevo 2000</a>)</span></li>
 </ul>
 <p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Also used in these slides</strong></p>
+<ul>
+<li>Timmins and Schlenker, from Lecture 6.1 <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span></li>
+<li>Bellemare, on notation <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span></li>
+<li>BLP demand: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>; <span class="citation" data-cites="nevo2001cereal">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span></li>
+<li>Conlon and Gortmaker, on best practices and PyBLP <span class="citation" data-cites="conlon2020pyblp">(<a href="#/references" role="doc-biblioref" onclick="">Conlon and Gortmaker 2020</a>)</span></li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>Timing for 75 minutes: 5 minutes on notation, 25 minutes on reduced-form and structural approaches, 25 minutes on BLP, 10 minutes on the cereal results, and 10 minutes on using a structural model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="latin-letters-mark-what-you-observe-greek-letters-mark-what-you-estimate" class="slide level2">
 <h2>Latin letters mark what you observe; Greek letters mark what you estimate</h2>
@@ -207,9 +231,22 @@ Lauren Chenarides
 <ul>
 <li>Latin letters are the letters of the English alphabet</li>
 <li>Fixed effects are parameters, so they get Greek letters: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\gamma_c</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\delta_t</annotation></semantics></math></li>
-<li>A reader who sees a Greek letter knows it is estimated, not measured</li>
+<li>A Greek letter tells the reader the term is estimated</li>
 </ul>
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
+<aside class="notes">
+<p>Check the equation you wrote at the end of Lecture 6.1 against this slide and the next one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="subscripts-tell-the-reader-the-level-at-which-each-term-varies" class="slide level2">
 <h2>Subscripts tell the reader the level at which each term varies</h2>
@@ -219,12 +256,12 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 <ul>
 <li>One letter per dimension, used the same way throughout the paper: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math> county, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math> state, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> year</li>
 <li>Order from the smallest unit to the largest, with time last</li>
-<li>A term carries only the subscripts it varies over: a state policy is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">P_{st}</annotation></semantics></math>, not <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mrow><mi>c</mi><mi>s</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">P_{cst}</annotation></semantics></math></li>
+<li>A term carries only the subscripts it varies over: a state policy is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mrow><mi>s</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">P_{st}</annotation></semantics></math></li>
 <li>A fixed effect’s subscript says what it holds constant: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>γ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\gamma_c</annotation></semantics></math> county, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\delta_t</annotation></semantics></math> year</li>
 <li>The outcome’s subscripts state the unit of observation: a county in a year</li>
 </ul>
 <aside class="notes">
-<p>Smallest to largest is Bellemare’s rule. Time last is a common convention rather than a rule from the reading.</p>
+<p>Smallest to largest is Bellemare’s rule. Time last is a common convention.</p>
 <p>The subscript on the treatment also tells the reader where the identifying variation is. In this example the policy varies by state and year, which is also a natural starting point for the clustering level.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -238,111 +275,23 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
           display:block!important;
       }</style></aside>
 </section>
-<section id="separate-the-target-from-the-tool" class="slide level2">
-<h2>Separate the target from the tool</h2>
+<section>
+<section id="reduced-form-and-structural-approaches" class="title-slide slide level1 center">
+<h1>Reduced-form and structural approaches</h1>
+
+</section>
+<section id="a-structural-model-recovers-the-parameters-of-behavior" class="slide level2">
+<h2>A structural model recovers the parameters of behavior</h2>
 <ul>
-<li><strong>Estimand:</strong> the quantity we want to learn.</li>
-<li><strong>Estimator:</strong> the rule used to estimate it from data.</li>
-<li><strong>Estimate:</strong> the numerical result in our sample.</li>
+<li>Timmins and Schlenker’s definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures</li>
+<li>It starts from a theoretical model and states what the researcher can and cannot observe</li>
+<li>What cannot be observed becomes a structural error, backed out of observed behavior</li>
+<li>The parameters are estimated with a procedure such as GMM or maximum likelihood</li>
 </ul>
-<p>Example: an average treatment effect, a difference-in-means estimator, and its estimated value.</p>
-</section>
-<section id="what-creates-a-credible-comparison" class="slide level2 scrollable">
-<h2>What creates a credible comparison?</h2>
-<p>For every design, ask:</p>
-<ol type="1">
-<li>Who is compared with whom?</li>
-<li>What creates the difference in treatment?</li>
-<li>What must be true of the untreated counterfactual?</li>
-<li>To which population does the result apply?</li>
-</ol>
-<p>Source: <span class="citation" data-cites="athey2017state">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>.</p>
-</section>
-<section id="regression-discontinuity" class="slide level2">
-<h2>Regression discontinuity</h2>
-<p>Treatment changes at a threshold in a running variable.</p>
-<ul>
-<li>Compare observations close to the cutoff.</li>
-<li>Ask whether other determinants of the outcome change smoothly.</li>
-<li>Check for manipulation and other policies at the same threshold.</li>
-<li>Interpret the effect locally.</li>
-</ul>
-</section>
-<section id="sharp-and-fuzzy-designs" class="slide level2">
-<h2>Sharp and fuzzy designs</h2>
-<ul>
-<li><strong>Sharp RD:</strong> treatment status changes deterministically at the threshold.</li>
-<li><strong>Fuzzy RD:</strong> the probability of treatment changes.</li>
-</ul>
-<p>In a fuzzy design, divide the outcome discontinuity by the treatment discontinuity, with additional assumptions for a local causal interpretation.</p>
-<p>A weak treatment discontinuity makes inference difficult.</p>
-</section>
-<section id="discussion-summer-school" class="slide level2">
-<h2>Discussion: summer school</h2>
-<p>The source example assigns summer school using a test-score threshold.</p>
-<ul>
-<li>Identify the running variable, cutoff, treatment, and outcome.</li>
-<li>Why compare students close to the cutoff?</li>
-<li>Could students or schools influence their position?</li>
-<li>What would limit generalization to all students?</li>
-</ul>
-</section>
-<section id="difference-in-differences" class="slide level2">
-<h2>Difference-in-differences</h2>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>τ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mrow><mi>T</mi><mo>,</mo><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow></mrow></msub><mo>−</mo><msub><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mrow><mi>T</mi><mo>,</mo><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi></mrow></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mo stretchy="false" form="prefix">(</mo><msub><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mrow><mi>C</mi><mo>,</mo><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow></mrow></msub><mo>−</mo><msub><mover><mi>Y</mi><mo accent="true">‾</mo></mover><mrow><mi>C</mi><mo>,</mo><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi></mrow></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
-\hat\tau =
-(\bar Y_{T,\mathrm{post}}-\bar Y_{T,\mathrm{pre}})
--
-(\bar Y_{C,\mathrm{post}}-\bar Y_{C,\mathrm{pre}})
-</annotation></semantics></math></p>
-<p>The comparison group supplies a counterfactual change.</p>
-<p>The key assumption concerns <strong>parallel untreated trends</strong>, not identical outcome levels.</p>
-</section>
-<section id="assess-the-did-argument" class="slide level2">
-<h2>Assess the DiD argument</h2>
-<ul>
-<li>Why should untreated trends be comparable?</li>
-<li>Are there anticipatory responses?</li>
-<li>Did another policy change at the same time?</li>
-<li>Did group composition change?</li>
-<li>Could treatment spill over to the comparison group?</li>
-</ul>
-<p>Similar pre-trends are useful evidence, not proof of the identifying assumption.</p>
-</section>
-<section id="synthetic-control" class="slide level2">
-<h2>Synthetic control</h2>
-<p>Construct a weighted comparison from untreated units.</p>
-<ul>
-<li>Choose weights using pre-intervention information.</li>
-<li>Assess pre-intervention fit.</li>
-<li>Examine the post-intervention gap.</li>
-<li>Investigate donor contamination and sensitivity.</li>
-</ul>
-<p>A close pre-treatment fit does not by itself establish causality.</p>
-</section>
-<section id="discussion-choose-a-design" class="slide level2">
-<h2>Discussion: choose a design</h2>
-<p>A policy begins in one region, with several years of data before and after.</p>
-<ul>
-<li>What would support DiD?</li>
-<li>What would make synthetic control attractive?</li>
-<li>Would a threshold design be available?</li>
-<li>Which additional institutional information do you need?</li>
-</ul>
-<p>Do not select a method only because software can estimate it.</p>
-</section>
-<section id="placebos-probe-specific-threats" class="slide level2">
-<h2>Placebos probe specific threats</h2>
-<p>A placebo asks whether the design finds an effect where the proposed mechanism predicts none.</p>
-<p>Examples:</p>
-<ul>
-<li>A false treatment date before the intervention.</li>
-<li>An outcome that should not respond.</li>
-<li>Predetermined characteristics at an RD cutoff.</li>
-</ul>
-<p>Explain why each placebo is informative.</p>
+<p>Source: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 2.</p>
 <aside class="notes">
-<p>Preserves the lottery example from source slide 38: compare large and small prize winners, then ask whether future winnings predict pre-treatment earnings. For RD, examine discontinuities in predetermined covariates rather than requiring unconditional independence from treatment.</p>
+<p>Nevo and Whinston’s definition is close (page 70, footnote 1): “an economic behavioral model that defines the relationship between exogenous and endogenous variables, both observed and unobserved by the researcher.” They distinguish this from the econometrics textbook meaning of “structural.”</p>
+<p>Link to Unit 4: the conceptual framework already names agents, choices, objectives, and constraints. A structural paper takes that model to the data and estimates its parameters.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -355,68 +304,794 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
           display:block!important;
       }</style></aside>
 </section>
-<section id="robustness-and-sensitivity" class="slide level2">
-<h2>Robustness and sensitivity</h2>
-<p>Change a justified modeling or design choice and explain what that change tests.</p>
+<section id="the-term-reduced-form-has-two-meanings" class="slide level2">
+<h2>The term “reduced form” has two meanings</h2>
 <ul>
-<li>Alternative bandwidth.</li>
-<li>Alternative comparison group.</li>
-<li>Alternative measurement.</li>
-<li>Alternative functional form.</li>
+<li><strong>Textbook meaning:</strong> solve a system of equations so the outcome depends only on exogenous variables</li>
+<li><strong>Recent meaning:</strong> program evaluation or treatment effects, with attention to how the exogenous variable was assigned</li>
+<li>The goal is to avoid as many structural assumptions as possible</li>
+<li>Reduced-form studies still require assumptions of their own</li>
 </ul>
-<p>Report informative disagreements. Avoid searching for a specification that preserves a preferred result.</p>
+<p>The designs from Lecture 6.1 are reduced form in the recent sense: fixed effects, quasi-experiments, regression discontinuity, and randomization.</p>
+<p>Source: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 3.</p>
+<aside class="notes">
+<p>Timmins and Schlenker’s example of the textbook meaning: demand and supply both depend on price; the reduced form eliminates price and writes equilibrium quantity as a function of the demand and supply shifters.</p>
+<p>Where the climate designs from 6.1 fit: the panel weather model and long differences are reduced form in the recent sense. The Ricardian model estimates a hedonic-style relationship with an economic argument behind it; the methods map places it between the two.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="discussion-the-readings-credibility-checks" class="slide level2">
-<h2>Discussion: the reading’s credibility checks</h2>
-<p>Choose one recommendation from Athey and Imbens.</p>
+<section id="the-two-approaches-differ-in-what-they-estimate-and-what-they-assume" class="slide level2 dense">
+<h2>The two approaches differ in what they estimate and what they assume</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Reduced form</th>
+<th>Structural</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Estimates</strong></td>
+<td>High-level response parameters, such as the effect of a policy</td>
+<td>Behavioral parameters, such as preferences and costs</td>
+</tr>
+<tr class="even">
+<td><strong>Credibility comes from</strong></td>
+<td>The source of variation</td>
+<td>The source of variation and the economic model</td>
+</tr>
+<tr class="odd">
+<td><strong>Best suited to</strong></td>
+<td>Establishing causality for a change in the data</td>
+<td>Feedback loops, large policy changes, and welfare</td>
+</tr>
+<tr class="even">
+<td><strong>Main assumptions</strong></td>
+<td>How treatment was assigned</td>
+<td>Functional form, the distribution of unobservables, and behavior</td>
+</tr>
+<tr class="odd">
+<td><strong>Main limit</strong></td>
+<td>Harder to extend to changes not observed</td>
+<td>Conclusions depend on the model being right</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Sections 1 and 4.</p>
+<aside class="notes">
+<p>Ask: for your proposal, which row is the deciding one?</p>
+<p>Timmins and Schlenker say each approach “may be better suited to answering particular types of questions.” The choice follows from the question.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="structural-models-are-used-for-feedback-effects-new-policies-and-welfare" class="slide level2">
+<h2>Structural models are used for feedback effects, new policies, and welfare</h2>
 <ul>
-<li>Which identifying assumption does it probe?</li>
-<li>What result would reduce your confidence?</li>
-<li>What can the check not establish?</li>
-<li>How would you report a failure?</li>
+<li><strong>Feedback loops:</strong> people and firms re-optimize, and markets re-equilibrate</li>
+<li><strong>Large or new policies:</strong> the change has not happened, or not at this scale</li>
+<li><strong>Welfare:</strong> effects are converted to dollars through a utility function</li>
+<li><strong>Who bears the cost:</strong> heterogeneity in preferences changes the distributional answer</li>
+<li><strong>Unintended consequences:</strong> simulate the world with one piece of the policy turned off</li>
 </ul>
+<p>Source: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 2.1.</p>
+<aside class="notes">
+<p>Examples from Timmins and Schlenker for each point, if students ask.</p>
+<p>Who bears the cost: Jacobsen (2008) models fuel-economy standards together with the used-car market and finds the cost falls on poorer households who buy used cars.</p>
+<p>Unintended consequences: Ryan (2006) models entry in the cement industry and finds the 1990 Clean Air Act Amendments raised sunk entry costs, which reduced competition and left consumers worse off while incumbent firms gained.</p>
+<p>Link to the methods map: these are the methods at the top of the map, where the outcome is not in the data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="workshop-a-credibility-checklist" class="slide level2 scrollable">
-<h2>Workshop: a credibility checklist</h2>
-<p>For your design, propose:</p>
+<section id="structural-analysis-recovers-parameters-then-simulates-counterfactuals" class="slide level2">
+<h2>Structural analysis recovers parameters, then simulates counterfactuals</h2>
 <ol type="1">
-<li>One placebo.</li>
-<li>One sensitivity analysis.</li>
-<li>One external-validity limitation.</li>
+<li>Match observed behavior to a theoretical model to recover parameters such as preferences and technology</li>
+<li>Use the model to predict responses to changes, assuming those parameters are unchanged</li>
 </ol>
-<p>State the threat each item addresses.</p>
+<p>Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed. Timmins and Schlenker conclude that the most convincing evidence comes from contrasting approaches.</p>
+<p>Sources: <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, pages 70 to 71; <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 4.</p>
+<aside class="notes">
+<p>Nevo and Whinston: “Structural analysis is not a substitute for credible inference. Quite to the contrary, in general, structural analysis and credible identification are complements.” The second step is the extrapolation that a treatment effect alone does not provide.</p>
+<p>The complement runs both ways. Timmins and Schlenker note that reduced-form estimates of a response can be used inside a structural model to simulate policy. We return to this at the end of the lecture.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Describe a result that would make you abandon or substantially revise your preferred design.</p>
+<section id="merger-analysis-shows-what-each-approach-can-and-cannot-answer" class="slide level2 dense">
+<h2>Merger analysis shows what each approach can and cannot answer</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Treatment effect of a past merger</th>
+<th>Merger simulation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Method</strong></td>
+<td>Compare prices near and far from the merging firms, before and after</td>
+<td>Estimate demand and pricing, then simulate joint pricing</td>
+</tr>
+<tr class="even">
+<td><strong>Strength</strong></td>
+<td>Clear identification for that merger</td>
+<td>Predicts a proposed merger, with welfare</td>
+</tr>
+<tr class="odd">
+<td><strong>Limit</strong></td>
+<td>Other mergers may not be similar; no welfare measure</td>
+<td>Holds products, firms, and pricing behavior fixed; instruments are often imperfect</td>
+</tr>
+</tbody>
+</table>
+<p>Nevo and Whinston’s conclusion: each is useful in some cases and fails in others, depending on the question and the data.</p>
+<p>Source: <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, pages 73 to 77.</p>
+<aside class="notes">
+<p>The treatment-effect example is Hastings (2004) on the ARCO acquisition of Thrifty gasoline stations. Nevo and Whinston call it careful design, then ask what it says about a merger of two large branded firms, or a merger in another region.</p>
+<p>Their conclusion on page 80: “the future of econometrics and applied microeconomic work is in combining careful design, credible inference, robust estimation methods, and thoughtful modeling.”</p>
+<p>Transition: merger simulation is one use of a structural model. The next slide shows the range of models students will see.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="types-of-structural-models-you-may-see" class="slide level2 dense">
+<h2>Types of structural models you may see</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 50%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Structural models</th>
+<th>What they recover</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Consumer demand</td>
+<td>Demand systems (AIDS, QUAIDS); discrete choice (logit to BLP)</td>
+<td>Elasticities, substitution, welfare</td>
+</tr>
+<tr class="even">
+<td>Nonmarket values</td>
+<td>Hedonic; Ricardian; travel cost; choice experiments</td>
+<td>Willingness to pay</td>
+</tr>
+<tr class="odd">
+<td>Producers</td>
+<td>Production, cost, and profit functions; stochastic frontier</td>
+<td>Returns to scale, efficiency</td>
+</tr>
+<tr class="even">
+<td>Firms and markets</td>
+<td>Conduct and markups; equilibrium displacement</td>
+<td>Markups, pass-through, incidence</td>
+</tr>
+<tr class="odd">
+<td>Dynamics and risk</td>
+<td>Real options; dynamic discrete choice; risk preferences and insurance demand</td>
+<td>Value of waiting, risk aversion</td>
+</tr>
+<tr class="even">
+<td>Trade and policy</td>
+<td>Structural gravity; spatial equilibrium; CGE</td>
+<td>Trade costs, economy-wide effects</td>
+</tr>
+</tbody>
+</table>
+<p>Each method has an example specification on the <a href="https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html" target="_blank" rel="noopener">methods map</a>.</p>
+<aside class="notes">
+<p>These are the structural methods on the methods map, grouped by what the paper studies. Students should find the row closest to their proposal. Each point on the map opens a card with an example specification, what it estimates, its key assumptions, and how it is estimated.</p>
+<p>Transition: BLP is one row of this table. We use it to show how a structural paper works.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="blp-one-structural-model" class="title-slide slide level1 center">
+<h1>BLP: one structural model</h1>
+
+</section>
+<section id="a-structural-section-states-the-same-four-choices-as-any-empirical-section" class="slide level2">
+<h2>A structural section states the same four choices as any empirical section</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Choice</th>
+<th>In a structural paper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Model</strong></td>
+<td>The primitives: preferences, technology, and how agents interact</td>
+</tr>
+<tr class="even">
+<td><strong>Estimation and inference</strong></td>
+<td>The estimator in one paragraph, with details in an appendix</td>
+</tr>
+<tr class="odd">
+<td><strong>Identification</strong></td>
+<td>Which variation identifies which parameter</td>
+</tr>
+<tr class="even">
+<td><strong>Reported results</strong></td>
+<td>Fit or validation, and the counterfactuals the model is used for</td>
+</tr>
+</tbody>
+</table>
+<p>The order matches Lecture 6.1. The <a href="https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html" target="_blank" rel="noopener">methods map</a> has the details, including the steps of BLP estimation.</p>
+<aside class="notes">
+<p>This is the one slide drawn from the methods map’s “Four choices” section. The next slides go through these four choices for BLP. BLP is one structural model; the choices apply to all of them, from demand systems to dynamic models.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="blp-addresses-the-large-number-of-cross-price-effects-in-differentiated-product-demand" class="slide level2">
+<h2>BLP addresses the large number of cross-price effects in differentiated-product demand</h2>
+<ul>
+<li>With 100 products, a log-log demand system has at least 10,000 parameters</li>
+<li>BLP describes each product by its characteristics, so the number of parameters depends on the number of characteristics</li>
+<li>It uses market-level data on prices and quantities, and it allows for endogenous prices</li>
+<li><strong>Running question:</strong> how much would prices rise if two cereal firms merged?</li>
+</ul>
+<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 514 to 515; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
+<aside class="notes">
+<p>BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles. Nevo applies the method to ready-to-eat cereal <span class="citation" data-cites="nevo2001cereal">(<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="model-each-consumer-chooses-the-product-that-gives-the-highest-utility" class="slide level2 dense">
+<h2>Model: each consumer chooses the product that gives the highest utility</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>β</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">u_{ijt}</annotation></semantics></math>: utility of consumer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> from product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> in market <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> (a city in a quarter)</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math>: income; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{jt}</annotation></semantics></math>: price; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">x_{jt}</annotation></semantics></math>: observed characteristics, such as sugar content</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math>: characteristics the researcher does not observe, such as brand quality or promotions</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\beta_i</annotation></semantics></math>: tastes that vary across consumers with demographics and unobserved traits</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math>: a mean-zero shock; consumers can also buy nothing (the outside good)</li>
+</ul>
+<p>Summing individual choices gives each product’s predicted market share. The data are the observed shares.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 517 to 520.</p>
+<aside class="notes">
+<p>The parameters of interest are the taste parameters. Everything the paper reports (elasticities, markups, welfare) is computed from them.</p>
+<p>Latin letters are data, Greek letters are estimated. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is Greek because it is never observed: it is the structural error in Timmins and Schlenker’s definition, backed out of observed shares.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="estimation-invert-shares-to-recover-the-unobserved-term-then-use-gmm" class="slide level2">
+<h2>Estimation: invert shares to recover the unobserved term, then use GMM</h2>
+<p>In plain logit, where tastes do not vary, shares invert to a linear regression:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">s_{jt}</annotation></semantics></math>: market share of product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">s_{0t}</annotation></semantics></math>: share of the outside good</li>
+<li>This is a linear instrumental-variables regression <span class="citation" data-cites="berry1994estimating">(<a href="#/references" role="doc-biblioref" onclick="">Berry 1994</a>)</span></li>
+<li>With random coefficients, the same idea is solved numerically for each guess of the taste parameters</li>
+<li>The estimator is GMM: instruments must be uncorrelated with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math></li>
+</ul>
+<p>In a paper, this gets one paragraph. The steps go in an appendix.</p>
+<aside class="notes">
+<p>This is the only slide on the algorithm. The methods map walks through it step by step for anyone who needs it.</p>
+<p>Inference: report GMM standard errors for the parameters, and standard errors for the quantities the paper is about, such as elasticities.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-appendix-reports-how-the-model-was-solved" class="slide level2 dense">
+<h2>The appendix reports how the model was solved</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Same model, same data</th>
+<th style="text-align: right;">Mean price coefficient</th>
+<th style="text-align: right;">Mean own-price elasticity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Replication of the published estimates</td>
+<td style="text-align: right;">−32.4</td>
+<td style="text-align: right;">−3.70</td>
+</tr>
+<tr class="even">
+<td>Tighter optimizer tolerance</td>
+<td style="text-align: right;">−62.7</td>
+<td style="text-align: right;">−3.62</td>
+</tr>
+<tr class="odd">
+<td>Best practices</td>
+<td style="text-align: right;">−27.5</td>
+<td style="text-align: right;">−3.69</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Report the optimizer, tolerances, starting values, and integration method</li>
+<li>Try several optimizers and starting values, and check that they agree</li>
+<li>Report the quantities that matter for the question, because individual coefficients can move a lot</li>
+</ul>
+<p>Source: <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Table 7.</p>
+<aside class="notes">
+<p>Conlon and Gortmaker re-estimate Nevo’s model on his simulated data. Changing one optimizer setting (the gradient tolerance from 1E-4 to 1E-5) nearly doubles the price coefficient, while the elasticity barely moves. “Best practices” adds further changes, including a tighter tolerance and better approximations to the instruments.</p>
+<p>They also find that with these practices, estimates are stable across starting values and optimizers, which is better news than earlier work suggested <span class="citation" data-cites="conlon2020pyblp">(Knittel and Metaxoglou, 2014, as discussed in <a href="#/references" role="doc-biblioref" onclick="">Conlon and Gortmaker 2020</a>)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="identification-of-the-price-coefficient-price-is-endogenous-so-it-needs-instruments" class="slide level2 dense">
+<h2>Identification of the price coefficient: price is endogenous, so it needs instruments</h2>
+<ul>
+<li>Price is an equilibrium outcome: firms set markups knowing demand, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{jt}</annotation></semantics></math> is correlated with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math></li>
+<li>OLS biases the price coefficient toward zero, because high-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> products have both higher prices and higher shares</li>
+<li>Identification requires instruments <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Z</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">Z_{jt}</annotation></semantics></math> that shift price and satisfy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>∣</mo><msub><mi>Z</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E[\xi_{jt} \mid Z_{jt}] = 0</annotation></semantics></math></li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 30%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Instrument</th>
+<th>Why it moves price</th>
+<th>Exclusion restriction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cost shifters</td>
+<td>Shift marginal cost</td>
+<td>Uncorrelated with demand shocks</td>
+</tr>
+<tr class="even">
+<td>Characteristics of rival products (BLP)</td>
+<td>Close rivals lower markups</td>
+<td>Product characteristics are set before demand shocks are realized</td>
+</tr>
+<tr class="odd">
+<td>Prices of the same brand in other markets (Hausman)</td>
+<td>Same brand shares marginal cost across markets</td>
+<td>Demand shocks are independent across markets</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 528 and 534 to 536.</p>
+<aside class="notes">
+<p>This is the classic supply and demand identification problem: to trace out a demand curve, you need variation that shifts supply and leaves demand unchanged. The instruments play that role. It is the same endogeneity as the veterans DAG in Lecture 6.1: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is in the error term and also affects the treatment, here price.</p>
+<p>Nevo’s threat to the Hausman instrument: a finding that fiber may reduce the risk of cancer raises demand for high-fiber cereals in every city, so demand shocks are correlated across markets. Coordinated advertising across city borders would also violate the restriction. Nevo says resolving this requires comparing sets of instruments, additional data, and knowledge of the industry.</p>
+<p>Nevo and Whinston (page 76) say that in many cases the instruments are less than ideal. State that limitation in the section.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="identification-of-substitution-patterns-taste-parameters-need-variation-across-markets" class="slide level2">
+<h2>Identification of substitution patterns: taste parameters need variation across markets</h2>
+<ul>
+<li>Plain logit implies substitution proportional to market shares (independence of irrelevant alternatives)</li>
+<li>Random coefficients let substitution depend on product characteristics</li>
+<li>The taste distribution is identified by how shares respond across markets with different choice sets, characteristics, and prices</li>
+<li>Parameters linking tastes to demographics are identified by variation in the distribution of demographics across markets</li>
+<li>Identification improves with more markets and more variation in the set of products</li>
+</ul>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 523 and 529 to 530.</p>
+<aside class="notes">
+<p>Nevo’s cereal example (page 523): Lucky Charms and Cap’n Crunch are both children’s cereals and Grape Nuts is a nutrition cereal. If Cap’n Crunch and Grape Nuts have similar shares, plain logit says a rise in the price of Lucky Charms raises both shares by the same amount. We expect more consumers to switch to Cap’n Crunch.</p>
+<p>His three-product example (page 529): products A and B are similar, and B and C have the same market share. When the price of A rises, plain logit predicts equal increases in the shares of B and C. The relative change in the two shares identifies the parameters that govern the distribution of tastes.</p>
+<p>This is what “state which variation identifies which parameter” means in a structural paper.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reported-results-state-what-the-counterfactual-holds-fixed-and-how-you-validated-the-model" class="slide level2">
+<h2>Reported results: state what the counterfactual holds fixed, and how you validated the model</h2>
+<ul>
+<li>Merger simulation: set the prices of the merging firms jointly and solve for new prices</li>
+<li>Report results under a range of assumptions</li>
+<li>State what is held fixed: current merger simulations hold products, firms, and pricing behavior fixed</li>
+<li>Validate the model: check that it predicts outcomes not used to estimate it</li>
+</ul>
+<p>Sources: <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, pages 75 to 77; <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 2.</p>
+<aside class="notes">
+<p>Nevo and Whinston give the validation example: Peters (2006) compares merger simulations with what actually happened after airline mergers and finds the simulations missed the size of several price changes. Retrospective studies are how the two approaches check each other.</p>
+<p>Timmins and Schlenker suggest estimating with a subset of the data and checking the model’s ability to predict behavior in the rest.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="demo-cereal-results" class="title-slide slide level1 center">
+<h1>Demo: cereal results</h1>
+
+</section>
+<section id="demo-estimating-cereal-demand-in-steps-then-simulating-a-merger" class="slide level2">
+<h2>Demo: estimating cereal demand in steps, then simulating a merger</h2>
+<ul>
+<li><strong>Data:</strong> Nevo’s simulated cereal data, 24 products in 94 markets (47 cities, 2 quarters)</li>
+<li>Nevo: the data are “not real and should not be used for any analysis,” so the numbers here illustrate the method</li>
+<li><strong>Steps:</strong> plain logit by OLS, add product fixed effects, add instruments, add random coefficients, simulate a merger of firms 1 and 2</li>
+<li><strong>Software:</strong> PyBLP in Python; the script runs in under a minute</li>
+</ul>
+<p><a href="https://laurenchenarides.github.io/csu-arec-570/files/cereal-demand-demo.html" target="_blank" rel="noopener">Open the cereal demand demo</a></p>
+<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, page 538; <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>.</p>
+<aside class="notes">
+<p>We read the results in class. The demo page shows the code and output for each step, and it links to the script for students who want to run it.</p>
+<p>Firms 1 and 2 are the two largest firms in the simulated data, with about 75 percent of sales.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="product-fixed-effects-triple-the-price-coefficient-because-quality-was-omitted" class="slide level2">
+<h2>Product fixed effects triple the price coefficient, because quality was omitted</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Specification (plain logit)</th>
+<th style="text-align: right;">Price coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OLS, no product fixed effects</td>
+<td style="text-align: right;">−10.1</td>
+</tr>
+<tr class="even">
+<td>OLS, product fixed effects</td>
+<td style="text-align: right;">−29.0</td>
+</tr>
+<tr class="odd">
+<td>Instrumental variables, product fixed effects</td>
+<td style="text-align: right;">−30.0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Better cereals cost more, so without fixed effects a high price partly signals high quality</li>
+<li>Product fixed effects absorb a product’s fixed quality, which is part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math></li>
+<li>In these simulated data, the instruments change little once fixed effects are included</li>
+</ul>
+<aside class="notes">
+<p>This is the selection problem from Lecture 6.1 in a demand setting: price and unobserved quality move together, so the comparison across products mixes the effect of price with the effect of quality.</p>
+<p>The small change from adding instruments is a feature of these simulated data. Instruments address the part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> that varies within a product across markets, and in real data that part can be large.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-models-with-the-same-own-price-elasticity-give-different-merger-predictions" class="slide level2">
+<h2>Two models with the same own-price elasticity give different merger predictions</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;">Plain logit</th>
+<th style="text-align: right;">Random coefficients</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Median own-price elasticity</td>
+<td style="text-align: right;">−3.65</td>
+<td style="text-align: right;">−3.61</td>
+</tr>
+<tr class="even">
+<td>Largest rival response ÷ smallest</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr class="odd">
+<td>Median price change, merging firms</td>
+<td style="text-align: right;">5.8%</td>
+<td style="text-align: right;">11.6%</td>
+</tr>
+<tr class="even">
+<td>Median price change, other firms</td>
+<td style="text-align: right;">0.1%</td>
+<td style="text-align: right;">0.4%</td>
+</tr>
+<tr class="odd">
+<td>Change in consumer surplus</td>
+<td style="text-align: right;">−11.6%</td>
+<td style="text-align: right;">−13.6%</td>
+</tr>
+</tbody>
+</table>
+<p>The counterfactual depends on how the model lets consumers substitute, which is an assumption the section has to state and defend.</p>
+<aside class="notes">
+<p>Row two: when one product’s price rises, plain logit makes every rival respond in the same proportion (ratio of 1). With random coefficients, the most affected rival responds about 6 times as much as the least affected, in the median case, in one market.</p>
+<p>Why the merger result doubles: merging firms raise prices more when their products are close substitutes for each other, because more of the lost sales stay within the merged firm. Plain logit cannot represent that closeness.</p>
+<p>The takeaway for writing: two models can fit one summary statistic and still disagree on the counterfactual. That is why a structural section states its assumptions and reports results under alternatives.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="using-a-structural-model" class="title-slide slide level1 center">
+<h1>Using a structural model</h1>
+
+</section>
+<section id="a-structural-section-reports-five-items" class="slide level2">
+<h2>A structural section reports five items</h2>
+<ol type="1">
+<li>The model’s primitives</li>
+<li>Which variation identifies which parameter</li>
+<li>The estimator in one paragraph, with details in an appendix</li>
+<li>How well the model fits or validates</li>
+<li>The counterfactuals it is used for</li>
+</ol>
+<p>This is row 10 of the <a href="https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html" target="_blank" rel="noopener">empirical strategy checklist</a>.</p>
+<aside class="notes">
+<p>Each item maps to a slide in the BLP section: model, the two identification slides, estimation, and reported results.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pairing-reduced-form-evidence-with-a-structural-model-is-good-practice" class="slide level2">
+<h2>Pairing reduced-form evidence with a structural model is good practice</h2>
+<ul>
+<li>A credible design shows that the response exists in the data</li>
+<li>Reduced-form estimates can serve as inputs to the model or as targets it must reproduce</li>
+<li>Retrospective studies check the accuracy of model predictions</li>
+<li>Reporting why the approaches agree or disagree gives the reader more confidence than either one alone</li>
+</ul>
+<p>Sources: <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Sections 1 and 4; <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, page 77.</p>
+<aside class="notes">
+<p>Timmins and Schlenker: “the most convincing evidence stems from contrasting various approaches.” They give the example of reduced-form estimates of the effect of amenities on infant health or crop yields being used in structural models to simulate policy responses.</p>
+<p>Nevo and Whinston’s example of a retrospective study is Peters (2006) on airline mergers. On the methods map, this approach appears as “Reduced-form estimates as model targets” and “Out-of-sample validation.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-to-think-about-when-using-a-structural-model" class="slide level2">
+<h2>What to think about when using a structural model</h2>
+<ul>
+<li><strong>The question:</strong> does it require a model? Name the reason: feedback, a new policy, welfare, or distribution</li>
+<li><strong>The parameters:</strong> which ones does the model recover, and what variation identifies each one?</li>
+<li><strong>The assumptions:</strong> which ones drive the counterfactual, and how do results change under alternatives?</li>
+<li><strong>The reduced-form evidence:</strong> what credible estimate supports the model?</li>
+<li><strong>The validation:</strong> does the model predict outcomes not used to estimate it?</li>
+</ul>
+<aside class="notes">
+<p>Students whose proposal is reduced form can use the first question to explain why their design answers the question without a model, and to name one counterfactual the design does not answer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-athey2017state" class="csl-entry" role="listitem">
-Athey, Susan, and Guido W. Imbens. 2017. <span>“The State of Applied Econometrics: Causality and Policy Evaluation.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 3–32. <a href="https://doi.org/10.1257/jep.31.2.3">https://doi.org/10.1257/jep.31.2.3</a>.
-</div>
 <div id="ref-bellemare2020applied" class="csl-entry" role="listitem">
 Bellemare, Marc F. 2020. <em>How to Write Applied Papers in Economics</em>. Working paper, University of Minnesota.
+</div>
+<div id="ref-berry1994estimating" class="csl-entry" role="listitem">
+Berry, Steven T. 1994. <span>“Estimating Discrete-Choice Models of Product Differentiation.”</span> <em>RAND Journal of Economics</em> 25 (2): 242–62. <a href="https://doi.org/10.2307/2555829">https://doi.org/10.2307/2555829</a>.
+</div>
+<div id="ref-blp1995automobile" class="csl-entry" role="listitem">
+Berry, Steven, James Levinsohn, and Ariel Pakes. 1995. <span>“Automobile Prices in Market Equilibrium.”</span> <em>Econometrica</em> 63 (4): 841–90. <a href="https://doi.org/10.2307/2171802">https://doi.org/10.2307/2171802</a>.
+</div>
+<div id="ref-conlon2020pyblp" class="csl-entry" role="listitem">
+Conlon, Christopher, and Jeff Gortmaker. 2020. <span>“Best Practices for Differentiated Products Demand Estimation with <span>PyBLP</span>.”</span> <em>RAND Journal of Economics</em> 51 (4): 1108–61. <a href="https://doi.org/10.1111/1756-2171.12352">https://doi.org/10.1111/1756-2171.12352</a>.
 </div>
 <div id="ref-nevo2000practitioner" class="csl-entry" role="listitem">
 Nevo, Aviv. 2000. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
 </div>
+<div id="ref-nevo2001cereal" class="csl-entry" role="listitem">
+Nevo, Aviv. 2001. <span>“Measuring Market Power in the Ready-to-Eat Cereal Industry.”</span> <em>Econometrica</em> 69 (2): 307–42. <a href="https://doi.org/10.1111/1468-0262.00194">https://doi.org/10.1111/1468-0262.00194</a>.
+</div>
 <div id="ref-nevo2010dogma" class="csl-entry" role="listitem">
 Nevo, Aviv, and Michael D. Whinston. 2010. <span>“Taking the Dogma Out of Econometrics: Structural Modeling and Credible Inference.”</span> <em>Journal of Economic Perspectives</em> 24 (2): 69–82. <a href="https://doi.org/10.1257/jep.24.2.69">https://doi.org/10.1257/jep.24.2.69</a>.
+</div>
+<div id="ref-timmins2009reduced" class="csl-entry" role="listitem">
+Timmins, Christopher, and Wolfram Schlenker. 2009. <span>“Reduced-Form Versus Structural Modeling in Environmental and Resource Economics.”</span> <em>Annual Review of Resource Economics</em> 1: 351–80. <a href="https://doi.org/10.1146/annurev.resource.050708.144119">https://doi.org/10.1146/annurev.resource.050708.144119</a>.
 </div>
 </div>
 </section>
 <section id="course-navigation" class="slide level2">
 <h2>Course navigation</h2>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html" target="_blank" rel="noopener">Empirical strategy checklist</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html" target="_blank" rel="noopener">Methods map</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/cereal-demand-demo.html" target="_blank" rel="noopener">Cereal demand demo</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture6.2.pdf">Download this lecture as a PDF</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -1,9 +1,11 @@
 ---
-title: "Lecture 6.2: Causality and Policy Evaluation"
+title: "Lecture 6.2: Structural Models"
 subtitle: "AREC 570 / ECON 530 · Unit 6"
 author: "Lauren Chenarides"
 lecture: "6.2"
 order: 602
+pdf: lecture6.2.pdf
+description: "Distinguish reduced-form from structural approaches, decide when a paper needs an economic model, and report what a structural section must state, using BLP demand as the example"
 format:
   revealjs:
     theme: ../styles.scss
@@ -16,7 +18,7 @@ format:
     navigation-mode: linear
     controls: true
     progress: true
-    scrollable: true
+    scrollable: false
     auto-stretch: false
     code-overflow: wrap
     footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
@@ -24,15 +26,35 @@ format:
     pdf-separate-fragments: false
     citations-hover: true
     html-math-method: mathml
-description: "Assess RD, difference-in-differences, synthetic controls, and credibility checks."
 ---
 
-## Before class
+## Before class {.dense}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Assigned**
 
 - Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference” [@nevo2010dogma]
 - Nevo, “A Practitioner's Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) [@nevo2000practitioner]
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+:::
+
+::: {.column width="50%"}
+**Also used in these slides**
+
+- Timmins and Schlenker, from Lecture 6.1 [@timmins2009reduced]
+- Bellemare, on notation [@bellemare2020applied]
+- BLP demand: @berry1994estimating; @blp1995automobile; @nevo2001cereal
+- Conlon and Gortmaker, on best practices and PyBLP [@conlon2020pyblp]
+:::
+
+::::
+
+::: notes
+Timing for 75 minutes: 5 minutes on notation, 25 minutes on reduced-form and structural approaches, 25 minutes on BLP, 10 minutes on the cereal results, and 10 minutes on using a structural model.
+:::
 
 ## Latin letters mark what you observe; Greek letters mark what you estimate
 
@@ -43,9 +65,13 @@ Readings and course handouts are available on [Canvas](https://colostate.instruc
 
 - Latin letters are the letters of the English alphabet
 - Fixed effects are parameters, so they get Greek letters: $\gamma_c$, $\delta_t$
-- A reader who sees a Greek letter knows it is estimated, not measured
+- A Greek letter tells the reader the term is estimated
 
 Source: @bellemare2020applied, Section 5.1.
+
+::: notes
+Check the equation you wrote at the end of Lecture 6.1 against this slide and the next one.
+:::
 
 ## Subscripts tell the reader the level at which each term varies
 
@@ -55,156 +81,393 @@ $$
 
 - One letter per dimension, used the same way throughout the paper: $c$ county, $s$ state, $t$ year
 - Order from the smallest unit to the largest, with time last
-- A term carries only the subscripts it varies over: a state policy is $P_{st}$, not $P_{cst}$
+- A term carries only the subscripts it varies over: a state policy is $P_{st}$
 - A fixed effect's subscript says what it holds constant: $\gamma_c$ county, $\delta_t$ year
 - The outcome's subscripts state the unit of observation: a county in a year
 
 ::: notes
-Smallest to largest is Bellemare's rule. Time last is a common convention rather than a rule from the reading.
+Smallest to largest is Bellemare's rule. Time last is a common convention.
 
 The subscript on the treatment also tells the reader where the identifying variation is. In this example the policy varies by state and year, which is also a natural starting point for the clustering level.
 :::
 
-## Separate the target from the tool
+# Reduced-form and structural approaches
 
-- **Estimand:** the quantity we want to learn.
-- **Estimator:** the rule used to estimate it from data.
-- **Estimate:** the numerical result in our sample.
+## A structural model recovers the parameters of behavior
 
-Example: an average treatment effect, a difference-in-means estimator, and its estimated value.
+- Timmins and Schlenker's definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures
+- It starts from a theoretical model and states what the researcher can and cannot observe
+- What cannot be observed becomes a structural error, backed out of observed behavior
+- The parameters are estimated with a procedure such as GMM or maximum likelihood
 
-## What creates a credible comparison?
-
-For every design, ask:
-
-1. Who is compared with whom?
-2. What creates the difference in treatment?
-3. What must be true of the untreated counterfactual?
-4. To which population does the result apply?
-
-Source: @athey2017state.
-
-## Regression discontinuity
-
-Treatment changes at a threshold in a running variable.
-
-- Compare observations close to the cutoff.
-- Ask whether other determinants of the outcome change smoothly.
-- Check for manipulation and other policies at the same threshold.
-- Interpret the effect locally.
-
-## Sharp and fuzzy designs
-
-- **Sharp RD:** treatment status changes deterministically at the threshold.
-- **Fuzzy RD:** the probability of treatment changes.
-
-In a fuzzy design, divide the outcome discontinuity by the treatment discontinuity, with additional assumptions for a local causal interpretation.
-
-A weak treatment discontinuity makes inference difficult.
-
-## Discussion: summer school
-
-The source example assigns summer school using a test-score threshold.
-
-- Identify the running variable, cutoff, treatment, and outcome.
-- Why compare students close to the cutoff?
-- Could students or schools influence their position?
-- What would limit generalization to all students?
-
-## Difference-in-differences
-
-$$
-\hat\tau =
-(\bar Y_{T,\mathrm{post}}-\bar Y_{T,\mathrm{pre}})
--
-(\bar Y_{C,\mathrm{post}}-\bar Y_{C,\mathrm{pre}})
-$$
-
-The comparison group supplies a counterfactual change.
-
-The key assumption concerns **parallel untreated trends**, not identical outcome levels.
-
-## Assess the DiD argument
-
-- Why should untreated trends be comparable?
-- Are there anticipatory responses?
-- Did another policy change at the same time?
-- Did group composition change?
-- Could treatment spill over to the comparison group?
-
-Similar pre-trends are useful evidence, not proof of the identifying assumption.
-
-## Synthetic control
-
-Construct a weighted comparison from untreated units.
-
-- Choose weights using pre-intervention information.
-- Assess pre-intervention fit.
-- Examine the post-intervention gap.
-- Investigate donor contamination and sensitivity.
-
-A close pre-treatment fit does not by itself establish causality.
-
-## Discussion: choose a design
-
-A policy begins in one region, with several years of data before and after.
-
-- What would support DiD?
-- What would make synthetic control attractive?
-- Would a threshold design be available?
-- Which additional institutional information do you need?
-
-Do not select a method only because software can estimate it.
-
-## Placebos probe specific threats
-
-A placebo asks whether the design finds an effect where the proposed mechanism predicts none.
-
-Examples:
-
-- A false treatment date before the intervention.
-- An outcome that should not respond.
-- Predetermined characteristics at an RD cutoff.
-
-Explain why each placebo is informative.
+Source: @timmins2009reduced, Section 2.
 
 ::: notes
-Preserves the lottery example from source slide 38: compare large and small prize winners, then ask whether future winnings predict pre-treatment earnings. For RD, examine discontinuities in predetermined covariates rather than requiring unconditional independence from treatment.
+Nevo and Whinston's definition is close (page 70, footnote 1): "an economic behavioral model that defines the relationship between exogenous and endogenous variables, both observed and unobserved by the researcher." They distinguish this from the econometrics textbook meaning of "structural."
+
+Link to Unit 4: the conceptual framework already names agents, choices, objectives, and constraints. A structural paper takes that model to the data and estimates its parameters.
 :::
 
-## Robustness and sensitivity
+## The term "reduced form" has two meanings
 
-Change a justified modeling or design choice and explain what that change tests.
+- **Textbook meaning:** solve a system of equations so the outcome depends only on exogenous variables
+- **Recent meaning:** program evaluation or treatment effects, with attention to how the exogenous variable was assigned
+- The goal is to avoid as many structural assumptions as possible
+- Reduced-form studies still require assumptions of their own
 
-- Alternative bandwidth.
-- Alternative comparison group.
-- Alternative measurement.
-- Alternative functional form.
+The designs from Lecture 6.1 are reduced form in the recent sense: fixed effects, quasi-experiments, regression discontinuity, and randomization.
 
-Report informative disagreements. Avoid searching for a specification that preserves a preferred result.
+Source: @timmins2009reduced, Section 3.
 
-## Discussion: the reading's credibility checks
+::: notes
+Timmins and Schlenker's example of the textbook meaning: demand and supply both depend on price; the reduced form eliminates price and writes equilibrium quantity as a function of the demand and supply shifters.
 
-Choose one recommendation from Athey and Imbens.
+Where the climate designs from 6.1 fit: the panel weather model and long differences are reduced form in the recent sense. The Ricardian model estimates a hedonic-style relationship with an economic argument behind it; the methods map places it between the two.
+:::
 
-- Which identifying assumption does it probe?
-- What result would reduce your confidence?
-- What can the check not establish?
-- How would you report a failure?
+## The two approaches differ in what they estimate and what they assume {.dense}
 
-## Workshop: a credibility checklist
+| | Reduced form | Structural |
+|---|---|---|
+| **Estimates** | High-level response parameters, such as the effect of a policy | Behavioral parameters, such as preferences and costs |
+| **Credibility comes from** | The source of variation | The source of variation and the economic model |
+| **Best suited to** | Establishing causality for a change in the data | Feedback loops, large policy changes, and welfare |
+| **Main assumptions** | How treatment was assigned | Functional form, the distribution of unobservables, and behavior |
+| **Main limit** | Harder to extend to changes not observed | Conclusions depend on the model being right |
 
-For your design, propose:
+Source: @timmins2009reduced, Sections 1 and 4.
 
-1. One placebo.
-2. One sensitivity analysis.
-3. One external-validity limitation.
+::: notes
+Ask: for your proposal, which row is the deciding one?
 
-State the threat each item addresses.
+Timmins and Schlenker say each approach "may be better suited to answering particular types of questions." The choice follows from the question.
+:::
 
-## Before you leave
+## Structural models are used for feedback effects, new policies, and welfare
 
-Describe a result that would make you abandon or substantially revise your preferred design.
+- **Feedback loops:** people and firms re-optimize, and markets re-equilibrate
+- **Large or new policies:** the change has not happened, or not at this scale
+- **Welfare:** effects are converted to dollars through a utility function
+- **Who bears the cost:** heterogeneity in preferences changes the distributional answer
+- **Unintended consequences:** simulate the world with one piece of the policy turned off
+
+Source: @timmins2009reduced, Section 2.1.
+
+::: notes
+Examples from Timmins and Schlenker for each point, if students ask.
+
+Who bears the cost: Jacobsen (2008) models fuel-economy standards together with the used-car market and finds the cost falls on poorer households who buy used cars.
+
+Unintended consequences: Ryan (2006) models entry in the cement industry and finds the 1990 Clean Air Act Amendments raised sunk entry costs, which reduced competition and left consumers worse off while incumbent firms gained.
+
+Link to the methods map: these are the methods at the top of the map, where the outcome is not in the data.
+:::
+
+## Structural analysis recovers parameters, then simulates counterfactuals
+
+1. Match observed behavior to a theoretical model to recover parameters such as preferences and technology
+2. Use the model to predict responses to changes, assuming those parameters are unchanged
+
+Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed. Timmins and Schlenker conclude that the most convincing evidence comes from contrasting approaches.
+
+Sources: @nevo2010dogma, pages 70 to 71; @timmins2009reduced, Section 4.
+
+::: notes
+Nevo and Whinston: "Structural analysis is not a substitute for credible inference. Quite to the contrary, in general, structural analysis and credible identification are complements." The second step is the extrapolation that a treatment effect alone does not provide.
+
+The complement runs both ways. Timmins and Schlenker note that reduced-form estimates of a response can be used inside a structural model to simulate policy. We return to this at the end of the lecture.
+:::
+
+## Merger analysis shows what each approach can and cannot answer {.dense}
+
+| | Treatment effect of a past merger | Merger simulation |
+|---|---|---|
+| **Method** | Compare prices near and far from the merging firms, before and after | Estimate demand and pricing, then simulate joint pricing |
+| **Strength** | Clear identification for that merger | Predicts a proposed merger, with welfare |
+| **Limit** | Other mergers may not be similar; no welfare measure | Holds products, firms, and pricing behavior fixed; instruments are often imperfect |
+
+Nevo and Whinston's conclusion: each is useful in some cases and fails in others, depending on the question and the data.
+
+Source: @nevo2010dogma, pages 73 to 77.
+
+::: notes
+The treatment-effect example is Hastings (2004) on the ARCO acquisition of Thrifty gasoline stations. Nevo and Whinston call it careful design, then ask what it says about a merger of two large branded firms, or a merger in another region.
+
+Their conclusion on page 80: "the future of econometrics and applied microeconomic work is in combining careful design, credible inference, robust estimation methods, and thoughtful modeling."
+
+Transition: merger simulation is one use of a structural model. The next slide shows the range of models students will see.
+:::
+
+## Types of structural models you may see {.dense}
+
+| Topic | Structural models | What they recover |
+|---|---|---|
+| Consumer demand | Demand systems (AIDS, QUAIDS); discrete choice (logit to BLP) | Elasticities, substitution, welfare |
+| Nonmarket values | Hedonic; Ricardian; travel cost; choice experiments | Willingness to pay |
+| Producers | Production, cost, and profit functions; stochastic frontier | Returns to scale, efficiency |
+| Firms and markets | Conduct and markups; equilibrium displacement | Markups, pass-through, incidence |
+| Dynamics and risk | Real options; dynamic discrete choice; risk preferences and insurance demand | Value of waiting, risk aversion |
+| Trade and policy | Structural gravity; spatial equilibrium; CGE | Trade costs, economy-wide effects |
+
+: {tbl-colwidths="[20,50,30]"}
+
+Each method has an example specification on the [methods map](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}.
+
+::: notes
+These are the structural methods on the methods map, grouped by what the paper studies. Students should find the row closest to their proposal. Each point on the map opens a card with an example specification, what it estimates, its key assumptions, and how it is estimated.
+
+Transition: BLP is one row of this table. We use it to show how a structural paper works.
+:::
+
+# BLP: one structural model
+
+## A structural section states the same four choices as any empirical section
+
+| Choice | In a structural paper |
+|---|---|
+| **Model** | The primitives: preferences, technology, and how agents interact |
+| **Estimation and inference** | The estimator in one paragraph, with details in an appendix |
+| **Identification** | Which variation identifies which parameter |
+| **Reported results** | Fit or validation, and the counterfactuals the model is used for |
+
+The order matches Lecture 6.1. The [methods map](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"} has the details, including the steps of BLP estimation.
+
+::: notes
+This is the one slide drawn from the methods map's "Four choices" section. The next slides go through these four choices for BLP. BLP is one structural model; the choices apply to all of them, from demand systems to dynamic models.
+:::
+
+## BLP addresses the large number of cross-price effects in differentiated-product demand
+
+- With 100 products, a log-log demand system has at least 10,000 parameters
+- BLP describes each product by its characteristics, so the number of parameters depends on the number of characteristics
+- It uses market-level data on prices and quantities, and it allows for endogenous prices
+- **Running question:** how much would prices rise if two cereal firms merged?
+
+Sources: @nevo2000practitioner, pages 514 to 515; @blp1995automobile.
+
+::: notes
+BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles. Nevo applies the method to ready-to-eat cereal [-@nevo2001cereal]. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.
+:::
+
+## Model: each consumer chooses the product that gives the highest utility {.dense}
+
+$$
+u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
+$$
+
+- $u_{ijt}$: utility of consumer $i$ from product $j$ in market $t$ (a city in a quarter)
+- $y_i$: income; $p_{jt}$: price; $x_{jt}$: observed characteristics, such as sugar content
+- $\xi_{jt}$: characteristics the researcher does not observe, such as brand quality or promotions
+- $\alpha_i$, $\beta_i$: tastes that vary across consumers with demographics and unobserved traits
+- $\varepsilon_{ijt}$: a mean-zero shock; consumers can also buy nothing (the outside good)
+
+Summing individual choices gives each product's predicted market share. The data are the observed shares.
+
+Source: @nevo2000practitioner, pages 517 to 520.
+
+::: notes
+The parameters of interest are the taste parameters. Everything the paper reports (elasticities, markups, welfare) is computed from them.
+
+Latin letters are data, Greek letters are estimated. $\xi_{jt}$ is Greek because it is never observed: it is the structural error in Timmins and Schlenker's definition, backed out of observed shares.
+:::
+
+## Estimation: invert shares to recover the unobserved term, then use GMM
+
+In plain logit, where tastes do not vary, shares invert to a linear regression:
+
+$$
+\ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+$$
+
+- $s_{jt}$: market share of product $j$; $s_{0t}$: share of the outside good
+- This is a linear instrumental-variables regression [@berry1994estimating]
+- With random coefficients, the same idea is solved numerically for each guess of the taste parameters
+- The estimator is GMM: instruments must be uncorrelated with $\xi_{jt}$
+
+In a paper, this gets one paragraph. The steps go in an appendix.
+
+::: notes
+This is the only slide on the algorithm. The methods map walks through it step by step for anyone who needs it.
+
+Inference: report GMM standard errors for the parameters, and standard errors for the quantities the paper is about, such as elasticities.
+:::
+
+## The appendix reports how the model was solved {.dense}
+
+| Same model, same data | Mean price coefficient | Mean own-price elasticity |
+|---|---:|---:|
+| Replication of the published estimates | −32.4 | −3.70 |
+| Tighter optimizer tolerance | −62.7 | −3.62 |
+| Best practices | −27.5 | −3.69 |
+
+- Report the optimizer, tolerances, starting values, and integration method
+- Try several optimizers and starting values, and check that they agree
+- Report the quantities that matter for the question, because individual coefficients can move a lot
+
+Source: @conlon2020pyblp, Table 7.
+
+::: notes
+Conlon and Gortmaker re-estimate Nevo's model on his simulated data. Changing one optimizer setting (the gradient tolerance from 1E-4 to 1E-5) nearly doubles the price coefficient, while the elasticity barely moves. "Best practices" adds further changes, including a tighter tolerance and better approximations to the instruments.
+
+They also find that with these practices, estimates are stable across starting values and optimizers, which is better news than earlier work suggested [Knittel and Metaxoglou, 2014, as discussed in @conlon2020pyblp].
+:::
+
+## Identification of the price coefficient: price is endogenous, so it needs instruments {.dense}
+
+- Price is an equilibrium outcome: firms set markups knowing demand, so $p_{jt}$ is correlated with $\xi_{jt}$
+- OLS biases the price coefficient toward zero, because high-$\xi_{jt}$ products have both higher prices and higher shares
+- Identification requires instruments $Z_{jt}$ that shift price and satisfy $E[\xi_{jt} \mid Z_{jt}] = 0$
+
+| Instrument | Why it moves price | Exclusion restriction |
+|---|---|---|
+| Cost shifters | Shift marginal cost | Uncorrelated with demand shocks |
+| Characteristics of rival products (BLP) | Close rivals lower markups | Product characteristics are set before demand shocks are realized |
+| Prices of the same brand in other markets (Hausman) | Same brand shares marginal cost across markets | Demand shocks are independent across markets |
+
+: {tbl-colwidths="[32,30,38]"}
+
+Source: @nevo2000practitioner, pages 528 and 534 to 536.
+
+::: notes
+This is the classic supply and demand identification problem: to trace out a demand curve, you need variation that shifts supply and leaves demand unchanged. The instruments play that role. It is the same endogeneity as the veterans DAG in Lecture 6.1: $\xi_{jt}$ is in the error term and also affects the treatment, here price.
+
+Nevo's threat to the Hausman instrument: a finding that fiber may reduce the risk of cancer raises demand for high-fiber cereals in every city, so demand shocks are correlated across markets. Coordinated advertising across city borders would also violate the restriction. Nevo says resolving this requires comparing sets of instruments, additional data, and knowledge of the industry.
+
+Nevo and Whinston (page 76) say that in many cases the instruments are less than ideal. State that limitation in the section.
+:::
+
+## Identification of substitution patterns: taste parameters need variation across markets
+
+- Plain logit implies substitution proportional to market shares (independence of irrelevant alternatives)
+- Random coefficients let substitution depend on product characteristics
+- The taste distribution is identified by how shares respond across markets with different choice sets, characteristics, and prices
+- Parameters linking tastes to demographics are identified by variation in the distribution of demographics across markets
+- Identification improves with more markets and more variation in the set of products
+
+Source: @nevo2000practitioner, pages 523 and 529 to 530.
+
+::: notes
+Nevo's cereal example (page 523): Lucky Charms and Cap'n Crunch are both children's cereals and Grape Nuts is a nutrition cereal. If Cap'n Crunch and Grape Nuts have similar shares, plain logit says a rise in the price of Lucky Charms raises both shares by the same amount. We expect more consumers to switch to Cap'n Crunch.
+
+His three-product example (page 529): products A and B are similar, and B and C have the same market share. When the price of A rises, plain logit predicts equal increases in the shares of B and C. The relative change in the two shares identifies the parameters that govern the distribution of tastes.
+
+This is what "state which variation identifies which parameter" means in a structural paper.
+:::
+
+## Reported results: state what the counterfactual holds fixed, and how you validated the model
+
+- Merger simulation: set the prices of the merging firms jointly and solve for new prices
+- Report results under a range of assumptions
+- State what is held fixed: current merger simulations hold products, firms, and pricing behavior fixed
+- Validate the model: check that it predicts outcomes not used to estimate it
+
+Sources: @nevo2010dogma, pages 75 to 77; @timmins2009reduced, Section 2.
+
+::: notes
+Nevo and Whinston give the validation example: Peters (2006) compares merger simulations with what actually happened after airline mergers and finds the simulations missed the size of several price changes. Retrospective studies are how the two approaches check each other.
+
+Timmins and Schlenker suggest estimating with a subset of the data and checking the model's ability to predict behavior in the rest.
+:::
+
+# Demo: cereal results
+
+## Demo: estimating cereal demand in steps, then simulating a merger
+
+- **Data:** Nevo's simulated cereal data, 24 products in 94 markets (47 cities, 2 quarters)
+- Nevo: the data are "not real and should not be used for any analysis," so the numbers here illustrate the method
+- **Steps:** plain logit by OLS, add product fixed effects, add instruments, add random coefficients, simulate a merger of firms 1 and 2
+- **Software:** PyBLP in Python; the script runs in under a minute
+
+[Open the cereal demand demo](https://laurenchenarides.github.io/csu-arec-570/files/cereal-demand-demo.html){target="_blank" rel="noopener"}
+
+Sources: @nevo2000practitioner, page 538; @conlon2020pyblp.
+
+::: notes
+We read the results in class. The demo page shows the code and output for each step, and it links to the script for students who want to run it.
+
+Firms 1 and 2 are the two largest firms in the simulated data, with about 75 percent of sales.
+:::
+
+## Product fixed effects triple the price coefficient, because quality was omitted
+
+| Specification (plain logit) | Price coefficient |
+|---|---:|
+| OLS, no product fixed effects | −10.1 |
+| OLS, product fixed effects | −29.0 |
+| Instrumental variables, product fixed effects | −30.0 |
+
+- Better cereals cost more, so without fixed effects a high price partly signals high quality
+- Product fixed effects absorb a product's fixed quality, which is part of $\xi_{jt}$
+- In these simulated data, the instruments change little once fixed effects are included
+
+::: notes
+This is the selection problem from Lecture 6.1 in a demand setting: price and unobserved quality move together, so the comparison across products mixes the effect of price with the effect of quality.
+
+The small change from adding instruments is a feature of these simulated data. Instruments address the part of $\xi_{jt}$ that varies within a product across markets, and in real data that part can be large.
+:::
+
+## Two models with the same own-price elasticity give different merger predictions
+
+| | Plain logit | Random coefficients |
+|---|---:|---:|
+| Median own-price elasticity | −3.65 | −3.61 |
+| Largest rival response ÷ smallest | 1.0 | 6.2 |
+| Median price change, merging firms | 5.8% | 11.6% |
+| Median price change, other firms | 0.1% | 0.4% |
+| Change in consumer surplus | −11.6% | −13.6% |
+
+The counterfactual depends on how the model lets consumers substitute, which is an assumption the section has to state and defend.
+
+::: notes
+Row two: when one product's price rises, plain logit makes every rival respond in the same proportion (ratio of 1). With random coefficients, the most affected rival responds about 6 times as much as the least affected, in the median case, in one market.
+
+Why the merger result doubles: merging firms raise prices more when their products are close substitutes for each other, because more of the lost sales stay within the merged firm. Plain logit cannot represent that closeness.
+
+The takeaway for writing: two models can fit one summary statistic and still disagree on the counterfactual. That is why a structural section states its assumptions and reports results under alternatives.
+:::
+
+# Using a structural model
+
+## A structural section reports five items
+
+1. The model's primitives
+2. Which variation identifies which parameter
+3. The estimator in one paragraph, with details in an appendix
+4. How well the model fits or validates
+5. The counterfactuals it is used for
+
+This is row 10 of the [empirical strategy checklist](https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html){target="_blank" rel="noopener"}.
+
+::: notes
+Each item maps to a slide in the BLP section: model, the two identification slides, estimation, and reported results.
+:::
+
+## Pairing reduced-form evidence with a structural model is good practice
+
+- A credible design shows that the response exists in the data
+- Reduced-form estimates can serve as inputs to the model or as targets it must reproduce
+- Retrospective studies check the accuracy of model predictions
+- Reporting why the approaches agree or disagree gives the reader more confidence than either one alone
+
+Sources: @timmins2009reduced, Sections 1 and 4; @nevo2010dogma, page 77.
+
+::: notes
+Timmins and Schlenker: "the most convincing evidence stems from contrasting various approaches." They give the example of reduced-form estimates of the effect of amenities on infant health or crop yields being used in structural models to simulate policy responses.
+
+Nevo and Whinston's example of a retrospective study is Peters (2006) on airline mergers. On the methods map, this approach appears as "Reduced-form estimates as model targets" and "Out-of-sample validation."
+:::
+
+## What to think about when using a structural model
+
+- **The question:** does it require a model? Name the reason: feedback, a new policy, welfare, or distribution
+- **The parameters:** which ones does the model recover, and what variation identifies each one?
+- **The assumptions:** which ones drive the counterfactual, and how do results change under alternatives?
+- **The reduced-form evidence:** what credible estimate supports the model?
+- **The validation:** does the model predict outcomes not used to estimate it?
+
+::: notes
+Students whose proposal is reduced form can use the first question to explain why their design answers the question without a model, and to name one counterfactual the design does not answer.
+:::
 
 ## References {.smaller}
 
@@ -213,6 +476,10 @@ Describe a result that would make you abandon or substantially revise your prefe
 
 ## Course navigation
 
-- [All lectures](lectures.qmd)
-- [Schedule and preparation](../2026/schedule.qmd)
-- [Course reading list](../2026/readings.qmd)
+- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
+- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
+- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)
+- [Empirical strategy checklist](https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html){target="_blank" rel="noopener"}
+- [Methods map](https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html){target="_blank" rel="noopener"}
+- [Cereal demand demo](https://laurenchenarides.github.io/csu-arec-570/files/cereal-demand-demo.html){target="_blank" rel="noopener"}
+- [Download this lecture as a PDF](https://laurenchenarides.github.io/csu-arec-570/lectures/lecture6.2.pdf)
