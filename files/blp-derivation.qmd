@@ -1,0 +1,210 @@
+---
+title: "From Utility to the BLP Estimating Equation"
+subtitle: "AREC 570 / ECON 530 · Notes for Lecture 6.2"
+author: "Lauren Chenarides"
+format:
+  html:
+    toc: true
+    toc-title: "Steps"
+    html-math-method: mathml
+---
+
+These notes derive the estimating equation in [Lecture 6.2](../lectures/lecture6.2.qmd){target="_blank" rel="noopener"} one step at a time. They start from the utility function on the Model slide and end at the equation on the estimation slides. The notation follows @nevo2000practitioner.
+
+## Step 1: the utility function
+
+Consumer $i$ in market $t$ gets this utility from product $j$:
+
+$$
+u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
+$$
+
+| Term | Meaning |
+|---|---|
+| $y_i$ | Income of consumer $i$ |
+| $p_{jt}$ | Price of product $j$ in market $t$ |
+| $\alpha_i$ | Marginal utility of income for consumer $i$ |
+| $x_{jt}$ | Characteristics the researcher observes, such as sugar content |
+| $\beta_i$ | Consumer $i$'s tastes for those characteristics |
+| $\xi_{jt}$ | Characteristics the researcher does not observe, such as brand quality or promotions |
+| $\varepsilon_{ijt}$ | A shock specific to this consumer and product |
+
+Economists call this a conditional indirect utility: the highest utility the consumer can reach, given that the consumer buys product $j$.
+
+## Step 2: why income minus price
+
+The term $y_i - p_{jt}$ is the money the consumer has left after buying product $j$. That money buys everything else, and each dollar of it is worth $\alpha_i$ units of utility. The term $\alpha_i(y_i - p_{jt})$ is therefore the utility from everything else the consumer can still afford.
+
+Expanding the term shows the two parts:
+
+$$
+\alpha_i(y_i - p_{jt}) = \alpha_i y_i - \alpha_i p_{jt}
+$$
+
+The second part is why a higher price lowers utility. @nevo2000practitioner notes that this form comes from a quasilinear utility function, which has no wealth effects. He calls that reasonable for cereal and unreasonable for cars, and BLP use $\log(y_i - p_{jt})$ for that reason.
+
+## Step 3: the outside good
+
+A consumer can also buy none of the products. This is the outside good, labeled $j = 0$. After the standard normalization, the consumer keeps all income:
+
+$$
+u_{i0t} = \alpha_i y_i + \varepsilon_{i0t}
+$$
+
+## Step 4: where income goes
+
+A consumer picks the option with the highest utility, so only differences in utility across options affect the choice. The term $\alpha_i y_i$ is the same in every option, including the outside good, so it cancels from every difference:
+
+$$
+u_{ijt} - u_{i0t} = -\alpha_i p_{jt} + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt} - \varepsilon_{i0t}
+$$
+
+Income leaves the choice problem as a level. It can still matter through tastes: in the full model, $\alpha_i$ can vary with income, so higher-income consumers can be less sensitive to price. Dropping $\alpha_i y_i$ gives the equivalent form:
+
+$$
+u_{ijt} = -\alpha_i p_{jt} + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}, \qquad u_{i0t} = \varepsilon_{i0t}
+$$
+
+## Step 5: the logit case
+
+The logit model assumes every consumer has the same tastes, so $\alpha_i = \alpha$ and $\beta_i = \beta$. All differences between consumers then come from $\varepsilon_{ijt}$.
+
+Collect everything that is common to all consumers into the mean utility $\delta_{jt}$:
+
+$$
+\delta_{jt} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+$$
+
+Utility becomes $u_{ijt} = \delta_{jt} + \varepsilon_{ijt}$. The outside good has $\delta_{0t} = 0$.
+
+## Step 6: from utility to market shares
+
+The researcher does not see $\varepsilon_{ijt}$, so the model predicts the probability that a consumer picks each option. With many consumers, that probability is the product's market share.
+
+The logit model assumes $\varepsilon_{ijt}$ is independent across products and consumers and follows a Type I extreme value distribution. This assumption gives a closed-form share [@nevo2000practitioner, equation 6]:
+
+$$
+s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k=1}^{J} \exp(\delta_{kt})}, \qquad s_{0t} = \frac{1}{1 + \sum_{k=1}^{J} \exp(\delta_{kt})}
+$$
+
+The 1 in each denominator is $\exp(0)$, the outside good.
+
+::: {.callout-note collapse="true"}
+## Optional: where the share formula comes from
+
+Drop the market subscript and let $A = \sum_{k=0}^{J} \exp(\delta_k)$, which includes the outside good. The Type I extreme value distribution has CDF $F(\varepsilon) = \exp(-e^{-\varepsilon})$ and density $f(\varepsilon) = e^{-\varepsilon}\exp(-e^{-\varepsilon})$.
+
+Product $j$ is chosen when $\delta_j + \varepsilon_j \geq \delta_k + \varepsilon_k$ for every other option $k$. Given $\varepsilon_j = \varepsilon$, this has probability
+
+$$
+\prod_{k \neq j} F(\varepsilon + \delta_j - \delta_k)
+$$
+
+Averaging over $\varepsilon$ and combining the exponents gives
+
+$$
+s_j = \int e^{-\varepsilon} \exp\left(-e^{-\varepsilon} e^{-\delta_j} A\right) d\varepsilon
+$$
+
+Substitute $w = e^{-\varepsilon}$, so $dw = -e^{-\varepsilon} d\varepsilon$ and $w$ runs from 0 to $\infty$:
+
+$$
+s_j = \int_0^\infty \exp\left(-w\, e^{-\delta_j} A\right) dw = \frac{e^{\delta_j}}{A}
+$$
+:::
+
+## Step 7: take logs
+
+The two shares have the same denominator, so dividing cancels it:
+
+$$
+\frac{s_{jt}}{s_{0t}} = \exp(\delta_{jt})
+$$
+
+Taking logs gives the inversion in @berry1994estimating:
+
+$$
+\ln s_{jt} - \ln s_{0t} = \delta_{jt}
+$$
+
+Replacing $\delta_{jt}$ with its definition from Step 5 gives the estimating equation:
+
+$$
+\ln s_{jt} - \ln s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+$$
+
+The left side comes from data on shares. The right side has data on characteristics and prices, parameters to estimate, and $\xi_{jt}$ as the error term. It is a linear regression.
+
+**A numeric check.** Suppose product 1 has a 20 percent share, product 2 has a 30 percent share, and the outside good has 50 percent. Then $\delta_1 = \ln(0.2/0.5) = -0.92$ and $\delta_2 = \ln(0.3/0.5) = -0.51$. Going back through the share formula, $\exp(\delta_1) = 0.4$ and $\exp(\delta_2) = 0.6$, so the denominator is $1 + 0.4 + 0.6 = 2$. The shares are $0.4/2 = 0.2$ and $0.6/2 = 0.3$, which match.
+
+## Step 8: why the regression needs instruments
+
+Firms know $\xi_{jt}$ when they set prices, so $p_{jt}$ and $\xi_{jt}$ are correlated. Price is an endogenous regressor in the equation above, and OLS gives a biased estimate of $\alpha$. Instruments that shift price and are uncorrelated with $\xi_{jt}$ solve this problem, as in any linear instrumental-variables regression.
+
+A reported coefficient on price of $-30.05$ means $\alpha = 30.05$.
+
+## Step 9: random coefficients
+
+The random-coefficients logit returns to tastes that vary. Each consumer's tastes depend on demographics $D_i$ and on unobserved traits $v_i$ [@nevo2000practitioner, equation 2]:
+
+$$
+\begin{pmatrix} \alpha_i \\ \beta_i \end{pmatrix} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} + \Pi D_i + \Sigma v_i
+$$
+
+The mean tastes $\alpha$ and $\beta$ stay in $\delta_{jt}$. The deviation from the mean moves into a consumer-specific term $\mu_{ijt}$:
+
+$$
+u_{ijt} = \delta_{jt} + \mu_{ijt} + \varepsilon_{ijt}
+$$
+
+Conditional on a consumer's tastes, Step 6 still applies. Market shares are the average of those logit probabilities across consumers:
+
+$$
+s_{jt} = \int \frac{\exp(\delta_{jt} + \mu_{ijt})}{1 + \sum_{k=1}^{J} \exp(\delta_{kt} + \mu_{ikt})}\, dP(D, v)
+$$
+
+This integral has no closed form, so the division in Step 7 no longer works. The software approximates it by averaging over a set of simulated consumers, and it finds $\delta_{jt}$ numerically. The logic of the inversion is unchanged: find the mean utilities that make predicted shares equal observed shares.
+
+## Step 10: the estimation loop
+
+For a guess of the parameters in $\Pi$ and $\Sigma$:
+
+1. Compute predicted shares by averaging over simulated consumers.
+2. Find the $\delta_{jt}$ that make predicted shares equal observed shares. BLP's contraction mapping updates each mean utility by the log difference between observed and predicted shares until they match [@nevo2000practitioner, equation 12]:
+
+$$
+\delta_{jt}^{h+1} = \delta_{jt}^{h} + \ln S_{jt} - \ln s_{jt}(\delta^{h})
+$$
+
+3. Run the linear instrumental-variables regression of $\delta_{jt}$ on price and characteristics. The residual is $\xi_{jt}$.
+4. Compute the GMM objective, which measures how far $\xi_{jt}$ is from being uncorrelated with the instruments.
+5. Update the guess and repeat until the objective reaches a minimum.
+
+The logit model is the special case with $\Pi = 0$ and $\Sigma = 0$, where this loop collapses to the single regression in Step 7.
+
+## Step 11: elasticities from the shares
+
+Differentiating the logit share in Step 6 gives the price responses:
+
+$$
+\frac{\partial s_{jt}}{\partial p_{jt}} = -\alpha s_{jt}(1 - s_{jt}), \qquad \frac{\partial s_{jt}}{\partial p_{kt}} = \alpha s_{jt} s_{kt}
+$$
+
+Converting to elasticities gives [@nevo2000practitioner, page 522]:
+
+$$
+\eta_{jjt} = -\alpha p_{jt}(1 - s_{jt}), \qquad \eta_{jkt} = \alpha p_{kt} s_{kt}
+$$
+
+The cross-price elasticity $\eta_{jkt}$ has no $j$ in it. A rise in the price of $k$ moves every rival's share by the same percentage, which is the substitution restriction in the lecture. Random coefficients remove it, because each consumer has a separate $\alpha_i$ and separate choice probabilities [@nevo2000practitioner, page 525]:
+
+$$
+\eta_{jkt} = \frac{p_{kt}}{s_{jt}} \int \alpha_i\, s_{ijt}\, s_{ikt}\, dP(D, v) \quad \text{for } j \neq k
+$$
+
+Two products bought by the same consumers have probabilities $s_{ijt}$ and $s_{ikt}$ that are large together, which raises their cross-price elasticity. The [cereal demand demo](cereal-demand-demo.qmd){target="_blank" rel="noopener"} computes these quantities.
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

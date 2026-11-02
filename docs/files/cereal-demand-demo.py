@@ -1,11 +1,13 @@
 # Cereal demand demo for AREC 570 / ECON 530, Lecture 6.2
 #
-# Estimates demand for ready-to-eat cereal in steps, then simulates a merger.
+# Estimates demand for ready-to-eat cereal in steps, computes what the estimates
+# imply for substitution and costs, then simulates a merger.
 # The data are the simulated ("fake") data from Nevo (2000, Journal of Economics
 # and Management Strategy), which ship with PyBLP (Conlon and Gortmaker 2020).
 # Nevo writes that these data are "not real and should not be used for any
-# analysis." Use them to learn the method, not to learn about cereal.
+# analysis." They are for learning the method.
 #
+# Setup instructions for VS Code are on the demo page.
 # Install once:  pip install pyblp pandas
 # Run:           python cereal-demand-demo.py
 # Run time:      under one minute on a laptop.
@@ -22,12 +24,12 @@ agents = pd.read_csv(pyblp.data.NEVO_AGENTS_LOCATION)
 print(f"Data: {products.market_ids.nunique()} markets, "
       f"{products.product_ids.nunique()} products, {len(products)} rows\n")
 
-# The dependent variable in plain logit: ln(s_jt) - ln(s_0t)
+# The dependent variable in the logit model: ln(s_jt) - ln(s_0t)
 outside_share = 1 - products.groupby("market_ids").shares.transform("sum")
 y = np.log(products.shares) - np.log(outside_share)
 
 # ---------------------------------------------------------------------------
-# Step 1. Plain logit, no product fixed effects, price treated as exogenous
+# Step 1. Logit, no product fixed effects, price treated as exogenous
 # ---------------------------------------------------------------------------
 X = np.column_stack([np.ones(len(products)), products.prices, products.sugar, products.mushy])
 ols_no_fe = np.linalg.lstsq(X, y, rcond=None)[0][1]
@@ -40,12 +42,19 @@ y_within = y - y.groupby(products.product_ids).transform("mean")
 ols_fe = (price_within @ y_within) / (price_within @ price_within)
 
 # ---------------------------------------------------------------------------
-# Step 3. Add instruments for price (the instruments from the original paper)
+# Step 3. Add instruments for price (the instruments from the original paper).
+# The first-stage R-squared shows how much of the within-product variation in
+# price the 20 instrument columns explain.
 # ---------------------------------------------------------------------------
 logit_problem = pyblp.Problem(
     pyblp.Formulation("0 + prices", absorb="C(product_ids)"), products
 )
 logit = logit_problem.solve(method="2s")
+
+instrument_columns = [c for c in products.columns if c.startswith("demand_instruments")]
+Z = products[instrument_columns] - products.groupby("product_ids")[instrument_columns].transform("mean")
+fitted = Z.to_numpy() @ np.linalg.lstsq(Z.to_numpy(), price_within, rcond=None)[0]
+first_stage_r2 = 1 - ((price_within - fitted) ** 2).sum() / (price_within ** 2).sum()
 
 # ---------------------------------------------------------------------------
 # Step 4. Random coefficients: tastes vary with income, age, and children.
@@ -76,33 +85,74 @@ rc = rc_problem.solve(
 )
 
 print("Price coefficient (mean, for random coefficients)")
-print(f"  Plain logit, OLS, no product effects: {ols_no_fe:8.2f}")
-print(f"  Plain logit, OLS, product effects:    {ols_fe:8.2f}")
-print(f"  Plain logit, IV, product effects:     {logit.beta[0, 0]:8.2f}")
-print(f"  Random coefficients:                  {rc.beta[0, 0]:8.2f}\n")
-
+print(f"  Logit, OLS, no product effects:  {ols_no_fe:8.2f}")
+print(f"  Logit, OLS, product effects:     {ols_fe:8.2f}")
+print(f"  Logit, IV, product effects:      {logit.beta[0, 0]:8.2f}"
+      f"  (first-stage R-squared {first_stage_r2:.2f})")
+print(f"  Random-coefficients logit:       {rc.beta[0, 0]:8.2f}\n")
 
 # ---------------------------------------------------------------------------
-# Step 5. Compare what the two models say about substitution and a merger
-# between firms 1 and 2. Compute "before" and "after" with each model.
+# Step 5. What the estimates imply for substitution.
+# Element (j, k) of the elasticity matrix: percent change in the share of j when
+# the price of k rises 1 percent.
+# Element (j, k) of the diversion matrix: share of the sales j loses that go to
+# k. The diagonal holds the share that goes to the outside good.
 # ---------------------------------------------------------------------------
-def rival_ratio(results, market="C01Q1"):
+MARKET = "C01Q1"
+EXAMPLE = "F1B13"
+in_market = products[products.market_ids == MARKET].reset_index(drop=True)
+example = in_market.index[in_market.product_ids == EXAMPLE][0]
+sugary = (in_market.sugar >= 10).to_numpy()
+rivals = np.arange(len(in_market)) != example
+
+
+def rival_ratio(results):
     """When one price rises, how unequal are the responses of rival products?
     Largest rival cross-price elasticity divided by the smallest, median across
     products. A value of 1 means every rival responds in the same proportion."""
-    E = results.compute_elasticities(market_id=market)
+    E = results.compute_elasticities(market_id=MARKET)
     ratios = []
     for j in range(E.shape[1]):
-        rivals = np.delete(E[:, j], j)
-        ratios.append(rivals.max() / rivals.min())
+        responses = np.delete(E[:, j], j)
+        ratios.append(responses.max() / responses.min())
     return float(np.median(ratios))
 
 
+s = in_market.shares[example]
+p = in_market.prices[example]
+print(f"Worked example: {EXAMPLE} in market {MARKET}, 14 grams of sugar")
+print(f"  Share {s:.4f}, price {p:.4f}")
+print(f"  Logit own-price elasticity by hand: {logit.beta[0, 0] * p * (1 - s):.2f}")
+print(f"  Logit cross-price elasticity by hand: {-logit.beta[0, 0] * p * s:.3f}")
+for name, results in [("Logit", logit), ("Random coefficients", rc)]:
+    E = results.compute_elasticities(market_id=MARKET)
+    D = 100 * results.compute_diversion_ratios(market_id=MARKET)[example]
+    print(f"  {name}: own-price elasticity {E[example, example]:.2f}; lost sales go "
+          f"{D[sugary & rivals].sum():.1f}% to sugary rivals, "
+          f"{D[~sugary & rivals].sum():.1f}% to low-sugar rivals, "
+          f"{D[example]:.1f}% to no purchase")
+print()
+
+# ---------------------------------------------------------------------------
+# Step 6. Recover marginal costs from the firms' pricing equations.
+# ---------------------------------------------------------------------------
+old_prices = products.prices.to_numpy()
+print("Marginal cost and margin (median across all rows)")
+for name, results in [("Logit", logit), ("Random coefficients", rc)]:
+    costs = results.compute_costs().flatten()
+    print(f"  {name}: price {np.median(old_prices):.3f}, cost {np.median(costs):.3f}, "
+          f"margin {100 * np.median((old_prices - costs) / old_prices):.1f}%")
+print()
+
+# ---------------------------------------------------------------------------
+# Step 7. Simulate a merger of firms 1 and 2: the merged firm sets the prices of
+# both firms' products, costs and demand stay fixed, and all firms choose new
+# prices. Compare each model's predictions.
+# ---------------------------------------------------------------------------
 merged_firms = products.firm_ids.replace(2, 1).to_numpy()
 merging = products.firm_ids.isin([1, 2]).to_numpy()
-old_prices = products.prices.to_numpy()
 
-print(f"{'':44}{'Logit':>10}{'Random coef.':>14}")
+print(f"{'':48}{'Logit':>8}{'Random coef.':>14}")
 rows = {}
 for name, results in [("Logit", logit), ("RC", rc)]:
     own = results.extract_diagonals(results.compute_elasticities())

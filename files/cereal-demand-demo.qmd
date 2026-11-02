@@ -11,22 +11,56 @@ format:
     html-math-method: mathml
 ---
 
-This demo estimates demand for ready-to-eat cereal in steps, then uses the estimates to simulate a merger. It goes with the BLP section of [Lecture 6.2](../lectures/lecture6.2.qmd){target="_blank" rel="noopener"}. Each step shows the code, the output, and how to read the result.
+This demo estimates demand for ready-to-eat cereal in steps, computes what the estimates imply for substitution and costs, and then simulates a merger. It goes with the BLP section of [Lecture 6.2](../lectures/lecture6.2.qmd){target="_blank" rel="noopener"}. Each step shows the code, the output, and how to read the result. The [derivation notes](blp-derivation.qmd){target="_blank" rel="noopener"} show where the equations come from.
 
-To run it yourself, install the packages once and run the script, which takes under a minute on a laptop:
+The demo compares two models. In the **logit** model, every consumer has the same tastes. In the **random-coefficients logit**, the model in BLP, tastes vary across consumers. Steps 1 to 3 estimate the logit model, Step 4 estimates the random-coefficients logit, and Steps 5 to 7 use both.
 
-```bash
-pip install pyblp pandas
-python cereal-demand-demo.py
-```
+## Run the demo in VS Code
 
-[Download the full script (cereal-demand-demo.py)](cereal-demand-demo.py){target="_blank" rel="noopener"}
+The demo uses PyBLP, a Python package [@conlon2020pyblp], so you need Python in addition to the R setup from Lecture 5.5. You only need Steps 1 to 5 once. The script ran in 34 seconds on a laptop with Python 3.13 and PyBLP 1.3.0 on Windows.
+
+1. **Install Python** from [python.org](https://www.python.org/downloads/){target="_blank" rel="noopener"}. On Windows, check the box "Add python.exe to PATH" in the installer.
+2. **Install the Python extension.** In VS Code, open the Extensions view, search for Python, and install the extension from Microsoft.
+3. **Make a project folder** with a short path, such as `C:\arec570\cereal-demo`, and [download the script](cereal-demand-demo.py){target="_blank" rel="noopener"} into it. Long paths, including many OneDrive folders, can make the install fail on Windows. Then choose **File > Open Folder** in VS Code and open that folder.
+4. **Create a virtual environment.** This is a private set of Python packages for the project. Open a terminal with **Terminal > New Terminal** and run the lines for your computer.
+
+   Windows:
+
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
+
+   Mac:
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+   The terminal prompt now starts with `(.venv)`. If Windows blocks the activate command, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` and try again.
+
+5. **Install the packages:**
+
+   ```bash
+   pip install pyblp pandas
+   ```
+
+6. **Run the script:**
+
+   ```bash
+   python cereal-demand-demo.py
+   ```
+
+   You can also open the script and click the Run button at the top right of the editor. If VS Code asks for an interpreter, choose the one in `.venv`.
+
+If you open a new terminal later, run the activate line again before running the script.
 
 ## The data
 
-The data are the simulated cereal data from @nevo2000practitioner, which ship with PyBLP [@conlon2020pyblp]. Nevo writes that the data are "not real and should not be used for any analysis," so the numbers below illustrate the method and say nothing about actual cereal markets.
+The data are the simulated cereal data from @nevo2000practitioner, which ship with PyBLP. Nevo writes that the data are "not real and should not be used for any analysis," so the numbers below illustrate the method and say nothing about actual cereal markets.
 
-One row is a product in a market, and a market is a city in a quarter. The file holds 24 products in 94 markets (47 cities in 2 quarters), which gives 2,256 rows. Each row records the market share, the price, two characteristics (sugar content and whether the cereal gets soggy in milk, called `mushy`), and the instruments from the original paper. A second file holds simulated consumers, with income, age, and an indicator for children.
+One row is a product in a market, and a market is a city in a quarter. The file holds 24 products in 94 markets (47 cities in 2 quarters), which gives 2,256 rows. Each row records the market share, the price, two characteristics (sugar content and whether the cereal gets soggy in milk, called `mushy`), and 20 columns of instruments. A second file holds simulated consumers, with income, age, and an indicator for children.
 
 ```python
 import numpy as np
@@ -37,7 +71,7 @@ products = pd.read_csv(pyblp.data.NEVO_PRODUCTS_LOCATION)
 agents = pd.read_csv(pyblp.data.NEVO_AGENTS_LOCATION)
 ```
 
-Plain logit turns market shares into a linear regression [@berry1994estimating]. The dependent variable is the log share of each product minus the log share of the outside good (buying no cereal):
+The logit model turns market shares into a linear regression [@berry1994estimating]. The dependent variable is the log share of each product minus the log share of the outside good (buying no cereal):
 
 $$
 \ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
@@ -48,7 +82,7 @@ outside_share = 1 - products.groupby("market_ids").shares.transform("sum")
 y = np.log(products.shares) - np.log(outside_share)
 ```
 
-## Step 1: plain logit by OLS
+## Step 1: logit by OLS
 
 This regression treats price as exogenous and controls only for a constant, sugar, and `mushy`.
 
@@ -79,7 +113,7 @@ The coefficient roughly triples. Better cereals cost more, so in Step 1 a high p
 
 ## Step 3: add instruments for price
 
-PyBLP estimates plain logit by instrumental variables, using the instruments from the original paper.
+This step instruments for price in the logit model. It addresses the endogeneity of price and does not yet involve random coefficients.
 
 ```python
 logit_problem = pyblp.Problem(
@@ -90,9 +124,12 @@ logit = logit_problem.solve(method="2s")
 
 ```text
 Price coefficient: -30.05 (standard error 1.01)
+First-stage R-squared within products: 0.97
 ```
 
-The instruments change the estimate by about 4 percent. That small change is a feature of these simulated data. Instruments address the part of $\xi_{jt}$ that varies within a product across markets, and in real data that part can be large.
+The instruments are the 20 columns named `demand_instruments0` to `demand_instruments19`. The file does not label them. In the real cereal data, @nevo2001cereal uses two kinds of instruments: regional average prices of the same brand in other cities, which share its marginal cost, and proxies for distribution costs, such as city density and earnings in the supermarket sector.
+
+The instruments change the estimate by about 4 percent. That small change is a feature of these simulated data: the 20 columns explain 97 percent of the variation in price within a product, so the instrumented price is close to the actual price. In real data, the instruments can change the estimate by much more.
 
 ## Step 4: add random coefficients
 
@@ -123,18 +160,76 @@ Mean price coefficient: -62.73 (standard error 14.80)
 Optimizer converged after 51 iterations; run time 16 seconds
 ```
 
-This matches the "Tighter Tolerance" column of Table 7 in @conlon2020pyblp. Their table is worth reading alongside this result: with a looser gradient tolerance, the same model on the same data gives a mean price coefficient of -32.4, and their best-practice estimate is -27.5, while the mean own-price elasticity stays between -3.62 and -3.70. Individual coefficients move, so report the optimizer, tolerances, starting values, and integration method in an appendix, along with the quantities that matter for your question.
+This matches the "Tighter Tolerance" column of Table 7 in @conlon2020pyblp. The mean coefficient is not comparable with the logit coefficient on its own, because each consumer's price sensitivity also depends on the interactions with demographics. Their table is worth reading alongside this result: with a looser stopping rule for the optimizer, the same model on the same data gives a mean price coefficient of -32.4, and their best-practice estimate is -27.5, while the mean own-price elasticity stays between -3.62 and -3.70. They report nearly identical elasticities and markups across these runs. Individual coefficients move, partly because the price and income interaction terms are nearly collinear in the data, so report the optimizer, tolerances, starting values, and integration method in an appendix, along with the quantities that matter for your question.
 
-## Step 5: compare the models and simulate a merger
+## Step 5: compute elasticities and substitution
 
-The last step asks what each model implies for substitution, then simulates a merger of firms 1 and 2, the two largest firms in the data (about 75 percent of sales). The simulation recovers each product's marginal cost from the pricing model, assigns the two firms joint ownership, and solves for new prices.
+Coefficients are hard to interpret alone. This step converts them into what the model says about consumers: how demand responds to prices and where lost sales go. Steps 5 and 6 complete the demand results. Step 7 is the simulation.
+
+```python
+E = results.compute_elasticities(market_id="C01Q1")
+D = results.compute_diversion_ratios(market_id="C01Q1")
+```
+
+Each result is a table with one row and one column per product, computed here for market `C01Q1`.
+
+**Elasticities.** The entry for products $j$ and $k$ is the percent change in the share of $j$ when the price of $k$ rises 1 percent. Take product `F1B13` in this market, with a share of 0.0266, a price of 0.1370, and 14 grams of sugar. In the logit model, the formulas in the [derivation notes](blp-derivation.qmd){target="_blank" rel="noopener"} use the coefficient from Step 3:
+
+$$
+\eta_{jj} = -\alpha p_j (1 - s_j) = -30.05 \times 0.1370 \times (1 - 0.0266) = -4.01
+$$
+
+$$
+\eta_{kj} = \alpha p_j s_j = 30.05 \times 0.1370 \times 0.0266 = 0.110
+$$
+
+So a 1 percent rise in this product's price cuts its own share by 4.01 percent and raises the share of every rival by 0.110 percent. The rival's identity does not appear in the formula. With random coefficients, PyBLP computes these derivatives for each simulated consumer and averages them, so rivals can respond differently. The own-price elasticity for this product becomes -4.91.
+
+**Diversion ratios.** A diversion ratio is the share of the sales a product loses that go to each alternative. It is the most direct measure of substitution.
+
+| Where sales lost by `F1B13` go | Logit | Random coefficients |
+|---|---:|---:|
+| 11 sugary rivals (10 grams or more) | 22.7% | 40.5% |
+| 12 low-sugar rivals | 20.2% | 10.0% |
+| No purchase (outside good) | 57.0% | 49.5% |
+
+In the logit model, each rival's diversion equals its share divided by $1 - s_j$, so lost sales follow market shares. With random coefficients, consumers who buy a sugary cereal tend to like sugar, so more of them switch to another sugary cereal.
+
+## Step 6: recover marginal costs
+
+The data have no costs, so the model infers them. Firms set prices to maximize profit, and each firm's first-order condition links its markup to the slopes of demand [@nevo2001cereal]:
+
+$$
+p - mc = \Omega^{-1} s(p)
+$$
+
+Here $p$, $mc$, and $s$ are vectors of prices, marginal costs, and shares. The matrix $\Omega$ contains the demand derivatives from Step 5, with an entry set to zero when two products belong to different firms, because a firm only accounts for lost sales on its own products. Prices and shares are data and $\Omega$ comes from the estimates, so the equation can be solved for $mc$.
+
+```python
+costs = results.compute_costs()
+```
+
+```text
+Logit: median price 0.124, median cost 0.084, median margin 31.6%
+Random coefficients: median price 0.124, median cost 0.081, median margin 33.7%
+```
+
+## Step 7: simulate the merger
+
+The simulation merges firms 1 and 2, the two largest firms in the data (about 75 percent of sales). It holds demand and marginal costs fixed at the values from Steps 4 and 6 and changes one thing: who owns which product.
+
+1. Rewrite $\Omega$ so that products of firms 1 and 2 count as one firm. The merged firm now accounts for sales that move between the two firms' products.
+2. Solve for the new prices $p^{*}$ that satisfy $p^{*} - mc = \Omega_{\text{post}}^{-1}\, s(p^{*})$ for all firms at once.
+3. Compute shares and consumer surplus at the new prices.
 
 ```python
 merged_firms = products.firm_ids.replace(2, 1).to_numpy()
 new_prices = results.compute_prices(firm_ids=merged_firms, costs=results.compute_costs())
 ```
 
-| | Plain logit | Random coefficients |
+## Reading the comparison table
+
+| | Logit | Random coefficients |
 |---|---:|---:|
 | Median own-price elasticity | -3.65 | -3.61 |
 | Largest rival response ÷ smallest | 1.00 | 6.19 |
@@ -142,7 +237,15 @@ new_prices = results.compute_prices(firm_ids=merged_firms, costs=results.compute
 | Median price change, other firms | 0.1% | 0.4% |
 | Change in consumer surplus | -11.6% | -13.6% |
 
-The two models agree on own-price elasticities and differ on the merger. The second row explains why. When one product's price rises, plain logit makes every rival respond in the same proportion, so the ratio is 1. With random coefficients, the most affected rival responds about 6 times as much as the least affected (the median across products, in one market). Merging firms raise prices more when their products are close substitutes, because more of the lost sales stay within the merged firm, and plain logit has no way to represent that closeness.
+Each row is calculated as follows.
+
+- **Median own-price elasticity:** the elasticity of each product with respect to its own price (Step 5), for all 2,256 rows, then the median.
+- **Largest rival response ÷ smallest:** in market `C01Q1`, raise the price of one product and take the cross-price elasticities of its 23 rivals. Divide the largest by the smallest, repeat for each of the 24 products, and report the median. A value of 1.00 means all rivals respond in the same proportion, which the logit formula requires.
+- **Median price change, merging firms:** new price divided by old price, minus 1, for the products of firms 1 and 2 in all markets, then the median.
+- **Median price change, other firms:** the same calculation for the remaining products. Rivals also raise prices, because the merged firm's higher prices shift demand toward them.
+- **Change in consumer surplus:** the expected utility of the best option, converted to dollars by dividing by the marginal utility of income. In the logit model, this is $\ln(1 + \sum_k \exp(\delta_{kt}))/\alpha$. With random coefficients, PyBLP computes it for each simulated consumer and averages. The table reports the percent change in the mean across markets, from old prices to new prices.
+
+The two models agree on own-price elasticities and differ on the merger. The second row explains why. Merging firms raise prices more when their products are close substitutes, because more of the lost sales stay within the merged firm, and the logit model has no way to represent that closeness.
 
 A counterfactual depends on how the model lets consumers substitute. That is an assumption the section has to state, defend, and vary.
 

@@ -204,12 +204,16 @@ div.csl-indent {
     <h2 id="toc-title">Steps</h2>
    
   <ul>
-  <li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data">The data</a></li>
-  <li><a href="#step-1-plain-logit-by-ols" id="toc-step-1-plain-logit-by-ols" class="nav-link" data-scroll-target="#step-1-plain-logit-by-ols">Step 1: plain logit by OLS</a></li>
+  <li><a href="#run-the-demo-in-vs-code" id="toc-run-the-demo-in-vs-code" class="nav-link active" data-scroll-target="#run-the-demo-in-vs-code">Run the demo in VS Code</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
+  <li><a href="#step-1-logit-by-ols" id="toc-step-1-logit-by-ols" class="nav-link" data-scroll-target="#step-1-logit-by-ols">Step 1: logit by OLS</a></li>
   <li><a href="#step-2-add-product-fixed-effects" id="toc-step-2-add-product-fixed-effects" class="nav-link" data-scroll-target="#step-2-add-product-fixed-effects">Step 2: add product fixed effects</a></li>
   <li><a href="#step-3-add-instruments-for-price" id="toc-step-3-add-instruments-for-price" class="nav-link" data-scroll-target="#step-3-add-instruments-for-price">Step 3: add instruments for price</a></li>
   <li><a href="#step-4-add-random-coefficients" id="toc-step-4-add-random-coefficients" class="nav-link" data-scroll-target="#step-4-add-random-coefficients">Step 4: add random coefficients</a></li>
-  <li><a href="#step-5-compare-the-models-and-simulate-a-merger" id="toc-step-5-compare-the-models-and-simulate-a-merger" class="nav-link" data-scroll-target="#step-5-compare-the-models-and-simulate-a-merger">Step 5: compare the models and simulate a merger</a></li>
+  <li><a href="#step-5-compute-elasticities-and-substitution" id="toc-step-5-compute-elasticities-and-substitution" class="nav-link" data-scroll-target="#step-5-compute-elasticities-and-substitution">Step 5: compute elasticities and substitution</a></li>
+  <li><a href="#step-6-recover-marginal-costs" id="toc-step-6-recover-marginal-costs" class="nav-link" data-scroll-target="#step-6-recover-marginal-costs">Step 6: recover marginal costs</a></li>
+  <li><a href="#step-7-simulate-the-merger" id="toc-step-7-simulate-the-merger" class="nav-link" data-scroll-target="#step-7-simulate-the-merger">Step 7: simulate the merger</a></li>
+  <li><a href="#reading-the-comparison-table" id="toc-reading-the-comparison-table" class="nav-link" data-scroll-target="#reading-the-comparison-table">Reading the comparison table</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/laurenchenarides/csu-arec-570/edit/main/files/cereal-demand-demo.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/blob/main/files/cereal-demand-demo.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -243,87 +247,171 @@ div.csl-indent {
 </header>
 
 
-<p>This demo estimates demand for ready-to-eat cereal in steps, then uses the estimates to simulate a merger. It goes with the BLP section of <a href="../lectures/lecture6.2.html" target="_blank" rel="noopener">Lecture 6.2</a>. Each step shows the code, the output, and how to read the result.</p>
-<p>To run it yourself, install the packages once and run the script, which takes under a minute on a laptop:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pyblp pandas</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> cereal-demand-demo.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><a href="cereal-demand-demo.py" target="_blank" rel="noopener">Download the full script (cereal-demand-demo.py)</a></p>
+<p>This demo estimates demand for ready-to-eat cereal in steps, computes what the estimates imply for substitution and costs, and then simulates a merger. It goes with the BLP section of <a href="../lectures/lecture6.2.html" target="_blank" rel="noopener">Lecture 6.2</a>. Each step shows the code, the output, and how to read the result. The <a href="../files/blp-derivation.html" target="_blank" rel="noopener">derivation notes</a> show where the equations come from.</p>
+<p>The demo compares two models. In the <strong>logit</strong> model, every consumer has the same tastes. In the <strong>random-coefficients logit</strong>, the model in BLP, tastes vary across consumers. Steps 1 to 3 estimate the logit model, Step 4 estimates the random-coefficients logit, and Steps 5 to 7 use both.</p>
+<section id="run-the-demo-in-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="run-the-demo-in-vs-code">Run the demo in VS Code</h2>
+<p>The demo uses PyBLP, a Python package <span class="citation" data-cites="conlon2020pyblp">(<a href="#ref-conlon2020pyblp" role="doc-biblioref">Conlon and Gortmaker 2020</a>)</span>, so you need Python in addition to the R setup from Lecture 5.5. You only need Steps 1 to 5 once. The script ran in 34 seconds on a laptop with Python 3.13 and PyBLP 1.3.0 on Windows.</p>
+<ol type="1">
+<li><p><strong>Install Python</strong> from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>. On Windows, check the box “Add python.exe to PATH” in the installer.</p></li>
+<li><p><strong>Install the Python extension.</strong> In VS Code, open the Extensions view, search for Python, and install the extension from Microsoft.</p></li>
+<li><p><strong>Make a project folder</strong> with a short path, such as <code>C:\arec570\cereal-demo</code>, and <a href="cereal-demand-demo.py" target="_blank" rel="noopener">download the script</a> into it. Long paths, including many OneDrive folders, can make the install fail on Windows. Then choose <strong>File &gt; Open Folder</strong> in VS Code and open that folder.</p></li>
+<li><p><strong>Create a virtual environment.</strong> This is a private set of Python packages for the project. Open a terminal with <strong>Terminal &gt; New Terminal</strong> and run the lines for your computer.</p>
+<p>Windows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mac:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The terminal prompt now starts with <code>(.venv)</code>. If Windows blocks the activate command, run <code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code> and try again.</p></li>
+<li><p><strong>Install the packages:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pyblp pandas</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Run the script:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> cereal-demand-demo.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also open the script and click the Run button at the top right of the editor. If VS Code asks for an interpreter, choose the one in <code>.venv</code>.</p></li>
+</ol>
+<p>If you open a new terminal later, run the activate line again before running the script.</p>
+</section>
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The data</h2>
-<p>The data are the simulated cereal data from <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#ref-nevo2000practitioner" role="doc-biblioref">2000</a>)</span>, which ship with PyBLP <span class="citation" data-cites="conlon2020pyblp">(<a href="#ref-conlon2020pyblp" role="doc-biblioref">Conlon and Gortmaker 2020</a>)</span>. Nevo writes that the data are “not real and should not be used for any analysis,” so the numbers below illustrate the method and say nothing about actual cereal markets.</p>
-<p>One row is a product in a market, and a market is a city in a quarter. The file holds 24 products in 94 markets (47 cities in 2 quarters), which gives 2,256 rows. Each row records the market share, the price, two characteristics (sugar content and whether the cereal gets soggy in milk, called <code>mushy</code>), and the instruments from the original paper. A second file holds simulated consumers, with income, age, and an indicator for children.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyblp</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>products <span class="op">=</span> pd.read_csv(pyblp.data.NEVO_PRODUCTS_LOCATION)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>agents <span class="op">=</span> pd.read_csv(pyblp.data.NEVO_AGENTS_LOCATION)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Plain logit turns market shares into a linear regression <span class="citation" data-cites="berry1994estimating">(<a href="#ref-berry1994estimating" role="doc-biblioref">Berry 1994</a>)</span>. The dependent variable is the log share of each product minus the log share of the outside good (buying no cereal):</p>
+<p>The data are the simulated cereal data from <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#ref-nevo2000practitioner" role="doc-biblioref">2000</a>)</span>, which ship with PyBLP. Nevo writes that the data are “not real and should not be used for any analysis,” so the numbers below illustrate the method and say nothing about actual cereal markets.</p>
+<p>One row is a product in a market, and a market is a city in a quarter. The file holds 24 products in 94 markets (47 cities in 2 quarters), which gives 2,256 rows. Each row records the market share, the price, two characteristics (sugar content and whether the cereal gets soggy in milk, called <code>mushy</code>), and 20 columns of instruments. A second file holds simulated consumers, with income, age, and an indicator for children.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyblp</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>products <span class="op">=</span> pd.read_csv(pyblp.data.NEVO_PRODUCTS_LOCATION)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>agents <span class="op">=</span> pd.read_csv(pyblp.data.NEVO_AGENTS_LOCATION)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The logit model turns market shares into a linear regression <span class="citation" data-cites="berry1994estimating">(<a href="#ref-berry1994estimating" role="doc-biblioref">Berry 1994</a>)</span>. The dependent variable is the log share of each product minus the log share of the outside good (buying no cereal):</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
 \ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
 </annotation></semantics></math></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>outside_share <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> products.groupby(<span class="st">"market_ids"</span>).shares.transform(<span class="st">"sum"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.log(products.shares) <span class="op">-</span> np.log(outside_share)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>outside_share <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> products.groupby(<span class="st">"market_ids"</span>).shares.transform(<span class="st">"sum"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.log(products.shares) <span class="op">-</span> np.log(outside_share)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="step-1-plain-logit-by-ols" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-plain-logit-by-ols">Step 1: plain logit by OLS</h2>
+<section id="step-1-logit-by-ols" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-logit-by-ols">Step 1: logit by OLS</h2>
 <p>This regression treats price as exogenous and controls only for a constant, sugar, and <code>mushy</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.column_stack([np.ones(<span class="bu">len</span>(products)), products.prices, products.sugar, products.mushy])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ols_no_fe <span class="op">=</span> np.linalg.lstsq(X, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>][<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.column_stack([np.ones(<span class="bu">len</span>(products)), products.prices, products.sugar, products.mushy])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ols_no_fe <span class="op">=</span> np.linalg.lstsq(X, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>][<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>Price coefficient: -10.12</code></pre>
 </section>
 <section id="step-2-add-product-fixed-effects" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-add-product-fixed-effects">Step 2: add product fixed effects</h2>
 <p>Product fixed effects absorb each product’s fixed quality, which is part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math>. The comparison is now each product with itself across markets.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>price_within <span class="op">=</span> products.prices <span class="op">-</span> products.groupby(<span class="st">"product_ids"</span>).prices.transform(<span class="st">"mean"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y_within <span class="op">=</span> y <span class="op">-</span> y.groupby(products.product_ids).transform(<span class="st">"mean"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ols_fe <span class="op">=</span> (price_within <span class="op">@</span> y_within) <span class="op">/</span> (price_within <span class="op">@</span> price_within)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>price_within <span class="op">=</span> products.prices <span class="op">-</span> products.groupby(<span class="st">"product_ids"</span>).prices.transform(<span class="st">"mean"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y_within <span class="op">=</span> y <span class="op">-</span> y.groupby(products.product_ids).transform(<span class="st">"mean"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ols_fe <span class="op">=</span> (price_within <span class="op">@</span> y_within) <span class="op">/</span> (price_within <span class="op">@</span> price_within)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>Price coefficient: -28.95</code></pre>
 <p>The coefficient roughly triples. Better cereals cost more, so in Step 1 a high price partly signals high quality, and the estimate is biased toward zero. This is the omitted-variable problem from Lecture 6.1 in a demand setting.</p>
 </section>
 <section id="step-3-add-instruments-for-price" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-add-instruments-for-price">Step 3: add instruments for price</h2>
-<p>PyBLP estimates plain logit by instrumental variables, using the instruments from the original paper.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>logit_problem <span class="op">=</span> pyblp.Problem(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    pyblp.Formulation(<span class="st">"0 + prices"</span>, absorb<span class="op">=</span><span class="st">"C(product_ids)"</span>), products</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logit <span class="op">=</span> logit_problem.solve(method<span class="op">=</span><span class="st">"2s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="text"><code>Price coefficient: -30.05 (standard error 1.01)</code></pre>
-<p>The instruments change the estimate by about 4 percent. That small change is a feature of these simulated data. Instruments address the part of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> that varies within a product across markets, and in real data that part can be large.</p>
+<p>This step instruments for price in the logit model. It addresses the endogeneity of price and does not yet involve random coefficients.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>logit_problem <span class="op">=</span> pyblp.Problem(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    pyblp.Formulation(<span class="st">"0 + prices"</span>, absorb<span class="op">=</span><span class="st">"C(product_ids)"</span>), products</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>logit <span class="op">=</span> logit_problem.solve(method<span class="op">=</span><span class="st">"2s"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Price coefficient: -30.05 (standard error 1.01)
+First-stage R-squared within products: 0.97</code></pre>
+<p>The instruments are the 20 columns named <code>demand_instruments0</code> to <code>demand_instruments19</code>. The file does not label them. In the real cereal data, <span class="citation" data-cites="nevo2001cereal">Nevo (<a href="#ref-nevo2001cereal" role="doc-biblioref">2001</a>)</span> uses two kinds of instruments: regional average prices of the same brand in other cities, which share its marginal cost, and proxies for distribution costs, such as city density and earnings in the supermarket sector.</p>
+<p>The instruments change the estimate by about 4 percent. That small change is a feature of these simulated data: the 20 columns explain 97 percent of the variation in price within a product, so the instrumented price is close to the actual price. In real data, the instruments can change the estimate by much more.</p>
 </section>
 <section id="step-4-add-random-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-add-random-coefficients">Step 4: add random coefficients</h2>
 <p>Random coefficients let tastes for price and characteristics vary with income, age, and children, and with traits the researcher does not observe. The model now has no closed-form solution, so PyBLP searches numerically over the taste parameters.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rc_problem <span class="op">=</span> pyblp.Problem(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    (</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        pyblp.Formulation(<span class="st">"0 + prices"</span>, absorb<span class="op">=</span><span class="st">"C(product_ids)"</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        pyblp.Formulation(<span class="st">"1 + prices + sugar + mushy"</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    products,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    pyblp.Formulation(<span class="st">"0 + income + income_squared + age + child"</span>),</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    agents,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>rc <span class="op">=</span> rc_problem.solve(</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    initial_sigma,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    initial_pi,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    optimization<span class="op">=</span>pyblp.Optimization(<span class="st">"bfgs"</span>, {<span class="st">"gtol"</span>: <span class="fl">1e-5</span>}),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">"1s"</span>,</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rc_problem <span class="op">=</span> pyblp.Problem(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        pyblp.Formulation(<span class="st">"0 + prices"</span>, absorb<span class="op">=</span><span class="st">"C(product_ids)"</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        pyblp.Formulation(<span class="st">"1 + prices + sugar + mushy"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    products,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    pyblp.Formulation(<span class="st">"0 + income + income_squared + age + child"</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    agents,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>rc <span class="op">=</span> rc_problem.solve(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    initial_sigma,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    initial_pi,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    optimization<span class="op">=</span>pyblp.Optimization(<span class="st">"bfgs"</span>, {<span class="st">"gtol"</span>: <span class="fl">1e-5</span>}),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">"1s"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The script defines the starting values <code>initial_sigma</code> and <code>initial_pi</code>.</p>
 <pre class="text"><code>Mean price coefficient: -62.73 (standard error 14.80)
 Optimizer converged after 51 iterations; run time 16 seconds</code></pre>
-<p>This matches the “Tighter Tolerance” column of Table 7 in <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#ref-conlon2020pyblp" role="doc-biblioref">2020</a>)</span>. Their table is worth reading alongside this result: with a looser gradient tolerance, the same model on the same data gives a mean price coefficient of -32.4, and their best-practice estimate is -27.5, while the mean own-price elasticity stays between -3.62 and -3.70. Individual coefficients move, so report the optimizer, tolerances, starting values, and integration method in an appendix, along with the quantities that matter for your question.</p>
+<p>This matches the “Tighter Tolerance” column of Table 7 in <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#ref-conlon2020pyblp" role="doc-biblioref">2020</a>)</span>. The mean coefficient is not comparable with the logit coefficient on its own, because each consumer’s price sensitivity also depends on the interactions with demographics. Their table is worth reading alongside this result: with a looser stopping rule for the optimizer, the same model on the same data gives a mean price coefficient of -32.4, and their best-practice estimate is -27.5, while the mean own-price elasticity stays between -3.62 and -3.70. They report nearly identical elasticities and markups across these runs. Individual coefficients move, partly because the price and income interaction terms are nearly collinear in the data, so report the optimizer, tolerances, starting values, and integration method in an appendix, along with the quantities that matter for your question.</p>
 </section>
-<section id="step-5-compare-the-models-and-simulate-a-merger" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-compare-the-models-and-simulate-a-merger">Step 5: compare the models and simulate a merger</h2>
-<p>The last step asks what each model implies for substitution, then simulates a merger of firms 1 and 2, the two largest firms in the data (about 75 percent of sales). The simulation recovers each product’s marginal cost from the pricing model, assigns the two firms joint ownership, and solves for new prices.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>merged_firms <span class="op">=</span> products.firm_ids.replace(<span class="dv">2</span>, <span class="dv">1</span>).to_numpy()</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>new_prices <span class="op">=</span> results.compute_prices(firm_ids<span class="op">=</span>merged_firms, costs<span class="op">=</span>results.compute_costs())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="step-5-compute-elasticities-and-substitution" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-compute-elasticities-and-substitution">Step 5: compute elasticities and substitution</h2>
+<p>Coefficients are hard to interpret alone. This step converts them into what the model says about consumers: how demand responds to prices and where lost sales go. Steps 5 and 6 complete the demand results. Step 7 is the simulation.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> results.compute_elasticities(market_id<span class="op">=</span><span class="st">"C01Q1"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> results.compute_diversion_ratios(market_id<span class="op">=</span><span class="st">"C01Q1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each result is a table with one row and one column per product, computed here for market <code>C01Q1</code>.</p>
+<p><strong>Elasticities.</strong> The entry for products <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> is the percent change in the share of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> when the price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> rises 1 percent. Take product <code>F1B13</code> in this market, with a share of 0.0266, a price of 0.1370, and 14 grams of sugar. In the logit model, the formulas in the <a href="../files/blp-derivation.html" target="_blank" rel="noopener">derivation notes</a> use the coefficient from Step 3:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mrow><mi>j</mi><mi>j</mi></mrow></msub><mo>=</mo><mi>−</mi><mi>α</mi><msub><mi>p</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>s</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>30.05</mn><mo>×</mo><mn>0.1370</mn><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>0.0266</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>4.01</mn></mrow><annotation encoding="application/x-tex">
+\eta_{jj} = -\alpha p_j (1 - s_j) = -30.05 \times 0.1370 \times (1 - 0.0266) = -4.01
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mrow><mi>k</mi><mi>j</mi></mrow></msub><mo>=</mo><mi>α</mi><msub><mi>p</mi><mi>j</mi></msub><msub><mi>s</mi><mi>j</mi></msub><mo>=</mo><mn>30.05</mn><mo>×</mo><mn>0.1370</mn><mo>×</mo><mn>0.0266</mn><mo>=</mo><mn>0.110</mn></mrow><annotation encoding="application/x-tex">
+\eta_{kj} = \alpha p_j s_j = 30.05 \times 0.1370 \times 0.0266 = 0.110
+</annotation></semantics></math></p>
+<p>So a 1 percent rise in this product’s price cuts its own share by 4.01 percent and raises the share of every rival by 0.110 percent. The rival’s identity does not appear in the formula. With random coefficients, PyBLP computes these derivatives for each simulated consumer and averages them, so rivals can respond differently. The own-price elasticity for this product becomes -4.91.</p>
+<p><strong>Diversion ratios.</strong> A diversion ratio is the share of the sales a product loses that go to each alternative. It is the most direct measure of substitution.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Where sales lost by <code>F1B13</code> go</th>
+<th style="text-align: right;">Logit</th>
+<th style="text-align: right;">Random coefficients</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>11 sugary rivals (10 grams or more)</td>
+<td style="text-align: right;">22.7%</td>
+<td style="text-align: right;">40.5%</td>
+</tr>
+<tr class="even">
+<td>12 low-sugar rivals</td>
+<td style="text-align: right;">20.2%</td>
+<td style="text-align: right;">10.0%</td>
+</tr>
+<tr class="odd">
+<td>No purchase (outside good)</td>
+<td style="text-align: right;">57.0%</td>
+<td style="text-align: right;">49.5%</td>
+</tr>
+</tbody>
+</table>
+<p>In the logit model, each rival’s diversion equals its share divided by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><msub><mi>s</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">1 - s_j</annotation></semantics></math>, so lost sales follow market shares. With random coefficients, consumers who buy a sugary cereal tend to like sugar, so more of them switch to another sugary cereal.</p>
+</section>
+<section id="step-6-recover-marginal-costs" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-recover-marginal-costs">Step 6: recover marginal costs</h2>
+<p>The data have no costs, so the model infers them. Firms set prices to maximize profit, and each firm’s first-order condition links its markup to the slopes of demand <span class="citation" data-cites="nevo2001cereal">(<a href="#ref-nevo2001cereal" role="doc-biblioref">Nevo 2001</a>)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>−</mo><mi>m</mi><mi>c</mi><mo>=</mo><msup><mi mathvariant="normal">Ω</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+p - mc = \Omega^{-1} s(p)
+</annotation></semantics></math></p>
+<p>Here <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">mc</annotation></semantics></math>, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math> are vectors of prices, marginal costs, and shares. The matrix <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> contains the demand derivatives from Step 5, with an entry set to zero when two products belong to different firms, because a firm only accounts for lost sales on its own products. Prices and shares are data and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> comes from the estimates, so the equation can be solved for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">mc</annotation></semantics></math>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>costs <span class="op">=</span> results.compute_costs()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Logit: median price 0.124, median cost 0.084, median margin 31.6%
+Random coefficients: median price 0.124, median cost 0.081, median margin 33.7%</code></pre>
+</section>
+<section id="step-7-simulate-the-merger" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-simulate-the-merger">Step 7: simulate the merger</h2>
+<p>The simulation merges firms 1 and 2, the two largest firms in the data (about 75 percent of sales). It holds demand and marginal costs fixed at the values from Steps 4 and 6 and changes one thing: who owns which product.</p>
+<ol type="1">
+<li>Rewrite <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> so that products of firms 1 and 2 count as one firm. The merged firm now accounts for sales that move between the two firms’ products.</li>
+<li>Solve for the new prices <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mo>*</mo></msup><annotation encoding="application/x-tex">p^{*}</annotation></semantics></math> that satisfy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mo>*</mo></msup><mo>−</mo><mi>m</mi><mi>c</mi><mo>=</mo><msubsup><mi mathvariant="normal">Ω</mi><mtext mathvariant="normal">post</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msubsup><mspace width="0.167em"></mspace><mi>s</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>p</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p^{*} - mc = \Omega_{\text{post}}^{-1}\, s(p^{*})</annotation></semantics></math> for all firms at once.</li>
+<li>Compute shares and consumer surplus at the new prices.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>merged_firms <span class="op">=</span> products.firm_ids.replace(<span class="dv">2</span>, <span class="dv">1</span>).to_numpy()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>new_prices <span class="op">=</span> results.compute_prices(firm_ids<span class="op">=</span>merged_firms, costs<span class="op">=</span>results.compute_costs())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="reading-the-comparison-table" class="level2">
+<h2 class="anchored" data-anchor-id="reading-the-comparison-table">Reading the comparison table</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: right;">Plain logit</th>
+<th style="text-align: right;">Logit</th>
 <th style="text-align: right;">Random coefficients</th>
 </tr>
 </thead>
@@ -355,7 +443,15 @@ Optimizer converged after 51 iterations; run time 16 seconds</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The two models agree on own-price elasticities and differ on the merger. The second row explains why. When one product’s price rises, plain logit makes every rival respond in the same proportion, so the ratio is 1. With random coefficients, the most affected rival responds about 6 times as much as the least affected (the median across products, in one market). Merging firms raise prices more when their products are close substitutes, because more of the lost sales stay within the merged firm, and plain logit has no way to represent that closeness.</p>
+<p>Each row is calculated as follows.</p>
+<ul>
+<li><strong>Median own-price elasticity:</strong> the elasticity of each product with respect to its own price (Step 5), for all 2,256 rows, then the median.</li>
+<li><strong>Largest rival response ÷ smallest:</strong> in market <code>C01Q1</code>, raise the price of one product and take the cross-price elasticities of its 23 rivals. Divide the largest by the smallest, repeat for each of the 24 products, and report the median. A value of 1.00 means all rivals respond in the same proportion, which the logit formula requires.</li>
+<li><strong>Median price change, merging firms:</strong> new price divided by old price, minus 1, for the products of firms 1 and 2 in all markets, then the median.</li>
+<li><strong>Median price change, other firms:</strong> the same calculation for the remaining products. Rivals also raise prices, because the merged firm’s higher prices shift demand toward them.</li>
+<li><strong>Change in consumer surplus:</strong> the expected utility of the best option, converted to dollars by dividing by the marginal utility of income. In the logit model, this is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mo>∑</mo><mi>k</mi></msub><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>α</mi></mrow><annotation encoding="application/x-tex">\ln(1 + \sum_k \exp(\delta_{kt}))/\alpha</annotation></semantics></math>. With random coefficients, PyBLP computes it for each simulated consumer and averages. The table reports the percent change in the mean across markets, from old prices to new prices.</li>
+</ul>
+<p>The two models agree on own-price elasticities and differ on the merger. The second row explains why. Merging firms raise prices more when their products are close substitutes, because more of the lost sales stay within the merged firm, and the logit model has no way to represent that closeness.</p>
 <p>A counterfactual depends on how the model lets consumers substitute. That is an assumption the section has to state, defend, and vary.</p>
 </section>
 <section id="references" class="level2 unnumbered">
@@ -369,6 +465,9 @@ Conlon, Christopher, and Jeff Gortmaker. 2020. <span>“Best Practices for Diffe
 </div>
 <div id="ref-nevo2000practitioner" class="csl-entry" role="listitem">
 Nevo, Aviv. 2000. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
+</div>
+<div id="ref-nevo2001cereal" class="csl-entry" role="listitem">
+Nevo, Aviv. 2001. <span>“Measuring Market Power in the Ready-to-Eat Cereal Industry.”</span> <em>Econometrica</em> 69 (2): 307–42. <a href="https://doi.org/10.1111/1468-0262.00194">https://doi.org/10.1111/1468-0262.00194</a>.
 </div>
 </div>
 

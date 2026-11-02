@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Lauren Chenarides">
+<meta name="description" content="Course on Methodology of Economic Research">
+
+<title>From Utility to the BLP Estimating Equation – AREC 570/ECON 530 Methodology of Economic Research</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ea1971949f186b5d7ecce1fd3cf000e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="From Utility to the BLP Estimating Equation – AREC 570/ECON 530 Methodology of Economic Research">
+<meta property="og:description" content="AREC 570 / ECON 530 · Notes for Lecture 6.2">
+<meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">AREC 570/ECON 530 Methodology of Economic Research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../2026/syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-fall-2026" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Fall 2026</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-fall-2026">    
+        <li>
+    <a class="dropdown-item" href="../2026/schedule.html">
+ <span class="dropdown-text">Schedule</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../2026/readings.html">
+ <span class="dropdown-text">Readings</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lectures/lectures.html">
+ <span class="dropdown-text">Lectures</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/laurenchenarides/csu-arec-570"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Steps</h2>
+   
+  <ul>
+  <li><a href="#step-1-the-utility-function" id="toc-step-1-the-utility-function" class="nav-link active" data-scroll-target="#step-1-the-utility-function">Step 1: the utility function</a></li>
+  <li><a href="#step-2-why-income-minus-price" id="toc-step-2-why-income-minus-price" class="nav-link" data-scroll-target="#step-2-why-income-minus-price">Step 2: why income minus price</a></li>
+  <li><a href="#step-3-the-outside-good" id="toc-step-3-the-outside-good" class="nav-link" data-scroll-target="#step-3-the-outside-good">Step 3: the outside good</a></li>
+  <li><a href="#step-4-where-income-goes" id="toc-step-4-where-income-goes" class="nav-link" data-scroll-target="#step-4-where-income-goes">Step 4: where income goes</a></li>
+  <li><a href="#step-5-the-logit-case" id="toc-step-5-the-logit-case" class="nav-link" data-scroll-target="#step-5-the-logit-case">Step 5: the logit case</a></li>
+  <li><a href="#step-6-from-utility-to-market-shares" id="toc-step-6-from-utility-to-market-shares" class="nav-link" data-scroll-target="#step-6-from-utility-to-market-shares">Step 6: from utility to market shares</a></li>
+  <li><a href="#step-7-take-logs" id="toc-step-7-take-logs" class="nav-link" data-scroll-target="#step-7-take-logs">Step 7: take logs</a></li>
+  <li><a href="#step-8-why-the-regression-needs-instruments" id="toc-step-8-why-the-regression-needs-instruments" class="nav-link" data-scroll-target="#step-8-why-the-regression-needs-instruments">Step 8: why the regression needs instruments</a></li>
+  <li><a href="#step-9-random-coefficients" id="toc-step-9-random-coefficients" class="nav-link" data-scroll-target="#step-9-random-coefficients">Step 9: random coefficients</a></li>
+  <li><a href="#step-10-the-estimation-loop" id="toc-step-10-the-estimation-loop" class="nav-link" data-scroll-target="#step-10-the-estimation-loop">Step 10: the estimation loop</a></li>
+  <li><a href="#step-11-elasticities-from-the-shares" id="toc-step-11-elasticities-from-the-shares" class="nav-link" data-scroll-target="#step-11-elasticities-from-the-shares">Step 11: elasticities from the shares</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/laurenchenarides/csu-arec-570/edit/main/files/blp-derivation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/blob/main/files/blp-derivation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">From Utility to the BLP Estimating Equation</h1>
+<p class="subtitle lead">AREC 570 / ECON 530 · Notes for Lecture 6.2</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lauren Chenarides </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>These notes derive the estimating equation in <a href="../lectures/lecture6.2.html" target="_blank" rel="noopener">Lecture 6.2</a> one step at a time. They start from the utility function on the Model slide and end at the equation on the estimation slides. The notation follows <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#ref-nevo2000practitioner" role="doc-biblioref">2000</a>)</span>.</p>
+<section id="step-1-the-utility-function" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-the-utility-function">Step 1: the utility function</h2>
+<p>Consumer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> in market <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> gets this utility from product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>+</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>β</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
+</annotation></semantics></math></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math></td>
+<td>Income of consumer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{jt}</annotation></semantics></math></td>
+<td>Price of product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> in market <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math></td>
+<td>Marginal utility of income for consumer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">x_{jt}</annotation></semantics></math></td>
+<td>Characteristics the researcher observes, such as sugar content</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>β</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\beta_i</annotation></semantics></math></td>
+<td>Consumer <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>’s tastes for those characteristics</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math></td>
+<td>Characteristics the researcher does not observe, such as brand quality or promotions</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math></td>
+<td>A shock specific to this consumer and product</td>
+</tr>
+</tbody>
+</table>
+<p>Economists call this a conditional indirect utility: the highest utility the consumer can reach, given that the consumer buys product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>.</p>
+</section>
+<section id="step-2-why-income-minus-price" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-why-income-minus-price">Step 2: why income minus price</h2>
+<p>The term <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_i - p_{jt}</annotation></semantics></math> is the money the consumer has left after buying product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>. That money buys everything else, and each dollar of it is worth <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math> units of utility. The term <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\alpha_i(y_i - p_{jt})</annotation></semantics></math> is therefore the utility from everything else the consumer can still afford.</p>
+<p>Expanding the term shows the two parts:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>α</mi><mi>i</mi></msub><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\alpha_i(y_i - p_{jt}) = \alpha_i y_i - \alpha_i p_{jt}
+</annotation></semantics></math></p>
+<p>The second part is why a higher price lowers utility. <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#ref-nevo2000practitioner" role="doc-biblioref">2000</a>)</span> notes that this form comes from a quasilinear utility function, which has no wealth effects. He calls that reasonable for cereal and unreasonable for cars, and BLP use <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\log(y_i - p_{jt})</annotation></semantics></math> for that reason.</p>
+</section>
+<section id="step-3-the-outside-good" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-the-outside-good">Step 3: the outside good</h2>
+<p>A consumer can also buy none of the products. This is the outside good, labeled <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">j = 0</annotation></semantics></math>. After the standard normalization, the consumer keeps all income:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><msub><mi>y</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{i0t} = \alpha_i y_i + \varepsilon_{i0t}
+</annotation></semantics></math></p>
+</section>
+<section id="step-4-where-income-goes" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-where-income-goes">Step 4: where income goes</h2>
+<p>A consumer picks the option with the highest utility, so only differences in utility across options affect the choice. The term <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_i y_i</annotation></semantics></math> is the same in every option, including the outside good, so it cancels from every difference:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><msub><mi>u</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><mi>−</mi><msub><mi>α</mi><mi>i</mi></msub><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>β</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><msub><mi>ε</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{ijt} - u_{i0t} = -\alpha_i p_{jt} + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt} - \varepsilon_{i0t}
+</annotation></semantics></math></p>
+<p>Income leaves the choice problem as a level. It can still matter through tastes: in the full model, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math> can vary with income, so higher-income consumers can be less sensitive to price. Dropping <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_i y_i</annotation></semantics></math> gives the equivalent form:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>−</mi><msub><mi>α</mi><mi>i</mi></msub><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>β</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>u</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>ε</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{ijt} = -\alpha_i p_{jt} + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}, \qquad u_{i0t} = \varepsilon_{i0t}
+</annotation></semantics></math></p>
+</section>
+<section id="step-5-the-logit-case" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-the-logit-case">Step 5: the logit case</h2>
+<p>The logit model assumes every consumer has the same tastes, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>i</mi></msub><mo>=</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha_i = \alpha</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>i</mi></msub><mo>=</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta_i = \beta</annotation></semantics></math>. All differences between consumers then come from <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math>.</p>
+<p>Collect everything that is common to all consumers into the mean utility <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\delta_{jt} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+</annotation></semantics></math></p>
+<p>Utility becomes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{ijt} = \delta_{jt} + \varepsilon_{ijt}</annotation></semantics></math>. The outside good has <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\delta_{0t} = 0</annotation></semantics></math>.</p>
+</section>
+<section id="step-6-from-utility-to-market-shares" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-from-utility-to-market-shares">Step 6: from utility to market shares</h2>
+<p>The researcher does not see <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math>, so the model predicts the probability that a consumer picks each option. With many consumers, that probability is the product’s market share.</p>
+<p>The logit model assumes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math> is independent across products and consumers and follows a Type I extreme value distribution. This assumption gives a closed-form share <span class="citation" data-cites="nevo2000practitioner">(<a href="#ref-nevo2000practitioner" role="doc-biblioref">Nevo 2000</a>, equation 6)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mn>1</mn><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></munderover><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></munderover><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k=1}^{J} \exp(\delta_{kt})}, \qquad s_{0t} = \frac{1}{1 + \sum_{k=1}^{J} \exp(\delta_{kt})}
+</annotation></semantics></math></p>
+<p>The 1 in each denominator is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\exp(0)</annotation></semantics></math>, the outside good.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Optional: where the share formula comes from
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Drop the market subscript and let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>J</mi></msubsup><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mi>k</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">A = \sum_{k=0}^{J} \exp(\delta_k)</annotation></semantics></math>, which includes the outside good. The Type I extreme value distribution has CDF <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(\varepsilon) = \exp(-e^{-\varepsilon})</annotation></semantics></math> and density <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>ε</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(\varepsilon) = e^{-\varepsilon}\exp(-e^{-\varepsilon})</annotation></semantics></math>.</p>
+<p>Product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> is chosen when <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mi>j</mi></msub><mo>+</mo><msub><mi>ε</mi><mi>j</mi></msub><mo>≥</mo><msub><mi>δ</mi><mi>k</mi></msub><mo>+</mo><msub><mi>ε</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\delta_j + \varepsilon_j \geq \delta_k + \varepsilon_k</annotation></semantics></math> for every other option <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>. Given <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>j</mi></msub><mo>=</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon_j = \varepsilon</annotation></semantics></math>, this has probability</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∏</mo><mrow><mi>k</mi><mo>≠</mo><mi>j</mi></mrow></munder><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>ε</mi><mo>+</mo><msub><mi>δ</mi><mi>j</mi></msub><mo>−</mo><msub><mi>δ</mi><mi>k</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\prod_{k \neq j} F(\varepsilon + \delta_j - \delta_k)
+</annotation></semantics></math></p>
+<p>Averaging over <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> and combining the exponents gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>j</mi></msub><mo>=</mo><mo>∫</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>δ</mi><mi>j</mi></msub></mrow></msup><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>ε</mi></mrow><annotation encoding="application/x-tex">
+s_j = \int e^{-\varepsilon} \exp\left(-e^{-\varepsilon} e^{-\delta_j} A\right) d\varepsilon
+</annotation></semantics></math></p>
+<p>Substitute <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup></mrow><annotation encoding="application/x-tex">w = e^{-\varepsilon}</annotation></semantics></math>, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>w</mi><mo>=</mo><mi>−</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>ε</mi></mrow></msup><mi>d</mi><mi>ε</mi></mrow><annotation encoding="application/x-tex">dw = -e^{-\varepsilon} d\varepsilon</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> runs from 0 to <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>∞</mi><annotation encoding="application/x-tex">\infty</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>j</mi></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>∞</mi></msubsup><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mi>w</mi><mspace width="0.167em"></mspace><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>δ</mi><mi>j</mi></msub></mrow></msup><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>w</mi><mo>=</mo><mfrac><msup><mi>e</mi><msub><mi>δ</mi><mi>j</mi></msub></msup><mi>A</mi></mfrac></mrow><annotation encoding="application/x-tex">
+s_j = \int_0^\infty \exp\left(-w\, e^{-\delta_j} A\right) dw = \frac{e^{\delta_j}}{A}
+</annotation></semantics></math></p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-take-logs" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-take-logs">Step 7: take logs</h2>
+<p>The two shares have the same denominator, so dividing cancels it:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub></mfrac><mo>=</mo><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\frac{s_{jt}}{s_{0t}} = \exp(\delta_{jt})
+</annotation></semantics></math></p>
+<p>Taking logs gives the inversion in <span class="citation" data-cites="berry1994estimating">Berry (<a href="#ref-berry1994estimating" role="doc-biblioref">1994</a>)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\ln s_{jt} - \ln s_{0t} = \delta_{jt}
+</annotation></semantics></math></p>
+<p>Replacing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> with its definition from Step 5 gives the estimating equation:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\ln s_{jt} - \ln s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
+</annotation></semantics></math></p>
+<p>The left side comes from data on shares. The right side has data on characteristics and prices, parameters to estimate, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> as the error term. It is a linear regression.</p>
+<p><strong>A numeric check.</strong> Suppose product 1 has a 20 percent share, product 2 has a 30 percent share, and the outside good has 50 percent. Then <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>1</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.2</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.92</mn></mrow><annotation encoding="application/x-tex">\delta_1 = \ln(0.2/0.5) = -0.92</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>2</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.3</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.51</mn></mrow><annotation encoding="application/x-tex">\delta_2 = \ln(0.3/0.5) = -0.51</annotation></semantics></math>. Going back through the share formula, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mn>1</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">\exp(\delta_1) = 0.4</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mn>2</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.6</mn></mrow><annotation encoding="application/x-tex">\exp(\delta_2) = 0.6</annotation></semantics></math>, so the denominator is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>0.4</mn><mo>+</mo><mn>0.6</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">1 + 0.4 + 0.6 = 2</annotation></semantics></math>. The shares are <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.4</mn><mi>/</mi><mn>2</mn><mo>=</mo><mn>0.2</mn></mrow><annotation encoding="application/x-tex">0.4/2 = 0.2</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.6</mn><mi>/</mi><mn>2</mn><mo>=</mo><mn>0.3</mn></mrow><annotation encoding="application/x-tex">0.6/2 = 0.3</annotation></semantics></math>, which match.</p>
+</section>
+<section id="step-8-why-the-regression-needs-instruments" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-why-the-regression-needs-instruments">Step 8: why the regression needs instruments</h2>
+<p>Firms know <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> when they set prices, so <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{jt}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> are correlated. Price is an endogenous regressor in the equation above, and OLS gives a biased estimate of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>. Instruments that shift price and are uncorrelated with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> solve this problem, as in any linear instrumental-variables regression.</p>
+<p>A reported coefficient on price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>30.05</mn></mrow><annotation encoding="application/x-tex">-30.05</annotation></semantics></math> means <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>30.05</mn></mrow><annotation encoding="application/x-tex">\alpha = 30.05</annotation></semantics></math>.</p>
+</section>
+<section id="step-9-random-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="step-9-random-coefficients">Step 9: random coefficients</h2>
+<p>The random-coefficients logit returns to tastes that vary. Each consumer’s tastes depend on demographics <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>i</mi></msub><annotation encoding="application/x-tex">D_i</annotation></semantics></math> and on unobserved traits <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>i</mi></msub><annotation encoding="application/x-tex">v_i</annotation></semantics></math> <span class="citation" data-cites="nevo2000practitioner">(<a href="#ref-nevo2000practitioner" role="doc-biblioref">Nevo 2000</a>, equation 2)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>α</mi><mi>i</mi></msub></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>β</mi><mi>i</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>α</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>β</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi mathvariant="normal">Π</mi><msub><mi>D</mi><mi>i</mi></msub><mo>+</mo><mi mathvariant="normal">Σ</mi><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+\begin{pmatrix} \alpha_i \\ \beta_i \end{pmatrix} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} + \Pi D_i + \Sigma v_i
+</annotation></semantics></math></p>
+<p>The mean tastes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> stay in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math>. The deviation from the mean moves into a consumer-specific term <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\mu_{ijt}</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>μ</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+u_{ijt} = \delta_{jt} + \mu_{ijt} + \varepsilon_{ijt}
+</annotation></semantics></math></p>
+<p>Conditional on a consumer’s tastes, Step 6 still applies. Market shares are the average of those logit probabilities across consumers:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><mo>∫</mo><mfrac><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>μ</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mn>1</mn><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></munderover><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>μ</mi><mrow><mi>i</mi><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mspace width="0.167em"></mspace><mi>d</mi><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+s_{jt} = \int \frac{\exp(\delta_{jt} + \mu_{ijt})}{1 + \sum_{k=1}^{J} \exp(\delta_{kt} + \mu_{ikt})}\, dP(D, v)
+</annotation></semantics></math></p>
+<p>This integral has no closed form, so the division in Step 7 no longer works. The software approximates it by averaging over a set of simulated consumers, and it finds <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> numerically. The logic of the inversion is unchanged: find the mean utilities that make predicted shares equal observed shares.</p>
+</section>
+<section id="step-10-the-estimation-loop" class="level2">
+<h2 class="anchored" data-anchor-id="step-10-the-estimation-loop">Step 10: the estimation loop</h2>
+<p>For a guess of the parameters in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>:</p>
+<ol type="1">
+<li>Compute predicted shares by averaging over simulated consumers.</li>
+<li>Find the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> that make predicted shares equal observed shares. BLP’s contraction mapping updates each mean utility by the log difference between observed and predicted shares until they match <span class="citation" data-cites="nevo2000practitioner">(<a href="#ref-nevo2000practitioner" role="doc-biblioref">Nevo 2000</a>, equation 12)</span>:</li>
+</ol>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow><mrow><mi>h</mi><mo>+</mo><mn>1</mn></mrow></msubsup><mo>=</mo><msubsup><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow><mi>h</mi></msubsup><mo>+</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>S</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mi>h</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\delta_{jt}^{h+1} = \delta_{jt}^{h} + \ln S_{jt} - \ln s_{jt}(\delta^{h})
+</annotation></semantics></math></p>
+<ol start="3" type="1">
+<li>Run the linear instrumental-variables regression of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> on price and characteristics. The residual is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math>.</li>
+<li>Compute the GMM objective, which measures how far <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is from being uncorrelated with the instruments.</li>
+<li>Update the guess and repeat until the objective reaches a minimum.</li>
+</ol>
+<p>The logit model is the special case with <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Pi = 0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Sigma = 0</annotation></semantics></math>, where this loop collapses to the single regression in Step 7.</p>
+</section>
+<section id="step-11-elasticities-from-the-shares" class="level2">
+<h2 class="anchored" data-anchor-id="step-11-elasticities-from-the-shares">Step 11: elasticities from the shares</h2>
+<p>Differentiating the logit share in Step 6 gives the price responses:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><mrow><mi>∂</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow></mfrac><mo>=</mo><mi>−</mi><mi>α</mi><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mi>∂</mi><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><mrow><mi>∂</mi><msub><mi>p</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub></mrow></mfrac><mo>=</mo><mi>α</mi><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><msub><mi>s</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\frac{\partial s_{jt}}{\partial p_{jt}} = -\alpha s_{jt}(1 - s_{jt}), \qquad \frac{\partial s_{jt}}{\partial p_{kt}} = \alpha s_{jt} s_{kt}
+</annotation></semantics></math></p>
+<p>Converting to elasticities gives <span class="citation" data-cites="nevo2000practitioner">(<a href="#ref-nevo2000practitioner" role="doc-biblioref">Nevo 2000, 522</a>)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mrow><mi>j</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>−</mi><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>η</mi><mrow><mi>j</mi><mi>k</mi><mi>t</mi></mrow></msub><mo>=</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><msub><mi>s</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\eta_{jjt} = -\alpha p_{jt}(1 - s_{jt}), \qquad \eta_{jkt} = \alpha p_{kt} s_{kt}
+</annotation></semantics></math></p>
+<p>The cross-price elasticity <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>η</mi><mrow><mi>j</mi><mi>k</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\eta_{jkt}</annotation></semantics></math> has no <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> in it. A rise in the price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> moves every rival’s share by the same percentage, which is the substitution restriction in the lecture. Random coefficients remove it, because each consumer has a separate <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math> and separate choice probabilities <span class="citation" data-cites="nevo2000practitioner">(<a href="#ref-nevo2000practitioner" role="doc-biblioref">Nevo 2000, 525</a>)</span>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>η</mi><mrow><mi>j</mi><mi>k</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>p</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mfrac><mo>∫</mo><msub><mi>α</mi><mi>i</mi></msub><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mi>i</mi><mi>k</mi><mi>t</mi></mrow></msub><mspace width="0.167em"></mspace><mi>d</mi><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo>,</mo><mi>v</mi><mo stretchy="false" form="postfix">)</mo><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">for </mtext><mspace width="0.333em"></mspace></mrow><mi>j</mi><mo>≠</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">
+\eta_{jkt} = \frac{p_{kt}}{s_{jt}} \int \alpha_i\, s_{ijt}\, s_{ikt}\, dP(D, v) \quad \text{for } j \neq k
+</annotation></semantics></math></p>
+<p>Two products bought by the same consumers have probabilities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">s_{ijt}</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mrow><mi>i</mi><mi>k</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">s_{ikt}</annotation></semantics></math> that are large together, which raises their cross-price elasticity. The <a href="../files/cereal-demand-demo.html" target="_blank" rel="noopener">cereal demand demo</a> computes these quantities.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-berry1994estimating" class="csl-entry" role="listitem">
+Berry, Steven T. 1994. <span>“Estimating Discrete-Choice Models of Product Differentiation.”</span> <em>RAND Journal of Economics</em> 25 (2): 242–62. <a href="https://doi.org/10.2307/2555829">https://doi.org/10.2307/2555829</a>.
+</div>
+<div id="ref-nevo2000practitioner" class="csl-entry" role="listitem">
+Nevo, Aviv. 2000. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/laurenchenarides\.github\.io\/csu-arec-570");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<a href="https://github.com/laurenchenarides/csu-arec-570">Lauren Chenarides</a> ©
+<script>document.write(new Date().getFullYear())</script>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/laurenchenarides/csu-arec-570/edit/main/files/blp-derivation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/laurenchenarides/csu-arec-570/blob/main/files/blp-derivation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/laurenchenarides/csu-arec-570">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
