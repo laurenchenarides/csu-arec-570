@@ -80,3 +80,18 @@ $csu-green: #1e4d2b;
 .reveal .figure-center {
   text-align: center;
 }
+
+// Source lines sit in small type at the bottom of the slide, out of the content flow.
+.reveal .slides section .source {
+  position: absolute;
+  top: 676px;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #666666;
+}
+
+.reveal .slides section .source p {
+  margin: 0;
+}
