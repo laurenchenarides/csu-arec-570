@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -46,7 +45,9 @@ Check:
 - Population.
 - Interpretation.
 
+::: {.source}
 Source: @gibson2019estimating.
+:::
 
 ## Does the measure match the concept?
 
@@ -112,7 +113,9 @@ It is not:
 
 ![Two panels from Kim showing null and alternative test-statistic distributions and different power as sample size changes.](assets/unit6/image14.png){height=350px}
 
+::: {.source}
 Source: Kim; retained from Unit 6, slide 71.
+:::
 
 With a valid fixed-level test, increasing sample size does not inherently increase the nominal Type I error rate.
 
@@ -170,7 +173,9 @@ where $\pi_0$ is the prior probability of the null and $C_I,C_{II}$ are the cost
 
 Choosing a threshold involves the decision context and the test's operating characteristics.
 
+::: {.source}
 Source: discussion in @kim2019falsepositives.
+:::
 
 ## Equivalence is not failure to reject
 
@@ -204,7 +209,9 @@ Report:
 - Inference procedure.
 - Planned sensitivity analyses.
 
+::: {.source}
 Source: Unit 6, slides 85–89.
+:::
 
 ## Discussion: use both readings
 

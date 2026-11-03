@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -74,7 +73,9 @@ Find an example in the reading for each kind of revision.
 - Treat misunderstanding as a reason to improve clarity.
 - Respond to substance without attacking the reviewer.
 
+::: {.source}
 Source: @choi_nodate_rejection.
+:::
 
 ## Build a revision plan {.dense}
 
@@ -135,7 +136,9 @@ The response organizes the debate around:
 
 Identify where the author agrees, disagrees, or clarifies the scope of a claim.
 
+::: {.source}
 Source: @fryer2020response.
+:::
 
 ## Discussion: evaluate the response
 

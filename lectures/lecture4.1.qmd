@@ -21,7 +21,6 @@ format:
     scrollable: false
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -171,7 +170,9 @@ Ethridge draws on Williams to describe an organized analysis that may include
 - Relationships organized into a system
 - Hypotheses about expected results
 
+::: {.source}
 Source: Ethridge Chapter 8 pages 130–131
+:::
 
 ::: notes
 This five-item list comes directly from Ethridge's discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge.
@@ -252,7 +253,9 @@ The framework distinguishes the unobserved stocking mechanism from the observed 
 5. Add dimensions only when they improve the analysis
 6. Assemble hypotheses from the conceptual reasoning
 
+::: {.source}
 Source: Ethridge Chapter 8 pages 136–138
+:::
 
 ## Discussion: apply Ethridge to your research
 

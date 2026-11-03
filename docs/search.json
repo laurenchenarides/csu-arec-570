@@ -53,21 +53,21 @@
     "href": "lectures/lecture7.1.html#evaluate-the-paper-in-front-of-you",
     "title": "Lecture 7.1: Reviewing Research",
     "section": "Evaluate the paper in front of you",
-    "text": "Evaluate the paper in front of you\n\nEngage with its question and intended contribution.\nDo not require the author to write your preferred different paper.\nExplain problems rather than merely declaring them.\nBe direct and constructive.\n\nSource: Berk et al. (2015)."
+    "text": "Evaluate the paper in front of you\n\nEngage with its question and intended contribution.\nDo not require the author to write your preferred different paper.\nExplain problems rather than merely declaring them.\nBe direct and constructive.\n\n\nSource: Berk et al. (2015)."
   },
   {
     "objectID": "lectures/lecture7.1.html#ajae-several-dimensions-of-merit",
     "href": "lectures/lecture7.1.html#ajae-several-dimensions-of-merit",
     "title": "Lecture 7.1: Reviewing Research",
     "section": "AJAE: several dimensions of merit",
-    "text": "AJAE: several dimensions of merit\nThe assigned criteria address:\n\nContribution and originality.\nScholarship and analysis.\nAppeal to the readership.\nAppropriate illustrations and length.\n\nA report should explain how the paper meets or falls short of relevant criteria.\nSource: Agricultural and Applied Economics Association (2013)."
+    "text": "AJAE: several dimensions of merit\nThe assigned criteria address:\n\nContribution and originality.\nScholarship and analysis.\nAppeal to the readership.\nAppropriate illustrations and length.\n\nA report should explain how the paper meets or falls short of relevant criteria.\n\nSource: Agricultural and Applied Economics Association (2013)."
   },
   {
     "objectID": "lectures/lecture7.1.html#ethridge-follow-the-argument",
     "href": "lectures/lecture7.1.html#ethridge-follow-the-argument",
     "title": "Lecture 7.1: Reviewing Research",
     "section": "Ethridge: follow the argument",
-    "text": "Ethridge: follow the argument\n\nIs the objective clear?\nDoes the sequence of ideas lead toward it?\nDoes the organization help the reader?\nAre important terms precise and consistent?\nWhich general problem matters more than sentence-level edits?\n\nSource: Ethridge (2004)."
+    "text": "Ethridge: follow the argument\n\nIs the objective clear?\nDoes the sequence of ideas lead toward it?\nDoes the organization help the reader?\nAre important terms precise and consistent?\nWhich general problem matters more than sentence-level edits?\n\n\nSource: Ethridge (2004)."
   },
   {
     "objectID": "lectures/lecture7.1.html#discussion-identify-the-binding-weakness",
@@ -109,7 +109,7 @@
     "href": "lectures/lecture7.1.html#research-proposal-review-the-epa-example",
     "title": "Lecture 7.1: Reviewing Research",
     "section": "Research proposal review: the EPA example",
-    "text": "Research proposal review: the EPA example\nThe assigned historical criteria include:\n\nResearch merit.\nResponsiveness to the funding call.\nProject management.\nOther factors such as innovation and engagement.\n\nA promising idea must also be feasible and appropriate for the call.\nSource: U.S. Environmental Protection Agency (2016), the assigned 2016 document."
+    "text": "Research proposal review: the EPA example\nThe assigned historical criteria include:\n\nResearch merit.\nResponsiveness to the funding call.\nProject management.\nOther factors such as innovation and engagement.\n\nA promising idea must also be feasible and appropriate for the call.\n\nSource: U.S. Environmental Protection Agency (2016), the assigned 2016 document."
   },
   {
     "objectID": "lectures/lecture7.1.html#discussion-journal-versus-proposal-review",
@@ -165,7 +165,7 @@
     "href": "lectures/lecture6.4.html#falk-and-heckman-controlled-variation",
     "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
     "section": "Falk and Heckman: controlled variation",
-    "text": "Falk and Heckman: controlled variation\nLaboratory experiments let researchers vary features of a decision environment.\nThey can separate mechanisms that move together in observational settings.\nA simplified setting can be informative when it isolates a relevant mechanism.\nSource: Falk and Heckman (2009)."
+    "text": "Falk and Heckman: controlled variation\nLaboratory experiments let researchers vary features of a decision environment.\nThey can separate mechanisms that move together in observational settings.\nA simplified setting can be informative when it isolates a relevant mechanism.\n\nSource: Falk and Heckman (2009)."
   },
   {
     "objectID": "lectures/lecture6.4.html#discussion-realism-and-generalization",
@@ -179,7 +179,7 @@
     "href": "lectures/lecture6.4.html#qualitative-does-not-simply-mean-words",
     "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
     "section": "Qualitative does not simply mean words",
-    "text": "Qualitative does not simply mean words\nStarr emphasizes an open-ended approach to gathering information.\nRather than fixing every relevant dimension in advance, researchers allow new themes and explanations to emerge.\nClear questions and systematic procedures still matter.\nSource: Starr (2014)."
+    "text": "Qualitative does not simply mean words\nStarr emphasizes an open-ended approach to gathering information.\nRather than fixing every relevant dimension in advance, researchers allow new themes and explanations to emerge.\nClear questions and systematic procedures still matter.\n\nSource: Starr (2014)."
   },
   {
     "objectID": "lectures/lecture6.4.html#methods-and-their-uses",
@@ -207,7 +207,7 @@
     "href": "lectures/lecture6.4.html#credibility-in-qualitative-work",
     "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
     "section": "Credibility in qualitative work",
-    "text": "Credibility in qualitative work\n\nDocument recruitment and protocols.\nExplain coding and interpretation.\nReflect on the researcher’s role.\nSeek evidence that challenges emerging explanations.\nCross-check accounts against other sources.\n\nSource: Starr (2014)."
+    "text": "Credibility in qualitative work\n\nDocument recruitment and protocols.\nExplain coding and interpretation.\nReflect on the researcher’s role.\nSeek evidence that challenges emerging explanations.\nCross-check accounts against other sources.\n\n\nSource: Starr (2014)."
   },
   {
     "objectID": "lectures/lecture6.4.html#self-reports-require-interpretation",
@@ -494,7 +494,7 @@
     "href": "lectures/lecture5.3.html#reproducibility-starts-with-organization",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "Reproducibility starts with organization",
-    "text": "Reproducibility starts with organization\nCan another researcher reconstruct a result from the same inputs?\nThey need\n\nOriginal inputs\nCode for every transformation\nThe order in which the code runs\nSoftware and package requirements\nThe project version used for the result\n\nSource: Gentzkow and Shapiro (2014)"
+    "text": "Reproducibility starts with organization\nCan another researcher reconstruct a result from the same inputs?\nThey need\n\nOriginal inputs\nCode for every transformation\nThe order in which the code runs\nSoftware and package requirements\nThe project version used for the result\n\n\nSource: Gentzkow and Shapiro (2014)"
   },
   {
     "objectID": "lectures/lecture5.3.html#discussion-the-cost-of-manual-steps",
@@ -928,7 +928,7 @@
     "href": "lectures/lecture4.1.html#five-elements-of-a-conceptual-framework",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "Five elements of a conceptual framework",
-    "text": "Five elements of a conceptual framework\nEthridge draws on Williams to describe an organized analysis that may include\n\nSources of the problem\nProposed solutions to the problem\nVariables relevant to the analysis\nRelationships organized into a system\nHypotheses about expected results\n\nSource: Ethridge Chapter 8 pages 130–131\n\nThis five-item list comes directly from Ethridge’s discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge."
+    "text": "Five elements of a conceptual framework\nEthridge draws on Williams to describe an organized analysis that may include\n\nSources of the problem\nProposed solutions to the problem\nVariables relevant to the analysis\nRelationships organized into a system\nHypotheses about expected results\n\n\nSource: Ethridge Chapter 8 pages 130–131\n\n\nThis five-item list comes directly from Ethridge’s discussion of Williams. It replaces the earlier six-item checklist which was a synthesis rather than a list stated by Ethridge."
   },
   {
     "objectID": "lectures/lecture4.1.html#applying-the-five-elements-to-the-snap-example",
@@ -963,7 +963,7 @@
     "href": "lectures/lecture4.1.html#how-ethridge-recommends-proceeding",
     "title": "Lecture 4.1: Conceptual Framework and Theory",
     "section": "How Ethridge recommends proceeding",
-    "text": "How Ethridge recommends proceeding\n\nReview how related problems have been conceptualized\nReduce the problem to its simplest useful form\nIdentify the applicable economic theory\nConstruct a base model using maintained hypotheses\nAdd dimensions only when they improve the analysis\nAssemble hypotheses from the conceptual reasoning\n\nSource: Ethridge Chapter 8 pages 136–138"
+    "text": "How Ethridge recommends proceeding\n\nReview how related problems have been conceptualized\nReduce the problem to its simplest useful form\nIdentify the applicable economic theory\nConstruct a base model using maintained hypotheses\nAdd dimensions only when they improve the analysis\nAssemble hypotheses from the conceptual reasoning\n\n\nSource: Ethridge Chapter 8 pages 136–138"
   },
   {
     "objectID": "lectures/lecture4.1.html#discussion-apply-ethridge-to-your-research",
@@ -1789,7 +1789,7 @@
     "href": "lectures/lecture5.4.html#keys-define-the-observations",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Keys define the observations",
-    "text": "Keys define the observations\nA key is a field or combination of fields that uniquely identifies a row\n\n\n\n\n\n\n\n\nData structure\nOne row represents\nPossible key\n\n\n\n\nHousehold survey\nOne household in one wave\nhousehold_id, wave\n\n\nCounty panel\nOne county in one year\ncounty_fips, year\n\n\nParcel transactions\nOne recorded sale\ntransaction_id\n\n\n\nCleaned tables should have keys that are unique and nonmissing\nSource: Gentzkow and Shapiro (2014), Section 5"
+    "text": "Keys define the observations\nA key is a field or combination of fields that uniquely identifies a row\n\n\n\n\n\n\n\n\nData structure\nOne row represents\nPossible key\n\n\n\n\nHousehold survey\nOne household in one wave\nhousehold_id, wave\n\n\nCounty panel\nOne county in one year\ncounty_fips, year\n\n\nParcel transactions\nOne recorded sale\ntransaction_id\n\n\n\nCleaned tables should have keys that are unique and nonmissing\n\nSource: Gentzkow and Shapiro (2014), Section 5"
   },
   {
     "objectID": "lectures/lecture5.4.html#check-the-key-before-joining",
@@ -1852,7 +1852,7 @@
     "href": "lectures/lecture5.4.html#code-style-supports-review",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Code style supports review",
-    "text": "Code style supports review\n\nGive scripts and functions one clear purpose\nUse names that identify the concept and unit\nMake function inputs and outputs explicit\nSeparate key calculations from setup code\nWrite logical conditions in the form a reader would describe them\nUse consistent naming and indentation across the project\nReturn informative errors for invalid inputs\n\nSource: Gentzkow and Shapiro (2014), Code Style appendix"
+    "text": "Code style supports review\n\nGive scripts and functions one clear purpose\nUse names that identify the concept and unit\nMake function inputs and outputs explicit\nSeparate key calculations from setup code\nWrite logical conditions in the form a reader would describe them\nUse consistent naming and indentation across the project\nReturn informative errors for invalid inputs\n\n\nSource: Gentzkow and Shapiro (2014), Code Style appendix"
   },
   {
     "objectID": "lectures/lecture5.4.html#workshop-hand-off-the-project",
@@ -2048,7 +2048,7 @@
     "href": "lectures/lecture6.3.html#begin-with-the-task",
     "title": "Lecture 6.3: Machine Learning in Economic Research",
     "section": "Begin with the task",
-    "text": "Begin with the task\nAre we trying to:\n\nPredict an outcome?\nDescribe patterns?\nEstimate a causal effect?\nLearn how effects vary?\n\nThe task determines how success should be evaluated.\nSource: Athey and Imbens (2019)."
+    "text": "Begin with the task\nAre we trying to:\n\nPredict an outcome?\nDescribe patterns?\nEstimate a causal effect?\nLearn how effects vary?\n\nThe task determines how success should be evaluated.\n\nSource: Athey and Imbens (2019)."
   },
   {
     "objectID": "lectures/lecture6.3.html#prediction-and-causality",
@@ -2090,7 +2090,7 @@
     "href": "lectures/lecture6.3.html#trees-and-forests",
     "title": "Lecture 6.3: Machine Learning in Economic Research",
     "section": "Trees and forests",
-    "text": "Trees and forests\nA regression tree splits observations into groups with different predicted outcomes.\nA random forest averages predictions across many randomized trees.\n\n\n\nIllustrative regression tree with splitting rules and terminal-node predictions, retained from the source deck.\n\n\nSource: Unit 6, slide 43."
+    "text": "Trees and forests\nA regression tree splits observations into groups with different predicted outcomes.\nA random forest averages predictions across many randomized trees.\n\n\n\nIllustrative regression tree with splitting rules and terminal-node predictions, retained from the source deck.\n\n\n\nSource: Unit 6, slide 43."
   },
   {
     "objectID": "lectures/lecture6.3.html#exercise-identify-leakage",
@@ -2160,7 +2160,7 @@
     "href": "lectures/lecture6.5.html#credibility-involves-more-than-identification",
     "title": "Lecture 6.5: Evaluating Empirical Evidence",
     "section": "Credibility involves more than identification",
-    "text": "Credibility involves more than identification\nA strong design can still estimate a quantity different from the one the researcher intends.\nCheck:\n\nResearch question.\nEstimand.\nMeasurement.\nPopulation.\nInterpretation.\n\nSource: Gibson (2019)."
+    "text": "Credibility involves more than identification\nA strong design can still estimate a quantity different from the one the researcher intends.\nCheck:\n\nResearch question.\nEstimand.\nMeasurement.\nPopulation.\nInterpretation.\n\n\nSource: Gibson (2019)."
   },
   {
     "objectID": "lectures/lecture6.5.html#does-the-measure-match-the-concept",
@@ -2209,7 +2209,7 @@
     "href": "lectures/lecture6.5.html#sample-size-changes-power",
     "title": "Lecture 6.5: Evaluating Empirical Evidence",
     "section": "Sample size changes power",
-    "text": "Sample size changes power\n\n\n\nTwo panels from Kim showing null and alternative test-statistic distributions and different power as sample size changes.\n\n\nSource: Kim; retained from Unit 6, slide 71.\nWith a valid fixed-level test, increasing sample size does not inherently increase the nominal Type I error rate.\n\nCorrects the original large-sample discussion. Larger samples increase power against fixed alternatives. Misspecification, multiple testing, or interpreting tiny effects as important are separate problems."
+    "text": "Sample size changes power\n\n\n\nTwo panels from Kim showing null and alternative test-statistic distributions and different power as sample size changes.\n\n\n\nSource: Kim; retained from Unit 6, slide 71.\n\nWith a valid fixed-level test, increasing sample size does not inherently increase the nominal Type I error rate.\n\nCorrects the original large-sample discussion. Larger samples increase power against fixed alternatives. Misspecification, multiple testing, or interpreting tiny effects as important are separate problems."
   },
   {
     "objectID": "lectures/lecture6.5.html#statistical-and-economic-importance",
@@ -2244,7 +2244,7 @@
     "href": "lectures/lecture6.5.html#error-costs-and-decision-thresholds",
     "title": "Lecture 6.5: Evaluating Empirical Evidence",
     "section": "Error costs and decision thresholds",
-    "text": "Error costs and decision thresholds\nAn illustrative expected-loss criterion is\nL=π0CIα+(1−π0)CIIβ,\nL=\\pi_0 C_I\\alpha+(1-\\pi_0)C_{II}\\beta,\n\nwhere π0\\pi_0 is the prior probability of the null and CI,CIIC_I,C_{II} are the costs of the two errors.\nChoosing a threshold involves the decision context and the test’s operating characteristics.\nSource: discussion in Kim (2019)."
+    "text": "Error costs and decision thresholds\nAn illustrative expected-loss criterion is\nL=π0CIα+(1−π0)CIIβ,\nL=\\pi_0 C_I\\alpha+(1-\\pi_0)C_{II}\\beta,\n\nwhere π0\\pi_0 is the prior probability of the null and CI,CIIC_I,C_{II} are the costs of the two errors.\nChoosing a threshold involves the decision context and the test’s operating characteristics.\n\nSource: discussion in Kim (2019)."
   },
   {
     "objectID": "lectures/lecture6.5.html#equivalence-is-not-failure-to-reject",
@@ -2265,7 +2265,7 @@
     "href": "lectures/lecture6.5.html#a-transparent-methods-section",
     "title": "Lecture 6.5: Evaluating Empirical Evidence",
     "section": "A transparent methods section",
-    "text": "A transparent methods section\nReport:\n\nModel and target parameter.\nSample and variable construction.\nSource of identifying variation.\nControls and their justification.\nInference procedure.\nPlanned sensitivity analyses.\n\nSource: Unit 6, slides 85–89."
+    "text": "A transparent methods section\nReport:\n\nModel and target parameter.\nSample and variable construction.\nSource of identifying variation.\nControls and their justification.\nInference procedure.\nPlanned sensitivity analyses.\n\n\nSource: Unit 6, slides 85–89."
   },
   {
     "objectID": "lectures/lecture6.5.html#discussion-use-both-readings",
@@ -2335,7 +2335,7 @@
     "href": "lectures/lecture7.2.html#choi-persist-and-listen",
     "title": "Lecture 7.2: Responding to Reviewers",
     "section": "Choi: persist and listen",
-    "text": "Choi: persist and listen\n\nRead the criticism carefully.\nLook for useful information even in an unwelcome report.\nTreat misunderstanding as a reason to improve clarity.\nRespond to substance without attacking the reviewer.\n\nSource: Choi (n.d.)."
+    "text": "Choi: persist and listen\n\nRead the criticism carefully.\nLook for useful information even in an unwelcome report.\nTreat misunderstanding as a reason to improve clarity.\nRespond to substance without attacking the reviewer.\n\n\nSource: Choi (n.d.)."
   },
   {
     "objectID": "lectures/lecture7.2.html#build-a-revision-plan",
@@ -2377,7 +2377,7 @@
     "href": "lectures/lecture7.2.html#fryer-map-the-response",
     "title": "Lecture 7.2: Responding to Reviewers",
     "section": "Fryer: map the response",
-    "text": "Fryer: map the response\nThe response organizes the debate around:\n\nWhat the analysis claims about racial differences and discrimination.\nSelection into police-civilian interactions.\nThe reliability of police narratives.\n\nIdentify where the author agrees, disagrees, or clarifies the scope of a claim.\nSource: Fryer (2020)."
+    "text": "Fryer: map the response\nThe response organizes the debate around:\n\nWhat the analysis claims about racial differences and discrimination.\nSelection into police-civilian interactions.\nThe reliability of police narratives.\n\nIdentify where the author agrees, disagrees, or clarifies the scope of a claim.\n\nSource: Fryer (2020)."
   },
   {
     "objectID": "lectures/lecture7.2.html#discussion-evaluate-the-response",
@@ -2769,7 +2769,7 @@
     "href": "lectures/lecture5.3.html#what-version-control-adds",
     "title": "Lecture 5.3: Managing Data for Reproducibility: Git I",
     "section": "What version control adds",
-    "text": "What version control adds\nVersion control gives a project a documented history. At selected points, it records the state of the project’s files together with the author, date, and reason for the change.\nThat history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.\nSource: Bryan (2017)"
+    "text": "What version control adds\nVersion control gives a project a documented history. At selected points, it records the state of the project’s files together with the author, date, and reason for the change.\nThat history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.\n\nSource: Bryan (2017)"
   },
   {
     "objectID": "lectures/lecture5.3.html#git-github-and-rstudio-have-different-roles",
@@ -3462,14 +3462,14 @@
     "href": "lectures/lecture5.4.html#keep-each-table-at-the-level-it-describes",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Keep each table at the level it describes",
-    "text": "Keep each table at the level it describes\nKeeping data normalized means storing each fact once at its natural unit\n\n\n\nTable\nNatural key\nOne row represents\n\n\n\n\nStates\nstate_id\nOne state\n\n\nCounties\ncounty_id\nOne county\n\n\nCounty population\ncounty_id, year\nOne county in one year\n\n\n\nStore state attributes in the state table and county attributes in the county table\nCombine tables when the analysis requires information from more than one level\nSource: Gentzkow and Shapiro (2014), Section 5"
+    "text": "Keep each table at the level it describes\nKeeping data normalized means storing each fact once at its natural unit\n\n\n\nTable\nNatural key\nOne row represents\n\n\n\n\nStates\nstate_id\nOne state\n\n\nCounties\ncounty_id\nOne county\n\n\nCounty population\ncounty_id, year\nOne county in one year\n\n\n\nStore state attributes in the state table and county attributes in the county table\nCombine tables when the analysis requires information from more than one level\n\nSource: Gentzkow and Shapiro (2014), Section 5"
   },
   {
     "objectID": "lectures/lecture5.4.html#abstraction-gives-repeated-logic-one-definition",
     "href": "lectures/lecture5.4.html#abstraction-gives-repeated-logic-one-definition",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Abstraction gives repeated logic one definition",
-    "text": "Abstraction gives repeated logic one definition\nAbstraction places a repeated operation in one function or program\n\nThe operation has a descriptive name\nInputs and outputs are explicit\nRepeated calls use the same maintained implementation\nChanges to the operation are made in one place\n\nGentzkow and Shapiro recommend abstraction when it removes repetition or clarifies the operation\nSource: Gentzkow and Shapiro (2014), Section 6"
+    "text": "Abstraction gives repeated logic one definition\nAbstraction places a repeated operation in one function or program\n\nThe operation has a descriptive name\nInputs and outputs are explicit\nRepeated calls use the same maintained implementation\nChanges to the operation are made in one place\n\nGentzkow and Shapiro recommend abstraction when it removes repetition or clarifies the operation\n\nSource: Gentzkow and Shapiro (2014), Section 6"
   },
   {
     "objectID": "lectures/lecture5.4.html#when-should-a-step-become-a-function",
@@ -3483,7 +3483,7 @@
     "href": "lectures/lecture5.4.html#documentation-records-research-decisions",
     "title": "Lecture 5.4: Managing Data for Reproducibility: Git II",
     "section": "Documentation records research decisions",
-    "text": "Documentation records research decisions\nCode names and structure should explain the operation itself\nDocumentation should record information such as\n\nThe source of a definition or threshold\nThe reason for an unexpected choice\nThe units and reference period\nA limitation a future user could miss\nThe inputs and outputs of each script\n\nMaintain documentation alongside the code it describes\nSource: Gentzkow and Shapiro (2014), Section 7"
+    "text": "Documentation records research decisions\nCode names and structure should explain the operation itself\nDocumentation should record information such as\n\nThe source of a definition or threshold\nThe reason for an unexpected choice\nThe units and reference period\nA limitation a future user could miss\nThe inputs and outputs of each script\n\nMaintain documentation alongside the code it describes\n\nSource: Gentzkow and Shapiro (2014), Section 7"
   },
   {
     "objectID": "lectures/lecture5.4.html#the-demo-uses-several-documentation-layers",
@@ -4064,7 +4064,7 @@
     "href": "lectures/lecture5.5.html#the-git-cycle-in-source-control",
     "title": "Lecture 5.5: VS Code, GitHub, and the Data Section",
     "section": "The Git cycle in Source Control",
-    "text": "The Git cycle in Source Control\n\nPull the current branch and switch to a task branch\nEdit and run the project\nInspect each changed file and stage the intended changes\nCommit with a message that describes the research change\nPush the branch to GitHub\n\nThe Source Control view and terminal operate on the same local Git repository\nSource: Source control in VS Code"
+    "text": "The Git cycle in Source Control\n\nPull the current branch and switch to a task branch\nEdit and run the project\nInspect each changed file and stage the intended changes\nCommit with a message that describes the research change\nPush the branch to GitHub\n\nThe Source Control view and terminal operate on the same local Git repository\n\nSource: Source control in VS Code"
   },
   {
     "objectID": "lectures/lecture5.5.html#diff-review-before-committing",
@@ -4442,7 +4442,7 @@
     "href": "lectures/lecture6.1.html#the-ricardian-model-compares-farmland-values-across-counties-with-different-climates",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "The Ricardian model compares farmland values across counties with different climates",
-    "text": "The Ricardian model compares farmland values across counties with different climates\n\n\nEstimation strategy\nVc=α+f(Tc,Pc)+Xc′γ+εc\nV_c = \\alpha + f(T_c, P_c) + X_c'\\gamma + \\varepsilon_c\n\n\nVcV_c: farmland value per acre in county cc\nTc,PcT_c, P_c: long-run average temperature and precipitation\nf(⋅)f(\\cdot): a quadratic; its slope in TcT_c is the parameter of interest\nXcX_c: soil quality and other county characteristics\nStandard errors allow neighboring counties’ errors to be correlated\n\n\nIdentification strategy\n\nIdentifying assumption: counties with different climates do not differ in other ways that affect land values\nMain threat: irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties (Schlenker et al. 2005)\nWhat the coefficient measures: the long-run effect of climate on land values, including adaptation\n\n\n\n\nThe logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.\nIrrigation is Bellemare’s “unobserved heterogeneity” threat, and the response is a design choice: change the sample so the omitted factor no longer varies.\nDiscussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.\nTransition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.\n\n\nSource: Mendelsohn et al. (1994)."
+    "text": "The Ricardian model compares farmland values across counties with different climates\n\n\nEstimation strategy\nVc=α+f(Tc,Pc)+Xc′γ+εc\nV_c = \\alpha + f(T_c, P_c) + X_c'\\gamma + \\varepsilon_c\n\n\nVcV_c: farmland value per acre in county cc\nTc,PcT_c, P_c: long-run average temperature and precipitation\nf(⋅)f(\\cdot): a quadratic; its slope in TcT_c is the parameter of interest\nXcX_c: soil quality and other county characteristics\nStandard errors allow neighboring counties’ errors to be correlated\n\n\nIdentification strategy\n\nIdentifying assumption: counties with different climates do not differ in other ways that affect land values\nMain threat: irrigated farms in drier, hotter counties draw water from elsewhere and have higher land values; Schlenker, Hanemann, and Fisher re-estimate the model for dryland counties (Schlenker et al. 2005)\nWhat the coefficient measures: the long-run effect of climate on land values, including adaptation\n\n\n\n\nThe logic: land markets capitalize the expected profit from farming in a given climate, so land values already reflect how farmers have adapted.\nIrrigation is Bellemare’s “unobserved heterogeneity” threat, and the response is a design choice: change the sample so the omitted factor no longer varies.\nDiscussion: which variable in your proposal could play the role of irrigation? Expect answers such as access to markets, local policy, or management practices that vary across space with the treatment.\nTransition: any fixed county characteristic like irrigation access could be removed by comparing each county with itself. That is the next design.\n\n\n\nSource: Mendelsohn et al. (1994)."
   },
   {
     "objectID": "lectures/lecture6.1.html#irrigation-shows-what-a-violated-ricardian-assumption-looks-like",
@@ -4491,7 +4491,7 @@
     "href": "lectures/lecture6.1.html#write-the-equation-so-a-referee-never-has-to-ask-what-a-symbol-means",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Write the equation so a referee never has to ask what a symbol means",
-    "text": "Write the equation so a referee never has to ask what a symbol means\n\nLatin letters for variables (aa, bb, cc, …), Greek letters (α\\alpha, β\\beta, γ\\gamma, …) for parameters\nSubscripts run from the smallest unit to the largest\nDefine every term directly below the equation\nGive each specification its own coefficient labels\nThe unit of observation matches the key in your data section\n\nSource: Bellemare (2020), Section 5.1.\n\nBellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. “Robust standard errors” is not enough; “robust to heteroskedasticity” is.\nThe next slide explains the last rule. Lecture 6.2 opens with the first two."
+    "text": "Write the equation so a referee never has to ask what a symbol means\n\nLatin letters for variables (aa, bb, cc, …), Greek letters (α\\alpha, β\\beta, γ\\gamma, …) for parameters\nSubscripts run from the smallest unit to the largest\nDefine every term directly below the equation\nGive each specification its own coefficient labels\nThe unit of observation matches the key in your data section\n\n\nSource: Bellemare (2020), Section 5.1.\n\n\nBellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. “Robust standard errors” is not enough; “robust to heteroskedasticity” is.\nThe next slide explains the last rule. Lecture 6.2 opens with the first two."
   },
   {
     "objectID": "lectures/lecture6.1.html#in-pairs-write-the-assumption-that-each-climate-equation-requires",
@@ -4827,7 +4827,7 @@
     "href": "lectures/lecture6.1.html#the-estimation-strategy-also-names-the-estimator-and-says-how-inference-is-done",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "The estimation strategy also names the estimator and says how inference is done",
-    "text": "The estimation strategy also names the estimator and says how inference is done\n\nThe estimator by name, such as OLS, a linear probability model, probit, or maximum likelihood, and why\nThe hypothesis being tested\nWhat the standard errors are robust to, such as heteroskedasticity\nWhether and how standard errors are clustered, at what level, and why\nWhether sampling weights are used, and how they were constructed\n\nSource: Bellemare (2020), Section 5.1.\n\n“Robust standard errors” alone is not enough, instead say “We used cluster-robust standard errors, clustering at the state level, to account for within-state correlation over time.”\nThe clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.\nWe return to inference later in the unit, including how to handle a small number of clusters."
+    "text": "The estimation strategy also names the estimator and says how inference is done\n\nThe estimator by name, such as OLS, a linear probability model, probit, or maximum likelihood, and why\nThe hypothesis being tested\nWhat the standard errors are robust to, such as heteroskedasticity\nWhether and how standard errors are clustered, at what level, and why\nWhether sampling weights are used, and how they were constructed\n\n\nSource: Bellemare (2020), Section 5.1.\n\n\n“Robust standard errors” alone is not enough, instead say “We used cluster-robust standard errors, clustering at the state level, to account for within-state correlation over time.”\nThe clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.\nWe return to inference later in the unit, including how to handle a small number of clusters."
   },
   {
     "objectID": "lectures/lecture6.1.html#bellemare-asks-every-paper-to-address-four-threats-to-identification",
@@ -4883,7 +4883,7 @@
     "href": "lectures/lecture6.1.html#threats-to-identification-and-problems-with-inference-are-different",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Threats to identification and problems with inference are different",
-    "text": "Threats to identification and problems with inference are different\n\nProblem with inference: the estimate may measure the right thing, but its standard errors are too small, so the result looks more certain than it is\nThreat to identification: the estimate measures the wrong thing, and more data will not fix it\nClustering standard errors is an inference choice: it changes the standard errors and leaves the estimate unchanged\n\nSource: Bellemare (2020), Sections 5.1 and 5.2.\n\nExample for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.\nStudents often list clustering as a threat. Clustering is an inference choice: it leaves the point estimate unchanged and changes how confident we are in it.\nRobustness checks can address either problem: alternative samples or controls test the identifying assumption; alternative clustering levels test the inference choice.\nWe return to inference later in the unit, including how to handle a small number of clusters."
+    "text": "Threats to identification and problems with inference are different\n\nProblem with inference: the estimate may measure the right thing, but its standard errors are too small, so the result looks more certain than it is\nThreat to identification: the estimate measures the wrong thing, and more data will not fix it\nClustering standard errors is an inference choice: it changes the standard errors and leaves the estimate unchanged\n\n\nSource: Bellemare (2020), Sections 5.1 and 5.2.\n\n\nExample for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.\nStudents often list clustering as a threat. Clustering is an inference choice: it leaves the point estimate unchanged and changes how confident we are in it.\nRobustness checks can address either problem: alternative samples or controls test the identifying assumption; alternative clustering levels test the inference choice.\nWe return to inference later in the unit, including how to handle a small number of clusters."
   },
   {
     "objectID": "lectures/lecture6.1.html#each-design-has-to-answer-all-four-threats",
@@ -4904,21 +4904,21 @@
     "href": "lectures/lecture6.1.html#research-faqs",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Research FAQs",
-    "text": "Research FAQs\nSocial science is interested in cause-and-effect relationships\nBefore starting your research, ask:\n\nWhat is the causal relationship of interest?\nWhat experiment could ideally be used to capture the causal effect of interest?\nWhat is your identification strategy?\nWhat is your mode of statistical inference?\n\nThese questions are answered throughout the paper, but formally written up in the methods (or empirical strategy) section\n\n\nSource: Angrist and Pischke (2009), Chapter 1."
+    "text": "Research FAQs\nSocial science is interested in cause-and-effect relationships\nBefore starting your research, ask:\n\nWhat is the causal relationship of interest?\nWhat experiment could ideally be used to capture the causal effect of interest?\nWhat is your identification strategy?\nWhat is your mode of statistical inference?\n\nThese questions are answered throughout the paper, but formally written up in the methods (or empirical strategy) section\n\n\n\nSource: Angrist and Pischke (2009), Chapter 1."
   },
   {
     "objectID": "lectures/lecture6.1.html#example-estimation-strategy",
     "href": "lectures/lecture6.1.html#example-estimation-strategy",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Example: Estimation strategy",
-    "text": "Example: Estimation strategy\n\n\n\nA published paper states the equation, then defines every term\nPoint out the sequence: the relationship in words, the equation, a definition of every term, then one sentence naming the parameter of interest. The next paragraph explains why they first-difference the equation, which is the estimator choice.\nTwo small inconsistencies are worth noticing: the text defines pitp_{it} for “county ii” in a country-level paper, and the equation uses e1ite_{1it} while the text defines eite_{it}. Referees catch these, and they are why every term should be defined with the same notation used in the equation.\nFootnote 5 in the paper explains why the authors do not cluster standard errors after first-differencing. That is an inference decision stated with a reason.\n\n\nSource: Dalheimer and Bellemare (2026), Section 2.1 (accepted version posted on Bellemare’s website)."
+    "text": "Example: Estimation strategy\n\n\n\nA published paper states the equation, then defines every term\nPoint out the sequence: the relationship in words, the equation, a definition of every term, then one sentence naming the parameter of interest. The next paragraph explains why they first-difference the equation, which is the estimator choice.\nTwo small inconsistencies are worth noticing: the text defines pitp_{it} for “county ii” in a country-level paper, and the equation uses e1ite_{1it} while the text defines eite_{it}. Referees catch these, and they are why every term should be defined with the same notation used in the equation.\nFootnote 5 in the paper explains why the authors do not cluster standard errors after first-differencing. That is an inference decision stated with a reason.\n\n\n\nSource: Dalheimer and Bellemare (2026), Section 2.1 (accepted version posted on Bellemare’s website)."
   },
   {
     "objectID": "lectures/lecture6.1.html#example-identification-strategy",
     "href": "lectures/lecture6.1.html#example-identification-strategy",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Example: Identification strategy",
-    "text": "Example: Identification strategy\n\n\n\nIdentification strategy explains what in the data supports a causal interpretation\nThe section walks through Bellemare’s threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section.\n\n\nSource: Dalheimer and Bellemare (2026), Section 2.2 (accepted version posted on Bellemare’s website)."
+    "text": "Example: Identification strategy\n\n\n\nIdentification strategy explains what in the data supports a causal interpretation\nThe section walks through Bellemare’s threats in order: reverse causation, omitted variables, and measurement error. Only after naming them does it explain the shift-share instrumental variable design that addresses them. We return to this structure in the identification strategy section.\n\n\n\nSource: Dalheimer and Bellemare (2026), Section 2.2 (accepted version posted on Bellemare’s website)."
   },
   {
     "objectID": "lectures/lecture6.1.html#the-following-questions-help-organize-the-section-typically-answered-in-the-order-they-appear-in-a-paper",
@@ -4960,7 +4960,7 @@
     "href": "lectures/lecture6.1.html#the-panel-model-compares-each-county-with-itself-across-years-which-removes-irrigation-but-changes-what-is-estimated",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "The panel model compares each county with itself across years, which removes irrigation but changes what is estimated",
-    "text": "The panel model compares each county with itself across years, which removes irrigation but changes what is estimated\n\n\nEstimation strategy\nyct=g(Wct)+γc+δt+εct\ny_{ct} = g(W_{ct}) + \\gamma_c + \\delta_t + \\varepsilon_{ct}\n\n\nycty_{ct}: log crop yield or farm profit in county cc, year tt\nWctW_{ct}: growing-season weather, such as degree days and precipitation\ng(⋅)g(\\cdot): its slope is the parameter of interest\nγc\\gamma_c, δt\\delta_t: county and year fixed effects\nStandard errors allow neighboring counties’ errors to be correlated, because they share weather shocks\n\n\nIdentification strategy\n\nIdentifying assumption: within a county, hotter and cooler years do not differ in other ways that affect yields\nMain threats: measurement error in gridded weather, and price changes that spill over across counties\nWhat the coefficient measures: the short-run response to weather; farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller (Timmins and Schlenker 2009)\n\n\n\n\nDeschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.\nCounty fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.\nTimmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.\nThe point for the paper: gaining credibility also changed what the coefficient measures, and the section has to say which effect it estimates.\nTransition: to recover adaptation without going back to a cross-section of levels, compare slow changes over long periods.\n\n\nSources: Deschênes and Greenstone (2007); Schlenker and Roberts (2009)."
+    "text": "The panel model compares each county with itself across years, which removes irrigation but changes what is estimated\n\n\nEstimation strategy\nyct=g(Wct)+γc+δt+εct\ny_{ct} = g(W_{ct}) + \\gamma_c + \\delta_t + \\varepsilon_{ct}\n\n\nycty_{ct}: log crop yield or farm profit in county cc, year tt\nWctW_{ct}: growing-season weather, such as degree days and precipitation\ng(⋅)g(\\cdot): its slope is the parameter of interest\nγc\\gamma_c, δt\\delta_t: county and year fixed effects\nStandard errors allow neighboring counties’ errors to be correlated, because they share weather shocks\n\n\nIdentification strategy\n\nIdentifying assumption: within a county, hotter and cooler years do not differ in other ways that affect yields\nMain threats: measurement error in gridded weather, and price changes that spill over across counties\nWhat the coefficient measures: the short-run response to weather; farmers cannot fully adapt to one hot year, so the long-run effect can be larger or smaller (Timmins and Schlenker 2009)\n\n\n\n\nDeschênes and Greenstone use farm profits; Schlenker and Roberts use yields and allow temperature effects to be nonlinear. Both rely on the same variation.\nCounty fixed effects remove everything fixed about a county, including irrigation access and long-run climate. What is left is weather.\nTimmins and Schlenker give both directions. Long-run responses face fewer constraints, so long-run damages can be smaller. But some short-run responses cannot be sustained; their example is groundwater pumping, which works for one dry year and not for a permanently drier climate.\nThe point for the paper: gaining credibility also changed what the coefficient measures, and the section has to say which effect it estimates.\nTransition: to recover adaptation without going back to a cross-section of levels, compare slow changes over long periods.\n\n\n\nSources: Deschênes and Greenstone (2007); Schlenker and Roberts (2009)."
   },
   {
     "objectID": "lectures/lecture6.1.html#the-two-sections-estimate-different-things-and-each-states-it",
@@ -4988,7 +4988,7 @@
     "href": "lectures/lecture6.1.html#long-differences-compare-slow-changes-in-climate-over-decades-which-recovers-the-adaptation-the-panel-model-misses",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses",
-    "text": "Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses\n\n\nEstimation strategy\nΔy‾c=αs+βΔW‾c+Δε‾c\n\\Delta \\bar{y}_c = \\alpha_s + \\beta\\, \\Delta \\bar{W}_c + \\Delta \\bar{\\varepsilon}_c\n\n\nΔy‾c\\Delta \\bar{y}_c: change in county cc’s multi-year average outcome between two periods\nΔW‾c\\Delta \\bar{W}_c: change in its multi-year average weather over the same periods\nαs\\alpha_s: state fixed effects; β\\beta: the parameter of interest\nStandard errors allow neighboring counties’ errors to be correlated; one observation per county leaves far fewer observations than the panel\n\n\nIdentification strategy\n\nIdentifying assumption: within a state, counties that warmed more did not change in other ways that affect yields\nMain threat: other trends, such as technology adoption, that move with climate trends\nWhat the coefficient measures: the response to gradual climate change, including the adaptation farmers made over the period\n\n\n\n\nBurke and Emerick use recent temperature and precipitation trends. Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.\nState fixed effects mean the comparison is between counties in the same state, so anything that changed for the whole state is removed.\n\n\nSource: Burke and Emerick (2016)."
+    "text": "Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses\n\n\nEstimation strategy\nΔy‾c=αs+βΔW‾c+Δε‾c\n\\Delta \\bar{y}_c = \\alpha_s + \\beta\\, \\Delta \\bar{W}_c + \\Delta \\bar{\\varepsilon}_c\n\n\nΔy‾c\\Delta \\bar{y}_c: change in county cc’s multi-year average outcome between two periods\nΔW‾c\\Delta \\bar{W}_c: change in its multi-year average weather over the same periods\nαs\\alpha_s: state fixed effects; β\\beta: the parameter of interest\nStandard errors allow neighboring counties’ errors to be correlated; one observation per county leaves far fewer observations than the panel\n\n\nIdentification strategy\n\nIdentifying assumption: within a state, counties that warmed more did not change in other ways that affect yields\nMain threat: other trends, such as technology adoption, that move with climate trends\nWhat the coefficient measures: the response to gradual climate change, including the adaptation farmers made over the period\n\n\n\n\nBurke and Emerick use recent temperature and precipitation trends. Comparing the long-differences estimate with the panel estimate for the same weather variable shows how much farmers adapted over the period. That comparison is only possible because the two designs estimate different relationships.\nState fixed effects mean the comparison is between counties in the same state, so anything that changed for the whole state is removed.\n\n\n\nSource: Burke and Emerick (2016)."
   },
   {
     "objectID": "lectures/lecture6.1.html#the-three-sections-estimate-different-things-and-each-states-it",

@@ -20,7 +20,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -116,7 +115,9 @@ Initializing creates the local Git history and publishing creates the GitHub cop
 
 The Source Control view and terminal operate on the same local Git repository
 
+::: {.source}
 Source: [Source control in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)
+:::
 
 ## Diff review before committing
 

@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -63,7 +62,9 @@ Procedures vary by journal. Follow the instructions for the specific review.
 - Explain problems rather than merely declaring them.
 - Be direct and constructive.
 
+::: {.source}
 Source: @berk2015referee.
+:::
 
 ## AJAE: several dimensions of merit
 
@@ -76,7 +77,9 @@ The assigned criteria address:
 
 A report should explain how the paper meets or falls short of relevant criteria.
 
+::: {.source}
 Source: @aaea2013refereeing.
+:::
 
 ## Ethridge: follow the argument
 
@@ -86,7 +89,9 @@ Source: @aaea2013refereeing.
 - Are important terms precise and consistent?
 - Which general problem matters more than sentence-level edits?
 
+::: {.source}
 Source: @ethridge2004appendixd.
+:::
 
 ## Discussion: identify the binding weakness
 
@@ -149,7 +154,9 @@ The assigned historical criteria include:
 
 A promising idea must also be feasible and appropriate for the call.
 
+::: {.source}
 Source: @epa2016evaluation, the assigned 2016 document.
+:::
 
 ## Discussion: journal versus proposal review
 

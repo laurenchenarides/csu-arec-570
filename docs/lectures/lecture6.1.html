@@ -120,7 +120,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-232bf618fcad4b00490ddb9b2dae4893.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-145024a514ab3b498591755dfeab6742.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -331,7 +331,9 @@ Lauren Chenarides
 <p>These questions are answered throughout the paper, but formally written up in the methods (or empirical strategy) section</p>
 
 <aside><div>
+<div class="source">
 <p>Source: <span class="citation" data-cites="angrist2009mostly">Angrist and Pischke (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Chapter 1.</p>
+</div>
 </div></aside></section>
 <section id="where-the-empirical-strategy-section-lives-in-your-paper" class="slide level2">
 <h2>Where the empirical strategy section lives in your paper</h2>
@@ -447,7 +449,9 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 <aside><div>
+<div class="source">
 <p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.1 (accepted version posted on Bellemare’s website).</p>
+</div>
 </div></aside></section>
 <section id="example-identification-strategy" class="slide level2">
 <h2>Example: Identification strategy</h2>
@@ -468,7 +472,9 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 <aside><div>
+<div class="source">
 <p>Source: <span class="citation" data-cites="dalheimer2026gavc">Dalheimer and Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2026</a>)</span>, Section 2.2 (accepted version posted on Bellemare’s website).</p>
+</div>
 </div></aside></section>
 <section id="the-following-questions-help-organize-the-section-typically-answered-in-the-order-they-appear-in-a-paper" class="slide level2 dense">
 <h2>The following questions help organize the section, typically answered in the order they appear in a paper</h2>
@@ -543,7 +549,9 @@ Lauren Chenarides
 <li>Give each specification its own coefficient labels</li>
 <li>The unit of observation matches the key in your data section</li>
 </ul>
+<div class="source">
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
+</div>
 <aside class="notes">
 <p>Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. “Robust standard errors” is not enough; “robust to heteroskedasticity” is.</p>
 <p>The next slide explains the last rule. Lecture 6.2 opens with the first two.</p>
@@ -621,7 +629,9 @@ Lauren Chenarides
 <li>Whether and how standard errors are clustered, at what level, and why</li>
 <li>Whether sampling weights are used, and how they were constructed</li>
 </ul>
+<div class="source">
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Section 5.1.</p>
+</div>
 <aside class="notes">
 <p>“Robust standard errors” alone is not enough, instead say “We used cluster-robust standard errors, clustering at the state level, to account for within-state correlation over time.”</p>
 <p>The clustering level usually follows the level at which the treatment varies or at which errors are correlated. In the panel weather example later today, neighboring counties share weather shocks.</p>
@@ -828,7 +838,9 @@ Lauren Chenarides
 <li><strong>Threat to identification:</strong> the estimate measures the wrong thing, and more data will not fix it</li>
 <li>Clustering standard errors is an inference choice: it changes the standard errors and leaves the estimate unchanged</li>
 </ul>
+<div class="source">
 <p>Source: <span class="citation" data-cites="bellemare2020applied">Bellemare (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, Sections 5.1 and 5.2.</p>
+</div>
 <aside class="notes">
 <p>Example for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.</p>
 <p>Students often list clustering as a threat. Clustering is an inference choice: it leaves the point estimate unchanged and changes how confident we are in it.</p>
@@ -946,7 +958,9 @@ V_c = \alpha + f(T_c, P_c) + X_c'\gamma + \varepsilon_c
           display:block!important;
       }</style></aside>
 <aside><div>
+<div class="source">
 <p>Source: <span class="citation" data-cites="mendelsohn1994ricardian">Mendelsohn et al. (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>.</p>
+</div>
 </div></aside></section>
 <section id="the-panel-model-compares-each-county-with-itself-across-years-which-removes-irrigation-but-changes-what-is-estimated" class="slide level2 dense">
 <h2>The panel model compares each county with itself across years, which removes irrigation but changes what is estimated</h2>
@@ -990,7 +1004,9 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
           display:block!important;
       }</style></aside>
 <aside><div>
+<div class="source">
 <p>Sources: <span class="citation" data-cites="deschenes2007climate">Deschênes and Greenstone (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span>; <span class="citation" data-cites="schlenker2009nonlinear">Schlenker and Roberts (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>.</p>
+</div>
 </div></aside></section>
 <section id="long-differences-compare-slow-changes-in-climate-over-decades-which-recovers-the-adaptation-the-panel-model-misses" class="slide level2 dense">
 <h2>Long differences compare slow changes in climate over decades, which recovers the adaptation the panel model misses</h2>
@@ -1030,7 +1046,9 @@ y_{ct} = g(W_{ct}) + \gamma_c + \delta_t + \varepsilon_{ct}
           display:block!important;
       }</style></aside>
 <aside><div>
+<div class="source">
 <p>Source: <span class="citation" data-cites="burke2016adaptation">Burke and Emerick (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>.</p>
+</div>
 </div></aside></section>
 <section id="the-three-sections-estimate-different-things-and-each-states-it" class="slide level2 dense">
 <h2>The three sections estimate different things, and each states it</h2>
@@ -1287,7 +1305,7 @@ Timmins, Christopher, and Wolfram Schlenker. 2009. <span>“Reduced-Form Versus 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>AREC 570 / ECON 530 · Methodology of Economic Research</p>
+
 </div>
 </div></div>
 

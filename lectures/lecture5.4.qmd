@@ -21,7 +21,6 @@ format:
     scrollable: false
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 / Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -339,7 +338,9 @@ A **key** is a field or combination of fields that uniquely identifies a row
 
 Cleaned tables should have keys that are unique and nonmissing
 
+::: {.source}
 Source: @gentzkow2014code, Section 5
+:::
 
 ## Check keys before combining tables
 
@@ -368,7 +369,9 @@ Store state attributes in the state table and county attributes in the county ta
 
 Combine tables when the analysis requires information from more than one level
 
+::: {.source}
 Source: @gentzkow2014code, Section 5
+:::
 
 ## Abstraction gives repeated logic one definition
 
@@ -381,7 +384,9 @@ Abstraction places a repeated operation in one function or program
 
 Gentzkow and Shapiro recommend abstraction when it removes repetition or clarifies the operation
 
+::: {.source}
 Source: @gentzkow2014code, Section 6
+:::
 
 ## When should a step become a function?
 
@@ -407,7 +412,9 @@ Documentation should record information such as
 
 Maintain documentation alongside the code it describes
 
+::: {.source}
 Source: @gentzkow2014code, Section 7
+:::
 
 ## Documentation has different scopes
 
@@ -446,7 +453,9 @@ Keep decisions with the task so a collaborator can find them later
 - Use consistent naming and indentation across the project
 - Return informative errors for invalid inputs
 
+::: {.source}
 Source: @gentzkow2014code, Code Style appendix
+:::
 
 ## Questions for evaluating a research workflow
 

@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -45,7 +44,9 @@ Are we trying to:
 
 The task determines how success should be evaluated.
 
+::: {.source}
 Source: @athey2019machine.
+:::
 
 ## Prediction and causality
 
@@ -103,7 +104,9 @@ A random forest averages predictions across many randomized trees.
 
 ![Illustrative regression tree with splitting rules and terminal-node predictions, retained from the source deck.](assets/unit6/image11.png){height=260px}
 
+::: {.source}
 Source: Unit 6, slide 43.
+:::
 
 ## Exercise: identify leakage
 

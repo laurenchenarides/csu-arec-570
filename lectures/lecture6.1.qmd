@@ -21,7 +21,6 @@ format:
     scrollable: false
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -101,7 +100,9 @@ Before starting your research, ask:
 These questions are answered throughout the paper, but formally written up in the methods (or empirical strategy) section
 
 ::: aside
+::: {.source}
 Source: @angrist2009mostly, Chapter 1.
+:::
 :::
 
 ## Where the empirical strategy section lives in your paper
@@ -169,7 +170,9 @@ This is the structure from the Bellemare reading in Lecture 2.3, Section 5. His 
 ![](assets/unit6/dalheimer-bellemare-estimation.png){height=480px fig-alt="Section 2.1, Estimation Strategy, from Dalheimer and Bellemare. The text states the relationship estimated, displays Equation 1, defines each variable, the year fixed effects, and the error term, and names beta 1 as the parameter of interest."}
 
 ::: aside
+::: {.source}
 Source: @dalheimer2026gavc, Section 2.1 (accepted version posted on Bellemare's website).
+:::
 :::
 
 ::: notes
@@ -187,7 +190,9 @@ Footnote 5 in the paper explains why the authors do not cluster standard errors 
 ![](assets/unit6/dalheimer-bellemare-identification.png){height=440px fig-alt="Section 2.2, Identification Strategy, from Dalheimer and Bellemare. The text discusses reverse causation, omitted variables, and measurement error in turn as threats to estimating the effect of trade on food prices."}
 
 ::: aside
+::: {.source}
 Source: @dalheimer2026gavc, Section 2.2 (accepted version posted on Bellemare's website).
+:::
 :::
 
 ::: notes
@@ -226,7 +231,9 @@ The order follows Bellemare: the estimation strategy (equation, estimator, infer
 - Give each specification its own coefficient labels
 - The unit of observation matches the key in your data section
 
+::: {.source}
 Source: @bellemare2020applied, Section 5.1.
+:::
 
 ::: notes
 Bellemare also asks for the estimator by name (OLS, linear probability model, probit, maximum likelihood) and for the standard errors to say what they are robust to. "Robust standard errors" is not enough; "robust to heteroskedasticity" is.
@@ -257,7 +264,9 @@ The two are the same idea at different levels: the unit is the description for t
 - Whether and how standard errors are clustered, at what level, and why
 - Whether sampling weights are used, and how they were constructed
 
+::: {.source}
 Source: @bellemare2020applied, Section 5.1.
+:::
 
 ::: notes
 "Robust standard errors" alone is not enough, instead say "We used cluster-robust standard errors, clustering at the state level, to account for within-state correlation over time."
@@ -384,7 +393,9 @@ The DAG from earlier shows each threat as a feature of the graph. The climate ex
 - **Threat to identification:** the estimate measures the wrong thing, and more data will not fix it
 - Clustering standard errors is an inference choice: it changes the standard errors and leaves the estimate unchanged
 
+::: {.source}
 Source: @bellemare2020applied, Sections 5.1 and 5.2.
+:::
 
 ::: notes
 Example for inference: in the panel weather model, neighboring counties share weather shocks, so their errors are correlated. Treating them as independent makes the standard errors too small; clustering at a level that contains the correlation fixes the standard errors and leaves the estimate unchanged.
@@ -467,7 +478,9 @@ $$
 ::::
 
 ::: aside
+::: {.source}
 Source: @mendelsohn1994ricardian.
+:::
 :::
 
 ::: notes
@@ -509,7 +522,9 @@ $$
 ::::
 
 ::: aside
+::: {.source}
 Sources: @deschenes2007climate; @schlenker2009nonlinear.
+:::
 :::
 
 ::: notes
@@ -552,7 +567,9 @@ $$
 ::::
 
 ::: aside
+::: {.source}
 Source: @burke2016adaptation.
+:::
 :::
 
 ::: notes

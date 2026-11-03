@@ -19,7 +19,6 @@ format:
     scrollable: true
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 · Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -49,7 +48,9 @@ They can separate mechanisms that move together in observational settings.
 
 A simplified setting can be informative when it isolates a relevant mechanism.
 
+::: {.source}
 Source: @falk2009lab.
+:::
 
 ## Discussion: realism and generalization
 
@@ -66,7 +67,9 @@ Rather than fixing every relevant dimension in advance, researchers allow new th
 
 Clear questions and systematic procedures still matter.
 
+::: {.source}
 Source: @starr2014qualitative.
+:::
 
 ## Methods and their uses
 
@@ -110,7 +113,9 @@ Preserves the source discussion of Bewley and Blinder. The source speaker notes 
 - Seek evidence that challenges emerging explanations.
 - Cross-check accounts against other sources.
 
+::: {.source}
 Source: @starr2014qualitative.
+:::
 
 ## Self-reports require interpretation
 

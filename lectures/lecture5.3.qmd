@@ -21,7 +21,6 @@ format:
     scrollable: false
     auto-stretch: false
     code-overflow: wrap
-    footer: "AREC 570 / ECON 530 / Methodology of Economic Research"
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
@@ -52,7 +51,9 @@ They need
 - Software and package requirements
 - The project version used for the result
 
+::: {.source}
 Source: @gentzkow2014code
+:::
 
 ## Start with a recognizable project root
 
@@ -142,7 +143,9 @@ Version control gives a project a documented history. At selected points, it rec
 
 That history allows a researcher to compare versions, recover earlier work, and identify the exact project state used for an analysis or manuscript.
 
+::: {.source}
 Source: @bryan2017version
+:::
 
 ## Git, GitHub, and RStudio have different roles
 
