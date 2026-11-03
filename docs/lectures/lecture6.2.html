@@ -174,7 +174,7 @@ Lauren Chenarides
 <p><strong>Assigned</strong></p>
 <ul>
 <li>Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference” <span class="citation" data-cites="nevo2010dogma">(<a href="#/references" role="doc-biblioref" onclick="">Nevo and Whinston 2010</a>)</span></li>
-<li>Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) <span class="citation" data-cites="nevo2000practitioner">(<a href="#/references" role="doc-biblioref" onclick="">Nevo 2000</a>)</span></li>
+<li>Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional) <span class="citation" data-cites="nevo2000practitioner">(<a href="#/references" role="doc-biblioref" onclick="">Nevo 2000a</a>)</span></li>
 </ul>
 <p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
 </div><div class="column" style="width:50%;">
@@ -182,7 +182,7 @@ Lauren Chenarides
 <ul>
 <li>Timmins and Schlenker, from Lecture 6.1 <span class="citation" data-cites="timmins2009reduced">(<a href="#/references" role="doc-biblioref" onclick="">Timmins and Schlenker 2009</a>)</span></li>
 <li>Bellemare, on notation <span class="citation" data-cites="bellemare2020applied">(<a href="#/references" role="doc-biblioref" onclick="">Bellemare 2020</a>)</span></li>
-<li>BLP demand: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>; <span class="citation" data-cites="nevo2001cereal">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span></li>
+<li>BLP demand: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>; <span class="citation" data-cites="nevo2001cereal">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>; <span class="citation" data-cites="nevo2000mergers">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000b</a>)</span></li>
 <li>Conlon and Gortmaker, on best practices and PyBLP <span class="citation" data-cites="conlon2020pyblp">(<a href="#/references" role="doc-biblioref" onclick="">Conlon and Gortmaker 2020</a>)</span></li>
 </ul>
 </div></div>
@@ -283,7 +283,7 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 <section id="a-structural-model-recovers-the-parameters-of-behavior" class="slide level2">
 <h2>A structural model recovers the parameters of behavior</h2>
 <ul>
-<li>Timmins and Schlenker’s definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures</li>
+<li>Definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures</li>
 <li>It starts from a theoretical model and states what the researcher can and cannot observe</li>
 <li>What cannot be observed becomes a structural error, backed out of observed behavior</li>
 <li>The parameters are estimated with a procedure such as GMM or maximum likelihood</li>
@@ -309,7 +309,7 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 <ul>
 <li><strong>Textbook meaning:</strong> solve a system of equations so the outcome depends only on exogenous variables</li>
 <li><strong>Recent meaning:</strong> program evaluation or treatment effects, with attention to how the exogenous variable was assigned</li>
-<li>The goal is to avoid as many structural assumptions as possible</li>
+<li>Avoids as many structural assumptions as possible</li>
 <li>Reduced-form studies still require assumptions of their own</li>
 </ul>
 <p>The designs from Lecture 6.1 are reduced form in the recent sense: fixed effects, quasi-experiments, regression discontinuity, and randomization.</p>
@@ -428,9 +428,9 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 <li>Match observed behavior to a theoretical model to recover parameters such as preferences and technology</li>
 <li>Use the model to predict responses to changes, assuming those parameters are unchanged</li>
 </ol>
-<p>Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed. Timmins and Schlenker conclude that the most convincing evidence comes from contrasting approaches.</p>
 <p>Sources: <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, pages 70 to 71; <span class="citation" data-cites="timmins2009reduced">Timmins and Schlenker (<a href="#/references" role="doc-biblioref" onclick="">2009</a>)</span>, Section 4.</p>
 <aside class="notes">
+<p>Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed.</p>
 <p>Nevo and Whinston: “Structural analysis is not a substitute for credible inference. Quite to the contrary, in general, structural analysis and credible identification are complements.” The second step is the extrapolation that a treatment effect alone does not provide.</p>
 <p>The complement runs both ways. Timmins and Schlenker note that reduced-form estimates of a response can be used inside a structural model to simulate policy. We return to this at the end of the lecture.</p>
 <style type="text/css">
@@ -478,10 +478,10 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 </tr>
 </tbody>
 </table>
-<p>Nevo and Whinston’s conclusion: each is useful in some cases and fails in others, depending on the question and the data.</p>
 <p>Source: <span class="citation" data-cites="nevo2010dogma">Nevo and Whinston (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>, pages 73 to 77.</p>
 <aside class="notes">
 <p>The treatment-effect example is Hastings (2004) on the ARCO acquisition of Thrifty gasoline stations. Nevo and Whinston call it careful design, then ask what it says about a merger of two large branded firms, or a merger in another region.</p>
+<p>Nevo and Whinston’s conclusion: each is useful in some cases and fails in others, depending on the question and the data.</p>
 <p>Their conclusion on page 80: “the future of econometrics and applied microeconomic work is in combining careful design, credible inference, robust estimation methods, and thoughtful modeling.”</p>
 <p>Transition: merger simulation is one use of a structural model. The next slide shows the range of models students will see.</p>
 <style type="text/css">
@@ -565,17 +565,51 @@ y_{cst} = \beta P_{st} + \gamma_c + \delta_t + \varepsilon_{cst}
 <h1>BLP: one structural model</h1>
 
 </section>
-<section id="blp-addresses-the-large-number-of-cross-price-effects-in-differentiated-product-demand" class="slide level2">
+<section id="blp-addresses-the-large-number-of-cross-price-effects-in-differentiated-product-demand" class="slide level2 dense">
 <h2>BLP addresses the large number of cross-price effects in differentiated-product demand</h2>
+<p>A log-log demand system estimates one equation for each product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>, with every price on the right side:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>q</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>γ</mi><mi>j</mi></msub><mo>+</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mn>100</mn></munderover><msub><mi>η</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>p</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\ln\, q_{jt} = \gamma_j + \sum_{k=1}^{100} \eta_{jk} \ln\, p_{kt} + \varepsilon_{jt}
+</annotation></semantics></math></p>
 <ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>η</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub><annotation encoding="application/x-tex">\eta_{jk}</annotation></semantics></math>: the percent change in the quantity of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> when the price of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> rises 1 percent</li>
 <li>With 100 products, a log-log demand system has at least 10,000 parameters</li>
 <li>BLP describes each product by its characteristics, so the number of parameters depends on the number of characteristics</li>
 <li>It uses market-level data on prices and quantities, and it allows for endogenous prices</li>
-<li><strong>Running question:</strong> how much would prices rise if two cereal firms merged?</li>
 </ul>
-<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 514 to 515; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
+<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 514 to 515; <span class="citation" data-cites="blp1995automobile">Berry et al. (<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
 <aside class="notes">
-<p>BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles. Nevo applies the method to ready-to-eat cereal <span class="citation" data-cites="nevo2001cereal">(<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.</p>
+<p>BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles.</p>
+<p>A log-log demand system regresses the log quantity of each product on the logs of all prices, so each coefficient is an own-price or cross-price elasticity: 100 equations with 100 prices each. It has no utility function, so it looks like a regression a reduced-form paper would run. It is a demand equation, though, and it needs an exogenous source of variation for each price. A reduced-form design can estimate a few elasticities, for example from a tax or price change that affects one product. The problem on this slide is estimating all of them at once.</p>
+<p>Nevo describes this system in words; the equation writes out his description. Nevo also notes that the symmetry and adding-up restrictions from theory still leave too many parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="nevo-2000-market-concentration-does-not-show-how-close-brands-are-as-substitutes" class="slide level2 dense">
+<h2>Nevo (2000): market concentration does not show how close brands are as substitutes</h2>
+<ul>
+<li><strong>Empirical question:</strong> how much would prices rise if two cereal firms merged?</li>
+<li><strong>Traditional merger analysis:</strong> define the market, then compute a concentration measure, such as the HHI, from market shares</li>
+<li><strong>Limit:</strong> with differentiated products the market is hard to define, and the HHI is a reasonable guide only if products are equally spaced in their characteristics</li>
+<li><strong>Portfolio effect:</strong> a firm that owns two substitutes charges more than two separate firms would, because some sales lost by one brand go to the other</li>
+<li><strong>Nevo’s approach:</strong> estimate how much brands substitute, such as Post Grape Nuts and Nabisco Shredded Wheat, then simulate post-merger prices</li>
+</ul>
+<p>Sources: <span class="citation" data-cites="nevo2000mergers">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000b</a>)</span>; <span class="citation" data-cites="nevo2001cereal">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, pages 307 to 308.</p>
+<aside class="notes">
+<p>This paper is the application behind the rest of the section. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.</p>
+<p>The HHI (Herfindahl-Hirschman Index) is the sum of squared market shares, measured in percent, so it runs from 0 to 10,000. It uses shares only, and two brands with the same shares give the same HHI whether or not consumers treat them as close substitutes. Nevo cites Willig (1991): if demand is logit, relying on market shares for merger policy is sensible, because in logit all substitution patterns are determined by market shares. Nevo argues logit is inadequate for cereal.</p>
+<p>The case: in 1992, Kraft, which owns Post, acquired the Nabisco cereal line. New York challenged the merger, arguing that high substitution between Grape Nuts and Shredded Wheat would raise their prices. The court approved it. In the 1997 working paper version, Shredded Wheat has the largest cross-price elasticity with respect to the price of Grape Nuts (0.119, Table 6), and simulated price increases are small: 0.6 percent for Post Raisin Bran, 1.4 percent for Grape Nuts, and 2.8 percent for Shredded Wheat (Table 8). The Logit model predicts 0.1 to 0.2 percent. Check the published tables before quoting numbers, because the published paper has five mergers and the working paper has four.</p>
+<p>The portfolio effect is the term in Nevo’s Econometrica paper (2001). The merger paper applies the same logic to a change in ownership. Two brands already owned by the same firm, such as Cheerios and Wheaties at General Mills, already show this effect before any merger.</p>
+<p>Elasticities here are estimates with standard errors, and the simulated prices depend on the assumed post-merger pricing behavior.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -705,7 +739,7 @@ u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
 <li>Buying nothing is the outside good: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><msub><mi>y</mi><mi>i</mi></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mn>0</mn><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{i0t} = \alpha_i y_i + \varepsilon_{i0t}</annotation></semantics></math></li>
 </ul>
 <p>Summing individual choices gives each product’s predicted market share. The data are the observed shares.</p>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 517 to 520.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 517 to 520.</p>
 <aside class="notes">
 <p>Why income minus price: the consumer spends <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_i - p_{jt}</annotation></semantics></math> on everything else, and each dollar of it is worth <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math>. Nevo notes this form comes from quasilinear utility, with no wealth effects, which is reasonable for cereal and unreasonable for cars.</p>
 <p>The parameters of interest are the taste parameters. Everything the paper reports (elasticities, markups, welfare) is computed from them.</p>
@@ -766,7 +800,7 @@ u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
 </tbody>
 </table>
 <p>Logit is the special case of the utility function above in which every consumer has the same tastes.</p>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 522 to 526.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 522 to 526.</p>
 <aside class="notes">
 <p>Students will see “BLP” used for the random-coefficients logit estimated with instruments for price. BLP (1995) also add a supply side. We start with logit because it can be derived by hand.</p>
 <style type="text/css">
@@ -781,54 +815,52 @@ u_{ijt} = \alpha_i(y_i - p_{jt}) + x_{jt}\beta_i + \xi_{jt} + \varepsilon_{ijt}
           display:block!important;
       }</style></aside>
 </section>
-<section id="from-the-model-to-the-estimating-equation-in-the-logit-case" class="slide level2 dense">
-<h2>From the model to the estimating equation, in the logit case</h2>
-<ol type="1">
-<li>Choices depend on utility differences, and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\alpha y_i</annotation></semantics></math> appears in every option, so income cancels</li>
-<li>With the same tastes, utility is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{ijt} = \delta_{jt} + \varepsilon_{ijt}</annotation></semantics></math>, where mean utility is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\delta_{jt} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}</annotation></semantics></math></li>
-<li>Extreme-value shocks give a formula for shares:</li>
-</ol>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mrow><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mn>1</mn><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mspace width="2.0em"></mspace><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><munder><mo>∑</mo><mi>k</mi></munder><mrow><mi mathvariant="normal">exp</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>δ</mi><mrow><mi>k</mi><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
-s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} = \frac{1}{1 + \sum_{k} \exp(\delta_{kt})}
+<section id="estimation-back-out-the-unobserved-term-from-market-shares-then-use-gmm" class="slide level2 dense">
+<h2>Estimation: back out the unobserved term from market shares, then use GMM</h2>
+<p>In logit, observed market shares convert into a linear regression:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mspace width="0.167em"></mspace><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
 </annotation></semantics></math></p>
-<ol start="4" type="1">
-<li>Dividing the two and taking logs gives a linear equation in data and parameters:</li>
-</ol>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>−</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><msub><mi>s</mi><mrow><mn>0</mn><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>x</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mi>β</mi><mo>−</mo><mi>α</mi><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
-\ln s_{jt} - \ln s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
-</annotation></semantics></math></p>
-<p><a href="https://laurenchenarides.github.io/csu-arec-570/files/blp-derivation.html" target="_blank" rel="noopener">Open the derivation notes</a></p>
-<p>Sources: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 522 and 532.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 42%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math>: unobserved product characteristics</th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math>: individual shock</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Varies by</strong></td>
+<td>Product and market</td>
+<td>Consumer, product, and market</td>
+</tr>
+<tr class="even">
+<td><strong>Known to</strong></td>
+<td>Consumers and firms, so it affects price</td>
+<td>The consumer only</td>
+</tr>
+<tr class="odd">
+<td><strong>In estimation</strong></td>
+<td>The error term in the regression</td>
+<td>Averaged over consumers into the share formula</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Random coefficients:</strong> for each guess of the taste parameters, find the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> that reproduce observed shares, and choose the guess that makes <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> uncorrelated with the instruments (GMM)</li>
+<li>In a paper, this gets one paragraph; the steps go in an appendix (<a href="https://laurenchenarides.github.io/csu-arec-570/files/blp-derivation.html" target="_blank" rel="noopener">derivation notes</a>)</li>
+</ul>
+<p>Sources: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 522 and 530 to 533.</p>
 <aside class="notes">
-<p>Answer the two questions students ask. Why <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">y_i - p_{jt}</annotation></semantics></math>: it is the money left for everything else. Where <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math> went: it is in the outside good too, so it does not affect which option is best. Income can still matter through <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\alpha_i</annotation></semantics></math> in the full model.</p>
-<p>Numeric check from the notes: shares of 0.2 and 0.3 with an outside share of 0.5 give <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>1</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.2</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.92</mn></mrow><annotation encoding="application/x-tex">\delta_1 = \ln(0.2/0.5) = -0.92</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>2</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.3</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.51</mn></mrow><annotation encoding="application/x-tex">\delta_2 = \ln(0.3/0.5) = -0.51</annotation></semantics></math>.</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is the error term in this regression, which is why it is called a structural error.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="estimation-back-out-the-unobserved-term-then-use-gmm" class="slide level2 dense">
-<h2>Estimation: back out the unobserved term, then use GMM</h2>
-<p><strong>Logit:</strong> the equation on the last slide is a linear instrumental-variables regression.</p>
-<p><strong>Random coefficients:</strong> shares have no closed form, so the estimator repeats a loop:</p>
-<ol type="1">
-<li>Guess the parameters that describe how tastes vary</li>
-<li>Find the mean utilities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> that make predicted shares equal observed shares</li>
-<li>Regress <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> on price and characteristics using instruments; the residual is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math></li>
-<li>Measure how far <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is from being uncorrelated with the instruments (the GMM objective)</li>
-<li>Update the guess and repeat until the objective reaches a minimum</li>
-</ol>
-<p>In a paper, this gets one paragraph. The steps go in an appendix.</p>
-<p>Sources: <span class="citation" data-cites="berry1994estimating">Berry (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span>; <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 530 to 533.</p>
-<aside class="notes">
+<p>The point of this slide is the difference between the two unobserved terms. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math> differs across consumers, so with many consumers it averages out: it produces the share formula and then disappears from the equation. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is the same for every consumer of product <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> in market <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>, so it does not average out. It stays in the equation as the error term. Firms know it when they set prices, which is why price is endogenous and the regression needs instruments. This is why <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is called the structural error.</p>
+<p>How the equation is derived, in the logit case: income cancels because it appears in every option, including buying nothing. The extreme-value assumption on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ε</mi><mrow><mi>i</mi><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\varepsilon_{ijt}</annotation></semantics></math> gives a formula for each share. Dividing a product’s share by the outside share and taking logs gives the equation on the slide. The derivation notes show each step, with a numeric check: shares of 0.2 and 0.3 with an outside share of 0.5 give <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>1</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.2</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.92</mn></mrow><annotation encoding="application/x-tex">\delta_1 = \ln(0.2/0.5) = -0.92</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mn>2</mn></msub><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>⁡</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>0.3</mn><mi>/</mi><mn>0.5</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>0.51</mn></mrow><annotation encoding="application/x-tex">\delta_2 = \ln(0.3/0.5) = -0.51</annotation></semantics></math>.</p>
+<p>The random-coefficients loop, if students ask: (1) guess the parameters that describe how tastes vary; (2) find the mean utilities <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> that make predicted shares equal observed shares; (3) regress <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>δ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\delta_{jt}</annotation></semantics></math> on price and characteristics using instruments, and the residual is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math>; (4) measure how far <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is from being uncorrelated with the instruments, which is the GMM objective; (5) update the guess and repeat until the objective reaches a minimum.</p>
 <p>Inference: report GMM standard errors for the parameters, and standard errors for the quantities the paper is about, such as elasticities.</p>
 <p>Transition: estimation gives us numbers. Identification asks what in the data determines them.</p>
 <style type="text/css">
@@ -882,7 +914,7 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
 </tbody>
 </table>
 <p>Only the first part is an endogeneity problem. The second concerns which variation pins down the spread of tastes.</p>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 528 to 530.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 528 to 530.</p>
 <aside class="notes">
 <p>Nevo frames these as two questions: first, how to deal with prices that are set by firms using information the researcher lacks; second, what in the data distinguishes logit from random-coefficients logit.</p>
 <p>There is one more endogeneity concern: unobserved characteristics may be correlated with observed ones. Nevo notes this is handled with instruments and, in cereal, brand fixed effects.</p>
@@ -937,7 +969,7 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
 </tr>
 </tbody>
 </table>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 528 and 534 to 536.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 528 and 534 to 536.</p>
 <aside class="notes">
 <p>This is the classic supply and demand identification problem: to trace out a demand curve, you need variation that shifts supply and leaves demand unchanged. The instruments play that role. It is the same endogeneity as the veterans DAG in Lecture 6.1: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ξ</mi><mrow><mi>j</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\xi_{jt}</annotation></semantics></math> is in the error term and also affects the treatment, here price.</p>
 <p>Nevo’s threat to the Hausman instrument: a finding that fiber may reduce the risk of cancer raises demand for high-fiber cereals in every city, so demand shocks are correlated across markets. Coordinated advertising across city borders would also violate the restriction. Nevo says resolving this requires comparing sets of instruments, additional data, and knowledge of the industry.</p>
@@ -954,23 +986,54 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
           display:block!important;
       }</style></aside>
 </section>
-<section id="random-coefficients-let-tastes-vary-which-changes-substitution-patterns" class="slide level2">
-<h2>Random coefficients let tastes vary, which changes substitution patterns</h2>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>α</mi><mi>i</mi></msub></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>β</mi><mi>i</mi></msub></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>α</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>β</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi mathvariant="normal">Π</mi><msub><mi>D</mi><mi>i</mi></msub><mo>+</mo><mi mathvariant="normal">Σ</mi><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
-\begin{pmatrix} \alpha_i \\ \beta_i \end{pmatrix} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} + \Pi D_i + \Sigma v_i
+<section id="random-coefficients-pi-and-sigma-measure-how-tastes-vary-across-consumers" class="slide level2 dense">
+<h2>Random coefficients: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> measure how tastes vary across consumers</h2>
+<p>Each consumer’s taste for a characteristic, here sugar, has three parts:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>β</mi><mi>i</mi><mtext mathvariant="normal">sugar</mtext></msubsup><mo>=</mo><msup><mi>β</mi><mtext mathvariant="normal">sugar</mtext></msup><mo>+</mo><msub><mi>π</mi><mtext mathvariant="normal">inc</mtext></msub><mspace width="0.167em"></mspace><msub><mtext mathvariant="normal">income</mtext><mi>i</mi></msub><mo>+</mo><msub><mi>π</mi><mtext mathvariant="normal">age</mtext></msub><mspace width="0.167em"></mspace><msub><mtext mathvariant="normal">age</mtext><mi>i</mi></msub><mo>+</mo><mi>σ</mi><mspace width="0.167em"></mspace><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+\beta_i^{\text{sugar}} = \beta^{\text{sugar}} + \pi_{\text{inc}}\, \text{income}_i + \pi_{\text{age}}\, \text{age}_i + \sigma\, v_i
 </annotation></semantics></math></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 44%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>What it measures</th>
+<th style="text-align: right;">Demo estimate (SE)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>β</mi><mtext mathvariant="normal">sugar</mtext></msup><annotation encoding="application/x-tex">\beta^{\text{sugar}}</annotation></semantics></math></td>
+<td>Taste of the average consumer</td>
+<td style="text-align: right;">In product fixed effects</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mtext mathvariant="normal">inc</mtext></msub><annotation encoding="application/x-tex">\pi_{\text{inc}}</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>π</mi><mtext mathvariant="normal">age</mtext></msub><annotation encoding="application/x-tex">\pi_{\text{age}}</annotation></semantics></math> (in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math>)</td>
+<td>How the taste changes with income and age</td>
+<td style="text-align: right;">−0.385 (0.122), 0.052 (0.026)</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> (in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>)</td>
+<td>Spread of the taste among consumers with the same income and age</td>
+<td style="text-align: right;">0.006 (0.014)</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>: mean tastes</li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>i</mi></msub><annotation encoding="application/x-tex">D_i</annotation></semantics></math>: demographics, such as income, age, and children; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math>: how tastes vary with them</li>
-<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>i</mi></msub><annotation encoding="application/x-tex">v_i</annotation></semantics></math>: traits the researcher does not observe; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>: how much tastes vary with them</li>
-<li>Logit sets <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Pi = 0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Sigma = 0</annotation></semantics></math></li>
-<li>Consumers of a sugary cereal tend to like sugar, so when its price rises they move to other sugary cereals</li>
+<li>Stacking these rows for price and every characteristic gives <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><msub><mi>D</mi><mi>i</mi></msub><mo>+</mo><mi mathvariant="normal">Σ</mi><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Pi D_i + \Sigma v_i</annotation></semantics></math>; logit sets <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Pi = 0</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Sigma = 0</annotation></semantics></math></li>
+<li>In the demo, lower-income consumers like sugar more, so sugary cereals share the same buyers</li>
 </ul>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 519 and 526.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 519 and 526.</p>
 <aside class="notes">
-<p>This is where the random coefficients enter. They are the terms <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Π</mi><msub><mi>D</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Pi D_i</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Σ</mi><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Sigma v_i</annotation></semantics></math>. They are called random because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>i</mi></msub><annotation encoding="application/x-tex">v_i</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>i</mi></msub><annotation encoding="application/x-tex">D_i</annotation></semantics></math> are drawn from a distribution; we never observe a specific consumer’s tastes.</p>
-<p>Nevo’s example (page 523): Lucky Charms and Cap’n Crunch are both children’s cereals and Grape Nuts is a nutrition cereal. If Cap’n Crunch and Grape Nuts have similar shares, logit says a rise in the price of Lucky Charms raises both shares by the same amount. We expect more consumers to switch to Cap’n Crunch.</p>
-<p>Why logit behaves this way: consumers differ only through the independent shock, so those who leave a product look like the average consumer, and their second choices follow market shares.</p>
+<p>Yes, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> are the random coefficients. They are the only new parameters relative to logit. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math> captures variation in tastes that comes from demographics the researcher observes. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> captures variation that remains among consumers with the same demographics. They are called random because each consumer’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>i</mi></msub><annotation encoding="application/x-tex">D_i</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>i</mi></msub><annotation encoding="application/x-tex">v_i</annotation></semantics></math> are drawn from a distribution; we never observe a specific consumer’s tastes.</p>
+<p>Read the demo row in words. Income is measured relative to the mean, so a consumer with average demographics has the mean taste for sugar. A consumer with lower income has a higher taste for sugar (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mtext mathvariant="normal">inc</mtext></msub><mo>=</mo><mi>−</mi><mn>0.385</mn></mrow><annotation encoding="application/x-tex">\pi_{\text{inc}} = -0.385</annotation></semantics></math>). Among consumers with the same income and age, the taste for sugar barely varies (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> is close to zero and imprecise). In these data, the variation in sugar tastes comes from income.</p>
+<p>The link to the next slide: the people who buy a sugary cereal tend to be lower-income consumers with a high taste for sugar. When its price rises, they choose again with the same tastes, so their second choice is likely another sugary cereal. Logit has no such term, so a consumer who leaves a sugary cereal splits across rivals in proportion to market shares.</p>
+<p>Nevo’s version of the example (page 523): when the price of Lucky Charms rises, logit predicts equal gains for Cap’n Crunch and Grape Nuts if they have similar shares. We expect more consumers to switch to Cap’n Crunch, another children’s cereal.</p>
+<p>The sign of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math> is not identified, because <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>i</mi></msub><annotation encoding="application/x-tex">v_i</annotation></semantics></math> is symmetric; PyBLP reports −0.006. The data are simulated, so these estimates illustrate the method. Sugar does not vary within a product, so its mean taste is absorbed by the product fixed effects; it can be recovered by regressing the fixed effects on characteristics.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -983,10 +1046,15 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
           display:block!important;
       }</style></aside>
 </section>
-<section id="in-logit-lost-sales-follow-market-shares-with-random-coefficients-they-follow-similarity" class="slide level2 dense">
-<h2>In logit, lost sales follow market shares; with random coefficients, they follow similarity</h2>
-<p><img data-src="assets/unit6/substitution-logit-rc.svg" alt="Two scatter plots of where sales lost by one sugary cereal go. Horizontal axis is the rival's market share and vertical axis is the percent of lost sales going to that rival. In the logit panel all rivals fall on a straight line through the origin, whatever their sugar content. In the random-coefficients panel sugary rivals lie well above low-sugar rivals with similar shares, and the largest sugary rival gets 20 percent." height="400"></p>
-<p>Lost sales from one cereal with 14 grams of sugar, in one market of the demo. Sugary rivals get 22.7% in logit and 40.5% with random coefficients.</p>
+<section id="demo-with-random-coefficients-more-of-a-sugary-cereals-lost-sales-go-to-sugary-rivals" class="slide level2 dense">
+<h2>Demo: with random coefficients, more of a sugary cereal’s lost sales go to sugary rivals</h2>
+<p><img data-src="assets/unit6/substitution-logit-rc.svg" alt="Two scatter plots of where sales lost by one sugary cereal go. Horizontal axis is the rival's market share and vertical axis is the percent of lost sales going to that rival. In the logit panel all rivals fall on a straight line through the origin, whatever their sugar content. In the random-coefficients panel sugary rivals lie well above low-sugar rivals with similar shares, and the largest sugary rival gets 20 percent." height="295"></p>
+<ul>
+<li>Each point is a rival cereal. Further right is a larger market share; higher is a larger part of the lost sales</li>
+<li><strong>Logit:</strong> the points form a line, so market share alone sets a rival’s gain</li>
+<li><strong>Random coefficients:</strong> sugary rivals, which share buyers, gain more than low-sugar rivals of the same size</li>
+</ul>
+<p>A cereal with 14 grams of sugar, one market: sugary rivals get 22.7% in logit, 40.5% with random coefficients.</p>
 <aside class="notes">
 <p>Each point is a rival product. In the left panel, share alone determines a rival’s gain: rivals with similar shares gain about the same, whether or not they are sugary. In the right panel, sugar matters. Low-sugar rivals get 20.2 percent of lost sales in logit and 10.0 percent with random coefficients. The share going to no purchase falls from 57.0 to 49.5 percent. The product is F1B13 in market C01Q1; the demo page shows the calculation.</p>
 <p>Why this matters: two products owned by merging firms are likely to be close substitutes. If the model cannot represent closeness, it misses the main force in the merger.</p>
@@ -1011,7 +1079,7 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
 <li><strong>Demographics:</strong> the parameters in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Π</mi><annotation encoding="application/x-tex">\Pi</annotation></semantics></math> are identified by comparing markets with different demographics</li>
 </ul>
 <p>Having many markets helps when they add variation in prices, characteristics, choice sets, and demographics. Nevo’s cereal data have no variation in the choice set across markets, which he offers as a reason his estimates of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math> are imprecise.</p>
-<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, pages 529 to 530 and 541.</p>
+<p>Source: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, pages 529 to 530 and 541.</p>
 <aside class="notes">
 <p>The number of markets alone is the wrong test. What a section has to state is the comparison: which products, which changes, which markets. This is what “state which variation identifies which parameter” means in a structural paper.</p>
 <p>Nevo adds that observing share changes as new products enter, or as characteristics change, is especially helpful.</p>
@@ -1128,7 +1196,7 @@ s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} 
 <li><strong>Software:</strong> PyBLP in Python; the script runs in under a minute</li>
 </ul>
 <p><a href="https://laurenchenarides.github.io/csu-arec-570/files/cereal-demand-demo.html" target="_blank" rel="noopener">Open the cereal demand demo</a></p>
-<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000</a>)</span>, page 538; <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>.</p>
+<p>Sources: <span class="citation" data-cites="nevo2000practitioner">Nevo (<a href="#/references" role="doc-biblioref" onclick="">2000a</a>)</span>, page 538; <span class="citation" data-cites="conlon2020pyblp">Conlon and Gortmaker (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>.</p>
 <aside class="notes">
 <p>We read the results in class. The demo page shows the code, the output, and how each number is calculated, and it explains how to run the script in VS Code.</p>
 <p>Firms 1 and 2 are the two largest firms in the simulated data, with about 75 percent of sales.</p>
@@ -1451,7 +1519,10 @@ Berry, Steven, James Levinsohn, and Ariel Pakes. 1995. <span>“Automobile Price
 Conlon, Christopher, and Jeff Gortmaker. 2020. <span>“Best Practices for Differentiated Products Demand Estimation with <span>PyBLP</span>.”</span> <em>RAND Journal of Economics</em> 51 (4): 1108–61. <a href="https://doi.org/10.1111/1756-2171.12352">https://doi.org/10.1111/1756-2171.12352</a>.
 </div>
 <div id="ref-nevo2000practitioner" class="csl-entry" role="listitem">
-Nevo, Aviv. 2000. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
+Nevo, Aviv. 2000a. <span>“A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand.”</span> <em>Journal of Economics &amp; Management Strategy</em> 9 (4): 513–48. <a href="https://doi.org/10.1162/105864000567954">https://doi.org/10.1162/105864000567954</a>.
+</div>
+<div id="ref-nevo2000mergers" class="csl-entry" role="listitem">
+Nevo, Aviv. 2000b. <span>“Mergers with Differentiated Products: The Case of the Ready-to-Eat Cereal Industry.”</span> <em>The RAND Journal of Economics</em> 31 (3): 395–421. <a href="https://doi.org/10.2307/2600994">https://doi.org/10.2307/2600994</a>.
 </div>
 <div id="ref-nevo2001cereal" class="csl-entry" role="listitem">
 Nevo, Aviv. 2001. <span>“Measuring Market Power in the Ready-to-Eat Cereal Industry.”</span> <em>Econometrica</em> 69 (2): 307–42. <a href="https://doi.org/10.1111/1468-0262.00194">https://doi.org/10.1111/1468-0262.00194</a>.

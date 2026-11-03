@@ -46,7 +46,7 @@ Readings and course handouts are available on [Canvas](https://colostate.instruc
 
 - Timmins and Schlenker, from Lecture 6.1 [@timmins2009reduced]
 - Bellemare, on notation [@bellemare2020applied]
-- BLP demand: @berry1994estimating; @blp1995automobile; @nevo2001cereal
+- BLP demand: @berry1994estimating; @blp1995automobile; @nevo2001cereal; @nevo2000mergers
 - Conlon and Gortmaker, on best practices and PyBLP [@conlon2020pyblp]
 :::
 
@@ -95,7 +95,7 @@ The subscript on the treatment also tells the reader where the identifying varia
 
 ## A structural model recovers the parameters of behavior
 
-- Timmins and Schlenker's definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures
+- Definition: any empirical model that recovers the parameters of behavioral functions, such as demand and supply equations, utility functions, or cost structures
 - It starts from a theoretical model and states what the researcher can and cannot observe
 - What cannot be observed becomes a structural error, backed out of observed behavior
 - The parameters are estimated with a procedure such as GMM or maximum likelihood
@@ -112,7 +112,7 @@ Link to Unit 4: for Ethridge, a conceptual framework is an analysis of a specifi
 
 - **Textbook meaning:** solve a system of equations so the outcome depends only on exogenous variables
 - **Recent meaning:** program evaluation or treatment effects, with attention to how the exogenous variable was assigned
-- The goal is to avoid as many structural assumptions as possible
+- Avoids as many structural assumptions as possible
 - Reduced-form studies still require assumptions of their own
 
 The designs from Lecture 6.1 are reduced form in the recent sense: fixed effects, quasi-experiments, regression discontinuity, and randomization.
@@ -175,11 +175,11 @@ Link to the methods map: these are the methods at the top of the map, where the 
 1. Match observed behavior to a theoretical model to recover parameters such as preferences and technology
 2. Use the model to predict responses to changes, assuming those parameters are unchanged
 
-Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed. Timmins and Schlenker conclude that the most convincing evidence comes from contrasting approaches.
-
 Sources: @nevo2010dogma, pages 70 to 71; @timmins2009reduced, Section 4.
 
 ::: notes
+Nevo and Whinston describe structural analysis and credible identification as complements: identification establishes what the data reveal, and the model extends those results to settings not observed. 
+
 Nevo and Whinston: "Structural analysis is not a substitute for credible inference. Quite to the contrary, in general, structural analysis and credible identification are complements." The second step is the extrapolation that a treatment effect alone does not provide.
 
 The complement runs both ways. Timmins and Schlenker note that reduced-form estimates of a response can be used inside a structural model to simulate policy. We return to this at the end of the lecture.
@@ -193,12 +193,13 @@ The complement runs both ways. Timmins and Schlenker note that reduced-form esti
 | **Strength** | Clear identification for that merger | Predicts a proposed merger, with welfare |
 | **Limit** | Other mergers may not be similar; no welfare measure | Holds products, firms, and pricing behavior fixed; instruments are often imperfect |
 
-Nevo and Whinston's conclusion: each is useful in some cases and fails in others, depending on the question and the data.
 
 Source: @nevo2010dogma, pages 73 to 77.
 
 ::: notes
 The treatment-effect example is Hastings (2004) on the ARCO acquisition of Thrifty gasoline stations. Nevo and Whinston call it careful design, then ask what it says about a merger of two large branded firms, or a merger in another region.
+
+Nevo and Whinston's conclusion: each is useful in some cases and fails in others, depending on the question and the data.
 
 Their conclusion on page 80: "the future of econometrics and applied microeconomic work is in combining careful design, credible inference, robust estimation methods, and thoughtful modeling."
 
@@ -228,17 +229,49 @@ Transition: BLP is one row of this table. We use it to show how a structural pap
 
 # BLP: one structural model
 
-## BLP addresses the large number of cross-price effects in differentiated-product demand
+## BLP addresses the large number of cross-price effects in differentiated-product demand {.dense}
 
+A log-log demand system estimates one equation for each product $j$, with every price on the right side:
+
+$$
+\ln\, q_{jt} = \gamma_j + \sum_{k=1}^{100} \eta_{jk} \ln\, p_{kt} + \varepsilon_{jt}
+$$
+
+- $\eta_{jk}$: the percent change in the quantity of $j$ when the price of $k$ rises 1 percent
 - With 100 products, a log-log demand system has at least 10,000 parameters
 - BLP describes each product by its characteristics, so the number of parameters depends on the number of characteristics
 - It uses market-level data on prices and quantities, and it allows for endogenous prices
-- **Running question:** how much would prices rise if two cereal firms merged?
 
 Sources: @nevo2000practitioner, pages 514 to 515; @blp1995automobile.
 
 ::: notes
-BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles. Nevo applies the method to ready-to-eat cereal [-@nevo2001cereal]. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.
+BLP stands for Berry, Levinsohn, and Pakes (1995), who estimate demand for automobiles.
+
+A log-log demand system regresses the log quantity of each product on the logs of all prices, so each coefficient is an own-price or cross-price elasticity: 100 equations with 100 prices each. It has no utility function, so it looks like a regression a reduced-form paper would run. It is a demand equation, though, and it needs an exogenous source of variation for each price. A reduced-form design can estimate a few elasticities, for example from a tax or price change that affects one product. The problem on this slide is estimating all of them at once.
+
+Nevo describes this system in words; the equation writes out his description. Nevo also notes that the symmetry and adding-up restrictions from theory still leave too many parameters.
+:::
+
+## Nevo (2000): market concentration does not show how close brands are as substitutes {.dense}
+
+- **Empirical question:** how much would prices rise if two cereal firms merged?
+- **Traditional merger analysis:** define the market, then compute a concentration measure, such as the HHI, from market shares
+- **Limit:** with differentiated products the market is hard to define, and the HHI is a reasonable guide only if products are equally spaced in their characteristics
+- **Portfolio effect:** a firm that owns two substitutes charges more than two separate firms would, because some sales lost by one brand go to the other
+- **Nevo's approach:** estimate how much brands substitute, such as Post Grape Nuts and Nabisco Shredded Wheat, then simulate post-merger prices
+
+Sources: @nevo2000mergers; @nevo2001cereal, pages 307 to 308.
+
+::: notes
+This paper is the application behind the rest of the section. Food demand is a common application in agricultural economics, so the method may be useful for proposals on food retail or consumer demand.
+
+The HHI (Herfindahl-Hirschman Index) is the sum of squared market shares, measured in percent, so it runs from 0 to 10,000. It uses shares only, and two brands with the same shares give the same HHI whether or not consumers treat them as close substitutes. Nevo cites Willig (1991): if demand is logit, relying on market shares for merger policy is sensible, because in logit all substitution patterns are determined by market shares. Nevo argues logit is inadequate for cereal.
+
+The case: in 1992, Kraft, which owns Post, acquired the Nabisco cereal line. New York challenged the merger, arguing that high substitution between Grape Nuts and Shredded Wheat would raise their prices. The court approved it. In the 1997 working paper version, Shredded Wheat has the largest cross-price elasticity with respect to the price of Grape Nuts (0.119, Table 6), and simulated price increases are small: 0.6 percent for Post Raisin Bran, 1.4 percent for Grape Nuts, and 2.8 percent for Shredded Wheat (Table 8). The Logit model predicts 0.1 to 0.2 percent. Check the published tables before quoting numbers, because the published paper has five mergers and the working paper has four.
+
+The portfolio effect is the term in Nevo's Econometrica paper (2001). The merger paper applies the same logic to a change in ownership. Two brands already owned by the same firm, such as Cheerios and Wheaties at General Mills, already show this effect before any merger.
+
+Elasticities here are estimates with standard errors, and the simulated prices depend on the assumed post-merger pricing behavior.
 :::
 
 ## The theoretical model behind BLP: consumers, firms, and equilibrium {.dense}
@@ -322,51 +355,34 @@ Source: @nevo2000practitioner, pages 522 to 526.
 Students will see "BLP" used for the random-coefficients logit estimated with instruments for price. BLP (1995) also add a supply side. We start with logit because it can be derived by hand.
 :::
 
-## From the model to the estimating equation, in the logit case {.dense}
+## Estimation: back out the unobserved term from market shares, then use GMM {.dense}
 
-1. Choices depend on utility differences, and $\alpha y_i$ appears in every option, so income cancels
-2. With the same tastes, utility is $u_{ijt} = \delta_{jt} + \varepsilon_{ijt}$, where mean utility is $\delta_{jt} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}$
-3. Extreme-value shocks give a formula for shares:
+In logit, observed market shares convert into a linear regression:
 
 $$
-s_{jt} = \frac{\exp(\delta_{jt})}{1 + \sum_{k} \exp(\delta_{kt})} \qquad s_{0t} = \frac{1}{1 + \sum_{k} \exp(\delta_{kt})}
+\ln\, s_{jt} - \ln\, s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
 $$
 
-4. Dividing the two and taking logs gives a linear equation in data and parameters:
+| | $\xi_{jt}$: unobserved product characteristics | $\varepsilon_{ijt}$: individual shock |
+|---|---|---|
+| **Varies by** | Product and market | Consumer, product, and market |
+| **Known to** | Consumers and firms, so it affects price | The consumer only |
+| **In estimation** | The error term in the regression | Averaged over consumers into the share formula |
 
-$$
-\ln s_{jt} - \ln s_{0t} = x_{jt}\beta - \alpha p_{jt} + \xi_{jt}
-$$
+: {tbl-colwidths="[20,42,38]"}
 
-[Open the derivation notes](https://laurenchenarides.github.io/csu-arec-570/files/blp-derivation.html){target="_blank" rel="noopener"}
+- **Random coefficients:** for each guess of the taste parameters, find the $\xi_{jt}$ that reproduce observed shares, and choose the guess that makes $\xi_{jt}$ uncorrelated with the instruments (GMM)
+- In a paper, this gets one paragraph; the steps go in an appendix ([derivation notes](https://laurenchenarides.github.io/csu-arec-570/files/blp-derivation.html){target="_blank" rel="noopener"})
 
-Sources: @berry1994estimating; @nevo2000practitioner, pages 522 and 532.
+Sources: @berry1994estimating; @nevo2000practitioner, pages 522 and 530 to 533.
 
 ::: notes
-Answer the two questions students ask. Why $y_i - p_{jt}$: it is the money left for everything else. Where $y_i$ went: it is in the outside good too, so it does not affect which option is best. Income can still matter through $\alpha_i$ in the full model.
+The point of this slide is the difference between the two unobserved terms. $\varepsilon_{ijt}$ differs across consumers, so with many consumers it averages out: it produces the share formula and then disappears from the equation. $\xi_{jt}$ is the same for every consumer of product $j$ in market $t$, so it does not average out. It stays in the equation as the error term. Firms know it when they set prices, which is why price is endogenous and the regression needs instruments. This is why $\xi_{jt}$ is called the structural error.
 
-Numeric check from the notes: shares of 0.2 and 0.3 with an outside share of 0.5 give $\delta_1 = \ln(0.2/0.5) = -0.92$ and $\delta_2 = \ln(0.3/0.5) = -0.51$.
+How the equation is derived, in the logit case: income cancels because it appears in every option, including buying nothing. The extreme-value assumption on $\varepsilon_{ijt}$ gives a formula for each share. Dividing a product's share by the outside share and taking logs gives the equation on the slide. The derivation notes show each step, with a numeric check: shares of 0.2 and 0.3 with an outside share of 0.5 give $\delta_1 = \ln(0.2/0.5) = -0.92$ and $\delta_2 = \ln(0.3/0.5) = -0.51$.
 
-$\xi_{jt}$ is the error term in this regression, which is why it is called a structural error.
-:::
+The random-coefficients loop, if students ask: (1) guess the parameters that describe how tastes vary; (2) find the mean utilities $\delta_{jt}$ that make predicted shares equal observed shares; (3) regress $\delta_{jt}$ on price and characteristics using instruments, and the residual is $\xi_{jt}$; (4) measure how far $\xi_{jt}$ is from being uncorrelated with the instruments, which is the GMM objective; (5) update the guess and repeat until the objective reaches a minimum.
 
-## Estimation: back out the unobserved term, then use GMM {.dense}
-
-**Logit:** the equation on the last slide is a linear instrumental-variables regression.
-
-**Random coefficients:** shares have no closed form, so the estimator repeats a loop:
-
-1. Guess the parameters that describe how tastes vary
-2. Find the mean utilities $\delta_{jt}$ that make predicted shares equal observed shares
-3. Regress $\delta_{jt}$ on price and characteristics using instruments; the residual is $\xi_{jt}$
-4. Measure how far $\xi_{jt}$ is from being uncorrelated with the instruments (the GMM objective)
-5. Update the guess and repeat until the objective reaches a minimum
-
-In a paper, this gets one paragraph. The steps go in an appendix.
-
-Sources: @berry1994estimating; @nevo2000practitioner, pages 530 to 533.
-
-::: notes
 Inference: report GMM standard errors for the parameters, and standard errors for the quantities the paper is about, such as elasticities.
 
 Transition: estimation gives us numbers. Identification asks what in the data determines them.
@@ -417,33 +433,48 @@ Nevo's threat to the Hausman instrument: a finding that fiber may reduce the ris
 Nevo and Whinston (page 76) say that in many cases the instruments are less than ideal. State that limitation in the section.
 :::
 
-## Random coefficients let tastes vary, which changes substitution patterns
+## Random coefficients: $\Pi$ and $\Sigma$ measure how tastes vary across consumers {.dense}
+
+Each consumer's taste for a characteristic, here sugar, has three parts:
 
 $$
-\begin{pmatrix} \alpha_i \\ \beta_i \end{pmatrix} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} + \Pi D_i + \Sigma v_i
+\beta_i^{\text{sugar}} = \beta^{\text{sugar}} + \pi_{\text{inc}}\, \text{income}_i + \pi_{\text{age}}\, \text{age}_i + \sigma\, v_i
 $$
 
-- $\alpha$, $\beta$: mean tastes
-- $D_i$: demographics, such as income, age, and children; $\Pi$: how tastes vary with them
-- $v_i$: traits the researcher does not observe; $\Sigma$: how much tastes vary with them
-- Logit sets $\Pi = 0$ and $\Sigma = 0$
-- Consumers of a sugary cereal tend to like sugar, so when its price rises they move to other sugary cereals
+| Parameter | What it measures | Demo estimate (SE) |
+|---|---|---:|
+| $\beta^{\text{sugar}}$ | Taste of the average consumer | In product fixed effects |
+| $\pi_{\text{inc}}$, $\pi_{\text{age}}$ (in $\Pi$) | How the taste changes with income and age | −0.385 (0.122), 0.052 (0.026) |
+| $\sigma$ (in $\Sigma$) | Spread of the taste among consumers with the same income and age | 0.006 (0.014) |
+
+: {tbl-colwidths="[24,44,32]"}
+
+- Stacking these rows for price and every characteristic gives $\Pi D_i + \Sigma v_i$; logit sets $\Pi = 0$ and $\Sigma = 0$
+- In the demo, lower-income consumers like sugar more, so sugary cereals share the same buyers
 
 Source: @nevo2000practitioner, pages 519 and 526.
 
 ::: notes
-This is where the random coefficients enter. They are the terms $\Pi D_i$ and $\Sigma v_i$. They are called random because $v_i$ and $D_i$ are drawn from a distribution; we never observe a specific consumer's tastes.
+Yes, $\Pi$ and $\Sigma$ are the random coefficients. They are the only new parameters relative to logit. $\Pi$ captures variation in tastes that comes from demographics the researcher observes. $\Sigma$ captures variation that remains among consumers with the same demographics. They are called random because each consumer's $D_i$ and $v_i$ are drawn from a distribution; we never observe a specific consumer's tastes.
 
-Nevo's example (page 523): Lucky Charms and Cap'n Crunch are both children's cereals and Grape Nuts is a nutrition cereal. If Cap'n Crunch and Grape Nuts have similar shares, logit says a rise in the price of Lucky Charms raises both shares by the same amount. We expect more consumers to switch to Cap'n Crunch.
+Read the demo row in words. Income is measured relative to the mean, so a consumer with average demographics has the mean taste for sugar. A consumer with lower income has a higher taste for sugar ($\pi_{\text{inc}} = -0.385$). Among consumers with the same income and age, the taste for sugar barely varies ($\sigma$ is close to zero and imprecise). In these data, the variation in sugar tastes comes from income.
 
-Why logit behaves this way: consumers differ only through the independent shock, so those who leave a product look like the average consumer, and their second choices follow market shares.
+The link to the next slide: the people who buy a sugary cereal tend to be lower-income consumers with a high taste for sugar. When its price rises, they choose again with the same tastes, so their second choice is likely another sugary cereal. Logit has no such term, so a consumer who leaves a sugary cereal splits across rivals in proportion to market shares.
+
+Nevo's version of the example (page 523): when the price of Lucky Charms rises, logit predicts equal gains for Cap'n Crunch and Grape Nuts if they have similar shares. We expect more consumers to switch to Cap'n Crunch, another children's cereal.
+
+The sign of $\sigma$ is not identified, because $v_i$ is symmetric; PyBLP reports −0.006. The data are simulated, so these estimates illustrate the method. Sugar does not vary within a product, so its mean taste is absorbed by the product fixed effects; it can be recovered by regressing the fixed effects on characteristics.
 :::
 
-## In logit, lost sales follow market shares; with random coefficients, they follow similarity {.dense}
+## Demo: with random coefficients, more of a sugary cereal's lost sales go to sugary rivals {.dense}
 
-![](assets/unit6/substitution-logit-rc.svg){height="400" fig-alt="Two scatter plots of where sales lost by one sugary cereal go. Horizontal axis is the rival's market share and vertical axis is the percent of lost sales going to that rival. In the logit panel all rivals fall on a straight line through the origin, whatever their sugar content. In the random-coefficients panel sugary rivals lie well above low-sugar rivals with similar shares, and the largest sugary rival gets 20 percent."}
+![](assets/unit6/substitution-logit-rc.svg){height="295" fig-alt="Two scatter plots of where sales lost by one sugary cereal go. Horizontal axis is the rival's market share and vertical axis is the percent of lost sales going to that rival. In the logit panel all rivals fall on a straight line through the origin, whatever their sugar content. In the random-coefficients panel sugary rivals lie well above low-sugar rivals with similar shares, and the largest sugary rival gets 20 percent."}
 
-Lost sales from one cereal with 14 grams of sugar, in one market of the demo. Sugary rivals get 22.7% in logit and 40.5% with random coefficients.
+- Each point is a rival cereal. Further right is a larger market share; higher is a larger part of the lost sales
+- **Logit:** the points form a line, so market share alone sets a rival's gain
+- **Random coefficients:** sugary rivals, which share buyers, gain more than low-sugar rivals of the same size
+
+A cereal with 14 grams of sugar, one market: sugary rivals get 22.7% in logit, 40.5% with random coefficients.
 
 ::: notes
 Each point is a rival product. In the left panel, share alone determines a rival's gain: rivals with similar shares gain about the same, whether or not they are sugary. In the right panel, sugar matters. Low-sugar rivals get 20.2 percent of lost sales in logit and 10.0 percent with random coefficients. The share going to no purchase falls from 57.0 to 49.5 percent. The product is F1B13 in market C01Q1; the demo page shows the calculation.
