@@ -56,9 +56,30 @@ Readings and course handouts are available on [Canvas](https://colostate.instruc
 - The original, longer version of this lecture is linked for students who want the details.
 :::
 
-## Lecture 6.1 gave you a design. Today: when is a design not enough?
+## Structural models in a nutshell
 
-- In 6.1, a research design (a source of variation and an identifying assumption) answered a causal question
+**If you take away one idea today:** A structural model describes how people or firms make choices, estimates the parameters of that behavior from data, and uses the estimated model to study a change
+
+1. State who chooses what and what shapes those choices
+2. Use observed choices to estimate parameters such as price sensitivity
+3. Change the policy or market setting in the model
+4. Solve the model again to predict choices, prices, or welfare under that change
+
+For a proposed cereal merger, this means estimating how shoppers substitute between brands, then predicting prices under new ownership
+
+::: {.source}
+Sources: @nevo2010dogma, pages 73 to 77; @nevo2000mergers, pages 395 to 397.
+:::
+
+::: notes
+- The model's behavioral assumptions and the variation used to estimate its parameters determine how credible the prediction is
+- Some parameters can be estimated with OLS or 2SLS; other models require a numerical search
+- The merger example carries these four steps through the lecture
+:::
+
+## Overview
+
+- An economic research design (a source of variation and an identifying assumption) is meant to answer causal questions
 - Some questions cannot be answered that way:
   - the change has not happened yet
   - the answer has to be in dollars of welfare
