@@ -7,6 +7,8 @@ listing:
   id: lectures
   contents:
     - "lecture*.qmd"
+  exclude:
+    archived: "true"
   sort: "order asc"
   template: lectures-table.ejs.md
   sort-ui: false

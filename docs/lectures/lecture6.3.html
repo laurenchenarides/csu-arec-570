@@ -70,7 +70,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -148,7 +147,7 @@
     }
   </style>
 <meta property="og:title" content="Lecture 6.3: Machine Learning in Economic Research – AREC 570/ECON 530 Methodology of Economic Research">
-<meta property="og:description" content="Distinguish prediction from causal inference and evaluate model selection.">
+<meta property="og:description" content="Where machine learning came from, the three roles it plays in empirical economics, and what a methods section reports when a paper uses it">
 <meta property="og:site_name" content="AREC 570/ECON 530 Methodology of Economic Research">
 </head>
 <body class="quarto-light">
@@ -168,140 +167,740 @@ Lauren Chenarides
 </div>
 
 </section>
-<section id="before-class" class="slide level2">
+<section id="before-class" class="slide level2 dense">
 <h2>Before class</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Assigned</strong></p>
 <ul>
 <li>Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation” <span class="citation" data-cites="athey2017state">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2017</a>)</span></li>
 <li>Athey and Imbens, “Machine Learning Methods That Economists Should Know About” <span class="citation" data-cites="athey2019machine">(<a href="#/references" role="doc-biblioref" onclick="">Athey and Imbens 2019</a>)</span></li>
+<li>Mullainathan and Spiess, “Machine Learning: An Applied Econometric Approach” <span class="citation" data-cites="mullainathan2017machine">(<a href="#/references" role="doc-biblioref" onclick="">Mullainathan and Spiess 2017</a>)</span></li>
 </ul>
 <p>Readings and course handouts are available on <a href="https://colostate.instructure.com/courses/230315/pages/readings">Canvas</a>.</p>
-</section>
-<section id="begin-with-the-task" class="slide level2">
-<h2>Begin with the task</h2>
-<p>Are we trying to:</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Example papers in these slides</strong></p>
 <ul>
-<li>Predict an outcome?</li>
-<li>Describe patterns?</li>
-<li>Estimate a causal effect?</li>
-<li>Learn how effects vary?</li>
+<li>Overview for agribusiness: <span class="citation" data-cites="maruejols2025machine">Maruejols et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></li>
+<li>Prediction: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></li>
+<li>Prediction within a larger analysis: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></li>
+<li>Heterogeneous treatment effects: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></li>
+<li>Further reading: Bittmann’s guide from OLS to causal machine learning <span class="citation" data-cites="bittmann2025practical">(<a href="#/references" role="doc-biblioref" onclick="">Bittmann 2025</a>)</span></li>
 </ul>
-<p>The task determines how success should be evaluated.</p>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Timing: 10 minutes on background, 10 on core concepts, 40 on the three roles (about 13 each), 15 on reporting.</li>
+<li>The aim is for students to read, evaluate, and write the methods section of a paper that uses these tools, whether or not they use them in their own work.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="lectures-6.1-and-6.2-estimated-parameters-machine-learning-targets-prediction" class="slide level2">
+<h2>Lectures 6.1 and 6.2 estimated parameters; machine learning targets prediction</h2>
+<ul>
+<li>The designs in 6.1 and the models in 6.2 recover parameters: a treatment effect, a price coefficient, an elasticity</li>
+<li>Supervised machine learning addresses a different objective: the most accurate prediction of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> given <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> for observations outside the estimation sample</li>
+<li>In Mullainathan and Spiess’s words, machine learning “not only provides new tools, it solves a different problem”</li>
+<li>This lecture covers where these methods came from, the three roles they play in empirical economics, and how a methods section reports them</li>
+</ul>
 <div class="source">
-<p>Source: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 87 to 88.</p>
 </div>
-</section>
-<section id="prediction-and-causality" class="slide level2">
-<h2>Prediction and causality</h2>
-<p>A model can predict outcomes well using variables that do not cause them.</p>
-<p>A causal question asks how outcomes change under an intervention.</p>
-<p>Predictive accuracy alone does not justify changing a policy variable.</p>
-</section>
-<section id="supervised-and-unsupervised-learning" class="slide level2">
-<h2>Supervised and unsupervised learning</h2>
+<aside class="notes">
 <ul>
-<li><strong>Supervised:</strong> learn a relationship between inputs and observed outcomes.</li>
-<li><strong>Unsupervised:</strong> find structure without an outcome label.</li>
+<li>Frame the lecture around the distinction between estimating a parameter and predicting an outcome. Every later slide returns to it.</li>
+<li>Transition: these methods developed largely outside economics, which explains much about how economists use them.</li>
 </ul>
-<p>Examples: predicting demand versus grouping similar observations.</p>
-<p>Both can contribute to economic research when the role is explicit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="overfitting" class="slide level2">
-<h2>Overfitting</h2>
-<p>A flexible model can fit noise in its training sample.</p>
+<section>
+<section id="background" class="title-slide slide level1 center">
+<h1>Background</h1>
+
+</section>
+<section id="machine-learning-entered-applied-economics-within-the-last-decade" class="slide level2 dense">
+<h2>Machine learning entered applied economics within the last decade</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Period</th>
+<th>Development</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1984 to 2001</td>
+<td>Regression trees (Breiman et al., 1984), the LASSO (Tibshirani, 1996), and random forests (Breiman, 2001)</td>
+</tr>
+<tr class="even">
+<td>1990s</td>
+<td>Neural networks studied in econometrics, but they “did not catch on at the time”</td>
+</tr>
+<tr class="odd">
+<td>2001</td>
+<td>Breiman’s “two cultures”: statistics relied on data models, while an algorithmic culture grew in other fields</td>
+</tr>
+<tr class="even">
+<td>2014</td>
+<td>Early reviews for economists: Varian; Einav and Levin; Belloni, Chernozhukov, and Hansen</td>
+</tr>
+<tr class="odd">
+<td>2017 to 2019</td>
+<td>Mullainathan and Spiess; causal forests (Wager and Athey); Athey and Imbens’s review for economists</td>
+</tr>
+<tr class="even">
+<td>2020 to 2025</td>
+<td>Reviews and special issues in agricultural and applied economics: <span class="citation" data-cites="storm2020machine">Storm et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>; <span class="citation" data-cites="maruejols2025machine">Maruejols et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 686 to 688, 696 to 698, and 701; <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, page 87; <span class="citation" data-cites="storm2020machine">Storm et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>; <span class="citation" data-cites="maruejols2025machine">Maruejols et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>.</p>
+</div>
+<aside class="notes">
 <ul>
-<li>Evaluate performance on observations not used to fit the model.</li>
-<li>Keep the final test set separate from model selection.</li>
-<li>Respect the dependence structure when splitting data.</li>
+<li>The methods themselves are older; their wide use in applied economics dates from roughly the mid-2010s.</li>
+<li>Athey and Imbens open with Breiman (2001): one culture “assumes that the data are generated by a given stochastic data model”; the other “uses algorithmic models and treats the data mechanism as unknown.” Econometrics belongs to the first culture.</li>
+<li>Statistics has since absorbed the algorithmic approach; Athey and Imbens note that “the adoption of these methods in economics has been slower.”</li>
+<li>The dates for the original methods come from the citations in Athey and Imbens.</li>
+<li>Transition: why adoption was slow, and why it accelerated.</li>
 </ul>
-<p>For forecasting, information from the future should not enter training.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="bias-and-variance" class="slide level2">
-<h2>Bias and variance</h2>
-<p>Greater flexibility may reduce approximation bias while increasing variability.</p>
-<p>Regularization constrains the fit to improve performance outside the training sample.</p>
-<p>The best training fit is not necessarily the best predictive model.</p>
+<section id="why-economists-adopted-machine-learning-and-why-adoption-was-slow" class="slide level2 dense">
+<h2>Why economists adopted machine learning, and why adoption was slow</h2>
+<ul>
+<li><strong>New data:</strong> many units, many variables per unit, and unstructured sources such as satellite images and text</li>
+<li><strong>Prediction questions:</strong> some policy problems require an accurate forecast and no causal parameter</li>
+<li><strong>Many candidate variables:</strong> the analyst must choose controls or functional forms from a large set</li>
+<li><strong>Why adoption was slow:</strong> economics journals emphasize formal properties of estimators, such as consistency and asymptotic normality, which early machine learning methods did not provide</li>
+<li><strong>What changed:</strong> recent work established inference for adapted methods, including double selection and causal forests</li>
+</ul>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 686 to 687; <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 88, 98, and 102.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Athey and Imbens: machine learning research focuses on “working properties of algorithms in specific settings,” with formal results such as error rates, while econometrics focuses on large-sample properties of estimators and tests.</li>
+<li>The methods economists now use are often adaptations: they modify machine learning algorithms to deliver valid confidence intervals for causal parameters. Two appear later in this lecture.</li>
+<li>Transition: how prediction and estimation are evaluated.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="lasso" class="slide level2">
-<h2>LASSO</h2>
-<p>A common form minimizes</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo stretchy="false" form="prefix">(</mo><msub><mi>Y</mi><mi>i</mi></msub><mo>−</mo><mi>α</mi><mo>−</mo><msubsup><mi>X</mi><mi>i</mi><mo>′</mo></msubsup><mi>β</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>+</mo><mi>λ</mi><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>p</mi></munderover><mo stretchy="false" form="prefix">|</mo><msub><mi>β</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">|</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
-\frac{1}{n}\sum_{i=1}^{n}(Y_i-\alpha-X_i'\beta)^2
-+\lambda\sum_{j=1}^{p}|\beta_j|.
+<section id="prediction-and-parameter-estimation-are-evaluated-by-different-criteria" class="slide level2">
+<h2>Prediction and parameter estimation are evaluated by different criteria</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Prediction, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{y}</annotation></semantics></math></th>
+<th>Parameter estimation, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>β</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\beta}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Target</strong></td>
+<td>The outcome for a new observation</td>
+<td>The effect of a change in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><strong>Evaluation</strong></td>
+<td>Accuracy on data not used in estimation</td>
+<td>Identification: the source of variation and its assumptions</td>
+</tr>
+<tr class="odd">
+<td><strong>Verifiability</strong></td>
+<td>Directly testable: predictions and outcomes are both observed</td>
+<td>Rests on assumptions about the data-generating process</td>
+</tr>
+<tr class="even">
+<td><strong>Typical methods</strong></td>
+<td>LASSO, random forests, neural networks</td>
+<td>OLS, IV, difference in differences, structural models</td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 88 and 92.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The verifiability row is the central contrast. Prediction quality can be measured against held-out outcomes; a causal effect cannot, because the counterfactual is never observed.</li>
+<li>This is why machine learning papers report out-of-sample performance and causal papers report an identification strategy.</li>
+<li>Transition: three ways economics papers combine the two.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="machine-learning-plays-three-roles-in-empirical-economics" class="slide level2">
+<h2>Machine learning plays three roles in empirical economics</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 46%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>What machine learning does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Prediction as the objective</strong></td>
+<td>Predicts an outcome, such as household food insecurity</td>
+<td><span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></td>
+</tr>
+<tr class="even">
+<td><strong>2. Prediction within a larger analysis</strong></td>
+<td>Selects the variables that enter an economic model or a treatment-effect regression</td>
+<td><span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>3. Heterogeneous treatment effects</strong></td>
+<td>Estimates how a treatment effect varies across farms or households</td>
+<td><span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In roles 2 and 3, identification still comes from the research design. Machine learning does not supply exogenous variation.</p>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 686 to 688; <span class="citation" data-cites="maruejols2025machine">Maruejols et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>This table organizes the rest of the lecture; each role has its own section.</li>
+<li>Roles 2 and 3 connect directly to 6.1 and 6.2: the machine learning step sits inside a causal or structural analysis.</li>
+<li>The final sentence is the main point of the lecture.</li>
+<li>Transition: two concepts needed to read any of these papers.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="core-concepts" class="title-slide slide level1 center">
+<h1>Core concepts</h1>
+
+</section>
+<section id="out-of-sample-performance-training-data-test-data-and-cross-validation" class="slide level2 dense">
+<h2>Out-of-sample performance: training data, test data, and cross-validation</h2>
+<ul>
+<li>A flexible model can fit noise in its estimation sample, so in-sample fit overstates predictive performance (overfitting)</li>
+<li><strong>Training and test data:</strong> the model is estimated on one subset and evaluated on a held-out subset</li>
+<li><strong>Cross-validation:</strong> the training data are divided into <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> folds; the model is estimated on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">K-1</annotation></semantics></math> folds and evaluated on the remaining fold, in rotation, to select tuning parameters</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Paper</th>
+<th>Sample split</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></td>
+<td>70% training (756 households), 30% test (324 households)</td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></td>
+<td>10-fold cross-validation to select the LASSO penalty</td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 89 to 92; <span class="citation" data-cites="bittmann2025practical">Bittmann (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Mullainathan and Spiess describe cross-validation as creating “an out-of-sample experiment inside the original sample.”</li>
+<li>The test set is used once, for the final evaluation. If it informs model choices, it no longer measures out-of-sample performance.</li>
+<li>With panel or spatial data, the split should respect that structure, for example by training on earlier years and testing on later ones.</li>
+<li>Transition: the two methods used in the example papers.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regularization-the-lasso-and-random-forests" class="slide level2 dense">
+<h2>Regularization: the LASSO and random forests</h2>
+<p><strong>LASSO</strong> adds a penalty on the absolute size of the coefficients to the least squares objective:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mi mathvariant="normal">min</mi><mi>β</mi></munder><mspace width="0.278em"></mspace><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><msubsup><mi>x</mi><mi>i</mi><mo>′</mo></msubsup><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>λ</mi><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>p</mi></munderover><mo stretchy="false" form="prefix">|</mo><msub><mi>β</mi><mi>j</mi></msub><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">
+\min_{\beta} \; \sum_{i=1}^{n} \left(y_i - x_i'\beta\right)^2 + \lambda \sum_{j=1}^{p} |\beta_j|
 </annotation></semantics></math></p>
 <ul>
-<li>The penalty shrinks coefficients and may set some to zero.</li>
-<li>The tuning parameter controls the penalty.</li>
-<li>Cross-validation can guide predictive tuning.</li>
+<li>With <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda = 0</annotation></semantics></math>, the estimator is OLS; as <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> increases, coefficients shrink and some are set exactly to zero</li>
+<li>The LASSO therefore performs variable selection; <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math> is chosen by cross-validation</li>
 </ul>
-</section>
-<section id="trees-and-forests" class="slide level2 dense">
-<h2>Trees and forests</h2>
-<p>A regression tree splits observations into groups with different predicted outcomes.</p>
-<p>A random forest averages predictions across many randomized trees.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/unit6/image11.png" height="260"></p>
-<figcaption>Illustrative regression tree with splitting rules and terminal-node predictions, retained from the source deck.</figcaption>
-</figure>
-</div>
+<p><strong>Random forests</strong> average the predictions of many regression trees, each estimated on a random subsample, which captures nonlinearities and interactions without specifying them in advance.</p>
 <div class="source">
-<p>Source: Unit 6, slide 43.</p>
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 90 to 97; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 690 and 695 to 699; <span class="citation" data-cites="bittmann2025practical">Bittmann (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 4.</p>
 </div>
-</section>
-<section id="exercise-identify-leakage" class="slide level2">
-<h2>Exercise: identify leakage</h2>
-<p>A model predicts whether a household will miss a payment.</p>
-<p>One input is “number of collection calls made during the following month.”</p>
+<aside class="notes">
 <ul>
-<li>Why might this variable predict well?</li>
-<li>Could it be known at prediction time?</li>
-<li>How would you redesign the evaluation?</li>
+<li>Regularization trades a small increase in bias for a larger reduction in variance, which improves out-of-sample prediction.</li>
+<li>Athey and Imbens note that ridge regression and the LASSO have antecedents in econometrics and statistics; the penalty is the shared idea.</li>
+<li>Transition: the first role, where prediction is the objective.</li>
 </ul>
-<p>This is a hypothetical example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="role-1-prediction-as-the-objective" class="title-slide slide level1 center">
+<h1>Role 1: Prediction as the objective</h1>
+
 </section>
-<section id="model-selection-and-confounding" class="slide level2">
-<h2>Model selection and confounding</h2>
-<p>Selecting variables only for predicting the outcome can omit variables important for treatment assignment.</p>
-<p>The reading discusses selecting predictors of both outcome and treatment, then using their union in an appropriate estimation procedure.</p>
-<p>This still depends on the underlying identification assumptions.</p>
-</section>
-<section id="machine-learning-within-a-causal-design" class="slide level2">
-<h2>Machine learning within a causal design</h2>
-<p>Flexible methods may estimate nuisance relationships such as:</p>
+<section id="zhao-et-al.-2025-predict-food-insecurity-among-rural-households-in-china" class="slide level2 dense">
+<h2>Zhao et al.&nbsp;(2025) predict food insecurity among rural households in China</h2>
 <ul>
-<li>Expected outcomes conditional on covariates.</li>
-<li>Treatment probabilities.</li>
+<li><strong>Objective:</strong> classify rural households as calorie poor</li>
+<li><strong>Data:</strong> 1,080 households in Jilin, Shandong, and Hubei; 3-day food consumption records; 61.1% of households are calorie poor</li>
+<li><strong>Methods:</strong> random forest and LASSO, compared with a logit benchmark; 70% training and 30% test samples</li>
 </ul>
-<p>Sample splitting and specialized inference can help manage overfitting.</p>
-<p>Machine learning does not supply exogenous variation by itself.</p>
-</section>
-<section id="discussion-athey-and-imbens" class="slide level2">
-<h2>Discussion: Athey and Imbens</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 70%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model (test sample)</th>
+<th style="text-align: right;">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random forest</td>
+<td style="text-align: right;">65.7%</td>
+</tr>
+<tr class="even">
+<td>LASSO</td>
+<td style="text-align: right;">61.1%</td>
+</tr>
+<tr class="odd">
+<td>Logit benchmark</td>
+<td style="text-align: right;">58.9%</td>
+</tr>
+<tr class="even">
+<td>Classify every household as calorie poor</td>
+<td style="text-align: right;">61.1%</td>
+</tr>
+</tbody>
+</table>
+<p>Accuracy is informative only relative to a benchmark; the final row is the majority-class rate.</p>
+<div class="source">
+<p>Source: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 3 to 5 and Table 3. The final row is our calculation from the sample share.</p>
+</div>
+<aside class="notes">
 <ul>
-<li>Where can prediction tools improve an economic research workflow?</li>
-<li>Why is ordinary predictive validation insufficient for a causal claim?</li>
-<li>What is the difference between selecting controls and identifying treatment effects?</li>
-<li>Which example in the reading would be useful for your project?</li>
+<li>The paper also reports sensitivity, specificity, and the area under the ROC curve (0.62 for both the forest and the LASSO, against 0.5 for random classification).</li>
+<li>The final row shows why benchmarks matter: assigning every household to the majority class is correct 61.1% of the time, so the forest improves on that rule by about 5 percentage points.</li>
+<li>The authors address the class imbalance by oversampling the minority class (SMOTE) and recommend choosing the classification cut-off according to a program’s coverage.</li>
+<li>Transition: what a prediction paper can conclude about the determinants of food insecurity.</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="workshop-evaluation-plan" class="slide level2 scrollable">
-<h2>Workshop: evaluation plan</h2>
-<p>Specify:</p>
+<section id="predictive-importance-does-not-identify-causal-effects" class="slide level2 dense">
+<h2>Predictive importance does not identify causal effects</h2>
+<ul>
+<li>Zhao et al.&nbsp;rank predictors; household income and access to food markets rank highest in both models</li>
+<li>A variable may predict well because it is correlated with an unobserved determinant of the outcome</li>
+<li>LASSO selections are unstable: across ten random partitions of the same data, Mullainathan and Spiess find that the selected variables change from one partition to the next</li>
+<li>Stetter et al.&nbsp;caution that their variable importance measure “should not be interpreted in a causal fashion”</li>
+</ul>
+<p>A causal claim about income would require an identification strategy of the kind discussed in Lecture 6.1.</p>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 5.2; <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, page 97, Figure 2; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, page 740, footnote 17.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Zhao et al.’s discussion moves from variables that predict food insecurity to variables that “significantly influence” it. That shift is where a reader should ask for an identification strategy.</li>
+<li>The instability arises because correlated predictors are close substitutes in prediction; small changes in the sample change which one the LASSO retains.</li>
+<li>Transition: the second role, where prediction is one step in a larger analysis.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="role-2-prediction-within-a-larger-analysis" class="title-slide slide level1 center">
+<h1>Role 2: Prediction within a larger analysis</h1>
+
+</section>
+<section id="li-and-yu-2025-use-the-lasso-to-select-attributes-before-estimating-willingness-to-pay" class="slide level2 dense">
+<h2>Li and Yu (2025) use the LASSO to select attributes before estimating willingness to pay</h2>
+<ul>
+<li><strong>Setting:</strong> a choice experiment with 100 consumers in Göttingen; apples vary in origin, size, production method, and price</li>
+<li><strong>First stage, LASSO logit:</strong> 10-fold cross-validation selects <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>, with price exempt from the penalty; the LASSO excludes <strong>Organic</strong> and <strong>Japan</strong>, interpreted as attribute non-attendance</li>
+<li><strong>Second stage, conditional logit:</strong> the random utility model from Lecture 6.2, with willingness to pay <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi>−</mi><msub><mi>β</mi><mi>k</mi></msub><mi>/</mi><msub><mi>β</mi><mtext mathvariant="normal">price</mtext></msub></mrow><annotation encoding="application/x-tex">= -\beta_k / \beta_{\text{price}}</annotation></semantics></math></li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Willingness to pay (€ per kg), relative to China</th>
+<th style="text-align: right;">All attributes</th>
+<th style="text-align: right;">After LASSO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>France</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">1.53</td>
+</tr>
+<tr class="even">
+<td>Italy</td>
+<td style="text-align: right;">1.42</td>
+<td style="text-align: right;">1.40</td>
+</tr>
+<tr class="odd">
+<td>Small apples</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">1.41</td>
+</tr>
+<tr class="even">
+<td>Organic</td>
+<td style="text-align: right;">−0.04</td>
+<td style="text-align: right;">excluded</td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 2 and 3, Tables 4, 6, and 7.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Here machine learning operates inside a structural model: the LASSO determines which attributes enter the utility function of the logit model from 6.2.</li>
+<li>The economic estimates change: the premium for French apples rises from €1.20 to €1.53 per kilogram.</li>
+<li>A question for discussion: the LASSO excludes Organic for the whole sample, so the paper cannot report willingness to pay for organic apples, the attribute most relevant to policy. Is that trade-off appropriate?</li>
+<li>Transition: the same logic applied to the choice of control variables.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="belloni-chernozhukov-and-hansen-2014-use-the-lasso-to-select-control-variables" class="slide level2 dense">
+<h2>Belloni, Chernozhukov, and Hansen (2014) use the LASSO to select control variables</h2>
+<p>With a treatment <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math> and many candidate controls <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>, <strong>double selection</strong> proceeds in three steps:</p>
 <ol type="1">
-<li>Your task and target.</li>
-<li>Available predictors.</li>
-<li>A simple baseline.</li>
-<li>A training/validation/test strategy.</li>
-<li>A performance measure.</li>
-<li>One plausible leakage path.</li>
+<li>LASSO of the treatment <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>, retaining controls that predict treatment</li>
+<li>LASSO of the outcome <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>, retaining controls that predict the outcome</li>
+<li>OLS of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math> on <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math> and the <strong>union</strong> of the two sets of controls</li>
 </ol>
+<ul>
+<li>Selecting controls only for their ability to predict <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> can omit a confounder that strongly predicts treatment</li>
+<li><strong>Application:</strong> abortion and crime; 48 states over 12 years (576 observations), 251 candidate controls, of which the LASSO retains 8 to 14</li>
+<li><strong>Identification:</strong> the estimate is causal only if treatment is as good as randomly assigned conditional on the controls</li>
+</ul>
+<div class="source">
+<p>Source: <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Sections 1, 2.2, and 7.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The first step is the methodological contribution. A confounder that predicts treatment strongly and the outcome weakly would be dropped by a LASSO for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> alone, producing omitted variable bias.</li>
+<li>Their results: the property crime estimate remains close to the original study but is significant only at the 10% level; the violent crime and murder estimates become imprecise.</li>
+<li>The identifying assumption is selection on observables, as in 6.1. The LASSO makes the choice of controls systematic and reproducible; it does not make the assumption more plausible.</li>
+<li>Transition: the third role.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="role-3-heterogeneous-treatment-effects" class="title-slide slide level1 center">
+<h1>Role 3: Heterogeneous treatment effects</h1>
+
 </section>
-<section id="before-you-leave" class="slide level2">
-<h2>Before you leave</h2>
-<p>Complete: “This method can improve <strong><em>, but it does not by itself establish </em></strong>.”</p>
+<section id="stetter-et-al.-2022-estimate-farm-level-effects-of-agri-environment-schemes-with-a-causal-forest" class="slide level2 dense">
+<h2>Stetter et al.&nbsp;(2022) estimate farm-level effects of agri-environment schemes with a causal forest</h2>
+<p>The estimand is the <strong>conditional average treatment effect</strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mspace width="0.167em"></mspace><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><msub><mi>X</mi><mi>i</mi></msub><mo>=</mo><mi>x</mi><mspace width="0.167em"></mspace><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+\tau(x) = E\left[\,Y_i(1) - Y_i(0) \mid X_i = x\,\right]
+</annotation></semantics></math></p>
+<ul>
+<li><strong>Data:</strong> 2,758 Bavarian farms in 2014, of which 1,641 participated in an agri-environment scheme; more than 130 farm and county characteristics</li>
+<li><strong>Method:</strong> forests estimate participation probabilities and expected outcomes; a causal forest then estimates <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\tau(x)</annotation></semantics></math> for each farm, with tuning parameters chosen by cross-validation</li>
+<li><strong>Results:</strong> fertiliser expenditure falls significantly for 33% of farms (by €14 per hectare among them); land-use diversity rises for 55%; effects on pesticide use and greenhouse gas emissions are rarely significant</li>
+</ul>
+<div class="source">
+<p>Source: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 3 to 5 and Table 3.</p>
+</div>
+<aside class="notes">
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Y_i(1)</annotation></semantics></math> and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">Y_i(0)</annotation></semantics></math> are the potential outcomes from 6.1: a farm’s outcome with and without participation.</li>
+<li>The forest identifies which characteristics are associated with larger or smaller effects; the authors use this to argue for targeting payments by location, farm size, and yield potential.</li>
+<li>€14 per hectare corresponds to about 13 kg of nitrogen per hectare at the paper’s 2014 price.</li>
+<li>Transition: the source of identification.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="causal-forests-rely-on-the-same-identifying-assumptions-as-the-designs-in-lecture-6.1" class="slide level2">
+<h2>Causal forests rely on the same identifying assumptions as the designs in Lecture 6.1</h2>
+<ul>
+<li><strong>Selection on observables:</strong> conditional on farm characteristics, participation is as good as randomly assigned</li>
+<li><strong>Overlap:</strong> every farm has a positive probability of each treatment status; estimated propensities range from 0.27 to 0.86, and 23 farms without overlap are excluded</li>
+<li><strong>The authors’ argument:</strong> a large set of characteristics allows the forest to proxy for unobserved factors, such as a farmer’s environmental attitude</li>
+<li><strong>The acknowledged limit:</strong> if a distinct group of confounders is absent from the data, “our estimates might still be biased”</li>
+<li><strong>Sensitivity analysis:</strong> placebo tests and simulated confounders</li>
+</ul>
+<div class="source">
+<p>Source: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 4.3 and 5.1.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>In contrast to Zhao et al., the authors state the identifying assumption and test the sensitivity of their estimates to it. That is what makes the analysis causal.</li>
+<li>The argument that many observed characteristics proxy for unobserved ones is itself an assumption, to be evaluated as any selection-on-observables design from 6.1 would be.</li>
+<li>Transition: what a methods section must report in all three roles.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="reporting-a-machine-learning-method" class="title-slide slide level1 center">
+<h1>Reporting a machine learning method</h1>
+
+</section>
+<section id="what-a-methods-section-reports-when-it-uses-machine-learning" class="slide level2 dense">
+<h2>What a methods section reports when it uses machine learning</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. The role: prediction, a step in a larger analysis, or heterogeneous effects</td>
+<td>Zhao et al.: prediction is the objective</td>
+</tr>
+<tr class="even">
+<td>2. The target, the inputs, and a benchmark model</td>
+<td>Calorie poverty; household and market characteristics; logit</td>
+</tr>
+<tr class="odd">
+<td>3. The sample split</td>
+<td>70% training, 30% test</td>
+</tr>
+<tr class="even">
+<td>4. The choice of tuning parameters</td>
+<td>Cross-validation; number of trees</td>
+</tr>
+<tr class="odd">
+<td>5. Out-of-sample performance</td>
+<td>Accuracy, sensitivity, specificity, area under the ROC curve</td>
+</tr>
+<tr class="even">
+<td>6. For roles 2 and 3: the identifying assumption and its checks</td>
+<td>Stetter et al.: selection on observables, overlap, placebo tests</td>
+</tr>
+<tr class="odd">
+<td>7. Software and versions</td>
+<td>Li and Yu: the <code>glmnet</code> package in R</td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 686 to 687.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Items 1 to 5 apply to every paper that uses machine learning. Item 6 distinguishes a causal claim from a prediction.</li>
+<li>Athey and Imbens: researchers “should articulate clearly the goals of their analysis and why certain properties of algorithms and estimators may or may not be important.” Item 1 does that.</li>
+<li>Item 7 matters for replication, as in Unit 5: results depend on random sample splits, so report the software, versions, and random seed.</li>
+<li>Transition: questions for the proposal.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-to-consider-for-your-proposal" class="slide level2">
+<h2>What to consider for your proposal</h2>
+<ul>
+<li><strong>The role:</strong> does the question concern predicting an outcome, selecting variables, or how an effect varies?</li>
+<li><strong>The claim:</strong> does the conclusion require a causal effect? If so, what is the design, and where does machine learning enter it?</li>
+<li><strong>The benchmark:</strong> which simpler model or rule should the method outperform?</li>
+<li><strong>The evidence:</strong> which out-of-sample measure, or which identification check, will the paper report?</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Most proposals in this course will not use machine learning, but every student should be able to locate items 1 to 7 in a paper that does.</li>
+<li>Students who use these methods should state the role in the first sentence of the methods section.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
+<div style="font-size: 80%">
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-athey2017state" class="csl-entry" role="listitem">
 Athey, Susan, and Guido W. Imbens. 2017. <span>“The State of Applied Econometrics: Causality and Policy Evaluation.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 3–32. <a href="https://doi.org/10.1257/jep.31.2.3">https://doi.org/10.1257/jep.31.2.3</a>.
@@ -309,18 +908,47 @@ Athey, Susan, and Guido W. Imbens. 2017. <span>“The State of Applied Econometr
 <div id="ref-athey2019machine" class="csl-entry" role="listitem">
 Athey, Susan, and Guido W. Imbens. 2019. <span>“Machine Learning Methods That Economists Should Know About.”</span> <em>Annual Review of Economics</em> 11: 685–725. <a href="https://doi.org/10.1146/annurev-economics-080217-053433">https://doi.org/10.1146/annurev-economics-080217-053433</a>.
 </div>
+<div id="ref-belloni2014inference" class="csl-entry" role="listitem">
+Belloni, Alexandre, Victor Chernozhukov, and Christian Hansen. 2014. <span>“Inference on Treatment Effects After Selection Among High-Dimensional Controls.”</span> <em>Review of Economic Studies</em> 81 (2): 608–50. <a href="https://arxiv.org/abs/1201.0224">https://arxiv.org/abs/1201.0224</a>.
+</div>
+<div id="ref-bittmann2025practical" class="csl-entry" role="listitem">
+Bittmann, Thomas. 2025. <span>“A Practical Guide from Ordinary Least Squares to Causal Machine Learning.”</span> <em>International Food and Agribusiness Management Review</em> 28 (2): 456–85. <a href="https://doi.org/10.22434/IFAMR.1087">https://doi.org/10.22434/IFAMR.1087</a>.
+</div>
+<div id="ref-li2025attribute" class="csl-entry" role="listitem">
+Li, Yi, and Xiaohua Yu. 2025. <span>“Attribute Non-Attendance in the Choice Experiment with Machine Learning: <span>WTP</span> for Organic Apples in <span>Germany</span>.”</span> <em>International Food and Agribusiness Management Review</em> 28 (2): 374–90. <a href="https://doi.org/10.22434/IFAMR.1133">https://doi.org/10.22434/IFAMR.1133</a>.
+</div>
+<div id="ref-maruejols2025machine" class="csl-entry" role="listitem">
+Maruejols, Lucie, Xiaohua Yu, and Lauren Chenarides. 2025. <span>“Machine Learning in Applied Economics and Agribusiness: Emerging Applications and Integration with Traditional Methods.”</span> <em>International Food and Agribusiness Management Review</em> 28 (2): 237–40. <a href="https://doi.org/10.22434/IFAMR.0001">https://doi.org/10.22434/IFAMR.0001</a>.
+</div>
+<div id="ref-mullainathan2017machine" class="csl-entry" role="listitem">
+Mullainathan, Sendhil, and Jann Spiess. 2017. <span>“Machine Learning: An Applied Econometric Approach.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 87–106. <a href="https://doi.org/10.1257/jep.31.2.87">https://doi.org/10.1257/jep.31.2.87</a>.
+</div>
+<div id="ref-stetter2022machine" class="csl-entry" role="listitem">
+Stetter, Christian, Philipp Mennig, and Johannes Sauer. 2022. <span>“Using Machine Learning to Identify Heterogeneous Impacts of Agri-Environment Schemes in the <span>EU</span>: A Case Study.”</span> <em>European Review of Agricultural Economics</em> 49 (4): 723–59. <a href="https://doi.org/10.1093/erae/jbab057">https://doi.org/10.1093/erae/jbab057</a>.
+</div>
+<div id="ref-storm2020machine" class="csl-entry" role="listitem">
+Storm, Hugo, Kathy Baylis, and Thomas Heckelei. 2020. <span>“Machine Learning in Agricultural and Applied Economics.”</span> <em>European Review of Agricultural Economics</em> 47 (3): 849–92. <a href="https://doi.org/10.1093/erae/jbz033">https://doi.org/10.1093/erae/jbz033</a>.
+</div>
+<div id="ref-zhao2025food" class="csl-entry" role="listitem">
+Zhao, Longqiang, Minda Yang, Shi Min, and Ping Qing. 2025. <span>“Prediction of Household Food Insecurity in Rural <span>China</span>: An Application of Machine Learning Methods.”</span> <em>International Food and Agribusiness Management Review</em> 28 (2): 296–316. <a href="https://doi.org/10.22434/IFAMR1137">https://doi.org/10.22434/IFAMR1137</a>.
+</div>
+</div>
 </div>
 </section>
 <section id="course-navigation" class="slide level2">
 <h2>Course navigation</h2>
 <ul>
-<li><a href="../lectures/lectures.html">All lectures</a></li>
-<li><a href="../2026/schedule.html">Schedule and preparation</a></li>
-<li><a href="../2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html">All lectures</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html">Schedule and preparation</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/2026/readings.html">Course reading list</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/empirical-strategy-checklist.html" target="_blank" rel="noopener">Empirical strategy checklist</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/files/includes/ag-econ-methods-map.html" target="_blank" rel="noopener">Methods map</a></li>
+<li><a href="https://doi.org/10.22434/IFAMR.1087" target="_blank" rel="noopener">Bittmann (2025), a practical guide from OLS to causal machine learning</a></li>
+<li><a href="https://laurenchenarides.github.io/csu-arec-570/lectures/lecture6.3.pdf">Download this lecture as a PDF</a></li>
 </ul>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
