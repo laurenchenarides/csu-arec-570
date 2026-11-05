@@ -726,25 +726,31 @@ But the effect may differ depending on:
 Sources: @athey2019machine, pages 701 to 704; @stetter2022machine, Sections 2.3 and 4.1 to 4.3.
 :::
 
-## Conditional average treatment effects
+## Why estimate heterogeneous treatment effects?
 
-**Conditional average treatment effects (CATEs)** describe how estimated treatment effects differ across farms with different characteristics.
+The **Average Treatment Effect (ATE)** measures the average effect of participation across all farms:
+
+$$
+ATE=E[Y(1)-Y(0)]
+$$
+
+But the program may affect farms differently depending on their size, location, or production practices.
+
+The **Conditional Average Treatment Effect (CATE)** measures the average effect for farms with particular characteristics:
 
 $$
 \tau(x)=E[Y(1)-Y(0)\mid X=x]
 $$
 
-::: {.source}
-Sources: @athey2019machine, pages 701 to 704; @stetter2022machine, Sections 2.3 and 4.1 to 4.3.
-:::
+ML application: Causal forests can identify patterns in treatment-effect heterogeneity without requiring researchers to specify every interaction in advance.
 
 ::: notes
-- This extends the potential-outcomes framework introduced earlier in the course.
-- Y(1) is the potential outcome under program participation; Y(0) is the potential outcome without participation.
-- The average treatment effect summarizes the mean difference across the population.
-- The conditional average treatment effect describes how that difference varies with observed characteristics.
-- The objective is not simply to predict fertiliser use, but to estimate differences in treatment effects.
-- Transition: How can machine learning help estimate these differences?
+- ATE summarizes the average effect across the target population.
+- CATE describes how the average effect varies with observed characteristics.
+- In a conventional regression, we would need to specify treatment interactions with farm characteristics.
+- Causal forests provide a flexible way to estimate these differences.
+- CATE estimation still requires credible causal identification assumptions.
+- Transition: How do causal forests estimate these differences across farms?
 :::
 
 ## How does a causal forest differ from a regression tree?

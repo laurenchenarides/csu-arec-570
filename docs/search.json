@@ -6844,5 +6844,12 @@
     "title": "Lecture 6.3: Machine Learning in Economic Research",
     "section": "Three questions to ask when reading a paper",
     "text": "Three questions to ask when reading a paper\n\nWhat is the quantity the researchers want to estimate?\nWhat does machine learning contribute to that objective?\nWhat assumptions are needed to interpret the results?\n\n\nSources: Mullainathan and Spiess (2017); Athey and Imbens (2019); Zhao et al. (2025); Li and Yu (2025); Belloni et al. (2014); Stetter et al. (2022).\n\n\n\nPrediction accuracy is the primary objective in the first example.\nIn the second role, ML is used to support an economic model or the estimation of a particular parameter.\nIn the third role, ML helps estimate treatment-effect heterogeneity.\nBetter prediction does not necessarily imply better parameter estimates or more credible causal inference.\nThe research objective determines how the model should be evaluated."
+  },
+  {
+    "objectID": "lectures/lecture6.3.html#why-estimate-heterogeneous-treatment-effects",
+    "href": "lectures/lecture6.3.html#why-estimate-heterogeneous-treatment-effects",
+    "title": "Lecture 6.3: Machine Learning in Economic Research",
+    "section": "Why estimate heterogeneous treatment effects?",
+    "text": "Why estimate heterogeneous treatment effects?\nThe Average Treatment Effect (ATE) measures the average effect of participation across all farms:\nATE=E[Y(1)−Y(0)]\nATE=E[Y(1)-Y(0)]\n\nBut the program may affect farms differently depending on their size, location, or production practices.\nThe Conditional Average Treatment Effect (CATE) measures the average effect for farms with particular characteristics:\nτ(x)=E[Y(1)−Y(0)∣X=x]\n\\tau(x)=E[Y(1)-Y(0)\\mid X=x]\n\nML application: Causal forests can identify patterns in treatment-effect heterogeneity without requiring researchers to specify every interaction in advance.\n\n\nATE summarizes the average effect across the target population.\nCATE describes how the average effect varies with observed characteristics.\nIn a conventional regression, we would need to specify treatment interactions with farm characteristics.\nCausal forests provide a flexible way to estimate these differences.\nCATE estimation still requires credible causal identification assumptions.\nTransition: How do causal forests estimate these differences across farms?"
   }
 ]

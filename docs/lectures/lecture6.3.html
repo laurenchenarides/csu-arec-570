@@ -1258,23 +1258,26 @@ E_{(Y,X)}[(Y-\hat{f}(X))^2]
 <p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 701 to 704; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3 and 4.1 to 4.3.</p>
 </div>
 </section>
-<section id="conditional-average-treatment-effects" class="slide level2">
-<h2>Conditional average treatment effects</h2>
-<p><strong>Conditional average treatment effects (CATEs)</strong> describe how estimated treatment effects differ across farms with different characteristics.</p>
+<section id="why-estimate-heterogeneous-treatment-effects" class="slide level2">
+<h2>Why estimate heterogeneous treatment effects?</h2>
+<p>The <strong>Average Treatment Effect (ATE)</strong> measures the average effect of participation across all farms:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>T</mi><mi>E</mi><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+ATE=E[Y(1)-Y(0)]
+</annotation></semantics></math></p>
+<p>But the program may affect farms differently depending on their size, location, or production practices.</p>
+<p>The <strong>Conditional Average Treatment Effect (CATE)</strong> measures the average effect for farms with particular characteristics:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
 \tau(x)=E[Y(1)-Y(0)\mid X=x]
 </annotation></semantics></math></p>
-<div class="source">
-<p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 701 to 704; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3 and 4.1 to 4.3.</p>
-</div>
+<p>ML application: Causal forests can identify patterns in treatment-effect heterogeneity without requiring researchers to specify every interaction in advance.</p>
 <aside class="notes">
 <ul>
-<li>This extends the potential-outcomes framework introduced earlier in the course.</li>
-<li>Y(1) is the potential outcome under program participation; Y(0) is the potential outcome without participation.</li>
-<li>The average treatment effect summarizes the mean difference across the population.</li>
-<li>The conditional average treatment effect describes how that difference varies with observed characteristics.</li>
-<li>The objective is not simply to predict fertiliser use, but to estimate differences in treatment effects.</li>
-<li>Transition: How can machine learning help estimate these differences?</li>
+<li>ATE summarizes the average effect across the target population.</li>
+<li>CATE describes how the average effect varies with observed characteristics.</li>
+<li>In a conventional regression, we would need to specify treatment interactions with farm characteristics.</li>
+<li>Causal forests provide a flexible way to estimate these differences.</li>
+<li>CATE estimation still requires credible causal identification assumptions.</li>
+<li>Transition: How do causal forests estimate these differences across farms?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
