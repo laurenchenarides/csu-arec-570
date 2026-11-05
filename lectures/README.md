@@ -18,10 +18,11 @@ calendar dates and preparation assignments remain in `2026/schedule.qmd`.
 | 6.1 | Unit 6, slides 3–28 | Jurajda discussion; editable potential-outcome equations |
 | 6.2 | Unit 6, slides 29–39 | Design-specific discussions and credibility checks |
 | 6.3 | Unit 6, slides 40–45 | 2019 ML reading; leakage and evaluation exercises |
-| 6.4 | Unit 6, slides 46–60 | Falk–Heckman discussion; mixed-methods workshop |
-| 6.5 | Unit 6, slides 61–90 | Corrected inference explanations; evidence audit |
+| 6.4 | Unit 6, slides 46–90 | Consolidated methods-section reading, experiments and qualitative evidence, inference, and survey power |
 | 7.1 | Unit 7, slides 3–10 | Discussions of all four assigned reviewer readings |
 | 7.2 | Unit 7, slides 11–19 | Fryer response exercise; revision workshop |
+
+The November 10 methods workshop is unnumbered and has a separate preparation page under `2026/`. The November 12 meeting uses Lecture 6.4.
 
 PowerPoints remain in `pptx/`; readings remain in their unit folders under
 `../readings/`. Students access the assigned readings and handouts through Canvas.

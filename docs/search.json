@@ -149,9 +149,9 @@
   {
     "objectID": "lectures/lecture6.4.html#before-class",
     "href": "lectures/lecture6.4.html#before-class",
-    "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
+    "title": "Lecture 6.4: Reading a Methods Section",
     "section": "Before class",
-    "text": "Before class\n\nFalk and Heckman, “Lab Experiments Are a Major Source of Knowledge in the Social Sciences” (Falk and Heckman 2009).\nStarr, “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future” (Starr 2014).\n\nReadings and course handouts are available on Canvas."
+    "text": "Before class\nRead\n\nGibson, “Are You Estimating the Right Thing? An Editor Reflects” (Gibson 2019)\nKim, “Tackling False Positives in Business Research” (Kim 2019)\n\nOptional background for the methods survey\n\nFalk and Heckman on laboratory experiments (Falk and Heckman 2009)\nStarr on qualitative and mixed methods (Starr 2014)\n\nReadings and course handouts are available on Canvas"
   },
   {
     "objectID": "lectures/lecture6.4.html#match-the-method-to-the-gap-in-knowledge",
@@ -163,9 +163,9 @@
   {
     "objectID": "lectures/lecture6.4.html#falk-and-heckman-controlled-variation",
     "href": "lectures/lecture6.4.html#falk-and-heckman-controlled-variation",
-    "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
+    "title": "Lecture 6.4: Reading a Methods Section",
     "section": "Falk and Heckman: controlled variation",
-    "text": "Falk and Heckman: controlled variation\nLaboratory experiments let researchers vary features of a decision environment.\nThey can separate mechanisms that move together in observational settings.\nA simplified setting can be informative when it isolates a relevant mechanism.\n\nSource: Falk and Heckman (2009)."
+    "text": "Falk and Heckman: controlled variation\nIn a gift-exchange experiment, researchers can vary a wage offer and observe effort while specifying the decision rules and information available to participants\nWhen reading an experiment, identify\n\nWhat the researcher varies\nWhat is held fixed\nWhat participants choose and what is observed\nWhich populations and settings the result is meant to inform\n\n\nSource: Falk and Heckman (2009), discussion of the gift-exchange experiment"
   },
   {
     "objectID": "lectures/lecture6.4.html#discussion-realism-and-generalization",
@@ -254,16 +254,16 @@
   {
     "objectID": "lectures/lecture6.4.html#references",
     "href": "lectures/lecture6.4.html#references",
-    "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
+    "title": "Lecture 6.4: Reading a Methods Section",
     "section": "References",
-    "text": "References\n\n\nFalk, Armin, and James J. Heckman. 2009. “Lab Experiments Are a Major Source of Knowledge in the Social Sciences.” Science 326 (5952): 535–38. https://doi.org/10.1126/science.1168244.\n\n\nStarr, Martha A. 2014. “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future.” Journal of Economic Surveys 28 (2): 238–64. https://doi.org/10.1111/joes.12004."
+    "text": "References\n\n\nFalk, Armin, and James J. Heckman. 2009. “Lab Experiments Are a Major Source of Knowledge in the Social Sciences.” Science 326 (5952): 535–38. https://doi.org/10.1126/science.1168244.\n\n\nGibson, John. 2019. “Are You Estimating the Right Thing? An Editor Reflects.” Applied Economic Perspectives and Policy 41 (3): 329–50. https://doi.org/10.1093/aepp/ppz009.\n\n\nKim, Jae H. 2019. “Tackling False Positives in Business Research: A Statistical Toolbox with Applications.” Journal of Economic Surveys 33 (3): 862–95. https://doi.org/10.1111/joes.12303.\n\n\nStarr, Martha A. 2014. “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future.” Journal of Economic Surveys 28 (2): 238–64. https://doi.org/10.1111/joes.12004."
   },
   {
     "objectID": "lectures/lecture6.4.html#course-navigation",
     "href": "lectures/lecture6.4.html#course-navigation",
-    "title": "Lecture 6.4: Experiments, Qualitative and Mixed Methods",
+    "title": "Lecture 6.4: Reading a Methods Section",
     "section": "Course navigation",
-    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
+    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nMethods workshop preparation\nCourse reading list"
   },
   {
     "objectID": "lectures/lecture6.2.html#before-class",
@@ -1159,7 +1159,7 @@
     "href": "2026/schedule.html",
     "title": "Fall 2026 Course Schedule and Readings",
     "section": "",
-    "text": "Preparation: Complete each reading before the class period in which it is listed. All readings and assigned book excerpts are available on Canvas. See the course reading list for full references.\nLecture numbers identify the unit and meeting within that unit: Lecture 4.1 is the first meeting of Unit 4, and Lecture 4.2 is the second. The course introduction, recess, and final presentations are unnumbered.\n\n\nFall 2026 class meetings and preparation.\n\n\nWeek\nDate\nLecture\nFaculty\nTopic\nComplete before class\n\n\n\n\n1\nTue., Aug. 25\n—\nAmanda\nClass Introduction and Syllabus\nRead the course syllabus.\n\n\n1\nThu., Aug. 27\n1.1\nAmanda\nWhat Is Economic Research and the Scientific Approach?\n• Greenlaw, Chapter 1, “What Is Research?”• Ethridge, Chapter 2, “Research and Methodology”• Kenyon, “Popper’s Philosophy of Science”\n\n\n2\nTue., Sept. 1\n1.2\nAmanda\nMethodological Foundations\n• Ethridge, Chapter 3, “Methodological Concepts and Perspectives”• McCloskey, “How Economists Persuade”\n\n\n2\nThu., Sept. 3\n1.3\nAmanda\nMethodological Foundations\n• Ethridge, Chapter 4, “Philosophical Foundations”• Larue, “A Defense of Reasonable Pluralism in Economics”• Machlup, “Why Economists Disagree”\n\n\n3\nTue., Sept. 8\n2.1\nAmanda\nDefining a Research Problem or Question\n• Ethridge, Chapter 6, “The Research Problem and Objectives”• Greenlaw, Chapter 2, “Overview of the Research Process in Economics”\n\n\n3\nThu., Sept. 10\n2.2\nAmanda\nFinding an Idea\n• Davis, “Ph.D. Thesis Research: Where Do I Start?”• Dudenhefer, Sections 5–6:• “Finding a Niche and Making a Contribution”• “Locating and Getting a Handle on the Secondary Literature”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 1–3 of the course PDF\n\n\n4\nTue., Sept. 15\n2.3\nAmanda\nPlanning the Research Project\n• Ethridge, Chapter 5, “Planning the Research”• *Bellemare, “How to Write Applied Papers in Economics.”\n\n\n4\nThu., Sept. 17\n2.4\nAmanda\nTwo-Minute Research Idea Pitch\nNo assigned reading. Prepare your two-minute research idea pitch.\n\n\n5\nTue., Sept. 22\n3.1\nAmanda\nEvaluate Pitch Presentations\nNo assigned reading. Be prepared to evaluate the research idea pitches.\n\n\n5\nThu., Sept. 24\n3.2\nAmanda\nResearch Efficiency: Reading and Organizing the Literature\n• Gosztyla, “How to Find, Read and Organize Papers”• Laubepin, “How to Read (and Understand) a Social Science Journal Article”\n\n\n6\nTue., Sept. 29\n3.3\nAmanda\nWriting the Introduction and Literature Review\n• Dudenhefer, Section 18, “Writing Introductions”• Dudenhefer, Section 22, “Writing Literature Reviews”• Head, “The Introduction Formula”\n\n\n6\nThu., Oct. 1\n3.4\nAmanda\nLiterature Review and Writing Skills\n• Mankiw, “How to Write Well”• David Romer, “Rules for Making It Through Graduate School and Finishing Your Dissertation: ‘Out in Five’”\n\n\n7\nTue., Oct. 6\n4.1\nLauren\nConceptual Framework and Theory\n• Ethridge, Chapter 8, “The Conceptual Framework”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 4–6 of the course PDF• Paul Romer, “Mathiness in the Theory of Economic Growth”\n\n\n7\nThu., Oct. 8\n4.2\nLauren\nWriting the Conceptual Framework\n• Chouinard, “Theory Notes”• Cheng, “How to Write Proofs: A Quick Guide”\n\n\n8\nTue., Oct. 13\n5.1\nLauren\nData Collection: Surveys\nChamp, “Collecting Nonmarket Valuation Data”\n\n\n8\nThu., Oct. 15\n5.2\nLauren\nData Collection via API\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem”\n\n\n9\nTue., Oct. 20\n5.3\nLauren\nManaging Data for Reproducibility: Git I\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1–4: • Introduction• Automation• Version Control• Directories\n\n\n9\nThu., Oct. 22\n5.4\nLauren\nManaging Data for Reproducibility: Git II\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 5–8 and the appendix: • Keys• Abstraction• Documentation• Management• Code Style appendix\n\n\n10\nTue., Oct. 27\n5.5\nLauren\nData: Reporting\nNo assigned reading.\n\n\n10\nThu., Oct. 29\n6.1\nLauren\nMethods of Analysis: Econometric ModelsMethods map\n• Angrist and Pischke, Mostly Harmless Econometrics, Chapters 1–3• Jurajda, “Lecture Notes on Identification Strategies”• Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics”\n\n\n11\nTue., Nov. 3\n6.2\nLauren\nMethods of Analysis: Structural Models\n• Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference”• Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional)\n\n\n11\nThu., Nov. 5\n6.3\nLauren\nMethods of Analysis: Machine Learning and Newer Estimators\n• Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation”• Athey and Imbens, “Machine Learning Methods That Economists Should Know About”• Mullainathan and Spiess, “Machine Learning: An Applied Econometric Approach”\n\n\n12\nTue., Nov. 10\n6.4\nLauren\nMethods of Analysis: Qualitative and Mixed Methods\n• Falk and Heckman, “Lab Experiments Are a Major Source of Knowledge in the Social Sciences”• Starr, “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future”\n\n\n12\nThu., Nov. 12\n6.5\nLauren\nMethods of Analysis: Evaluating Empirical Evidence\n• Gibson, “Are You Estimating the Right Thing? An Editor Reflects”• Kim, “Tackling False Positives in Business Research: A Statistical Toolbox with Applications”\n\n\n13\nTue., Nov. 17\n7.1\nLauren\nReviewing\n• Agricultural and Applied Economics Association, AJAE Refereeing Criteria• Berk, Harvey, and Hirshleifer, “Preparing a Referee Report: Guidelines and Perspectives”• Ethridge, Appendix D, “Guidelines for Critiquing Papers”• U.S. Environmental Protection Agency, “Peer Review Process, Evaluation Criteria and Rating Classifications”\n\n\n13\nThu., Nov. 19\n7.2\nLauren\nResponding to Reviewers\n• Boonpramote, “Writing for Economics Journals: Elements of Publication Success”• Choi, “Rejection and Revision”• Fryer, “A Response to Steven Durlauf and James Heckman”\n\n\n—\nTue., Nov. 24\n—\n—\nThanksgiving Recess\nNo class. No assigned reading.\n\n\n—\nThu., Nov. 26\n—\n—\nThanksgiving Recess\nNo class. No assigned reading.\n\n\n14\nTue., Dec. 1\n8.1\nAmanda\nResults and Conclusions\n• Bellemare, “The Conclusion Formula”• Bellemare, Chapter 2, “Writing Papers”• Dudenhefer, Section 17e, “Reporting and Interpreting Your Results”• Dudenhefer, Section 19, “Writing the Conclusion”\n\n\n14\nThu., Dec. 3\n9.1\nAmanda\nResearch Presentations, Seminars, and Ethics in Research\n• Jackson, “Notes on Presenting a Paper”• Shapiro, “How to Give an Applied Micro Talk: Unauthoritative Notes”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 7–end of the course PDF\n\n\n15\nTue., Dec. 8\n—\nAmanda and Lauren\nSeven-Minute Presentations and Questions\nNo assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions.\n\n\n15\nThu., Dec. 10\n—\nAmanda and Lauren\nSeven-Minute Presentations and Questions\nNo assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions."
+    "text": "Preparation: Complete each reading before the class period in which it is listed. All readings and assigned book excerpts are available on Canvas. See the course reading list for full references.\nLecture numbers identify the unit and meeting within that unit: Lecture 4.1 is the first meeting of Unit 4, and Lecture 4.2 is the second. The course introduction, methods workshop, recess, and final presentations are unnumbered.\n\n\nFall 2026 class meetings and preparation.\n\n\nWeek\nDate\nLecture\nFaculty\nTopic\nComplete before class\n\n\n\n\n1\nTue., Aug. 25\n—\nAmanda\nClass Introduction and Syllabus\nRead the course syllabus.\n\n\n1\nThu., Aug. 27\n1.1\nAmanda\nWhat Is Economic Research and the Scientific Approach?\n• Greenlaw, Chapter 1, “What Is Research?”• Ethridge, Chapter 2, “Research and Methodology”• Kenyon, “Popper’s Philosophy of Science”\n\n\n2\nTue., Sept. 1\n1.2\nAmanda\nMethodological Foundations\n• Ethridge, Chapter 3, “Methodological Concepts and Perspectives”• McCloskey, “How Economists Persuade”\n\n\n2\nThu., Sept. 3\n1.3\nAmanda\nMethodological Foundations\n• Ethridge, Chapter 4, “Philosophical Foundations”• Larue, “A Defense of Reasonable Pluralism in Economics”• Machlup, “Why Economists Disagree”\n\n\n3\nTue., Sept. 8\n2.1\nAmanda\nDefining a Research Problem or Question\n• Ethridge, Chapter 6, “The Research Problem and Objectives”• Greenlaw, Chapter 2, “Overview of the Research Process in Economics”\n\n\n3\nThu., Sept. 10\n2.2\nAmanda\nFinding an Idea\n• Davis, “Ph.D. Thesis Research: Where Do I Start?”• Dudenhefer, Sections 5–6:• “Finding a Niche and Making a Contribution”• “Locating and Getting a Handle on the Secondary Literature”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 1–3 of the course PDF\n\n\n4\nTue., Sept. 15\n2.3\nAmanda\nPlanning the Research Project\n• Ethridge, Chapter 5, “Planning the Research”• *Bellemare, “How to Write Applied Papers in Economics.”\n\n\n4\nThu., Sept. 17\n2.4\nAmanda\nTwo-Minute Research Idea Pitch\nNo assigned reading. Prepare your two-minute research idea pitch.\n\n\n5\nTue., Sept. 22\n3.1\nAmanda\nEvaluate Pitch Presentations\nNo assigned reading. Be prepared to evaluate the research idea pitches.\n\n\n5\nThu., Sept. 24\n3.2\nAmanda\nResearch Efficiency: Reading and Organizing the Literature\n• Gosztyla, “How to Find, Read and Organize Papers”• Laubepin, “How to Read (and Understand) a Social Science Journal Article”\n\n\n6\nTue., Sept. 29\n3.3\nAmanda\nWriting the Introduction and Literature Review\n• Dudenhefer, Section 18, “Writing Introductions”• Dudenhefer, Section 22, “Writing Literature Reviews”• Head, “The Introduction Formula”\n\n\n6\nThu., Oct. 1\n3.4\nAmanda\nLiterature Review and Writing Skills\n• Mankiw, “How to Write Well”• David Romer, “Rules for Making It Through Graduate School and Finishing Your Dissertation: ‘Out in Five’”\n\n\n7\nTue., Oct. 6\n4.1\nLauren\nConceptual Framework and Theory\n• Ethridge, Chapter 8, “The Conceptual Framework”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 4–6 of the course PDF• Paul Romer, “Mathiness in the Theory of Economic Growth”\n\n\n7\nThu., Oct. 8\n4.2\nLauren\nWriting the Conceptual Framework\n• Chouinard, “Theory Notes”• Cheng, “How to Write Proofs: A Quick Guide”\n\n\n8\nTue., Oct. 13\n5.1\nLauren\nData Collection: Surveys\nChamp, “Collecting Nonmarket Valuation Data”\n\n\n8\nThu., Oct. 15\n5.2\nLauren\nData Collection via API\nDominitz and Manski, “More Data or Better Data? A Statistical Decision Problem”\n\n\n9\nTue., Oct. 20\n5.3\nLauren\nManaging Data for Reproducibility: Git I\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 1–4: • Introduction• Automation• Version Control• Directories\n\n\n9\nThu., Oct. 22\n5.4\nLauren\nManaging Data for Reproducibility: Git II\nGentzkow and Shapiro, Code and Data for the Social Sciences, Sections 5–8 and the appendix: • Keys• Abstraction• Documentation• Management• Code Style appendix\n\n\n10\nTue., Oct. 27\n5.5\nLauren\nData: Reporting\nNo assigned reading.\n\n\n10\nThu., Oct. 29\n6.1\nLauren\nMethods of Analysis: Econometric ModelsMethods map\n• Angrist and Pischke, Mostly Harmless Econometrics, Chapters 1–3• Jurajda, “Lecture Notes on Identification Strategies”• Timmins and Schlenker, “Reduced-Form Versus Structural Modeling in Environmental and Resource Economics”\n\n\n11\nTue., Nov. 3\n6.2\nLauren\nMethods of Analysis: Structural Models\n• Nevo and Whinston, “Taking the Dogma out of Econometrics: Structural Modeling and Credible Inference”• Nevo, “A Practitioner’s Guide to Estimation of Random-Coefficients Logit Models of Demand” (optional)\n\n\n11\nThu., Nov. 5\n6.3\nLauren\nMethods of Analysis: Machine Learning and Newer Estimators\n• Athey and Imbens, “The State of Applied Econometrics: Causality and Policy Evaluation”• Athey and Imbens, “Machine Learning Methods That Economists Should Know About”• Mullainathan and Spiess, “Machine Learning: An Applied Econometric Approach”\n\n\n12\nTue., Nov. 10\n—\nLauren\nMethods workshop\nNo new reading. Bring a 1–2 page draft of your data and methods plan using the workshop preparation instructions\n\n\n12\nThu., Nov. 12\n6.4\nLauren\nReading and Evaluating Methods Sections\n• Gibson, “Are You Estimating the Right Thing? An Editor Reflects”• Kim, “Tackling False Positives in Business Research: A Statistical Toolbox with Applications”Optional background: Falk and Heckman on lab experiments; Starr on qualitative and mixed methods\n\n\n13\nTue., Nov. 17\n7.1\nLauren\nReviewing\n• Agricultural and Applied Economics Association, AJAE Refereeing Criteria• Berk, Harvey, and Hirshleifer, “Preparing a Referee Report: Guidelines and Perspectives”• Ethridge, Appendix D, “Guidelines for Critiquing Papers”• U.S. Environmental Protection Agency, “Peer Review Process, Evaluation Criteria and Rating Classifications”\n\n\n13\nThu., Nov. 19\n7.2\nLauren\nResponding to Reviewers\n• Boonpramote, “Writing for Economics Journals: Elements of Publication Success”• Choi, “Rejection and Revision”• Fryer, “A Response to Steven Durlauf and James Heckman”\n\n\n—\nTue., Nov. 24\n—\n—\nThanksgiving Recess\nNo class. No assigned reading.\n\n\n—\nThu., Nov. 26\n—\n—\nThanksgiving Recess\nNo class. No assigned reading.\n\n\n14\nTue., Dec. 1\n8.1\nAmanda\nResults and Conclusions\n• Bellemare, “The Conclusion Formula”• Bellemare, Chapter 2, “Writing Papers”• Dudenhefer, Section 17e, “Reporting and Interpreting Your Results”• Dudenhefer, Section 19, “Writing the Conclusion”\n\n\n14\nThu., Dec. 3\n9.1\nAmanda\nResearch Presentations, Seminars, and Ethics in Research\n• Jackson, “Notes on Presenting a Paper”• Shapiro, “How to Give an Applied Micro Talk: Unauthoritative Notes”• Varian, “How to Build an Economic Model in Your Spare Time,” pp. 7–end of the course PDF\n\n\n15\nTue., Dec. 8\n—\nAmanda and Lauren\nSeven-Minute Presentations and Questions\nNo assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions.\n\n\n15\nThu., Dec. 10\n—\nAmanda and Lauren\nSeven-Minute Presentations and Questions\nNo assigned reading. Prepare your seven-minute presentation and anticipate five minutes of questions."
   },
   {
     "objectID": "2026/readings.html",
@@ -2149,160 +2149,6 @@
     "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list\nEmpirical strategy checklist\nMethods map\nBittmann (2025), a practical guide from OLS to causal machine learning\nDownload this lecture as a PDF"
   },
   {
-    "objectID": "lectures/lecture6.5.html#before-class",
-    "href": "lectures/lecture6.5.html#before-class",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Before class",
-    "text": "Before class\n\nGibson, “Are You Estimating the Right Thing? An Editor Reflects” (Gibson 2019).\nKim, “Tackling False Positives in Business Research: A Statistical Toolbox with Applications” (Kim 2019).\n\nReadings and course handouts are available on Canvas."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#credibility-involves-more-than-identification",
-    "href": "lectures/lecture6.5.html#credibility-involves-more-than-identification",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Credibility involves more than identification",
-    "text": "Credibility involves more than identification\nA strong design can still estimate a quantity different from the one the researcher intends.\nCheck:\n\nResearch question.\nEstimand.\nMeasurement.\nPopulation.\nInterpretation.\n\n\nSource: Gibson (2019)."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#does-the-measure-match-the-concept",
-    "href": "lectures/lecture6.5.html#does-the-measure-match-the-concept",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Does the measure match the concept?",
-    "text": "Does the measure match the concept?\n\nDoes a registry describe residents or registered persons?\nDoes expenditure reflect quantity, quality, or both?\nDoes infrequent recall obscure variation within a period?\nDoes aggregation hide the response of interest?\n\nInstitutional knowledge of the data matters."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#avoid-discarding-information-unnecessarily",
-    "href": "lectures/lecture6.5.html#avoid-discarding-information-unnecessarily",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Avoid discarding information unnecessarily",
-    "text": "Avoid discarding information unnecessarily\nA continuous measure can be converted into an indicator, but that discards information.\nExample: income versus an indicator for income below a poverty threshold.\nExplain why the indicator matches the question. Consider how measurement error near the cutoff changes classification."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#spatial-processes-cross-boundaries",
-    "href": "lectures/lecture6.5.html#spatial-processes-cross-boundaries",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Spatial processes cross boundaries",
-    "text": "Spatial processes cross boundaries\nA policy in one area may affect neighbors.\n\nDoes the outcome depend on nearby exposure?\nCould the comparison group be affected?\nDoes the estimated effect include spillovers?\nDoes aggregation hide them?\n\nMatch the model and interpretation to the spatial process."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#discussion-gibson",
-    "href": "lectures/lecture6.5.html#discussion-gibson",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Discussion: Gibson",
-    "text": "Discussion: Gibson\n\nWhich example most clearly separates the intended and estimated quantity?\nWhere does the problem enter: measurement, sample, design, or interpretation?\nWould a larger dataset solve it?\nWhere would your project benefit most from additional effort?\n\n\nThe source notes raise critiques of design-focused research. Treat them as questions about research priorities, not as a claim that all experimental designs require the same assumptions as all structural models."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#statistical-significance-answers-a-limited-question",
-    "href": "lectures/lecture6.5.html#statistical-significance-answers-a-limited-question",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Statistical significance answers a limited question",
-    "text": "Statistical significance answers a limited question\nA p-value is the probability, under the null model, of a test statistic at least as extreme as the observed statistic.\nIt is not:\n\nThe probability that the null is true.\nThe probability that the result will replicate.\nThe economic importance of the effect."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#type-i-error-type-ii-error-and-power",
-    "href": "lectures/lecture6.5.html#type-i-error-type-ii-error-and-power",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Type I error, Type II error, and power",
-    "text": "Type I error, Type II error, and power\n\n\n\nDecision\nNull true\nSpecified alternative true\n\n\n\n\nReject null\nType I error\nCorrect rejection\n\n\nDo not reject\nCorrect non-rejection\nType II error\n\n\n\n\nα\\alpha: probability of Type I error.\nβ\\beta: probability of Type II error under a specified alternative.\nPower: 1−β1-\\beta."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#sample-size-changes-power",
-    "href": "lectures/lecture6.5.html#sample-size-changes-power",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Sample size changes power",
-    "text": "Sample size changes power\n\n\n\nTwo panels from Kim showing null and alternative test-statistic distributions and different power as sample size changes.\n\n\n\nSource: Kim; retained from Unit 6, slide 71.\n\nWith a valid fixed-level test, increasing sample size does not inherently increase the nominal Type I error rate.\n\nCorrects the original large-sample discussion. Larger samples increase power against fixed alternatives. Misspecification, multiple testing, or interpreting tiny effects as important are separate problems."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#statistical-and-economic-importance",
-    "href": "lectures/lecture6.5.html#statistical-and-economic-importance",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Statistical and economic importance",
-    "text": "Statistical and economic importance\nA very small effect may be precisely estimated.\nAsk:\n\nWhat is the estimate in meaningful units?\nWhat range is compatible with the data and assumptions?\nWhat effect would matter for the decision?\nCould the result be a precise estimate of a biased quantity?"
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#discussion-kims-diagnosis",
-    "href": "lectures/lecture6.5.html#discussion-kims-diagnosis",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Discussion: Kim’s diagnosis",
-    "text": "Discussion: Kim’s diagnosis\n\nWhy does Kim object to relying on a single significance threshold?\nWhich concerns involve sample size, measurement, or model misspecification?\nWhich involve repeated testing or selective reporting?\nWhat would a useful statistical toolbox add?"
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#large-samples-do-not-erase-bias",
-    "href": "lectures/lecture6.5.html#large-samples-do-not-erase-bias",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Large samples do not erase bias",
-    "text": "Large samples do not erase bias\nMore observations can reduce variance while leaving systematic error.\nMSE⁡(θ̂)=Var⁡(θ̂)+Bias⁡(θ̂)2.\n\\operatorname{MSE}(\\hat\\theta)\n=\\operatorname{Var}(\\hat\\theta)\n+\\operatorname{Bias}(\\hat\\theta)^2.\n\nPrecision can make a biased estimate look convincing."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#bayesian-evidence-asks-another-question",
-    "href": "lectures/lecture6.5.html#bayesian-evidence-asks-another-question",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Bayesian evidence asks another question",
-    "text": "Bayesian evidence asks another question\nA Bayes factor compares the marginal likelihood of the data under two models.\nPosterior odds equal prior odds times the Bayes factor.\nNeither a Bayes factor nor a posterior probability is the same as a p-value. State the hypotheses and prior assumptions."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#error-costs-and-decision-thresholds",
-    "href": "lectures/lecture6.5.html#error-costs-and-decision-thresholds",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Error costs and decision thresholds",
-    "text": "Error costs and decision thresholds\nAn illustrative expected-loss criterion is\nL=π0CIα+(1−π0)CIIβ,\nL=\\pi_0 C_I\\alpha+(1-\\pi_0)C_{II}\\beta,\n\nwhere π0\\pi_0 is the prior probability of the null and CI,CIIC_I,C_{II} are the costs of the two errors.\nChoosing a threshold involves the decision context and the test’s operating characteristics.\n\nSource: discussion in Kim (2019)."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#equivalence-is-not-failure-to-reject",
-    "href": "lectures/lecture6.5.html#equivalence-is-not-failure-to-reject",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Equivalence is not failure to reject",
-    "text": "Equivalence is not failure to reject\nA nonsignificant test against zero does not establish that the effect is negligible.\nEquivalence testing instead specifies a substantively meaningful interval (−Δ,Δ)(-\\Delta,\\Delta).\nThe question is whether evidence supports the effect lying inside that interval.\nChoose Δ\\Delta using the economic question."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#exercise-interpret-two-findings",
-    "href": "lectures/lecture6.5.html#exercise-interpret-two-findings",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Exercise: interpret two findings",
-    "text": "Exercise: interpret two findings\nHypothetical findings:\n\nStudy A: estimated effect 0.010.01, interval [0.009,0.011][0.009,0.011].\nStudy B: estimated effect 1.01.0, interval [−0.2,2.2][-0.2,2.2].\n\nWhat can you say about precision, compatibility with zero, and economic importance?\nWhat units and decision context are missing?"
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#a-transparent-methods-section",
-    "href": "lectures/lecture6.5.html#a-transparent-methods-section",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "A transparent methods section",
-    "text": "A transparent methods section\nReport:\n\nModel and target parameter.\nSample and variable construction.\nSource of identifying variation.\nControls and their justification.\nInference procedure.\nPlanned sensitivity analyses.\n\n\nSource: Unit 6, slides 85–89."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#discussion-use-both-readings",
-    "href": "lectures/lecture6.5.html#discussion-use-both-readings",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Discussion: use both readings",
-    "text": "Discussion: use both readings\nA paper reports a small p-value from a large administrative dataset.\nGive one question from Gibson and one from Kim that you would ask before accepting the conclusion.\nExplain why each question concerns a different part of the argument."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#workshop-an-evidence-audit",
-    "href": "lectures/lecture6.5.html#workshop-an-evidence-audit",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Workshop: an evidence audit",
-    "text": "Workshop: an evidence audit\nFor your proposal:\n\nState the estimand in words.\nCheck whether the measure matches it.\nIdentify the largest source of systematic error.\nDefine an economically meaningful effect.\nExplain how you will report uncertainty."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#before-you-leave",
-    "href": "lectures/lecture6.5.html#before-you-leave",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Before you leave",
-    "text": "Before you leave\nName one conclusion that should not be drawn from a small p-value alone."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#references",
-    "href": "lectures/lecture6.5.html#references",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "References",
-    "text": "References\n\n\nGibson, John. 2019. “Are You Estimating the Right Thing? An Editor Reflects.” Applied Economic Perspectives and Policy 41 (3): 329–50. https://doi.org/10.1093/aepp/ppz009.\n\n\nKim, Jae H. 2019. “Tackling False Positives in Business Research: A Statistical Toolbox with Applications.” Journal of Economic Surveys 33 (3): 862–95. https://doi.org/10.1111/joes.12303."
-  },
-  {
-    "objectID": "lectures/lecture6.5.html#course-navigation",
-    "href": "lectures/lecture6.5.html#course-navigation",
-    "title": "Lecture 6.5: Evaluating Empirical Evidence",
-    "section": "Course navigation",
-    "text": "Course navigation\n\nAll lectures\nSchedule and preparation\nCourse reading list"
-  },
-  {
     "objectID": "lectures/lecture7.2.html#before-class",
     "href": "lectures/lecture7.2.html#before-class",
     "title": "Lecture 7.2: Responding to Reviewers",
@@ -2433,7 +2279,7 @@
     "href": "lectures/lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse branches pull requests and data-management practices to make research changes reviewable\nDownload PDF\n\n\nLecture 5.5: VS Code, GitHub, and the Data Section\nUse VS Code with Git and GitHub, then write a data section whose sample, measures, descriptive evidence, and repository support the empirical claims.\nDownload PDF\n\n\nLecture 6.1: From Question to Estimating Equation\nTurn a prediction from the conceptual framework into an estimating equation, an identifying assumption, and a parameter a referee can evaluate\nDownload PDF\n\n\nLecture 6.2: Structural Models\nWhen a paper needs an economic model, how structural models are estimated, and what a structural section reports, using cereal mergers as the example\nDownload PDF\n\n\nLecture 6.3: Machine Learning in Economic Research\nWhere machine learning came from, the three roles it plays in empirical economics, and what a methods section reports when a paper uses it\nDownload PDF\n\n\nLecture 6.4: Experiments, Qualitative and Mixed Methods\nCompare controlled variation with open-ended evidence and design a mixed-methods study.\n—\n\n\nLecture 6.5: Evaluating Empirical Evidence\nCheck the estimand, measurement, uncertainty, and economic significance.\n—\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
+    "text": "Slides are organized by unit and class meeting. For example, 4.1 is the first meeting of Unit 4.\nSee the schedule for meeting dates and preparation. Readings and handouts are available on Canvas.\n\n\n\n\n\n\n\n\nLecture\nFocus\nStudent PDF\n\n\n\n\nLecture 4.1: Conceptual Framework and Theory\nUse theory to analyze a research problem, structure an economic model, and state defensible claims\nDownload PDF\n\n\nLecture 4.2: Writing the Conceptual Framework\nPresent assumptions, model results, empirical hypotheses, and evidence clearly\nDownload PDF\n\n\nLecture 5.1: Data Collection: Surveys\nChoose a data source and design sampling measurement fieldwork and documentation around the research objective\nDownload PDF\n\n\nLecture 5.2: Data Collection via APIs\nUse R to retrieve and document secondary data on land use water weather and communities\nDownload PDF\n\n\nLecture 5.3: Managing Data for Reproducibility: Git I\nOrganize a research project and use Git and GitHub to record and share changes\nDownload PDF\n\n\nLecture 5.4: Managing Data for Reproducibility: Git II\nUse branches pull requests and data-management practices to make research changes reviewable\nDownload PDF\n\n\nLecture 5.5: VS Code, GitHub, and the Data Section\nUse VS Code with Git and GitHub, then write a data section whose sample, measures, descriptive evidence, and repository support the empirical claims.\nDownload PDF\n\n\nLecture 6.1: From Question to Estimating Equation\nTurn a prediction from the conceptual framework into an estimating equation, an identifying assumption, and a parameter a referee can evaluate\nDownload PDF\n\n\nLecture 6.2: Structural Models\nWhen a paper needs an economic model, how structural models are estimated, and what a structural section reports, using cereal mergers as the example\nDownload PDF\n\n\nLecture 6.3: Machine Learning in Economic Research\nWhere machine learning came from, the three roles it plays in empirical economics, and what a methods section reports when a paper uses it\nDownload PDF\n\n\nLecture 6.4: Reading a Methods Section\nRead methods sections for fit between the question, data, analysis, assumptions, and evidence\nDownload PDF\n\n\nLecture 7.1: Reviewing Research\nEvaluate contribution, credibility, and clarity; write actionable referee comments.\n—\n\n\nLecture 7.2: Responding to Reviewers\nPlan revisions, answer criticism with evidence, and communicate disagreements clearly.\n—\n\n\n\nNo matching items"
   },
   {
     "objectID": "lectures/lecture5.2.html#getting-access",
@@ -4512,7 +4358,7 @@
     "href": "files/empirical-strategy-checklist.html",
     "title": "AREC 570 Empirical Strategy Checklist",
     "section": "",
-    "text": "Use this checklist as you are preparing to write your empirical section. This checklist follows the data checklist from Lecture 5.5. Rows marked [6.x] are covered in that lecture. Sources: B = Bellemare, “How to Write Applied Papers in Economics,” Section 5; AJAE = AJAE Author Guidelines and Author’s Final Checklist.\n\n\n\n\n\n\n\n\n#\nRelevant section\nPurpose\n\n\n\n\n1\nEstimation strategy\nPrediction to equation [6.1]. Which testable prediction from your conceptual framework (Unit 4) each equation tests.\n\n\n2\nEstimation strategy\nEstimating equation [6.1, B]. The equation, with every variable and coefficient defined, subscripts ordered from smallest to largest unit, and a separate coefficient label for each specification.\n\n\n3\nEstimation strategy\nUnit of observation [6.1]. What one row is. It matches the observation unit and key in your data section (Unit 5).\n\n\n4\nEstimation strategy\nParameter of interest [6.1]. Which coefficient answers the question, its units, how to read a one-unit change, and whether it has a causal interpretation (if not, what it describes).\n\n\n5\nEstimation strategy\nEstimator [6.1, B]. The estimation method (for example, OLS, linear probability model, probit, maximum likelihood, GMM) and why.\n\n\n6\nEstimation strategy\nInference [6.1, B]. The null hypothesis; what the standard errors are robust to; the clustering level and why; how few clusters are handled; whether sampling weights are used.\n\n\n7\nIdentification strategy\nIdentifying assumption [6.1]. The assumption in one plain sentence, with no notation.\n\n\n8\nIdentification strategy\nIdentifying variation [6.1]. Which comparison (across units, over time, at a threshold, from assignment) moves the treatment and not the outcome directly.\n\n\n9\nIdentification strategy\nThreats [6.1, B]. Whether each applies, and how the paper handles it in the design or a robustness check: reverse causality; unobserved heterogeneity; measurement error; spillovers across units or periods.\n\n\n10\nDepends on the design\nIf the paper estimates a structural model [6.2]. The primitives; which variation identifies which parameter; the estimator in one paragraph, details in an appendix; fit or validation; the counterfactuals the model is used for.\n\n\n11\nDepends on the design\nIf the paper uses a prediction step [6.3]. Which step is prediction and which is a causal parameter; how the predictor is tuned and evaluated; how the prediction error affects the parameter of interest.\n\n\n12\nDepends on the design\nIf the paper collects primary data or runs an experiment [6.4, AJAE]. Assignment or sampling; sample size and why it is enough; IRB approval; the instrument or instructions in an appendix that does not identify the authors.\n\n\n13\nDepends on the design\nIf the paper uses qualitative or mixed methods [6.4]. How cases or participants are selected; how evidence is coded; what question the qualitative evidence answers that the quantitative evidence cannot.\n\n\n14\nScope and placement\nWhat the design does not identify [6.5]. Parameters, mechanisms, or populations outside the estimand; limits on external validity.\n\n\n15\nScope and placement\nRobustness and sensitivity [6.5, B]. Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6.\n\n\n16\nScope and placement\nAppendix [AJAE]. Which implementation details move to the appendix, cited in the text as an online appendix, not “available on request.”\n\n\n17\nScope and placement\nReplication [AJAE]. The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission."
+    "text": "Use this checklist as you are preparing to write your empirical section. This checklist follows the data checklist from Lecture 5.5. Rows marked [6.x] are covered in that lecture. Sources: B = Bellemare, “How to Write Applied Papers in Economics,” Section 5; AJAE = AJAE Author Guidelines and Author’s Final Checklist.\n\n\n\n\n\n\n\n\n#\nRelevant section\nPurpose\n\n\n\n\n1\nEstimation strategy\nPrediction to equation [6.1]. Which testable prediction from your conceptual framework (Unit 4) each equation tests.\n\n\n2\nEstimation strategy\nEstimating equation [6.1, B]. The equation, with every variable and coefficient defined, subscripts ordered from smallest to largest unit, and a separate coefficient label for each specification.\n\n\n3\nEstimation strategy\nUnit of observation [6.1]. What one row is. It matches the observation unit and key in your data section (Unit 5).\n\n\n4\nEstimation strategy\nParameter of interest [6.1]. Which coefficient answers the question, its units, how to read a one-unit change, and whether it has a causal interpretation (if not, what it describes).\n\n\n5\nEstimation strategy\nEstimator [6.1, B]. The estimation method (for example, OLS, linear probability model, probit, maximum likelihood, GMM) and why.\n\n\n6\nEstimation strategy\nInference [6.1, B]. The null hypothesis; what the standard errors are robust to; the clustering level and why; how few clusters are handled; whether sampling weights are used.\n\n\n7\nIdentification strategy\nIdentifying assumption [6.1]. The assumption in one plain sentence, with no notation.\n\n\n8\nIdentification strategy\nIdentifying variation [6.1]. Which comparison (across units, over time, at a threshold, from assignment) moves the treatment and not the outcome directly.\n\n\n9\nIdentification strategy\nThreats [6.1, B]. Whether each applies, and how the paper handles it in the design or a robustness check: reverse causality; unobserved heterogeneity; measurement error; spillovers across units or periods.\n\n\n10\nDepends on the design\nIf the paper estimates a structural model [6.2]. The primitives; which variation identifies which parameter; the estimator in one paragraph, details in an appendix; fit or validation; the counterfactuals the model is used for.\n\n\n11\nDepends on the design\nIf the paper uses a prediction step [6.3]. Which step is prediction and which is a causal parameter; how the predictor is tuned and evaluated; how the prediction error affects the parameter of interest.\n\n\n12\nDepends on the design\nIf the paper collects primary data or runs an experiment [6.4, AJAE]. Assignment or sampling; sample size and why it is enough; IRB approval; the instrument or instructions in an appendix that does not identify the authors.\n\n\n13\nDepends on the design\nIf the paper uses qualitative or mixed methods [6.4]. How cases or participants are selected; how evidence is coded; what question the qualitative evidence answers that the quantitative evidence cannot.\n\n\n14\nScope and placement\nWhat the design does not identify [6.4]. Parameters, mechanisms, or populations outside the estimand; limits on external validity.\n\n\n15\nScope and placement\nRobustness and sensitivity [6.4, B]. Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6.\n\n\n16\nScope and placement\nAppendix [AJAE]. Which implementation details move to the appendix, cited in the text as an online appendix, not “available on request.”\n\n\n17\nScope and placement\nReplication [AJAE]. The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission."
   },
   {
     "objectID": "files/empirical-strategy-checklist.html#estimation-strategy",
@@ -4932,7 +4778,7 @@
     "href": "lectures/lecture6.1.html#note-hypothesis-testing-and-identification-answer-different-questions",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Note: Hypothesis testing and identification answer different questions",
-    "text": "Note: Hypothesis testing and identification answer different questions\n\nHypothesis test: is β\\beta different from zero? This depends on the estimator and the standard errors\nIdentification: does β\\beta measure the causal effect? This depends on the identifying assumption\nA significant β\\beta is evidence of a causal effect only if β\\beta is identified\nMore data makes the test more precise, but it does not change what β\\beta measures; more data -&gt; smaller standard error -&gt; more precise\n\nThe identification strategy subsection explains why β\\beta measures the effect you want.\n\nBellemare (Section 5.1) notes that “a hypothesis test always tests for an equality sign.” The paper’s theoretical hypothesis may be that a treatment causes an increase in the outcome, but the statistical null is that the association between the two is not significantly different from zero. Identification is what connects the two.\nThe chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.\nSome identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing such a test adds credibility, and the assumption itself remains unproven. Athey and Imbens call placebo and related checks “supplementary analyses”: they test implications of the identifying assumption. Core assumptions such as an exclusion restriction usually cannot be tested directly.\nIf the assumptions a paper can defend yield only bounds on the effect, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim."
+    "text": "Note: Hypothesis testing and identification answer different questions\n\nHypothesis test: is β\\beta different from zero? This depends on the estimator and the standard errors\nIdentification: does β\\beta measure the causal effect? This depends on the identifying assumption\nA significant β\\beta is evidence of a causal effect only if β\\beta is identified\nMore data makes the test more precise, but it does not change what β\\beta measures; more data -&gt; smaller standard error -&gt; more precise\n\nThe identification strategy subsection explains why β\\beta measures the effect you want.\n\nBellemare (Section 5.1) notes that “a hypothesis test always tests for an equality sign.” The paper’s theoretical hypothesis may be that a treatment causes an increase in the outcome, but the statistical null is that the association between the two is not significantly different from zero. Identification is what connects the two.\nThe chain from earlier units: the conceptual framework gives a testable prediction (Unit 4); identification makes the coefficient a valid measure of that prediction; the hypothesis test says whether the data reject the null. A significant result supports the prediction only if the middle step holds.\nSome identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing such a test adds credibility, and the assumption itself remains unproven. Athey and Imbens call placebo and related checks “supplementary analyses”: they test implications of the identifying assumption. Core assumptions such as an exclusion restriction usually cannot be tested directly.\nIf the assumptions a paper can defend yield only bounds on the effect, the test asks whether the bounds exclude zero. Lecture 6.4 returns to statistical and economic significance with Gibson and Kim."
   },
   {
     "objectID": "lectures/lecture6.1.html#to-show-one-thing-causes-another-the-effect-is-identified-you-must-either-control-for-shared-causes-or-isolate-an-exogenous-source-of-variation",
@@ -4946,7 +4792,7 @@
     "href": "lectures/lecture6.1.html#robustness-check-or-sensitivity-analysis",
     "title": "Lecture 6.1: From Question to Estimating Equation",
     "section": "Robustness check or sensitivity analysis?",
-    "text": "Robustness check or sensitivity analysis?\nRobustness checks vary your choices\n\nRe-estimate your model with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds (Bellemare 2020, sec. 6.2)\nA placebo test estimates an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately\n\nSensitivity analyses relax your assumptions\n\nPurpose is to ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be (Athey and Imbens 2017)\n\nWhy papers include them: researchers try many specifications before choosing one, so readers need evidence that the result was not selected for (Athey and Imbens 2017)\n\nAthey and Imbens call these “supplementary analyses”: their purpose is to provide evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.\nBellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors “have to work hard to convince readers that their results were not cherrypicked.”\nThis is why papers have a robustness section. Each check should name the threat or the choice it tests. Lecture 6.5 returns to this.\nNote that “robust” in “robust standard errors” is a different use of the word: those standard errors are robust to a specific feature of the errors, such as heteroskedasticity."
+    "text": "Robustness check or sensitivity analysis?\nRobustness checks vary your choices\n\nRe-estimate your model with another defensible outcome measure, treatment measure, estimator, functional form, or sample, and show the conclusion holds (Bellemare 2020, sec. 6.2)\nA placebo test estimates an effect that should be zero; Bellemare counts these as robustness checks, and Athey and Imbens list them separately\n\nSensitivity analyses relax your assumptions\n\nPurpose is to ask how far the identifying assumption would have to fail before the conclusion changes, for example how strong an omitted variable would have to be (Athey and Imbens 2017)\n\nWhy papers include them: researchers try many specifications before choosing one, so readers need evidence that the result was not selected for (Athey and Imbens 2017)\n\nAthey and Imbens call these “supplementary analyses”: their purpose is to provide evidence on the credibility of the primary analysis. They cite Leamer on the gap between the single model that classical inference assumes and the many specifications researchers actually try. The sensitivity approaches they discuss include Rosenbaum and Rubin, Imbens, Altonji and coauthors, and Oster.\nBellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors “have to work hard to convince readers that their results were not cherrypicked.”\nThis is why papers have a robustness section. Each check should name the threat or the choice it tests. Lecture 6.4 returns to this.\nNote that “robust” in “robust standard errors” is a different use of the word: those standard errors are robust to a specific feature of the errors, such as heteroskedasticity."
   },
   {
     "objectID": "lectures/lecture6.1.html#two-published-papers-answer-the-same-climate-question-with-different-empirical-strategy-sections",
@@ -6851,5 +6697,166 @@
     "title": "Lecture 6.3: Machine Learning in Economic Research",
     "section": "Why estimate heterogeneous treatment effects?",
     "text": "Why estimate heterogeneous treatment effects?\nThe Average Treatment Effect (ATE) measures the average effect of participation across all farms:\nATE=E[Y(1)−Y(0)]\nATE=E[Y(1)-Y(0)]\n\nBut the program may affect farms differently depending on their size, location, or production practices.\nThe Conditional Average Treatment Effect (CATE) measures the average effect for farms with particular characteristics:\nτ(x)=E[Y(1)−Y(0)∣X=x]\n\\tau(x)=E[Y(1)-Y(0)\\mid X=x]\n\nML application: Causal forests can identify patterns in treatment-effect heterogeneity without requiring researchers to specify every interaction in advance.\n\n\nATE summarizes the average effect across the target population.\nCATE describes how the average effect varies with observed characteristics.\nIn a conventional regression, we would need to specify treatment interactions with farm characteristics.\nCausal forests provide a flexible way to estimate these differences.\nCATE estimation still requires credible causal identification assumptions.\nTransition: How do causal forests estimate these differences across farms?"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#how-to-read-a-methods-section",
+    "href": "lectures/lecture6.4.html#how-to-read-a-methods-section",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "How to read a methods section",
+    "text": "How to read a methods section\nFollow the argument from the research question to the conclusion\n\nWhat quantity is the study trying to learn about\nWhich observations and measures represent that quantity\nWhat comparison or variation supports the estimate\nHow are the estimate and its uncertainty calculated\nWhich claims do the data and assumptions support\n\n\nThe first three questions connect to Lectures 5.1, 5.5, and 6.1. Thursday surveys how reviewers check the whole argument. Unit 7 develops the referee report in detail."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#make-two-passes-through-the-section",
+    "href": "lectures/lecture6.4.html#make-two-passes-through-the-section",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Make two passes through the section",
+    "text": "Make two passes through the section\n\n\n\n\n\n\n\n\nPass\nRead for\nMark in the paper\n\n\n\n\n1. Purpose\nThe estimand, population, and outcome\nOne sentence stating what is estimated\n\n\n2. Evidence\nSample, variation, assumptions, and inference\nThe paragraph or table supporting each claim\n\n\n\nThen ask where the paper explains the largest threat to its interpretation\n\nThe estimand is the quantity the research question calls for. Depending on the paper, it may be a treatment effect, preference parameter, prediction target, or pattern in an open-ended account."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#first-check-what-is-being-estimated",
+    "href": "lectures/lecture6.4.html#first-check-what-is-being-estimated",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "First check: what is being estimated?",
+    "text": "First check: what is being estimated?\nAn estimand names the target quantity\n\n\n\nPart\nExample for a water-pricing study\n\n\n\n\nPopulation\nFarms served by participating irrigation districts\n\n\nOutcome\nMonthly irrigation water use\n\n\nComparison\nUse under a revised price and under the prior price\n\n\nPeriod\nThe first two years after the price change\n\n\n\nA reviewer looks for a result that answers the question stated in the introduction\n\nSources: Gibson (2019); Lecture 6.1"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#gibson-check-whom-the-data-describe",
+    "href": "lectures/lecture6.4.html#gibson-check-whom-the-data-describe",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Gibson: check whom the data describe",
+    "text": "Gibson: check whom the data describe\nGibson describes studies of local residents that use administrative records of registered residents\nRegistration and actual residence can differ when people move\nAsk which population the data cover, who is missing, and whether the difference matters for the proposed estimate\n\nSource: Gibson (2019), pages 331 to 332"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#gibson-check-what-the-measure-records",
+    "href": "lectures/lecture6.4.html#gibson-check-what-the-measure-records",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Gibson: check what the measure records",
+    "text": "Gibson: check what the measure records\nA household survey may record purchases during one week. A household can report zero purchases and still consume food from its existing stocks\nFor every central variable, ask\n\nWhat event or quantity is recorded\nWhat period does it cover\nHow does the paper construct it\nDoes it represent the concept in the research question\n\n\nSource: Gibson (2019), discussion of food purchases and consumption"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#what-reviewers-check-in-the-data",
+    "href": "lectures/lecture6.4.html#what-reviewers-check-in-the-data",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "What reviewers check in the data",
+    "text": "What reviewers check in the data\n\n\n\n\n\n\n\nItem\nQuestion\n\n\n\n\nSample\nHow were units selected and which were excluded\n\n\nObservation\nWhat does one row represent\n\n\nMeasures\nHow were the outcome and explanatory variables constructed\n\n\nTiming\nWere the relevant measures observed before or after exposure\n\n\nMissingness\nWhich observations are absent and why\n\n\n\nFor survey data, also check the sampling frame, response process, and weights\n\nSources: Gibson (2019); Lecture 5.1"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#methods-answer-different-kinds-of-questions",
+    "href": "lectures/lecture6.4.html#methods-answer-different-kinds-of-questions",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Methods answer different kinds of questions",
+    "text": "Methods answer different kinds of questions\n\n\n\n\n\n\n\nResearch task\nExample of evidence or method\n\n\n\n\nEstimate a policy effect\nExperiment or credible observational comparison\n\n\nEstimate preferences\nChoice data with an economic model\n\n\nPredict a future outcome\nHeld-out evaluation of a prediction rule\n\n\nUnderstand a decision process\nInterviews, fieldwork, or case studies\n\n\nIsolate a proposed mechanism\nControlled laboratory variation\n\n\n\n\nAsk students to find the task in the paper before evaluating the technique. A paper can combine approaches when each contributes to a stated question."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#starr-open-ended-evidence",
+    "href": "lectures/lecture6.4.html#starr-open-ended-evidence",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Starr: open-ended evidence",
+    "text": "Starr: open-ended evidence\nInterviews and fieldwork can reveal how people describe a decision and which considerations the researcher had not anticipated\nRead for the recruitment rule, interview protocol, record keeping, and method of analyzing responses\nAsk how the authors compare accounts with other evidence and address cases that challenge their explanation\n\nSource: Starr (2014), Sections 2 and 3"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#when-methods-are-combined",
+    "href": "lectures/lecture6.4.html#when-methods-are-combined",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "When methods are combined",
+    "text": "When methods are combined\n\n\n\n\n\n\n\nSequence\nWhat the added method contributes\n\n\n\n\nInterviews before a survey\nClarify concepts and improve survey questions\n\n\nSurvey before interviews\nInvestigate patterns or unexpected responses\n\n\nConcurrent evidence\nCompare accounts with measured outcomes\n\n\n\nA methods section should explain how the components inform the same research question\n\nSource: Starr (2014), Section 2"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#what-makes-a-comparison-credible",
+    "href": "lectures/lecture6.4.html#what-makes-a-comparison-credible",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "What makes a comparison credible?",
+    "text": "What makes a comparison credible?\nFor an effect estimate, locate four statements in the paper\n\nThe groups, places, or periods being compared\nThe source of variation in the explanatory factor\nThe assumption that gives the comparison its interpretation\nThe main ways that assumption could fail\n\nThen examine how the authors investigate those threats\n\nExamples from Lecture 6.1 include parallel trends for difference in differences, exclusion for an instrument, and continuity around a regression discontinuity cutoff."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#what-details-permit-replication",
+    "href": "lectures/lecture6.4.html#what-details-permit-replication",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "What details permit replication?",
+    "text": "What details permit replication?\n\n\n\n\n\n\n\nMethods detail\nWhat a reader needs\n\n\n\n\nEquation or rule\nOutcome, explanatory variables, and target parameter\n\n\nSample\nUnits, period, restrictions, and missing-data rules\n\n\nEstimation\nEstimator, controls, and model settings\n\n\nInference\nStandard errors, clustering, and tests\n\n\nChecks\nPlanned sensitivity and alternative specifications\n\n\n\n\nThe methods section and repository can divide the work. The paper states the choices and why they were made. Code and documentation implement them."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#false-positives-and-false-negatives",
+    "href": "lectures/lecture6.4.html#false-positives-and-false-negatives",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "False positives and false negatives",
+    "text": "False positives and false negatives\n\n\n\n\n\n\n\n\nDecision\nNull is true\nSpecified effect is present\n\n\n\n\nReject the null\nFalse positive or Type I error\nDetect the effect\n\n\nDo not reject\nCorrect non-rejection\nFalse negative or Type II error\n\n\n\nThe Type I error rate is α\\alpha. Power is the probability of detecting a specified effect, 1−β1-\\beta\n\nSource: Kim (2019), Section 2\n\n\nType II error and power require an effect size or a specific alternative. A nonsignificant estimate by itself does not tell us the probability that the null is true."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#power-begins-with-an-effect-worth-detecting",
+    "href": "lectures/lecture6.4.html#power-begins-with-an-effect-worth-detecting",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Power begins with an effect worth detecting",
+    "text": "Power begins with an effect worth detecting\nChoose the smallest effect that would matter for the research or policy decision\nPower for that effect depends on\n\nOutcome variation and measurement quality\nThe number of usable observations in each group\nClustering, treatment allocation, and the planned estimator\nThe test level and the direction of the test\n\nState the assumed effect size and design when reporting a power calculation\n\nSource: Kim (2019), Sections 2 and 3.5"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#survey-size-has-two-different-uses",
+    "href": "lectures/lecture6.4.html#survey-size-has-two-different-uses",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Survey size has two different uses",
+    "text": "Survey size has two different uses\n\n\n\n\n\n\n\nGoal\nPlanning question\n\n\n\n\nDescribe a population\nHow precise must a proportion or mean be\n\n\nCompare groups or test a hypothesis\nWhat effect should the study be able to detect\n\n\n\nPlan for completed responses. Expected nonresponse and clustered sampling can increase the number that must be contacted\nThe sampling frame and response process determine which population the completed survey represents\n\nSources: Lecture 5.1; Kim (2019), Section 3.5"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#an-illustrative-survey-calculation",
+    "href": "lectures/lecture6.4.html#an-illustrative-survey-calculation",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "An illustrative survey calculation",
+    "text": "An illustrative survey calculation\nSuppose a study compares adoption rates of 50% and 60% in two independent groups\nWith a two-sided 5% test and 80% power, a standard calculation calls for about 388 completed responses per group\nAt an expected 80% response rate, that is about 485 invitations per group. Clustering and ineligible contacts require further planning\n\nIllustrative calculation using base R power.prop.test(p1 = .50, p2 = .60, sig.level = .05, power = .80)\n\n\nThis is a normal-approximation calculation for independent groups of equal size. It is not a sample-size recommendation for a particular student’s project. A 10 percentage point difference was specified before calculating sample size. Response rates and cluster effects must be estimated for the actual design."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#repeated-tests-create-more-chances-for-a-false-positive",
+    "href": "lectures/lecture6.4.html#repeated-tests-create-more-chances-for-a-false-positive",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Repeated tests create more chances for a false positive",
+    "text": "Repeated tests create more chances for a false positive\nIf 20 independent null hypotheses are each tested at the 5% level, the chance of at least one false positive is\n1−(1−0.05)20≈0.64\n1-(1-0.05)^{20}\\approx 0.64\n\nThe value changes when tests are dependent. A reader should look for the full set of tests, the planned hypotheses, and any adjustment for multiple comparisons\n\nSource: Kim (2019), discussion of multiple testing"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#what-changes-with-a-large-sample",
+    "href": "lectures/lecture6.4.html#what-changes-with-a-large-sample",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "What changes with a large sample?",
+    "text": "What changes with a large sample?\nFor a valid test with a fixed 5% level, the nominal Type I error rate remains 5% under the null\nPower rises for a specified nonzero effect. Estimates can become precise enough to detect effects too small to matter for the decision\nSampling, measurement, and model bias still require attention\n\nSource: Kim (2019), Sections 2 and 3; statistical clarification in notes\n\n\nKim calls rejection of a substantively negligible effect a false positive in a broader practical sense. Keep that distinct from the technical Type I error rate. At fixed alpha, sample size alone does not raise the nominal Type I rate of a valid test."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#read-the-interval-with-the-estimate",
+    "href": "lectures/lecture6.4.html#read-the-interval-with-the-estimate",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Read the interval with the estimate",
+    "text": "Read the interval with the estimate\nSuppose the estimated effect is −2 units, with a 95% interval from −7 to 3\nThe data are compatible with zero change and with a reduction of 5 units, which might matter for policy\nA reviewer asks whether the interval rules out effects that matter, and whether the sample had adequate power for that question\n\nThis is an illustrative estimate. An interval’s interpretation depends on the estimator, sampling design, and assumptions used to construct it."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#when-is-an-effect-small-enough-to-set-aside",
+    "href": "lectures/lecture6.4.html#when-is-an-effect-small-enough-to-set-aside",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "When is an effect small enough to set aside?",
+    "text": "When is an effect small enough to set aside?\nAn equivalence analysis starts by defining a substantively negligible range, such as (−Δ,Δ)(-\\Delta,\\Delta)\nThe research question determines Δ\\Delta. Evidence for equivalence requires an interval sufficiently narrow to support an effect inside that range\nReport the estimated effect and interval so a reader can apply a different decision threshold\n\nSource: Kim (2019), Section 3.7"
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#practice-read-this-methods-paragraph",
+    "href": "lectures/lecture6.4.html#practice-read-this-methods-paragraph",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Practice: read this methods paragraph",
+    "text": "Practice: read this methods paragraph\n\nWe survey 300 farms in 12 irrigation districts before and after a revised water charge. Six districts adopt the charge. We estimate a difference-in-differences model of self-reported monthly water use, controlling for acreage and crop mix. Standard errors are clustered by district. The estimated change is −0.8 acre-feet, with a 95% interval from −2.2 to 0.6.\n\nIllustrative classroom example\n\nGive students time to mark the estimand, sample, treatment, outcome, estimator, and inference procedure. The next slide asks for the missing information a reviewer would request."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#what-would-a-reviewer-ask-next",
+    "href": "lectures/lecture6.4.html#what-would-a-reviewer-ask-next",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "What would a reviewer ask next?",
+    "text": "What would a reviewer ask next?\n\nHow were farms and districts selected\nWhat supports the parallel-trends assumption\nHow was monthly water use reported and checked\nAre 12 districts enough for the stated inference procedure\nWhat effect size would matter, and what can the interval rule out\n\nConnect each question to a claim in the methods paragraph\n\nThe example deliberately leaves these answers open. Twelve clusters merit care with conventional cluster-robust standard errors. The interval includes zero and reductions that could matter; interpretation needs a substantive benchmark."
+  },
+  {
+    "objectID": "lectures/lecture6.4.html#return-to-tuesdays-methods-draft",
+    "href": "lectures/lecture6.4.html#return-to-tuesdays-methods-draft",
+    "title": "Lecture 6.4: Reading a Methods Section",
+    "section": "Return to Tuesday’s methods draft",
+    "text": "Return to Tuesday’s methods draft\n\nUnderline the sentence that states your target quantity or question\nMark where you describe the sample, measures, comparison, and analysis\nAdd the assumption or design choice that needs the most explanation\nState how you will report uncertainty, precision, or power\n\nUse the workshop feedback to decide which part of the methods section to develop next"
+  },
+  {
+    "objectID": "2026/methods-workshop.html",
+    "href": "2026/methods-workshop.html",
+    "title": "Methods workshop preparation",
+    "section": "",
+    "text": "Bring 1–2 pages of written notes about the methods you currently plan to use for your research project. You can bring a printed copy or a document you can share in class. You do not need slides.\nUse these five headings:\n\nQuestion and hypotheses — State your research question and one or two hypotheses you want to examine\nData — Name the source, the people or units observed, the place and period, and what one observation represents\nMeasures — Name your outcome and the main explanatory variables, and say how you will construct them\nAnalysis — Explain the comparison or pattern you will use to examine each hypothesis, and name the method you expect to use. Include a simple equation if it helps you explain the plan\nOpen decision — Identify one assumption, data limitation, or methods choice on which you want feedback\n\nWrite what you know now. If a data source, measure, or method is still undecided, say so and describe the options you are considering. Be ready to explain your plan briefly and ask your group one focused question.\nReview your notes from Lecture 5.1 on sampling and surveys, Lecture 5.5 on data reporting, and the methods lectures on econometric models, structural models, and machine learning as useful for your project. There is no new assigned reading for Tuesday."
   }
 ]

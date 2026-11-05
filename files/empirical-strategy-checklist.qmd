@@ -27,8 +27,8 @@ Use this checklist as you are preparing to write your empirical section. This ch
 | 11 | Depends on the design | **If the paper uses a prediction step [6.3].** Which step is prediction and which is a causal parameter; how the predictor is tuned and evaluated; how the prediction error affects the parameter of interest. |
 | 12 | Depends on the design | **If the paper collects primary data or runs an experiment [6.4, AJAE].** Assignment or sampling; sample size and why it is enough; IRB approval; the instrument or instructions in an appendix that does not identify the authors. |
 | 13 | Depends on the design | **If the paper uses qualitative or mixed methods [6.4].** How cases or participants are selected; how evidence is coded; what question the qualitative evidence answers that the quantitative evidence cannot. |
-| 14 | Scope and placement | **What the design does not identify [6.5].** Parameters, mechanisms, or populations outside the estimand; limits on external validity. |
-| 15 | Scope and placement | **Robustness and sensitivity [6.5, B].** Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6. |
+| 14 | Scope and placement | **What the design does not identify [6.4].** Parameters, mechanisms, or populations outside the estimand; limits on external validity. |
+| 15 | Scope and placement | **Robustness and sensitivity [6.4, B].** Three checks a referee would request, each tied to a threat in row 9 or to the inference choices in row 6. |
 | 16 | Scope and placement | **Appendix [AJAE].** Which implementation details move to the appendix, cited in the text as an online appendix, not "available on request." |
 | 17 | Scope and placement | **Replication [AJAE].** The data, code or pseudo-code, and README to be shared, or the confidentiality restriction to raise with the editor at submission. |
 

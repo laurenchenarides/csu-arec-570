@@ -1,9 +1,11 @@
 ---
-title: "Lecture 6.4: Experiments, Qualitative and Mixed Methods"
+title: "Lecture 6.4: Reading a Methods Section"
 subtitle: "AREC 570 / ECON 530 · Unit 6"
 author: "Lauren Chenarides"
 lecture: "6.4"
 order: 604
+pdf: lecture6.4.pdf
+description: "Read methods sections for fit between the question, data, analysis, assumptions, and evidence"
 format:
   revealjs:
     theme: ../styles.scss
@@ -16,153 +18,353 @@ format:
     navigation-mode: linear
     controls: true
     progress: true
-    scrollable: true
+    scrollable: false
     auto-stretch: false
     code-overflow: wrap
     link-external-newwindow: true
     pdf-separate-fragments: false
     citations-hover: true
     html-math-method: mathml
-description: "Compare controlled variation with open-ended evidence and design a mixed-methods study."
 ---
 
 ## Before class
 
-- Falk and Heckman, “Lab Experiments Are a Major Source of Knowledge in the Social Sciences” [@falk2009lab].
-- Starr, “Qualitative and Mixed-Methods Research in Economics: Surprising Growth, Promising Future” [@starr2014qualitative].
+**Read**
 
-Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings).
+- Gibson, “Are You Estimating the Right Thing? An Editor Reflects” [@gibson2019estimating]
+- Kim, “Tackling False Positives in Business Research” [@kim2019falsepositives]
 
-## Match the method to the gap in knowledge
+**Optional background for the methods survey**
 
-- Do we need controlled variation?
-- Do we need to understand a decision process?
-- Are important concepts or mechanisms still unclear?
-- Would combining approaches resolve a limitation of either one?
+- Falk and Heckman on laboratory experiments [@falk2009lab]
+- Starr on qualitative and mixed methods [@starr2014qualitative]
+
+Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings)
+
+## How to read a methods section
+
+Follow the argument from the research question to the conclusion
+
+1. What quantity is the study trying to learn about
+2. Which observations and measures represent that quantity
+3. What comparison or variation supports the estimate
+4. How are the estimate and its uncertainty calculated
+5. Which claims do the data and assumptions support
+
+::: notes
+The first three questions connect to Lectures 5.1, 5.5, and 6.1. Thursday surveys how reviewers check the whole argument. Unit 7 develops the referee report in detail.
+:::
+
+## Make two passes through the section
+
+| Pass | Read for | Mark in the paper |
+|---|---|---|
+| 1. Purpose | The estimand, population, and outcome | One sentence stating what is estimated |
+| 2. Evidence | Sample, variation, assumptions, and inference | The paragraph or table supporting each claim |
+
+Then ask where the paper explains the largest threat to its interpretation
+
+::: notes
+The estimand is the quantity the research question calls for. Depending on the paper, it may be a treatment effect, preference parameter, prediction target, or pattern in an open-ended account.
+:::
+
+## First check: what is being estimated?
+
+An **estimand** names the target quantity
+
+| Part | Example for a water-pricing study |
+|---|---|
+| Population | Farms served by participating irrigation districts |
+| Outcome | Monthly irrigation water use |
+| Comparison | Use under a revised price and under the prior price |
+| Period | The first two years after the price change |
+
+A reviewer looks for a result that answers the question stated in the introduction
+
+::: {.source}
+Sources: @gibson2019estimating; Lecture 6.1
+:::
+
+## Gibson: check whom the data describe
+
+Gibson describes studies of local residents that use administrative records of **registered** residents
+
+Registration and actual residence can differ when people move
+
+Ask which population the data cover, who is missing, and whether the difference matters for the proposed estimate
+
+::: {.source}
+Source: @gibson2019estimating, pages 331 to 332
+:::
+
+## Gibson: check what the measure records
+
+A household survey may record **purchases during one week**. A household can report zero purchases and still consume food from its existing stocks
+
+For every central variable, ask
+
+- What event or quantity is recorded
+- What period does it cover
+- How does the paper construct it
+- Does it represent the concept in the research question
+
+::: {.source}
+Source: @gibson2019estimating, discussion of food purchases and consumption
+:::
+
+## What reviewers check in the data
+
+| Item | Question |
+|---|---|
+| Sample | How were units selected and which were excluded |
+| Observation | What does one row represent |
+| Measures | How were the outcome and explanatory variables constructed |
+| Timing | Were the relevant measures observed before or after exposure |
+| Missingness | Which observations are absent and why |
+
+For survey data, also check the sampling frame, response process, and weights
+
+::: {.source}
+Sources: @gibson2019estimating; Lecture 5.1
+:::
+
+## Methods answer different kinds of questions
+
+| Research task | Example of evidence or method |
+|---|---|
+| Estimate a policy effect | Experiment or credible observational comparison |
+| Estimate preferences | Choice data with an economic model |
+| Predict a future outcome | Held-out evaluation of a prediction rule |
+| Understand a decision process | Interviews, fieldwork, or case studies |
+| Isolate a proposed mechanism | Controlled laboratory variation |
+
+::: notes
+Ask students to find the task in the paper before evaluating the technique. A paper can combine approaches when each contributes to a stated question.
+:::
 
 ## Falk and Heckman: controlled variation
 
-Laboratory experiments let researchers vary features of a decision environment.
+In a gift-exchange experiment, researchers can vary a wage offer and observe effort while specifying the decision rules and information available to participants
 
-They can separate mechanisms that move together in observational settings.
+When reading an experiment, identify
 
-A simplified setting can be informative when it isolates a relevant mechanism.
-
-::: {.source}
-Source: @falk2009lab.
-:::
-
-## Discussion: realism and generalization
-
-- What does the reading mean by controlled variation?
-- Is visual resemblance to everyday life the same as external validity?
-- What can the gift-exchange example reveal?
-- Which features would you vary to examine whether a result travels?
-
-## Qualitative does not simply mean words
-
-Starr emphasizes an open-ended approach to gathering information.
-
-Rather than fixing every relevant dimension in advance, researchers allow new themes and explanations to emerge.
-
-Clear questions and systematic procedures still matter.
+- What the researcher varies
+- What is held fixed
+- What participants choose and what is observed
+- Which populations and settings the result is meant to inform
 
 ::: {.source}
-Source: @starr2014qualitative.
+Source: @falk2009lab, discussion of the gift-exchange experiment
 :::
 
-## Methods and their uses
+## Starr: open-ended evidence
 
-| Method | What it can reveal |
-|:---|:---|
-| In-depth interview | Reasoning and experience |
-| Focus group | Shared and contested interpretations |
-| Case study or site visit | Context and process |
-| Fieldwork | Practices and relationships over time |
-| Life history | Sequences of important events |
+Interviews and fieldwork can reveal how people describe a decision and which considerations the researcher had not anticipated
 
-## Ask a different kind of question
+Read for the recruitment rule, interview protocol, record keeping, and method of analyzing responses
 
-Closed question:
+Ask how the authors compare accounts with other evidence and address cases that challenge their explanation
 
-> Which listed factor mattered most in buying your home?
+::: {.source}
+Source: @starr2014qualitative, Sections 2 and 3
+:::
 
-Open question:
+## When methods are combined
 
-> Tell me how you came to buy this home.
+| Sequence | What the added method contributes |
+|---|---|
+| Interviews before a survey | Clarify concepts and improve survey questions |
+| Survey before interviews | Investigate patterns or unexpected responses |
+| Concurrent evidence | Compare accounts with measured outcomes |
 
-What could the second reveal that the first excludes? What makes the answers harder to analyze?
+A methods section should explain how the components inform the same research question
 
-## Why ask people about their decisions?
+::: {.source}
+Source: @starr2014qualitative, Section 2
+:::
 
-The source slides discuss interviews about wage and price rigidity.
+## What makes a comparison credible?
 
-Interviews can help distinguish mechanisms that aggregate data leave unresolved.
+For an effect estimate, locate four statements in the paper
 
-But respondents may not know, remember, or fully explain their motivations.
+1. The groups, places, or periods being compared
+2. The source of variation in the explanatory factor
+3. The assumption that gives the comparison its interpretation
+4. The main ways that assumption could fail
+
+Then examine how the authors investigate those threats
 
 ::: notes
-Preserves the source discussion of Bewley and Blinder. The source speaker notes use Friedman's billiard-player analogy: competent action does not require the ability to articulate a formal model.
+Examples from Lecture 6.1 include parallel trends for difference in differences, exclusion for an instrument, and continuity around a regression discontinuity cutoff.
 :::
 
-## Credibility in qualitative work
+## What details permit replication?
 
-- Document recruitment and protocols.
-- Explain coding and interpretation.
-- Reflect on the researcher's role.
-- Seek evidence that challenges emerging explanations.
-- Cross-check accounts against other sources.
+| Methods detail | What a reader needs |
+|---|---|
+| Equation or rule | Outcome, explanatory variables, and target parameter |
+| Sample | Units, period, restrictions, and missing-data rules |
+| Estimation | Estimator, controls, and model settings |
+| Inference | Standard errors, clustering, and tests |
+| Checks | Planned sensitivity and alternative specifications |
+
+::: notes
+The methods section and repository can divide the work. The paper states the choices and why they were made. Code and documentation implement them.
+:::
+
+## False positives and false negatives
+
+| Decision | Null is true | Specified effect is present |
+|---|---|---|
+| Reject the null | **False positive** or Type I error | Detect the effect |
+| Do not reject | Correct non-rejection | **False negative** or Type II error |
+
+The Type I error rate is $\alpha$. Power is the probability of detecting a specified effect, $1-\beta$
 
 ::: {.source}
-Source: @starr2014qualitative.
+Source: @kim2019falsepositives, Section 2
 :::
 
-## Self-reports require interpretation
+::: notes
+Type II error and power require an effect size or a specific alternative. A nonsignificant estimate by itself does not tell us the probability that the null is true.
+:::
 
-Potential concerns include recall, incentives, social desirability, and limited self-knowledge.
+## Power begins with an effect worth detecting
 
-Responses can still be informative.
+Choose the smallest effect that would matter for the research or policy decision
 
-Ask which claim a response supports and what additional evidence would strengthen it.
+Power for that effect depends on
 
-## Three mixed-methods sequences
+- Outcome variation and measurement quality
+- The number of usable observations in each group
+- Clustering, treatment allocation, and the planned estimator
+- The test level and the direction of the test
 
-1. **Qualitative first:** discover concepts and design a structured instrument.
-2. **Quantitative first:** follow up to understand patterns or unexpected results.
-3. **Concurrent:** compare and integrate evidence collected in parallel.
+State the assumed effect size and design when reporting a power calculation
 
-Explain how the components inform one another.
+::: {.source}
+Source: @kim2019falsepositives, Sections 2 and 3.5
+:::
 
-## Discussion: Starr
+## Survey size has two different uses
 
-- Which criticism of qualitative research is strongest?
-- How does the reading propose addressing it?
-- Which criticisms also apply to quantitative research?
-- What would count as evidence against an interview-based explanation?
+| Goal | Planning question |
+|---|---|
+| Describe a population | How precise must a proportion or mean be |
+| Compare groups or test a hypothesis | What effect should the study be able to detect |
 
-## Compare the two readings
+Plan for **completed responses**. Expected nonresponse and clustered sampling can increase the number that must be contacted
 
-Choose one mechanism in your project.
+The sampling frame and response process determine which population the completed survey represents
 
-- How could a lab experiment isolate it?
-- How could interviews reveal missing assumptions?
-- Where might the findings disagree?
-- How would you investigate that disagreement?
+::: {.source}
+Sources: Lecture 5.1; @kim2019falsepositives, Section 3.5
+:::
 
-## Workshop: design a combined study
+## An illustrative survey calculation
 
-Specify:
+Suppose a study compares adoption rates of **50% and 60%** in two independent groups
 
-1. Research question.
-2. Participants or cases.
-3. First method and its purpose.
-4. Second method and its purpose.
-5. How findings will be integrated.
-6. Consent and confidentiality considerations.
+With a two-sided 5% test and 80% power, a standard calculation calls for about **388 completed responses per group**
 
-## Before you leave
+At an expected 80% response rate, that is about **485 invitations per group**. Clustering and ineligible contacts require further planning
 
-Name one thing you would learn by talking with the people whose choices your model describes.
+::: {.source}
+Illustrative calculation using base R `power.prop.test(p1 = .50, p2 = .60, sig.level = .05, power = .80)`
+:::
+
+::: notes
+This is a normal-approximation calculation for independent groups of equal size. It is not a sample-size recommendation for a particular student's project. A 10 percentage point difference was specified before calculating sample size. Response rates and cluster effects must be estimated for the actual design.
+:::
+
+## Repeated tests create more chances for a false positive
+
+If **20 independent null hypotheses** are each tested at the 5% level, the chance of at least one false positive is
+
+$$
+1-(1-0.05)^{20}\approx 0.64
+$$
+
+The value changes when tests are dependent. A reader should look for the full set of tests, the planned hypotheses, and any adjustment for multiple comparisons
+
+::: {.source}
+Source: @kim2019falsepositives, discussion of multiple testing
+:::
+
+## What changes with a large sample?
+
+For a valid test with a fixed 5% level, the nominal Type I error rate remains **5%** under the null
+
+Power rises for a specified nonzero effect. Estimates can become precise enough to detect effects too small to matter for the decision
+
+Sampling, measurement, and model bias still require attention
+
+::: {.source}
+Source: @kim2019falsepositives, Sections 2 and 3; statistical clarification in notes
+:::
+
+::: notes
+Kim calls rejection of a substantively negligible effect a false positive in a broader practical sense. Keep that distinct from the technical Type I error rate. At fixed alpha, sample size alone does not raise the nominal Type I rate of a valid test.
+:::
+
+## Read the interval with the estimate
+
+Suppose the estimated effect is **−2 units**, with a 95% interval from **−7 to 3**
+
+The data are compatible with zero change and with a reduction of 5 units, which might matter for policy
+
+A reviewer asks whether the interval rules out effects that matter, and whether the sample had adequate power for that question
+
+::: notes
+This is an illustrative estimate. An interval's interpretation depends on the estimator, sampling design, and assumptions used to construct it.
+:::
+
+## When is an effect small enough to set aside?
+
+An equivalence analysis starts by defining a substantively negligible range, such as $(-\Delta,\Delta)$
+
+The research question determines $\Delta$. Evidence for equivalence requires an interval sufficiently narrow to support an effect inside that range
+
+Report the estimated effect and interval so a reader can apply a different decision threshold
+
+::: {.source}
+Source: @kim2019falsepositives, Section 3.7
+:::
+
+## Practice: read this methods paragraph
+
+::: {.blockquote}
+We survey 300 farms in 12 irrigation districts before and after a revised water charge. Six districts adopt the charge. We estimate a difference-in-differences model of self-reported monthly water use, controlling for acreage and crop mix. Standard errors are clustered by district. The estimated change is −0.8 acre-feet, with a 95% interval from −2.2 to 0.6.
+:::
+
+**Illustrative classroom example**
+
+::: notes
+Give students time to mark the estimand, sample, treatment, outcome, estimator, and inference procedure. The next slide asks for the missing information a reviewer would request.
+:::
+
+## What would a reviewer ask next?
+
+- How were farms and districts selected
+- What supports the parallel-trends assumption
+- How was monthly water use reported and checked
+- Are 12 districts enough for the stated inference procedure
+- What effect size would matter, and what can the interval rule out
+
+Connect each question to a claim in the methods paragraph
+
+::: notes
+The example deliberately leaves these answers open. Twelve clusters merit care with conventional cluster-robust standard errors. The interval includes zero and reductions that could matter; interpretation needs a substantive benchmark.
+:::
+
+## Return to Tuesday’s methods draft
+
+1. Underline the sentence that states your target quantity or question
+2. Mark where you describe the sample, measures, comparison, and analysis
+3. Add the assumption or design choice that needs the most explanation
+4. State how you will report uncertainty, precision, or power
+
+Use the workshop feedback to decide which part of the methods section to develop next
 
 ## References {.smaller}
 
@@ -171,6 +373,7 @@ Name one thing you would learn by talking with the people whose choices your mod
 
 ## Course navigation
 
-- [All lectures](lectures.qmd)
-- [Schedule and preparation](../2026/schedule.qmd)
-- [Course reading list](../2026/readings.qmd)
+- [All lectures](https://laurenchenarides.github.io/csu-arec-570/lectures/lectures.html)
+- [Schedule and preparation](https://laurenchenarides.github.io/csu-arec-570/2026/schedule.html)
+- [Methods workshop preparation](https://laurenchenarides.github.io/csu-arec-570/2026/methods-workshop.html)
+- [Course reading list](https://laurenchenarides.github.io/csu-arec-570/2026/readings.html)

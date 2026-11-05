@@ -1,0 +1,20 @@
+---
+title: "Methods workshop preparation"
+subtitle: "Tuesday, November 10"
+toc: false
+repo-actions: false
+---
+
+Bring **1–2 pages of written notes** about the methods you currently plan to use for your research project. You can bring a printed copy or a document you can share in class. You do not need slides.
+
+Use these five headings:
+
+1. **Question and hypotheses** — State your research question and one or two hypotheses you want to examine
+2. **Data** — Name the source, the people or units observed, the place and period, and what one observation represents
+3. **Measures** — Name your outcome and the main explanatory variables, and say how you will construct them
+4. **Analysis** — Explain the comparison or pattern you will use to examine each hypothesis, and name the method you expect to use. Include a simple equation if it helps you explain the plan
+5. **Open decision** — Identify one assumption, data limitation, or methods choice on which you want feedback
+
+Write what you know now. If a data source, measure, or method is still undecided, say so and describe the options you are considering. Be ready to explain your plan briefly and ask your group one focused question.
+
+Review your notes from [Lecture 5.1 on sampling and surveys](../lectures/lecture5.1.qmd), [Lecture 5.5 on data reporting](../lectures/lecture5.5.qmd), and the methods lectures on [econometric models](../lectures/lecture6.1.qmd), [structural models](../lectures/lecture6.2.qmd), and [machine learning](../lectures/lecture6.3.qmd) as useful for your project. There is **no new assigned reading** for Tuesday.

@@ -292,7 +292,7 @@ The chain from earlier units: the conceptual framework gives a testable predicti
 
 Some identifying assumptions have testable implications, such as placebo, pre-trend, or balance tests; passing such a test adds credibility, and the assumption itself remains unproven. Athey and Imbens call placebo and related checks "supplementary analyses": they test implications of the identifying assumption. Core assumptions such as an exclusion restriction usually cannot be tested directly.
 
-If the assumptions a paper can defend yield only bounds on the effect, the test asks whether the bounds exclude zero. Lecture 6.5 returns to statistical and economic significance with Gibson and Kim.
+If the assumptions a paper can defend yield only bounds on the effect, the test asks whether the bounds exclude zero. Lecture 6.4 returns to statistical and economic significance with Gibson and Kim.
 :::
 
 # What's included in the identification strategy subsection
@@ -425,7 +425,7 @@ Athey and Imbens call these "supplementary analyses": their purpose is to provid
 
 Bellemare frames robustness checks as a response to higher standards of evidence after the credibility revolution: authors "have to work hard to convince readers that their results were not cherrypicked."
 
-This is why papers have a robustness section. Each check should name the threat or the choice it tests. Lecture 6.5 returns to this.
+This is why papers have a robustness section. Each check should name the threat or the choice it tests. Lecture 6.4 returns to this.
 
 Note that "robust" in "robust standard errors" is a different use of the word: those standard errors are robust to a specific feature of the errors, such as heteroskedasticity.
 :::
