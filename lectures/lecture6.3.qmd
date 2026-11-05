@@ -51,7 +51,7 @@ Readings and course handouts are available on [Canvas](https://colostate.instruc
 
 ## Machine learning in a nutshell
 
-**If you take away one idea today:** A prediction method learns from observations we already have, then we check how well it predicts observations it has not seen
+**If you take away one idea today:** ML is a prediction method learns from observations we already have, then we check how well it predicts observations it has not seen
 
 1. Choose the outcome to predict and the information available when a prediction is made
 2. Fit a prediction rule using one group of observations
@@ -86,13 +86,15 @@ Source: @mullainathan2017machine, page 87.
 - Transition: the next slide states that difference formally.
 :::
 
-## Two goals: prediction and parameter estimation
+## Different goals: prediction and parameter estimation
 
 Many economic applications estimate a parameter, such as a treatment effect or price sensitivity
 
+Causal inference in a RF sense asks us to predict outcomes under conditions that were not observed, trying to replicate the gold standard of a RCT
+
 Supervised machine learning methods are often designed to predict an outcome accurately for new observations
 
-Economists can also use prediction methods within procedures that estimate effects
+Note: Economists can also use prediction methods within procedures that estimate effects
 
 This lecture covers where these methods came from, the three roles they play in empirical economics, and how a methods section reports them
 
@@ -238,32 +240,92 @@ Source: @mullainathan2017machine, page 89
 
 ## How do we score a house-price prediction?
 
-Suppose a house sold for **$300,000** and a rule predicted **$320,000**
+Suppose a house sold for **$300,000** and our model predicted **$320,000**.
 
 | Loss function | Score for this house | What it emphasizes |
 |---|---:|---|
-| Absolute error | $\lvert 320-300\rvert=20$ thousand dollars | The size of each miss |
-| Squared error | $(320-300)^2=400$ squared thousand dollars | Large misses receive more weight |
+| Absolute error | $\lvert 320-300\rvert=20$ | The size of each mistake |
+| Squared error | $(320-300)^2=400$ | Larger mistakes receive more weight |
 
-A **loss function** assigns a score to each prediction error. We choose a rule to reduce average loss across the training houses
+A **loss function** measures how wrong a prediction is for one observation.
+
+For squared error:
+
+$$
+L(\hat{f}(x_i),y_i)=(y_i-\hat{f}(x_i))^2
+$$
+
+Here, $y_i$ is the actual price and $\hat{f}(x_i)$ is the predicted price.
 
 ::: {.source}
 Source: @mullainathan2017machine, page 89
 :::
 
 ::: notes
-- The dollar amounts in the formulas are measured in thousands, so squared error has squared units
-- Squared error is the loss used in least squares. A different loss function can make a different prediction rule preferable
-- Transition: the average loss we care about concerns future houses
+- Prices are measured in thousands of dollars; squared errors have squared units.
+- The loss function assigns a penalty to each prediction error.
+- Squared error is used in ordinary least squares.
+- Different loss functions may favor different prediction rules.
+- Transition: One prediction error tells us very little about how well a model performs overall. We want a rule that makes small errors across many houses.
 :::
 
-## Why we keep some houses aside
+## What are we trying to minimize?
 
-**Expected loss** is average loss on future houses. We cannot calculate it directly because their sale prices are unknown
+We want a prediction rule that makes the smallest mistakes, on average, for **new houses**.
 
-1. **Train:** choose the rule that reduces average loss on the houses used for fitting, called empirical loss
-2. **Test:** predict the prices of the houses set aside earlier
-3. **Compare:** use their average loss to estimate performance on new houses
+This is called **expected loss**:
+
+$$
+E_{(Y,X)}[L(\hat{f}(X),Y)]
+$$
+
+For squared error:
+
+$$
+E_{(Y,X)}[(Y-\hat{f}(X))^2]
+$$
+
+- $L$ measures the loss for one house.
+- $E$ takes the average loss across the population.
+- $\hat{f}(X)$ predicts price using house characteristics.
+
+**The goal:** Find the prediction rule $\hat{f}$ that minimizes expected loss.
+
+::: {.source}
+Source: @mullainathan2017machine, page 89
+:::
+
+::: notes
+- Expected loss extends the idea of a loss function from one observation to the population.
+- The expectation is taken over the joint distribution of house prices (Y) and characteristics (X).
+- We want a rule that predicts well for future houses drawn from the same population.
+- Expected loss is a population quantity. We cannot calculate it exactly because we do not observe the entire population.
+- Transition: If we cannot calculate expected loss directly, how do we determine whether a prediction rule is any good?
+:::
+
+## How do we evaluate a prediction rule?
+
+We cannot directly calculate expected loss because we do not observe every possible future house.
+
+Instead, we use the data we have:
+
+1. **Training data:** Choose a prediction rule that minimizes average loss across observed houses. This is called *empirical loss*.
+
+   $$
+   \frac{1}{n}\sum_{i=1}^{n}L(\hat{f}(x_i),y_i)
+   $$
+
+::: {.source}
+Source: @mullainathan2017machine, pages 89 to 90
+:::
+
+## Testing the prediction rule
+
+2. **Test data:** Apply the fitted rule to houses that were set aside and not used to train the model.
+
+3. **Evaluate:** Calculate average loss on the test houses to estimate how well the rule predicts new observations.
+
+**Why?** A rule that performs well on training data may not predict well on new data.
 
 The next paper reports held-out $R^2$ as a summary of predictive fit. Higher held-out $R^2$ means better predictions relative to predicting the same average for every house
 
@@ -272,9 +334,13 @@ Source: @mullainathan2017machine, pages 89 to 90
 :::
 
 ::: notes
-- The reading calls the average error on training observations empirical loss and the desired average error on new observations expected loss
-- The held-out houses provide an estimate of out-of-sample loss, provided they represent the houses to which we will apply the rule
-- Set the test houses aside before choosing the prediction method or its settings
+- Empirical loss is the average observed loss in the sample.
+- When squared-error loss is used, empirical loss is the mean squared error (MSE).
+- The algorithm uses training data to fit the prediction rule.
+- Evaluating the rule on the same data used to train it can produce an overly optimistic assessment of predictive performance.
+- Test observations provide an estimate of out-of-sample performance, assuming they represent the population of interest.
+- Set test observations aside before model selection and tuning.
+- The next paper uses held-out R-squared to summarize predictive performance.
 :::
 
 ## An example: predicting house values with OLS and machine learning {.dense}
@@ -282,16 +348,21 @@ Source: @mullainathan2017machine, pages 89 to 90
 :::: {.columns}
 
 ::: {.column width="56%"}
-![](assets/unit6/papers/ms-table1.png){width="100%" fig-alt="Table 1 of Mullainathan and Spiess (2017): training-sample and hold-out-sample R-squared for ordinary least squares, a regression tree, LASSO, a random forest, and an ensemble, with relative improvement over OLS by quintile of house value."}
+![](assets/unit6/papers/ms-table1.png){width="100%" fig-alt="Table 1 of Mullainathan and Spiess (2017): training and hold-out R-squared for OLS and machine learning methods."}
 :::
 
 ::: {.column width="44%"}
-1. Start with 51,808 homes from the 2011 American Housing Survey, including each home's value and 150 characteristics
-2. Use 10,000 homes to fit OLS and several machine learning methods
-3. Ask each fitted method to predict values for the other 41,808 homes
-4. Compare those predictions with the homes' observed values using $R^2$
+Using data on **51,808 homes** from the American Housing Survey:
 
-The random forest explains **45.5%** of the variation in held-out values, compared with **41.7%** for OLS. Its training $R^2$ was **85.1%**
+1. Fit OLS and several machine learning models using 10,000 homes and 150 characteristics
+2. Predict values for the remaining 41,808 homes
+3. Compare prediction accuracy using held-out $R^2$
+
+**Two findings:**
+
+- Random forest: 45.5% held-out $R^2$, compared with 41.7% for OLS
+- Random forest: 85.1% training $R^2$, but only 45.5% held-out $R^2$
+
 :::
 
 ::::
@@ -301,26 +372,30 @@ Source: @mullainathan2017machine, pages 89 to 90 and Table 1.
 :::
 
 ::: notes
-- The outcome in the paper is log house value. The slide describes the task as predicting house values to keep the sequence clear
-- Mullainathan and Spiess draw two lessons from the table. Training performance overstates performance on the held-out homes, especially for flexible methods: the random forest's $R^2$ falls from 85.1% to 45.5%. On held-out data, the forest performs better than OLS even with a moderate sample and a limited number of variables
-- The bracketed numbers are 95% confidence intervals for hold-out performance.
-- The right-hand columns show that the gains are uneven across the distribution of house values: the forest improves most in the middle quintiles.
-- Transition: why a tree can fit so well in sample and so much worse out of sample.
+- The outcome is log house value.
+- The first finding is that a flexible machine learning method can improve prediction accuracy relative to OLS.
+- The second finding is that performance on training data can substantially overstate performance on unseen observations.
+- The random forest's training R-squared is 85.1%, compared with 45.5% for held-out observations.
+- The bracketed values in the table are 95% confidence intervals.
+- The improvement over OLS also differs across the distribution of house values.
+- Transition: What does a machine learning algorithm do differently from OLS to generate its predictions? Let's start with a regression tree.
 :::
 
-## How a regression tree predicts {.dense}
+## How does a regression tree predict house values? {.dense}
+
+Unlike OLS, a regression tree does not require us to specify a linear relationship. Instead, it divides houses into groups with similar values.
 
 :::: {.columns}
 
 ::: {.column width="56%"}
-![](assets/unit6/papers/ms-figure1.png){width="100%" fig-alt="Figure 1 of Mullainathan and Spiess (2017): a shallow regression tree that splits on house type, number of bathrooms, number of rooms, and unit square footage, ending in eight leaves with predicted log house values from 9.2 to 12.8."}
+![](assets/unit6/papers/ms-figure1.png){width="100%" fig-alt="Figure 1 of Mullainathan and Spiess (2017): a regression tree that splits houses by type, bathrooms, rooms, and square footage, ending in eight groups with predicted log house values."}
 :::
 
 ::: {.column width="44%"}
 1. Start with all houses in one group
-2. Find the single yes-or-no split, on one variable, that best separates high-value from low-value houses (here, house type)
-3. Repeat the search within each new group (bathrooms, then rooms or square footage)
-4. Stop at a set depth; the prediction for a house in a final group (a leaf) is that group's average value
+2. Find the yes-or-no split that produces the greatest reduction in squared prediction error (here, house type)
+3. Repeat within each new group, using characteristics such as bathrooms, rooms, and square footage
+4. Predict the value of a house using the average value of houses in its final group (a *leaf*)
 :::
 
 ::::
@@ -330,76 +405,107 @@ Source: @mullainathan2017machine, pages 90 to 91 and Figure 1.
 :::
 
 ::: notes
+- Table 1 showed that machine learning methods can outperform OLS on held-out observations. We now examine how these methods construct prediction rules, beginning with regression trees.
+- OLS estimates coefficients for a specified set of variables and interactions. A regression tree searches for splits that group houses with similar outcomes.
+- Each split is selected to reduce squared prediction error in the training data.
 - Read the leftmost path: a house of type 2, 3, or 7, with fewer than 1.5 bathrooms and fewer than 4.5 rooms, is predicted to have a log value of 9.2.
-- Mullainathan and Spiess show that each leaf is a product of dummy variables: $x_1 = \mathbf{1}\{\text{Type} = 2,3,7\} \times \mathbf{1}\{\text{Baths} < 1.5\} \times \mathbf{1}\{\text{Rooms} < 4.5\}$, with coefficient 9.2. A tree is therefore a regression on interactions that the algorithm chooses itself.
-- This is the advantage over OLS, where the researcher must decide which interactions to include.
-- Transition: the risk that comes with that flexibility.
+- The prediction at each leaf is the average log house value among the training observations in that group.
+- A regression tree effectively selects interactions among characteristics without requiring the researcher to specify them in advance.
+- Random forests build on this idea by combining predictions from many trees.
+- Transition: If each additional split can improve the fit to training data, why not keep dividing houses into smaller groups?
 :::
 
-## Why stop a tree from dividing further?
+## Why not keep dividing the tree?
 
-1. A tree can keep dividing the training houses into smaller groups
-2. With enough divisions, it can nearly memorize their sale prices
-3. Those very specific groups may predict poorly for houses the tree has not seen
-4. We limit the number of divisions and require several houses in each final group
+Each additional split allows a regression tree to fit the training houses more closely.
 
-Fitting the training houses closely while predicting new houses poorly is called **overfitting**
+1. More splits create smaller groups of similar houses
+2. Smaller groups can reduce prediction errors in the training data
+3. But very specific groups may capture patterns unique to those houses
+4. Those patterns may not hold for new observations
+
+**Overfitting** occurs when a model fits the training data closely but predicts poorly on new data.
+
+**Regularization** limits model flexibility to improve out-of-sample prediction.
 
 ::: {.source}
 Source: @mullainathan2017machine, pages 91 to 93 and Table 2.
 :::
 
 ::: notes
-- Mullainathan and Spiess call a tree that fits each observation "perfect overfit"
-- Limiting the number of divisions is a form of regularization: the method gives up some training fit to improve predictions on new observations
-- The forest's large drop in $R^2$ from training to test data illustrates this concern
+- Each split is selected to reduce training error, but reductions in training error do not necessarily improve predictions on new observations.
+- A sufficiently deep tree can nearly memorize the training observations.
+- This helps explain why the random forest's training R-squared is so much higher than its held-out R-squared, although the gap alone does not establish which tree settings are optimal.
+- Regularization constrains model complexity.
+- For regression trees, we can limit tree depth, the number of splits, or the minimum number of observations in a leaf.
+- Restricting flexibility may increase training error while improving held-out performance.
+- Transition: How do we determine the appropriate amount of flexibility?
 :::
 
-## How do we choose when a tree should stop?
+## How do we choose the right tree depth?
 
-1. Keep the test houses aside until the final evaluation
-2. Divide the training houses into several groups
-3. Fit a short tree on all but one group, then check its predictions for the group left out
-4. Repeat with each group left out, then repeat the process for deeper trees
-5. Choose the depth with the smallest average prediction error
-6. Fit a tree of that depth on all training houses and evaluate it once on the test houses
+A deeper tree may fit the training data better, but how deep should it be?
 
-This repeated check within the training data is called **cross-validation**
+**Cross-validation** evaluates different model settings using only the training data.
+
+1. Divide the training data into several groups (*folds*)
+2. Fit the model using all but one fold
+3. Predict outcomes for the excluded fold and calculate prediction error
+4. Repeat until every fold has been excluded once
+5. Choose the tree depth with the lowest average prediction error
+
+Then fit the selected model on all training data and evaluate it on the **held-out test data**.
 
 ::: {.source}
 Sources: @mullainathan2017machine, pages 92 to 93; @bittmann2025practical, Section 3.
 :::
 
 ::: notes
-- Mullainathan and Spiess describe this as creating "an out-of-sample experiment inside the original sample"
-- The training groups are called folds, often five or ten
-- It works because prediction quality is observable: both the prediction and the outcome are in the data. Parameter estimation has no equivalent check.
-- The test sample is used once. If it informs the choice of settings, it no longer measures out-of-sample performance.
-- With panel or spatial data, folds should respect that structure, for example by training on earlier years and testing on later ones.
-- Transition: one expression that covers trees, the LASSO, and forests.
+- Cross-validation creates repeated prediction exercises within the training sample.
+- For example, in five-fold cross-validation, the model is trained five times, each time leaving out a different fifth of the training observations.
+- Repeat the process for different tree depths and compare their average validation errors.
+- After selecting the depth, refit the model using the entire training sample.
+- The final test sample is reserved for evaluating performance after model selection.
+- Cross-validation helps select model settings, but it does not guarantee that the selected model will perform well in a different population.
+- With panel or spatial data, cross-validation should respect the structure of the observations.
+- Transition: The same principle applies to other methods. What differs is how each method constructs and constrains its prediction rule.
 :::
 
 ## How do the methods differ?
 
-Each method fits a rule on training data and checks it on held-out data
+Each method learns a prediction rule from training data, but differs in how it generates predictions and controls complexity.
 
-| Method | Prediction rule | How flexibility is limited |
+| Method | How it predicts | How it controls flexibility |
 |---|---|---|
-| OLS | Weighted sum of characteristics | Chosen characteristics and interactions |
-| Regression tree | Yes-or-no splits | Maximum splits and minimum group size |
-| LASSO | Weighted sum of characteristics | Some weights shrink to zero |
-| Random forest | Average of many trees | Limits on each tree and averaging |
+| OLS | Estimates a linear combination of characteristics | Researcher specifies variables and interactions |
+| Regression tree | Divides observations into groups | Limits on tree depth and group size |
+
+::: {.source}
+Sources: @mullainathan2017machine, pages 92 to 94 and Table 2; @athey2019machine, pages 690 and 695 to 699.
+:::
+
+## How do the methods differ? (continued)
+
+| Method | How it predicts | How it controls flexibility |
+|---|---|---|
+| LASSO | Estimates a linear combination of characteristics | Penalizes coefficients, shrinking some to zero |
+| Random forest | Averages predictions from many trees | Randomization, averaging, and tree settings |
+
+**Common goal:** Minimize prediction error on new, unseen observations.
 
 ::: {.source}
 Sources: @mullainathan2017machine, pages 92 to 94 and Table 2; @athey2019machine, pages 690 and 695 to 699.
 :::
 
 ::: notes
-- Mullainathan and Spiess summarize these methods as a choice of prediction error measure, class of rules, and limit on complexity
-- Cross-validation helps choose settings such as tree depth or the amount of LASSO shrinkage
-- LASSO uses a penalty on the absolute sizes of coefficients. A larger penalty shrinks more coefficients toward zero and can remove variables from the fitted rule
-- A forest fits many trees on different samples and subsets of characteristics, then averages their predictions
-- Transition: the first role, where prediction is the objective.
+- The methods differ in the class of prediction rules they consider and how they limit complexity.
+- OLS specifies the functional form in advance. Its flexibility depends on the variables and interactions included.
+- Regression trees discover splits and interactions from the data.
+- LASSO adds a penalty to the least-squares objective. Larger penalties shrink coefficients toward zero, and some become exactly zero.
+- Random forests fit many trees using randomized observations and predictors, then average their predictions.
+- Cross-validation can help select the amount of LASSO penalization, tree depth, and other model settings.
+- All methods can be evaluated using the same held-out prediction metrics, such as MSE or R-squared.
+- Transition: We have seen how machine learning methods improve prediction. Next, we consider how they can be used in economic research.
 :::
 
 ## Examples of how machine learning is used in empirical economics
@@ -422,271 +528,359 @@ Sources: @mullainathan2017machine; @athey2019machine, pages 686 to 688; @maruejo
 
 # Role 1: Prediction as the objective
 
-## Zhao et al. (2025): predicting which households are calorie poor
+## Zhao et al. (2025): predicting calorie poverty
 
-The question is whether information a program could collect can identify rural households with inadequate calorie intake
+**Research question:** Can household and market characteristics help identify households at risk of inadequate calorie intake?
 
-1. Use three days of food records to calculate calorie intake for each of 1,080 households
-2. Mark a household as calorie poor if its intake falls below the study's threshold
-3. Record household, village, and food-market characteristics that might help predict that outcome
-4. Fit a random forest, LASSO, and a logit model using 756 households
-5. Predict calorie poverty for the other 324 households and compare predictions with their measured outcomes
+1. Use three days of food records to measure calorie intake for 1,080 rural households
+2. Classify each household as calorie poor or not calorie poor
+3. Use household, village, and food-market characteristics to predict that classification
+4. Fit a random forest, LASSO, and logit model using 756 households
+5. Evaluate predictions on the remaining 324 households
+
+**Unlike house values, the outcome is binary:** a household is either classified as calorie poor or not.
 
 ::: {.source}
 Source: @zhao2025food, Sections 3 to 5.
 :::
 
 ::: notes
-- Step 2 matters as much as the algorithm: a different calorie threshold changes who counts as calorie poor. The households are in Jilin, Shandong, and Hubei, and 61.1% of the full sample meets the paper's definition
-- The forest uses 93 trees, chosen using observations left out when each tree was fit. The paper also reports sensitivity, specificity, and the area under the ROC curve
-- Out-of-bag error is the random forest's built-in version of a hold-out sample: each tree is fit on a bootstrap sample, and the observations left out of that sample are used to measure its error.
-- The authors oversample the smaller class (SMOTE) because the two classes are unequal in size.
-- Transition: the results.
+- This is supervised learning because the outcome is observed and used to train the prediction models.
+- The outcome is binary rather than continuous, so the authors evaluate classification accuracy rather than regression R-squared.
+- The calorie-poverty threshold determines which households receive the label.
+- The households are in Jilin, Shandong, and Hubei. Approximately 61.1% of the full sample is classified as calorie poor.
+- The authors use SMOTE to address class imbalance and out-of-bag observations to help tune the forest.
+- Transition: Does the random forest classify households more accurately than conventional approaches?
 :::
 
-## How much does the random forest improve prediction?
+## Does machine learning improve classification?
 
-| Model (test sample) | Accuracy |
+| Model | Test-sample accuracy |
 |---|---:|
 | Random forest | 65.7% |
 | LASSO | 61.1% |
 | Logit benchmark | 58.9% |
 
-: {tbl-colwidths="[70,30]"}
+**Accuracy** measures the percentage of households classified correctly.
 
-Accuracy is the share of test households classified correctly. The forest exceeds the logit benchmark by 6.8 percentage points
+The random forest improves accuracy by **6.8 percentage points** relative to logit.
+
+But accuracy does not tell us which households were misclassified.
+
+- **False positive:** A household is predicted to be calorie poor when it is not
+- **False negative:** A calorie-poor household is not identified
 
 ::: {.source}
-Source: @zhao2025food, Sections 3 to 5 and Table 3
+Source: @zhao2025food, Sections 3 to 5 and Table 3.
 :::
 
 ::: notes
-- The paper also reports sensitivity, specificity, and the area under the ROC curve (0.62 for both the forest and the LASSO, against 0.5 for random classification).
-- The paper reports that 61.1% of the full sample is calorie poor. A rule that always predicts calorie poor could serve as another benchmark, but its accuracy in the test sample is not reported
-- The authors recommend choosing the classification cut-off according to a program's coverage: a lower cut-off catches more food-insecure households at the cost of more false alarms.
-- Transition: what a prediction paper can conclude about the determinants of food insecurity.
+- The methods are evaluated on the same held-out observations.
+- A model's accuracy depends on the classification threshold.
+- For a food assistance program, false negatives may be especially consequential because eligible households could be overlooked.
+- The paper also reports sensitivity, specificity, and area under the ROC curve.
+- The full-sample calorie-poverty prevalence is 61.1%; that is not necessarily the accuracy of a majority-class classifier in the test sample.
+- Transition: The authors also examine which variables are most useful for prediction. What can we learn from those rankings?
 :::
 
-## What can a predictor ranking tell us?
+## Do important predictors identify causes?
 
-Zhao et al. find that household income and access to food markets help predict calorie poverty
+Zhao et al. find that household income and access to food markets help predict calorie poverty.
 
-- A predictor can be useful because it moves with another factor that the data do not measure
-- Correlated predictors can replace one another, so the variables chosen by LASSO may change when the training sample changes
-- The ranking tells us which information helps classify households in this dataset
+But a variable that improves prediction is not necessarily a cause of the outcome.
+
+- A predictor may be correlated with other factors that affect calorie poverty
+- Highly correlated predictors may provide similar information
+- LASSO may select one predictor and exclude another, depending on the sample
+
+Predictor importance tells us what helps classify households, not what would happen if we changed that characteristic.
 
 ::: {.source}
 Sources: @zhao2025food, Section 5.2; @mullainathan2017machine, page 97, Figure 2; @stetter2022machine, page 740, footnote 17.
 :::
 
 ::: notes
-- Zhao et al.'s discussion moves from variables that predict food insecurity to variables that "significantly influence" it. That shift is where a reader should ask for an identification strategy
-- Mullainathan and Spiess show that LASSO selects different variables across ten random partitions of the same data. Stetter et al. also warn against a causal reading of variable importance
-- The instability arises because correlated predictors are close substitutes in prediction; small changes in the sample change which one the LASSO retains.
-- Transition: the second role, where prediction is one step in a larger analysis.
+- The distinction is between predicting an outcome and identifying a causal effect.
+- Income may predict calorie poverty, but this analysis does not identify the effect of increasing income.
+- Mullainathan and Spiess demonstrate that LASSO may select different variables across different partitions of the same data.
+- This is especially relevant when predictors are highly correlated.
+- Prediction can help identify households for assistance without establishing why those households experience inadequate calorie intake.
+- Transition: In the next examples, prediction is not the final objective. Instead, machine learning helps researchers estimate economic relationships.
 :::
 
 # Role 2: Prediction within a larger analysis
 
 ## Li and Yu (2025): selecting apple attributes
 
-The question is how much consumers value apple attributes such as origin, size, and production method
+**Research question:** How much are consumers willing to pay for apple attributes such as origin, size, and production method?
 
-1. Ask 100 consumers to choose among two apples and a no-purchase option in four scenarios
-2. Record each apple's attributes and price in every choice
-3. Use LASSO to select attributes that help predict choices, while always retaining price
-4. Fit a choice model with the retained attributes and calculate willingness to pay from its coefficients
+1. Ask 100 consumers to choose between apples with different attributes and a no-purchase option
+2. Use LASSO to identify which attributes help predict consumer choices
+3. Estimate a conditional logit model using the selected attributes
+4. Calculate willingness to pay from the estimated coefficients
+
+**Role of ML:** Select variables to include in an economic model.
 
 ::: {.source}
 Source: @li2025attribute, Sections 2 and 3.
 :::
 
 ::: notes
-- The paper interprets the removed attributes as possible evidence of attribute non-attendance, meaning that some respondents may not use those attributes in their choices
-- Ten-fold cross-validation chooses the amount of LASSO shrinkage; price is exempt from shrinkage. The final model is a conditional logit
-- Willingness to pay for attribute $k$ is $-\beta_k/\beta_{\text{price}}$: how many euros a consumer would give up for the attribute, holding utility constant
-- Transition: how the estimates change.
+- Each respondent completes four choice scenarios.
+- The authors use LASSO to select apple attributes, while always retaining price.
+- Tenfold cross-validation determines the LASSO penalty.
+- The final conditional logit estimates relationships between attributes and choice probabilities.
+- Willingness to pay is calculated as the negative ratio of the attribute and price coefficients.
+- The prediction step helps specify the economic model rather than serving as the final result.
+- Transition: Which attributes does LASSO retain?
 :::
 
-## Why are Organic and Japan omitted?
+## How does LASSO select attributes?
 
-LASSO shrinks attribute coefficients toward zero. The authors choose the penalty using **tenfold cross-validation**
+LASSO estimates coefficients while penalizing their absolute magnitude.
 
-At the chosen penalty, **Organic** and **Japan** reach zero. They contribute the weakest additional signals for predicting choices after the other recorded attributes are considered
+As the penalty increases, some coefficients shrink to zero.
 
-**Price stays in the model** because the authors exempt it from the penalty. The price coefficient is needed to calculate willingness to pay
+In Li and Yu (2025):
 
-This selection describes the fitted model for these respondents. It does not establish that every respondent ignored either attribute
+- Tenfold cross-validation determines the penalty
+- **Organic** and **Japan** have coefficients of zero at the selected penalty
+- **Price** remains because the authors exclude it from the penalty
+
+The excluded attributes provide little additional predictive information in this fitted model, given the other attributes.
+
+Does a coefficient of zero mean consumers do not value the attribute?
 
 ::: {.source}
-Source: @li2025attribute, Section 3.1, Figure 2, and Table 4
+Source: @li2025attribute, Section 3.1, Figure 2, and Table 4.
 :::
 
 ::: notes
-- The authors' Shapley-value check also ranks Japan and Organic lowest among the attributes
-- Tenfold cross-validation selects the penalty that minimizes mean cross-validated error
-- The authors suggest attribute non-attendance as one interpretation, but selection alone cannot establish an individual respondent's reasoning
+- LASSO minimizes prediction error plus a penalty on coefficient magnitude.
+- A larger penalty generally produces a simpler model.
+- Cross-validation selects the penalty based on predictive performance.
+- A zero coefficient is a model-selection result, not evidence that every consumer ignores the attribute.
+- Correlated attributes may substitute for one another.
+- The authors also use Shapley values to evaluate attribute importance.
+- Transition: How does this selection affect the economic estimates?
 :::
 
 ## LASSO changes willingness-to-pay estimates
 
-Willingness to pay relative to China, in euros per kg
+Estimated willingness to pay relative to China, in euros per kg:
 
-| Apple attribute | All attributes | After LASSO |
+| Apple attribute | All attributes | After LASSO selection |
 |---|---:|---:|
 | France | 1.20 | 1.53 |
 | Italy | 1.42 | 1.40 |
 | Small apples | 1.30 | 1.41 |
-| Organic | −0.04 | excluded |
+| Organic | −0.04 | Excluded |
 
 : {tbl-colwidths="[56,22,22]"}
 
-- **All attributes:** a conditional logit with every attribute
-- **After LASSO:** the same model without the two attributes the LASSO excluded (Organic and Japan)
+::: {.source}
+Source: @li2025attribute, Section 3, Tables 6 and 7.
+:::
+
+## What changes when LASSO selects attributes?
+
+After removing the selected attributes, estimated willingness to pay changes for some of the remaining characteristics.
+
+LASSO selects variables based on their contribution to the model's predictive objective, subject to its penalty.
+
+But the variables that produce the best predictions are not necessarily the variables we need to estimate a particular economic parameter.
 
 ::: {.source}
 Source: @li2025attribute, Section 3, Tables 6 and 7.
 :::
 
 ::: notes
-- The economic estimates change: the premium for French apples rises from €1.20 to €1.53 per kilogram, and the premium for small apples from €1.30 to €1.41.
-- Dropping Organic and Japan lowers the log-likelihood only slightly (from −403.62 to −409.61), which the authors take as evidence the two attributes add little.
-- A question for discussion: the LASSO excludes Organic for the whole sample, so the paper cannot report willingness to pay for organic apples, the attribute most relevant to policy. Is that trade-off appropriate?
-- Transition: the same logic applied to the choice of control variables.
-:::
-
-## Why select controls for both equations?
-
-Belloni et al. revisit the relationship between **earlier abortion rates** and **later crime rates** across states
-
-A state characteristic may be related to both rates. For example, an initial state condition could predict how abortion rates change and how crime rates change over time
-
-If controls are selected only for predicting crime, the procedure might omit a variable that strongly predicts abortion rates and also matters for crime
-
-**Double selection** retains controls selected from either prediction step before estimating the abortion-rate coefficient
-
-::: {.source}
-Source: @belloni2014inference, Sections 1 and 7
-:::
-
-::: notes
-- Earlier abortion rates are constructed to reflect the age groups associated with later crime; the application reports violent crime, property crime, and murder separately
-- The concern is omitted-variable bias: a shared state factor can make the abortion-rate coefficient absorb part of that factor's association with crime
-- An initial condition is a state's starting level of a variable, such as its initial abortion rate or income
-:::
-
-## Belloni et al. (2014): double selection in practice
-
-The application has **576 state-year observations** and **251 candidate controls**, including initial conditions, interactions, and trends
-
-1. Use LASSO to find controls that predict the relevant abortion rate
-2. Use LASSO again to find controls that predict the crime rate
-3. Combine the controls selected in either step
-4. Regress the crime rate on the abortion rate and those controls using OLS
-
-The final models include **8 to 14** of the 251 candidate controls, depending on the crime outcome
-
-The estimates for violent crime and murder become imprecise after the selected controls are included
-
-::: {.source}
-Source: @belloni2014inference, Sections 1, 2.2, and 7.
-:::
-
-::: notes
-- The application covers 48 states over 12 years. The 251 controls supplement time effects included in every model
-- The property crime estimate remains close to the original study but is significant only at the 10% level; the violent crime and murder estimates become imprecise
-- Selection on observables is the identifying assumption. LASSO makes the choice among a large set of proposed controls systematic and reproducible
-- Transition: the third role.
+- The comparison is between a conditional logit model containing all attributes and a model excluding the attributes selected for removal by LASSO.
+- Willingness to pay for French apples increases from €1.20 to €1.53 per kilogram.
+- The estimate for Italian apples changes little.
+- Organic willingness to pay is no longer estimated in the selected specification.
+- Selecting variables for predictive performance does not automatically produce unbiased estimates or valid inference for every economic parameter.
+- Discussion: If organic production is a primary research interest, should the researcher allow LASSO to exclude it?
+- The variables included in a model affect its estimated coefficients and willingness-to-pay estimates. Selecting variables for prediction does not necessarily produce the best model for answering an economic research question.
+- Transition: What if we use machine learning to select control variables when estimating a treatment effect?
 :::
 
 # Role 3: Heterogeneous treatment effects
 
 ## How does prediction help estimate an effect?
 
-Suppose larger farms are more likely to join a program and also use more fertiliser. A direct comparison of participants and other farms mixes those farm differences with the program effect
+Suppose an agri-environment program encourages farmers to reduce fertiliser use.
 
-1. Use farm characteristics to predict participation and expected fertiliser use
-2. Account for those expected differences when comparing participants with other farms
-3. Use many trees to find groups of farms where the adjusted comparison differs
+The research question is: Do programs have the same effect on every farm?
 
-The result estimates an **average program effect for farms with similar characteristics**
+The average treatment effect tells us how participation changes fertiliser use across farms.
+
+But the effect may differ depending on:
+
+- Farm size
+- Location
+- Crop production and yield potential
+- Other farm characteristics
+
+::: {.source}
+Sources: @athey2019machine, pages 701 to 704; @stetter2022machine, Sections 2.3 and 4.1 to 4.3.
+:::
+
+## Conditional average treatment effects
+
+**Conditional average treatment effects (CATEs)** describe how estimated treatment effects differ across farms with different characteristics.
+
+$$
+\tau(x)=E[Y(1)-Y(0)\mid X=x]
+$$
 
 ::: {.source}
 Sources: @athey2019machine, pages 701 to 704; @stetter2022machine, Sections 2.3 and 4.1 to 4.3.
 :::
 
 ::: notes
-- Prediction is an intermediate step. The outcome of interest is a treatment-effect estimate, not a forecast of future fertiliser use
-- In the paper, forests estimate participation and outcomes from observed characteristics. A causal forest then uses the remaining variation to estimate how effects differ across farms
-- The comparison is credible only if observed characteristics account for selection into the program and comparable participants and nonparticipants exist for the farms studied
+- This extends the potential-outcomes framework introduced earlier in the course.
+- Y(1) is the potential outcome under program participation; Y(0) is the potential outcome without participation.
+- The average treatment effect summarizes the mean difference across the population.
+- The conditional average treatment effect describes how that difference varies with observed characteristics.
+- The objective is not simply to predict fertiliser use, but to estimate differences in treatment effects.
+- Transition: How can machine learning help estimate these differences?
+:::
+
+## How does a causal forest differ from a regression tree?
+
+A regression tree divides observations into groups to predict an **outcome**.
+
+A causal forest seeks groups with different **treatment effects**.
+
+1. Predict treatment participation using observed characteristics
+2. Predict the outcome using observed characteristics
+3. Account for those predicted relationships when comparing treated and untreated farms
+4. Use many trees to estimate how treatment effects vary across farm characteristics
+
+**The goal:** Estimate treatment-effect heterogeneity rather than minimize ordinary outcome prediction error.
+
+::: {.source}
+Sources: @athey2019machine, pages 701 to 704; @stetter2022machine, Sections 2.3 and 4.1 to 4.3.
+:::
+
+::: notes
+- Standard prediction forests estimate relationships between predictors and observed outcomes.
+- Causal forests adapt tree-based methods to estimate variation in treatment effects.
+- In Stetter et al., machine learning estimates treatment participation and expected outcomes as intermediate steps.
+- The causal forest uses adjusted comparisons to estimate heterogeneous effects.
+- The method does not automatically eliminate selection bias.
+- The credibility of the estimates depends on the identification assumptions.
+- Transition: Let's look at an application to agri-environment programs.
 :::
 
 ## Stetter et al. (2022): do program effects differ across farms?
 
-The study asks whether participation in an agri-environment scheme changes farm outcomes, and whether the change differs by farm characteristics
+**Research question:** Does participation in an agri-environment scheme change farm outcomes, and do those effects vary across farms?
 
-1. Start with 2,758 Bavarian farms in 2014, including 1,641 program participants
-2. Record farm and county characteristics, participation, and four environmental outcomes
-3. Use the characteristics to predict which farms participate and what outcomes to expect
-4. Account for those predicted differences when comparing participants with other farms
-5. Use a causal forest to estimate how the effect varies across groups of farms
+1. Observe 2,758 Bavarian farms in 2014, including 1,641 program participants
+2. Collect farm characteristics, program participation, and environmental outcomes
+3. Use machine learning to account for observed differences between participating and nonparticipating farms
+4. Estimate heterogeneous treatment effects using a causal forest
+
+The authors examine four outcomes, including fertiliser expenditure, pesticide expenditure, land-use diversity, and emissions.
 
 ::: {.source}
 Source: @stetter2022machine, Sections 2.3, 4.1, and 4.2.
 :::
 
 ::: notes
-- The study uses more than 130 farm and county characteristics. In the paper, the participation prediction is $\hat e(x)$ and the outcome prediction is $\hat m(x)$
-- The group effect is the conditional average treatment effect, $\tau(x)=E[Y_i(1)-Y_i(0)\mid X_i=x]$, using the potential outcomes from Lecture 6.1
-- Steps 3 to 4 follow the logic of partialling out the farm characteristics from both participation and outcomes, then relating what remains. The forests allow flexible relationships
-- A regression tree splits to predict the outcome; a causal forest splits to separate farms with different treatment effects.
-- Settings are tuned by cross-validation. The participation and outcome forests use 5,000 trees each; the causal forest uses 100,000 for stable estimates.
-- Transition: what they find.
+- The study uses more than 130 farm and county characteristics.
+- Participation and outcome models are estimated using random forests.
+- The causal forest estimates conditional average treatment effects.
+- The aim is to identify whether effects differ by observable farm characteristics.
+- Settings are tuned using cross-validation.
+- The authors use large forests to obtain stable estimates.
+- Transition: What do the authors find?
 :::
 
-## Which farms have estimated benefits from the schemes?
+## Which farms have detectable program effects?
 
-| Outcome | Share with a detectable improvement |
+| Outcome | Share of farms with a statistically detectable effect |
 |---|---|
-| Fertiliser expenditure | 33%, a reduction of €14 per hectare among them |
-| Land-use diversity | 55%, a small increase |
-| Pesticide expenditure | 7% |
-| Emissions | Under 1%; about 4% show detectable increases |
+| Fertiliser expenditure | 33% show reductions |
+| Land-use diversity | 55% show increases |
+| Pesticide expenditure | 7% show improvements |
+| Emissions | Under 1% show reductions; about 4% show increases |
 
 : {tbl-colwidths="[35,65]"}
 
-Estimated effects vary by location, farm size, and yield potential. The authors use these differences to discuss how payments might be targeted
+Among farms with detectable reductions in fertiliser expenditure, the estimated reduction averages **€14 per hectare**. Estimated effects vary by location, farm size, and yield potential. **Policy relevance:** Differences in estimated effects may inform how program payments are targeted.
 
 ::: {.source}
 Source: @stetter2022machine, Sections 5.2, 5.3, and 6 and Table 3.
 :::
 
 ::: notes
-- "Detectable" means the reported confidence interval excludes zero. The emissions outcome is greenhouse gas emissions
-- €14 per hectare corresponds to about 13 kg of nitrogen per hectare at the paper's 2014 price.
-- The authors use Shapley values to measure how much each group of characteristics contributes to the variation in estimated effects; farm type contributes little.
-- The share of farms with significant effects depends on the precision of each farm-level estimate; a farm without a significant effect may still have a nonzero effect.
-- Transition: the source of identification.
+- A statistically detectable effect means the reported confidence interval excludes zero.
+- The percentages describe statistical detectability, which depends on both estimated effect magnitude and precision.
+- An insignificant estimate does not mean the true treatment effect is zero.
+- The effects vary across farm characteristics, suggesting that average effects can hide meaningful heterogeneity.
+- The authors examine how these differences might inform program targeting.
+- These are estimates from an observational study, so the identifying assumptions remain important.
+- Transition: How do the authors justify interpreting these differences as treatment effects?
 :::
 
-## How do the authors support the comparison?
+## What makes a causal forest estimate credible?
 
-The causal forest compares farms after accounting for their recorded characteristics. The authors examine two conditions
+A causal forest can estimate differences in treatment effects, but **machine learning alone does not establish causality**.
 
-1. **Comparable farms:** after accounting for recorded characteristics, participation is as good as randomly assigned
-2. **Both options are possible:** farms with similar characteristics could participate or stay out of the program
+The analysis relies on two important assumptions:
 
-The authors exclude 23 farms that lack a suitable comparison and check how their findings respond to alternative assumptions about missing factors
+1. **Selection on observables:** After accounting for recorded characteristics, treated and untreated farms are comparable in their potential outcomes
+2. **Overlap:** Farms with similar characteristics have a positive probability of participating or not participating
+
+Stetter et al. exclude 23 farms that lack suitable comparisons and examine sensitivity to unobserved confounding.
+
+**The distinction:** Machine learning helps estimate relationships; causal identification determines whether they can be interpreted as treatment effects.
 
 ::: {.source}
 Source: @stetter2022machine, Sections 4.3 and 5.1.
 :::
 
 ::: notes
-- The formal names are selection on observables and overlap. Estimated participation probabilities range from 0.27 to 0.86 for retained farms
-- The authors argue that many recorded characteristics can stand in for unobserved factors such as environmental attitudes. They acknowledge that omitted confounders could still bias the estimates
-- They report placebo tests and simulations with omitted confounders
-- Transition: what a methods section must report in all three roles.
+- Selection on observables assumes that the recorded characteristics account for the confounding relevant to treatment assignment.
+- Overlap requires comparable treated and untreated farms across the covariate region used for estimation.
+- The retained farms have estimated participation probabilities between 0.27 and 0.86.
+- The authors use placebo tests and simulations involving omitted confounders.
+- Sensitivity analysis can investigate robustness but cannot establish that all relevant confounders were observed.
+- Machine learning provides flexible estimation, not an identification strategy by itself.
+- Transition: What should we look for when assessing machine learning in an empirical economics paper?
+:::
+
+## What role does machine learning play in economic research?
+
+| Role | Research objective | Contribution of ML |
+|---|---|---|
+| Prediction | Identify households at risk of calorie poverty | Improve classification accuracy |
+| Model selection and estimation | Estimate preferences or a coefficient of interest | Select variables and controls |
+| Heterogeneous treatment effects | Estimate how program impacts differ across farms | Flexibly estimate differences in treatment effects |
+
+::: {.source}
+Sources: @mullainathan2017machine; @athey2019machine; @zhao2025food; @li2025attribute; @belloni2014inference; @stetter2022machine.
+:::
+
+## Three questions to ask when reading a paper
+
+1. What is the quantity the researchers want to estimate?
+2. What does machine learning contribute to that objective?
+3. What assumptions are needed to interpret the results?
+
+::: {.source}
+Sources: @mullainathan2017machine; @athey2019machine; @zhao2025food; @li2025attribute; @belloni2014inference; @stetter2022machine.
+:::
+
+::: notes
+- Prediction accuracy is the primary objective in the first example.
+- In the second role, ML is used to support an economic model or the estimation of a particular parameter.
+- In the third role, ML helps estimate treatment-effect heterogeneity.
+- Better prediction does not necessarily imply better parameter estimates or more credible causal inference.
+- The research objective determines how the model should be evaluated.
 :::
 
 # Reporting a machine learning method

@@ -205,7 +205,7 @@ Lauren Chenarides
 </section>
 <section id="machine-learning-in-a-nutshell" class="slide level2">
 <h2>Machine learning in a nutshell</h2>
-<p><strong>If you take away one idea today:</strong> A prediction method learns from observations we already have, then we check how well it predicts observations it has not seen</p>
+<p><strong>If you take away one idea today:</strong> ML is a prediction method learns from observations we already have, then we check how well it predicts observations it has not seen</p>
 <ol type="1">
 <li>Choose the outcome to predict and the information available when a prediction is made</li>
 <li>Fit a prediction rule using one group of observations</li>
@@ -261,11 +261,12 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="two-goals-prediction-and-parameter-estimation" class="slide level2">
-<h2>Two goals: prediction and parameter estimation</h2>
+<section id="different-goals-prediction-and-parameter-estimation" class="slide level2">
+<h2>Different goals: prediction and parameter estimation</h2>
 <p>Many economic applications estimate a parameter, such as a treatment effect or price sensitivity</p>
+<p>Causal inference in a RF sense asks us to predict outcomes under conditions that were not observed, trying to replicate the gold standard of a RCT</p>
 <p>Supervised machine learning methods are often designed to predict an outcome accurately for new observations</p>
-<p>Economists can also use prediction methods within procedures that estimate effects</p>
+<p>Note: Economists can also use prediction methods within procedures that estimate effects</p>
 <p>This lecture covers where these methods came from, the three roles they play in empirical economics, and how a methods section reports them</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 87 to 88.</p>
@@ -542,7 +543,7 @@ Lauren Chenarides
 </section>
 <section id="how-do-we-score-a-house-price-prediction" class="slide level2">
 <h2>How do we score a house-price prediction?</h2>
-<p>Suppose a house sold for <strong>$300,000</strong> and a rule predicted <strong>$320,000</strong></p>
+<p>Suppose a house sold for <strong>$300,000</strong> and our model predicted <strong>$320,000</strong>.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 30%">
@@ -559,25 +560,32 @@ Lauren Chenarides
 <tbody>
 <tr class="odd">
 <td>Absolute error</td>
-<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>320</mn><mo>−</mo><mn>300</mn><mo stretchy="false" form="postfix">|</mo><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">\lvert 320-300\rvert=20</annotation></semantics></math> thousand dollars</td>
-<td>The size of each miss</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">|</mo><mn>320</mn><mo>−</mo><mn>300</mn><mo stretchy="false" form="postfix">|</mo><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">\lvert 320-300\rvert=20</annotation></semantics></math></td>
+<td>The size of each mistake</td>
 </tr>
 <tr class="even">
 <td>Squared error</td>
-<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>320</mn><mo>−</mo><mn>300</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>400</mn></mrow><annotation encoding="application/x-tex">(320-300)^2=400</annotation></semantics></math> squared thousand dollars</td>
-<td>Large misses receive more weight</td>
+<td style="text-align: right;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>320</mn><mo>−</mo><mn>300</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo>=</mo><mn>400</mn></mrow><annotation encoding="application/x-tex">(320-300)^2=400</annotation></semantics></math></td>
+<td>Larger mistakes receive more weight</td>
 </tr>
 </tbody>
 </table>
-<p>A <strong>loss function</strong> assigns a score to each prediction error. We choose a rule to reduce average loss across the training houses</p>
+<p>A <strong>loss function</strong> measures how wrong a prediction is for one observation.</p>
+<p>For squared error:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+L(\hat{f}(x_i),y_i)=(y_i-\hat{f}(x_i))^2
+</annotation></semantics></math></p>
+<p>Here, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math> is the actual price and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\hat{f}(x_i)</annotation></semantics></math> is the predicted price.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, page 89</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The dollar amounts in the formulas are measured in thousands, so squared error has squared units</li>
-<li>Squared error is the loss used in least squares. A different loss function can make a different prediction rule preferable</li>
-<li>Transition: the average loss we care about concerns future houses</li>
+<li>Prices are measured in thousands of dollars; squared errors have squared units.</li>
+<li>The loss function assigns a penalty to each prediction error.</li>
+<li>Squared error is used in ordinary least squares.</li>
+<li>Different loss functions may favor different prediction rules.</li>
+<li>Transition: One prediction error tells us very little about how well a model performs overall. We want a rule that makes small errors across many houses.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -591,23 +599,80 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="why-we-keep-some-houses-aside" class="slide level2">
-<h2>Why we keep some houses aside</h2>
-<p><strong>Expected loss</strong> is average loss on future houses. We cannot calculate it directly because their sale prices are unknown</p>
+<section id="what-are-we-trying-to-minimize" class="slide level2">
+<h2>What are we trying to minimize?</h2>
+<p>We want a prediction rule that makes the smallest mistakes, on average, for <strong>new houses</strong>.</p>
+<p>This is called <strong>expected loss</strong>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo stretchy="false" form="prefix">[</mo><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mi>Y</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+E_{(Y,X)}[L(\hat{f}(X),Y)]
+</annotation></semantics></math></p>
+<p>For squared error:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow></msub><mo stretchy="false" form="prefix">[</mo><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+E_{(Y,X)}[(Y-\hat{f}(X))^2]
+</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math> measures the loss for one house.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math> takes the average loss across the population.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\hat{f}(X)</annotation></semantics></math> predicts price using house characteristics.</li>
+</ul>
+<p><strong>The goal:</strong> Find the prediction rule <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>f</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{f}</annotation></semantics></math> that minimizes expected loss.</p>
+<div class="source">
+<p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, page 89</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Expected loss extends the idea of a loss function from one observation to the population.</li>
+<li>The expectation is taken over the joint distribution of house prices (Y) and characteristics (X).</li>
+<li>We want a rule that predicts well for future houses drawn from the same population.</li>
+<li>Expected loss is a population quantity. We cannot calculate it exactly because we do not observe the entire population.</li>
+<li>Transition: If we cannot calculate expected loss directly, how do we determine whether a prediction rule is any good?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-do-we-evaluate-a-prediction-rule" class="slide level2">
+<h2>How do we evaluate a prediction rule?</h2>
+<p>We cannot directly calculate expected loss because we do not observe every possible future house.</p>
+<p>Instead, we use the data we have:</p>
 <ol type="1">
-<li><strong>Train:</strong> choose the rule that reduces average loss on the houses used for fitting, called empirical loss</li>
-<li><strong>Test:</strong> predict the prices of the houses set aside earlier</li>
-<li><strong>Compare:</strong> use their average loss to estimate performance on new houses</li>
+<li><p><strong>Training data:</strong> Choose a prediction rule that minimizes average loss across observed houses. This is called <em>empirical loss</em>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>f</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\frac{1}{n}\sum_{i=1}^{n}L(\hat{f}(x_i),y_i)
+</annotation></semantics></math></p></li>
 </ol>
+<div class="source">
+<p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 89 to 90</p>
+</div>
+</section>
+<section id="testing-the-prediction-rule" class="slide level2">
+<h2>Testing the prediction rule</h2>
+<ol start="2" type="1">
+<li><p><strong>Test data:</strong> Apply the fitted rule to houses that were set aside and not used to train the model.</p></li>
+<li><p><strong>Evaluate:</strong> Calculate average loss on the test houses to estimate how well the rule predicts new observations.</p></li>
+</ol>
+<p><strong>Why?</strong> A rule that performs well on training data may not predict well on new data.</p>
 <p>The next paper reports held-out <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> as a summary of predictive fit. Higher held-out <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> means better predictions relative to predicting the same average for every house</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 89 to 90</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The reading calls the average error on training observations empirical loss and the desired average error on new observations expected loss</li>
-<li>The held-out houses provide an estimate of out-of-sample loss, provided they represent the houses to which we will apply the rule</li>
-<li>Set the test houses aside before choosing the prediction method or its settings</li>
+<li>Empirical loss is the average observed loss in the sample.</li>
+<li>When squared-error loss is used, empirical loss is the mean squared error (MSE).</li>
+<li>The algorithm uses training data to fit the prediction rule.</li>
+<li>Evaluating the rule on the same data used to train it can produce an overly optimistic assessment of predictive performance.</li>
+<li>Test observations provide an estimate of out-of-sample performance, assuming they represent the population of interest.</li>
+<li>Set test observations aside before model selection and tuning.</li>
+<li>The next paper uses held-out R-squared to summarize predictive performance.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -625,26 +690,32 @@ Lauren Chenarides
 <h2>An example: predicting house values with OLS and machine learning</h2>
 <div class="columns">
 <div class="column" style="width:56%;">
-<p><img data-src="assets/unit6/papers/ms-table1.png" style="width:100.0%" alt="Table 1 of Mullainathan and Spiess (2017): training-sample and hold-out-sample R-squared for ordinary least squares, a regression tree, LASSO, a random forest, and an ensemble, with relative improvement over OLS by quintile of house value."></p>
+<p><img data-src="assets/unit6/papers/ms-table1.png" style="width:100.0%" alt="Table 1 of Mullainathan and Spiess (2017): training and hold-out R-squared for OLS and machine learning methods."></p>
 </div><div class="column" style="width:44%;">
+<p>Using data on <strong>51,808 homes</strong> from the American Housing Survey:</p>
 <ol type="1">
-<li>Start with 51,808 homes from the 2011 American Housing Survey, including each home’s value and 150 characteristics</li>
-<li>Use 10,000 homes to fit OLS and several machine learning methods</li>
-<li>Ask each fitted method to predict values for the other 41,808 homes</li>
-<li>Compare those predictions with the homes’ observed values using <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math></li>
+<li>Fit OLS and several machine learning models using 10,000 homes and 150 characteristics</li>
+<li>Predict values for the remaining 41,808 homes</li>
+<li>Compare prediction accuracy using held-out <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math></li>
 </ol>
-<p>The random forest explains <strong>45.5%</strong> of the variation in held-out values, compared with <strong>41.7%</strong> for OLS. Its training <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> was <strong>85.1%</strong></p>
+<p><strong>Two findings:</strong></p>
+<ul>
+<li>Random forest: 45.5% held-out <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>, compared with 41.7% for OLS</li>
+<li>Random forest: 85.1% training <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>, but only 45.5% held-out <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math></li>
+</ul>
 </div></div>
 <div class="source">
 <p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 89 to 90 and Table 1.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The outcome in the paper is log house value. The slide describes the task as predicting house values to keep the sequence clear</li>
-<li>Mullainathan and Spiess draw two lessons from the table. Training performance overstates performance on the held-out homes, especially for flexible methods: the random forest’s <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> falls from 85.1% to 45.5%. On held-out data, the forest performs better than OLS even with a moderate sample and a limited number of variables</li>
-<li>The bracketed numbers are 95% confidence intervals for hold-out performance.</li>
-<li>The right-hand columns show that the gains are uneven across the distribution of house values: the forest improves most in the middle quintiles.</li>
-<li>Transition: why a tree can fit so well in sample and so much worse out of sample.</li>
+<li>The outcome is log house value.</li>
+<li>The first finding is that a flexible machine learning method can improve prediction accuracy relative to OLS.</li>
+<li>The second finding is that performance on training data can substantially overstate performance on unseen observations.</li>
+<li>The random forest’s training R-squared is 85.1%, compared with 45.5% for held-out observations.</li>
+<li>The bracketed values in the table are 95% confidence intervals.</li>
+<li>The improvement over OLS also differs across the distribution of house values.</li>
+<li>Transition: What does a machine learning algorithm do differently from OLS to generate its predictions? Let’s start with a regression tree.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -658,17 +729,18 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="how-a-regression-tree-predicts" class="slide level2 dense">
-<h2>How a regression tree predicts</h2>
+<section id="how-does-a-regression-tree-predict-house-values" class="slide level2 dense">
+<h2>How does a regression tree predict house values?</h2>
+<p>Unlike OLS, a regression tree does not require us to specify a linear relationship. Instead, it divides houses into groups with similar values.</p>
 <div class="columns">
 <div class="column" style="width:56%;">
-<p><img data-src="assets/unit6/papers/ms-figure1.png" style="width:100.0%" alt="Figure 1 of Mullainathan and Spiess (2017): a shallow regression tree that splits on house type, number of bathrooms, number of rooms, and unit square footage, ending in eight leaves with predicted log house values from 9.2 to 12.8."></p>
+<p><img data-src="assets/unit6/papers/ms-figure1.png" style="width:100.0%" alt="Figure 1 of Mullainathan and Spiess (2017): a regression tree that splits houses by type, bathrooms, rooms, and square footage, ending in eight groups with predicted log house values."></p>
 </div><div class="column" style="width:44%;">
 <ol type="1">
 <li>Start with all houses in one group</li>
-<li>Find the single yes-or-no split, on one variable, that best separates high-value from low-value houses (here, house type)</li>
-<li>Repeat the search within each new group (bathrooms, then rooms or square footage)</li>
-<li>Stop at a set depth; the prediction for a house in a final group (a leaf) is that group’s average value</li>
+<li>Find the yes-or-no split that produces the greatest reduction in squared prediction error (here, house type)</li>
+<li>Repeat within each new group, using characteristics such as bathrooms, rooms, and square footage</li>
+<li>Predict the value of a house using the average value of houses in its final group (a <em>leaf</em>)</li>
 </ol>
 </div></div>
 <div class="source">
@@ -676,10 +748,14 @@ Lauren Chenarides
 </div>
 <aside class="notes">
 <ul>
+<li>Table 1 showed that machine learning methods can outperform OLS on held-out observations. We now examine how these methods construct prediction rules, beginning with regression trees.</li>
+<li>OLS estimates coefficients for a specified set of variables and interactions. A regression tree searches for splits that group houses with similar outcomes.</li>
+<li>Each split is selected to reduce squared prediction error in the training data.</li>
 <li>Read the leftmost path: a house of type 2, 3, or 7, with fewer than 1.5 bathrooms and fewer than 4.5 rooms, is predicted to have a log value of 9.2.</li>
-<li>Mullainathan and Spiess show that each leaf is a product of dummy variables: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mn mathvariant="bold">𝟏</mn><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">Type</mtext><mo>=</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>7</mn><mo stretchy="false" form="postfix">}</mo><mo>×</mo><mn mathvariant="bold">𝟏</mn><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">Baths</mtext><mo>&lt;</mo><mn>1.5</mn><mo stretchy="false" form="postfix">}</mo><mo>×</mo><mn mathvariant="bold">𝟏</mn><mo stretchy="false" form="prefix">{</mo><mtext mathvariant="normal">Rooms</mtext><mo>&lt;</mo><mn>4.5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">x_1 = \mathbf{1}\{\text{Type} = 2,3,7\} \times \mathbf{1}\{\text{Baths} &lt; 1.5\} \times \mathbf{1}\{\text{Rooms} &lt; 4.5\}</annotation></semantics></math>, with coefficient 9.2. A tree is therefore a regression on interactions that the algorithm chooses itself.</li>
-<li>This is the advantage over OLS, where the researcher must decide which interactions to include.</li>
-<li>Transition: the risk that comes with that flexibility.</li>
+<li>The prediction at each leaf is the average log house value among the training observations in that group.</li>
+<li>A regression tree effectively selects interactions among characteristics without requiring the researcher to specify them in advance.</li>
+<li>Random forests build on this idea by combining predictions from many trees.</li>
+<li>Transition: If each additional split can improve the fit to training data, why not keep dividing houses into smaller groups?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -693,23 +769,29 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="why-stop-a-tree-from-dividing-further" class="slide level2">
-<h2>Why stop a tree from dividing further?</h2>
+<section id="why-not-keep-dividing-the-tree" class="slide level2">
+<h2>Why not keep dividing the tree?</h2>
+<p>Each additional split allows a regression tree to fit the training houses more closely.</p>
 <ol type="1">
-<li>A tree can keep dividing the training houses into smaller groups</li>
-<li>With enough divisions, it can nearly memorize their sale prices</li>
-<li>Those very specific groups may predict poorly for houses the tree has not seen</li>
-<li>We limit the number of divisions and require several houses in each final group</li>
+<li>More splits create smaller groups of similar houses</li>
+<li>Smaller groups can reduce prediction errors in the training data</li>
+<li>But very specific groups may capture patterns unique to those houses</li>
+<li>Those patterns may not hold for new observations</li>
 </ol>
-<p>Fitting the training houses closely while predicting new houses poorly is called <strong>overfitting</strong></p>
+<p><strong>Overfitting</strong> occurs when a model fits the training data closely but predicts poorly on new data.</p>
+<p><strong>Regularization</strong> limits model flexibility to improve out-of-sample prediction.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 91 to 93 and Table 2.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>Mullainathan and Spiess call a tree that fits each observation “perfect overfit”</li>
-<li>Limiting the number of divisions is a form of regularization: the method gives up some training fit to improve predictions on new observations</li>
-<li>The forest’s large drop in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math> from training to test data illustrates this concern</li>
+<li>Each split is selected to reduce training error, but reductions in training error do not necessarily improve predictions on new observations.</li>
+<li>A sufficiently deep tree can nearly memorize the training observations.</li>
+<li>This helps explain why the random forest’s training R-squared is so much higher than its held-out R-squared, although the gap alone does not establish which tree settings are optimal.</li>
+<li>Regularization constrains model complexity.</li>
+<li>For regression trees, we can limit tree depth, the number of splits, or the minimum number of observations in a leaf.</li>
+<li>Restricting flexibility may increase training error while improving held-out performance.</li>
+<li>Transition: How do we determine the appropriate amount of flexibility?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -723,28 +805,31 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="how-do-we-choose-when-a-tree-should-stop" class="slide level2">
-<h2>How do we choose when a tree should stop?</h2>
+<section id="how-do-we-choose-the-right-tree-depth" class="slide level2">
+<h2>How do we choose the right tree depth?</h2>
+<p>A deeper tree may fit the training data better, but how deep should it be?</p>
+<p><strong>Cross-validation</strong> evaluates different model settings using only the training data.</p>
 <ol type="1">
-<li>Keep the test houses aside until the final evaluation</li>
-<li>Divide the training houses into several groups</li>
-<li>Fit a short tree on all but one group, then check its predictions for the group left out</li>
-<li>Repeat with each group left out, then repeat the process for deeper trees</li>
-<li>Choose the depth with the smallest average prediction error</li>
-<li>Fit a tree of that depth on all training houses and evaluate it once on the test houses</li>
+<li>Divide the training data into several groups (<em>folds</em>)</li>
+<li>Fit the model using all but one fold</li>
+<li>Predict outcomes for the excluded fold and calculate prediction error</li>
+<li>Repeat until every fold has been excluded once</li>
+<li>Choose the tree depth with the lowest average prediction error</li>
 </ol>
-<p>This repeated check within the training data is called <strong>cross-validation</strong></p>
+<p>Then fit the selected model on all training data and evaluate it on the <strong>held-out test data</strong>.</p>
 <div class="source">
 <p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 92 to 93; <span class="citation" data-cites="bittmann2025practical">Bittmann (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>Mullainathan and Spiess describe this as creating “an out-of-sample experiment inside the original sample”</li>
-<li>The training groups are called folds, often five or ten</li>
-<li>It works because prediction quality is observable: both the prediction and the outcome are in the data. Parameter estimation has no equivalent check.</li>
-<li>The test sample is used once. If it informs the choice of settings, it no longer measures out-of-sample performance.</li>
-<li>With panel or spatial data, folds should respect that structure, for example by training on earlier years and testing on later ones.</li>
-<li>Transition: one expression that covers trees, the LASSO, and forests.</li>
+<li>Cross-validation creates repeated prediction exercises within the training sample.</li>
+<li>For example, in five-fold cross-validation, the model is trained five times, each time leaving out a different fifth of the training observations.</li>
+<li>Repeat the process for different tree depths and compare their average validation errors.</li>
+<li>After selecting the depth, refit the model using the entire training sample.</li>
+<li>The final test sample is reserved for evaluating performance after model selection.</li>
+<li>Cross-validation helps select model settings, but it does not guarantee that the selected model will perform well in a different population.</li>
+<li>With panel or spatial data, cross-validation should respect the structure of the observations.</li>
+<li>Transition: The same principle applies to other methods. What differs is how each method constructs and constrains its prediction rule.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -760,7 +845,7 @@ Lauren Chenarides
 </section>
 <section id="how-do-the-methods-differ" class="slide level2">
 <h2>How do the methods differ?</h2>
-<p>Each method fits a rule on training data and checks it on held-out data</p>
+<p>Each method learns a prediction rule from training data, but differs in how it generates predictions and controls complexity.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -770,43 +855,69 @@ Lauren Chenarides
 <thead>
 <tr class="header">
 <th>Method</th>
-<th>Prediction rule</th>
-<th>How flexibility is limited</th>
+<th>How it predicts</th>
+<th>How it controls flexibility</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>OLS</td>
-<td>Weighted sum of characteristics</td>
-<td>Chosen characteristics and interactions</td>
+<td>Estimates a linear combination of characteristics</td>
+<td>Researcher specifies variables and interactions</td>
 </tr>
 <tr class="even">
 <td>Regression tree</td>
-<td>Yes-or-no splits</td>
-<td>Maximum splits and minimum group size</td>
-</tr>
-<tr class="odd">
-<td>LASSO</td>
-<td>Weighted sum of characteristics</td>
-<td>Some weights shrink to zero</td>
-</tr>
-<tr class="even">
-<td>Random forest</td>
-<td>Average of many trees</td>
-<td>Limits on each tree and averaging</td>
+<td>Divides observations into groups</td>
+<td>Limits on tree depth and group size</td>
 </tr>
 </tbody>
 </table>
 <div class="source">
 <p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 92 to 94 and Table 2; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 690 and 695 to 699.</p>
 </div>
+</section>
+<section id="how-do-the-methods-differ-continued" class="slide level2">
+<h2>How do the methods differ? (continued)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>How it predicts</th>
+<th>How it controls flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LASSO</td>
+<td>Estimates a linear combination of characteristics</td>
+<td>Penalizes coefficients, shrinking some to zero</td>
+</tr>
+<tr class="even">
+<td>Random forest</td>
+<td>Averages predictions from many trees</td>
+<td>Randomization, averaging, and tree settings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common goal:</strong> Minimize prediction error on new, unseen observations.</p>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, pages 92 to 94 and Table 2; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 690 and 695 to 699.</p>
+</div>
 <aside class="notes">
 <ul>
-<li>Mullainathan and Spiess summarize these methods as a choice of prediction error measure, class of rules, and limit on complexity</li>
-<li>Cross-validation helps choose settings such as tree depth or the amount of LASSO shrinkage</li>
-<li>LASSO uses a penalty on the absolute sizes of coefficients. A larger penalty shrinks more coefficients toward zero and can remove variables from the fitted rule</li>
-<li>A forest fits many trees on different samples and subsets of characteristics, then averages their predictions</li>
-<li>Transition: the first role, where prediction is the objective.</li>
+<li>The methods differ in the class of prediction rules they consider and how they limit complexity.</li>
+<li>OLS specifies the functional form in advance. Its flexibility depends on the variables and interactions included.</li>
+<li>Regression trees discover splits and interactions from the data.</li>
+<li>LASSO adds a penalty to the least-squares objective. Larger penalties shrink coefficients toward zero, and some become exactly zero.</li>
+<li>Random forests fit many trees using randomized observations and predictors, then average their predictions.</li>
+<li>Cross-validation can help select the amount of LASSO penalization, tree depth, and other model settings.</li>
+<li>All methods can be evaluated using the same held-out prediction metrics, such as MSE or R-squared.</li>
+<li>Transition: We have seen how machine learning methods improve prediction. Next, we consider how they can be used in economic research.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -851,26 +962,28 @@ Lauren Chenarides
 <h1>Role 1: Prediction as the objective</h1>
 
 </section>
-<section id="zhao-et-al.-2025-predicting-which-households-are-calorie-poor" class="slide level2">
-<h2>Zhao et al.&nbsp;(2025): predicting which households are calorie poor</h2>
-<p>The question is whether information a program could collect can identify rural households with inadequate calorie intake</p>
+<section id="zhao-et-al.-2025-predicting-calorie-poverty" class="slide level2">
+<h2>Zhao et al.&nbsp;(2025): predicting calorie poverty</h2>
+<p><strong>Research question:</strong> Can household and market characteristics help identify households at risk of inadequate calorie intake?</p>
 <ol type="1">
-<li>Use three days of food records to calculate calorie intake for each of 1,080 households</li>
-<li>Mark a household as calorie poor if its intake falls below the study’s threshold</li>
-<li>Record household, village, and food-market characteristics that might help predict that outcome</li>
-<li>Fit a random forest, LASSO, and a logit model using 756 households</li>
-<li>Predict calorie poverty for the other 324 households and compare predictions with their measured outcomes</li>
+<li>Use three days of food records to measure calorie intake for 1,080 rural households</li>
+<li>Classify each household as calorie poor or not calorie poor</li>
+<li>Use household, village, and food-market characteristics to predict that classification</li>
+<li>Fit a random forest, LASSO, and logit model using 756 households</li>
+<li>Evaluate predictions on the remaining 324 households</li>
 </ol>
+<p><strong>Unlike house values, the outcome is binary:</strong> a household is either classified as calorie poor or not.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 3 to 5.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>Step 2 matters as much as the algorithm: a different calorie threshold changes who counts as calorie poor. The households are in Jilin, Shandong, and Hubei, and 61.1% of the full sample meets the paper’s definition</li>
-<li>The forest uses 93 trees, chosen using observations left out when each tree was fit. The paper also reports sensitivity, specificity, and the area under the ROC curve</li>
-<li>Out-of-bag error is the random forest’s built-in version of a hold-out sample: each tree is fit on a bootstrap sample, and the observations left out of that sample are used to measure its error.</li>
-<li>The authors oversample the smaller class (SMOTE) because the two classes are unequal in size.</li>
-<li>Transition: the results.</li>
+<li>This is supervised learning because the outcome is observed and used to train the prediction models.</li>
+<li>The outcome is binary rather than continuous, so the authors evaluate classification accuracy rather than regression R-squared.</li>
+<li>The calorie-poverty threshold determines which households receive the label.</li>
+<li>The households are in Jilin, Shandong, and Hubei. Approximately 61.1% of the full sample is classified as calorie poor.</li>
+<li>The authors use SMOTE to address class imbalance and out-of-bag observations to help tune the forest.</li>
+<li>Transition: Does the random forest classify households more accurately than conventional approaches?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -884,17 +997,13 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="how-much-does-the-random-forest-improve-prediction" class="slide level2">
-<h2>How much does the random forest improve prediction?</h2>
+<section id="does-machine-learning-improve-classification" class="slide level2">
+<h2>Does machine learning improve classification?</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 70%">
-<col style="width: 30%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Model (test sample)</th>
-<th style="text-align: right;">Accuracy</th>
+<th>Model</th>
+<th style="text-align: right;">Test-sample accuracy</th>
 </tr>
 </thead>
 <tbody>
@@ -912,16 +1021,24 @@ Lauren Chenarides
 </tr>
 </tbody>
 </table>
-<p>Accuracy is the share of test households classified correctly. The forest exceeds the logit benchmark by 6.8 percentage points</p>
+<p><strong>Accuracy</strong> measures the percentage of households classified correctly.</p>
+<p>The random forest improves accuracy by <strong>6.8 percentage points</strong> relative to logit.</p>
+<p>But accuracy does not tell us which households were misclassified.</p>
+<ul>
+<li><strong>False positive:</strong> A household is predicted to be calorie poor when it is not</li>
+<li><strong>False negative:</strong> A calorie-poor household is not identified</li>
+</ul>
 <div class="source">
-<p>Source: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 3 to 5 and Table 3</p>
+<p>Source: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 3 to 5 and Table 3.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The paper also reports sensitivity, specificity, and the area under the ROC curve (0.62 for both the forest and the LASSO, against 0.5 for random classification).</li>
-<li>The paper reports that 61.1% of the full sample is calorie poor. A rule that always predicts calorie poor could serve as another benchmark, but its accuracy in the test sample is not reported</li>
-<li>The authors recommend choosing the classification cut-off according to a program’s coverage: a lower cut-off catches more food-insecure households at the cost of more false alarms.</li>
-<li>Transition: what a prediction paper can conclude about the determinants of food insecurity.</li>
+<li>The methods are evaluated on the same held-out observations.</li>
+<li>A model’s accuracy depends on the classification threshold.</li>
+<li>For a food assistance program, false negatives may be especially consequential because eligible households could be overlooked.</li>
+<li>The paper also reports sensitivity, specificity, and area under the ROC curve.</li>
+<li>The full-sample calorie-poverty prevalence is 61.1%; that is not necessarily the accuracy of a majority-class classifier in the test sample.</li>
+<li>Transition: The authors also examine which variables are most useful for prediction. What can we learn from those rankings?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -935,23 +1052,27 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-can-a-predictor-ranking-tell-us" class="slide level2">
-<h2>What can a predictor ranking tell us?</h2>
-<p>Zhao et al.&nbsp;find that household income and access to food markets help predict calorie poverty</p>
+<section id="do-important-predictors-identify-causes" class="slide level2">
+<h2>Do important predictors identify causes?</h2>
+<p>Zhao et al.&nbsp;find that household income and access to food markets help predict calorie poverty.</p>
+<p>But a variable that improves prediction is not necessarily a cause of the outcome.</p>
 <ul>
-<li>A predictor can be useful because it moves with another factor that the data do not measure</li>
-<li>Correlated predictors can replace one another, so the variables chosen by LASSO may change when the training sample changes</li>
-<li>The ranking tells us which information helps classify households in this dataset</li>
+<li>A predictor may be correlated with other factors that affect calorie poverty</li>
+<li>Highly correlated predictors may provide similar information</li>
+<li>LASSO may select one predictor and exclude another, depending on the sample</li>
 </ul>
+<p>Predictor importance tells us what helps classify households, not what would happen if we changed that characteristic.</p>
 <div class="source">
 <p>Sources: <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 5.2; <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, page 97, Figure 2; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, page 740, footnote 17.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>Zhao et al.’s discussion moves from variables that predict food insecurity to variables that “significantly influence” it. That shift is where a reader should ask for an identification strategy</li>
-<li>Mullainathan and Spiess show that LASSO selects different variables across ten random partitions of the same data. Stetter et al.&nbsp;also warn against a causal reading of variable importance</li>
-<li>The instability arises because correlated predictors are close substitutes in prediction; small changes in the sample change which one the LASSO retains.</li>
-<li>Transition: the second role, where prediction is one step in a larger analysis.</li>
+<li>The distinction is between predicting an outcome and identifying a causal effect.</li>
+<li>Income may predict calorie poverty, but this analysis does not identify the effect of increasing income.</li>
+<li>Mullainathan and Spiess demonstrate that LASSO may select different variables across different partitions of the same data.</li>
+<li>This is especially relevant when predictors are highly correlated.</li>
+<li>Prediction can help identify households for assistance without establishing why those households experience inadequate calorie intake.</li>
+<li>Transition: In the next examples, prediction is not the final objective. Instead, machine learning helps researchers estimate economic relationships.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -972,22 +1093,26 @@ Lauren Chenarides
 </section>
 <section id="li-and-yu-2025-selecting-apple-attributes" class="slide level2">
 <h2>Li and Yu (2025): selecting apple attributes</h2>
-<p>The question is how much consumers value apple attributes such as origin, size, and production method</p>
+<p><strong>Research question:</strong> How much are consumers willing to pay for apple attributes such as origin, size, and production method?</p>
 <ol type="1">
-<li>Ask 100 consumers to choose among two apples and a no-purchase option in four scenarios</li>
-<li>Record each apple’s attributes and price in every choice</li>
-<li>Use LASSO to select attributes that help predict choices, while always retaining price</li>
-<li>Fit a choice model with the retained attributes and calculate willingness to pay from its coefficients</li>
+<li>Ask 100 consumers to choose between apples with different attributes and a no-purchase option</li>
+<li>Use LASSO to identify which attributes help predict consumer choices</li>
+<li>Estimate a conditional logit model using the selected attributes</li>
+<li>Calculate willingness to pay from the estimated coefficients</li>
 </ol>
+<p><strong>Role of ML:</strong> Select variables to include in an economic model.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Sections 2 and 3.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The paper interprets the removed attributes as possible evidence of attribute non-attendance, meaning that some respondents may not use those attributes in their choices</li>
-<li>Ten-fold cross-validation chooses the amount of LASSO shrinkage; price is exempt from shrinkage. The final model is a conditional logit</li>
-<li>Willingness to pay for attribute <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><msub><mi>β</mi><mi>k</mi></msub><mi>/</mi><msub><mi>β</mi><mtext mathvariant="normal">price</mtext></msub></mrow><annotation encoding="application/x-tex">-\beta_k/\beta_{\text{price}}</annotation></semantics></math>: how many euros a consumer would give up for the attribute, holding utility constant</li>
-<li>Transition: how the estimates change.</li>
+<li>Each respondent completes four choice scenarios.</li>
+<li>The authors use LASSO to select apple attributes, while always retaining price.</li>
+<li>Tenfold cross-validation determines the LASSO penalty.</li>
+<li>The final conditional logit estimates relationships between attributes and choice probabilities.</li>
+<li>Willingness to pay is calculated as the negative ratio of the attribute and price coefficients.</li>
+<li>The prediction step helps specify the economic model rather than serving as the final result.</li>
+<li>Transition: Which attributes does LASSO retain?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1001,20 +1126,30 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="why-are-organic-and-japan-omitted" class="slide level2">
-<h2>Why are Organic and Japan omitted?</h2>
-<p>LASSO shrinks attribute coefficients toward zero. The authors choose the penalty using <strong>tenfold cross-validation</strong></p>
-<p>At the chosen penalty, <strong>Organic</strong> and <strong>Japan</strong> reach zero. They contribute the weakest additional signals for predicting choices after the other recorded attributes are considered</p>
-<p><strong>Price stays in the model</strong> because the authors exempt it from the penalty. The price coefficient is needed to calculate willingness to pay</p>
-<p>This selection describes the fitted model for these respondents. It does not establish that every respondent ignored either attribute</p>
+<section id="how-does-lasso-select-attributes" class="slide level2">
+<h2>How does LASSO select attributes?</h2>
+<p>LASSO estimates coefficients while penalizing their absolute magnitude.</p>
+<p>As the penalty increases, some coefficients shrink to zero.</p>
+<p>In Li and Yu (2025):</p>
+<ul>
+<li>Tenfold cross-validation determines the penalty</li>
+<li><strong>Organic</strong> and <strong>Japan</strong> have coefficients of zero at the selected penalty</li>
+<li><strong>Price</strong> remains because the authors exclude it from the penalty</li>
+</ul>
+<p>The excluded attributes provide little additional predictive information in this fitted model, given the other attributes.</p>
+<p>Does a coefficient of zero mean consumers do not value the attribute?</p>
 <div class="source">
-<p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3.1, Figure 2, and Table 4</p>
+<p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3.1, Figure 2, and Table 4.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The authors’ Shapley-value check also ranks Japan and Organic lowest among the attributes</li>
-<li>Tenfold cross-validation selects the penalty that minimizes mean cross-validated error</li>
-<li>The authors suggest attribute non-attendance as one interpretation, but selection alone cannot establish an individual respondent’s reasoning</li>
+<li>LASSO minimizes prediction error plus a penalty on coefficient magnitude.</li>
+<li>A larger penalty generally produces a simpler model.</li>
+<li>Cross-validation selects the penalty based on predictive performance.</li>
+<li>A zero coefficient is a model-selection result, not evidence that every consumer ignores the attribute.</li>
+<li>Correlated attributes may substitute for one another.</li>
+<li>The authors also use Shapley values to evaluate attribute importance.</li>
+<li>Transition: How does this selection affect the economic estimates?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1030,7 +1165,7 @@ Lauren Chenarides
 </section>
 <section id="lasso-changes-willingness-to-pay-estimates" class="slide level2">
 <h2>LASSO changes willingness-to-pay estimates</h2>
-<p>Willingness to pay relative to China, in euros per kg</p>
+<p>Estimated willingness to pay relative to China, in euros per kg:</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 56%">
@@ -1041,7 +1176,7 @@ Lauren Chenarides
 <tr class="header">
 <th>Apple attribute</th>
 <th style="text-align: right;">All attributes</th>
-<th style="text-align: right;">After LASSO</th>
+<th style="text-align: right;">After LASSO selection</th>
 </tr>
 </thead>
 <tbody>
@@ -1063,83 +1198,32 @@ Lauren Chenarides
 <tr class="even">
 <td>Organic</td>
 <td style="text-align: right;">−0.04</td>
-<td style="text-align: right;">excluded</td>
+<td style="text-align: right;">Excluded</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>All attributes:</strong> a conditional logit with every attribute</li>
-<li><strong>After LASSO:</strong> the same model without the two attributes the LASSO excluded (Organic and Japan)</li>
-</ul>
+<div class="source">
+<p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3, Tables 6 and 7.</p>
+</div>
+</section>
+<section id="what-changes-when-lasso-selects-attributes" class="slide level2">
+<h2>What changes when LASSO selects attributes?</h2>
+<p>After removing the selected attributes, estimated willingness to pay changes for some of the remaining characteristics.</p>
+<p>LASSO selects variables based on their contribution to the model’s predictive objective, subject to its penalty.</p>
+<p>But the variables that produce the best predictions are not necessarily the variables we need to estimate a particular economic parameter.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>, Section 3, Tables 6 and 7.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The economic estimates change: the premium for French apples rises from €1.20 to €1.53 per kilogram, and the premium for small apples from €1.30 to €1.41.</li>
-<li>Dropping Organic and Japan lowers the log-likelihood only slightly (from −403.62 to −409.61), which the authors take as evidence the two attributes add little.</li>
-<li>A question for discussion: the LASSO excludes Organic for the whole sample, so the paper cannot report willingness to pay for organic apples, the attribute most relevant to policy. Is that trade-off appropriate?</li>
-<li>Transition: the same logic applied to the choice of control variables.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-select-controls-for-both-equations" class="slide level2">
-<h2>Why select controls for both equations?</h2>
-<p>Belloni et al.&nbsp;revisit the relationship between <strong>earlier abortion rates</strong> and <strong>later crime rates</strong> across states</p>
-<p>A state characteristic may be related to both rates. For example, an initial state condition could predict how abortion rates change and how crime rates change over time</p>
-<p>If controls are selected only for predicting crime, the procedure might omit a variable that strongly predicts abortion rates and also matters for crime</p>
-<p><strong>Double selection</strong> retains controls selected from either prediction step before estimating the abortion-rate coefficient</p>
-<div class="source">
-<p>Source: <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Sections 1 and 7</p>
-</div>
-<aside class="notes">
-<ul>
-<li>Earlier abortion rates are constructed to reflect the age groups associated with later crime; the application reports violent crime, property crime, and murder separately</li>
-<li>The concern is omitted-variable bias: a shared state factor can make the abortion-rate coefficient absorb part of that factor’s association with crime</li>
-<li>An initial condition is a state’s starting level of a variable, such as its initial abortion rate or income</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="belloni-et-al.-2014-double-selection-in-practice" class="slide level2">
-<h2>Belloni et al.&nbsp;(2014): double selection in practice</h2>
-<p>The application has <strong>576 state-year observations</strong> and <strong>251 candidate controls</strong>, including initial conditions, interactions, and trends</p>
-<ol type="1">
-<li>Use LASSO to find controls that predict the relevant abortion rate</li>
-<li>Use LASSO again to find controls that predict the crime rate</li>
-<li>Combine the controls selected in either step</li>
-<li>Regress the crime rate on the abortion rate and those controls using OLS</li>
-</ol>
-<p>The final models include <strong>8 to 14</strong> of the 251 candidate controls, depending on the crime outcome</p>
-<p>The estimates for violent crime and murder become imprecise after the selected controls are included</p>
-<div class="source">
-<p>Source: <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Sections 1, 2.2, and 7.</p>
-</div>
-<aside class="notes">
-<ul>
-<li>The application covers 48 states over 12 years. The 251 controls supplement time effects included in every model</li>
-<li>The property crime estimate remains close to the original study but is significant only at the 10% level; the violent crime and murder estimates become imprecise</li>
-<li>Selection on observables is the identifying assumption. LASSO makes the choice among a large set of proposed controls systematic and reproducible</li>
-<li>Transition: the third role.</li>
+<li>The comparison is between a conditional logit model containing all attributes and a model excluding the attributes selected for removal by LASSO.</li>
+<li>Willingness to pay for French apples increases from €1.20 to €1.53 per kilogram.</li>
+<li>The estimate for Italian apples changes little.</li>
+<li>Organic willingness to pay is no longer estimated in the selected specification.</li>
+<li>Selecting variables for predictive performance does not automatically produce unbiased estimates or valid inference for every economic parameter.</li>
+<li>Discussion: If organic production is a primary research interest, should the researcher allow LASSO to exclude it?</li>
+<li>The variables included in a model affect its estimated coefficients and willingness-to-pay estimates. Selecting variables for prediction does not necessarily produce the best model for answering an economic research question.</li>
+<li>Transition: What if we use machine learning to select control variables when estimating a treatment effect?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1160,21 +1244,73 @@ Lauren Chenarides
 </section>
 <section id="how-does-prediction-help-estimate-an-effect" class="slide level2">
 <h2>How does prediction help estimate an effect?</h2>
-<p>Suppose larger farms are more likely to join a program and also use more fertiliser. A direct comparison of participants and other farms mixes those farm differences with the program effect</p>
-<ol type="1">
-<li>Use farm characteristics to predict participation and expected fertiliser use</li>
-<li>Account for those expected differences when comparing participants with other farms</li>
-<li>Use many trees to find groups of farms where the adjusted comparison differs</li>
-</ol>
-<p>The result estimates an <strong>average program effect for farms with similar characteristics</strong></p>
+<p>Suppose an agri-environment program encourages farmers to reduce fertiliser use.</p>
+<p>The research question is: Do programs have the same effect on every farm?</p>
+<p>The average treatment effect tells us how participation changes fertiliser use across farms.</p>
+<p>But the effect may differ depending on:</p>
+<ul>
+<li>Farm size</li>
+<li>Location</li>
+<li>Crop production and yield potential</li>
+<li>Other farm characteristics</li>
+</ul>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 701 to 704; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3 and 4.1 to 4.3.</p>
+</div>
+</section>
+<section id="conditional-average-treatment-effects" class="slide level2">
+<h2>Conditional average treatment effects</h2>
+<p><strong>Conditional average treatment effects (CATEs)</strong> describe how estimated treatment effects differ across farms with different characteristics.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">
+\tau(x)=E[Y(1)-Y(0)\mid X=x]
+</annotation></semantics></math></p>
 <div class="source">
 <p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 701 to 704; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3 and 4.1 to 4.3.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>Prediction is an intermediate step. The outcome of interest is a treatment-effect estimate, not a forecast of future fertiliser use</li>
-<li>In the paper, forests estimate participation and outcomes from observed characteristics. A causal forest then uses the remaining variation to estimate how effects differ across farms</li>
-<li>The comparison is credible only if observed characteristics account for selection into the program and comparable participants and nonparticipants exist for the farms studied</li>
+<li>This extends the potential-outcomes framework introduced earlier in the course.</li>
+<li>Y(1) is the potential outcome under program participation; Y(0) is the potential outcome without participation.</li>
+<li>The average treatment effect summarizes the mean difference across the population.</li>
+<li>The conditional average treatment effect describes how that difference varies with observed characteristics.</li>
+<li>The objective is not simply to predict fertiliser use, but to estimate differences in treatment effects.</li>
+<li>Transition: How can machine learning help estimate these differences?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-does-a-causal-forest-differ-from-a-regression-tree" class="slide level2">
+<h2>How does a causal forest differ from a regression tree?</h2>
+<p>A regression tree divides observations into groups to predict an <strong>outcome</strong>.</p>
+<p>A causal forest seeks groups with different <strong>treatment effects</strong>.</p>
+<ol type="1">
+<li>Predict treatment participation using observed characteristics</li>
+<li>Predict the outcome using observed characteristics</li>
+<li>Account for those predicted relationships when comparing treated and untreated farms</li>
+<li>Use many trees to estimate how treatment effects vary across farm characteristics</li>
+</ol>
+<p><strong>The goal:</strong> Estimate treatment-effect heterogeneity rather than minimize ordinary outcome prediction error.</p>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, pages 701 to 704; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3 and 4.1 to 4.3.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Standard prediction forests estimate relationships between predictors and observed outcomes.</li>
+<li>Causal forests adapt tree-based methods to estimate variation in treatment effects.</li>
+<li>In Stetter et al., machine learning estimates treatment participation and expected outcomes as intermediate steps.</li>
+<li>The causal forest uses adjusted comparisons to estimate heterogeneous effects.</li>
+<li>The method does not automatically eliminate selection bias.</li>
+<li>The credibility of the estimates depends on the identification assumptions.</li>
+<li>Transition: Let’s look at an application to agri-environment programs.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1190,25 +1326,26 @@ Lauren Chenarides
 </section>
 <section id="stetter-et-al.-2022-do-program-effects-differ-across-farms" class="slide level2">
 <h2>Stetter et al.&nbsp;(2022): do program effects differ across farms?</h2>
-<p>The study asks whether participation in an agri-environment scheme changes farm outcomes, and whether the change differs by farm characteristics</p>
+<p><strong>Research question:</strong> Does participation in an agri-environment scheme change farm outcomes, and do those effects vary across farms?</p>
 <ol type="1">
-<li>Start with 2,758 Bavarian farms in 2014, including 1,641 program participants</li>
-<li>Record farm and county characteristics, participation, and four environmental outcomes</li>
-<li>Use the characteristics to predict which farms participate and what outcomes to expect</li>
-<li>Account for those predicted differences when comparing participants with other farms</li>
-<li>Use a causal forest to estimate how the effect varies across groups of farms</li>
+<li>Observe 2,758 Bavarian farms in 2014, including 1,641 program participants</li>
+<li>Collect farm characteristics, program participation, and environmental outcomes</li>
+<li>Use machine learning to account for observed differences between participating and nonparticipating farms</li>
+<li>Estimate heterogeneous treatment effects using a causal forest</li>
 </ol>
+<p>The authors examine four outcomes, including fertiliser expenditure, pesticide expenditure, land-use diversity, and emissions.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 2.3, 4.1, and 4.2.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The study uses more than 130 farm and county characteristics. In the paper, the participation prediction is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>e</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\hat e(x)</annotation></semantics></math> and the outcome prediction is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>m</mi><mo accent="true">̂</mo></mover><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\hat m(x)</annotation></semantics></math></li>
-<li>The group effect is the conditional average treatment effect, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>E</mi><mo stretchy="false" form="prefix">[</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><msub><mi>X</mi><mi>i</mi></msub><mo>=</mo><mi>x</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\tau(x)=E[Y_i(1)-Y_i(0)\mid X_i=x]</annotation></semantics></math>, using the potential outcomes from Lecture 6.1</li>
-<li>Steps 3 to 4 follow the logic of partialling out the farm characteristics from both participation and outcomes, then relating what remains. The forests allow flexible relationships</li>
-<li>A regression tree splits to predict the outcome; a causal forest splits to separate farms with different treatment effects.</li>
-<li>Settings are tuned by cross-validation. The participation and outcome forests use 5,000 trees each; the causal forest uses 100,000 for stable estimates.</li>
-<li>Transition: what they find.</li>
+<li>The study uses more than 130 farm and county characteristics.</li>
+<li>Participation and outcome models are estimated using random forests.</li>
+<li>The causal forest estimates conditional average treatment effects.</li>
+<li>The aim is to identify whether effects differ by observable farm characteristics.</li>
+<li>Settings are tuned using cross-validation.</li>
+<li>The authors use large forests to obtain stable estimates.</li>
+<li>Transition: What do the authors find?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1222,8 +1359,8 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="which-farms-have-estimated-benefits-from-the-schemes" class="slide level2">
-<h2>Which farms have estimated benefits from the schemes?</h2>
+<section id="which-farms-have-detectable-program-effects" class="slide level2">
+<h2>Which farms have detectable program effects?</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 35%">
@@ -1232,39 +1369,41 @@ Lauren Chenarides
 <thead>
 <tr class="header">
 <th>Outcome</th>
-<th>Share with a detectable improvement</th>
+<th>Share of farms with a statistically detectable effect</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Fertiliser expenditure</td>
-<td>33%, a reduction of €14 per hectare among them</td>
+<td>33% show reductions</td>
 </tr>
 <tr class="even">
 <td>Land-use diversity</td>
-<td>55%, a small increase</td>
+<td>55% show increases</td>
 </tr>
 <tr class="odd">
 <td>Pesticide expenditure</td>
-<td>7%</td>
+<td>7% show improvements</td>
 </tr>
 <tr class="even">
 <td>Emissions</td>
-<td>Under 1%; about 4% show detectable increases</td>
+<td>Under 1% show reductions; about 4% show increases</td>
 </tr>
 </tbody>
 </table>
-<p>Estimated effects vary by location, farm size, and yield potential. The authors use these differences to discuss how payments might be targeted</p>
+<p>Among farms with detectable reductions in fertiliser expenditure, the estimated reduction averages <strong>€14 per hectare</strong>. Estimated effects vary by location, farm size, and yield potential. <strong>Policy relevance:</strong> Differences in estimated effects may inform how program payments are targeted.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 5.2, 5.3, and 6 and Table 3.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>“Detectable” means the reported confidence interval excludes zero. The emissions outcome is greenhouse gas emissions</li>
-<li>€14 per hectare corresponds to about 13 kg of nitrogen per hectare at the paper’s 2014 price.</li>
-<li>The authors use Shapley values to measure how much each group of characteristics contributes to the variation in estimated effects; farm type contributes little.</li>
-<li>The share of farms with significant effects depends on the precision of each farm-level estimate; a farm without a significant effect may still have a nonzero effect.</li>
-<li>Transition: the source of identification.</li>
+<li>A statistically detectable effect means the reported confidence interval excludes zero.</li>
+<li>The percentages describe statistical detectability, which depends on both estimated effect magnitude and precision.</li>
+<li>An insignificant estimate does not mean the true treatment effect is zero.</li>
+<li>The effects vary across farm characteristics, suggesting that average effects can hide meaningful heterogeneity.</li>
+<li>The authors examine how these differences might inform program targeting.</li>
+<li>These are estimates from an observational study, so the identifying assumptions remain important.</li>
+<li>Transition: How do the authors justify interpreting these differences as treatment effects?</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1278,23 +1417,95 @@ Lauren Chenarides
           display:block!important;
       }</style></aside>
 </section>
-<section id="how-do-the-authors-support-the-comparison" class="slide level2">
-<h2>How do the authors support the comparison?</h2>
-<p>The causal forest compares farms after accounting for their recorded characteristics. The authors examine two conditions</p>
+<section id="what-makes-a-causal-forest-estimate-credible" class="slide level2">
+<h2>What makes a causal forest estimate credible?</h2>
+<p>A causal forest can estimate differences in treatment effects, but <strong>machine learning alone does not establish causality</strong>.</p>
+<p>The analysis relies on two important assumptions:</p>
 <ol type="1">
-<li><strong>Comparable farms:</strong> after accounting for recorded characteristics, participation is as good as randomly assigned</li>
-<li><strong>Both options are possible:</strong> farms with similar characteristics could participate or stay out of the program</li>
+<li><strong>Selection on observables:</strong> After accounting for recorded characteristics, treated and untreated farms are comparable in their potential outcomes</li>
+<li><strong>Overlap:</strong> Farms with similar characteristics have a positive probability of participating or not participating</li>
 </ol>
-<p>The authors exclude 23 farms that lack a suitable comparison and check how their findings respond to alternative assumptions about missing factors</p>
+<p>Stetter et al.&nbsp;exclude 23 farms that lack suitable comparisons and examine sensitivity to unobserved confounding.</p>
+<p><strong>The distinction:</strong> Machine learning helps estimate relationships; causal identification determines whether they can be interpreted as treatment effects.</p>
 <div class="source">
 <p>Source: <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>, Sections 4.3 and 5.1.</p>
 </div>
 <aside class="notes">
 <ul>
-<li>The formal names are selection on observables and overlap. Estimated participation probabilities range from 0.27 to 0.86 for retained farms</li>
-<li>The authors argue that many recorded characteristics can stand in for unobserved factors such as environmental attitudes. They acknowledge that omitted confounders could still bias the estimates</li>
-<li>They report placebo tests and simulations with omitted confounders</li>
-<li>Transition: what a methods section must report in all three roles.</li>
+<li>Selection on observables assumes that the recorded characteristics account for the confounding relevant to treatment assignment.</li>
+<li>Overlap requires comparable treated and untreated farms across the covariate region used for estimation.</li>
+<li>The retained farms have estimated participation probabilities between 0.27 and 0.86.</li>
+<li>The authors use placebo tests and simulations involving omitted confounders.</li>
+<li>Sensitivity analysis can investigate robustness but cannot establish that all relevant confounders were observed.</li>
+<li>Machine learning provides flexible estimation, not an identification strategy by itself.</li>
+<li>Transition: What should we look for when assessing machine learning in an empirical economics paper?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-role-does-machine-learning-play-in-economic-research" class="slide level2">
+<h2>What role does machine learning play in economic research?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Research objective</th>
+<th>Contribution of ML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prediction</td>
+<td>Identify households at risk of calorie poverty</td>
+<td>Improve classification accuracy</td>
+</tr>
+<tr class="even">
+<td>Model selection and estimation</td>
+<td>Estimate preferences or a coefficient of interest</td>
+<td>Select variables and controls</td>
+</tr>
+<tr class="odd">
+<td>Heterogeneous treatment effects</td>
+<td>Estimate how program impacts differ across farms</td>
+<td>Flexibly estimate differences in treatment effects</td>
+</tr>
+</tbody>
+</table>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>; <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>.</p>
+</div>
+</section>
+<section id="three-questions-to-ask-when-reading-a-paper" class="slide level2">
+<h2>Three questions to ask when reading a paper</h2>
+<ol type="1">
+<li>What is the quantity the researchers want to estimate?</li>
+<li>What does machine learning contribute to that objective?</li>
+<li>What assumptions are needed to interpret the results?</li>
+</ol>
+<div class="source">
+<p>Sources: <span class="citation" data-cites="mullainathan2017machine">Mullainathan and Spiess (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>; <span class="citation" data-cites="athey2019machine">Athey and Imbens (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>; <span class="citation" data-cites="zhao2025food">Zhao et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="li2025attribute">Li and Yu (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>; <span class="citation" data-cites="belloni2014inference">Belloni et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>; <span class="citation" data-cites="stetter2022machine">Stetter et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span>.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Prediction accuracy is the primary objective in the first example.</li>
+<li>In the second role, ML is used to support an economic model or the estimation of a particular parameter.</li>
+<li>In the third role, ML helps estimate treatment-effect heterogeneity.</li>
+<li>Better prediction does not necessarily imply better parameter estimates or more credible causal inference.</li>
+<li>The research objective determines how the model should be evaluated.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
