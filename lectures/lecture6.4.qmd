@@ -42,7 +42,9 @@ format:
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings)
 
 ::: notes
-The two required readings frame the second half of today. Gibson asks whether an estimate measures the quantity and the population named in the research question. Kim asks how often a study would report an effect that is not there, and what a study needs in order to detect an effect that is there. Falk and Heckman and Starr support the first half, where we compare experiments, interviews, and mixed methods.
+**Read.** Gibson and Kim frame the second half of the lecture. Gibson asks whether an estimate measures the quantity and the population named in the research question. Kim asks how often a test reports an effect that does not exist, and what a study requires to detect an effect that does.
+
+**Additional readings.** Falk and Heckman (laboratory experiments) and Starr (qualitative and mixed methods) support the first half of the lecture, where we compare research designs.
 :::
 
 ## Methods covered in Unit 6
@@ -54,9 +56,9 @@ The two required readings frame the second half of today. Gibson asks whether an
 **6.4** covers experiments, qualitative and mixed methods, and the measurement and statistical decisions that support a conclusion
 
 ::: notes
-So far in Unit 6 we have covered three ways to use observational data. In 6.1 we wrote an estimating equation and stated the identifying assumption. In 6.2 we estimated a model of behavior and used it for counterfactuals. In 6.3 we used machine learning for prediction.
+**6.1 to 6.3.** The first three meetings of Unit 6 worked with observational data: a reduced-form comparison with a stated identifying assumption in 6.1, structural estimation and counterfactuals in 6.2, and machine learning for prediction in 6.3.
 
-Today adds two things. First, methods where the researcher creates the variation, through an experiment, or collects accounts of decisions, through interviews. Second, the measurement and statistical decisions that any of these methods requires before a result can support a conclusion. Students can use both in the empirical strategy section of their workshop plans.
+**6.4.** Today adds designs in which the researcher creates the variation (experiments) or collects accounts of how decisions are made (interviews). It also covers the measurement and statistical decisions that determine whether a result supports a conclusion. Both apply to the empirical strategy section of the workshop plans.
 :::
 
 ## Our hypothetical example
@@ -74,15 +76,15 @@ Related evidence on feedback reports: Allcott (2011) on household electricity us
 :::
 
 ::: notes
-We will use one hypothetical example for the whole lecture. The districts, farms, and numbers are made up, but the policy problem is a familiar one.
+The districts, farms, and numbers in this example are hypothetical. The same example runs through the rest of the lecture.
 
-Here is the setting. Irrigation districts deliver water to member farms. In a drought year, the districts have less water to deliver and want farms to use less without paying for new canals, meters, or storage.
+**Setting.** Irrigation districts deliver surface water to member farms. In a drought year the districts have less water to allocate, and they want to reduce use without investing in new canals, meters, or storage.
 
-The problem is information. Farms see how much water they used on a seasonal bill, which arrives after most irrigation decisions have already been made.
+**Problem.** Farms learn how much water they used from a seasonal bill, which arrives after most irrigation decisions have been made. The proposed program targets this information gap.
 
-The proposed program is a monthly report. Each farm receives its own water use for the month and a comparison with similar farms nearby. Reports like this have reduced household electricity use and residential water use in large field experiments, such as Allcott's work on home energy reports and Ferraro and Price on residential water in Georgia. Whether they change irrigation decisions on working farms is an open question.
+**Proposed program.** Each farm receives a monthly report of its own water use and a comparison with similar farms nearby. Reports of this kind have reduced household electricity use (Allcott 2011) and residential water use (Ferraro and Price 2013) in large field experiments. Whether they change irrigation decisions on working farms is less established. The reports also cost money to produce and mail.
 
-The reports are not free. So the districts' question has two parts: does the report reduce water use, and is the reduction large enough to justify the cost? Keep that second part in mind, because it returns when we plan the sample size.
+**Policy question.** The question has two parts: whether the report reduces water use, and whether the reduction is large enough to justify the cost. The second part determines the effect size used in the power calculation later in the lecture.
 :::
 
 ## Following the example through the lecture
@@ -95,20 +97,22 @@ The reports are not free. So the districts' question has two parts: does the rep
 All numbers are hypothetical
 
 ::: notes
-The lecture follows the example in the order a research team would work.
+The four items follow the order in which a research team would work, and each one is a section of the lecture.
 
-First, we choose a design. The districts want the effect of a policy, so we start with experiments, then add what interviews can contribute.
+**1. Choose a design.** The districts want the effect of a policy, so we begin with experiments and then consider what interviews add.
 
-Second, before any statistics, we ask Gibson's question: are we estimating the right thing? That means checking which farms the data cover and whether the survey measures the water use the districts care about.
+**2. Are we estimating the right thing?** Before any statistical test, we check which farms the data cover and whether the survey measures the water use the districts care about. This is Gibson's question.
 
-Third, we plan the sample. This is where Kim's reading comes in: how do we limit false positives, and how many completed surveys do we need to detect an effect that matters?
+**3. Plan the sample.** We determine how many completed surveys the study needs to detect an effect large enough to matter while limiting false positives. This draws on Kim.
 
-Fourth, we interpret the results after the data arrive, including what to do when far fewer farms respond than planned.
+**4. Interpret the results.** We examine what the data support once they arrive, including the case in which far fewer farms respond than planned.
 
-A decision at each stage constrains the next one. The outcome measure determines how data are collected. The collection method determines the response rate. The response rate determines how precise the estimate can be.
+Each decision constrains the next one: the outcome measure determines how the data are collected, the collection method determines the response rate, and the response rate determines how precise the estimate can be.
 :::
 
 # Choose a design
+
+Which method fits the districts' question?
 
 ## Quantitative and qualitative evidence
 
@@ -119,13 +123,15 @@ A decision at each stage constrains the next one. The outcome measure determines
 | Mixed methods | Numerical and qualitative evidence | Examine a question using measured outcomes and accounts of decisions |
 
 ::: notes
-Start with the kinds of evidence available. Quantitative evidence is numerical: survey responses, administrative records, or outcomes measured in an experiment. We use it to estimate patterns, effects, parameters, or predictions.
+The table distinguishes three forms of evidence.
 
-Qualitative evidence comes from interviews, field observations, or documents. We use it to document how people make decisions and why.
+**Quantitative.** Numerical measures from surveys, administrative records, or experiments, used to estimate patterns, effects, parameters, or predictions.
 
-Mixed methods combine the two in one study.
+**Qualitative.** Interviews, field observations, or documents, used to document how decisions are made and the processes behind them.
 
-These categories describe forms of evidence, not whole studies. A survey can include numerical and open-ended questions, and an experiment can include interviews. Whatever the form, we still ask how the sources were selected, how things were measured, and how the evidence was analyzed.
+**Mixed methods.** Both forms of evidence in one study.
+
+These categories describe evidence rather than whole studies. A survey can contain numerical and open-ended questions, and an experiment can include interviews. For any source, the relevant questions are how the units were selected, how the concepts were measured, and how the evidence was analyzed.
 :::
 
 ## Select a method to match the research task
@@ -139,11 +145,19 @@ These categories describe forms of evidence, not whole studies. A survey can inc
 | Test a response to an incentive | A field or lab experiment |
 
 ::: notes
-The research task determines the method. This table connects the methods from earlier in the unit to today.
+The research task determines the method. The rows connect today's material to earlier meetings.
 
-To estimate a policy effect, we need random assignment or an observational comparison with a stated identifying assumption, as in 6.1. To estimate preferences, we need choice data and a model of behavior, as in 6.2. To predict an outcome, we need a prediction rule tested on held-out data, as in 6.3. To document how decisions are made, we use interviews, fieldwork, or case studies. To test how people respond to an incentive, we can run a field or lab experiment.
+**Estimate a policy effect.** Random assignment, or an observational comparison with a stated identifying assumption (6.1).
 
-The districts' question is about a policy effect, and the districts control who receives the report. That means they can randomize it. So we start with a field experiment.
+**Estimate preferences.** Choice data and a model of behavior (6.2).
+
+**Predict a future outcome.** A prediction rule evaluated on held-out observations (6.3).
+
+**Document a decision process.** Interviews, fieldwork, or case studies.
+
+**Test a response to an incentive.** A field or lab experiment.
+
+The districts' question falls in the first row. Because the districts decide which farms receive the report, they can assign it at random, and the next three slides develop that field experiment.
 :::
 
 ## Field experiment (1/3)
@@ -158,32 +172,40 @@ The districts control who receives the report, so they can randomly assign the o
 | Effect of interest | A reduction of **2 acre-feet per farm-month** would justify the cost of the program |
 
 ::: notes
-Here is the design. The eligible farms are the farms on the districts' customer lists. The districts randomly choose which farms are offered the report, one farm at a time. The outcome is total monthly water use, in acre-feet per farm-month, which the team collects through a follow-up survey.
+**Opening line.** The districts decide who receives the report, which is what makes random assignment possible.
 
-The last row is new and it matters for the rest of the lecture. Before the study begins, the districts compare the cost of the program with the value of the water saved. Suppose they conclude that a reduction of 2 acre-feet per farm-month would justify the cost. That number comes from the policy question, not from any data on the report. We will use it as the effect the study needs to be able to detect.
+**Eligible farms.** Farms on the districts' customer lists.
 
-Notice also that the outcome comes from a survey. Random assignment makes the two groups comparable at the start, but a follow-up survey means some farms will not respond. That creates a problem we return to at the end.
+**Assignment.** The districts randomly select which farms are offered the report, one farm at a time.
+
+**Outcome.** Total monthly water use per farm, in acre-feet, measured in a follow-up survey. The districts' own records show only the water they deliver. Total use, which includes pumping from private wells, has to be reported by the farms, which is why the study needs a survey.
+
+**Effect of interest.** Before the study begins, the districts compare the cost of the program with the value of the water saved and conclude that a reduction of 2 acre-feet per farm-month would justify the cost. This threshold comes from the policy question, not from data on the report, and it becomes the effect the study is designed to detect.
+
+Random assignment makes the two groups comparable at the start. Because the outcome comes from a survey, some farms will not respond, and that problem returns in the final section.
 :::
 
 ## Field experiment (2/3)
 
-1. Assign eligible farms to the offer or comparison group
+One study with two parts: the **random offer** is the experiment, and the **follow-up survey** measures water use in both groups
+
+1. Assign eligible farms to the offer group (treatment) or the comparison group (control)
 2. Survey both groups about subsequent monthly water use
 3. Compare group means to estimate the effect of **being offered** the report
 4. Document report delivery, survey response, and departures from assignment
 
-The estimate applies to the offer among farms included in the experiment
-
-Extrapolation to other districts or a mandatory reporting program requires evidence about those settings (i.e., generalizability)
+The estimate applies to the offer among farms included in the experiment. Extrapolation to other districts or a mandatory reporting program requires evidence about those settings (i.e., generalizability)
 
 ::: notes
-The study runs in four steps. Assign farms at random. Survey both groups about water use afterward. Compare the group averages. Document what actually happened: whether reports were delivered, which farms responded to the survey, and any farms that ended up in the wrong group.
+**Opening line.** The example is a single study. The random offer of the report is the experiment, and the follow-up survey is how the team measures water use in both groups afterward. The survey is the data collection tool for the experiment, not a separate study.
 
-Step 3 says "being offered" on purpose. Some farms that are offered the report will not read it. Comparing groups by assignment estimates the effect of the offer, which is called the intention-to-treat effect. That is the policy-relevant quantity here, because the districts can offer reports but cannot make farms read them.
+**Steps 1 and 2.** Farms are assigned at random to the offer group, which is the treatment group, or to the comparison group, which is the control group. Both groups receive the same follow-up survey.
 
-The result applies to the offer among farms in this experiment. Applying it to other districts, or to a program that requires reporting, takes evidence about those settings. That is the generalizability question.
+**Step 3.** Comparing group means estimates the effect of being offered the report. Some farms that are offered the report will not read it, so the comparison by assignment estimates the intention-to-treat effect. That is the policy-relevant quantity, because the districts can offer the report but cannot require farms to use it.
 
-One design detail: if the districts assigned whole districts instead of individual farms, the effective sample size would be much smaller and the inference would change.
+**Step 4.** Documenting delivery, survey response, and any departures from assignment allows readers to check whether the design was implemented as planned.
+
+**Closing paragraph.** The estimate applies to the offer among farms in the experiment. Extending it to other districts, or to a program that requires reporting, requires evidence about those settings. Assigning whole districts rather than individual farms would also reduce the effective sample size and change the inference.
 :::
 
 ## Field experiment (3/3)
@@ -199,11 +221,11 @@ A negative $\widehat{\tau}$ indicates lower reported use among farms offered the
 Before computing $\widehat{\tau}$, the team must decide what it measures, for which farms, and how many completed surveys it requires
 
 ::: notes
-This is the estimator. Tau hat is average water use among farms offered the report minus average water use among comparison farms. Because the report is meant to reduce use, we expect a negative number. A value of minus 2 would mean farms offered the report used 2 acre-feet less per month on average.
+**Equation.** Tau hat is average water use among farms offered the report minus average water use among comparison farms.
 
-Random assignment is what lets us read this difference as the effect of the offer. That holds as long as the two groups are followed up in comparable ways.
+**Sign.** The report is intended to reduce use, so a negative value is the expected direction. A value of minus 2 would mean that farms offered the report used 2 acre-feet less per month, on average. Random assignment allows us to interpret the difference as the effect of the offer, provided both groups are followed up in comparable ways.
 
-We will not see an actual value of tau hat until the last section. Before computing it, the team has three decisions to make: what the survey measures, which farms the data represent, and how many completed surveys the study needs. The next sections take those up in order.
+**Last line.** No estimate appears until the final section of the lecture. Three decisions come first: what the survey measures, which farms the data represent, and how many completed surveys the study requires. The next two sections take these up in order.
 :::
 
 ## Lab experiments
@@ -223,13 +245,13 @@ Source: @falk2009lab, discussion of the gift-exchange experiment
 :::
 
 ::: notes
-A lab experiment takes the same logic into a controlled setting. Falk and Heckman discuss the gift-exchange experiment. Participants play firms or workers. A firm offers a wage. A worker who accepts then chooses how much effort to provide, and effort is costly to the worker. Since nothing forces the worker to provide more than the minimum, standard self-interest predicts minimum effort at any wage. In these experiments, effort tends to rise with the wage, which is evidence of reciprocity.
+**Steps 1 to 3.** Participants play firms or workers. A firm offers a wage, and a worker who accepts then chooses an effort level that is costly to provide. Because nothing in the rules compels effort above the minimum, a purely self-interested worker would choose minimum effort at any wage. In these experiments, effort tends to rise with the wage offered, which is consistent with reciprocity.
 
-What the lab adds is control. The researcher sets the choices, the information, and the payoffs, so they can change one feature at a time and other researchers can repeat the design exactly.
+**What the lab adds.** The researcher controls the choices, information, and payoffs, so one feature can be varied at a time and the design can be replicated exactly.
 
-What it leaves out is the field setting and the population in the policy question. Falk and Heckman's argument is that this concern applies to any single study. A field experiment in one set of districts also has to be extended to other settings with care.
+**What it leaves out.** The participants and the setting differ from the population in the policy question. Falk and Heckman argue that this concern applies to any single study; a field experiment in one set of districts faces the same question when its results are applied elsewhere.
 
-For our example, a lab version might give participants a water budget and a payoff rule, then vary whether they see feedback on their use. That would test whether feedback changes choices under controlled rules. It would not tell the districts how their farms respond, which is what they asked.
+For the water-use question, a lab version could give participants a water budget and a payoff rule and vary whether they receive feedback on their use. That design would test whether feedback changes choices under controlled conditions, but it would not estimate how the districts' farms respond, which is the quantity the districts asked about.
 :::
 
 ## Interviews
@@ -250,13 +272,13 @@ Source: @starr2014qualitative, Sections 2 and 3
 :::
 
 ::: notes
-The experiment tells us whether the offer changed water use. It does not tell us why. Interviews can fill that gap. Did farms receive the report? Did they understand it? What did they change, and what could they not change because of crop, equipment, or water rights?
+The experiment estimates whether the offer changed water use, but it does not explain why. Interviews address that gap.
 
-Starr describes what makes interview evidence credible. Recruit farms that differ in the ways that matter: size, crop, water rights, and location. Write down the interview guide and the follow-up questions. Describe how interviews were recorded, transcribed, and coded. Look for accounts that cut against your explanation, not only ones that support it.
+**Research use.** Interviews can document whether farms received and understood the report, what they changed, and which changes were infeasible given their crops, equipment, or water rights.
 
-When reporting, state how farms were recruited and what evidence supports each interpretation.
+**Study procedures.** Starr describes what makes interview evidence credible: recruiting farms that vary in size, crop, water rights, and location; documenting the interview guide and follow-up questions; describing how interviews were recorded, transcribed, and coded; and examining accounts that run against the proposed explanation.
 
-One limit to state clearly: interviews selected this way can show the range of experiences, but they cannot tell us what share of all farms had each experience. That requires a sampling design built for estimating prevalence.
+**Reporting.** State the recruitment criteria and the evidence behind each interpretation. Interviews selected in this way document the range of experiences, but they do not estimate what share of all farms had each experience. That requires a sampling design built to estimate prevalence.
 :::
 
 ## Mixed methods designs
@@ -276,14 +298,20 @@ Source: @starr2014qualitative, Section 2
 :::
 
 ::: notes
-Mixed methods combine the two kinds of evidence. Here, that means interviews alongside the follow-up survey, and the order matters.
+**Opening line.** In this example, mixed methods means interviews (qualitative) combined with the follow-up survey (quantitative). The timing of the interviews determines what they contribute.
 
-Interviews before the survey can show how farms actually keep track of water use, which helps write a survey question farms can answer accurately. Interviews after the survey can explain a result, for example why some farms acted on the report and others did not. Interviews at the same time as the survey let us check farms' accounts of what they changed against the water use they report.
+**Before the survey.** Interviews show how farms track water use, which helps the team write a survey question that farms can answer accurately.
 
-Each part answers a different question. The interviews describe how farms responded. The survey comparison estimates the effect of the offer.
+**After the survey.** Interviews can explain a result, for example why some farms acted on the report and others did not.
+
+**Concurrent.** Interviews conducted alongside the survey allow a comparison between farms' accounts of what they changed and the water use they report.
+
+**Last line.** The two parts answer different questions. The interviews describe how farms responded, and the survey comparison estimates the effect of the offer.
 :::
 
 # Are we estimating the right thing?
+
+Which farms do the data cover, and which measure of water use does the survey record?
 
 ## Four questions to ask of any estimate
 
@@ -320,13 +348,17 @@ Source: @gibson2019estimating
 :::
 
 ::: notes
-Before any statistical test, Gibson asks a simpler question: are we estimating the right thing? A precise estimate of the wrong quantity, or for the wrong population, does not answer the research question.
+Gibson's question applies before any statistical test: a precise estimate of the wrong quantity, or for the wrong population, does not answer the research question. The four boxes break that question into parts, each paired with the water-use example.
 
-Four questions help. Who is covered: which units are in the data? For us, farms on the districts' customer lists. What was recorded: how is the concept measured? For us, water use as farms report it on a survey. Compared with whom: which groups are compared? Farms offered the report and farms not offered it. What narrows the claim: what limits the conclusion? Farms that did not answer the survey and farms that are not on the lists.
+**Who is covered?** The units in the data; here, farms on the districts' customer lists.
 
-One more term. The farms that complete the follow-up survey form the analytic sample. That group may differ from all eligible farms.
+**What was recorded?** How the concept is measured; here, water use as farms report it on the survey.
 
-The next two slides take the first two questions in turn.
+**Compared with whom?** The groups whose outcomes are compared; here, farms offered the report and farms not offered it.
+
+**What narrows the claim?** Conditions that restrict the conclusion; here, farms that did not complete the survey and farms not on the lists.
+
+The farms that complete the follow-up survey form the analytic sample, which may differ from the eligible population. The next two slides take up the first two questions.
 :::
 
 ## Population represented in the data
@@ -342,11 +374,13 @@ Source: @gibson2019estimating, pages 331 to 332
 :::
 
 ::: notes
-Start with who is covered. The customer lists include farms that buy water from the participating districts. Farms that rely only on private wells, or that buy from other suppliers, are not on the lists.
+**Included.** The customer lists cover farms that receive water from the participating districts.
 
-So the experiment estimates the effect for farms on the lists. Before applying that estimate to every farm in the region, we would need evidence that unlisted farms would respond the same way.
+**Possibly excluded.** Farms that rely only on private wells, or that buy water from other suppliers, do not appear on the lists.
 
-Gibson makes the same point with households. A list of registered households is not the same as the households actually living in a place. A sample drawn from the registry misses residents who are not registered. The general lesson: check whether the data source covers the population named in your research question.
+**Population claim.** The experiment estimates the effect for listed farms. Applying the estimate to every farm in the region would require evidence that unlisted farms respond in the same way.
+
+**Gibson's example.** A list of registered households differs from the households actually living in a place, so a sample drawn from the registry misses residents who are not registered. The general point is to check whether the data source covers the population named in the research question.
 :::
 
 ## Measurement and interpretation
@@ -362,16 +396,22 @@ Source: @gibson2019estimating, discussion of food purchases and consumption
 :::
 
 ::: notes
-Now, what was recorded. Our design asks for total irrigation water use. Suppose instead the survey asked only how much water the district delivered.
+**First paragraph.** The design calls for total irrigation water use. This slide considers what would happen if the survey asked only about water delivered by the district.
 
-Many farms have their own wells. A farm that receives the report might use less district water and pump more groundwater instead. District deliveries would fall, and the study would report a reduction, while total water use did not change at all. The estimate would be precise and still wrong for the districts' question, if that question is about total water use.
+**Second paragraph.** Many farms also pump groundwater. A farm that receives the report could reduce its district deliveries and pump more from its own well. Deliveries would fall and the study would report a reduction, even though total water use did not change. The estimate could be precise and still fail to answer a question about total water use.
 
-Gibson gives a parallel example with food. A survey of one week's food purchases misses food eaten from what the household already had at home. Purchases are not the same as consumption.
+**Third paragraph.** Gibson's food example has the same structure. One week of food purchases omits food consumed from stocks the household already held, so purchases differ from consumption.
 
-The survey wording determines which quantity the estimate measures. Check it against the concept in the research question.
+The survey wording determines which quantity the estimate measures, so the wording should be checked against the concept in the research question.
 :::
 
 # Plan the sample
+
+How many completed surveys does the study need to have enough power to detect a 2 acre-foot reduction?
+
+::: notes
+This section answers one question. The districts have set the effect they care about, 2 acre-feet per farm-month. The next slides define the error rates involved, choose a power target, and calculate how many completed surveys, and then how many invitations, the study requires.
+:::
 
 ## What would justify a claim of an effect?
 
@@ -383,15 +423,17 @@ The survey wording determines which quantity the estimate measures. Check it aga
 The test level and power target are set before data collection. The confidence interval and response check are reported after
 
 ::: notes
-Suppose the study finds that farms offered the report used less water. What would justify claiming the report works? Four things, two set before data collection and two reported after.
+The four bullets list what supports a claim that the report changes water use. As the closing line states, the first two are set before data collection and the last two are reported afterward.
 
-The test level, alpha, is the chance of rejecting "no effect" when the report truly has no effect. That mistake is a Type I error, or a false positive. We choose alpha directly. Setting alpha at 0.05 means the Type I error rate is 5%.
+**Test level (α).** The probability of rejecting no effect when the report has no effect. That error is a Type I error, or false positive. The researcher chooses α directly, and α = 0.05 sets that probability at 5%.
 
-Power is the chance of rejecting "no effect" when the report truly reduces use by 2 acre-feet. Missing a real effect is a Type II error, or a false negative, and its probability is called beta. Power equals 1 minus beta. Unlike alpha, we cannot set beta directly. We lower it by collecting more outcomes. That is why the sample size calculation exists.
+**Power (1 − β).** The probability of rejecting no effect when the report reduces use by 2 acre-feet. Failing to reject in that case is a Type II error, or false negative, and its probability is β. Unlike α, β cannot be set directly. It falls as the study collects more outcomes, which is the purpose of the sample size calculation.
 
-After the data arrive, the confidence interval shows which effect sizes are consistent with what we observed, and the response check tests whether the farms that answered the survey still form comparable groups.
+**Confidence interval.** After the data arrive, the interval shows which effect sizes are consistent with the observed difference.
 
-The goal is to limit false positives while making effects that matter detectable.
+**Response check.** Comparing response across the two assigned groups tests whether the farms that answered the survey still form comparable groups.
+
+Together, these limit false positives while making effects that matter detectable.
 :::
 
 ## False positives, false negatives, and power
@@ -410,37 +452,33 @@ Source: @kim2019falsepositives, Section 2
 :::
 
 ::: notes
-This table lays out the four possible outcomes. The columns are the truth, which we never observe. The rows are what the test decides.
+**Opening line.** The null hypothesis is that the offer has no effect. The alternative is the districts' threshold, a reduction of 2 acre-feet per farm-month.
 
-If there is no effect and we reject, that is a false positive, a Type I error. If there is a 2-unit reduction and we do not reject, that is a false negative, a Type II error. The other two cells are correct decisions.
+**Table.** The columns describe the truth, which we never observe, and the rows describe the decision the test makes. Rejecting when there is no effect is a false positive (Type I error). Failing to reject when there is a 2-unit reduction is a false negative (Type II error). The remaining two cells are correct decisions.
 
-What does "repeated studies" mean? Imagine running this same experiment many times, each time with a new random assignment and a new set of survey responses. Each run produces a different estimate and a different test decision. Alpha and power describe how often the test rejects across all those runs. If the report does nothing, 5% of runs would reject. If the report truly reduces use by 2 acre-feet, 80% of runs would reject, and 20% would miss it. That 20% is beta, the Type II error rate. Power and beta always add to 1, so 80% power means beta equals 0.20.
+**Closing paragraph.** "Repeated studies" refers to running the same experiment many times, each with a new random assignment and new survey responses. Each run produces a different estimate and a different test decision, and α and power describe how often the test rejects across those runs. If the report has no effect, 5% of runs reject. If the report reduces use by 2 acre-feet, 80% of runs reject and 20% miss the effect. That 20% is β. Power equals 1 minus β, so 80% power means β equals 0.20.
 
-Beta is tied to a specific true effect. The 0.20 is the chance of missing a reduction of exactly 2 acre-feet with this design. With the same 253 farms per group, a true reduction of 1 acre-foot would be missed about 71% of the time, and a reduction of 3 acre-feet about 1% of the time. The design is built so that beta is 0.20 at the smallest effect the districts care about. Larger effects are missed less often.
+β refers to a specific true effect. With the design developed over the next few slides (253 farms per group), a true reduction of 1 acre-foot would be missed about 71% of the time, and a reduction of 3 acre-feet about 1% of the time. The design sets β at 0.20 for the smallest effect the districts care about. β also applies only when there is a real effect; if the report has no effect, the only possible error is a false positive, at rate α.
 
-Beta also applies only when there is a real effect. If the report does nothing, a Type II error is impossible, and the only mistake the test can make is a false positive, at rate alpha.
-
-Power is therefore a property of the design, not of any single estimate. It depends on the effect size, the sample size, how much water use varies, and alpha. In a few slides I will show where the 80% comes from.
-
-A practical point from Kim: when a result is not significant, look at the confidence interval and at the effect sizes the study had power to detect before concluding there is no effect.
+Power is therefore a property of the design rather than of any single estimate. It depends on the effect size, the sample size, the variation in water use, and α. Kim's advice for nonsignificant results follows from this: before concluding there is no effect, examine the confidence interval and the effect sizes the study had power to detect.
 :::
 
 ## Sample size depends on the research objective
 
-For a survey that **describes average water use**, choose a sample size based on the desired precision of the estimated mean
+**Describing a population:** If the districts only wanted to estimate average water use, the sample size would depend on how precisely the survey must estimate that mean (Lecture 5.1)
 
-For the **report experiment**, choose a sample size that can detect a specified difference between assigned groups. That calculation uses the effect size, variation in water use, test level, and power target
+**Comparing assigned groups:** The districts want to know whether the offer changes water use, so the sample must be large enough to detect a specified difference between the offer and comparison groups. That calculation uses the effect size, variation in water use, test level, and power target
 
 ::: {.source}
 Sources: Lecture 5.1; @kim2019falsepositives, Section 3.5
 :::
 
 ::: notes
-Now we turn the concepts into a sample size. How we choose a sample size depends on what the study is for.
+This slide moves from concepts to a number. How we choose a sample size depends on what the study is for.
 
-In Lecture 5.1 we chose a sample size for a descriptive survey. If the goal is to describe average water use, the question is how precise the estimated mean needs to be.
+**Describing a population.** If the districts only wanted to estimate average water use, the relevant question would be how precisely the survey needs to estimate that mean, as in Lecture 5.1.
 
-Our experiment has a different goal: detecting a difference between two groups. That calculation needs four inputs. The effect size we want to detect, how much water use varies across farms, the test level, and the power target. The next three slides fill in each one.
+**Comparing assigned groups.** The districts want to know whether the offer changes water use, so the sample must be large enough to detect a specified difference between the two groups. That calculation requires four inputs: the effect size, the variation in water use, the test level, and the power target. The next two slides fill in each one.
 :::
 
 ## Choosing an effect and power target
@@ -456,21 +494,21 @@ Source: [J-PAL, Power calculations](https://www.povertyactionlab.org/resource/po
 :::
 
 ::: notes
-The first input is the effect size. We already have it: the districts said a 2 acre-foot reduction per farm-month would justify the cost of the program. A smaller effect would not be worth the cost, so the study does not need to detect anything smaller.
+**First paragraph.** The districts set the effect of interest during the design: a reduction of 2 acre-feet per farm-month would justify the program's cost. A smaller effect would not justify the program, so the study does not need to be designed to detect one.
 
-The second choice is the power target. Eighty percent is a common convention. It means accepting a 20% chance of missing a real 2-unit effect. A 90% target lowers that risk to 10%, but it requires more completed surveys.
+**Second paragraph.** Eighty percent is a common planning convention, and it implies a 20% chance of missing a true 2-unit effect. A 90% target reduces that chance to 10% but requires more completed surveys.
 
-Both choices are made before any outcomes come in. If the team waited to see the estimate and then chose an effect size to match, the power calculation would no longer describe what the study was designed to detect. That is one of the habits Kim warns against.
+**Third paragraph.** Both choices are fixed before any outcomes are observed. An effect size chosen after seeing the estimate no longer describes what the study was designed to detect, which is one of the practices Kim cautions against.
 :::
 
 ## Inputs to the power calculation
 
 The calculation begins with the effect the study needs to detect: **2 acre-feet less water use per farm-month**
 
-- **Outcome variation:** Assume a standard deviation of 8 acre-feet in each group, based on pilot or prior data
-- **Test level:** Use a two-sided 5% test
-- **Power target:** Plan for an 80% chance of detecting the 2-unit reduction if it is present
-- **Design:** Compare equal-sized groups of independently assigned farms
+- **Outcome variation:** Standard deviation of 8 acre-feet per farm-month in each group, from pilot or prior data
+- **Test:** Two-sample $t$ test of the difference in group means, two-sided, at α = 0.05
+- **Power target:** 80%, so β = 0.20 if the true reduction is 2 acre-feet
+- **Groups:** Equal numbers of farms offered the report (treatment) and not offered it (control), each farm assigned independently
 
 Assignment by district or correlated outcomes within districts would require a calculation that accounts for clustering
 
@@ -479,16 +517,22 @@ Source: @kim2019falsepositives, Sections 2 and 3.5
 :::
 
 ::: notes
-Here are all the inputs in one place. The effect is 2 acre-feet. The standard deviation of monthly water use is 8 acre-feet in each group. In practice, that number comes from a pilot or from prior data on similar farms. The test is two-sided at 5%. The power target is 80%. The two groups are the same size, and each farm is assigned independently.
+**Opening line.** The calculation starts from the effect the study needs to detect, 2 acre-feet per farm-month.
 
-Notice how large the variation is compared with the effect. Farms differ by about 8 acre-feet a month, and we want to detect a 2 acre-foot change. That ratio is what drives the sample size.
+**Outcome variation.** The standard deviation of monthly water use is 8 acre-feet in each group. In practice this number comes from a pilot or from prior data on similar farms. The variation is large relative to the effect: farms differ by about 8 acre-feet a month, and the study needs to detect a change of 2. That ratio is what drives the sample size.
 
-If the districts assigned whole districts instead of farms, or if farms in the same district had similar water use, we would need a clustered calculation, which requires more farms.
+**Test.** The analysis compares mean water use in the two groups with a two-sample t test. The test is two-sided, so it rejects if the offer either lowers or raises water use, and it uses α = 0.05.
+
+**Power target.** 80%, which means β = 0.20 when the true reduction is 2 acre-feet.
+
+**Groups.** There are two groups of equal size: farms offered the report (treatment) and farms not offered it (control). Each farm is assigned independently of the others.
+
+**Last line.** If the districts assigned whole districts instead of farms, or if farms in the same district had similar water use, the calculation would need to account for clustering, and the required number of farms would rise.
 :::
 
 ## Completed surveys needed for 80% power
 
-With a 2-unit effect, standard deviation of 8, and a two-sided 5% test, an approximate two-group calculation is
+With a 2-unit effect, standard deviation of 8, and a two-sided $t$ test at α = 0.05, an approximate two-group calculation is
 
 $$
 n\approx\frac{2(8)^2(1.96+0.84)^2}{(2)^2}\approx 251
@@ -501,35 +545,187 @@ Illustrative calculation: `power.t.test(delta = 2, sd = 8, sig.level = .05, powe
 :::
 
 ::: notes
-Here is the calculation. In the numerator: 2 times the variance, 8 squared, times the square of 1.96 plus 0.84. The 1.96 comes from the two-sided 5% test. The 0.84 comes from the 80% power target. In the denominator: the effect size squared, 2 squared. The result is about 251 per group.
+**Equation.** The numerator is 2 times the variance (8 squared) times the square of 1.96 plus 0.84. The value 1.96 corresponds to a two-sided test at α = 0.05, and 0.84 corresponds to 80% power. The denominator is the effect size squared (2 squared). The result is about 251 farms per group.
 
-R's power.t.test function does the same calculation using the t distribution and gives 252.13. We round up to 253 completed surveys per group.
+**R calculation.** R's power.t.test uses the t distribution rather than the normal and returns 252.13, which we round up to 253 completed surveys per group.
 
-Two cautions. These are completed surveys, not invitations. And the formula assumes independent farms and equal group sizes.
+These are completed surveys, not invitations, and the calculation assumes independent farms and equal group sizes.
 :::
 
 ## Why 253 surveys per group give 80% power
 
-![](assets/unit6/power-80.png){height=400px fig-alt="Two bell-shaped curves showing where the estimated difference in water use would fall across repeated studies with 253 farms per group. The gray curve, centered at zero, shows estimates if the report has no effect; 5 percent of its area lies outside plus or minus 1.39. The green curve, centered at minus 2, shows estimates if the true effect is minus 2; 80 percent of its area lies below minus 1.39, where the test rejects no effect."}
+![](assets/unit6/power-80.png){height=380px fig-alt="Two bell-shaped curves showing where the estimated difference in water use would fall across repeated studies with 253 farms per group. The gray curve, centered at zero, assumes no effect; its shaded tails beyond plus or minus 1.39 make up alpha, 5 percent. The green curve, centered at minus 2, assumes the true effect is minus 2; the solid area below minus 1.39 is power, 80 percent, and the hatched area above minus 1.39 is beta, 20 percent. A bracket marks the 2 acre-foot distance between the curve centers as the true effect."}
 
-With 253 farms per group, the standard error of the difference is 0.71. The test rejects when the estimate falls below −1.39 or above 1.39 (1.96 × 0.71)
+Each curve shows where the estimate would fall across repeated studies. The spread of each curve is the standard error (0.71); the test rejects outside ±1.39 (1.96 × 0.71)
 
 ::: {.source}
 Illustrative calculation. A simulation of 10,000 repeated experiments rejects in 80.5% of runs when the true effect is −2 and in 5.0% when there is no effect
 :::
 
 ::: notes
-This figure answers the question: how do we know the test rejects in about 80 of 100 repetitions?
+The figure shows where the 80% comes from.
 
-Each curve shows where the estimated difference would land if we repeated the experiment many times with 253 farms per group. The estimate varies from run to run because each run draws a different random assignment and different survey responses. How spread out the curves are is set by the standard error, 0.71.
+**Two curves.** Each curve shows where the estimated difference would fall if the experiment were repeated many times with 253 farms per group. The gray curve assumes the report has no effect and is centered at zero. The green curve assumes the true effect is minus 2 and is centered at minus 2.
 
-The gray curve is what we would see if the report has no effect. It is centered at zero. The test rejects when the estimate is far from zero, below minus 1.39 or above 1.39. That cutoff is 1.96 times the standard error. Only 5% of the gray curve lies beyond those cutoffs. That is the Type I error rate.
+**Distance between centers.** The bracket marks the distance between the two centers, which is the true effect: 2 acre-feet.
 
-The green curve is what we would see if the true effect is minus 2. It is centered at minus 2. The shaded part, 80% of the curve, lies below minus 1.39, so in those runs the test rejects. That shaded area is the power. The other 20%, between minus 1.39 and about zero, are the runs where a real effect is missed.
+**Spread.** The width of each curve is the standard error, 0.71, which reflects variation from one run to the next due to random assignment and sampling. The test rejects when the estimate is more than 1.96 standard errors from zero, that is, below minus 1.39 or above 1.39, at the dashed lines.
 
-We can also check this by simulation. I simulated 10,000 experiments with these assumptions. When the true effect was minus 2, the test rejected in 80.5% of them. When there was no effect, it rejected in 5.0%.
+**α (gray).** The shaded gray tails are the share of the no-effect curve beyond the dashed lines, 5% in total. These are the runs in which the test reports an effect that does not exist.
 
-Keep this picture in mind. With fewer completed surveys, both curves get wider, the cutoff moves farther from zero, and less of the green curve falls past it. That is what happens next.
+**Power (solid green).** The solid green area is the share of the minus-2 curve below minus 1.39, 80%. These are the runs that detect the effect.
+
+**β (hatched green).** The hatched area is the remaining 20% of the green curve, the runs in which the estimate falls short of the cutoff and a real effect is missed.
+
+Power depends on how far apart the curves are relative to their width. Here the centers are 2 divided by 0.71, or about 2.8 standard errors apart. A simulation of 10,000 experiments under these assumptions rejected in 80.5% of runs when the true effect was minus 2 and in 5.0% of runs when there was no effect.
+:::
+
+## Power, β, and sample size {#power-sim}
+
+```{=html}
+<div class="pw" id="pw">
+  <div class="pw-controls">
+    <label>Completed surveys per group: <output id="pw-n-out">253</output>
+      <input type="range" id="pw-n" min="20" max="600" step="1" value="253" aria-label="Completed surveys per group">
+    </label>
+    <label>True effect (acre-feet per farm-month): <output id="pw-d-out">−2.0</output>
+      <input type="range" id="pw-d" min="0.5" max="4" step="0.5" value="2" aria-label="Size of the true reduction in acre-feet">
+    </label>
+  </div>
+  <div class="pw-legend">
+    <span><i class="pw-sw pw-sw-power"></i>Power (1 − β): effect detected</span>
+    <span><i class="pw-sw pw-sw-beta"></i>β: effect missed</span>
+    <span><i class="pw-sw pw-sw-alpha"></i>α: false positive</span>
+  </div>
+  <svg id="pw-svg" viewBox="0 0 1000 340" role="img" aria-label="Sampling distributions of the estimated difference under no effect and under the selected true effect, with shaded areas for power, beta, and alpha"></svg>
+  <div class="pw-readout" id="pw-readout" aria-live="polite"></div>
+</div>
+<div class="pw-print">
+  <p>In the HTML version of the slides, two sliders change the number of completed surveys per group and the size of the true effect, and the chart from the previous slide updates. Selected settings:</p>
+  <table>
+    <thead><tr><th>Completed surveys per group</th><th>True effect (acre-feet)</th><th>Power</th><th>β</th></tr></thead>
+    <tbody>
+      <tr><td>253</td><td>−2</td><td>0.80</td><td>0.20</td></tr>
+      <tr><td>51</td><td>−2</td><td>0.24</td><td>0.76</td></tr>
+      <tr><td>253</td><td>−1</td><td>0.29</td><td>0.71</td></tr>
+      <tr><td>253</td><td>−3</td><td>0.99</td><td>0.01</td></tr>
+    </tbody>
+  </table>
+  <p>α is 0.05 at every setting.</p>
+</div>
+<style>
+  .pw-print { display: none; }
+  html.print-pdf .pw { display: none; }
+  html.print-pdf .pw-print { display: block; }
+  .pw { font-size: 0.55em; color: #222222; }
+  .pw-controls { display: flex; gap: 48px; }
+  .pw-controls label { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .pw-controls output { font-weight: 600; }
+  .pw-controls input[type=range] { width: 100%; accent-color: #1e4d2b; margin: 0; }
+  .pw-legend { display: flex; gap: 36px; margin-top: 10px; color: #444444; }
+  .pw-sw { display: inline-block; width: 22px; height: 14px; margin-right: 8px; vertical-align: -1px; }
+  .pw-sw-power { background: rgba(30, 77, 43, 0.30); }
+  .pw-sw-beta { background: repeating-linear-gradient(45deg, #1e4d2b 0 1.5px, #ffffff 1.5px 5px); border: 1px solid #1e4d2b; }
+  .pw-sw-alpha { background: rgba(138, 138, 138, 0.60); }
+  #pw-svg { display: block; width: 100%; height: auto; margin-top: 4px; }
+  #pw-svg path, #pw-svg line { stroke-linejoin: round; stroke-linecap: round; }
+  .pw-readout { color: #444444; }
+  .pw-readout b { color: #222222; }
+</style>
+<script>
+(function () {
+  var svg = document.getElementById('pw-svg');
+  if (!svg) return;
+  var nIn = document.getElementById('pw-n'), dIn = document.getElementById('pw-d');
+  var nOut = document.getElementById('pw-n-out'), dOut = document.getElementById('pw-d-out');
+  var readout = document.getElementById('pw-readout');
+  var SD = 8, Z = 1.959964, X0 = -7, X1 = 4, W = 1000, L = 14, R = 14, T = 20, B = 222;
+  var GREEN = '#1e4d2b', GRAY = '#8a8a8a', INK = '#222222', MUTED = '#555555';
+  var MINUS = '−';
+  var peakMax = 1 / (Math.sqrt(2 * Math.PI) * SD * Math.sqrt(2 / 600));
+  function xs(x) { return L + (x - X0) / (X1 - X0) * (W - L - R); }
+  function ys(y) { return B - y / peakMax * (B - T - 34); }
+  function erf(x) {
+    var s = x < 0 ? -1 : 1; x = Math.abs(x);
+    var t = 1 / (1 + 0.3275911 * x);
+    var y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
+    return s * y;
+  }
+  function Phi(x) { return 0.5 * (1 + erf(x / Math.SQRT2)); }
+  function dn(x, m, s) { return Math.exp(-0.5 * Math.pow((x - m) / s, 2)) / (s * Math.sqrt(2 * Math.PI)); }
+  function num(v, k) { return (v < 0 ? MINUS : '') + Math.abs(v).toFixed(k); }
+  function area(m, s, a, b) {
+    a = Math.max(a, X0); b = Math.min(b, X1);
+    if (b <= a) return '';
+    var N = 200, d = 'M' + xs(a).toFixed(1) + ',' + B;
+    for (var i = 0; i <= N; i++) {
+      var x = a + (b - a) * i / N;
+      d += 'L' + xs(x).toFixed(1) + ',' + ys(dn(x, m, s)).toFixed(1);
+    }
+    return d + 'L' + xs(b).toFixed(1) + ',' + B + 'Z';
+  }
+  function curve(m, s) {
+    var N = 400, d = '';
+    for (var i = 0; i <= N; i++) {
+      var x = X0 + (X1 - X0) * i / N;
+      d += (i ? 'L' : 'M') + xs(x).toFixed(1) + ',' + ys(dn(x, m, s)).toFixed(1);
+    }
+    return d;
+  }
+  function p(d, attrs) { return d ? '<path d="' + d + '" ' + attrs + '/>' : ''; }
+  function txt(x, y, s, attrs) { return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" ' + attrs + '>' + s + '</text>'; }
+  function draw() {
+    var n = +nIn.value, d = +dIn.value;
+    var se = SD * Math.sqrt(2 / n), c = Z * se;
+    var power = Phi((d - c) / se) + Phi((-d - c) / se), beta = 1 - power;
+    nOut.textContent = n;
+    dOut.textContent = num(-d, 1);
+    var h = '<defs><pattern id="pw-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
+            '<line x1="0" y1="0" x2="0" y2="7" stroke="' + GREEN + '" stroke-width="1.6"/></pattern></defs>';
+    h += p(area(-d, se, X0, -c), 'fill="' + GREEN + '" fill-opacity="0.30"');
+    h += p(area(-d, se, c, X1), 'fill="' + GREEN + '" fill-opacity="0.30"');
+    h += p(area(-d, se, -c, c), 'fill="url(#pw-hatch)"');
+    h += p(area(0, se, X0, -c), 'fill="' + GRAY + '" fill-opacity="0.60"');
+    h += p(area(0, se, c, X1), 'fill="' + GRAY + '" fill-opacity="0.60"');
+    h += p(curve(0, se), 'fill="none" stroke="' + GRAY + '" stroke-width="3"');
+    h += p(curve(-d, se), 'fill="none" stroke="' + GREEN + '" stroke-width="3"');
+    [-c, c].forEach(function (v) {
+      if (v > X0 && v < X1) {
+        h += '<line x1="' + xs(v).toFixed(1) + '" x2="' + xs(v).toFixed(1) + '" y1="' + B + '" y2="' + (T + 34) + '" stroke="' + MUTED + '" stroke-width="1.5" stroke-dasharray="5 4"/>';
+      }
+    });
+    h += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + (B + 6) + '" y2="' + (B + 6) + '" stroke="#b5b5b5" stroke-width="1.2"/>';
+    for (var k = X0; k <= X1; k++) {
+      h += '<line x1="' + xs(k) + '" x2="' + xs(k) + '" y1="' + (B + 6) + '" y2="' + (B + 12) + '" stroke="#b5b5b5" stroke-width="1.2"/>';
+      h += txt(xs(k), B + 34, num(k, 0), 'font-size="20" fill="' + MUTED + '" text-anchor="middle"');
+    }
+    var peakY = ys(dn(0, 0, se));
+    h += txt(xs(-d) + 8, peakY - 10, 'True effect ' + num(-d, 1), 'font-size="20" font-weight="700" fill="' + INK + '" text-anchor="end"');
+    h += txt(xs(0) - 8, peakY - 10, 'No effect', 'font-size="20" font-weight="700" fill="' + INK + '" text-anchor="start"');
+    var by = B + 54;
+    h += '<path d="M' + xs(-d) + ',' + (by - 7) + 'V' + (by + 7) + 'M' + xs(-d) + ',' + by + 'H' + xs(0) + 'M' + xs(0) + ',' + (by - 7) + 'V' + (by + 7) + '" stroke="' + MUTED + '" stroke-width="1.5" fill="none"/>';
+    h += txt((xs(-d) + xs(0)) / 2, by + 26, 'Distance between centers = true effect (' + d.toFixed(1) + ' acre-feet)', 'font-size="18" fill="' + MUTED + '" text-anchor="middle"');
+    h += txt(W / 2, 334, 'Estimated difference in water use (acre-feet per farm-month)', 'font-size="20" fill="' + INK + '" text-anchor="middle"');
+    svg.innerHTML = h;
+    readout.innerHTML = 'Standard error <b>' + se.toFixed(2) + '</b> · Test rejects below <b>' + num(-c, 2) +
+      '</b> or above <b>' + c.toFixed(2) + '</b> · Power <b>' + power.toFixed(2) + '</b> · β <b>' + beta.toFixed(2) +
+      '</b> · α <b>0.05</b>';
+  }
+  nIn.addEventListener('input', draw);
+  dIn.addEventListener('input', draw);
+  draw();
+})();
+</script>
+```
+
+::: notes
+This slide reproduces the previous figure with two sliders. The readout below the chart updates as the sliders move. It uses the normal approximation, which differs from the t calculation by less than one percentage point at the sample sizes in this example.
+
+**Completed surveys per group.** The slider starts at 253. Moving it to 51, the number of completed surveys at an 8% response rate, raises the standard error from 0.71 to 1.58, widens both curves, moves the cutoff to about minus 3.1, and lowers power to about 0.24. Moving it above 253 narrows the curves and raises power.
+
+**True effect.** The slider starts at 2. With 253 farms per group, a true effect of 1 acre-foot gives power of about 0.29 (β of about 0.71), and an effect of 3 acre-feet gives power of about 0.99. β depends on the true effect even when the design is fixed.
+
+**Readout.** α stays at 0.05 at every setting. The gray tails always sum to 5% because the cutoff moves with the standard error. Collecting more observations lowers β without changing α.
 :::
 
 ## Planning the survey contacts
@@ -547,13 +743,15 @@ The team would invite **633 farms in each group** (1,266 in total). This calcula
 The 40% response rate is an illustrative pilot assumption, not a general benchmark
 
 ::: notes
-The power calculation tells us how many completed surveys we need: 253 per group. Not every invited farm will respond, so we have to invite more.
+**First paragraph.** The power calculation gives the number of completed surveys needed, 253 per group. Because some invited farms will not respond, the team has to invite more than that.
 
-Suppose a pilot with similar farms had a 40% response rate. Divide 253 by 0.40 and round up: 633 invitations per group, or 1,266 in total.
+**Response rate.** Suppose a pilot with similar farms had a 40% response rate.
 
-This step is also a feasibility check. Do the customer lists contain at least 1,266 eligible farms? Can the budget cover that many contacts?
+**Equation.** Dividing 253 by 0.40 and rounding up gives 633 invitations per group.
 
-The 40% is an assumption for this example, not a standard. Response rates vary widely across populations and survey modes. This simple version also assumes every invited farm is eligible. When reporting actual response rates, use a stated definition that accounts for ineligible and unknown cases.
+**Fourth paragraph.** That is 1,266 invitations in total. The calculation is also a feasibility check: the customer lists must contain at least that many eligible farms, and the budget must cover that many contacts.
+
+**Last line.** The 40% rate is an assumption for this example rather than a benchmark; response rates vary widely across populations and survey modes. The calculation also assumes every invited farm is eligible. Reported response rates should use a stated definition that accounts for ineligible and unknown cases.
 :::
 
 ## What reviewers examine in a power calculation
@@ -572,11 +770,17 @@ Sources: [J-PAL, Power calculations](https://www.povertyactionlab.org/resource/p
 :::
 
 ::: notes
-This slide summarizes the planning section from a reviewer's point of view. There is no single power number that every study must reach. Reviewers want to see where each input came from.
+**Opening line.** This slide summarizes the planning section from a reviewer's perspective. No single power level is required of every study; reviewers examine the basis for each input.
 
-One: why does the effect size matter? For us, it is the districts' cost threshold of 2 acre-feet. Two: where did the standard deviation come from? For us, 8 acre-feet from pilot data. Three: does the calculation match the design, including farm-level assignment, any clustering, and the expected response rate? Four: can the customer lists supply 633 invitations per group?
+**1.** Why the effect size matters. Here, the districts' cost threshold of 2 acre-feet.
 
-After data collection, report the sample you actually obtained and the precision of the estimate. That is where the next section begins.
+**2.** Where the variation came from. Here, a standard deviation of 8 from pilot data.
+
+**3.** Whether the calculation matches the design, including farm-level assignment, any clustering, and the expected response rate.
+
+**4.** Whether the customer lists can supply 633 invitations per group.
+
+**Last line.** After data collection, report the sample actually obtained and the precision of the estimate. The final section begins there.
 :::
 
 ## Multiple testing and false positives
@@ -596,16 +800,18 @@ Source: @kim2019falsepositives, discussion of multiple testing
 :::
 
 ::: notes
-One more planning decision. The districts may also want to know whether the report changed when farms irrigate, or which crops they planted. That makes three outcomes and three tests.
+**First paragraph.** The districts may also want to know whether the report changes irrigation timing or crop choice, which adds two outcomes and two tests.
 
-Each test has a 5% chance of a false positive. If the tests were independent, the chance that at least one of the three produces a false positive is 1 minus 0.95 cubed, about 14%. With 20 outcomes, it would be about 64%.
+**Equation.** Each test has a 5% chance of a false positive. If the three tests were independent, the probability that at least one produces a false positive is 1 minus 0.95 cubed, about 14%. With 20 outcomes it would be about 64%.
 
-The outcomes here are probably correlated, so 14% is only illustrative. The practical steps are the same either way. Before analysis, name the primary outcome; here it is total water use. Report every outcome you tested, not only the significant ones. If you adjust for multiple testing, say how. The simplest adjustment, Bonferroni, divides 0.05 by the number of tests, so each of three tests would use about 0.017.
+**Last paragraph.** The outcomes are probably correlated, so 14% is illustrative. Before analysis, name the primary outcome (here, total water use), report every outcome tested, and explain any adjustment for multiple comparisons. The simplest adjustment, Bonferroni, divides 0.05 by the number of tests, so each of three tests would use about 0.017.
 
-Naming the primary outcome is a planning decision. If it is chosen after the results are in, it becomes a way to pick the outcome with the smallest p-value.
+Naming the primary outcome belongs in the planning stage. If it is chosen after the results are known, it becomes a way to select the outcome with the smallest p-value.
 :::
 
 # Interpret the results
+
+What do the data support once they arrive?
 
 ## Random variation and survey response
 
@@ -615,13 +821,13 @@ Farms were randomly assigned to the report or comparison group. The follow-up su
 2. **Selective response:** Do respondents differ from farms that did not answer? Compare response rates and available farm characteristics by assigned group
 
 ::: notes
-Now the data have arrived. Before reading anything into the difference between groups, ask two separate questions.
+**Opening paragraph.** Once the data arrive, two questions come before any interpretation of the group difference, and they address different problems.
 
-First, random variation. A different random assignment would have produced a somewhat different difference. The confidence interval and the test describe how large that variation is. This is the spread we saw in the curves.
+**1. Random variation.** A different random assignment would have produced a somewhat different difference. The confidence interval and the test quantify this variation, which corresponds to the width of the curves in the power figure.
 
-Second, selective response. We only observe water use for farms that answered the survey. If the farms that answered differ from those that did not, and especially if that pattern differs between the two groups, the comparison may no longer be between comparable groups. Check this by comparing response rates in each group, and by comparing respondents with the customer lists on whatever farm characteristics the lists contain.
+**2. Selective response.** Water use is observed only for farms that completed the survey. If respondents differ from nonrespondents, and especially if that pattern differs between the two groups, the comparison may no longer be between comparable groups. Comparing response rates by group, and comparing respondents with the customer lists on recorded farm characteristics, tests for this.
 
-These are different problems. A confidence interval addresses the first. It does nothing about the second.
+A confidence interval addresses the first problem but not the second.
 :::
 
 ## If survey response is 8%
@@ -637,13 +843,11 @@ Illustrative calculation: R `power.t.test(n = 51, delta = 2, sd = 8, sig.level =
 :::
 
 ::: notes
-Suppose the survey goes out and only 8% of farms respond, not the 40% the pilot suggested.
+**First paragraph.** At the planned 40% response rate, 633 invitations yield about 253 completed surveys per group and 80% power.
 
-633 invitations times 0.08 is about 51 completed surveys per group, about one-fifth of the plan. Power to detect the 2 acre-foot effect falls from 80% to about 24%. If the report truly works as well as the districts need, this study would detect it about one time in four.
+**Second paragraph.** Suppose only 8% respond. The same invitations yield about 51 completed surveys per group, roughly one-fifth of the plan, and power to detect a 2 acre-foot reduction falls to about 24%. If the report works as well as the districts need, this study would detect it about one time in four. In the power figure, the standard error rises from 0.71 to 1.58, both curves widen, the cutoff moves to about minus 3.1, and only about a quarter of the green curve lies beyond it. Setting the interactive slider to 51 shows this case.
 
-Go back to the curves. With 51 farms per group, the standard error rises from 0.71 to 1.58. Both curves get much wider, and the rejection cutoff moves out to about minus 3.1. Only about a quarter of the green curve now falls beyond it.
-
-To reach 253 completions at 8%, the team would need about 3,163 invitations per group. The customer lists may not have that many eligible farms. So a low response rate is not only an inference problem. It can make the planned study infeasible.
+**Third paragraph.** Reaching 253 completions at 8% would require about 3,163 invitations per group, which may exceed the number of eligible farms on the lists. A low response rate can therefore make the planned study infeasible, not only less precise.
 :::
 
 ## Nonresponse and interpretation
@@ -661,13 +865,11 @@ Source: [AAPOR, *Response Rate Overview*](https://aapor.org/wp-content/uploads/2
 :::
 
 ::: notes
-There is no single response rate that makes a survey acceptable. Plan with a pilot or a comparable survey. But a rate as low as 8% calls for evidence about who responded.
+**Opening paragraph.** No single response rate makes a survey acceptable, and invitations should be planned from a pilot or a comparable survey. An 8% rate, however, calls for evidence about who responded.
 
-Three checks. Compare the farms that responded with the full customer lists on whatever the lists record, such as farm size or past deliveries. Report response rates separately for the offer group and the comparison group. Check whether extra follow-up with nonrespondents, or weighting, changes the estimate.
+**Three bullets.** Compare respondents with the full customer lists on recorded characteristics such as farm size or past deliveries. Report response rates separately for the offer and comparison groups. Examine whether additional follow-up with nonrespondents, or weighting, changes the estimate.
 
-Here is the concern. Suppose farms that cut their water use after receiving the report were more willing to answer the survey. Then the respondents in the offer group would overstate the effect. Random assignment made the groups comparable at the start, but selective response can undo that among respondents.
-
-Inviting more farms raises the number of responses, but it does not fix this. If the same kinds of farms respond, the bias remains. AAPOR makes the related point that a response rate alone does not measure nonresponse bias.
+**Last paragraph.** Random assignment makes the groups comparable at the start, but selective response can undo that among respondents. If farms that cut their water use after receiving the report were more willing to answer the survey, respondents in the offer group would overstate the effect. Inviting more farms raises the number of responses but does not remove this bias if the same kinds of farms respond. AAPOR makes the related point that a response rate alone does not measure nonresponse bias.
 :::
 
 ## Precision after an 8% response rate
@@ -683,15 +885,13 @@ An approximate 95% interval is **−1.5 ± 1.96(1.58) = [−4.6, 1.6]** acre-fee
 The small completed sample explains both the fall to 24% power and the wide interval. The interval describes sampling uncertainty among respondents; it does not address selective response
 
 ::: notes
-Now we finally have an estimate. Suppose farms offered the report used 1.5 acre-feet less per month than comparison farms.
+**First paragraph.** Suppose farms offered the report used 1.5 acre-feet less per month than comparison farms. The estimate differs from the 2 acre-foot threshold by design: the threshold came from the districts' cost comparison before any data existed, and the estimate comes from the data.
 
-The estimate is minus 1.5, not minus 2, and that is deliberate. The 2 came from the districts' cost threshold before any data existed. The minus 1.5 comes from the data. They are different quantities, and it helps to keep them separate.
+**Equation.** With a standard deviation of 8 and 51 farms per group, the standard error is 1.58.
 
-The standard error uses the standard deviation of 8 and the 51 farms in each group. It comes to 1.58. The 95% confidence interval is minus 1.5 plus or minus 1.96 times 1.58, which runs from minus 4.6 to 1.6.
+**Third paragraph.** The 95% confidence interval is minus 1.5 plus or minus 1.96 times 1.58, or minus 4.6 to 1.6. It includes zero, so the data cannot rule out no effect. It also includes reductions of 3 or 4 acre-feet, larger than the districts' threshold. The data do not distinguish between these possibilities.
 
-Read the interval as the range of effects consistent with the data. It includes zero, so we cannot rule out no effect. It also includes reductions of 3 or 4 acre-feet, larger than the districts' threshold. The data cannot tell those apart.
-
-The small sample causes both problems: the low power and the wide interval. And this interval only describes random variation among respondents. It does not correct for selective response.
+**Last paragraph.** The small completed sample produces both the low power and the wide interval. The interval describes random variation among respondents only; it does not correct for selective response.
 :::
 
 ## Why consider an equivalence test?
@@ -709,11 +909,11 @@ Source: @kim2019falsepositives, Section 3.7
 :::
 
 ::: notes
-Suppose the districts see that the result is not significant and conclude the report does not work, so they plan to end the program.
+**First paragraph.** Suppose the districts read the nonsignificant result as evidence that the report does not work and plan to end the program.
 
-That conclusion does not follow. Not rejecting "no effect" is not the same as showing the effect is zero. The interval still includes reductions larger than 2 acre-feet, which would justify the program. The study has not ruled out the benefit the districts were looking for.
+**Second paragraph.** That conclusion does not follow. Failing to reject no effect is not the same as showing that the effect is zero. The interval still includes reductions larger than 2 acre-feet, so the study has not ruled out a benefit large enough to justify the program.
 
-To claim the effect is negligible, the team has to say what "negligible" means in acre-feet and then test whether the data rule out anything larger. That is what an equivalence test does, and it is the subject of Kim's section 3.7.
+**Third paragraph and last line.** A claim that the effect is negligible requires defining negligible in acre-feet and testing whether the data rule out larger effects. That is the purpose of an equivalence test (Kim, Section 3.7).
 :::
 
 ## Equivalence test for the water-use report
@@ -729,13 +929,13 @@ Source: @kim2019falsepositives, Section 3.7
 :::
 
 ::: notes
-Here is how it works. Before analysis, the team decides that any change between minus 1 and plus 1 acre-foot is too small to matter. Like the 2-unit threshold, that range comes from the policy question, not from the data.
+**Step 1.** Before analysis, the team defines any change between minus 1 and 1 acre-foot as negligible. Like the 2-unit threshold, this range comes from the policy question.
 
-An equivalence test runs two one-sided tests: is the effect above minus 1, and is it below plus 1? Each uses a 5% level, and both must reject. That works out to a simple rule: compute a 90% confidence interval, and conclude equivalence only if the whole interval lies inside minus 1 to 1.
+**Step 2.** An equivalence test consists of two one-sided tests: whether the effect is above minus 1 and whether it is below 1, each at the 5% level. Both must reject. This is the same as computing a 90% confidence interval and concluding equivalence only if the entire interval lies between minus 1 and 1.
 
-Our 90% interval is minus 1.5 plus or minus 1.645 times 1.58, which runs from minus 4.1 to 1.1. It extends well below minus 1. The data still allow reductions larger than 1 acre-foot, so they do not show the effect is negligible.
+**Step 3.** The 90% interval is minus 1.5 plus or minus 1.645 times 1.58, or minus 4.1 to 1.1.
 
-So this study supports neither conclusion. It cannot show the report works, and it cannot show the report does not work. That is what an underpowered study usually produces. The fix was in the planning: the response rate, and the number of completed surveys. This interval also assumes that the farms that responded still form comparable groups.
+**Last paragraph.** The interval extends well below minus 1, so the data allow reductions larger than 1 acre-foot and do not establish a negligible effect. The study therefore supports neither conclusion: it does not show that the report works, and it does not show that the report has no meaningful effect. This is a common result for an underpowered study, and the remedy lies in planning, through the response rate and the number of completed surveys. The interval also assumes that respondents still form comparable groups.
 :::
 
 ## Takeaways {.dense}
@@ -754,11 +954,21 @@ See also: [course empirical strategy checklist](../files/empirical-strategy-chec
 :::
 
 ::: notes
-This table pulls the lecture together. Each row is a question we asked about the water-use example, and each one corresponds to a section of today's lecture.
+Each row restates a question from the lecture, in the order the sections appeared, with its answer in the water-use example.
 
-Which farms do the data cover, and which are left out? Does the survey measure total water use, or only district deliveries? Which groups are compared, and what makes that comparison credible? How large an effect matters, and how many completed surveys would it take to detect it? If the districts test several outcomes, which one comes first? And if the result is not significant, which effects does the interval rule out?
+**Population and sampling frame.** Which farms the customer lists cover, and which they omit.
 
-Not every question applies to every project. A study using existing administrative data has no response rate to plan for, and a qualitative study does not need a power calculation. These are questions worth asking of your own research design, and of any study you read.
+**Outcome measure.** Whether the survey records total water use or only district deliveries.
+
+**Comparison.** Farms offered the report and farms not offered it, with random assignment supporting the comparison.
+
+**Sample size.** The 2 acre-foot threshold, and the 253 completed surveys per group needed to detect it with 80% power.
+
+**Primary outcome.** Total water use, named before testing irrigation timing or crop choice.
+
+**A null result.** Whether the interval rules out the reductions the districts care about.
+
+Not every question applies to every project. A study using existing administrative data has no response rate to plan for, and a qualitative study does not require a power calculation. I find these questions useful for evaluating any research design, including the studies we read.
 :::
 
 # Check-in

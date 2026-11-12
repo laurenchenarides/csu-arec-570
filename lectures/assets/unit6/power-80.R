@@ -1,3 +1,5 @@
+# Power figure for Lecture 6.4 (water-use report example)
+# Usage: Rscript power-80.R <output.png|output.svg>
 args <- commandArgs(trailingOnly = TRUE)
 out <- args[1]
 
@@ -9,8 +11,11 @@ cat(sprintf("SE(253)=%.3f  crit=%.3f  power(normal)=%.3f\n",
 se51 <- 8 * sqrt(2 / 51)
 cat(sprintf("SE(51)=%.3f  crit=%.3f  power(normal)=%.3f\n",
             se51, qnorm(0.975) * se51, pnorm((2 - qnorm(0.975) * se51) / se51)))
+for (d in c(1, 3)) {
+  cat(sprintf("n=253, effect=%d: power(normal)=%.3f\n", d, pnorm((d - crit) / se253)))
+}
 
-# Simulation: repeat the experiment many times with a true effect of -2
+# Simulation: repeat the experiment many times
 set.seed(570)
 sim <- function(n, effect, reps = 10000) {
   mean(replicate(reps, {
@@ -21,9 +26,6 @@ sim <- function(n, effect, reps = 10000) {
 cat(sprintf("Sim reject rate, n=253, effect=-2: %.3f\n", sim(253, -2)))
 cat(sprintf("Sim reject rate, n=253, effect= 0: %.3f\n", sim(253, 0)))
 cat(sprintf("Sim reject rate, n=51,  effect=-2: %.3f\n", sim(51, -2)))
-set.seed(5701)
-cat(sprintf("Rejections in first 100 reps (n=253, -2): %d\n",
-            round(100 * sim(253, -2, 100))))
 
 # ---- Figure ----
 green <- "#1e4d2b"; gray <- "#8a8a8a"; ink <- "#222222"; muted <- "#555555"
@@ -33,24 +35,25 @@ f1 <- dnorm(x, -2, se253)
 top <- max(f0)
 
 if (grepl("\\.png$", out)) {
-  png(out, width = 12, height = 5, units = "in", res = 200, type = "cairo", family = "Arial")
+  png(out, width = 12, height = 5.6, units = "in", res = 200, type = "cairo", family = "Arial")
 } else {
-  svg(out, width = 12, height = 5, family = "Arial")
+  svg(out, width = 12, height = 5.6, family = "Arial")
 }
-par(mar = c(4.4, 1, 0.5, 1), mgp = c(2.8, 0.8, 0), cex = 1.45)
-plot(NA, xlim = c(-5, 3), ylim = c(0, top * 1.32), axes = FALSE,
+par(mar = c(4.4, 1, 0.3, 1), mgp = c(2.8, 0.8, 0), cex = 1.45)
+plot(NA, xlim = c(-5, 3), ylim = c(0, top * 1.72), axes = FALSE,
      xlab = "Estimated difference in water use (acre-feet per farm-month)",
      ylab = "", col.lab = ink)
 
-# Area under the "true effect = -2" curve where the test rejects: power
-xr <- x[x <= -crit]
-polygon(c(xr, rev(xr)), c(dnorm(xr, -2, se253), rep(0, length(xr))),
-        col = adjustcolor(green, 0.30), border = NA)
-# Areas under the "no effect" curve where the test rejects: Type I error
-for (xt in list(x[x <= -crit], x[x >= crit])) {
-  polygon(c(xt, rev(xt)), c(dnorm(xt, 0, se253), rep(0, length(xt))),
-          col = adjustcolor(gray, 0.55), border = NA)
+poly <- function(xx, m, ...) {
+  polygon(c(xx, rev(xx)), c(dnorm(xx, m, se253), rep(0, length(xx))), ...)
 }
+# Power: "true effect = -2" curve beyond the cutoff
+poly(x[x <= -crit], -2, col = adjustcolor(green, 0.30), border = NA)
+# Beta: "true effect = -2" curve inside the cutoffs (hatched)
+poly(x[x > -crit & x < crit], -2, col = green, border = NA, density = 14, angle = 45, lwd = 1)
+# Alpha: "no effect" curve beyond the cutoffs
+poly(x[x <= -crit], 0, col = adjustcolor(gray, 0.60), border = NA)
+poly(x[x >= crit], 0, col = adjustcolor(gray, 0.60), border = NA)
 
 lines(x, f0, col = gray, lwd = 3)
 lines(x, f1, col = green, lwd = 3)
@@ -60,9 +63,23 @@ text(c(-crit, crit), top * 1.0, sprintf(c("−%.2f", "%.2f"), crit),
 axis(1, at = -5:3, labels = sub("-", "−", -5:3), col = "#b5b5b5",
      col.axis = muted, lwd = 1.2)
 
-text(-2.3, top * 1.24, "If the true effect is −2", col = ink, font = 2)
-text(0.4, top * 1.24, "If there is no effect", col = ink, font = 2)
-text(-5, top * 0.55, "80% of estimates\nfall below −1.39:\nthe test rejects", col = ink, cex = 0.9, adj = c(0, 0.5))
-text(2.45, top * 0.30, "5% of estimates\nfall outside ±1.39\nwhen there is no\neffect (Type I error)", col = muted, cex = 0.8)
+# Curve labels
+text(-2.3, top * 1.2, "If the true effect is −2", col = ink, font = 2)
+text(0.4, top * 1.2, "If there is no effect", col = ink, font = 2)
+
+# Distance between the centers = true effect
+arrows(-2, top * 1.36, 0, top * 1.36, code = 3, angle = 90, length = 0.06, col = muted, lwd = 1.5)
+text(-1, top * 1.36, "Distance between centers = true effect (2 acre-feet)",
+     pos = 3, col = ink, cex = 0.85, offset = 0.35)
+
+# Legend for the shaded areas
+legend(-5.1, top * 1.75, horiz = TRUE, bty = "n", cex = 0.85, text.col = ink,
+       x.intersp = 0.5, text.width = c(1.9, 2.6, 2.6),
+       legend = c("Power = 0.80",
+                  "β = 0.20 (effect missed)",
+                  "α = 0.05 (false positive)"),
+       fill = c(adjustcolor(green, 0.30), green, adjustcolor(gray, 0.60)),
+       density = c(NA, 30, NA), angle = 45,
+       border = c(NA, green, NA))
 invisible(dev.off())
 cat("Wrote", out, "\n")
