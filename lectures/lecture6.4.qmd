@@ -1,11 +1,11 @@
 ---
-title: "Lecture 6.4: Reading a Methods Section"
+title: "Lecture 6.4: Experiments, Qualitative Evidence, and Inference"
 subtitle: "AREC 570 / ECON 530 · Unit 6"
 author: "Lauren Chenarides"
 lecture: "6.4"
 order: 604
 pdf: lecture6.4.pdf
-description: "Read methods sections for fit between the question, data, analysis, assumptions, and evidence"
+description: "Compare experimental and qualitative approaches, then evaluate measurement, uncertainty, and power"
 format:
   revealjs:
     theme: ../styles.scss
@@ -34,337 +34,464 @@ format:
 - Gibson, “Are You Estimating the Right Thing? An Editor Reflects” [@gibson2019estimating]
 - Kim, “Tackling False Positives in Business Research” [@kim2019falsepositives]
 
-**Optional background for the methods survey**
+**Additional readings on experiments and qualitative research**
 
 - Falk and Heckman on laboratory experiments [@falk2009lab]
 - Starr on qualitative and mixed methods [@starr2014qualitative]
 
 Readings and course handouts are available on [Canvas](https://colostate.instructure.com/courses/230315/pages/readings)
 
-## How to read a methods section
+## Methods covered in Unit 6
 
-Follow the argument from the research question to the conclusion
+- **6.1** Used reduced-form comparisons and developed an estimating equation and identifying assumption from a research question
+- **6.2** Estimated structural parameters from a model of behavior and used the model to examine counterfactuals
+- **6.3** Used machine learning for prediction and within other empirical analyses
 
-1. What quantity is the study trying to learn about
-2. Which observations and measures represent that quantity
-3. What comparison or variation supports the estimate
-4. How are the estimate and its uncertainty calculated
-5. Which claims do the data and assumptions support
+**6.4** covers experimental design, qualitative and mixed methods, measurement, statistical power, multiple testing, and confidence intervals
 
 ::: notes
-The first three questions connect to Lectures 5.1, 5.5, and 6.1. Thursday surveys how reviewers check the whole argument. Unit 7 develops the referee report in detail.
+Lecture 6.1 introduced the written empirical strategy section. Today's lecture covers additional methods and statistical concepts that students may use in their workshop plans.
+
+Experimental and observational designs can both produce quantitative data
 :::
 
-## Make two passes through the section
+## Quantitative and qualitative evidence
 
-| Pass | Read for | Mark in the paper |
+| Approach | Evidence | Research use |
 |---|---|---|
-| 1. Purpose | The estimand, population, and outcome | One sentence stating what is estimated |
-| 2. Evidence | Sample, variation, assumptions, and inference | The paragraph or table supporting each claim |
-
-Then ask where the paper explains the largest threat to its interpretation
-
-::: notes
-The estimand is the quantity the research question calls for. Depending on the paper, it may be a treatment effect, preference parameter, prediction target, or pattern in an open-ended account.
-:::
-
-## First check: what is being estimated?
-
-An **estimand** names the target quantity
-
-| Part | Example for a water-pricing study |
-|---|---|
-| Population | Farms served by participating irrigation districts |
-| Outcome | Monthly irrigation water use |
-| Comparison | Use under a revised price and under the prior price |
-| Period | The first two years after the price change |
-
-A reviewer looks for a result that answers the question stated in the introduction
-
-::: {.source}
-Sources: @gibson2019estimating; Lecture 6.1
-:::
-
-## Gibson: check whom the data describe
-
-Gibson describes studies of local residents that use administrative records of **registered** residents
-
-Registration and actual residence can differ when people move
-
-Ask which population the data cover, who is missing, and whether the difference matters for the proposed estimate
-
-::: {.source}
-Source: @gibson2019estimating, pages 331 to 332
-:::
-
-## Gibson: check what the measure records
-
-A household survey may record **purchases during one week**. A household can report zero purchases and still consume food from its existing stocks
-
-For every central variable, ask
-
-- What event or quantity is recorded
-- What period does it cover
-- How does the paper construct it
-- Does it represent the concept in the research question
-
-::: {.source}
-Source: @gibson2019estimating, discussion of food purchases and consumption
-:::
-
-## What reviewers check in the data
-
-| Item | Question |
-|---|---|
-| Sample | How were units selected and which were excluded |
-| Observation | What does one row represent |
-| Measures | How were the outcome and explanatory variables constructed |
-| Timing | Were the relevant measures observed before or after exposure |
-| Missingness | Which observations are absent and why |
-
-For survey data, also check the sampling frame, response process, and weights
-
-::: {.source}
-Sources: @gibson2019estimating; Lecture 5.1
-:::
-
-## Methods answer different kinds of questions
-
-| Research task | Example of evidence or method |
-|---|---|
-| Estimate a policy effect | Experiment or credible observational comparison |
-| Estimate preferences | Choice data with an economic model |
-| Predict a future outcome | Held-out evaluation of a prediction rule |
-| Understand a decision process | Interviews, fieldwork, or case studies |
-| Isolate a proposed mechanism | Controlled laboratory variation |
+| Quantitative | Numerical measures from surveys, records, or experiments | Estimate patterns, effects, parameters, or predictions |
+| Qualitative | Interviews, field observations, or documents | Document decisions and the processes that produce them |
+| Mixed methods | Numerical and qualitative evidence | Examine a question using measured outcomes and accounts of decisions |
 
 ::: notes
-Ask students to find the task in the paper before evaluating the technique. A paper can combine approaches when each contributes to a stated question.
+These categories describe forms of evidence. A survey may contain numerical and open-ended responses, and an experiment may include interviews. Evaluate the sampling, measurement, and analysis used for each source.
 :::
 
-## Falk and Heckman: controlled variation
+## Select a method to match the research task
 
-In a gift-exchange experiment, researchers can vary a wage offer and observe effort while specifying the decision rules and information available to participants
+| Research task | Evidence or method |
+|---|---|
+| Estimate a policy effect | Random assignment or an observational comparison with a stated identifying assumption |
+| Estimate preferences | Choice data and a model of consumer or producer behavior |
+| Predict a future outcome | A prediction rule evaluated with held-out observations |
+| Document a decision process | Interviews, fieldwork, or case studies |
+| Test a response to an incentive | A field or lab experiment |
 
-When reading an experiment, identify
-
-- What the researcher varies
-- What is held fixed
-- What participants choose and what is observed
-- Which populations and settings the result is meant to inform
-
-::: {.source}
-Source: @falk2009lab, discussion of the gift-exchange experiment
+::: notes
+The research question determines what must be observed and which comparisons are informative. A study may combine methods when each answers a stated part of the question.
 :::
 
-## Starr: open-ended evidence
+# Qualitative methods
 
-Interviews and fieldwork can reveal how people describe a decision and which considerations the researcher had not anticipated
+## Interviews
 
-Read for the recruitment rule, interview protocol, record keeping, and method of analyzing responses
+**Research use:** Interviews can document whether farms received and understood the report, how they used it, and which irrigation changes were feasible
 
-Ask how the authors compare accounts with other evidence and address cases that challenge their explanation
+**Study procedures**
+
+- Recruit across farm size, crop, water rights, and location
+- Document the interview guide and follow-up questions
+- Describe recording, transcription, and coding
+- Examine accounts that challenge the proposed explanation
+
+**Reporting:** State the recruitment criteria and evidence for each interpretation
 
 ::: {.source}
 Source: @starr2014qualitative, Sections 2 and 3
 :::
 
-## When methods are combined
+::: notes
+Purposeful selection can document variation in decisions and experiences. Population prevalence requires a sampling design that supports that estimate. Interviews may also identify mechanisms and improve survey measures. Interpret each result according to the recruitment and analysis procedures.
+:::
 
-| Sequence | What the added method contributes |
+## Field experiment (1/2)
+
+Participating irrigation districts want to know whether offering farms a monthly water-use report reduces irrigation water use
+
+| Design element | Hypothetical study |
 |---|---|
-| Interviews before a survey | Clarify concepts and improve survey questions |
-| Survey before interviews | Investigate patterns or unexpected responses |
-| Concurrent evidence | Compare accounts with measured outcomes |
+| Eligible farms | Farms on the districts' customer lists |
+| Assignment | Random offer of the report at the farm level |
+| Outcome | Total monthly water use in acre-feet, collected in a follow-up survey |
 
-A methods section should explain how the components inform the same research question
+::: notes
+The offer is the intervention, and water use per farm-month is the outcome. The causal comparison is between farms assigned the offer and farms assigned to the comparison group. The numerical values introduced later are illustrative. A follow-up survey creates a response problem even when the offer was randomly assigned.
+:::
+
+## Field experiment (2/2)
+
+1. Assign eligible farms to the offer or comparison group
+2. Survey both groups about subsequent monthly water use
+3. Compare group means to estimate the effect of **being offered** the report
+4. Document report delivery, survey response, and departures from assignment
+
+The estimate applies to the offer among farms included in the experiment
+
+Extrapolation to other districts or a mandatory reporting program requires evidence about those settings (i.e., generalizability)
+
+::: notes
+The intention-to-treat comparison estimates the effect of the offer. Farms may receive the report without using it. Randomization supports the comparison when assignment is implemented and outcome follow-up is adequate. Assignment by district would change the effective sample size and inference.
+:::
+
+## Lab experiments
+
+Falk and Heckman's gift-exchange experiment examines whether workers respond to higher wages with higher effort
+
+1. Participants act as firms or workers
+2. A firm offers a wage that the worker can accept
+3. A worker who accepts sees the wage and chooses an effort level that is costly to provide
+4. The experiment specifies the available choices, minimum effort, and payoff rules
+
+Researchers observe wages and effort under these rules and examine whether effort rises with the wage offered
+
+::: {.source}
+Source: @falk2009lab, discussion of the gift-exchange experiment
+:::
+
+# Mixed methods
+
+## Mixed methods designs
+
+Two qualitative methods combined in various sequences
+
+| Sequence in the water-use study | Contribution |
+|---|---|
+| Interviews before the survey | Identify how farms track water use and refine the survey measure |
+| Interviews after the survey | Investigate why some farms used the report and others did not |
+| Concurrent interviews | Compare accounts of irrigation changes with reported water use |
+
+The interviews examine how farms responded to the report. The survey comparison estimates the effect of offering it
 
 ::: {.source}
 Source: @starr2014qualitative, Section 2
 :::
 
-## What makes a comparison credible?
+# Research method concepts
 
-For an effect estimate, locate four statements in the paper
+## Four common statistical terms
 
-1. The groups, places, or periods being compared
-2. The source of variation in the explanatory factor
-3. The assumption that gives the comparison its interpretation
-4. The main ways that assumption could fail
+:::: {.columns}
 
-Then examine how the authors investigate those threats
+::: {.column width="50%"}
+**Population**
 
-::: notes
-Examples from Lecture 6.1 include parallel trends for difference in differences, exclusion for an instrument, and continuity around a regression discontinuity cutoff.
+- Definition: Units of interest
+- Example: Farms on district customer lists
+
+**Measure**
+
+- Definition: Recorded indicator of a concept
+- Example: Survey-reported water use
 :::
 
-## What details permit replication?
+::: {.column width="50%"}
+**Comparison**
 
-| Methods detail | What a reader needs |
-|---|---|
-| Equation or rule | Outcome, explanatory variables, and target parameter |
-| Sample | Units, period, restrictions, and missing-data rules |
-| Estimation | Estimator, controls, and model settings |
-| Inference | Standard errors, clustering, and tests |
-| Checks | Planned sensitivity and alternative specifications |
+- Definition: Groups whose outcomes are compared
+- Example: Farms offered a report and farms not offered one
 
-::: notes
-The methods section and repository can divide the work. The paper states the choices and why they were made. Code and documentation implement them.
+**Limits**
+
+- Definition: Conditions narrowing the conclusion
+- Example: Missing survey responses or unlisted farms
 :::
 
-## False positives and false negatives
+::::
 
-| Decision | Null is true | Specified effect is present |
+::: notes
+Farms that complete follow-up form the analytic sample, which may differ from the eligible population
+:::
+
+## Population represented in the data
+
+- **Included:** Farms served by participating districts appear on the customer lists
+- **Possibly excluded:** Farms relying entirely on private wells or other suppliers may be absent
+- **Population claim:** An estimate for farms on the lists requires additional evidence before applying it to all farms in the region
+
+Gibson's distinction between **registered** and **resident** households illustrates how a data source can omit members of the population named in the research question
+
+::: {.source}
+Source: @gibson2019estimating, pages 331 to 332
+:::
+
+## Measurement and interpretation
+
+The outcome of interest is **total irrigation water use**. A survey question about **district deliveries** records only one source of water. Withdrawals from private wells would be omitted
+
+If farms substitute groundwater for district water after receiving the report, district deliveries could decline while total water use remains unchanged
+
+Gibson's food example makes the same point: one week's purchases omit food consumed from household stocks
+
+::: {.source}
+Source: @gibson2019estimating, discussion of food purchases and consumption
+:::
+
+## Estimate from the assigned groups
+
+The analysis subtracts mean water use in the comparison group from mean water use in the group offered the report
+
+$$
+\widehat{\tau}=\overline{Y}_{\text{offer}}-\overline{Y}_{\text{comparison}}
+$$
+
+For illustration, suppose this difference is **−2 acre-feet per farm-month**. The negative sign indicates lower reported use among farms offered the report
+
+With comparable follow-up in both assigned groups, the difference estimates the effect of the offer
+
+::: notes
+The comparison is causal for the assignment to the report when randomization is implemented and outcome follow-up preserves comparability. Response to the follow-up survey is addressed later. The estimate of minus two is hypothetical.
+:::
+
+# Statistical inference and sample planning
+
+## Random variation and survey response
+
+Farms were randomly assigned to the report or comparison group. The follow-up survey records water use only for farms that respond. Before interpreting the difference between groups, ask
+
+1. **Random variation:** Could another assignment produce a different group difference? A confidence interval or test quantifies this uncertainty
+2. **Selective response:** Do respondents differ from farms that did not answer? Compare response rates and available farm characteristics by assigned group
+
+::: notes
+The confidence interval addresses uncertainty from the random assignment under stated assumptions. Comparing respondents with the eligible farm lists helps assess whether survey response may have changed the composition of the two groups
+:::
+
+## From an estimated difference to a conclusion
+
+In this hypothetical study, responding farms offered the report use **2 acre-feet less** than responding comparison farms. What would justify a claim that the report changes water use?
+
+- **Test level:** Limit the chance of declaring an effect when there is none (Type I error)
+- **Power:** Collect enough outcomes to detect a reduction large enough to matter (reduce Type II error)
+- **Confidence interval:** Show which effect sizes are consistent with the observed difference
+- **Response check:** Assess whether missing surveys change the group comparison
+
+The statistical goal is to limit false positives while making meaningful effects detectable. Report the estimate and its uncertainty alongside the response process
+
+## False positives, false negatives, and power
+
+Test the null hypothesis of **no effect of the offer** against a specified alternative, such as a reduction of **2 acre-feet per farm-month**
+
+| Decision | No effect is present | A 2-unit reduction is present |
 |---|---|---|
-| Reject the null | **False positive** or Type I error | Detect the effect |
-| Do not reject | Correct non-rejection | **False negative** or Type II error |
+| Reject no effect | False positive (Type I error) | Detect the reduction |
+| Do not reject | Correct non-rejection | False negative (Type II error) |
 
-The Type I error rate is $\alpha$. Power is the probability of detecting a specified effect, $1-\beta$
+At a 5% test level, the Type I error rate is 5% under the null.
+
+If the true effect is a 2-unit reduction, a design with **80% power** would reject the no-effect hypothesis in about 80 of 100 repetitions
 
 ::: {.source}
 Source: @kim2019falsepositives, Section 2
 :::
 
 ::: notes
-Type II error and power require an effect size or a specific alternative. A nonsignificant estimate by itself does not tell us the probability that the null is true.
+Power refers to a specified effect size and design. A nonsignificant estimate should be interpreted using its confidence interval and the effect sizes the study had power to detect.
 :::
 
-## Power begins with an effect worth detecting
+## Sample size depends on the research objective
 
-Choose the smallest effect that would matter for the research or policy decision
+For a survey that **describes average water use**, choose a sample size based on the desired precision of the estimated mean
 
-Power for that effect depends on
-
-- Outcome variation and measurement quality
-- The number of usable observations in each group
-- Clustering, treatment allocation, and the planned estimator
-- The test level and the direction of the test
-
-State the assumed effect size and design when reporting a power calculation
-
-::: {.source}
-Source: @kim2019falsepositives, Sections 2 and 3.5
-:::
-
-## Survey size has two different uses
-
-| Goal | Planning question |
-|---|---|
-| Describe a population | How precise must a proportion or mean be |
-| Compare groups or test a hypothesis | What effect should the study be able to detect |
-
-Plan for **completed responses**. Expected nonresponse and clustered sampling can increase the number that must be contacted
-
-The sampling frame and response process determine which population the completed survey represents
+For the **report experiment**, choose a sample size that can detect a specified difference between assigned groups. That calculation uses the effect size, variation in water use, test level, and power target
 
 ::: {.source}
 Sources: Lecture 5.1; @kim2019falsepositives, Section 3.5
 :::
 
-## An illustrative survey calculation
+## Choosing an effect and power target
 
-Suppose a study compares adoption rates of **50% and 60%** in two independent groups
+Suppose a reduction of **2 acre-feet per farm-month** would justify the cost of the report program. The study plans to detect an effect of that size
 
-With a two-sided 5% test and 80% power, a standard calculation calls for about **388 completed responses per group**
+An **80% power target** is a common planning convention. If the true effect is a 2-unit reduction, the planned study would detect it in about four out of five repetitions under the assumed design. A 90% target would require more completed observations
 
-At an expected 80% response rate, that is about **485 invitations per group**. Clustering and ineligible contacts require further planning
+The target is chosen before collecting outcomes and depends on the question and feasible sample size
 
 ::: {.source}
-Illustrative calculation using base R `power.prop.test(p1 = .50, p2 = .60, sig.level = .05, power = .80)`
+Source: [J-PAL, Power calculations](https://www.povertyactionlab.org/resource/power-calculations)
 :::
 
-::: notes
-This is a normal-approximation calculation for independent groups of equal size. It is not a sample-size recommendation for a particular student's project. A 10 percentage point difference was specified before calculating sample size. Response rates and cluster effects must be estimated for the actual design.
+## What reviewers examine in a power calculation
+
+There is no single power cutoff for every study. Reviewers examine the basis for the calculation
+
+1. Why the specified effect size matters for the research or policy question
+2. How the assumed variation in water use was estimated
+3. Whether the calculation reflects assignment, clustering, and expected survey response
+4. Whether the eligible farm lists can produce the required completed sample
+
+After data collection, report the realized sample and the precision of the estimated effect
+
+::: {.source}
+Sources: [J-PAL, Power calculations](https://www.povertyactionlab.org/resource/power-calculations); [course empirical strategy checklist](../files/empirical-strategy-checklist.qmd)
 :::
 
-## Repeated tests create more chances for a false positive
+## Inputs to the power calculation
 
-If **20 independent null hypotheses** are each tested at the 5% level, the chance of at least one false positive is
+The calculation begins with the effect the study needs to detect: **2 acre-feet less water use per farm-month**
+
+- **Outcome variation:** Assume a standard deviation of 8 acre-feet in each group, based on pilot or prior data
+- **Test level:** Use a two-sided 5% test
+- **Power target:** Plan for an 80% chance of detecting the 2-unit reduction if it is present
+- **Design:** Compare equal-sized groups of independently assigned farms
+
+Assignment by district or correlated outcomes within districts would require a calculation that accounts for clustering
+
+::: {.source}
+Source: @kim2019falsepositives, Sections 2 and 3.5
+:::
+
+## Completed surveys needed for 80% power
+
+With a 2-unit effect, standard deviation of 8, and a two-sided 5% test, an approximate two-group calculation is
 
 $$
-1-(1-0.05)^{20}\approx 0.64
+n\approx\frac{2(8)^2(1.96+0.84)^2}{(2)^2}\approx 251
 $$
 
-The value changes when tests are dependent. A reader should look for the full set of tests, the planned hypotheses, and any adjustment for multiple comparisons
+Base R's two-sample $t$ calculation gives **252.13**, so the study plans for **253 completed surveys per group**
 
 ::: {.source}
-Source: @kim2019falsepositives, discussion of multiple testing
-:::
-
-## What changes with a large sample?
-
-For a valid test with a fixed 5% level, the nominal Type I error rate remains **5%** under the null
-
-Power rises for a specified nonzero effect. Estimates can become precise enough to detect effects too small to matter for the decision
-
-Sampling, measurement, and model bias still require attention
-
-::: {.source}
-Source: @kim2019falsepositives, Sections 2 and 3; statistical clarification in notes
+Illustrative calculation: `power.t.test(delta = 2, sd = 8, sig.level = .05, power = .80, type = "two.sample")`
 :::
 
 ::: notes
-Kim calls rejection of a substantively negligible effect a false positive in a broader practical sense. Keep that distinct from the technical Type I error rate. At fixed alpha, sample size alone does not raise the nominal Type I rate of a valid test.
+The formula is a normal approximation using the 97.5th percentile of the standard normal distribution and the 80th percentile for power. The R calculation uses the t distribution, yielding 252.13 before rounding up. Both calculations assume independent observations and equal group sizes. The 253 are completed outcome surveys, not merely invitations.
 :::
 
-## Read the interval with the estimate
+## Planning the survey contacts
 
-Suppose the estimated effect is **−2 units**, with a 95% interval from **−7 to 3**
+The power calculation gives the number of **observed outcomes** needed: 253 farms per group. Because the outcome comes from a follow-up survey, the team must invite more farms than that
 
-The data are compatible with zero change and with a reduction of 5 units, which might matter for policy
+Suppose a pilot with similar farms suggests a **40% response rate**
 
-A reviewer asks whether the interval rules out effects that matter, and whether the sample had adequate power for that question
+$$
+\text{Invitations per group}=\left\lceil\frac{253}{0.40}\right\rceil=633
+$$
+
+The team would invite **633 farms in each group** (1,266 in total). This calculation checks whether the customer lists and fieldwork budget can supply the planned number of completed outcomes
+
+The 40% response rate is an illustrative pilot assumption, not a general benchmark
 
 ::: notes
-This is an illustrative estimate. An interval's interpretation depends on the estimator, sampling design, and assumptions used to construct it.
+This simplified calculation assumes every invited farm is eligible. Report actual response rates using a stated definition that accounts for ineligible cases and unknown eligibility. Check that the customer lists contain enough eligible farms for the proposed invitations.
 :::
 
-## When is an effect small enough to set aside?
+## If survey response is 8%
 
-An equivalence analysis starts by defining a substantively negligible range, such as $(-\Delta,\Delta)$
+At the planned **40% response rate**, 633 invitations yield about **253 completed surveys per group** and 80% power under the stated assumptions
 
-The research question determines $\Delta$. Evidence for equivalence requires an interval sufficiently narrow to support an effect inside that range
+At a realized **8% response rate**, the same invitations yield about **51 completed surveys per group**. Power to detect the 2-unit effect falls to about **24%**
 
-Report the estimated effect and interval so a reader can apply a different decision threshold
+To obtain 253 completions at an 8% rate, the team would need about **3,163 invitations per group**. The customer lists may contain fewer eligible farms
+
+::: {.source}
+Illustrative calculation: R `power.t.test(n = 51, delta = 2, sd = 8, sig.level = .05, type = "two.sample")`
+:::
+
+::: notes
+The 8% rate is illustrative. Power is approximately 24% under the independent-group assumptions. The invitation calculation assumes every invited farm is eligible. The next slide treats selection into response.
+:::
+
+## Nonresponse and interpretation
+
+There is no universal expected response rate. Use a pilot or comparable survey to plan invitations. An 8% rate calls for evidence about who responded
+
+- Compare respondents with the customer lists on available farm characteristics
+- Report response rates separately for the offer and comparison groups
+- Examine whether follow-up or weighting changes the estimate
+
+Selective response can bias the estimated effect if it changes the comparability of the assigned groups. A larger invitation list alone does not resolve that concern
+
+::: {.source}
+Source: [AAPOR, *Response Rate Overview*](https://aapor.org/wp-content/uploads/2022/12/Response-Rates-Overview-508.pdf)
+:::
+
+::: notes
+A low response rate is not an automatic validity cutoff. Response rates alone do not measure nonresponse bias. If survey response is related to water use, or differs by assignment, the randomized groups may no longer be comparable among respondents. Compare available frame characteristics and report the response process. AAPOR recommends additional indicators of quality, especially with low response.
+:::
+
+# Interpreting estimates
+
+## Precision after an 8% response rate
+
+At an 8% response rate, the study observes about **51 farms per group**. Suppose the estimated difference is **−2 acre-feet** and the standard deviation is 8 in each group. The approximate standard error is
+
+$$
+SE\approx\sqrt{\frac{8^2}{51}+\frac{8^2}{51}}=1.58
+$$
+
+An approximate 95% interval is **−2 ± 1.96(1.58) = [−5.1, 1.1]** acre-feet. The data remain compatible with no effect and with reductions larger than the 2-unit effect used in the power calculation
+
+The smaller completed sample explains both the fall to 24% power and the wide interval. The interval describes sampling uncertainty among respondents. Assess selective response using the comparisons on the previous slide
+
+::: notes
+This interval illustrates sampling uncertainty under the assumed independent-group model. It does not account for bias from selective survey response. With only about 51 respondents per group, power for a 2-unit reduction is about 24% under the design assumptions.
+:::
+
+## Why consider an equivalence test?
+
+Suppose the estimated reduction is not statistically distinguishable from zero. The district is considering ending the report program
+
+The 95% interval **[−5.1, 1.1]** still includes reductions greater than 2 acre-feet. The study has not ruled out a benefit large enough to justify the program
+
+To support a claim that the effect is negligible, the team must specify what size of change would matter and test whether the data rule out effects that large
+
+**Equivalence testing** addresses that question
 
 ::: {.source}
 Source: @kim2019falsepositives, Section 3.7
 :::
 
-## Practice: read this methods paragraph
+## Equivalence test for the water-use report
 
-::: {.blockquote}
-We survey 300 farms in 12 irrigation districts before and after a revised water charge. Six districts adopt the charge. We estimate a difference-in-differences model of self-reported monthly water use, controlling for acreage and crop mix. Standard errors are clustered by district. The estimated change is −0.8 acre-feet, with a 95% interval from −2.2 to 0.6.
+1. Before analysis, define **−1 to 1 acre-foot** as a negligible change in monthly use
+2. For a 5% equivalence test, calculate a **90% confidence interval**. The entire interval must lie inside the negligible range
+3. With 51 respondents per group, the approximate interval is **[−4.6, 0.6]** acre-feet
+
+The interval extends below −1. The data leave open reductions larger than 1 acre-foot, so they do not establish a negligible effect
+
+::: {.source}
+Source: @kim2019falsepositives, Section 3.7
 :::
-
-**Illustrative classroom example**
 
 ::: notes
-Give students time to mark the estimand, sample, treatment, outcome, estimator, and inference procedure. The next slide asks for the missing information a reviewer would request.
+The equivalence bounds must come from the research or policy question before seeing the estimate. The two one-sided tests procedure tests whether the effect is above the lower bound and below the upper bound, using a 5% level for each test. Both must reject to establish equivalence. This corresponds to requiring a 90% confidence interval entirely inside the bounds. Here, the normal approximation is minus 2 plus or minus 1.645 times 1.58, approximately minus 4.6 to 0.6. The interval still assumes that the observed survey responses support the comparison.
 :::
 
-## What would a reviewer ask next?
+## Multiple testing and false positives
 
-- How were farms and districts selected
-- What supports the parallel-trends assumption
-- How was monthly water use reported and checked
-- Are 12 districts enough for the stated inference procedure
-- What effect size would matter, and what can the interval rule out
+The study may also test whether the report changes irrigation scheduling and crop choice. Testing **three outcomes** creates three opportunities to reject a true null hypothesis
 
-Connect each question to a claim in the methods paragraph
+If the three tests were independent and each used a 5% level, the chance of at least one false positive would be
+
+$$
+1-(1-0.05)^3\approx 0.14
+$$
+
+The outcomes may be correlated, so this value is illustrative. Identify the primary outcome before analysis, report all tested outcomes, and explain any adjustment for multiple comparisons
+
+::: {.source}
+Source: @kim2019falsepositives, discussion of multiple testing
+:::
+
+# Check-in
+
+## Report from Tuesday's methods workshop
+
+Students who did not receive feedback on Tuesday can report their current methods plan
+
 
 ::: notes
-The example deliberately leaves these answers open. Twelve clusters merit care with conventional cluster-robust standard errors. The interval includes zero and reductions that could matter; interpretation needs a substantive benchmark.
+Reserve the final 20 to 25 minutes. Allow about two minutes for each report and a few minutes for feedback, adjusting to the number of students who still need a turn.
+
+Return first to those who did not receive feedback in Tuesday's lab.
+
+1. State the research question and one hypothesis
+2. Describe the observations, central measures, and proposed method
+3. Name one design or inference decision on which you want feedback
+
+After each report, discuss the outcome measure, proposed comparison, and one design choice that needs further work
+
 :::
-
-## Return to Tuesday’s methods draft
-
-1. Underline the sentence that states your target quantity or question
-2. Mark where you describe the sample, measures, comparison, and analysis
-3. Add the assumption or design choice that needs the most explanation
-4. State how you will report uncertainty, precision, or power
-
-Use the workshop feedback to decide which part of the methods section to develop next
 
 ## References {.smaller}
 
