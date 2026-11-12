@@ -738,30 +738,30 @@ Our 90% interval is minus 1.5 plus or minus 1.645 times 1.58, which runs from mi
 So this study supports neither conclusion. It cannot show the report works, and it cannot show the report does not work. That is what an underpowered study usually produces. The fix was in the planning: the response rate, and the number of completed surveys. This interval also assumes that the farms that responded still form comparable groups.
 :::
 
-# Check-in
+## Takeaways {.dense}
 
-## What your empirical strategy should state {.dense}
-
-| Decision | State in the plan |
+| Topic | Question to consider |
 |---|---|
-| Population and sampling frame | Which units the data cover and which they omit |
-| Outcome measure | How the recorded measure relates to the concept in the question |
-| Comparison | Which groups are compared and the identifying assumption |
-| Sample size | Effect of interest, assumed variation, test level, power target, and expected response |
-| Primary outcome | Which outcome is tested first and how additional tests are handled |
-| A null result | Which effect sizes the confidence interval rules out |
+| Population and sampling frame | Which units do the data cover, and which do they omit? |
+| Outcome measure | How does the recorded measure relate to the concept in the research question? |
+| Comparison | Which groups are compared, and what assumption supports the comparison? |
+| Sample size | If collecting data, what effect size matters, and how many observations would detect it? |
+| Primary outcome | If testing several outcomes, which one is primary? |
+| A null result | Which effect sizes would the confidence interval need to rule out? |
 
 ::: {.source}
-Source: [course empirical strategy checklist](../files/empirical-strategy-checklist.qmd)
+See also: [course empirical strategy checklist](../files/empirical-strategy-checklist.qmd)
 :::
 
 ::: notes
-This table pulls the lecture together into what belongs in your own empirical strategy section.
+This table pulls the lecture together. Each row is a question we asked about the water-use example, and each one corresponds to a section of today's lecture.
 
-State which units your data cover and which they leave out. Explain how your recorded measure relates to the concept in your question. Name the comparison and the identifying assumption behind it. If you are collecting data, give the inputs to your sample size calculation: the effect size and why it matters, the assumed variation and its source, the test level, the power target, and the expected response rate. Name your primary outcome and how you will handle additional tests. And say in advance how you will interpret a result that is not significant: which effect sizes would your confidence interval need to rule out?
+Which farms do the data cover, and which are left out? Does the survey measure total water use, or only district deliveries? Which groups are compared, and what makes that comparison credible? How large an effect matters, and how many completed surveys would it take to detect it? If the districts test several outcomes, which one comes first? And if the result is not significant, which effects does the interval rule out?
 
-Use this as a checklist as we hear the reports. Each row corresponds to one section of today's lecture.
+Not every question applies to every project. A study using existing administrative data has no response rate to plan for, and a qualitative study does not need a power calculation. These are questions worth asking of your own research design, and of any study you read.
 :::
+
+# Check-in
 
 ## Report from Tuesday's methods workshop
 
